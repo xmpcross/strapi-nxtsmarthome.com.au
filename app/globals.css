@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor jumps so headings clear the sticky header. */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-white text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-100;
+  }
+}
+
+@layer components {
+  /* Heading anchors added by rehype-autolink-headings wrap the heading text. */
+  .prose h2 > a,
+  .prose h3 > a,
+  .prose h4 > a {
+    @apply no-underline text-inherit;
+  }
+
+  .prose h2 > a:hover,
+  .prose h3 > a:hover {
+    @apply text-brand-700 dark:text-brand-400;
+  }
+
+  /* Outbound links inside article bodies get a subtle affordance. */
+  .prose a[target='_blank']::after {
+    content: ' ↗';
+    @apply text-xs text-slate-400;
+  }
+}
