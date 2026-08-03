@@ -4,9 +4,9 @@ import { articleHref, coverFor, formatDate, type Article } from '@/lib/content';
 /**
  * "Related Posts" card shown above the FAQ on single posts.
  *
- * The match percentage is real — see getRelatedWithScores() in lib/content.ts. It
- * comes from shared category and tags, so a low number means a weak suggestion
- * rather than a badge that always reads 100%.
+ * The match percentage and date are no longer displayed. getRelatedWithScores()
+ * still ranks by them, so ordering is unchanged — the figures just do not need to
+ * be on screen.
  *
  * The reference design has an "AI-generated" tab on the right edge; it is not
  * reproduced, because these suggestions are computed from the content, not
@@ -57,13 +57,6 @@ export default function RelatedPosts({
               </h3>
               <p className="mt-2 line-clamp-3 leading-relaxed text-slate-500 dark:text-slate-400">
                 {article.description}
-              </p>
-              <p className="mt-4 flex flex-wrap items-center gap-2 text-sm text-brand-700 dark:text-brand-400">
-                <span title="Based on shared category and tags">{match}% match</span>
-                <span aria-hidden="true" className="text-slate-300">•</span>
-                <time dateTime={article.date} className="text-slate-500 dark:text-slate-400">
-                  {formatDate(article.updated ?? article.date)}
-                </time>
               </p>
             </div>
           </li>

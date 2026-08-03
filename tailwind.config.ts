@@ -58,12 +58,10 @@ const config: Config = {
       fontFamily: {
         // Geist is the reference theme's family for body and headings alike,
         // self-hosted from public/fonts (see the @font-face rules in globals.css).
-        // Outfit carries running text at 300 (see globals.css); Urbanist the headings.
-        body: ['Outfit', 'Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        // Urbanist carries every heading (see the h1-h6 rule in globals.css); Geist
-        // stays the body face.
-        heading: ['Urbanist', 'Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        sans: ['Geist', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        // From originfacts.com: Figtree for headings, Plus Jakarta Sans for body.
+        body: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        heading: ['Figtree', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       maxWidth: {
         prose: '46rem',

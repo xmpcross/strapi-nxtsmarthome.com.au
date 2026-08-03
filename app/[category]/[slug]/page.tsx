@@ -12,6 +12,9 @@ import ShareButtons from '@/components/ShareButtons';
 import ReadingProgress from '@/components/ReadingProgress';
 import ArticleSidebar from '@/components/ArticleSidebar';
 import RelatedPosts from '@/components/RelatedPosts';
+import ReadAlso from '@/components/ReadAlso';
+import NextUp from '@/components/NextUp';
+import AffiliateLinks from '@/components/AffiliateLinks';
 import {
   categoriesWithCounts,
   coverFor,
@@ -79,6 +82,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
 
   const related = await getRelatedArticles(article);
   const relatedScored = await getRelatedWithScores(article, 3);
+  // A wider pool so the three blocks (mid-article, Next Up, Related Posts) show
+  // different articles rather than repeating the same top matches three times.
+  const relatedPool = await getRelatedWithScores(article, 7);
+  const readAlso = relatedPool.slice(3, 5).map((r) => r.article);
+  const nextUp = relatedPool.slice(0, 4).map((r) => r.article);
   const itemList = itemListJsonLd(article);
   const all = await getAllArticles();
 
@@ -97,6 +105,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
     new Set(Array.from(article.html.matchAll(/<p>::product:([a-z0-9-]+)::<\/p>/g), (m) => m[1])),
   );
   const inlineProducts = getProductsBySlugs(inlineSlugs);
+  // Inline markers plus any front-matter products, deduped — the affiliate block
+  // lists every retailer behind every product the article actually discusses.
+  // Curated products placed inline, plus any defined inline in front matter.
+  // Both carry a name and a retailer list, which is all the affiliate block needs.
+  const allProducts = [...inlineProducts, ...(article.products ?? [])];
 
   return (
     <>
@@ -228,7 +241,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
         <TableOfContents headings={article.headings} />
 
         <div id="article-body">
-          <ArticleBody html={article.html} products={inlineProducts} subId={article.slug} />
+          <ArticleBody
+            html={article.html}
+            products={inlineProducts}
+            subId={article.slug}
+            midSlot={
+              <ReadAlso
+                items={readAlso.length ? readAlso : relatedScored.slice(0, 2).map((r) => r.article)}
+              />
+            }
+          />
         </div>
 
         {article.products?.length ? (
@@ -254,6 +276,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
         <RelatedPosts items={relatedScored} />
 
         {article.faq?.length ? <Faq items={article.faq} /> : null}
+
+        <NextUp items={nextUp} />
+
+        <AffiliateLinks products={allProducts} subId={article.slug} />
 
         {article.tags?.length ? (
           <div className="mt-12 flex flex-wrap gap-2 border-t border-slate-200 pt-6 dark:border-slate-700">

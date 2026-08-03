@@ -1,0 +1,75 @@
+import Link from 'next/link';
+import { articleHref } from '@/lib/urls';
+import { coverFor, formatDate, type Article } from '@/lib/content';
+
+/**
+ * "Read Also" card dropped into the middle of an article's body.
+ *
+ * Placed mid-flow rather than at the end because that is where a reader's
+ * attention dips — it is a genuine offer of somewhere better to go, not a
+ * bottom-of-page afterthought.
+ *
+ * Two departures from the reference, for the same reason as elsewhere on this
+ * site: it shows no comment count, because there are no comments to count, and it
+ * carries no "AI-generated" edge tab, because these suggestions are computed from
+ * the article's own category and tags.
+ */
+export default function ReadAlso({ items }: { items: Article[] }) {
+  if (!items?.length) return null;
+
+  return (
+    <aside
+      className="not-prose my-10 rounded-lg border border-slate-200 bg-white p-7 shadow-sm sm:p-8 dark:border-slate-700 dark:bg-slate-800/60"
+      aria-labelledby="read-also-heading"
+    >
+      <h2
+        id="read-also-heading"
+        className="text-xl font-bold text-slate-900 dark:text-white"
+      >
+        Read Also
+      </h2>
+
+      <ul className="mt-5 flex flex-col gap-5">
+        {items.map((article) => (
+          <li key={article.slug} className="group flex items-center gap-4">
+            <Link
+              href={articleHref(article)}
+              tabIndex={-1}
+              aria-hidden="true"
+              className="block w-[4.5rem] shrink-0 overflow-hidden rounded-lg"
+            >
+              <img
+                src={coverFor(article)}
+                alt=""
+                width={1240}
+                height={700}
+                loading="lazy"
+                className="aspect-square w-full object-cover object-left transition duration-500 group-hover:scale-105"
+              />
+            </Link>
+
+            <div className="min-w-0">
+              <h3 className="text-base font-bold leading-snug text-slate-900 dark:text-white">
+                <Link
+                  href={articleHref(article)}
+                  className="hover:text-brand-700 dark:hover:text-brand-400"
+                >
+                  {article.title}
+                </Link>
+              </h3>
+              <p className="mt-1.5 flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                <time dateTime={article.date}>
+                  {formatDate(article.updated ?? article.date)}
+                </time>
+                <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">
+                  •
+                </span>
+                <span>{article.readingMinutes} min read</span>
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  );
+}

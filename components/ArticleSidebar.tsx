@@ -53,32 +53,109 @@ export default function ArticleSidebar({
         </Link>
       </Widget>
 
-      {featured.length > 0 && (
-        <Widget title="Featured Posts">
-          <ul className="flex flex-col gap-4">
-            {featured.map((a) => (
-              <li key={a.slug}>
-                <Link href={articleHref(a)} className="group flex gap-3">
-                  <img
-                    src={coverFor(a)}
-                    alt=""
-                    width={1200}
-                    height={675}
-                    className="h-14 w-20 shrink-0 rounded-lg object-cover"
-                  />
-                  <div className="min-w-0">
-                    <p className="line-clamp-2 text-sm font-bold leading-snug text-slate-900 group-hover:text-brand-700 dark:text-white dark:group-hover:text-brand-400">
-                      {a.title}
-                    </p>
-                    <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                      {formatDate(a.updated ?? a.date)}
-                    </p>
-                  </div>
+      {categoryCounts.length > 0 && (
+        <Widget title="Browse by topic">
+          <ul className="flex flex-col gap-1">
+            {categoryCounts.map((c) => (
+              <li key={c.slug}>
+                <Link
+                  href={`/categories/${c.slug}/`}
+                  className="flex items-center justify-between gap-3 rounded-lg px-2 py-2 text-sm text-slate-700 transition hover:bg-slate-100 hover:text-brand-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                >
+                  <span className="flex min-w-0 items-center gap-2">
+                    <span aria-hidden="true">{c.emoji}</span>
+                    <span className="truncate">{c.name}</span>
+                  </span>
+                  <span className="shrink-0 rounded bg-slate-100 px-1.5 py-0.5 text-xs font-medium tabular-nums text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                    {c.count}
+                  </span>
                 </Link>
               </li>
             ))}
           </ul>
         </Widget>
+      )}
+
+      <Widget title="Australian specifics">
+        {/*
+          The detail that actually separates this site from an overseas guide.
+          Stated plainly, and only things that hold true nationally.
+        */}
+        <ul className="flex flex-col gap-3 text-sm text-slate-600 dark:text-slate-300">
+          <li className="flex gap-2">
+            <span aria-hidden="true" className="text-brand-600 dark:text-brand-400">•</span>
+            <span>230&nbsp;V nominal mains and AS/NZS&nbsp;3112 Type&nbsp;I plugs — overseas plug-in gear needs an approved local model, not an adaptor.</span>
+          </li>
+          <li className="flex gap-2">
+            <span aria-hidden="true" className="text-brand-600 dark:text-brand-400">•</span>
+            <span>B22 bayonet is still common alongside E27 screw, so bulb fitting matters more here than in most guides.</span>
+          </li>
+          <li className="flex gap-2">
+            <span aria-hidden="true" className="text-brand-600 dark:text-brand-400">•</span>
+            <span>Fixed wiring is licensed work. Anything behind the wall plate is an electrician&rsquo;s job.</span>
+          </li>
+          <li className="flex gap-2">
+            <span aria-hidden="true" className="text-brand-600 dark:text-brand-400">•</span>
+            <span>Australian Consumer Law guarantees run alongside any manufacturer warranty.</span>
+          </li>
+        </ul>
+      </Widget>
+
+      {featured.length > 0 && (
+        <section aria-labelledby="featured-heading">
+          <h2
+            id="featured-heading"
+            className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400"
+          >
+            Featured Posts
+          </h2>
+
+          {/*
+            Full-bleed cover per the reference: category pill top-left, byline and
+            headline set over the artwork itself rather than in a card beneath it.
+          */}
+          <ul className="flex flex-col gap-5">
+            {featured.map((a) => (
+              <li key={a.slug}>
+                <Link
+                  href={articleHref(a)}
+                  className="group relative block overflow-hidden rounded-lg"
+                >
+                  <img
+                    src={coverFor(a)}
+                    alt=""
+                    width={1240}
+                    height={700}
+                    loading="lazy"
+                    className="aspect-[4/5] w-full object-cover object-left transition duration-500 group-hover:scale-105"
+                  />
+
+                  {/* Keeps the white type legible over any cover */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/30 to-slate-900/10"
+                  />
+
+                  {a.categoryMeta && (
+                    <span className="absolute left-4 top-4 rounded-md bg-white/25 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-white backdrop-blur-sm">
+                      {a.categoryMeta.name}
+                    </span>
+                  )}
+
+                  <span className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-5">
+                    <span className="text-sm text-white/80">
+                      {a.author} on{' '}
+                      <time dateTime={a.date}>{formatDate(a.updated ?? a.date)}</time>
+                    </span>
+                    <span className="text-xl font-bold leading-snug text-white">
+                      {a.title}
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
 
       <Widget title="What We Cover">

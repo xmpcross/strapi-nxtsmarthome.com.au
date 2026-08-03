@@ -67,7 +67,7 @@ function CircleCta({ href, label, className }: { href: string; label: string; cl
     <Link
       href={href}
       aria-label={label}
-      className={`grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-md transition hover:bg-brand-600 hover:text-white dark:border-slate-700 dark:bg-slate-800 dark:text-white ${className}`}
+      className={`grid h-12 w-12 place-items-center rounded-full border border-slate-200 bg-white text-slate-900 transition hover:bg-brand-600 hover:text-white dark:border-slate-700 dark:bg-slate-800 dark:text-white ${className}`}
     >
       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="5" y1="12" x2="19" y2="12" />
@@ -96,7 +96,7 @@ function ArrowBadge() {
 function CoverPill({ article }: { article: Article }) {
   if (!article.categoryMeta) return null;
   return (
-    <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-slate-900 shadow-sm backdrop-blur">
+    <span className="absolute bottom-4 left-4 rounded-lg bg-white px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm">
       {article.categoryMeta.name}
     </span>
   );
@@ -182,14 +182,15 @@ function Lead({ article }: { article: Article }) {
 /**
  * Grid tile: cover with pill and arrow overlaid, headline beneath.
  *
- * 5:4 per the reference. The covers are 1240x700, so this crops about 30% of the
- * width — anchored left, which keeps the baked-in headline and takes the trim off
- * the product side instead.
+ * The cover has no fixed ratio — it flexes to fill whatever height the row gives
+ * it, so all four tiles match each other and the column matches the lead beside
+ * it. Anchored left, which keeps the baked-in headline when the flexed height
+ * makes the crop narrower than the artwork.
  */
 function TileCard({ article }: { article: Article }) {
   return (
-    <article className="group relative">
-      <Link href={articleHref(article)} className="relative block overflow-hidden rounded-lg">
+    <article className="group relative flex h-full flex-col">
+      <Link href={articleHref(article)} className="relative block min-h-0 flex-1 overflow-hidden rounded-lg">
         <img
           src={coverFor(article)}
           alt=""
@@ -271,16 +272,17 @@ function PopularTopics({
       </h2>
 
       {/*
-        Chips size to their own label rather than a fixed width, and the row wraps
-        instead of scrolling — so there is no scrollbar or control beneath it.
+        A six-column grid rather than a flex row: every chip takes an equal share
+        of the container, so the row ends flush with both edges at any width and
+        nothing is left over. Two up on mobile, three on small, six from lg.
       */}
       <div className="mt-5">
-        <ul className="flex flex-wrap gap-5">
+        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 lg:gap-5">
           {topics.map((t) => (
-            <li key={t.slug} className="shrink-0">
+            <li key={t.slug}>
               <Link
                 href={`/categories/${t.slug}/`}
-                className="group relative block h-[5.5rem] w-auto overflow-hidden rounded-lg"
+                className="group relative block h-[5.5rem] w-full overflow-hidden rounded-lg"
               >
                 <img
                   src={t.cover}
@@ -288,15 +290,15 @@ function PopularTopics({
                   width={1240}
                   height={700}
                   loading="lazy"
-                  className="h-full w-auto min-w-[9rem] max-w-[16rem] object-cover transition duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 />
                 {/* Darkened so white type stays legible over any cover */}
                 <span
                   aria-hidden="true"
                   className="absolute inset-0 bg-slate-900/55 transition group-hover:bg-slate-900/45"
                 />
-                <span className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 px-6 text-center">
-                  <span className="whitespace-nowrap text-base font-bold text-white">{t.name}</span>
+                <span className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 px-3 text-center">
+                  <span className="w-full truncate text-sm font-bold text-white">{t.name}</span>
                   <span className="rounded-full bg-white/25 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm">
                     {t.count} {t.count === 1 ? 'post' : 'posts'}
                   </span>
@@ -348,7 +350,7 @@ function FeatureTile({ article }: { article: Article }) {
           </svg>
         </Link>
       </div>
-      <h3 className="mt-8 text-lg font-bold leading-snug text-slate-900 dark:text-white">
+      <h3 className="mt-5 text-lg font-bold leading-snug text-slate-900 dark:text-white">
         <Link href={articleHref(article)} className="hover:text-brand-700 dark:hover:text-brand-400">
           {article.title}
         </Link>
@@ -584,9 +586,14 @@ export default async function HomePage() {
               Featured articles
             </h2>
             {/* Lead on the left; a 2x2 tile grid on the right. */}
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+            <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
               <Lead article={lead} />
-              <div className="grid gap-6 sm:grid-cols-2 sm:gap-6">
+              {/*
+                Two equal rows filling the column's full height, so the right side
+                always ends level with the left. Each tile's cover is the flexible
+                part, so the images size themselves to whatever height is left.
+              */}
+              <div className="grid h-full gap-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-6">
                 {secondary.map((article) => (
                   <TileCard key={article.slug} article={article} />
                 ))}

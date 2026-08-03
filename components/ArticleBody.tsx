@@ -26,9 +26,15 @@ interface Props {
   /** Article slug — becomes the affiliate subID. */
   subId: string;
   className?: string;
+  /**
+   * Rendered roughly halfway down the article, at the nearest paragraph boundary.
+   * Splitting on a closing </p> rather than a character offset means the insert
+   * never lands inside a heading, list, table or product box.
+   */
+  midSlot?: React.ReactNode;
 }
 
-export default function ArticleBody({ html, products, subId, className }: Props) {
+export default function ArticleBody({ html, products, subId, className, midSlot }: Props) {
   const bySlug = new Map(products.map((p) => [p.slug, p]));
 
   const parts: Array<{ type: 'html'; value: string } | { type: 'product'; slug: string }> = [];
@@ -53,17 +59,61 @@ export default function ArticleBody({ html, products, subId, className }: Props)
     (p) => p.type === 'product' && bySlug.has((p as { slug: string }).slug),
   ).length;
 
+  /*
+   * Work out where the mid-article slot goes: the paragraph boundary closest to
+   * the halfway point by character count. Splitting on </p> rather than a raw
+   * offset guarantees it never lands inside a heading, list, table or product box.
+   */
+  const total = parts.reduce((n, part) => n + (part.type === 'html' ? part.value.length : 0), 0);
+  let seen = 0;
+  let slotAt: { index: number; offset: number } | null = null;
+  if (midSlot && total > 0) {
+    for (let i = 0; i < parts.length && !slotAt; i += 1) {
+      const part = parts[i];
+      if (part.type !== 'html') continue;
+      if (seen + part.value.length >= total / 2) {
+        const want = total / 2 - seen;
+        let best = -1;
+        let dist = Infinity;
+        let at = part.value.indexOf('</p>');
+        while (at !== -1) {
+          const end = at + 4;
+          if (Math.abs(end - want) < dist) {
+            dist = Math.abs(end - want);
+            best = end;
+          }
+          at = part.value.indexOf('</p>', at + 1);
+        }
+        // Only split if a boundary exists and it is not right at either end.
+        if (best > 0 && best < part.value.length) slotAt = { index: i, offset: best };
+      }
+      seen += part.value.length;
+    }
+  }
+
+  const PROSE =
+    'prose prose-slate max-w-prose prose-headings:scroll-mt-24 prose-headings:font-bold prose-a:text-brand-700 prose-a:font-medium hover:prose-a:text-brand-800 prose-th:text-left dark:prose-invert dark:prose-a:text-brand-400';
+
   return (
     <div className={className}>
       {parts.map((part, i) => {
         if (part.type === 'html') {
+          if (slotAt && slotAt.index === i) {
+            return (
+              <div key={`h-${i}`}>
+                <div className={PROSE} dangerouslySetInnerHTML={{ __html: part.value.slice(0, slotAt.offset) }} />
+                <div className="max-w-prose">{midSlot}</div>
+                <div className={PROSE} dangerouslySetInnerHTML={{ __html: part.value.slice(slotAt.offset) }} />
+              </div>
+            );
+          }
           return (
             <div
               key={`h-${i}`}
               // The article container is 1296px wide, but body copy is capped at a
               // readable measure. Running prose the full width would give ~180
               // characters per line; comfortable reading is roughly 65-80.
-              className="prose prose-slate max-w-prose prose-headings:scroll-mt-24 prose-headings:font-bold prose-a:text-brand-700 prose-a:font-medium hover:prose-a:text-brand-800 prose-th:text-left dark:prose-invert dark:prose-a:text-brand-400"
+              className={PROSE}
               dangerouslySetInnerHTML={{ __html: part.value }}
             />
           );
