@@ -1,0 +1,28 @@
+{
+  "order": [
+    "Muted purple",
+    "Burgundy",
+    "Deep teal",
+    "Navy blue",
+    "Burnt orange",
+    "Forest green"
+  ],
+  "bySlug": {
+    "zigbee-vs-zwave-vs-thread-vs-wifi": "Deep teal",
+    "smart-plugs-energy-monitoring-australia": "Navy blue",
+    "smart-home-privacy-cameras-australia-law": "Burnt orange",
+    "thread-vs-matter-difference": "Forest green",
+    "smart-home-devices-without-internet": "Muted purple",
+    "smart-home-starter-guide-beginners-australia": "Burgundy",
+    "smart-speakers-multiroom-audio-australia": "Deep teal",
+    "smart-home-for-renters-australia": "Navy blue",
+    "robot-vacuum-buying-guide-australia": "Burnt orange",
+    "make-split-system-aircon-smart-australia": "Forest green",
+    "video-doorbell-buying-guide-australia": "Muted purple",
+    "fix-smart-home-wifi-dropouts": "Burgundy",
+    "smart-home-electrical-work-australia-legal": "Deep teal",
+    "smart-bulbs-vs-smart-switches-australia": "Navy blue",
+    "best-smart-home-platform-australia": "Burnt orange",
+    "what-is-matter-smart-home-australia": "Forest green"
+  }
+}

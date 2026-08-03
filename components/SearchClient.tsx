@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import type { SearchDoc } from '@/lib/content';
+import { articleHref } from '@/lib/urls';
 
 /** Weighted substring scoring — good enough for a few hundred articles, zero dependencies. */
 function score(doc: SearchDoc, terms: string[]): number {
@@ -96,7 +97,7 @@ export default function SearchClient() {
                 {doc.categoryName}
               </p>
               <h2 className="font-bold text-slate-900 dark:text-white">
-                <Link href={`/articles/${doc.slug}/`} className="hover:underline">
+                <Link href={articleHref(doc)} className="hover:underline">
                   {doc.title}
                 </Link>
               </h2>

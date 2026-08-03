@@ -96,4 +96,4 @@ Automating your air conditioner will make it more convenient, and it can make it
 
 The highest-value automations are the boring ones: turn it off when the house is empty, do not cool rooms nobody is in, and shift what you can into solar-surplus hours instead of peak tariff periods. Fancy predictive setpoint logic is fun to build and marginal in effect by comparison.
 
-If you want to understand the tariff side of this properly, our guide to [whether smart plugs actually save money](/articles/smart-plugs-energy-monitoring-australia/) covers how load shifting works on Australian tariffs.
+If you want to understand the tariff side of this properly, our guide to [whether smart plugs actually save money](/energy-and-solar/smart-plugs-energy-monitoring-australia/) covers how load shifting works on Australian tariffs.

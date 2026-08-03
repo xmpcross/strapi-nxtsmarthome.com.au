@@ -2,6 +2,9 @@
 title: 'Zigbee vs Z-Wave vs Thread vs Wi-Fi: Which Smart Home Protocol Wins?'
 description: 'The four wireless protocols behind every smart home device, what each is actually good at, and the Australian frequency trap that makes imported Z-Wave gear useless.'
 category: hubs-and-platforms
+coverLead: 'Smart home protocols compared'
+coverMain: 'Zigbee vs Z-Wave'
+coverSub: 'vs Thread vs Wi-Fi'
 type: explainer
 date: '2026-02-18'
 updated: '2026-08-01'
@@ -54,6 +57,10 @@ The catch is 2.4 GHz congestion. Zigbee shares the band with Wi-Fi, Bluetooth, m
 
 Zigbee's other historical weakness was interoperability — manufacturers implemented it loosely and devices from different brands did not always cooperate. This improved a lot, but a device from an obscure brand may still behave oddly on a hub from another.
 
+::product:aqara-hub-m3::
+
+::product:philips-hue-bridge::
+
 ## Thread
 
 **Use it for:** new battery-powered devices, particularly if you are building on Matter.
@@ -65,6 +72,8 @@ Thread needs a **border router** to bridge the mesh onto your home network. You 
 Thread is the low-power transport for Matter, which means it is where the industry is heading for sensors, locks and buttons. If you are buying new battery devices today and have a border router, Thread is the sensible default.
 
 One caveat: Thread's border router landscape is still messy. Different vendors' border routers do not always form a single unified mesh as cleanly as the marketing implies, though this has improved considerably.
+
+::product:apple-homepod::
 
 ## Z-Wave — and the Australian frequency trap
 
@@ -92,4 +101,4 @@ For most people building a home today:
 
 The honest answer is that the protocol matters far less than it used to. With Matter and a decent hub, the underlying radio is largely invisible in daily use. Where it still matters is battery life, reliability under congestion, and whether the thing you ordered from overseas will work at all.
 
-If you want the layer above this, read our [explainer on Matter](/articles/what-is-matter-smart-home-australia/), which is what ties these protocols together.
+If you want the layer above this, read our [explainer on Matter](/hubs-and-platforms/what-is-matter-smart-home-australia/), which is what ties these protocols together.

@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-20 text-center">
       <p className="text-6xl font-extrabold text-brand-600">404</p>
-      <h1 className="mt-4 text-3xl font-extrabold text-slate-900 dark:text-white">
+      <h1 className="mt-4 text-3xl font-bold text-slate-900 dark:text-white">
         We can&apos;t find that page
       </h1>
       <p className="mt-3 text-slate-600 dark:text-slate-300">

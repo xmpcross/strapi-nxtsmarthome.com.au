@@ -43,6 +43,8 @@ The trade-offs are real. The automation engine is the least capable of the five 
 
 **Australian note:** everything Apple Home does is available here, and HomeKit Secure Video's local processing is a genuine advantage if you are uneasy about camera footage leaving the country.
 
+::product:apple-homepod::
+
 ## Google Home
 
 **Best for:** Android households, and anyone who uses voice control constantly.
@@ -103,4 +105,4 @@ A pragmatic pattern many people land on: run Home Assistant as the brain, and br
 
 Thanks to Matter's multi-admin support, a single device can belong to several platforms at once. You can genuinely try Google Home and Apple Home side by side with the same hardware before committing.
 
-That is a significant change from a few years ago, and it means this decision — while important — is no longer irreversible. Start with the one that fits your household, and adjust as you learn what you actually want. If you have not read up on Matter yet, [start here](/articles/what-is-matter-smart-home-australia/).
+That is a significant change from a few years ago, and it means this decision — while important — is no longer irreversible. Start with the one that fits your household, and adjust as you learn what you actually want. If you have not read up on Matter yet, [start here](/hubs-and-platforms/what-is-matter-smart-home-australia/).

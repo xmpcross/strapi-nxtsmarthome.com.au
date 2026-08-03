@@ -13,6 +13,18 @@ const articlesDir = path.join(root, 'content', 'articles');
 const outFile = path.join(root, 'public', 'search-index.json');
 
 // Mirrors the category list in lib/site.ts — key to display name.
+const categorySlugs = {
+  security: 'security-and-cameras',
+  lighting: 'lighting',
+  energy: 'energy-and-solar',
+  entertainment: 'entertainment-and-audio',
+  climate: 'climate-and-comfort',
+  'hubs-and-platforms': 'hubs-and-platforms',
+  'robot-vacuums': 'robot-vacuums',
+  'setup-guides': 'setup-guides',
+  'buying-guides': 'buying-guides',
+};
+
 const categoryNames = {
   security: 'Security & Cameras',
   lighting: 'Lighting',
@@ -35,6 +47,22 @@ function toPlainText(markdown) {
     .trim();
 }
 
+/**
+ * Cover URL with the same content-hash cache-buster coverFor() applies in
+ * lib/content.ts. Without it the modal's thumbnails keep serving a stale image
+ * from the 30-day cache after a cover is regenerated.
+ */
+function coverUrl(slug) {
+  const file = path.join(root, 'public', 'covers', `${slug}.png`);
+  try {
+    const { size, mtimeMs } = fs.statSync(file);
+    const v = (size ^ Math.round(mtimeMs)).toString(36).slice(-6);
+    return `/covers/${slug}.png?v=${v}`;
+  } catch {
+    return `/covers/${slug}.png`;
+  }
+}
+
 if (!fs.existsSync(articlesDir)) {
   console.warn('[search-index] no content/articles directory — writing empty index');
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
@@ -54,9 +82,16 @@ const docs = fs
       description: data.description ?? '',
       category: data.category ?? '',
       categoryName: categoryNames[data.category] ?? data.category ?? '',
+      // Shaped like Article.categoryMeta so articleHref() works on a search doc
+      // unchanged — otherwise every result would fall back to /articles/<slug>/.
+      categoryMeta: { slug: categorySlugs[data.category] ?? 'articles' },
       type: data.type ?? '',
       date: data.date ?? '',
       tags: data.tags ?? [],
+      // Same 225 wpm figure lib/content.ts uses, so the modal and the article
+      // page never disagree about how long a piece takes to read.
+      readingMinutes: Math.max(1, Math.round(toPlainText(content).split(/\s+/).length / 225)),
+      cover: coverUrl(file.replace(/\.mdx?$/, '')),
       body: toPlainText(content).slice(0, 1200),
     };
   })

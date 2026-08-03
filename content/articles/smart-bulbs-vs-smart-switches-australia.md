@@ -100,4 +100,4 @@ Downlights add another wrinkle. Many Australian homes have integrated LED downli
 
 **If you own and want the best of both:** smart switches on the wall, smart bulbs in the fittings where colour matters, with the switch configured to keep power on permanently. Expensive, but it is the setup that actually works long-term.
 
-Whatever you choose, get the electrician conversation started early if switches are involved — and read our guide to [what you can and cannot legally wire yourself in Australia](/articles/smart-home-electrical-work-australia-legal/) before you plan anything.
+Whatever you choose, get the electrician conversation started early if switches are involved — and read our guide to [what you can and cannot legally wire yourself in Australia](/setup-guides/smart-home-electrical-work-australia-legal/) before you plan anything.

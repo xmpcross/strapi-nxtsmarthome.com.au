@@ -2,6 +2,9 @@
 title: 'Do Smart Plugs Actually Save You Money on Australian Electricity?'
 description: 'Smart plugs are sold as an energy-saving device. Here is what they genuinely save, what they cost you in standby power, and where the real savings are in an Australian home.'
 category: energy
+coverLead: 'Energy and running costs'
+coverMain: 'Do smart plugs save money?'
+coverSub: 'The honest answer for Australian bills'
 type: explainer
 date: '2026-05-14'
 updated: '2026-08-01'

@@ -70,7 +70,7 @@ The short version:
 - **Want the cheapest speakers and widest device support?** Alexa.
 - **Enjoy tinkering and want real control?** Home Assistant, but not as your first purchase.
 
-Our [full platform comparison](/articles/best-smart-home-platform-australia/) goes deeper. For a first purchase, pick based on the phones in the house and move on — this decision is far less binding than it feels.
+Our [full platform comparison](/hubs-and-platforms/best-smart-home-platform-australia/) goes deeper. For a first purchase, pick based on the phones in the house and move on — this decision is far less binding than it feels.
 
 **One buying rule:** prefer devices with Matter support. It keeps your options open at effectively no cost.
 
@@ -84,7 +84,7 @@ Our [full platform comparison](/articles/best-smart-home-platform-australia/) go
 
 **Dark hallways at night.** A motion sensor plus a smart bulb, with an automation that only triggers after dark and at low brightness. This is the automation people love most and it costs very little.
 
-**Wanting to see who is at the door.** A video doorbell — but read our [doorbell guide](/articles/video-doorbell-buying-guide-australia/) first, because the subscription decision matters more than the hardware.
+**Wanting to see who is at the door.** A video doorbell — but read our [doorbell guide](/security-and-cameras/video-doorbell-buying-guide-australia/) first, because the subscription decision matters more than the hardware.
 
 ## The mistakes that cost the most
 
@@ -110,7 +110,7 @@ Our [full platform comparison](/articles/best-smart-home-platform-australia/) go
 
 **Months 6–12:** the bigger-ticket items you now know you want. Cameras, doorbell, locks, climate control. By this point you know your platform, your network's limits and your household's tolerance.
 
-**Somewhere in there:** upgrade your router. Most people hit their router's client limit around thirty devices and spend weeks blaming individual products. If devices start dropping off, read our [Wi-Fi troubleshooting guide](/articles/fix-smart-home-wifi-dropouts/).
+**Somewhere in there:** upgrade your router. Most people hit their router's client limit around thirty devices and spend weeks blaming individual products. If devices start dropping off, read our [Wi-Fi troubleshooting guide](/setup-guides/fix-smart-home-wifi-dropouts/).
 
 ## The point
 

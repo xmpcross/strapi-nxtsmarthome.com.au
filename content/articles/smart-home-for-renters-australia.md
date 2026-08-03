@@ -114,4 +114,4 @@ That is a capable setup, installs in an evening, and fits in a shoebox.
 
 Add a battery doorbell and a couple of contact sensors once you know how you use it, and you have most of what a homeowner gets — minus the switches, and minus the electrician's bill.
 
-If you are new to all of this, our [beginner's guide](/articles/smart-home-starter-guide-beginners-australia/) covers how to sequence purchases so you do not overbuy.
+If you are new to all of this, our [beginner's guide](/buying-guides/smart-home-starter-guide-beginners-australia/) covers how to sequence purchases so you do not overbuy.

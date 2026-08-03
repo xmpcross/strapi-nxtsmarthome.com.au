@@ -10,8 +10,15 @@ export const site = {
   domain: 'nxtsmarthome.com.au',
   url: 'https://nxtsmarthome.com.au',
   tagline: 'Smart home reviews, setup guides and buying advice — built for Australia',
+  /** Short form used in <title>. The long tagline truncates in search results. */
+  shortTagline: 'Australian Smart Home Reviews and Guides',
   description:
     'Independent smart home reviews, step-by-step setup guides and buying advice. Written for Australian homes — 240V wiring, AS/NZS standards, NBN quirks and local retailers — and useful anywhere in the world.',
+  /** Meta description. Kept inside 120-160 chars so it is not truncated. */
+  metaDescription:
+    'Independent Australian smart home reviews, setup guides and buying advice — local retailers, AS/NZS standards, renting rules and real-world testing.',
+  /** Default Open Graph / Twitter card image, 1200x630. */
+  ogImage: '/og-default.png',
   locale: 'en_AU',
   language: 'en-AU',
   country: 'AU',
@@ -25,7 +32,7 @@ export const site = {
     // Fill these in as accounts are created; empty strings are skipped in JSON-LD.
     twitter: '',
     youtube: '',
-    facebook: '',
+    facebook: 'https://www.facebook.com/nxtsmarthome/',
   },
 } as const;
 
@@ -142,11 +149,27 @@ export function getCategoryByKey(key: string): Category | undefined {
   return categories.find((c) => c.key === key);
 }
 
+/** Links shown directly in the header bar. */
 export const navLinks = [
   { href: '/articles/', label: 'All Articles' },
   { href: '/categories/hubs-and-platforms/', label: 'Hubs & Platforms' },
   { href: '/categories/security-and-cameras/', label: 'Security' },
   { href: '/categories/setup-guides/', label: 'Setup Guides' },
   { href: '/categories/buying-guides/', label: 'Buying Guides' },
-  { href: '/search/', label: 'Search' },
 ];
+
+/**
+ * Everything under the "More Articles" menu: every category not already a
+ * top-level link. Derived rather than hand-listed, so adding a category to
+ * `categories` above surfaces it in the nav automatically instead of silently
+ * going missing.
+ */
+export const moreNavLinks = categories
+  .filter((category) => !navLinks.some((link) => link.href === `/categories/${category.slug}/`))
+  .map((category) => ({
+    href: `/categories/${category.slug}/`,
+    label: category.name,
+    emoji: category.emoji,
+  }));
+
+export const searchLink = { href: '/search/', label: 'Search' };

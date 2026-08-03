@@ -15,7 +15,7 @@ export default function AffiliateDisclosurePage() {
 
   return (
     <div className="mx-auto max-w-prose px-4 py-12">
-      <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+      <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
         Affiliate disclosure
       </h1>
       <p className="mt-3 text-lg text-slate-600 dark:text-slate-300">

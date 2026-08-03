@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="NXT Smart Home">
+  <title>NXT Smart Home</title>
+  <rect width="100" height="100" rx="24" fill="#1b6df5"/>
+  <path d="M50 21 L83 49 L83 79 L17 79 L17 49 Z" fill="#ffffff"/>
+  <ellipse cx="50" cy="61" rx="11.5" ry="11.5" fill="#ff9b1a"/>
+</svg>

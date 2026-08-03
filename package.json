@@ -10,9 +10,13 @@
     "start": "next start -p 3011",
     "lint": "next lint",
     "deploy": "bash scripts/deploy.sh",
-    "new:article": "node scripts/new-article.mjs"
+    "new:article": "node scripts/new-article.mjs",
+    "postbuild": "node scripts/inject-sovrn.mjs",
+    "deploy:preview": "bash scripts/deploy-preview.sh"
   },
   "dependencies": {
+    "@fal-ai/client": "^1.10.1",
+    "@fontsource-variable/geist": "^5.3.0",
     "gray-matter": "^4.0.3",
     "next": "^15.1.6",
     "react": "^19.0.0",

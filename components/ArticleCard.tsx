@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { formatDate, typeLabels, type Article } from '@/lib/content';
+import { articleHref, coverFor, formatDate, typeLabels, type Article } from '@/lib/content';
 
 interface Props {
   article: Article;
@@ -8,30 +8,38 @@ interface Props {
 }
 
 export default function ArticleCard({ article, featured = false }: Props) {
-  const href = `/articles/${article.slug}/`;
+  const href = articleHref(article);
 
   return (
     <article
-      className={`group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition hover:border-brand-300 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800/60 dark:hover:border-brand-600 ${
+      className={`group relative flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white transition hover:border-brand-300 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800/60 dark:hover:border-brand-600 ${
         featured ? 'sm:flex-row' : ''
       }`}
     >
+      {/*
+        coverFor() returns the front-matter image when one is set and otherwise the
+        generated cover, with a content-hash cache-buster. This used to read
+        article.image directly, so every article without an explicit image fell back
+        to a gradient and a category emoji — which is why the generated covers never
+        appeared on the index and category pages.
+
+        2:1 matches how the covers are produced (1000x500). A shorter box would crop
+        the sides and slice the headline that is baked into the artwork.
+      */}
       <div
-        className={`relative flex shrink-0 items-center justify-center bg-gradient-to-br from-brand-500 to-brand-700 text-5xl ${
-          featured ? 'sm:w-2/5 sm:text-7xl' : ''
-        } h-40 ${featured ? 'sm:h-auto' : ''}`}
+        className={`relative flex shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-brand-500 to-brand-700 text-5xl ${
+          featured ? 'sm:h-auto sm:w-2/5 sm:text-7xl' : 'aspect-[2/1] w-full'
+        }`}
         aria-hidden="true"
       >
-        {article.image ? (
-          <img
-            src={article.image}
-            alt=""
-            className="h-full w-full object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <span>{article.categoryMeta?.emoji ?? '🏠'}</span>
-        )}
+        <img
+          src={coverFor(article)}
+          alt=""
+          width={1000}
+          height={500}
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
       </div>
 
       <div className="flex flex-1 flex-col p-5">

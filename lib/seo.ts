@@ -1,5 +1,6 @@
 import { site } from './site';
 import type { Article } from './content';
+import { articleHref } from './urls';
 
 const abs = (pathname: string) => new URL(pathname, site.url).toString();
 
@@ -57,7 +58,7 @@ export function breadcrumbJsonLd(crumbs: Crumb[]) {
 }
 
 export function articleJsonLd(article: Article) {
-  const url = abs(`/articles/${article.slug}/`);
+  const url = abs(articleHref(article));
   // Reviews and comparisons carry a stronger signal as Review; everything else is an Article.
   const isReview = article.type === 'review';
 

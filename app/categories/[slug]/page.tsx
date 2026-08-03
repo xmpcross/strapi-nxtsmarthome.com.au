@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import ArticleCard from '@/components/ArticleCard';
+import CategorySidebar from '@/components/CategorySidebar';
 import JsonLd from '@/components/JsonLd';
-import { getAllArticles, getArticlesByCategory } from '@/lib/content';
+import { categoriesWithCounts, getAllArticles, getArticlesByCategory } from '@/lib/content';
 import { categories, getCategory } from '@/lib/site';
 import { breadcrumbJsonLd } from '@/lib/seo';
 
@@ -34,7 +34,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   const articles = await getArticlesByCategory(category.key);
   const all = await getAllArticles();
-  const others = categories.filter((c) => c.slug !== category.slug);
+  const categoryCounts = categoriesWithCounts(all);
 
   return (
     <>
@@ -45,12 +45,12 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         ])}
       />
 
-      <div className="mx-auto max-w-6xl px-4 py-12">
+      <div className="mx-auto max-w-site px-4 py-12">
         <header className="mb-10 max-w-3xl">
           <div className="mb-3 text-4xl" aria-hidden="true">
             {category.emoji}
           </div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
             {category.name}
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
@@ -58,38 +58,30 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           </p>
         </header>
 
-        {articles.length === 0 ? (
-          <p className="rounded-xl border border-dashed border-slate-300 p-8 text-center text-slate-500 dark:border-slate-700">
-            Nothing published in this section yet — it&apos;s next on the list.
-          </p>
-        ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {articles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
-            ))}
-          </div>
-        )}
+        {/*
+          Same rail as /articles/, with this category marked current. It replaces
+          the old "Other topics" pill row at the foot of the page — both did the
+          same job, and the sidebar keeps the switcher visible while reading.
+        */}
+        <div className="grid gap-8 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-10">
+          <CategorySidebar
+            categories={categoryCounts}
+            activeSlug={category.slug}
+            total={all.length}
+          />
 
-        <section className="mt-16 border-t border-slate-200 pt-8 dark:border-slate-700">
-          <h2 className="mb-4 text-lg font-bold text-slate-900 dark:text-white">
-            Other topics
-          </h2>
-          <div className="flex flex-wrap gap-2">
-            {others.map((other) => {
-              const count = all.filter((a) => a.category === other.key).length;
-              return (
-                <Link
-                  key={other.slug}
-                  href={`/categories/${other.slug}/`}
-                  className="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-brand-400 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300"
-                >
-                  {other.emoji} {other.name}
-                  <span className="ml-1.5 text-xs text-slate-400">{count}</span>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
+          {articles.length === 0 ? (
+            <p className="rounded-xl border border-dashed border-slate-300 p-8 text-center text-slate-500 dark:border-slate-700">
+              Nothing published in this section yet — it&apos;s next on the list.
+            </p>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {articles.map((article) => (
+                <ArticleCard key={article.slug} article={article} />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

@@ -91,25 +91,55 @@ export default function ProductBox({ product, subId, rank }: Props) {
         </div>
       )}
 
-      {product.retailers?.length ? (
-        <div className="flex flex-wrap gap-2 border-t border-slate-100 px-5 py-4 dark:border-slate-700">
-          {product.retailers.map((retailer) => (
-            <AffiliateLink
-              key={retailer.name + retailer.url}
-              href={retailer.url}
-              subId={subId}
-              className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700"
-            >
-              <span>Check price at {retailer.name}</span>
-              {retailer.price && (
-                <span className="rounded bg-white/20 px-1.5 py-0.5 text-xs">
-                  {retailer.price}
-                </span>
-              )}
-            </AffiliateLink>
-          ))}
-        </div>
-      ) : null}
+      {product.retailers?.length ? (() => {
+        // Retailers flagged `primary` render as buttons; the rest become a compact
+        // line, so a product stocked at seven shops is not a wall of buttons. If a
+        // file flags none (older format), the first two stand in.
+        const all = product.retailers!;
+        const flagged = all.filter((r) => r.primary);
+        const primary = flagged.length ? flagged : all.slice(0, 2);
+        const secondary = all.filter((r) => !primary.includes(r));
+
+        return (
+          <div className="border-t border-slate-100 px-5 py-4 dark:border-slate-700">
+            <div className="flex flex-wrap gap-2">
+              {primary.map((retailer) => (
+                <AffiliateLink
+                  key={retailer.name + retailer.url}
+                  href={retailer.url}
+                  subId={subId}
+                  className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700"
+                >
+                  <span>Check price at {retailer.name}</span>
+                  {retailer.price && (
+                    <span className="rounded bg-white/20 px-1.5 py-0.5 text-xs">
+                      {retailer.price}
+                    </span>
+                  )}
+                </AffiliateLink>
+              ))}
+            </div>
+
+            {secondary.length > 0 && (
+              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                <span className="text-slate-500 dark:text-slate-400">Also stocked at: </span>
+                {secondary.map((retailer, i) => (
+                  <span key={retailer.name + retailer.url}>
+                    {i > 0 && <span aria-hidden="true"> · </span>}
+                    <AffiliateLink
+                      href={retailer.url}
+                      subId={subId}
+                      className="font-medium text-brand-700 underline-offset-2 hover:underline dark:text-brand-400"
+                    >
+                      {retailer.name}
+                    </AffiliateLink>
+                  </span>
+                ))}
+              </p>
+            )}
+          </div>
+        );
+      })() : null}
     </div>
   );
 }

@@ -35,6 +35,8 @@ That produced two bad outcomes. Buying anything meant checking a compatibility m
 
 Matter is the industry's answer. It was developed by the Connectivity Standards Alliance, the same body behind Zigbee, with Apple, Google, Amazon and Samsung all contributing. Version 1.0 landed in late 2022.
 
+::product:philips-hue-bridge::
+
 ## What Matter actually is
 
 Matter is an **application layer** — a shared vocabulary for describing devices and their capabilities. It is not a radio protocol. That distinction is the source of most of the confusion.
@@ -80,6 +82,8 @@ Two practical implications:
 1. **If you have no border router, Thread devices will not work** — even though the box says Matter. This is the single most common cause of "my new Matter sensor won't set up".
 2. **Mains-powered Thread devices extend the mesh.** Battery devices generally do not. A house with several mains-powered Thread devices spread through it has a far more reliable mesh than one with a single border router at one end.
 
+::product:apple-homepod::
+
 ## Should this change what you buy in Australia?
 
 Broadly, yes — with a few local notes.
@@ -100,4 +104,4 @@ If a particular product is clearly the best in its category and does not support
 
 ## Where to next
 
-Once you understand Matter, the next decision is which platform to run it on — that choice affects your daily experience far more than the protocol does. Our [platform comparison](/articles/best-smart-home-platform-australia/) walks through Apple, Google, Alexa, SmartThings and Home Assistant with Australian availability in mind. If you want to understand the radios underneath, start with [Zigbee vs Z-Wave vs Thread vs Wi-Fi](/articles/zigbee-vs-zwave-vs-thread-vs-wifi/).
+Once you understand Matter, the next decision is which platform to run it on — that choice affects your daily experience far more than the protocol does. Our [platform comparison](/hubs-and-platforms/best-smart-home-platform-australia/) walks through Apple, Google, Alexa, SmartThings and Home Assistant with Australian availability in mind. If you want to understand the radios underneath, start with [Zigbee vs Z-Wave vs Thread vs Wi-Fi](/hubs-and-platforms/zigbee-vs-zwave-vs-thread-vs-wifi/).

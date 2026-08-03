@@ -97,4 +97,4 @@ For the parts that need wiring, budget for a licensed electrician, plan the work
 
 It costs more than the DIY advice you will read elsewhere. It is also the only version that is legal, insurable and safe here.
 
-If you are weighing up whether you need switches at all, our [smart bulbs vs smart switches guide](/articles/smart-bulbs-vs-smart-switches-australia/) covers where each makes sense.
+If you are weighing up whether you need switches at all, our [smart bulbs vs smart switches guide](/lighting/smart-bulbs-vs-smart-switches-australia/) covers where each makes sense.

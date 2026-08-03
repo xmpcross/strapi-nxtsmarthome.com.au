@@ -1,0 +1,85 @@
+import ProductBox from './ProductBox';
+import type { Product } from '@/lib/products';
+
+/**
+ * Renders the article HTML, replacing inline product markers with real ProductBoxes.
+ *
+ * scripts/link-products.mjs writes a marker into the markdown at the end of the
+ * section that discusses a product:
+ *
+ *     ::product:aqara-hub-m3::
+ *
+ * which the markdown pipeline turns into `<p>::product:aqara-hub-m3::</p>`. The
+ * HTML is split on those paragraphs and the segments are interleaved with the
+ * component, so the buy box lands next to the prose instead of in a block at the
+ * bottom of the page.
+ *
+ * A marker whose product no longer exists renders nothing rather than leaking the
+ * raw token onto the page.
+ */
+
+const MARKER = /<p>::product:([a-z0-9-]+)::<\/p>/g;
+
+interface Props {
+  html: string;
+  products: Product[];
+  /** Article slug — becomes the affiliate subID. */
+  subId: string;
+  className?: string;
+}
+
+export default function ArticleBody({ html, products, subId, className }: Props) {
+  const bySlug = new Map(products.map((p) => [p.slug, p]));
+
+  const parts: Array<{ type: 'html'; value: string } | { type: 'product'; slug: string }> = [];
+  let lastIndex = 0;
+  let m: RegExpExecArray | null;
+
+  MARKER.lastIndex = 0;
+  while ((m = MARKER.exec(html)) !== null) {
+    if (m.index > lastIndex) {
+      parts.push({ type: 'html', value: html.slice(lastIndex, m.index) });
+    }
+    parts.push({ type: 'product', slug: m[1] });
+    lastIndex = m.index + m[0].length;
+  }
+  if (lastIndex < html.length) {
+    parts.push({ type: 'html', value: html.slice(lastIndex) });
+  }
+
+  // Rank only counts products actually rendered inline.
+  let rank = 0;
+  const inlineCount = parts.filter(
+    (p) => p.type === 'product' && bySlug.has((p as { slug: string }).slug),
+  ).length;
+
+  return (
+    <div className={className}>
+      {parts.map((part, i) => {
+        if (part.type === 'html') {
+          return (
+            <div
+              key={`h-${i}`}
+              // The article container is 1296px wide, but body copy is capped at a
+              // readable measure. Running prose the full width would give ~180
+              // characters per line; comfortable reading is roughly 65-80.
+              className="prose prose-slate max-w-prose prose-headings:scroll-mt-24 prose-headings:font-bold prose-a:text-brand-700 prose-a:font-medium hover:prose-a:text-brand-800 prose-th:text-left dark:prose-invert dark:prose-a:text-brand-400"
+              dangerouslySetInnerHTML={{ __html: part.value }}
+            />
+          );
+        }
+        const product = bySlug.get(part.slug);
+        if (!product) return null;
+        rank += 1;
+        return (
+          <ProductBox
+            key={`p-${part.slug}-${i}`}
+            product={product}
+            subId={subId}
+            rank={inlineCount > 1 ? rank : undefined}
+          />
+        );
+      })}
+    </div>
+  );
+}

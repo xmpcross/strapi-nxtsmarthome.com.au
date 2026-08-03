@@ -38,6 +38,8 @@ Sound quality varies between speakers, but at the entry level the differences ar
 
 **Sonos and dedicated audio brands.** Better sound than any of the above, with voice assistants layered on rather than built in. If audio quality is the priority and voice control is secondary, this is the direction to look. Costs considerably more.
 
+::product:apple-homepod::
+
 ## Multi-room audio, honestly
 
 The pitch is appealing: music follows you through the house, or plays everywhere at once, perfectly synchronised.

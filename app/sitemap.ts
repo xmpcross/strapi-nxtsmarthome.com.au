@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getAllArticles } from '@/lib/content';
+import { articleHref, getAllArticles } from '@/lib/content';
 import { categories, site } from '@/lib/site';
 
 export const dynamic = 'force-static';
@@ -17,6 +17,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/contact/', priority: 0.4, changeFrequency: 'yearly' as const },
     { path: '/affiliate-disclosure/', priority: 0.4, changeFrequency: 'yearly' as const },
     { path: '/privacy/', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/terms/', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/cookies/', priority: 0.3, changeFrequency: 'yearly' as const },
   ];
 
   return [
@@ -33,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     })),
     ...articles.map((article) => ({
-      url: `${site.url}/articles/${article.slug}/`,
+      url: `${site.url}${articleHref(article)}`,
       lastModified: new Date(article.updated ?? article.date),
       changeFrequency: 'monthly' as const,
       priority: article.featured ? 0.9 : 0.8,

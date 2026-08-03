@@ -20,7 +20,7 @@ const CATEGORY_KEYS = [
   'buying-guides',
 ];
 
-const TYPES = ['review', 'comparison', 'buying-guide', 'how-to', 'explainer', 'roundup'];
+const TYPES = ['review', 'comparison', 'buying-guide', 'how-to', 'explainer', 'roundup', 'pillar'];
 
 const [title, category, type] = process.argv.slice(2);
 
@@ -84,15 +84,22 @@ Body copy.
     - name: 'Product name'
       brand: 'Brand'
       bestFor: 'Who it suits'
-      rating: 4.5
       pros:
         - 'Something specific'
       cons:
         - 'Something honest'
       retailers:
         - name: 'JB Hi-Fi'
-          url: 'https://www.jbhifi.com.au/products/example'
-          price: 'A$249'
+          url: 'https://www.jbhifi.com.au/search?query=example'
+
+  Two fields are deliberately absent. Do not add a rating unless the device has
+  genuinely been hands-on tested — a star rating claims a test that did not happen.
+  Do not add a price: it goes stale between deploys and several affiliate
+  programmes require far fresher pricing than this site rebuilds. Buttons say
+  "Check price at X" instead. See CLAUDE.md rules 5 and 7.
+
+  Better still, put the product in content/products/ and let
+  scripts/link-products.mjs place it — one file, reusable across articles.
 
   Remove draft: true when ready to publish.
 -->
