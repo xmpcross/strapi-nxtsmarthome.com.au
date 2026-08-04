@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { articleHref, coverFor, formatDate, type Article } from '@/lib/content';
+import { articleHref, squareCoverFor, formatDate, type Article } from '@/lib/content';
 import { categories, site } from '@/lib/site';
 
 /**
@@ -102,60 +102,31 @@ export default function ArticleSidebar({
       </Widget>
 
       {featured.length > 0 && (
-        <section aria-labelledby="featured-heading">
-          <h2
-            id="featured-heading"
-            className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400"
-          >
-            Featured Posts
-          </h2>
-
-          {/*
-            Full-bleed cover per the reference: category pill top-left, byline and
-            headline set over the artwork itself rather than in a card beneath it.
-          */}
-          <ul className="flex flex-col gap-5">
+        <Widget title="Featured Posts">
+          <ul className="flex flex-col gap-4">
             {featured.map((a) => (
               <li key={a.slug}>
-                <Link
-                  href={articleHref(a)}
-                  className="group relative block overflow-hidden rounded-lg"
-                >
+                <Link href={articleHref(a)} className="group flex gap-3">
                   <img
-                    src={coverFor(a)}
+                    src={squareCoverFor(a)}
                     alt=""
-                    width={1240}
-                    height={700}
-                    loading="lazy"
-                    className="aspect-[4/5] w-full object-cover object-left transition duration-500 group-hover:scale-105"
+                    width={500}
+                    height={500}
+                    className="h-14 w-20 shrink-0 rounded-lg object-cover"
                   />
-
-                  {/* Keeps the white type legible over any cover */}
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/30 to-slate-900/10"
-                  />
-
-                  {a.categoryMeta && (
-                    <span className="absolute left-4 top-4 rounded-md bg-white/25 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-white backdrop-blur-sm">
-                      {a.categoryMeta.name}
-                    </span>
-                  )}
-
-                  <span className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-5">
-                    <span className="text-sm text-white/80">
-                      {a.author} on{' '}
-                      <time dateTime={a.date}>{formatDate(a.updated ?? a.date)}</time>
-                    </span>
-                    <span className="text-xl font-bold leading-snug text-white">
+                  <div className="min-w-0">
+                    <p className="line-clamp-2 text-sm font-bold leading-snug text-slate-900 group-hover:text-brand-700 dark:text-white dark:group-hover:text-brand-400">
                       {a.title}
-                    </span>
-                  </span>
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                      {formatDate(a.updated ?? a.date)}
+                    </p>
+                  </div>
                 </Link>
               </li>
             ))}
           </ul>
-        </section>
+        </Widget>
       )}
 
       <Widget title="What We Cover">

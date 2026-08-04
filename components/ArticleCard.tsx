@@ -12,7 +12,7 @@ export default function ArticleCard({ article, featured = false }: Props) {
 
   return (
     <article
-      className={`group relative flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white transition hover:border-brand-300 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800/60 dark:hover:border-brand-600 ${
+      className={`group relative flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white transition hover:border-brand-300 hover:shadow-lg dark:border-card-edge dark:bg-card dark:hover:border-brand-600 ${
         featured ? 'sm:flex-row' : ''
       }`}
     >

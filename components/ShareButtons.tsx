@@ -47,7 +47,9 @@ export default function ShareButtons({ url, title, variant = 'full', orientation
   ];
 
   const btn =
-    'inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-600 transition hover:border-brand-400 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-brand-500 dark:hover:text-brand-400';
+    // Theme tokens rather than raw slate: card surface and card-edge border in dark,
+    // brand accent on hover, so the rail tracks the scheme like every other card.
+    'inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-600 transition hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700 dark:border-card-edge dark:bg-card dark:text-slate-300 dark:hover:border-brand-500 dark:hover:bg-brand-950 dark:hover:text-brand-400';
 
   async function copy() {
     try {

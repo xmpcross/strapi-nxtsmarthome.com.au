@@ -11,24 +11,47 @@ const config: Config = {
   theme: {
     extend: {
       /*
-       * Neutral ramp from the Revision theme's contrast scale, so every existing
-       * slate-* utility picks up its colour scheme without rewriting each class.
-       * 200 is its border colour, 100 its highlight surface, 600 its secondary
-       * text, 900 its primary text (#29294b) and 800 its dark site background.
+       * Neutral ramp from Magzin's --tc-neutral-* scale, so every existing slate-*
+       * utility picks up its light colour scheme without rewriting each class.
+       * 200 is its border, 100 its hairline surface, 500 its muted text and 900
+       * its primary text (#0e0e0f).
        */
       colors: {
+        // Card surface in dark mode on the home page. A single token rather than a
+        // scattering of slate shades, so the surface can be changed in one place.
+        card: '#222324',
+        // Card border in dark mode.
+        'card-edge': '#313131',
+        /*
+         * Magzin's dark ramp (--tc-neutral-dark-* in its magzin-main.css). It
+         * inverts: 50 is the darkest surface and 900 the lightest text, which is
+         * why the footer reads bg-night-50 / text-night-900 rather than the other
+         * way round.
+         */
+        night: {
+          50: '#151616',
+          100: '#181818',
+          200: '#282828',
+          300: '#343434',
+          400: '#565656',
+          500: '#727272',
+          600: '#9ca3af',
+          700: '#d1d5db',
+          800: '#e5e7eb',
+          900: '#f3f4f6',
+        },
         slate: {
-          50: '#f8f9fa',
-          100: '#f2f2f6',
-          200: '#e1e1e8',
-          300: '#dee2e6',
-          400: '#ced4da',
-          500: '#adb5bd',
-          600: '#696981',
-          700: '#495057',
-          800: '#1c1c1c',
-          900: '#29294b',
-          950: '#151528',
+          50: '#f7f8f9',
+          100: '#eaecee',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#a7aaaf',
+          500: '#75787d',
+          600: '#626568',
+          700: '#3a3b3d',
+          800: '#1a1b1c',
+          900: '#0e0e0f',
+          950: '#000000',
         },
         /*
          * Accent ramp taken from the Revision theme: its accent is #5955d1, its

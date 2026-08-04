@@ -191,16 +191,16 @@
    * flatten deliberately bolder copy.
    */
   /*
-   * Site background from the Revision theme: a near-white vertical wash in light
-   * mode (#fdfdff -> #f8f7ff) and a flat #1c1c1c in dark.
+   * Site background: Magzin's --tc-neutral-50 in light mode, with cards in white
+   * over it, and the dark surface in dark mode.
    */
   body {
-    background: linear-gradient(180deg, #fdfdff 0%, #f8f7ff 100%);
-    background-attachment: fixed;
-    color: #29294b;
+    /* Magzin's light page sits on --tc-neutral-50 with white cards over it. */
+    background: #f7f8f9;
+    color: #0e0e0f;
   }
   :root.dark body {
-    background: #1c1c1c;
+    background: #151616;
     color: #fff;
   }
 
@@ -262,5 +262,688 @@
   .prose a[target='_blank']::after {
     content: ' ↗';
     @apply text-xs text-slate-400;
+  }
+}
+
+/*
+ * Notched cards
+ * =============
+ * A rounded card or image with a concave cut-out in its bottom-right corner, and
+ * a circular arrow button sitting in that cut-out so it reads as detached.
+ *
+ * The concavity is a real mask, not a pseudo-element patch painted in the page
+ * colour: a patch has to know the background behind it, which breaks the moment
+ * the card sits on a different surface or the theme changes. A radial-gradient
+ * mask removes the pixels, so whatever is behind shows through — page, section
+ * tint or image alike.
+ *
+ * Every dimension is a custom property, so the shapes retune from one place and
+ * shrink at narrow widths without touching a single component.
+ */
+@layer components {
+  :root {
+    /* Cut-out radius. Diameter lands in the 58-68px band for cards, 54-62px for images. */
+    --notch-card-r: 2rem; /* 32px -> 64px across */
+    --notch-image-r: 1.875rem; /* 30px -> 60px across */
+    /* Distance of the cut-out centre from the card's corner. Small on the text
+       card so the button hangs outside it; equal to the radius on images so the
+       button stays within the frame and off the artwork. */
+    --notch-card-inset: 0.625rem;
+    --arrow-size: 3rem; /* 48px */
+    --arrow-icon: 1.125rem;
+  }
+
+  /* Tablet: same shapes, a little smaller. */
+  @media (max-width: 1024px) {
+    :root {
+      --notch-card-r: 1.75rem;
+      --notch-image-r: 1.625rem;
+      --arrow-size: 2.875rem;
+    }
+  }
+
+  /* Mobile: 44px is the minimum comfortable touch target, so the button stops there. */
+  @media (max-width: 640px) {
+    :root {
+      --notch-card-r: 1.625rem;
+      --notch-image-r: 1.5rem;
+      --arrow-size: 2.75rem; /* 44px */
+    }
+  }
+
+  .notched-card,
+  .notched-image {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  /* Button hangs off the corner: cut-out centred close to it. */
+  .notched-card {
+    --notch-c: var(--notch-card-inset);
+    --notch-r: var(--notch-card-r);
+    -webkit-mask-image: radial-gradient(
+      circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
+      transparent 0 var(--notch-r),
+      #000 calc(var(--notch-r) + 0.5px)
+    );
+    mask-image: radial-gradient(
+      circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
+      transparent 0 var(--notch-r),
+      #000 calc(var(--notch-r) + 0.5px)
+    );
+  }
+
+  /* Button sits inside the frame: cut-out centred one radius in. */
+  .notched-image {
+    --notch-c: var(--notch-image-r);
+    --notch-r: var(--notch-image-r);
+    -webkit-mask-image: radial-gradient(
+      circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
+      transparent 0 var(--notch-r),
+      #000 calc(var(--notch-r) + 0.5px)
+    );
+    mask-image: radial-gradient(
+      circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
+      transparent 0 var(--notch-r),
+      #000 calc(var(--notch-r) + 0.5px)
+    );
+  }
+
+  /* Wrapper that owns the positioning context for a notched image + its button. */
+  .article-image-wrap {
+    position: relative;
+  }
+
+  /*
+   * The button. Centred on the cut-out by construction: half its width back from
+   * the notch centre, so it stays concentric at every breakpoint as the custom
+   * properties change.
+   */
+  .card-arrow,
+  .image-arrow {
+    /* Same surface, ring and ink as the header tiles' arrow, so every detached
+       CTA on the page reads as one control rather than three near-misses. */
+    background: var(--pc-arrow-bg);
+    border: 1px solid var(--pc-arrow-border);
+    color: var(--pc-arrow-ink);
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: var(--arrow-size);
+    height: var(--arrow-size);
+    border-radius: 9999px;
+    transition:
+      transform 200ms ease,
+      background-color 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease;
+  }
+
+  .card-arrow {
+    right: calc(var(--notch-card-inset) - var(--arrow-size) / 2);
+    bottom: calc(var(--notch-card-inset) - var(--arrow-size) / 2);
+  }
+
+  .image-arrow {
+    right: calc(var(--notch-image-r) - var(--arrow-size) / 2);
+    bottom: calc(var(--notch-image-r) - var(--arrow-size) / 2);
+  }
+
+  .card-arrow svg,
+  .image-arrow svg {
+    width: var(--arrow-icon);
+    height: var(--arrow-icon);
+  }
+
+  /* Nudge up and to the right, as if following the arrow. */
+  .group:hover .card-arrow,
+  .group:hover .image-arrow,
+  .card-arrow:hover,
+  .image-arrow:hover {
+    transform: translate(3px, -3px) rotate(-8deg);
+  }
+
+  .card-arrow:focus-visible,
+  .image-arrow:focus-visible {
+    outline: 2px solid theme('colors.brand.600');
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-arrow,
+    .image-arrow {
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+
+    .group:hover .card-arrow,
+    .group:hover .image-arrow,
+    .card-arrow:hover,
+    .image-arrow:hover {
+      transform: none;
+    }
+  }
+}
+
+/*
+ * Editorial post cards
+ * ====================
+ * Three large featured cards over six compact ones. Every dimension is a custom
+ * property so the whole set retunes from one place and no card carries its own
+ * geometry — a new article renders identically without touching styles.
+ *
+ * Surfaces reuse the site's existing dark tokens rather than introducing a second
+ * near-identical set: #151616 page, #222324 card, #313131 border. The reference
+ * suggested #121414 / #202222 / rgba(255,255,255,.09), which are the same values
+ * to within a couple of points; sharing tokens keeps this section consistent with
+ * the rest of the page.
+ */
+@layer components {
+  :root {
+    --post-card-bg: #ffffff;
+    --post-card-border: theme('colors.slate.200');
+    --post-text: theme('colors.slate.900');
+    --post-muted: theme('colors.slate.500');
+    --post-badge-bg: theme('colors.slate.900');
+    --post-badge-fg: #ffffff;
+
+    --post-card-radius: 1.125rem; /* 18px */
+    --post-card-pad: 1.5rem; /* 24px */
+    --post-image-h: 10.3125rem; /* 165px */
+    --post-image-radius: 0.8125rem; /* 13px */
+    --post-grid-gap: 1.25rem; /* 20px */
+    --compact-gap: 1.125rem; /* 18px */
+    --compact-radius: 0.875rem; /* 14px */
+    --compact-thumb: 5.375rem; /* 86px */
+    --compact-min-h: 6.875rem; /* 110px */
+  }
+
+  :root.dark {
+    --post-card-bg: theme('colors.card');
+    --post-card-border: theme('colors.card-edge');
+    --post-text: #ffffff;
+    --post-muted: rgb(255 255 255 / 0.4);
+    --post-badge-bg: #0d0f0f;
+    --post-badge-fg: #ffffff;
+  }
+
+  .featured-post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--post-grid-gap);
+    align-items: stretch;
+  }
+
+  .compact-post-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--compact-gap) 1.25rem;
+    margin-top: var(--post-grid-gap);
+  }
+
+  @media (max-width: 1023px) {
+    .featured-post-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 699px) {
+    :root {
+      --post-card-pad: 1.125rem;
+      --compact-thumb: 4.75rem;
+    }
+    .featured-post-grid,
+    .compact-post-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* ---- large card ---- */
+  .featured-post-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: var(--post-card-pad);
+    /* Room at the foot so the detached arrow never sits over the excerpt. */
+    padding-bottom: calc(var(--post-card-pad) + 1.25rem);
+    background: var(--post-card-bg);
+    border: 1px solid var(--post-card-border);
+    border-radius: var(--post-card-radius);
+  }
+
+  .featured-post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .featured-post-meta-left {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    min-width: 0;
+  }
+
+  .post-badge {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    background: var(--post-badge-bg);
+    color: var(--post-badge-fg);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .post-dot {
+    color: var(--post-muted);
+  }
+
+  .post-muted {
+    color: var(--post-muted);
+    font-size: 0.75rem;
+  }
+
+  .bookmark-btn {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 1.625rem;
+    height: 1.625rem;
+    border: 1px solid var(--post-card-border);
+    border-radius: 0.3125rem;
+    background: transparent;
+    color: var(--post-muted);
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+
+  .bookmark-btn svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  .bookmark-btn:hover,
+  .bookmark-btn[aria-pressed='true'] {
+    color: var(--post-text);
+    border-color: var(--post-text);
+  }
+
+  .bookmark-btn:focus-visible,
+  .compact-post-link:focus-visible,
+  .featured-post-title a:focus-visible,
+  .featured-post-figure:focus-visible {
+    outline: 2px solid theme('colors.brand.600');
+    outline-offset: 3px;
+  }
+
+  /*
+   * Fixed title box. Without it the three cards' images start at different
+   * heights whenever one headline wraps to a third line.
+   */
+  .featured-post-title {
+    margin-top: 1rem;
+    min-height: 2.75rem;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--post-text);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .featured-post-title a:hover {
+    color: theme('colors.brand.600');
+  }
+
+  .featured-post-figure {
+    display: block;
+    margin-top: 1rem;
+    border-radius: var(--post-image-radius);
+    overflow: hidden;
+  }
+
+  .featured-post-figure img {
+    display: block;
+    width: 100%;
+    height: var(--post-image-h);
+    object-fit: cover;
+    object-position: left center;
+    border-radius: var(--post-image-radius);
+  }
+
+  .featured-post-excerpt {
+    margin-top: 1rem;
+    /* Clear of the arrow's corner. */
+    padding-right: 3.25rem;
+    color: var(--post-muted);
+    font-size: 0.75rem;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .post-arrow {
+    background: var(--post-card-bg);
+    border: 1px solid var(--post-card-border);
+    color: var(--post-text);
+  }
+
+  .post-arrow:hover {
+    background: theme('colors.brand.600');
+    border-color: theme('colors.brand.600');
+    color: #ffffff;
+  }
+
+  /* ---- compact card ---- */
+  .compact-post-card {
+    background: var(--post-card-bg);
+    border: 1px solid var(--post-card-border);
+    border-radius: var(--compact-radius);
+    transition: border-color 200ms ease, transform 200ms ease;
+  }
+
+  .compact-post-card:hover {
+    border-color: var(--post-muted);
+    transform: translateY(-2px);
+  }
+
+  .compact-post-link {
+    display: flex;
+    align-items: center;
+    gap: 0.9375rem;
+    min-height: var(--compact-min-h);
+    padding: 0.75rem;
+    border-radius: inherit;
+  }
+
+  .compact-post-thumb {
+    flex-shrink: 0;
+    width: var(--compact-thumb);
+    height: var(--compact-thumb);
+    object-fit: cover;
+    object-position: left center;
+    border-radius: 0.6875rem;
+    display: block;
+  }
+
+  .compact-post-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  .compact-post-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--post-text);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .compact-post-card:hover .compact-post-title {
+    color: theme('colors.brand.600');
+  }
+
+  .compact-post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--post-muted);
+    font-size: 0.6875rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .compact-post-card {
+      transition: border-color 200ms ease;
+    }
+    .compact-post-card:hover {
+      transform: none;
+    }
+  }
+}
+
+/*
+ * Compact cards alternate width row by row, as in the reference: narrow-wide,
+ * then wide-narrow, then narrow-wide again.
+ *
+ * CSS grid cannot vary column widths per row, so the row is laid out on a
+ * 21-column track and each card spans either 9 or 12 of them (43% / 57%). The
+ * pattern repeats every four cards, which is what produces the two-row swap.
+ */
+@layer components {
+  @media (min-width: 700px) {
+    .compact-post-grid {
+      grid-template-columns: repeat(21, minmax(0, 1fr));
+    }
+
+    .compact-post-grid > *:nth-child(4n + 1),
+    .compact-post-grid > *:nth-child(4n + 4) {
+      grid-column: span 9;
+    }
+
+    .compact-post-grid > *:nth-child(4n + 2),
+    .compact-post-grid > *:nth-child(4n + 3) {
+      grid-column: span 12;
+    }
+  }
+}
+
+/*
+ * Header right-column post card
+ * =============================
+ * Portrait cover with a concave bottom-right corner, a detached circular arrow
+ * sitting in that cut-out, a category pill over the bottom-left, and the headline
+ * beneath the image.
+ *
+ * The cut-out is a radial-gradient mask, so it genuinely removes pixels and the
+ * page shows through — no pseudo-element painted in a background colour that would
+ * have to be kept in sync with whatever the card happens to sit on. --page-bg is
+ * still declared so the section and any fallback share one source of truth.
+ */
+@layer components {
+  :root {
+    --page-bg: #f5f6f7;
+    --pc-radius: 1rem; /* 16px */
+    /* Floor for the cover height. Applies where the tile is free to size itself;
+       zeroed at desktop below so the two hero columns can be forced level. */
+    --pc-image-h: 15rem; /* 240px */
+    --pc-arrow: 3rem; /* 48px */
+    --pc-arrow-right: 5px;
+    --pc-arrow-bottom: 4px;
+    --pc-notch-r: 1.875rem; /* 30px -> 60px across */
+    --pc-arrow-bg: #ffffff;
+    --pc-arrow-border: #d9d9d9;
+    --pc-arrow-ink: #111111;
+  }
+
+  :root.dark {
+    --page-bg: theme('colors.night.50');
+    --pc-arrow-bg: theme('colors.card');
+    --pc-arrow-border: theme('colors.card-edge');
+    --pc-arrow-ink: #ffffff;
+  }
+
+  /*
+   * At desktop the hero's right column is a two-row grid stretched to the left
+   * column's height, so the covers must be free to shrink as well as grow. A fixed
+   * floor here would push the right column taller than the left whenever the
+   * feature beside it is short.
+   */
+  @media (min-width: 1024px) {
+    :root {
+      --pc-image-h: 0px;
+    }
+  }
+
+  /* Below 640px the button holds at 44px, the minimum comfortable touch target. */
+  @media (max-width: 640px) {
+    :root {
+      --pc-arrow: 2.75rem;
+      --pc-notch-r: 1.6875rem;
+    }
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .post-card__image-wrap {
+    position: relative;
+    /* Flexes so the column can be forced level with the feature beside it, but
+       never shorter than the reference's 240px. */
+    flex: 1 1 auto;
+    min-height: var(--pc-image-h);
+  }
+
+  .post-card__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: var(--pc-image-h);
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--pc-radius);
+    /* Centre of the cut-out lines up with the centre of the button:
+       right/bottom inset + half the button. */
+    --pc-cx: calc(var(--pc-arrow-right) + var(--pc-arrow) / 2);
+    --pc-cy: calc(var(--pc-arrow-bottom) + var(--pc-arrow) / 2);
+    -webkit-mask-image: radial-gradient(
+      circle at calc(100% - var(--pc-cx)) calc(100% - var(--pc-cy)),
+      transparent 0 var(--pc-notch-r),
+      #000 calc(var(--pc-notch-r) + 0.5px)
+    );
+    mask-image: radial-gradient(
+      circle at calc(100% - var(--pc-cx)) calc(100% - var(--pc-cy)),
+      transparent 0 var(--pc-notch-r),
+      #000 calc(var(--pc-notch-r) + 0.5px)
+    );
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transition: transform 500ms ease;
+  }
+
+  .post-card:hover .post-card__image {
+    transform: scale(1.03);
+  }
+
+  .post-card__category {
+    position: absolute;
+    left: 15px;
+    /* Top-left: it sits clear of the bottom-right cut-out and the arrow, so the
+       badge can never collide with the CTA on a narrow card. */
+    top: 14px;
+    z-index: 2;
+    padding: 9px 15px;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #111111;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .post-card__arrow {
+    position: absolute;
+    right: var(--pc-arrow-right);
+    bottom: var(--pc-arrow-bottom);
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: var(--pc-arrow);
+    height: var(--pc-arrow);
+    border-radius: 50%;
+    background: var(--pc-arrow-bg);
+    border: 1px solid var(--pc-arrow-border);
+    color: var(--pc-arrow-ink);
+    transition:
+      transform 200ms ease,
+      background-color 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease;
+  }
+
+  .post-card__arrow svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .post-card:hover .post-card__arrow,
+  .post-card__arrow:hover {
+    transform: translateX(2px) rotate(-20deg);
+    background: #111111;
+    border-color: #111111;
+    color: #ffffff;
+  }
+
+  .post-card__arrow:focus-visible {
+    outline: 2px solid theme('colors.brand.600');
+    outline-offset: 3px;
+  }
+
+  .post-card__title {
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.12;
+    text-align: left;
+    color: theme('colors.slate.900');
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  :root.dark .post-card__title {
+    color: #ffffff;
+  }
+
+  .post-card__title a:hover {
+    color: theme('colors.brand.600');
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .post-card__image,
+    .post-card__arrow {
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+    .post-card:hover .post-card__image,
+    .post-card:hover .post-card__arrow,
+    .post-card__arrow:hover {
+      transform: none;
+    }
+  }
+}
+
+@layer components {
+  /*
+   * Wraps a category row's featured cards and its compact list in one bordered
+   * group. The cards inside keep their own surface; this is the container that
+   * makes the two halves read as a single section.
+   */
+  .category-block {
+    padding: var(--post-grid-gap);
+    border: 1px solid var(--post-card-border);
+    border-radius: calc(var(--post-card-radius) + 0.25rem);
+    background: var(--page-bg);
+  }
+
+  @media (max-width: 699px) {
+    .category-block {
+      padding: 0.875rem;
+    }
   }
 }

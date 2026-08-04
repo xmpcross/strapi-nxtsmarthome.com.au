@@ -1,6 +1,11 @@
 ---
 title: 'How to Make Your Split System Air Conditioner Smart (Without Replacing It)'
 description: 'Australian homes run on split systems, not central HVAC. Here is how to add app and voice control to the one you already have, and which approach suits your setup.'
+# The full title runs to 73 characters, which the cover fitter has to shrink to
+# about half the size used on every other cover. These set a short main line so
+# the type matches the rest of the set; the article title itself is unchanged.
+coverMain: 'MAKE YOUR SPLIT SYSTEM SMART'
+coverSub: 'WITHOUT REPLACING THE AIR CONDITIONER'
 category: climate
 type: how-to
 date: '2026-05-28'

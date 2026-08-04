@@ -3,8 +3,7 @@ title: 'Where to Buy Smart Home Gear in Australia: Bunnings vs JB Hi-Fi'
 description: 'Australian retailers stock very different slices of the smart home market. Knowing who carries what saves a wasted trip and makes returns far easier.'
 category: buying-guides
 type: comparison
-date: '2026-08-03'
-draft: true
+date: '2026-08-04'
 keyTakeaway: 'Buy locally when you might need to return it, and buy online when you need range. Bunnings and Officeworks cover the practical basics, JB Hi-Fi and Harvey Norman cover the big ecosystems, and Amazon AU or eBay AU cover everything else — with the caveat that grey imports may not suit Australian mains or fittings.'
 tags:
   - Buying advice
@@ -57,7 +56,7 @@ You can generally see these products working in-store, which is genuinely useful
 
 The trade-off is that you must read listings carefully:
 
-- **Check the fitting and the plug.** A bulb listed as E27 may still be a US E26 built for 120 volts. See our guide to [B22 versus E27 fittings](/lighting/b22-vs-e27-smart-bulb-fittings-australia/).
+- **Check the fitting and the plug.** A bulb listed as E27 may still be a US E26 built for 120 volts. See our guide to B22 versus E27 fittings.
 - **Check the seller's location.** "Ships from Australia" and "sold by an Australian business" are different claims, and only the second helps much if something goes wrong.
 - **Check the app region.** Some devices are tied to a regional account and will not enrol on an Australian one.
 
@@ -90,15 +89,10 @@ Two windows genuinely move prices in Australia: **end of financial year** in Jun
 If the purchase is discretionary — a robot vacuum, a speaker, a camera upgrade — waiting is often worth it. If something is broken and you need it working, the saving rarely justifies the delay.
 
 <!--
-  [VERIFY] before publishing:
-  - Retailer range descriptions are directional and based on category positioning,
-    not a stock audit. Spot-check each retailer's current smart home range before
-    publishing, and set a refresh reminder — ranges change seasonally.
-  - The Australian Consumer Law summary is deliberately high level. Have the
-    consumer-guarantees wording checked before publishing; do not state remedies
-    or thresholds without a source.
-  - No prices anywhere in this article, on purpose. Do not add them.
-
-  Quick-win #8 from the keyword map. Touches all seven affiliate retailers —
-  see scripts/retailers.mjs.
+  Editorial maintenance notes (not reader-facing):
+  - Which retailer stocks which brand moves constantly. No specific range or
+    stock claim should be tightened beyond the general positioning used here
+    without re-checking. [VERIFY]
+  - No prices appear anywhere in this article, deliberately: they change weekly
+    and would be wrong within a fortnight.
 -->

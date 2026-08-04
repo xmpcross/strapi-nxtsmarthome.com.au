@@ -1,15 +1,18 @@
 import Link from 'next/link';
 import ArticleCard from '@/components/ArticleCard';
+import HomeConnect from '@/components/HomeConnect';
+import { FeaturedPostCard, CompactPostCard } from '@/components/PostCards';
 import {
   articleHref,
   categoriesWithCounts,
   coverFor,
+  squareCoverFor,
   formatDate,
   getAllArticles,
   typeLabels,
   type Article,
 } from '@/lib/content';
-import { categories, site } from '@/lib/site';
+import { categories, site, type CategoryKey } from '@/lib/site';
 
 /**
  * Magazine-style home page.
@@ -48,28 +51,36 @@ function Meta({ article }: { article: Article }) {
   );
 }
 
-/**
- * Concave corner cut-out.
- *
- * A radial-gradient mask punches a circle out of the element's bottom-right, so
- * the floating round button sits in a notch rather than on top of the artwork.
- * `inset` places the circle's centre in from that corner: large for a button that
- * sits inside the image, small for one that hangs off the card edge.
- */
-function notch(inset: number, radius = 34) {
-  const g = `radial-gradient(circle at calc(100% - ${inset}px) calc(100% - ${inset}px), transparent 0 ${radius}px, #000 ${radius + 0.5}px)`;
-  return { WebkitMaskImage: g, maskImage: g };
-}
 
-/** Round CTA that floats in a notch. */
-function CircleCta({ href, label, className }: { href: string; label: string; className: string }) {
+/**
+ * Round CTA that sits in a card's or image's cut-out.
+ *
+ * `variant` picks which cut-out it aligns to — see .card-arrow / .image-arrow in
+ * globals.css. Position, size, hover motion, focus ring and reduced-motion all
+ * live in CSS, so no card carries its own geometry.
+ */
+function CircleCta({
+  href,
+  label,
+  variant = 'card',
+  className = '',
+}: {
+  href: string;
+  label: string;
+  variant?: 'card' | 'image';
+  className?: string;
+}) {
+  // Surface, ring and ink come from the shared tokens in globals.css; only the
+  // hover treatment is set here.
+  const tone = 'hover:bg-brand-600 hover:text-white hover:border-brand-600';
+
   return (
     <Link
       href={href}
       aria-label={label}
-      className={`grid h-12 w-12 place-items-center rounded-full border border-slate-200 bg-white text-slate-900 transition hover:bg-brand-600 hover:text-white dark:border-slate-700 dark:bg-slate-800 dark:text-white ${className}`}
+      className={`${variant === 'card' ? 'card-arrow' : 'image-arrow'} ${tone} ${className}`}
     >
-      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="5" y1="12" x2="19" y2="12" />
         <polyline points="12 5 19 12 12 19" />
       </svg>
@@ -77,26 +88,12 @@ function CircleCta({ href, label, className }: { href: string; label: string; cl
   );
 }
 
-/** Small circular "read" affordance, bottom-right of a cover. */
-function ArrowBadge() {
-  return (
-    <span
-      aria-hidden="true"
-      className="absolute bottom-4 right-4 grid h-11 w-11 place-items-center rounded-full bg-white text-slate-900 shadow-md transition group-hover:bg-brand-600 group-hover:text-white"
-    >
-      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12" />
-        <polyline points="12 5 19 12 12 19" />
-      </svg>
-    </span>
-  );
-}
 
 /** Category pill overlaid on a cover, bottom-left. */
 function CoverPill({ article }: { article: Article }) {
   if (!article.categoryMeta) return null;
   return (
-    <span className="absolute bottom-4 left-4 rounded-lg bg-white px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm">
+    <span className="pointer-events-none absolute bottom-4 left-4 rounded-lg bg-white px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm">
       {article.categoryMeta.name}
     </span>
   );
@@ -124,7 +121,7 @@ function Byline({ article }: { article: Article }) {
  */
 function Lead({ article }: { article: Article }) {
   return (
-    <article className="relative flex flex-col gap-5">
+    <article className="relative flex h-full flex-col gap-5">
       <Link
         href={articleHref(article)}
         className="group relative block overflow-hidden rounded-lg"
@@ -139,10 +136,7 @@ function Lead({ article }: { article: Article }) {
         <CoverPill article={article} />
       </Link>
 
-      <div
-        className="relative rounded-lg border border-slate-200 bg-white p-6 sm:p-7 dark:border-slate-700 dark:bg-slate-900"
-        style={notch(10, 32)}
-      >
+      <div className="notched-card relative rounded-2xl border border-slate-200 bg-white p-6 pb-14 sm:p-7 sm:pb-16 dark:border-card-edge dark:bg-card">
         <h2 className="pr-10 text-2xl font-bold leading-snug tracking-tight text-slate-900 sm:text-[1.75rem] dark:text-white">
           <Link href={articleHref(article)} className="hover:text-brand-700 dark:hover:text-brand-400">
             {article.title}
@@ -151,7 +145,7 @@ function Lead({ article }: { article: Article }) {
         <p className="mt-3 line-clamp-2 leading-relaxed text-slate-600 dark:text-slate-400">
           {article.description}
         </p>
-        <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4 dark:border-slate-800">
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4 dark:border-card-edge">
           <Byline article={article} />
           <span className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400">
             <ClockIcon />
@@ -170,11 +164,7 @@ function Lead({ article }: { article: Article }) {
         Detached: it lives outside the notched card so the mask cannot clip it,
         and sits in the cut-out corner the mask leaves behind.
       */}
-      <CircleCta
-        href={articleHref(article)}
-        label={`Read ${article.title}`}
-        className="absolute -bottom-3 -right-3"
-      />
+      <CircleCta href={articleHref(article)} label={`Read ${article.title}`} />
     </article>
   );
 }
@@ -189,41 +179,78 @@ function Lead({ article }: { article: Article }) {
  */
 function TileCard({ article }: { article: Article }) {
   return (
-    <article className="group relative flex h-full flex-col">
-      <Link href={articleHref(article)} className="relative block min-h-0 flex-1 overflow-hidden rounded-lg">
-        <img
-          src={coverFor(article)}
-          alt=""
-          width={1000}
-          height={500}
-          className="aspect-[62/35] w-full rounded-lg object-cover object-right transition duration-500 group-hover:scale-[1.04]"
-        />
-        <CoverPill article={article} />
-        <ArrowBadge />
-      </Link>
-      <h3 className="mt-3 text-lg font-bold leading-snug text-slate-900 dark:text-white">
-        <Link href={articleHref(article)} className="hover:text-brand-700 dark:hover:text-brand-400">
-          {article.title}
+    <article className="post-card group">
+      <div className="post-card__image-wrap">
+        <Link
+          href={articleHref(article)}
+          aria-label={article.title}
+          tabIndex={-1}
+          className="block h-full"
+        >
+          <img
+            className="post-card__image"
+            src={squareCoverFor(article)}
+            alt={article.imageAlt ?? article.title}
+            width={500}
+            height={500}
+            loading="lazy"
+          />
         </Link>
+
+        {article.categoryMeta && (
+          <span className="post-card__category">{article.categoryMeta.name}</span>
+        )}
+
+        <Link
+          href={articleHref(article)}
+          aria-label={`Read article: ${article.title}`}
+          className="post-card__arrow"
+        >
+          {/* Thin stroked arrow, not a glyph — matches the reference weight. */}
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </Link>
+      </div>
+
+      <h3 className="post-card__title">
+        <Link href={articleHref(article)}>{article.title}</Link>
       </h3>
     </article>
   );
 }
 
-/** Compact list row: square thumbnail left, headline and meta right. */
-function ListRow({ article }: { article: Article }) {
+/**
+ * Compact list row: thumbnail left, headline and meta right.
+ *
+ * `square` switches the thumbnail from the covers' native 62:35 to a square crop.
+ * Anchored left either way, so the headline baked into the artwork survives the
+ * tighter crop.
+ */
+function ListRow({ article, square = false }: { article: Article; square?: boolean }) {
   return (
-    <article className="group flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-brand-400 dark:border-slate-700 dark:bg-slate-800/40 dark:hover:border-brand-500">
+    <article className="group flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-brand-400 dark:border-card-edge dark:bg-card/40 dark:hover:border-brand-500">
       <Link
         href={articleHref(article)}
-        className="block w-28 shrink-0 overflow-hidden rounded-lg sm:w-32"
+        className={`block shrink-0 overflow-hidden rounded-lg ${square ? 'w-[6.5rem]' : 'w-28 sm:w-32'}`}
       >
         <img
           src={coverFor(article)}
           alt=""
-          width={1200}
-          height={675}
-          className="aspect-[62/35] w-full rounded-lg object-cover transition duration-500 group-hover:scale-[1.05]"
+          width={1240}
+          height={700}
+          className={`w-full rounded-lg object-cover object-left transition duration-500 group-hover:scale-[1.05] ${
+            square ? 'aspect-square' : 'aspect-[62/35]'
+          }`}
         />
       </Link>
       <div className="min-w-0">
@@ -324,33 +351,27 @@ function PopularTopics({
 function FeatureTile({ article }: { article: Article }) {
   return (
     <article className="group">
-      <div className="relative">
-        <Link href={articleHref(article)} className="block overflow-hidden rounded-lg">
+      <div className="article-image-wrap">
+        <Link href={articleHref(article)} aria-label={article.title} className="block overflow-hidden rounded-lg">
           <img
             src={coverFor(article)}
             alt=""
-            width={1000}
-            height={500}
-            className="aspect-[62/35] w-full rounded-lg object-cover transition duration-500 group-hover:scale-[1.04]"
+            width={1240}
+            height={700}
+            className="notched-image aspect-[2/1] w-full rounded-lg object-cover object-left transition duration-500 group-hover:scale-[1.04]"
           />
         </Link>
+
         {article.categoryMeta && (
-          <span className="pointer-events-none absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-slate-900 shadow-sm backdrop-blur">
+          <span className="pointer-events-none absolute bottom-4 left-4 rounded-lg bg-white px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm">
             {article.categoryMeta.name}
           </span>
         )}
-        <Link
-          href={articleHref(article)}
-          aria-label={`Read ${article.title}`}
-          className="absolute -bottom-5 right-4 grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-md transition hover:bg-brand-600 hover:text-white dark:border-slate-700 dark:bg-slate-800 dark:text-white"
-        >
-          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
-          </svg>
-        </Link>
+
+        <CircleCta href={articleHref(article)} label={`Read ${article.title}`} variant="image" />
       </div>
-      <h3 className="mt-5 text-lg font-bold leading-snug text-slate-900 dark:text-white">
+
+      <h3 className="mt-8 text-lg font-bold leading-snug text-slate-900 dark:text-white">
         <Link href={articleHref(article)} className="hover:text-brand-700 dark:hover:text-brand-400">
           {article.title}
         </Link>
@@ -368,6 +389,7 @@ function ClockIcon() {
     </svg>
   );
 }
+
 
 /**
  * Feature block for a category: one lead with the headline card overlapping the
@@ -417,7 +439,7 @@ function CategoryFeature({ items }: { items: Article[] }) {
           </span>
         )}
 
-        <div className="relative mx-6 -mt-28 flex flex-1 flex-col rounded-lg border border-white/40 bg-white/85 p-7 shadow-lg backdrop-blur-md sm:mx-8 dark:border-slate-700/60 dark:bg-slate-900/85">
+        <div className="relative mx-6 -mt-28 flex flex-1 flex-col rounded-lg border border-white/40 bg-white/85 p-7 shadow-lg backdrop-blur-md sm:mx-8 dark:border-card-edge/60 dark:bg-card/85">
           <h3 className="pr-10 text-2xl font-bold leading-snug tracking-tight text-slate-900 dark:text-white">
             <Link href={articleHref(lead)} className="hover:text-brand-700 dark:hover:text-brand-400">
               {lead.title}
@@ -437,7 +459,7 @@ function CategoryFeature({ items }: { items: Article[] }) {
           <Link
             href={articleHref(lead)}
             aria-label={`Read ${lead.title}`}
-            className="absolute -bottom-5 right-6 grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-md transition hover:bg-brand-600 hover:text-white dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+            className="absolute -bottom-5 right-6 grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-md transition hover:bg-brand-600 hover:text-white dark:border-card-edge dark:bg-card dark:text-white"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
@@ -471,7 +493,7 @@ function CategoryFeature({ items }: { items: Article[] }) {
 /** Horizontal card: thumbnail left, text right. Used in the main column. */
 function WideCard({ article }: { article: Article }) {
   return (
-    <article className="group grid gap-4 border-b border-slate-200 pb-6 sm:grid-cols-[13rem_1fr] dark:border-slate-800">
+    <article className="group grid gap-4 border-b border-slate-200 pb-6 sm:grid-cols-[13rem_1fr] dark:border-card-edge">
       <Link href={articleHref(article)} className="block overflow-hidden rounded-lg">
         <img
           src={coverFor(article)}
@@ -502,7 +524,7 @@ function WideCard({ article }: { article: Article }) {
 /** Numbered sidebar list — the reference's "trending" widget. */
 function RankedItem({ article, rank }: { article: Article; rank: number }) {
   return (
-    <li className="flex gap-3 border-b border-slate-200 pb-4 last:border-0 last:pb-0 dark:border-slate-800">
+    <li className="flex gap-3 border-b border-slate-200 pb-4 last:border-0 last:pb-0 dark:border-card-edge">
       <span className="text-2xl font-extrabold leading-none text-slate-200 tabular-nums dark:text-slate-700">
         {String(rank).padStart(2, '0')}
       </span>
@@ -520,21 +542,96 @@ function RankedItem({ article, rank }: { article: Article; rank: number }) {
   );
 }
 
-function SectionHeading({ title, href, id }: { title: string; href?: string; id: string }) {
+/**
+ * Section heading: a bordered bar carrying a sparkle mark, the title, a short
+ * standfirst, and a round "view more" control on the right.
+ *
+ * `compact` drops the card and the round control for the narrow sidebar, where a
+ * full-width bar with a 3rem button would not fit.
+ */
+function SectionHeading({
+  title,
+  subtitle,
+  href,
+  id,
+  compact = false,
+}: {
+  title: string;
+  subtitle?: string;
+  href?: string;
+  id: string;
+  compact?: boolean;
+}) {
+  if (compact) {
+    return (
+      <div className="mb-4 flex items-end justify-between gap-3 border-b border-slate-200 pb-2 dark:border-card-edge">
+        <h2 id={id} className="flex items-center gap-2 text-base font-bold tracking-tight text-slate-900 dark:text-white">
+          <Sparkle />
+          {title}
+        </h2>
+        {href && (
+          <Link
+            href={href}
+            className="shrink-0 text-sm font-semibold text-brand-700 hover:underline dark:text-brand-400"
+          >
+            View all
+          </Link>
+        )}
+      </div>
+    );
+  }
+
   return (
-    <div className="mb-6 flex items-end justify-between gap-4 border-b-2 border-slate-900 pb-2 dark:border-white">
-      <h2 id={id} className="text-xl font-bold uppercase tracking-tight text-slate-900 dark:text-white">
-        {title}
-      </h2>
-      {href && (
-        <Link
-          href={href}
-          className="shrink-0 text-sm font-semibold text-brand-700 hover:underline dark:text-brand-400"
+    <div className="mb-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-4 rounded-lg border border-slate-200 bg-white px-6 py-5 sm:px-8 dark:border-card-edge dark:bg-card">
+      <div className="flex min-w-0 flex-wrap items-baseline gap-x-4 gap-y-1">
+        <h2
+          id={id}
+          className="flex items-baseline gap-3 text-2xl font-bold tracking-tight text-slate-900 dark:text-white"
         >
-          View all →
+          <Sparkle />
+          {title}
+        </h2>
+        {subtitle && (
+          <p className="text-sm text-slate-500 dark:text-slate-400">{subtitle}</p>
+        )}
+      </div>
+
+      {href && (
+        <Link href={href} className="group flex shrink-0 items-center gap-3">
+          <span className="grid h-12 w-12 place-items-center rounded-full bg-slate-900 text-white transition group-hover:bg-brand-600 dark:bg-white dark:text-slate-900 dark:group-hover:bg-brand-500 dark:group-hover:text-white">
+            <svg
+              aria-hidden="true"
+              className="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 6 15 12 9 18" />
+            </svg>
+          </span>
+          <span className="text-sm text-slate-500 group-hover:text-slate-900 dark:text-slate-400 dark:group-hover:text-white">
+            View More
+          </span>
         </Link>
       )}
     </div>
+  );
+}
+
+/** Four-pointed star that opens each section heading. */
+function Sparkle() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="h-[0.85em] w-[0.85em] shrink-0 self-center text-slate-900 dark:text-white"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M12 0c.6 5.9 5.5 10.8 12 12-6.5 1.2-11.4 6.1-12 12-.6-5.9-5.5-10.8-12-12C6.5 10.8 11.4 5.9 12 0z" />
+    </svg>
   );
 }
 
@@ -562,16 +659,27 @@ export default async function HomePage() {
     .filter((t) => t.cover);
 
   // Category rows, deepest first, so the front page leads with real depth.
-  const rows = cats
-    .filter((c) => c.count >= 2)
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 2)
-    .map((c) => ({ category: c, items: articles.filter((a) => a.category === c.key).slice(0, 5) }));
+  /*
+   * Category rows, in the order they appear on the page.
+   *
+   * Chosen explicitly rather than "the two with the most articles": each row's
+   * heading comes from the category it actually lists, so the title and the posts
+   * beneath it can never disagree.
+   */
+  const ROW_CATEGORIES: CategoryKey[] = ['buying-guides', 'hubs-and-platforms'];
+  const rows = ROW_CATEGORIES.map((key) => cats.find((c) => c.key === key))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c && c.count > 0))
+    .map((c) => ({ category: c, items: articles.filter((a) => a.category === c.key) }));
 
   return (
     <>
       {/* Masthead strip */}
-      <section className="border-b border-slate-200 bg-slate-900 px-4 py-3 dark:border-slate-800">
+      {/*
+        The strip sits between the header and the hero. In dark mode it is a
+        half-opaque #202020 so the page background reads through it and it does
+        not become a second solid bar under the header.
+      */}
+      <section className="border-0 bg-slate-900 px-4 py-3 dark:bg-[#202020]/50">
         <div className="mx-auto flex max-w-site flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-sm text-slate-300">
           <span className="font-semibold text-white">Made for Australian homes</span>
           <span aria-hidden="true" className="text-slate-600">·</span>
@@ -607,7 +715,12 @@ export default async function HomePage() {
         {/* Main column + sidebar */}
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-12">
           <section aria-labelledby="latest-heading">
-            <SectionHeading id="latest-heading" title="Latest" href="/articles/" />
+            <SectionHeading
+              id="latest-heading"
+              title="Latest"
+              subtitle="Fresh guides, reviews and explainers."
+              href="/articles/"
+            />
             <div className="flex flex-col gap-6">
               {latest.map((article) => (
                 <WideCard key={article.slug} article={article} />
@@ -617,7 +730,7 @@ export default async function HomePage() {
 
           <aside className="flex flex-col gap-10">
             <div>
-              <SectionHeading id="trending-heading" title="Most in depth" />
+              <SectionHeading id="trending-heading" title="Most in depth" compact />
               <ol className="flex flex-col gap-4">
                 {trending.map((article, i) => (
                   <RankedItem key={article.slug} article={article} rank={i + 1} />
@@ -626,7 +739,7 @@ export default async function HomePage() {
             </div>
 
             <div>
-              <SectionHeading id="topics-heading" title="Topics" href="/categories/" />
+              <SectionHeading id="topics-heading" title="Topics" href="/categories/" compact />
               <ul className="flex flex-col gap-1">
                 {cats.map((category) => (
                   <li key={category.slug}>
@@ -638,7 +751,7 @@ export default async function HomePage() {
                         <span aria-hidden="true">{category.emoji}</span>
                         <span className="truncate">{category.name}</span>
                       </span>
-                      <span className="shrink-0 rounded bg-slate-100 px-1.5 py-0.5 text-xs font-medium tabular-nums text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                      <span className="shrink-0 rounded bg-slate-100 px-1.5 py-0.5 text-xs font-medium tabular-nums text-slate-500 dark:bg-card dark:text-slate-400">
                         {category.count}
                       </span>
                     </Link>
@@ -647,7 +760,7 @@ export default async function HomePage() {
               </ul>
             </div>
 
-            <div className="rounded-lg border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-800/50">
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-6 dark:border-card-edge dark:bg-card/50">
               <h2 className="text-base font-bold text-slate-900 dark:text-white">
                 Why trust {site.shortName}?
               </h2>
@@ -671,43 +784,41 @@ export default async function HomePage() {
             <SectionHeading
               id={`row-${category.slug}`}
               title={category.name}
+              subtitle={`${category.count} ${category.count === 1 ? 'article' : 'articles'} in this topic.`}
               href={`/categories/${category.slug}/`}
             />
             {i === 0 ? (
               <CategoryFeature items={items} />
             ) : (
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {items.slice(0, 3).map((article) => (
-                  <ArticleCard key={article.slug} article={article} />
-                ))}
+              /*
+                One bordered group holding both halves, so the three featured cards
+                and the compact list below them read as a single block rather than
+                two stacked sections.
+
+                Both halves come from this row's category: the first three articles
+                are featured, and whatever remains fills the compact list. No
+                article appears twice, and nothing from another topic appears here.
+              */
+              <div className="category-block">
+                <div className="featured-post-grid">
+                  {items.slice(0, 3).map((article) => (
+                    <FeaturedPostCard key={article.slug} article={article} />
+                  ))}
+                </div>
+
+                {items.length > 3 && (
+                  <div className="compact-post-grid">
+                    {items.slice(3).map((article) => (
+                      <CompactPostCard key={`more-${article.slug}`} article={article} />
+                    ))}
+                  </div>
+                )}
               </div>
             )}
           </section>
         ))}
 
-        <section className="mt-16 rounded-lg bg-slate-900 p-10 text-center dark:bg-slate-800">
-          <h2 className="text-2xl font-bold text-white">
-            Start with the decision, not the device
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl leading-relaxed text-slate-300">
-            Which platform you build on determines what you can buy for the next decade. That is
-            the one choice worth getting right before you spend anything.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/categories/hubs-and-platforms/"
-              className="rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700"
-            >
-              Choose a platform
-            </Link>
-            <Link
-              href="/articles/"
-              className="rounded-lg border border-slate-600 px-6 py-3 font-semibold text-slate-200 transition hover:border-slate-400 hover:text-white"
-            >
-              Browse all articles
-            </Link>
-          </div>
-        </section>
+        <HomeConnect />
       </div>
     </>
   );

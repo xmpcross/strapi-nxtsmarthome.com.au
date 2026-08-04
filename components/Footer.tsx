@@ -42,7 +42,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-16 border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
+    <footer className="mt-16 border-t border-slate-200 bg-slate-50 dark:border-night-200 dark:bg-night-50">
       <div className="mx-auto max-w-site px-4 py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
@@ -50,15 +50,71 @@ export default function Footer() {
               <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-600 text-sm text-white">
                 NXT
               </span>
-              <span className="text-slate-900 dark:text-white">{site.shortName} AU</span>
+              <span className="text-slate-900 dark:text-night-900">{site.shortName} AU</span>
             </div>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            {/*
+              Explicit tracking and leading: the base body rule sets its own, and
+              this needs to override it rather than inherit.
+            */}
+            <p
+              className="mt-3 max-w-sm text-sm text-slate-600 dark:text-night-600"
+              style={{ letterSpacing: 0, lineHeight: '1.5rem' }}
+            >
               {site.description}
             </p>
+
+              {socialLinks.length > 0 && (
+            <div className="mt-5 flex items-center gap-3">
+              <span className="text-sm text-slate-500 dark:text-night-600">Follow</span>
+              {socialLinks.map((s) => (
+                <a
+                  key={s.href}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  aria-label={s.label}
+                  title={s.label}
+                  className="rounded-lg p-1.5 text-slate-500 transition hover:bg-slate-100 hover:text-brand-700 dark:text-night-600 dark:hover:bg-slate-800 dark:hover:text-brand-400"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          )}
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-night-900">
+              About Us
+            </h3>
+            <ul className="space-y-2 text-sm">
+              {aboutLinks.map((link) =>
+                link.external ? (
+                  // A static file, so a plain anchor — Link is for app routes.
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-slate-600 hover:text-brand-700 dark:text-night-600 dark:hover:text-brand-400"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ) : (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-slate-600 hover:text-brand-700 dark:text-night-600 dark:hover:text-brand-400"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ),
+              )}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-night-900">
               Topics
             </h3>
             <ul className="space-y-2 text-sm">
@@ -66,7 +122,7 @@ export default function Footer() {
                 <li key={category.slug}>
                   <Link
                     href={`/categories/${category.slug}/`}
-                    className="text-slate-600 hover:text-brand-700 dark:text-slate-400 dark:hover:text-brand-400"
+                    className="text-sm text-slate-600 hover:text-brand-700 dark:text-night-600 dark:hover:text-brand-400"
                   >
                     {category.name}
                   </Link>
@@ -88,37 +144,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
-              About Us
-            </h3>
-            <ul className="space-y-2 text-sm">
-              {aboutLinks.map((link) =>
-                link.external ? (
-                  // A static file, so a plain anchor — Link is for app routes.
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-slate-600 hover:text-brand-700 dark:text-slate-400 dark:hover:text-brand-400"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ) : (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-slate-600 hover:text-brand-700 dark:text-slate-400 dark:hover:text-brand-400"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ),
-              )}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-white">
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-night-900">
               Useful Links
             </h3>
             <ul className="space-y-2 text-sm">
@@ -126,7 +152,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-slate-600 hover:text-brand-700 dark:text-slate-400 dark:hover:text-brand-400"
+                    className="text-sm text-slate-600 hover:text-brand-700 dark:text-night-600 dark:hover:text-brand-400"
                   >
                     {link.label}
                   </Link>
@@ -136,31 +162,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {socialLinks.length > 0 && (
-          <div className="mt-10 flex items-center gap-3 border-t border-slate-200 pt-6 dark:border-slate-800">
-            <span className="text-sm text-slate-500 dark:text-slate-400">Follow</span>
-            {socialLinks.map((s) => (
-              <a
-                key={s.href}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer me"
-                aria-label={s.label}
-                title={s.label}
-                className="rounded-lg p-1.5 text-slate-500 transition hover:bg-slate-100 hover:text-brand-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-brand-400"
-              >
-                {s.icon}
-              </a>
-            ))}
-          </div>
-        )}
 
-        <div className="mt-6 border-t border-slate-200 pt-6 text-xs leading-relaxed text-slate-500 dark:border-slate-800 dark:text-slate-400">
-          <p>
+        <div className="mt-6 border-t border-slate-200 pt-6 text-[13px] leading-relaxed text-slate-500 dark:border-night-200 dark:text-night-600">
+          <p className="text-[13px]">
             © {year} {site.organisation.name}. Prices and availability are indicative only and
             change frequently — always confirm on the retailer&apos;s site before buying.
           </p>
-          <p className="mt-2">
+          <p className="mt-2 text-[13px]">
             {site.name} is reader-supported. When you buy through links on our site we may earn
             an affiliate commission at no additional cost to you.{' '}
             <Link href="/affiliate-disclosure/" className="underline hover:text-brand-600">

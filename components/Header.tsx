@@ -71,7 +71,7 @@ export default function Header() {
     'text-slate-600 transition hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-400';
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-900/90">
+    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur dark:border-card-edge dark:bg-night-50/90">
       <div className="mx-auto flex max-w-site items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="flex items-center gap-2 font-extrabold tracking-tight">
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-600 text-sm text-white">

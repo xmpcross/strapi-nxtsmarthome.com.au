@@ -314,20 +314,53 @@ export interface SearchDoc {
  */
 export { articleHref } from './urls';
 
+/**
+ * First existing file from `candidates`, cache-busted by its own content.
+ *
+ * Covers keep the same filename when regenerated and nginx serves images with
+ * max-age=2592000 — without the ?v= hash a regenerated cover stays invisible in
+ * browsers and at the CDN edge for up to 30 days.
+ */
+function assetUrl(candidates: string[], fallback: string): string {
+  for (const rel of candidates) {
+    try {
+      const { size, mtimeMs } = fs.statSync(path.join(process.cwd(), 'public', rel));
+      const v = (size ^ Math.round(mtimeMs)).toString(36).slice(-6);
+      return `/${rel}?v=${v}`;
+    } catch {
+      /* try the next one */
+    }
+  }
+  return fallback;
+}
+
+/**
+ * 500x500 product-centred crop of the same artwork, written alongside the wide
+ * cover by scripts/compose-cover.py.
+ *
+ * Used wherever the cover is shown small and square. The wide cover has the
+ * headline baked into its left half, so cropping it to a thumbnail shows a slab
+ * of unreadable type; this variant is centred on the product instead.
+ *
+ * Falls back to the wide cover when no square exists yet, so an article without
+ * one still renders.
+ */
+export function squareCoverFor(article: { slug: string; image?: string }): string {
+  if (article.image) return article.image;
+  return assetUrl(
+    [`covers/square/${article.slug}.webp`, `covers/square/${article.slug}.png`],
+    coverFor(article),
+  );
+}
+
 export function coverFor(article: { slug: string; image?: string }): string {
   if (article.image) return article.image;
-
-  // Cache-bust on content. Covers keep the same filename when regenerated, and
-  // nginx serves images with max-age=2592000 — without this, a regenerated cover
-  // stays invisible in browsers and at the CDN edge for up to 30 days.
-  const file = path.join(process.cwd(), 'public', 'covers', `${article.slug}.png`);
-  try {
-    const { size, mtimeMs } = fs.statSync(file);
-    const v = (size ^ Math.round(mtimeMs)).toString(36).slice(-6);
-    return `/covers/${article.slug}.png?v=${v}`;
-  } catch {
-    return `/covers/${article.slug}.png`;
-  }
+  // WebP is what the composer writes now; the PNG entry keeps any cover that has
+  // not been regenerated yet working.
+  return assetUrl(
+    [`covers/${article.slug}.webp`, `covers/${article.slug}.png`],
+    `/covers/${article.slug}.png`,
+  );
 }
 
 export function categoriesWithCounts(articles: Article[]) {

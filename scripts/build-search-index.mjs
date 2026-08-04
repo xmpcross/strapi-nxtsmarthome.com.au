@@ -53,14 +53,17 @@ function toPlainText(markdown) {
  * from the 30-day cache after a cover is regenerated.
  */
 function coverUrl(slug) {
-  const file = path.join(root, 'public', 'covers', `${slug}.png`);
-  try {
-    const { size, mtimeMs } = fs.statSync(file);
-    const v = (size ^ Math.round(mtimeMs)).toString(36).slice(-6);
-    return `/covers/${slug}.png?v=${v}`;
-  } catch {
-    return `/covers/${slug}.png`;
+  for (const ext of ['webp', 'png']) {
+    try {
+      const file = path.join(root, 'public', 'covers', `${slug}.${ext}`);
+      const { size, mtimeMs } = fs.statSync(file);
+      const v = (size ^ Math.round(mtimeMs)).toString(36).slice(-6);
+      return `/covers/${slug}.${ext}?v=${v}`;
+    } catch {
+      /* try the next extension */
+    }
   }
+  return `/covers/${slug}.png`;
 }
 
 if (!fs.existsSync(articlesDir)) {
