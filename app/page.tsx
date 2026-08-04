@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import ArticleCard from '@/components/ArticleCard';
+import ForYou from '@/components/ForYou';
 import HomeConnect from '@/components/HomeConnect';
+import MagzinHero from '@/components/MagzinHero';
+import SectionHeading from '@/components/SectionHeading';
+import StaffPicks from '@/components/StaffPicks';
 import { FeaturedPostCard, CompactPostCard } from '@/components/PostCards';
+import BookmarkButton from '@/components/BookmarkButton';
 import {
   articleHref,
   categoriesWithCounts,
@@ -53,11 +58,13 @@ function Meta({ article }: { article: Article }) {
 
 
 /**
- * Round CTA that sits in a card's or image's cut-out.
+ * Round CTA, either detached in a cut-out or sitting in normal flow.
  *
- * `variant` picks which cut-out it aligns to — see .card-arrow / .image-arrow in
- * globals.css. Position, size, hover motion, focus ring and reduced-motion all
- * live in CSS, so no card carries its own geometry.
+ * `variant` picks the placement — see .card-arrow / .image-arrow / .inline-arrow
+ * in globals.css. The first two are absolutely positioned against a mask cut-out;
+ * `inline` is the same control in normal flow, for a card with no notch. Size,
+ * hover motion, focus ring and reduced-motion all live in CSS, so no card
+ * carries its own geometry.
  */
 function CircleCta({
   href,
@@ -67,18 +74,19 @@ function CircleCta({
 }: {
   href: string;
   label: string;
-  variant?: 'card' | 'image';
+  variant?: 'card' | 'image' | 'inline';
   className?: string;
 }) {
   // Surface, ring and ink come from the shared tokens in globals.css; only the
   // hover treatment is set here.
   const tone = 'hover:bg-brand-600 hover:text-white hover:border-brand-600';
+  const placement = { card: 'card-arrow', image: 'image-arrow', inline: 'inline-arrow' }[variant];
 
   return (
     <Link
       href={href}
       aria-label={label}
-      className={`${variant === 'card' ? 'card-arrow' : 'image-arrow'} ${tone} ${className}`}
+      className={`${placement} ${tone} ${className}`}
     >
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="5" y1="12" x2="19" y2="12" />
@@ -93,7 +101,7 @@ function CircleCta({
 function CoverPill({ article }: { article: Article }) {
   if (!article.categoryMeta) return null;
   return (
-    <span className="pointer-events-none absolute bottom-4 left-4 rounded-lg bg-white px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm">
+    <span className="pointer-events-none absolute top-4 right-4 z-10 rounded-lg bg-white px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm">
       {article.categoryMeta.name}
     </span>
   );
@@ -116,12 +124,15 @@ function Byline({ article }: { article: Article }) {
 }
 
 /**
- * Lead: full-width cover, then a detached bordered card beneath carrying the
- * headline, excerpt and byline.
+ * Lead: full-width cover, then a bordered card beneath carrying the headline,
+ * excerpt, byline and read CTA.
+ *
+ * The card is plain — no notch. The round CTA sits in the meta row rather than
+ * hanging off the corner, so nothing has to escape a mask.
  */
 function Lead({ article }: { article: Article }) {
   return (
-    <article className="relative flex h-full flex-col gap-5">
+    <article className="flex h-full flex-col gap-5">
       <Link
         href={articleHref(article)}
         className="group relative block overflow-hidden rounded-lg"
@@ -136,8 +147,8 @@ function Lead({ article }: { article: Article }) {
         <CoverPill article={article} />
       </Link>
 
-      <div className="notched-card relative rounded-2xl border border-slate-200 bg-white p-6 pb-14 sm:p-7 sm:pb-16 dark:border-card-edge dark:bg-card">
-        <h2 className="pr-10 text-2xl font-bold leading-snug tracking-tight text-slate-900 sm:text-[1.75rem] dark:text-white">
+      <div className="relative rounded-lg border border-slate-200 bg-white p-6 pb-14 sm:p-7 sm:pb-16 dark:border-card-edge dark:bg-card magzin-style-card">
+        <h2 className="text-2xl font-bold leading-snug tracking-tight text-slate-900 sm:text-[1.75rem] dark:text-white">
           <Link href={articleHref(article)} className="hover:text-brand-700 dark:hover:text-brand-400">
             {article.title}
           </Link>
@@ -153,18 +164,19 @@ function Lead({ article }: { article: Article }) {
           </span>
         </div>
 
-        {/*
-          The reference also puts a bookmark button on this card. It is not
-          reproduced: there is no save feature behind it, and a control that looks
-          real but does nothing is worse than no control.
-        */}
-      </div>
+        <span className="post-card__notch" aria-hidden="true" />
 
-      {/*
-        Detached: it lives outside the notched card so the mask cannot clip it,
-        and sits in the cut-out corner the mask leaves behind.
-      */}
-      <CircleCta href={articleHref(article)} label={`Read ${article.title}`} />
+        <Link
+          href={articleHref(article)}
+          aria-label={`Read article: ${article.title}`}
+          className="post-card__arrow"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h13" />
+            <path d="M13 7l5 5-5 5" />
+          </svg>
+        </Link>
+      </div>
     </article>
   );
 }
@@ -179,13 +191,13 @@ function Lead({ article }: { article: Article }) {
  */
 function TileCard({ article }: { article: Article }) {
   return (
-    <article className="post-card group">
-      <div className="post-card__image-wrap">
+    <article className="secondary-post-card magzin-style-card flex h-full flex-col">
+      <div className="post-card__media flex-1 min-h-[130px]">
         <Link
           href={articleHref(article)}
           aria-label={article.title}
           tabIndex={-1}
-          className="block h-full"
+          className="post-card__image-link"
         >
           <img
             className="post-card__image"
@@ -201,23 +213,16 @@ function TileCard({ article }: { article: Article }) {
           <span className="post-card__category">{article.categoryMeta.name}</span>
         )}
 
+        <span className="post-card__notch" aria-hidden="true" />
+
         <Link
           href={articleHref(article)}
           aria-label={`Read article: ${article.title}`}
           className="post-card__arrow"
         >
-          {/* Thin stroked arrow, not a glyph — matches the reference weight. */}
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.7"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h13" />
+            <path d="M13 7l5 5-5 5" />
           </svg>
         </Link>
       </div>
@@ -350,28 +355,37 @@ function PopularTopics({
  */
 function FeatureTile({ article }: { article: Article }) {
   return (
-    <article className="group">
-      <div className="article-image-wrap">
-        <Link href={articleHref(article)} aria-label={article.title} className="block overflow-hidden rounded-lg">
+    <article className="group magzin-style-card">
+      <div className="post-card__media aspect-[2/1] w-full rounded-lg">
+        <Link href={articleHref(article)} aria-label={article.title} tabIndex={-1} className="post-card__image-link">
           <img
             src={coverFor(article)}
             alt=""
             width={1240}
             height={700}
-            className="notched-image aspect-[2/1] w-full rounded-lg object-cover object-left transition duration-500 group-hover:scale-[1.04]"
+            className="post-card__image object-left"
           />
         </Link>
 
         {article.categoryMeta && (
-          <span className="pointer-events-none absolute bottom-4 left-4 rounded-lg bg-white px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm">
-            {article.categoryMeta.name}
-          </span>
+          <span className="post-card__category">{article.categoryMeta.name}</span>
         )}
 
-        <CircleCta href={articleHref(article)} label={`Read ${article.title}`} variant="image" />
+        <span className="post-card__notch" aria-hidden="true" />
+
+        <Link
+          href={articleHref(article)}
+          aria-label={`Read article: ${article.title}`}
+          className="post-card__arrow"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h13" />
+            <path d="M13 7l5 5-5 5" />
+          </svg>
+        </Link>
       </div>
 
-      <h3 className="mt-8 text-lg font-bold leading-snug text-slate-900 dark:text-white">
+      <h3 className="mt-4 text-lg font-bold leading-snug text-slate-900 dark:text-white">
         <Link href={articleHref(article)} className="hover:text-brand-700 dark:hover:text-brand-400">
           {article.title}
         </Link>
@@ -430,16 +444,16 @@ function CategoryFeature({ items }: { items: Article[] }) {
           */}
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 top-0 h-2/3 bg-gradient-to-b from-slate-900/55 via-slate-900/25 to-transparent"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/30 to-slate-900/10"
           />
         </Link>
         {lead.categoryMeta && (
-          <span className="pointer-events-none absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-slate-900 shadow-sm backdrop-blur">
+          <span className="pointer-events-none absolute left-5 top-5 z-10 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-slate-900 shadow-sm backdrop-blur">
             {lead.categoryMeta.name}
           </span>
         )}
 
-        <div className="relative mx-6 -mt-28 flex flex-1 flex-col rounded-lg border border-white/40 bg-white/85 p-7 shadow-lg backdrop-blur-md sm:mx-8 dark:border-card-edge/60 dark:bg-card/85">
+        <div className="relative mx-6 -mt-28 flex flex-1 flex-col overflow-hidden rounded-lg border border-white/50 bg-white/65 p-7 pb-14 shadow-lg backdrop-blur-lg sm:mx-8 sm:pb-16 dark:border-card-edge/60 dark:bg-card/65 magzin-style-card">
           <h3 className="pr-10 text-2xl font-bold leading-snug tracking-tight text-slate-900 dark:text-white">
             <Link href={articleHref(lead)} className="hover:text-brand-700 dark:hover:text-brand-400">
               {lead.title}
@@ -448,7 +462,7 @@ function CategoryFeature({ items }: { items: Article[] }) {
           <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
             {lead.description}
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 pt-2 lg:mt-auto">
+          <div className="mt-auto pt-4 flex flex-wrap items-center justify-between gap-3">
             <Byline article={lead} />
             <span className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400">
               <ClockIcon />
@@ -456,14 +470,16 @@ function CategoryFeature({ items }: { items: Article[] }) {
             </span>
           </div>
 
+          <span className="post-card__notch" aria-hidden="true" />
+
           <Link
             href={articleHref(lead)}
-            aria-label={`Read ${lead.title}`}
-            className="absolute -bottom-5 right-6 grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-md transition hover:bg-brand-600 hover:text-white dark:border-card-edge dark:bg-card dark:text-white"
+            aria-label={`Read article: ${lead.title}`}
+            className="post-card__arrow"
           >
-            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h13" />
+              <path d="M13 7l5 5-5 5" />
             </svg>
           </Link>
         </div>
@@ -542,99 +558,6 @@ function RankedItem({ article, rank }: { article: Article; rank: number }) {
   );
 }
 
-/**
- * Section heading: a bordered bar carrying a sparkle mark, the title, a short
- * standfirst, and a round "view more" control on the right.
- *
- * `compact` drops the card and the round control for the narrow sidebar, where a
- * full-width bar with a 3rem button would not fit.
- */
-function SectionHeading({
-  title,
-  subtitle,
-  href,
-  id,
-  compact = false,
-}: {
-  title: string;
-  subtitle?: string;
-  href?: string;
-  id: string;
-  compact?: boolean;
-}) {
-  if (compact) {
-    return (
-      <div className="mb-4 flex items-end justify-between gap-3 border-b border-slate-200 pb-2 dark:border-card-edge">
-        <h2 id={id} className="flex items-center gap-2 text-base font-bold tracking-tight text-slate-900 dark:text-white">
-          <Sparkle />
-          {title}
-        </h2>
-        {href && (
-          <Link
-            href={href}
-            className="shrink-0 text-sm font-semibold text-brand-700 hover:underline dark:text-brand-400"
-          >
-            View all
-          </Link>
-        )}
-      </div>
-    );
-  }
-
-  return (
-    <div className="mb-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-4 rounded-lg border border-slate-200 bg-white px-6 py-5 sm:px-8 dark:border-card-edge dark:bg-card">
-      <div className="flex min-w-0 flex-wrap items-baseline gap-x-4 gap-y-1">
-        <h2
-          id={id}
-          className="flex items-baseline gap-3 text-2xl font-bold tracking-tight text-slate-900 dark:text-white"
-        >
-          <Sparkle />
-          {title}
-        </h2>
-        {subtitle && (
-          <p className="text-sm text-slate-500 dark:text-slate-400">{subtitle}</p>
-        )}
-      </div>
-
-      {href && (
-        <Link href={href} className="group flex shrink-0 items-center gap-3">
-          <span className="grid h-12 w-12 place-items-center rounded-full bg-slate-900 text-white transition group-hover:bg-brand-600 dark:bg-white dark:text-slate-900 dark:group-hover:bg-brand-500 dark:group-hover:text-white">
-            <svg
-              aria-hidden="true"
-              className="h-5 w-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="9 6 15 12 9 18" />
-            </svg>
-          </span>
-          <span className="text-sm text-slate-500 group-hover:text-slate-900 dark:text-slate-400 dark:group-hover:text-white">
-            View More
-          </span>
-        </Link>
-      )}
-    </div>
-  );
-}
-
-/** Four-pointed star that opens each section heading. */
-function Sparkle() {
-  return (
-    <svg
-      aria-hidden="true"
-      className="h-[0.85em] w-[0.85em] shrink-0 self-center text-slate-900 dark:text-white"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
-      <path d="M12 0c.6 5.9 5.5 10.8 12 12-6.5 1.2-11.4 6.1-12 12-.6-5.9-5.5-10.8-12-12C6.5 10.8 11.4 5.9 12 0z" />
-    </svg>
-  );
-}
-
 export default async function HomePage() {
   const articles = await getAllArticles();
   const featured = articles.filter((a) => a.featured);
@@ -643,6 +566,20 @@ export default async function HomePage() {
   const rest = articles.filter((a) => a.slug !== lead?.slug);
   const secondary = rest.slice(0, 4);
   const latest = rest.slice(4, 10);
+
+  /*
+   * The two lower sections each show ONE category, so the heading and the posts
+   * beneath it can never disagree — the same rule the old category rows followed.
+   * The layouts are the new ones; only the source of the articles is pinned.
+   */
+  const buyingItems = articles.filter((a) => a.category === 'buying-guides');
+  const spFeatures = buyingItems.slice(0, 3);
+  const spItems = buyingItems.slice(3, 9);
+
+  const hubsItems = articles.filter((a) => a.category === 'hubs-and-platforms');
+  const fyLead = hubsItems[0];
+  const fyTiles = hubsItems.slice(1, 3);
+  const fyRows = hubsItems.slice(3, 5);
   const trending = [...articles].sort((a, b) => b.wordCount - a.wordCount).slice(0, 5);
   const cats = categoriesWithCounts(articles);
 
@@ -666,7 +603,10 @@ export default async function HomePage() {
    * heading comes from the category it actually lists, so the title and the posts
    * beneath it can never disagree.
    */
-  const ROW_CATEGORIES: CategoryKey[] = ['buying-guides', 'hubs-and-platforms'];
+  const buyingCategory = cats.find((c) => c.key === 'buying-guides');
+  const buyingData = buyingCategory ? { category: buyingCategory, items: articles.filter((a) => a.category === 'buying-guides') } : null;
+
+  const ROW_CATEGORIES: CategoryKey[] = ['hubs-and-platforms'];
   const rows = ROW_CATEGORIES.map((key) => cats.find((c) => c.key === key))
     .filter((c): c is NonNullable<typeof c> => Boolean(c && c.count > 0))
     .map((c) => ({ category: c, items: articles.filter((a) => a.category === c.key) }));
@@ -693,24 +633,27 @@ export default async function HomePage() {
             <h2 id="lead-heading" className="sr-only">
               Featured articles
             </h2>
-            {/* Lead on the left; a 2x2 tile grid on the right. */}
-            <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
-              <Lead article={lead} />
-              {/*
-                Two equal rows filling the column's full height, so the right side
-                always ends level with the left. Each tile's cover is the flexible
-                part, so the images size themselves to whatever height is left.
-              */}
-              <div className="grid h-full gap-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-6">
-                {secondary.map((article) => (
-                  <TileCard key={article.slug} article={article} />
-                ))}
-              </div>
-            </div>
+            {/*
+              The same component the design preview renders, so the two cannot
+              drift. No `standalone`: this page supplies its own container and
+              background, and the section must not add a second set of gutters.
+            */}
+            <MagzinHero lead={lead} tiles={secondary} />
           </section>
         )}
 
         <PopularTopics topics={topics} />
+
+        {/* Buying Guides, in the Staff Picks layout. */}
+        <div className="mb-14">
+          <StaffPicks
+            title="Buying Guides"
+            standfirst="What to look for before you spend"
+            href="/categories/buying-guides/"
+            features={spFeatures}
+            items={spItems}
+          />
+        </div>
 
         {/* Main column + sidebar */}
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-12">
@@ -778,45 +721,21 @@ export default async function HomePage() {
           </aside>
         </div>
 
-        {/* Per-category rows */}
-        {rows.map(({ category, items }, i) => (
-          <section key={category.slug} className="mt-16" aria-labelledby={`row-${category.slug}`}>
-            <SectionHeading
-              id={`row-${category.slug}`}
-              title={category.name}
-              subtitle={`${category.count} ${category.count === 1 ? 'article' : 'articles'} in this topic.`}
-              href={`/categories/${category.slug}/`}
-            />
-            {i === 0 ? (
-              <CategoryFeature items={items} />
-            ) : (
-              /*
-                One bordered group holding both halves, so the three featured cards
-                and the compact list below them read as a single block rather than
-                two stacked sections.
+        {/* Hubs & Platforms, in the For You layout. */}
+        <div className="mt-16">
+          <ForYou
+            title="Hubs & Platforms"
+            standfirst="The choice everything else depends on"
+            href="/categories/hubs-and-platforms/"
+            lead={fyLead}
+            tiles={fyTiles}
+            rows={fyRows}
+          />
+        </div>
 
-                Both halves come from this row's category: the first three articles
-                are featured, and whatever remains fills the compact list. No
-                article appears twice, and nothing from another topic appears here.
-              */
-              <div className="category-block">
-                <div className="featured-post-grid">
-                  {items.slice(0, 3).map((article) => (
-                    <FeaturedPostCard key={article.slug} article={article} />
-                  ))}
-                </div>
+        
 
-                {items.length > 3 && (
-                  <div className="compact-post-grid">
-                    {items.slice(3).map((article) => (
-                      <CompactPostCard key={`more-${article.slug}`} article={article} />
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-          </section>
-        ))}
+        
 
         <HomeConnect />
       </div>

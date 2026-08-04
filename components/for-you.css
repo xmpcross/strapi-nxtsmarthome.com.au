@@ -1,0 +1,614 @@
+/* ==========================================================================
+   for-you.css
+   "For you" section — overlaid lead, two tiles, two compact rows
+   --------------------------------------------------------------------------
+   Scoped to .fy. Same token names and pocket geometry as the hero and Staff
+   Picks, so the three read as one family rather than three near-misses.
+
+   The lead differs from the hero's: its text panel sits ON the artwork rather
+   than beneath it, overlapping the lower part of the image and hanging past its
+   bottom edge.
+
+   That panel is theme-aware, not fixed dark. White glass with dark ink in light
+   mode, dark glass with light ink in dark mode — the same way the reference does
+   it. Both are translucent, so the cover tints through instead of being blocked
+   out, which matters here because these covers are flat saturated colours rather
+   than photography.
+   ========================================================================== */
+
+/* Configuration
+   -------------------------------------------------------------------------- */
+.fy {
+  --surface: #f7f8f9;
+  --card: #ffffff;
+  --card-edge: #e5e7eb;
+  --bar: #eef0f3;
+
+  --ink: #0e0e0f;
+  --ink-muted: #64748b;
+  --ink-faint: #94a3b8;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  --arrow-size: 44px;
+  --arrow-gap: 10px;
+  --notch-size: calc(var(--arrow-size) + (var(--arrow-gap) * 2));
+  --arrow-overhang: 16px;
+
+  --arrow-bg: #ffffff;
+  --arrow-border: #d8dadd;
+  --arrow-ink: #111111;
+  --arrow-bg-hover: #111111;
+  --arrow-ink-hover: #ffffff;
+  --focus-ring: #111111;
+
+  /* Overlaid lead panel. Follows the theme: white glass with dark ink in light
+     mode, dark glass with light ink in dark mode. Translucent either way, so the
+     artwork tints through rather than being blocked out. */
+  --panel-bg: rgb(255 255 255 / 0.86);
+  --panel-ink: #0e0e0f;
+  --panel-ink-muted: #4b5563;
+  --panel-ink-faint: #9aa3af;
+  --panel-blur: 16px;
+
+  color: var(--ink);
+}
+
+:root.dark .fy {
+  --surface: #151616;
+  --card: #222324;
+  --card-edge: #313131;
+  --bar: #1d1e20;
+
+  --ink: #ffffff;
+  --ink-muted: rgb(255 255 255 / 0.55);
+  --ink-faint: rgb(255 255 255 / 0.38);
+
+  --arrow-bg: #222324;
+  --arrow-border: #313131;
+  --arrow-ink: #ffffff;
+  --arrow-bg-hover: #ffffff;
+  --arrow-ink-hover: #111111;
+  --focus-ring: #ffffff;
+
+  --panel-bg: rgb(20 20 23 / 0.80);
+  --panel-ink: #ffffff;
+  --panel-ink-muted: rgb(255 255 255 / 0.68);
+  --panel-ink-faint: rgb(255 255 255 / 0.42);
+}
+
+.fy--standalone {
+  background: var(--surface);
+  padding: 0 24px 72px;
+}
+
+.fy__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* Header bar
+   -------------------------------------------------------------------------- */
+.fy__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 18px 22px;
+  border-radius: var(--radius);
+  background: var(--bar);
+}
+
+.fy__bar-left {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  min-width: 0;
+}
+
+.fy__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.fy__title svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.fy__standfirst {
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+
+.fy__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.fy__more-dot {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--arrow-bg-hover);
+  color: var(--arrow-ink-hover);
+  transition: transform 200ms ease;
+}
+
+.fy__more-dot svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fy__more:hover .fy__more-dot {
+  transform: translateX(3px);
+}
+
+.fy__more:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* Layout
+   -------------------------------------------------------------------------- */
+.fy__grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 24px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1024px) {
+  .fy__grid {
+    grid-template-columns: minmax(0, 48fr) minmax(0, 52fr);
+  }
+}
+
+.fy__side {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.fy__tiles {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 560px) {
+  .fy__tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Equal-height columns
+   --------------------------------------------------------------------------
+   Same treatment as the hero. The grid stretches both columns, but that only
+   sizes the box — without this the lead and the side column finish at different
+   heights and one leaves a gap beneath it.
+
+   The artwork takes up the slack: media boxes drop their fixed ratio here and
+   grow into the space left over, with a floor so they cannot collapse. The two
+   tiles and the two rows keep their own heights, so the difference lands on the
+   images rather than on the text. */
+@media (min-width: 1024px) {
+  .fy__grid {
+    align-items: stretch;
+  }
+
+  .fy__lead,
+  .fy__side,
+  .fy__tile {
+    height: 100%;
+  }
+
+  .fy__tiles {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .fy__lead .fy__media {
+    flex: 1 1 auto;
+    aspect-ratio: auto;
+    min-height: 240px;
+  }
+
+  .fy__tile .fy__media {
+    flex: 1 1 auto;
+    aspect-ratio: auto;
+    min-height: 130px;
+  }
+}
+
+/* Shared media
+   -------------------------------------------------------------------------- */
+.fy__media {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: var(--radius);
+  isolation: isolate;
+}
+
+.fy__clip {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.fy__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 450ms ease;
+}
+
+.fy__lead:hover .fy__img,
+.fy__tile:hover .fy__img {
+  transform: scale(1.04);
+}
+
+.fy__badge {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.66);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Pocket and arrow, same construction as the hero
+   -------------------------------------------------------------------------- */
+.fy__notch {
+  position: absolute;
+  right: calc(-1 * var(--arrow-overhang));
+  bottom: calc(-1 * var(--arrow-overhang));
+  z-index: 5;
+  width: var(--notch-size);
+  height: var(--notch-size);
+  border-radius: 50%;
+  background: var(--surface);
+  pointer-events: none;
+}
+
+.fy__arrow {
+  position: absolute;
+  right: calc((var(--notch-size) - var(--arrow-size)) / 2 - var(--arrow-overhang));
+  bottom: calc((var(--notch-size) - var(--arrow-size)) / 2 - var(--arrow-overhang));
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: var(--arrow-bg);
+  border: 1px solid var(--arrow-border);
+  color: var(--arrow-ink);
+  text-decoration: none;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.fy__arrow svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 200ms ease;
+}
+
+.fy__arrow:hover,
+.fy__arrow:focus-visible {
+  background: var(--arrow-bg-hover);
+  border-color: var(--arrow-bg-hover);
+  color: var(--arrow-ink-hover);
+}
+
+.fy__arrow:hover svg,
+.fy__arrow:focus-visible svg {
+  transform: translateX(2px);
+}
+
+.fy__arrow:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* Lead — text panel sits ON the artwork
+   -------------------------------------------------------------------------- */
+.fy__lead {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.fy__lead .fy__media {
+  aspect-ratio: 41 / 29;
+}
+
+.fy__lead .fy__badge {
+  top: 16px;
+  left: 16px;
+}
+
+/*
+ * The panel is a normal-flow block pulled UP over the artwork, not a box parked
+ * inside it. That is the whole difference in the layering: it covers only the
+ * lower part of the image and then hangs past its bottom edge, so the two read as
+ * two stacked planes rather than one framed picture with a caption in it.
+ *
+ * A negative top margin rather than absolute positioning, so the panel's own
+ * height decides how far it hangs and the column grows to fit. Absolute
+ * positioning would need the overhang hard-coded and would break the moment a
+ * headline wrapped to a third line.
+ *
+ * Ink is fixed light in BOTH themes: this sits on a photograph, not on the page.
+ */
+.fy__panel {
+  position: relative;
+  z-index: 3;
+  margin: -94px 22px 0 34px;
+  padding: 24px 26px 26px;
+  border-radius: var(--radius);
+  background: var(--panel-bg);
+  backdrop-filter: blur(var(--panel-blur));
+  color: var(--panel-ink);
+}
+
+.fy__panel-title {
+  margin: 0;
+  font-size: clamp(19px, 1.5vw, 23px);
+  font-weight: 700;
+  line-height: 1.26;
+  letter-spacing: -0.02em;
+}
+
+.fy__panel-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fy__panel-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fy__panel-excerpt {
+  margin: 12px 0 0;
+  color: var(--panel-ink-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.fy__panel-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 18px;
+  /* Clear of the pocket so the byline never runs under the button. */
+  padding-right: calc(var(--notch-size) - 20px);
+}
+
+.fy__byline {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.fy__avatar {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #5955d1;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.fy__author {
+  font-weight: 600;
+}
+
+.fy__dot {
+  color: var(--panel-ink-faint);
+}
+
+.fy__date,
+.fy__readtime {
+  color: var(--panel-ink-muted);
+  white-space: nowrap;
+}
+
+.fy__readtime {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.fy__readtime svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+/* The lead's button hangs off the PANEL's bottom-right corner, not the image's.
+   Below and right of the panel is the page, so the pocket is painted in the page
+   colour exactly like every other card — the bite it takes out of the panel
+   corner is the intended effect. */
+
+/* Tiles
+   -------------------------------------------------------------------------- */
+.fy__tile {
+  display: flex;
+  flex-direction: column;
+}
+
+.fy__tile .fy__media {
+  aspect-ratio: 4 / 3;
+}
+
+.fy__tile .fy__badge {
+  left: 14px;
+  bottom: 14px;
+}
+
+.fy__tile-title {
+  margin: 22px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.fy__tile-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fy__tile-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Compact rows
+   -------------------------------------------------------------------------- */
+.fy__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fy__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  text-decoration: none;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.fy__row:hover {
+  border-color: var(--ink-faint);
+  transform: translateY(-2px);
+}
+
+.fy__row:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.fy__thumb {
+  flex-shrink: 0;
+  width: 92px;
+  height: 68px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.fy__row-body {
+  min-width: 0;
+}
+
+.fy__row-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.fy__row-meta {
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-faint);
+  font-size: 12px;
+}
+
+/* Reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .fy__img,
+  .fy__arrow,
+  .fy__arrow svg,
+  .fy__row,
+  .fy__more-dot {
+    transition: none;
+  }
+
+  .fy__lead:hover .fy__img,
+  .fy__tile:hover .fy__img,
+  .fy__arrow:hover svg,
+  .fy__row:hover,
+  .fy__more:hover .fy__more-dot {
+    transform: none;
+  }
+}

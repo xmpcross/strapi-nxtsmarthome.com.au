@@ -27,6 +27,9 @@ import os
 import re
 import sys
 
+import hashlib
+
+import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = '/opt/nxtsmarthome.com.au'
@@ -84,34 +87,258 @@ if not main:
 
 main, sub = main.upper(), (sub or '').upper().rstrip('?') + ('?' if sub.strip().endswith('?') else '')
 
+EXTS = ('png', 'jpg', 'jpeg', 'webp')
+
+
+def _cutout(im, light=200, feather=1.6):
+    """Remove a plain studio background, keeping white areas inside the product.
+
+    Connectivity, not brightness, decides what goes. A plain brightness threshold
+    punches holes through anything legitimately white — a phone screen, a white
+    bezel, a pale label — and product photography is full of those. Instead the
+    light-pixel mask is grown from the border inward, so only light regions that
+    actually reach the edge of the frame are treated as background. A phone screen
+    enclosed by a dark bezel never connects to the border, so it survives.
+
+    `light` is deliberately loose (200, not 240) so the soft drop shadow beneath a
+    product is swept up too. A tighter value leaves a grey smudge, which reads as a
+    white blob once the cut-out is placed on a dark cover.
+
+    Anything already carrying real alpha is returned untouched.
+    """
+    if im.mode == 'RGBA' and im.getchannel('A').getextrema()[0] < 255:
+        return im
+
+    rgb = im.convert('RGB')
+    a = np.asarray(rgb).astype(np.int16)
+    h, w, _ = a.shape
+
+    lightmask = a.min(axis=2) > light
+
+    # Grow the border-connected region with a binary dilation restricted to the
+    # light mask. Iterating on whole-array shifts is fast enough at this size and
+    # avoids a scipy dependency, which is not installed here.
+    reach = np.zeros((h, w), bool)
+    reach[0, :] = lightmask[0, :]
+    reach[-1, :] = lightmask[-1, :]
+    reach[:, 0] = lightmask[:, 0]
+    reach[:, -1] = lightmask[:, -1]
+    while True:
+        grown = reach.copy()
+        grown[1:, :] |= reach[:-1, :]
+        grown[:-1, :] |= reach[1:, :]
+        grown[:, 1:] |= reach[:, :-1]
+        grown[:, :-1] |= reach[:, 1:]
+        grown &= lightmask
+        if grown.sum() == reach.sum():
+            break
+        reach = grown
+
+    # Soft edge, but ONLY in a narrow band hugging what was removed. Applying the
+    # luminance ramp to every bright pixel instead made the phone's white app
+    # screen semi-transparent — the cover colour showed straight through it. The
+    # band keeps the anti-aliasing where the cut actually is.
+    band = reach.copy()
+    for _ in range(3):
+        grown = band.copy()
+        grown[1:, :] |= band[:-1, :]
+        grown[:-1, :] |= band[1:, :]
+        grown[:, 1:] |= band[:, :-1]
+        grown[:, :-1] |= band[:, 1:]
+        band = grown
+    band &= ~reach
+
+    lum = a.mean(axis=2)
+    soft = np.clip((light + 40 - lum) / (40 * feather), 0, 1)
+    alpha = np.where(reach, 0.0, np.where(band, soft, 1.0)) * 255
+
+    out = rgb.convert('RGBA')
+    out.putalpha(Image.fromarray(alpha.astype('uint8'), 'L'))
+    return out
+
+
+def _images_in(folder):
+    if not os.path.isdir(folder):
+        return []
+    return sorted(
+        os.path.join(folder, f) for f in os.listdir(folder)
+        if f.lower().rsplit('.', 1)[-1] in EXTS
+    )
+
+
+def _supplied_products():
+    """Real product photographs for this article, if any were uploaded.
+
+    Resolution order, most specific first:
+      1. assets/product-images/<slug>.<ext>        one image, this article only
+      2. assets/product-images/<slug>/             several images, this article
+      3. assets/product-images/<category-slug>/    a shared pool for the category
+
+    The category pool exists so a folder of photographs can be dropped in once and
+    used across a whole section. Which image an article gets is picked by hashing
+    the slug, so it is stable — re-running does not shuffle covers around — and
+    different articles in the same category get different products rather than all
+    landing on the first file.
+
+    A slug-named file always wins, so any article whose automatic pick is a poor
+    match can be corrected by dropping in one file named after it.
+    """
+    base = f'{ROOT}/assets/product-images'
+
+    for ext in EXTS:
+        cand = f'{base}/{slug}.{ext}'
+        if os.path.exists(cand):
+            return [cand]
+
+    own = _images_in(f'{base}/{slug}')
+    if own:
+        return own[:4]
+
+    # Category pool. Front matter carries the category KEY ('security'), but the
+    # obvious folder name is the URL SLUG ('security-and-cameras'), so both are
+    # tried — as is the one-letter shorthand 'hub-and-platforms', because that is
+    # what gets typed.
+    #
+    # NOTE: this is the third copy of the key-to-slug map in the repo, after
+    # lib/site.ts and scripts/build-search-index.mjs. Adding a category means
+    # editing all three.
+    KEY_TO_SLUG = {
+        'security': 'security-and-cameras', 'lighting': 'lighting',
+        'energy': 'energy-and-solar', 'entertainment': 'entertainment-and-audio',
+        'climate': 'climate-and-comfort', 'hubs-and-platforms': 'hubs-and-platforms',
+        'robot-vacuums': 'robot-vacuums', 'setup-guides': 'setup-guides',
+        'buying-guides': 'buying-guides',
+    }
+    cat_slug = KEY_TO_SLUG.get(category, category)
+    pool = []
+    for name in (category, cat_slug, cat_slug.replace('hubs-', 'hub-')):
+        pool = _images_in(f'{base}/{name}')
+        if pool:
+            break
+    if not pool:
+        return []
+    pick = int(hashlib.md5(slug.encode()).hexdigest(), 16) % len(pool)
+    return [pool[pick]]
+
+
+SUPPLIED = _supplied_products()
+
 raw_path = None
 for ext in ('jpg', 'jpeg', 'png', 'webp'):
     cand = f'{ROOT}/public/covers/raw/{slug}.{ext}'
     if os.path.exists(cand):
         raw_path = cand
         break
-if not raw_path:
-    sys.exit(f'No source image at {ROOT}/public/covers/raw/{slug}.[jpg|png|webp] — '
-             'run generate-cover.mjs or drop one in.')
+if not raw_path and not SUPPLIED:
+    sys.exit(f'No source image at {ROOT}/public/covers/raw/{slug}.[jpg|png|webp] '
+             f'and nothing in {ROOT}/assets/product-images/ — '
+             'run generate-cover.mjs or drop a product photo in.')
 
-src_img = Image.open(raw_path).convert('RGB')
+if SUPPLIED:
+    # ---- real product photographs -----------------------------------------
+    # Cut out, laid across the right of a canvas in the article's palette colour,
+    # vertically centred. Nothing is generated: a real photograph is accurate, is
+    # free to re-render, and cannot invent a US power socket on an Australian
+    # site — which the generated artwork did, three times running.
+    print(f'  using {len(SUPPLIED)} supplied product image(s) — no fal call')
+    img = Image.new('RGB', (W, H), bg)
+    cuts = [_cutout(Image.open(p)) for p in SUPPLIED]
 
-# Aspect-correct cover crop. A plain resize would distort anything whose aspect
-# does not already match the output.
-# Where the source is wider than the target, crop from the LEFT: these covers put
-# the product on the right, and the left is empty background we are covering with
-# the text scrim anyway.
-sw, sh = src_img.size
-target = W / H
-if abs(sw / sh - target) < 0.01:
-    img = src_img.resize((W, H), Image.LANCZOS)
-elif sw / sh > target:                     # too wide -> trim the left
-    new_w = int(sh * target)
-    img = src_img.crop((sw - new_w, 0, sw, sh)).resize((W, H), Image.LANCZOS)
-else:                                      # too tall -> trim top and bottom evenly
-    new_h = int(sw / target)
-    top = (sh - new_h) // 2
-    img = src_img.crop((0, top, sw, top + new_h)).resize((W, H), Image.LANCZOS)
+    # Lay the cut-outs in a row across the right zone, each scaled to fit, all
+    # vertically centred on the canvas mid-line. Order is the order on disk, so a
+    # deliberate filename prefix controls the arrangement.
+    ZONE_L, ZONE_R = int(W * 0.52), int(W * 0.97)
+    zone_w, zone_h = ZONE_R - ZONE_L, int(H * 0.80)
+    gap = int(W * 0.015)
+
+    each_w = (zone_w - gap * (len(cuts) - 1)) / len(cuts)
+    scaled = []
+    for c in cuts:
+        f = min(each_w / c.size[0], zone_h / c.size[1])
+        scaled.append(c.resize((max(1, int(c.size[0] * f)), max(1, int(c.size[1] * f))), Image.LANCZOS))
+
+    total_w = sum(s.size[0] for s in scaled) + gap * (len(scaled) - 1)
+    x = ZONE_L + (zone_w - total_w) // 2
+    for s in scaled:
+        img.paste(s, (x, (H - s.size[1]) // 2), s)
+        x += s.size[0] + gap
+
+    # The card thumbnail reuses the largest cut-out on the same colour, so the
+    # tile and the cover are visibly the same artwork.
+    SQ_BUILD = 800
+    sq_src = Image.new('RGB', (SQ_BUILD, SQ_BUILD), bg)
+    big = max(cuts, key=lambda c: c.size[0] * c.size[1])
+    f = min(SQ_BUILD * 0.76 / big.size[0], SQ_BUILD * 0.76 / big.size[1])
+    bigr = big.resize((max(1, int(big.size[0] * f)), max(1, int(big.size[1] * f))), Image.LANCZOS)
+    sq_src.paste(bigr, ((SQ_BUILD - bigr.size[0]) // 2, (SQ_BUILD - bigr.size[1]) // 2), bigr)
+    SUPPLIED_SQUARE = sq_src
+    SQUARE_SRC = False
+else:
+    SUPPLIED_SQUARE = None
+    src_img = Image.open(raw_path).convert('RGB')
+    sw, sh = src_img.size
+    target = W / H
+    SQUARE_SRC = abs(sw / sh - 1.0) < 0.02
+
+if SUPPLIED:
+    pass
+elif SQUARE_SRC:
+    # ---- square source: place it, do not crop to it ------------------------
+    # The generation is a centred product on a flat backdrop. Rather than asking
+    # the model to leave a text column free — which it would not do reliably —
+    # the square is pasted into the RIGHT of a canvas painted in the backdrop's
+    # own colour, vertically centred. The left column is then empty by
+    # construction, not by persuasion.
+    #
+    # 0.92 rather than full height leaves a margin, so anything the model let touch
+    # the square's own edge does not end up flush against the canvas edge.
+    side = int(H * 0.92)
+    sq = src_img.resize((side, side), Image.LANCZOS)
+
+    # Centre of the product group sits at 72% of the width — clear of the headline
+    # column, comfortably inside the right edge.
+    left = max(int(W * 0.45), min(W - side, int(W * 0.72) - side // 2))
+
+    # Lift the square. Despite being told there is no supporting surface, the model
+    # reliably stands the group on one near the bottom of the square, at roughly
+    # 0.72 of its height. Mapping that point to the canvas mid-line is what actually
+    # puts the product in the middle, which asking for it did not.
+    PRODUCT_AT = 0.72
+    top = int(H * 0.5 - side * PRODUCT_AT)
+
+    # Build the canvas by extending the square's OWN leftmost column across the
+    # full width, row by row, rather than flooding it with one sampled colour.
+    #
+    # A single median colour left a visible grey band down the left of any
+    # generation whose backdrop carries a vertical gradient — which most of them
+    # do. Matching per row means the canvas is the same colour as the square at
+    # every height, so the join cannot show whatever the model produced.
+    col = np.asarray(sq)[:, :4, :].mean(axis=1)            # side x 3, one per row
+    rows = np.clip(np.arange(H) - top, 0, side - 1)         # canvas row -> square row
+    img = Image.fromarray(
+        np.repeat(col[rows][:, None, :], W, axis=1).astype('uint8'), 'RGB'
+    )
+
+    # Feather the left and bottom edges so the square dissolves into that canvas.
+    alpha = np.full((side, side), 255.0)
+    fx, fy = int(side * 0.34), int(side * 0.22)
+    alpha[:, :fx] *= np.linspace(0, 1, fx)[None, :]
+    alpha[-fy:, :] *= np.linspace(1, 0, fy)[:, None]
+    img.paste(sq, (left, top), Image.fromarray(alpha.astype('uint8'), 'L'))
+else:
+    # ---- wide source: original behaviour, kept for pre-existing raws --------
+    # Aspect-correct cover crop. A plain resize would distort anything whose aspect
+    # does not already match the output. Where the source is wider than the target,
+    # crop from the LEFT: those covers put the product on the right.
+    if abs(sw / sh - target) < 0.01:
+        img = src_img.resize((W, H), Image.LANCZOS)
+    elif sw / sh > target:                     # too wide -> trim the left
+        new_w = int(sh * target)
+        img = src_img.crop((sw - new_w, 0, sw, sh)).resize((W, H), Image.LANCZOS)
+    else:                                      # too tall -> trim top and bottom evenly
+        new_h = int(sw / target)
+        top = (sh - new_h) // 2
+        img = src_img.crop((0, top, sw, top + new_h)).resize((W, H), Image.LANCZOS)
 
 # Sample the actual background from the empty left edge of the source and use that
 # for the scrim. Using the category colour instead would tint supplied artwork the
@@ -128,15 +355,19 @@ bg = sampled
 # beneath the solid part of the panel below, so the seam is never visible. The
 # 60px lost from the right edge is backdrop — the prompt requires objects to sit
 # well inside the frame.
-SHIFT = int(60 * SCALE)
+# Skipped when the layout was composed here rather than cropped from a wide
+# generation: those paths already place the subject exactly where it belongs, and
+# shifting would move it back off centre.
+SHIFT = 0 if (SUPPLIED or SQUARE_SRC) else int(60 * SCALE)
 shifted = Image.new('RGB', (W, H), bg)
 shifted.paste(img, (SHIFT, 0))
 # Fill the vacated strip by stretching the artwork's own leftmost column rather
 # than flooding it with one sampled colour. A flat fill only went unnoticed while
 # the scrim covered it; with the scrim off it read as a dark band down the edge,
 # because the artwork's backdrop is not perfectly uniform top to bottom.
-edge = img.crop((0, 0, 1, H)).resize((SHIFT, H), Image.NEAREST)
-shifted.paste(edge, (0, 0))
+if SHIFT:
+    edge = img.crop((0, 0, 1, H)).resize((SHIFT, H), Image.NEAREST)
+    shifted.paste(edge, (0, 0))
 img = shifted
 
 # Off by default: the headline sits straight on the artwork's own backdrop, with no
@@ -200,6 +431,30 @@ d = ImageDraw.Draw(img, 'RGBA')
 PAD = int(88 * SCALE)
 COL = int(W * 0.46) - PAD          # text column width, within the brief's left band
 
+# `coverTextFull: true` widens the headline out of the left band.
+#
+# NOT edge-to-edge, though. This 1240x700 cover is shown on the home page in slots
+# whose narrowest aspect is 282/200; object-fit: cover scales to fill the height
+# and crops the sides, which removes about 10% of the width at each edge. Type set
+# to W - PAD*2 starts at 109px and is therefore already inside the cut.
+#
+# So "full width" means the widest band that survives that crop, with margin to
+# spare: 76% of the canvas leaves 149px each side against a ~126px worst-case cut.
+# Set from the crop rather than chosen by eye, so it stays correct if the cover
+# dimensions change.
+#
+# The product sits centre-right and low in the frame, so a top-pinned headline
+# clears it. Combined with coverTextTop, which is what makes this usable.
+if fm('coverTextFull', 'false').lower() in ('true', 'yes', '1'):
+    COL = int(W * 0.76)
+
+# Horizontal placement. Left-aligned at PAD by default, matching the brief's left
+# band. `coverTextCentre: true` centres the column in the canvas AND centres each
+# line within it, which is what gives equal space left and right — both on the
+# full cover and, because the column is crop-safe, in the cropped home page slots.
+CENTRE = fm('coverTextCentre', 'false').lower() in ('true', 'yes', '1')
+ORIGIN = (W - COL) // 2 if CENTRE else PAD
+
 
 def font(weight, size):
     return ImageFont.truetype(f'{FONTS}/urbanist-{weight}.ttf', size)
@@ -241,22 +496,30 @@ block_h = (
     len(main_lines) * int(main_s * 1.08)
     + (MAIN_GAP + len(sub_lines) * int(sub_s * 1.24) if sub_lines else 0)
 )
-# Vertical placement. Pinned to the top by default: the headline reads first, and
-# the lower half of the frame stays clear for the product. `coverTextTop: false`
-# in front matter centres it instead.
-if fm('coverTextTop', 'true').lower() in ('false', 'no', '0'):
-    y = (H - block_h) // 2
-else:
+# Vertical placement. CENTRED by default, so the headline sits on the same optical
+# line as the product now that the product is itself centred on the right. Top
+# pinning made sense when the artwork stood on a floor plane at the bottom of the
+# frame; it does not any more. `coverTextTop: true` restores the old behaviour.
+if fm('coverTextTop', 'false').lower() in ('true', 'yes', '1'):
     y = int(64 * SCALE)
+else:
+    y = (H - block_h) // 2
+
+def line_x(line, f):
+    """Left edge for one line — centred within the column, or flush with it."""
+    if not CENTRE:
+        return ORIGIN
+    return ORIGIN + int((COL - d.textlength(line, font=f)) / 2)
+
 
 for line in main_lines:
-    d.text((PAD, y), line, font=main_f, fill=INK)
+    d.text((line_x(line, main_f), y), line, font=main_f, fill=INK)
     y += int(main_s * 1.08)
 
 if sub_lines:
     y += MAIN_GAP
     for line in sub_lines:
-        d.text((PAD, y), line, font=sub_f, fill=INK_SOFT)
+        d.text((line_x(line, sub_f), y), line, font=sub_f, fill=INK_SOFT)
         y += int(sub_s * 1.24)
 
 # ---- square variant -------------------------------------------------------
@@ -269,45 +532,43 @@ if sub_lines:
 SQ = 500
 
 
-def _subject_box(src):
-    """Bounding box of the subject, or None if it cannot be isolated."""
-    import numpy as np
+# Deterministic crop, not subject detection.
+#
+# This previously tried to isolate the product by thresholding distance from a
+# background sample, searching the right half only. It did not work: measured
+# across every render in public/covers/raw, that detector returned the box
+# x616-1231 for almost all of them — i.e. it was handing back the right half
+# rather than finding anything, so the crop centred at x~923 and sliced the main
+# device off at the left edge. Corner-sampled thresholds cannot separate these
+# subjects because the backdrop is a smooth gradient and the products are a
+# similar tone to it, especially on the pale palette entries.
+#
+# The brief already guarantees what the detector was trying to rediscover: the
+# product is composed right-of-centre, standing on a floor plane near the bottom.
+# Anchoring to that is predictable and cannot misfire.
+#
+# CX_FRAC 0.60 keeps the product group whole without pulling in the headline area
+# on the left. Bottom-aligning trims the empty upper wall, which is what made the
+# full-height crop look sparse.
+CX_FRAC, SIDE_FRAC = 0.60, 0.88
 
-    a = np.asarray(src).astype(int)
-    h, w, _ = a.shape
-    bg = a[:, : int(w * 0.06)].reshape(-1, 3).mean(0)
-    mask = np.abs(a - bg).mean(2) > 45
-    # Right half only: the brief puts every object there, and the floor plane spans
-    # the full width, which would otherwise drag the box out to the whole frame.
-    right = mask[:, w // 2 :]
-    cols = np.where(right.sum(0) > h * 0.04)[0]
-    rows = np.where(right.sum(1) > (w // 2) * 0.04)[0]
-    if len(cols) < 8 or len(rows) < 8:
-        return None
-    return (w // 2 + cols.min(), rows.min(), w // 2 + cols.max(), rows.max())
-
-
-shot = Image.open(raw_path).convert('RGB')
-sw, sh = shot.size
-box = _subject_box(shot)
-
-if box:
-    # Frame the subject on both axes. Cropping the full height instead — which is
-    # what this did first — left the product sitting low against a large empty
-    # wall, because these renders stand the object on a floor plane near the
-    # bottom of the frame.
-    x0, y0, x1, y1 = box
-    cx, cy = (x0 + x1) // 2, (y0 + y1) // 2
-    # 1.2 leaves a little air around the subject without letting it swim in
-    # empty backdrop; capped at 85% of the frame so it always crops in.
-    side = int(max(x1 - x0, y1 - y0) * 1.2)
-    side = max(int(sh * 0.42), min(int(sh * 0.85), side))
+if SUPPLIED_SQUARE is not None:
+    # Built alongside the cover from the same cut-outs — no source file to crop.
+    side = SUPPLIED_SQUARE.size[0]
+    square = SUPPLIED_SQUARE.resize((SQ, SQ), Image.LANCZOS)
 else:
-    cx, cy, side = int(sw * 0.70), sh // 2, sh
-
-left = max(0, min(sw - side, cx - side // 2))
-top = max(0, min(sh - side, cy - side // 2))
-square = shot.crop((left, top, left + side, top + side)).resize((SQ, SQ), Image.LANCZOS)
+    shot = Image.open(raw_path).convert('RGB')
+    shot_w, shot_h = shot.size
+    if SQUARE_SRC:
+        # The generation is already square and already centred on the product, so
+        # it IS the thumbnail. No crop, and nothing left to misframe.
+        side = shot_h
+        square = shot.resize((SQ, SQ), Image.LANCZOS)
+    else:
+        side = int(shot_h * SIDE_FRAC)
+        left = max(0, min(shot_w - side, int(shot_w * CX_FRAC) - side // 2))
+        top = shot_h - side
+        square = shot.crop((left, top, left + side, top + side)).resize((SQ, SQ), Image.LANCZOS)
 
 sq_dir = f'{ROOT}/public/covers/square'
 os.makedirs(sq_dir, exist_ok=True)

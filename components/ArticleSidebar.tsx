@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SectionHeading from '@/components/SectionHeading';
 import { articleHref, squareCoverFor, formatDate, type Article } from '@/lib/content';
 import { categories, site } from '@/lib/site';
 
@@ -11,12 +12,31 @@ import { categories, site } from '@/lib/site';
  * widget for this site: what we cover, how we test, and where to start.
  */
 
-function Widget({ title, children }: { title: string; children: React.ReactNode }) {
+/** Slug for the heading id, so the section can point aria-labelledby at it. */
+function widgetId(title: string) {
+  return `widget-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+}
+
+/**
+ * `href` renders the heading's "View all" link — same control the home page's
+ * compact headings use.
+ */
+function Widget({
+  title,
+  href,
+  children,
+}: {
+  title: string;
+  href?: string;
+  children: React.ReactNode;
+}) {
+  const id = widgetId(title);
   return (
-    <section className="rounded-lg border border-slate-200 p-5 dark:border-slate-700">
-      <h2 className="mb-4 border-b border-slate-200 pb-2 text-xs font-bold uppercase tracking-[0.14em] text-slate-900 dark:border-slate-700 dark:text-white">
-        {title}
-      </h2>
+    <section
+      aria-labelledby={id}
+      className="rounded-lg border border-slate-200 p-5 dark:border-slate-700"
+    >
+      <SectionHeading id={id} title={title} href={href} compact />
       {children}
     </section>
   );

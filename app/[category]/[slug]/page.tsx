@@ -229,7 +229,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
         <Disclosure />
 
         {article.keyTakeaway && (
-          <div className="mb-8 rounded-xl border-y-0 border-r-0 border-l-4 border-brand-500 bg-brand-50 p-5 dark:bg-card">
+          <div className="mb-8 rounded-xl border-0 bg-brand-50 p-5 dark:bg-card">
             <p className="text-sm font-bold uppercase tracking-wide text-brand-800 dark:text-brand-400">
               The short answer
             </p>

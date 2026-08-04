@@ -14,20 +14,28 @@ import path from 'node:path';
 
 const STORE = path.join(process.cwd(), 'scripts', 'cover-colours.json');
 
-/** Rotation supplied with the brief, in order. */
+/**
+ * Rotation supplied with the brief, in order.
+ *
+ * Unlike the previous set, which was uniformly dark, this one spans near-white to
+ * mid-tone. The headline ink is not fixed to white for that reason — compose-cover.py
+ * measures the rendered background and picks white or near-black by WCAG contrast,
+ * so 'Pale mint' and 'Light grey' get dark type automatically. Nothing here needs to
+ * be paired with an ink colour by hand.
+ *
+ * The supplied list contained '#a28d69' twice; it appears once here, since a repeat
+ * would simply make that colour twice as likely in the rotation.
+ */
 export const PALETTE = [
-  { name: 'Deep teal', hex: '#125E63' },
-  { name: 'Navy blue', hex: '#163A5F' },
-  { name: 'Burnt orange', hex: '#A94F24' },
-  { name: 'Forest green', hex: '#285943' },
-  { name: 'Muted purple', hex: '#624A7B' },
-  { name: 'Burgundy', hex: '#743746' },
-  { name: 'Slate blue', hex: '#465D75' },
-  { name: 'Dark turquoise', hex: '#176B72' },
-  { name: 'Warm mustard', hex: '#9A721F' },
-  { name: 'Deep indigo', hex: '#343C78' },
-  { name: 'Terracotta', hex: '#9B5141' },
-  { name: 'Olive green', hex: '#5B633A' },
+  { name: 'Pale mint', hex: '#E3EEE8' },
+  { name: 'Sky blue', hex: '#66B1CF' },
+  { name: 'Slate navy', hex: '#324157' },
+  { name: 'Mulberry', hex: '#96386A' },
+  { name: 'Royal blue', hex: '#40619D' },
+  { name: 'Warm sand', hex: '#A28D69' },
+  { name: 'Crimson', hex: '#B3314B' },
+  { name: 'Emerald', hex: '#29BB75' },
+  { name: 'Light grey', hex: '#DCDCDC' },
 ];
 
 function readStore() {
@@ -93,11 +101,32 @@ export function buildPrompt({ title, body, description, colour, previous }) {
   return [
     `Photorealistic premium editorial product photograph for a technology magazine.`,
     `Scene: ${subject}`,
-    `Background: a single flat solid ${colour.name.toLowerCase()} (${colour.hex}) studio backdrop, seamless, unlit, no gradient, no pattern, no room, no wall, no furniture.`,
-    `Composition: 16:9 wide landscape. The entire LEFT HALF is empty backdrop with nothing in it. All objects sit in the RIGHT HALF, filling most of that half, large and clearly readable at thumbnail size, well inside the frame, never touching an edge. Maximum five objects.`,
+    // "no floor" and "no horizon" are explicit because the renders kept producing a
+    // floor plane near the bottom of the frame, which stood every object low and
+    // left a large empty band above it. That is also what made the square thumbnail
+    // crop awkward.
+    `Background: a single flat solid ${colour.name.toLowerCase()} (${colour.hex}) studio backdrop, seamless, unlit, no gradient, no pattern, no room, no wall, no furniture, no floor, no table, no visible surface, no horizon line, no corner where two planes meet.`,
+    // The left column is where the headline is typeset afterwards, so it has to
+    // come back genuinely empty. "Left half empty" alone was not enough — objects
+    // crept over the centre line and, more often, their shadows did, which puts
+    // texture directly behind the sub-heading. Stated as an explicit fraction, and
+    // shadows and reflections are named because they are not "objects".
+    // Square, centred — NOT a wide frame with an empty left side.
+    //
+    // Asking for "left half empty, objects right, vertically centred" failed three
+    // times running: objects crossed the centre line, shadows crossed it, and the
+    // group stayed pinned to a floor plane at the bottom. The model does not follow
+    // spatial constraints reliably, so the layout is no longer requested from it.
+    // compose-cover.py now places this square on the right of the canvas itself,
+    // which makes the position guaranteed rather than hoped for.
+    `Composition: square 1:1 format. One group of objects centred in the frame, filling roughly 70% of the width and height, with generous empty backdrop margin on all four sides. Nothing touches an edge. Objects float against the seamless backdrop with no supporting surface beneath them. Maximum five objects.`,
     `Lighting: soft commercial studio lighting, crisp edges, subtle natural shadow, restrained highlights, strong separation from the background.`,
     `Devices are modern, clean and unbranded.`,
-    `NO TEXT. No words, no letters, no numbers, no labels, no captions, no signage, no logos, no packaging, no screens showing writing.`,
+    // The headline and sub-heading are typeset locally by scripts/compose-cover.py,
+    // so the generation must contribute no lettering of any kind. Models render text
+    // badly — a misspelled word baked into a cover is permanent — and any generated
+    // wording would also collide with the real headline.
+    `NO TEXT ANYWHERE IN THE IMAGE. No words, no letters, no numbers, no digits, no labels, no captions, no signage, no logos, no branding, no packaging, no watermarks, no UI text, no screens showing writing or numerals.`,
     `No people, no hands, no holograms, no glowing effects, no lightning bolts, no money.`,
   ].join(' ');
 }
@@ -110,18 +139,29 @@ function describeSubject(title, text) {
   // Title first, body only as a fallback. Matching both together let an incidental
   // body mention hijack the scene — the protocol comparison article mentions smart
   // plugs in passing and was rendered as a smart-plug photo.
-  const pick = (t) => matchScene(t);
-  return pick(title.toLowerCase()) ?? pick(text.toLowerCase())
+  //
+  // The fallback path passes fromBody, because the title-first rule alone was not
+  // enough: an article whose title matches NOTHING still falls through to the body,
+  // where one passing mention picks the scene. "Smart Home Devices for Older
+  // Australians" was rendered as a wall socket for exactly that reason — the words
+  // "smart plug" appear once, in a list.
+  return matchScene(title.toLowerCase())
+    ?? matchScene(text.toLowerCase(), { fromBody: true })
     ?? 'a small group of three modern white smart home devices arranged as a still life.';
 }
 
-function matchScene(t) {
-  const au = 'an Australian wall socket with two angled flat pins above one vertical earth pin';
-
+function matchScene(t, { fromBody = false } = {}) {
   if (/zigbee|z-wave|thread|matter|protocol|mesh|hub|platform/.test(t))
     return 'one small white smart home hub in the centre foreground, large and prominent, with three tiny white sensor pucks placed around it at varying distances, very thin faint connecting lines arcing between them.';
-  if (/smart plug|energy monitor|tariff|electricity bill|power bill/.test(t))
-    return `a white smart plug fitted to ${au}, beside a smartphone lying flat showing a simple line graph with no words on it.`;
+  // No plug and no socket, in any orientation. Two attempts failed: specifying the
+  // AS/NZS 3112 pin layout produced a US plug, and hiding the pins produced a plug
+  // whose FACE was a US pass-through outlet. Image models do not render
+  // region-correct socket geometry, and foreign electrical hardware on a site whose
+  // whole differentiator is Australian localisation is worse than no hardware.
+  // Energy articles get a neutral monitor puck instead, which carries no country.
+  // Scene is also title-only: a passing body mention must not select it.
+  if (!fromBody && /smart plug|energy monitor|tariff|electricity bill|power bill/.test(t))
+    return 'a small plain white cylindrical energy monitor puck standing upright, beside a smartphone lying flat showing a simple line graph with no words on it. No plugs, no sockets, no power outlets, no pins, no cables.';
   if (/smart lock|deadbolt|keypad/.test(t))
     return 'a modern matte smart deadbolt lock mounted on a plain dark timber door panel, keypad face visible.';
   if (/doorbell/.test(t))

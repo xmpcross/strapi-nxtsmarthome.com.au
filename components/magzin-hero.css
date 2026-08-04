@@ -1,0 +1,452 @@
+/* ==========================================================================
+   magzin-hero.css
+   Home page hero — lead article beside a 2x2 tile grid
+   --------------------------------------------------------------------------
+   Scoped entirely to .mzh, and imported by components/MagzinHero.tsx so the live
+   home page and the design preview render from one source rather than two copies.
+
+   Written from the reference rather than lifted from it: the geometry was
+   measured off the rendered demo and rebuilt in this site's own tokens, so it
+   inherits the theme, the type stack and the pocket technique already used by
+   .magzin-style-card.
+
+   Started life as a dark-only study. Now that it carries the live home page the
+   tokens are theme-aware: light values below, dark ones under :root.dark, exactly
+   as the rest of the site works. The pocket is PAINTED, so --surface must equal
+   whatever actually sits behind the cards in each theme, or the bite out of the
+   artwork shows up as a coloured disc.
+   ========================================================================== */
+
+/* Configuration
+   -------------------------------------------------------------------------- */
+.mzh {
+  /* Light theme. --surface must equal the body background in app/globals.css,
+     because the corner pockets are painted in it. */
+  --surface: #f7f8f9;
+  --card: #ffffff;
+  --card-edge: #e5e7eb;
+
+  --ink: #0e0e0f;
+  --ink-muted: #64748b;
+
+  --radius: 14px;
+
+  /* Same derived relationship the live post cards use: the pocket is the button
+     plus an equal gap on every side, so the arrow is centred by construction. */
+  --arrow-size: 48px;
+  --arrow-gap: 10px;
+  --notch-size: calc(var(--arrow-size) + (var(--arrow-gap) * 2));
+
+  /* How far the button centre sits beyond the corner inset. The button breaks
+     the frame by (overhang - gap), so these two move together. */
+  --arrow-overhang: 17px;
+
+  --arrow-bg: #ffffff;
+  --arrow-border: #d8dadd;
+  --arrow-ink: #111111;
+  --arrow-bg-hover: #111111;
+  --arrow-ink-hover: #ffffff;
+  --focus-ring: #111111;
+
+  color: var(--ink);
+}
+
+/*
+ * Dark theme. Mirrors the tokens .magzin-style-card already uses, so the hero and
+ * the post cards below it stay the same family rather than two near-misses.
+ */
+:root.dark .mzh {
+  --surface: #151616;
+  --card: #222324;
+  --card-edge: #313131;
+
+  --ink: #ffffff;
+  --ink-muted: rgb(255 255 255 / 0.55);
+
+  --arrow-bg: #222324;
+  --arrow-border: #313131;
+  --arrow-ink: #ffffff;
+  --arrow-bg-hover: #ffffff;
+  --arrow-ink-hover: #111111;
+  --focus-ring: #ffffff;
+}
+
+/*
+ * Standalone framing, for the design-preview page only. The live home page sits
+ * inside the site's own max-width container and supplies its own padding, so the
+ * hero must not add a second background band or a second set of gutters.
+ */
+.mzh--standalone {
+  background: var(--surface);
+  padding: 40px 24px 64px;
+}
+
+/* Layout
+   --------------------------------------------------------------------------
+   Lead a little narrower than the tile block, matching the reference's balance. */
+.mzh__grid {
+  display: grid;
+  gap: 22px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .mzh__grid {
+    grid-template-columns: minmax(0, 47fr) minmax(0, 53fr);
+  }
+}
+
+.mzh__tiles {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 640px) {
+  .mzh__tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Equal-height columns
+   --------------------------------------------------------------------------
+   Grid already stretches both columns to the taller one, but that only sizes the
+   BOX — the content inside kept its own height and the shorter column ended
+   early, leaving a gap under it.
+
+   So the artwork absorbs the difference: the media boxes drop their fixed aspect
+   ratio at this breakpoint and grow into whatever space is left, with a floor so
+   they can never collapse to nothing. The two columns then finish level whatever
+   the headline lengths do, and nothing has to be measured by hand. */
+@media (min-width: 1024px) {
+  .mzh__grid {
+    align-items: stretch;
+  }
+
+  .mzh__lead,
+  .mzh__tiles,
+  .mzh__tile {
+    height: 100%;
+  }
+
+  .mzh__tiles {
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .mzh__lead .mzh__media,
+  .mzh__tile .mzh__media {
+    flex: 1 1 auto;
+    aspect-ratio: auto;
+    min-height: 150px;
+  }
+}
+
+/* Shared media block
+   -------------------------------------------------------------------------- */
+.mzh__media {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius);
+  isolation: isolate;
+}
+
+.mzh__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 450ms ease;
+}
+
+.mzh__card-link:hover .mzh__img,
+.mzh__tile:hover .mzh__img {
+  transform: scale(1.04);
+}
+
+/* Category pill, bottom-left of the artwork
+   -------------------------------------------------------------------------- */
+.mzh__badge {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.62);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Corner pocket
+   --------------------------------------------------------------------------
+   A circle concentric with the arrow, painted in the surface colour, so the
+   artwork curves around the button on a single arc.
+
+   Diameter is --notch-size, derived as the button plus an equal gap on every
+   side, which makes the ring of surface around the button exactly --arrow-gap
+   wide the whole way round.
+
+   This matches the live post cards. An earlier version here used a square pocket
+   with two radial-gradient inverse curves; that shape is fine in itself, but the
+   two surfaces should not disagree. */
+.mzh__notch {
+  position: absolute;
+  /* Pushed out by the overhang so the pocket stays concentric with the button. */
+  right: calc(-1 * var(--arrow-overhang));
+  bottom: calc(-1 * var(--arrow-overhang));
+  z-index: 5;
+  width: var(--notch-size);
+  height: var(--notch-size);
+  border-radius: 50%;
+  background: var(--surface);
+  pointer-events: none;
+}
+
+/* Circular arrow, centred in the pocket
+   -------------------------------------------------------------------------- */
+.mzh__arrow {
+  position: absolute;
+  /* Centred in the pocket, then pushed out by the same overhang, so the ring of
+     surface around the button stays --arrow-gap wide the whole way round. */
+  right: calc((var(--notch-size) - var(--arrow-size)) / 2 - var(--arrow-overhang));
+  bottom: calc((var(--notch-size) - var(--arrow-size)) / 2 - var(--arrow-overhang));
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: var(--arrow-bg);
+  border: 1px solid var(--arrow-border);
+  color: var(--arrow-ink);
+  text-decoration: none;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.mzh__arrow svg {
+  width: 19px;
+  height: 19px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 200ms ease;
+}
+
+.mzh__arrow:hover,
+.mzh__arrow:focus-visible {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #111111;
+}
+
+.mzh__arrow:hover svg,
+.mzh__arrow:focus-visible svg {
+  transform: translateX(2px);
+}
+
+.mzh__arrow:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Lead
+   -------------------------------------------------------------------------- */
+.mzh__lead {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mzh__lead .mzh__media {
+  aspect-ratio: 16 / 11;
+}
+
+.mzh__lead-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: var(--radius);
+  padding: 30px 32px 34px;
+}
+
+.mzh__lead-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.mzh__lead-title {
+  margin: 0;
+  font-size: clamp(21px, 1.7vw, 27px);
+  font-weight: 700;
+  line-height: 1.24;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.mzh__lead-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mzh__lead-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.mzh__excerpt {
+  margin: 16px 0 0;
+  color: var(--ink-muted);
+  font-size: 15px;
+  line-height: 1.62;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Byline row */
+.mzh__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  /* Clear of the pocket, so the row never runs under the arrow. */
+  padding-right: calc(var(--notch-size) - 12px);
+}
+
+.mzh__byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font-size: 14px;
+}
+
+.mzh__avatar {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: theme('colors.brand.600', #5955d1);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.mzh__author {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.mzh__dot {
+  color: #4a4b50;
+}
+
+.mzh__date,
+.mzh__readtime {
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.mzh__readtime {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.mzh__readtime svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+/* Bookmark sits top-right of the card, as in the reference. */
+.mzh__save {
+  flex-shrink: 0;
+}
+
+/* Tiles
+   -------------------------------------------------------------------------- */
+.mzh__tile {
+  display: flex;
+  flex-direction: column;
+}
+
+.mzh__tile .mzh__media {
+  aspect-ratio: 282 / 200;
+  /* Must not clip, or the overhanging button is cut off at the corner. The link
+     inside takes over the rounding and the clipping instead. */
+  overflow: visible;
+}
+
+.mzh__tile .mzh__card-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.mzh__tile-title {
+  /* Room for the overhang, which drops the button about 7px below the image. */
+  margin: 24px 0 0;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.mzh__tile-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mzh__tile-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .mzh__img,
+  .mzh__arrow,
+  .mzh__arrow svg {
+    transition: none;
+  }
+
+  .mzh__card-link:hover .mzh__img,
+  .mzh__tile:hover .mzh__img,
+  .mzh__arrow:hover svg {
+    transform: none;
+  }
+}

@@ -4,6 +4,8 @@ description: 'Some smart home devices keep working during an outage and some bec
 category: hubs-and-platforms
 type: explainer
 date: '2026-08-03'
+coverMain: 'What works without internet?'
+coverSub: 'Smart home devices when the connection drops'
 keyTakeaway: 'It depends entirely on whether the device thinks locally or asks a server. Zigbee, Z-Wave and Thread devices paired to a hub keep working with no internet at all. Most Wi-Fi devices that talk to a manufacturer cloud stop responding, including to their own wall switch in some cases.'
 tags:
   - Local control

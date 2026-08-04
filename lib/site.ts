@@ -151,7 +151,6 @@ export function getCategoryByKey(key: string): Category | undefined {
 
 /** Links shown directly in the header bar. */
 export const navLinks = [
-  { href: '/articles/', label: 'All Articles' },
   { href: '/categories/hubs-and-platforms/', label: 'Hubs & Platforms' },
   { href: '/categories/security-and-cameras/', label: 'Security' },
   { href: '/categories/setup-guides/', label: 'Setup Guides' },

@@ -85,9 +85,15 @@ if (fs.existsSync(rawPath) && !FORCE) {
   const res = await fal.subscribe(MODEL, {
     input: {
       prompt,
-      // 1240x704 — both multiples of 8, which the model requires. 704 rather
-      // than 700 for that reason; compose-cover.py trims it to exactly 1240x700.
-      image_size: { width: 1240, height: 704 },
+      // Square, not 16:9. The wide frame was generated so the model could leave the
+      // left half empty for the headline; it would not do that reliably — objects
+      // and their shadows kept crossing into the text column. So the product is now
+      // generated square and compose-cover.py places it on the right of the wide
+      // canvas itself, which cannot drift.
+      //
+      // 704 is a multiple of 8, which the model requires. The square doubles as the
+      // card thumbnail, so there is no crop heuristic left to misframe either.
+      image_size: { width: 704, height: 704 },
       num_images: 1,
       enable_safety_checker: true,
       num_inference_steps: 32,

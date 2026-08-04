@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
+// After globals.css: plain CSS, unlayered, so it settles the cascade for the
+// hero's secondary tiles without needing !important.
+import './magzin-post-cards.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';

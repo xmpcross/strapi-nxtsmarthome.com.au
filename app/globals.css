@@ -236,13 +236,13 @@
     letter-spacing: -0.01em;
     text-transform: none;
   }
-  .prose h1 { font-size: var(--h1-size); }
+.prose h1 { font-size: var(--h1-size); font-weight: 700; }
   /* Single-post body headings. Spacing left to the typography plugin defaults. */
-  .prose h2 { font-size: 1.6rem; }
-  .prose h3 { font-size: 1.1rem; }
-  .prose h4 { font-size: var(--h4-size); }
-  .prose h5 { font-size: var(--h5-size); }
-  .prose h6 { font-size: var(--h6-size); }
+  .prose h2 { font-size: 1.4rem; font-weight: 700; }
+  .prose h3 { font-size: 1rem; font-weight: 700; }
+  .prose h4 { font-size: var(--h4-size); font-weight: 700; }
+  .prose h5 { font-size: var(--h5-size); font-weight: 700; }
+  .prose h6 { font-size: var(--h6-size); font-weight: 700; }
 }
 
 @layer components {
@@ -360,13 +360,13 @@
    * properties change.
    */
   .card-arrow,
-  .image-arrow {
+  .image-arrow,
+  .inline-arrow {
     /* Same surface, ring and ink as the header tiles' arrow, so every detached
        CTA on the page reads as one control rather than three near-misses. */
     background: var(--pc-arrow-bg);
     border: 1px solid var(--pc-arrow-border);
     color: var(--pc-arrow-ink);
-    position: absolute;
     display: grid;
     place-items: center;
     width: var(--arrow-size);
@@ -377,6 +377,19 @@
       background-color 200ms ease,
       color 200ms ease,
       border-color 200ms ease;
+  }
+
+  /* The detached pair hang in a mask cut-out, so they are positioned against the
+     card or image that owns them. */
+  .card-arrow,
+  .image-arrow {
+    position: absolute;
+  }
+
+  /* Same control in normal flow, for a card with no cut-out to hang in. It sits
+     in a flex row, so it must not be squeezed below its touch target. */
+  .inline-arrow {
+    flex: none;
   }
 
   .card-arrow {
@@ -390,7 +403,8 @@
   }
 
   .card-arrow svg,
-  .image-arrow svg {
+  .image-arrow svg,
+  .inline-arrow svg {
     width: var(--arrow-icon);
     height: var(--arrow-icon);
   }
@@ -398,27 +412,33 @@
   /* Nudge up and to the right, as if following the arrow. */
   .group:hover .card-arrow,
   .group:hover .image-arrow,
+  .group:hover .inline-arrow,
   .card-arrow:hover,
-  .image-arrow:hover {
+  .image-arrow:hover,
+  .inline-arrow:hover {
     transform: translate(3px, -3px) rotate(-8deg);
   }
 
   .card-arrow:focus-visible,
-  .image-arrow:focus-visible {
+  .image-arrow:focus-visible,
+  .inline-arrow:focus-visible {
     outline: 2px solid theme('colors.brand.600');
     outline-offset: 3px;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .card-arrow,
-    .image-arrow {
+    .image-arrow,
+    .inline-arrow {
       transition: background-color 200ms ease, color 200ms ease;
     }
 
     .group:hover .card-arrow,
     .group:hover .image-arrow,
+    .group:hover .inline-arrow,
     .card-arrow:hover,
-    .image-arrow:hover {
+    .image-arrow:hover,
+    .inline-arrow:hover {
       transform: none;
     }
   }
@@ -740,28 +760,17 @@
 }
 
 /*
- * Header right-column post card
- * =============================
- * Portrait cover with a concave bottom-right corner, a detached circular arrow
- * sitting in that cut-out, a category pill over the bottom-left, and the headline
- * beneath the image.
+ * Shared surface tokens
+ * =====================
+ * --page-bg backs .category-block; the --pc-arrow-* trio is the shared skin for
+ * the detached circular CTAs (.card-arrow / .image-arrow / .inline-arrow).
  *
- * The cut-out is a radial-gradient mask, so it genuinely removes pixels and the
- * page shows through — no pseudo-element painted in a background colour that would
- * have to be kept in sync with whatever the card happens to sit on. --page-bg is
- * still declared so the section and any fallback share one source of truth.
+ * The hero's right-column tile styles that used to live here now live in
+ * app/magzin-post-cards.css, scoped to .magzin-style-card.
  */
 @layer components {
   :root {
     --page-bg: #f5f6f7;
-    --pc-radius: 1rem; /* 16px */
-    /* Floor for the cover height. Applies where the tile is free to size itself;
-       zeroed at desktop below so the two hero columns can be forced level. */
-    --pc-image-h: 15rem; /* 240px */
-    --pc-arrow: 3rem; /* 48px */
-    --pc-arrow-right: 5px;
-    --pc-arrow-bottom: 4px;
-    --pc-notch-r: 1.875rem; /* 30px -> 60px across */
     --pc-arrow-bg: #ffffff;
     --pc-arrow-border: #d9d9d9;
     --pc-arrow-ink: #111111;
@@ -773,159 +782,6 @@
     --pc-arrow-border: theme('colors.card-edge');
     --pc-arrow-ink: #ffffff;
   }
-
-  /*
-   * At desktop the hero's right column is a two-row grid stretched to the left
-   * column's height, so the covers must be free to shrink as well as grow. A fixed
-   * floor here would push the right column taller than the left whenever the
-   * feature beside it is short.
-   */
-  @media (min-width: 1024px) {
-    :root {
-      --pc-image-h: 0px;
-    }
-  }
-
-  /* Below 640px the button holds at 44px, the minimum comfortable touch target. */
-  @media (max-width: 640px) {
-    :root {
-      --pc-arrow: 2.75rem;
-      --pc-notch-r: 1.6875rem;
-    }
-  }
-
-  .post-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .post-card__image-wrap {
-    position: relative;
-    /* Flexes so the column can be forced level with the feature beside it, but
-       never shorter than the reference's 240px. */
-    flex: 1 1 auto;
-    min-height: var(--pc-image-h);
-  }
-
-  .post-card__image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: var(--pc-image-h);
-    object-fit: cover;
-    object-position: center;
-    border-radius: var(--pc-radius);
-    /* Centre of the cut-out lines up with the centre of the button:
-       right/bottom inset + half the button. */
-    --pc-cx: calc(var(--pc-arrow-right) + var(--pc-arrow) / 2);
-    --pc-cy: calc(var(--pc-arrow-bottom) + var(--pc-arrow) / 2);
-    -webkit-mask-image: radial-gradient(
-      circle at calc(100% - var(--pc-cx)) calc(100% - var(--pc-cy)),
-      transparent 0 var(--pc-notch-r),
-      #000 calc(var(--pc-notch-r) + 0.5px)
-    );
-    mask-image: radial-gradient(
-      circle at calc(100% - var(--pc-cx)) calc(100% - var(--pc-cy)),
-      transparent 0 var(--pc-notch-r),
-      #000 calc(var(--pc-notch-r) + 0.5px)
-    );
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    transition: transform 500ms ease;
-  }
-
-  .post-card:hover .post-card__image {
-    transform: scale(1.03);
-  }
-
-  .post-card__category {
-    position: absolute;
-    left: 15px;
-    /* Top-left: it sits clear of the bottom-right cut-out and the arrow, so the
-       badge can never collide with the CTA on a narrow card. */
-    top: 14px;
-    z-index: 2;
-    padding: 9px 15px;
-    border-radius: 999px;
-    background: #ffffff;
-    color: #111111;
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 1;
-    pointer-events: none;
-  }
-
-  .post-card__arrow {
-    position: absolute;
-    right: var(--pc-arrow-right);
-    bottom: var(--pc-arrow-bottom);
-    z-index: 3;
-    display: grid;
-    place-items: center;
-    width: var(--pc-arrow);
-    height: var(--pc-arrow);
-    border-radius: 50%;
-    background: var(--pc-arrow-bg);
-    border: 1px solid var(--pc-arrow-border);
-    color: var(--pc-arrow-ink);
-    transition:
-      transform 200ms ease,
-      background-color 200ms ease,
-      color 200ms ease,
-      border-color 200ms ease;
-  }
-
-  .post-card__arrow svg {
-    width: 21px;
-    height: 21px;
-  }
-
-  .post-card:hover .post-card__arrow,
-  .post-card__arrow:hover {
-    transform: translateX(2px) rotate(-20deg);
-    background: #111111;
-    border-color: #111111;
-    color: #ffffff;
-  }
-
-  .post-card__arrow:focus-visible {
-    outline: 2px solid theme('colors.brand.600');
-    outline-offset: 3px;
-  }
-
-  .post-card__title {
-    margin-top: 24px;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.12;
-    text-align: left;
-    color: theme('colors.slate.900');
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-  }
-
-  :root.dark .post-card__title {
-    color: #ffffff;
-  }
-
-  .post-card__title a:hover {
-    color: theme('colors.brand.600');
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .post-card__image,
-    .post-card__arrow {
-      transition: background-color 200ms ease, color 200ms ease;
-    }
-    .post-card:hover .post-card__image,
-    .post-card:hover .post-card__arrow,
-    .post-card__arrow:hover {
-      transform: none;
-    }
-  }
 }
 
 @layer components {
@@ -934,16 +790,386 @@
    * group. The cards inside keep their own surface; this is the container that
    * makes the two halves read as a single section.
    */
-  .category-block {
-    padding: var(--post-grid-gap);
-    border: 1px solid var(--post-card-border);
-    border-radius: calc(var(--post-card-radius) + 0.25rem);
-    background: var(--page-bg);
+.category-block {
+    padding: 0;
+    border: 0;
+    background: transparent;
   }
 
   @media (max-width: 699px) {
     .category-block {
-      padding: 0.875rem;
+      padding: 0;
     }
   }
+}
+
+
+
+.card-corner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 48px;
+  height: 48px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.card-corner .arrow-box {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  pointer-events: auto;
+  transition: all 0.2s ease;
+}
+
+.dark .card-corner .arrow-box,
+:root.dark .card-corner .arrow-box {
+  background: #334155;
+  border-color: #475569;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-corner .arrow-box:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.dark .card-corner .arrow-box:hover,
+:root.dark .card-corner .arrow-box:hover {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: #ffffff;
+}
+
+.card-corner .curve-one, .card-corner .curve-two { position: absolute; width: 20px; height: 20px; pointer-events: none; border-bottom-right-radius: 20px; box-shadow: none; }
+
+.dark .card-corner .curve-one, .dark .card-corner .curve-two { box-shadow: none; }
+
+.card-corner .curve-one {
+  right: 0;
+  top: -20px;
+}
+
+.card-corner .curve-two {
+  left: -20px;
+  bottom: 0;
+}
+
+
+.buying-guides-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 24px 24px 64px 24px;
+
+  /* Explicit page surface color variables for notch shadow clipping */
+  --page-surface: #f8fafc;
+}
+
+:root.dark .buying-guides-card,
+.dark .buying-guides-card {
+  background: #1e2025;
+  border-color: #2d3139;
+  --page-surface: #0f172a;
+}
+
+.buying-guides-card .corner-wrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 52px;
+  height: 52px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.buying-guides-card .corner-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  pointer-events: auto;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+:root.dark .buying-guides-card .corner-arrow,
+.dark .buying-guides-card .corner-arrow {
+  background: #2a2e37;
+  border-color: #383e4a;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.buying-guides-card .corner-arrow:hover {
+  background: #0f172a;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+:root.dark .buying-guides-card .corner-arrow:hover,
+.dark .buying-guides-card .corner-arrow:hover {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.buying-guides-card .curve-top,
+.buying-guides-card .curve-left {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  border-bottom-right-radius: 20px;
+  box-shadow: 8px 8px 0 8px var(--page-surface);
+}
+
+.buying-guides-card .curve-top {
+  right: 0;
+  top: -20px;
+}
+
+.buying-guides-card .curve-left {
+  left: -20px;
+  bottom: 0;
+}
+
+
+/* Floating Circular Arrow Button in the Cut-out Notch */
+.buying-guides-section .buying-guides-card .buying-guides-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--action-size);
+  height: var(--action-size);
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 20;
+  transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease;
+}
+
+:root.dark .buying-guides-section .buying-guides-card .buying-guides-arrow,
+.dark .buying-guides-section .buying-guides-card .buying-guides-arrow {
+  background: #2a2e37;
+  border-color: #383e4a;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.buying-guides-section .buying-guides-card .buying-guides-arrow:hover {
+  background: #0f172a;
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+:root.dark .buying-guides-section .buying-guides-card .buying-guides-arrow:hover,
+.dark .buying-guides-section .buying-guides-card .buying-guides-arrow:hover {
+  background: #ffffff;
+  color: #0f172a;
+  transform: translateX(3px);
+}
+
+.buying-guides-section .buying-guides-card .buying-guides-arrow:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+/* Rounded Cut-out Notch Container */
+.buying-guides-section .buying-guides-card .buying-guides-notch {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--notch-size);
+  height: var(--notch-size);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Concave Curves */
+.buying-guides-section .buying-guides-card .buying-guides-notch .curve-top,
+.buying-guides-section .buying-guides-card .buying-guides-notch .curve-left {
+  position: absolute;
+  width: var(--notch-radius);
+  height: var(--notch-radius);
+  pointer-events: none;
+  border-bottom-right-radius: var(--notch-radius);
+  box-shadow: 8px 8px 0 8px var(--page-surface);
+}
+
+.buying-guides-section .buying-guides-card .buying-guides-notch .curve-top {
+  right: 0;
+  top: -20px;
+}
+
+.buying-guides-section .buying-guides-card .buying-guides-notch .curve-left {
+  left: -20px;
+  bottom: 0;
+}
+
+/* Circular Arrow Button */
+.buying-guides-section .buying-guides-card .buying-guides-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--action-size);
+  height: var(--action-size);
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease;
+}
+
+:root.dark .buying-guides-section .buying-guides-card .buying-guides-arrow,
+.dark .buying-guides-section .buying-guides-card .buying-guides-arrow {
+  background: #2a2e37;
+  border-color: #383e4a;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.buying-guides-section .buying-guides-card .buying-guides-arrow:hover {
+  background: #0f172a;
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+:root.dark .buying-guides-section .buying-guides-card .buying-guides-arrow:hover,
+.dark .buying-guides-section .buying-guides-card .buying-guides-arrow:hover {
+  background: #ffffff;
+  color: #0f172a;
+  transform: translateX(3px);
+}
+
+.buying-guides-section .buying-guides-card .buying-guides-arrow:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .buying-guides-section .buying-guides-card {
+    --action-size: 42px;
+    --notch-size: 58px;
+    padding-bottom: 64px;
+  }
+}
+
+/* Staff Picks card — rounded bottom-right arrow notch */
+.staff-picks-section .staff-picks-card {
+  --card-radius: 20px;
+  --action-size: 48px;
+  --notch-size: 64px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--card-radius);
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 24px 24px 72px 24px;
+  overflow: visible;
+
+  /* Radial gradient mask cutting out bottom-right corner */
+  -webkit-mask-image: radial-gradient(circle 32px at 100% 100%, transparent 32px, #000 32.5px);
+  mask-image: radial-gradient(circle 32px at 100% 100%, transparent 32px, #000 32.5px);
+}
+
+:root.dark .staff-picks-section .staff-picks-card,
+.dark .staff-picks-section .staff-picks-card {
+  background: #1e2025;
+  border-color: #2d3139;
+}
+
+/* Floating Circular Arrow Button */
+.staff-picks-section .staff-picks-card .staff-picks-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--action-size);
+  height: var(--action-size);
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 20;
+  transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease;
+}
+
+:root.dark .staff-picks-section .staff-picks-card .staff-picks-arrow,
+.dark .staff-picks-section .staff-picks-card .staff-picks-arrow {
+  background: #2a2e37;
+  border-color: #383e4a;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.staff-picks-section .staff-picks-card .staff-picks-arrow:hover {
+  background: #0f172a;
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+:root.dark .staff-picks-section .staff-picks-card .staff-picks-arrow:hover,
+.dark .staff-picks-section .staff-picks-card .staff-picks-arrow:hover {
+  background: #ffffff;
+  color: #0f172a;
+  transform: translateX(3px);
+}
+
+/* Article inline image height setting for renter smart home guide */
+.prose img[src*="renter-smart-home-devices-no-drilling-inline"] {
+  height: 450px !important;
+  max-height: 450px !important;
+  object-fit: cover !important;
+  width: 100% !important;
+  border-radius: 16px !important;
+}
+
+.prose img[src*="overseas-smart-home-devices-australia-inline"],
+.prose img[src*="second-hand-smart-home-devices-australia-inline"] {
+  height: 450px !important;
+  max-height: 450px !important;
+  object-fit: cover !important;
+  width: 100% !important;
+  border-radius: 16px !important;
 }

@@ -1,11 +1,14 @@
 {
   "order": [
-    "Navy blue",
     "Burnt orange",
     "Forest green",
     "Muted purple",
     "Burgundy",
-    "Deep teal"
+    "Deep teal",
+    "Navy blue",
+    "Pale mint",
+    "Sky blue",
+    "Slate navy"
   ],
   "bySlug": {
     "zigbee-vs-zwave-vs-thread-vs-wifi": "Deep teal",
@@ -26,6 +29,10 @@
     "what-is-matter-smart-home-australia": "Forest green",
     "where-to-buy-smart-home-australia": "Muted purple",
     "overseas-smart-home-devices-australia": "Burgundy",
-    "renter-smart-home-devices-no-drilling": "Deep teal"
+    "renter-smart-home-devices-no-drilling": "Deep teal",
+    "second-hand-smart-home-devices-australia": "Navy blue",
+    "future-proof-smart-home-devices-australia": "Pale mint",
+    "smart-home-devices-older-australians": "Sky blue",
+    "smart-home-holiday-house-australia": "Slate navy"
   }
 }

@@ -46,7 +46,7 @@ export function DetachedArrowButton({ href, label }: { href: string; label: stri
  */
 export function FeaturedPostCard({ article }: { article: Article }) {
   return (
-    <article className="featured-post-card notched-card group">
+    <article className="featured-post-card group flex h-full flex-col relative rounded-lg border border-slate-200 bg-white p-6 dark:border-card-edge dark:bg-card">
       <div className="featured-post-meta">
         <div className="featured-post-meta-left">
           <PostCategoryBadge article={article} />
@@ -62,28 +62,74 @@ export function FeaturedPostCard({ article }: { article: Article }) {
         <Link href={articleHref(article)}>{article.title}</Link>
       </h3>
 
-      <Link href={articleHref(article)} aria-label={article.title} className="featured-post-figure">
+      <Link href={articleHref(article)} aria-label={article.title} className="featured-post-figure mb-4 block overflow-hidden rounded-lg">
         <img
           src={coverFor(article)}
           alt={article.imageAlt ?? article.title}
           width={1240}
           height={700}
           loading="lazy"
+          className="w-full rounded-lg object-cover transition duration-500 group-hover:scale-105"
         />
       </Link>
 
-      <p className="featured-post-excerpt">{article.description}</p>
-
-      <DetachedArrowButton href={articleHref(article)} label={`Read ${article.title}`} />
+      <p className="featured-post-excerpt line-clamp-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{article.description}</p>
     </article>
   );
 }
 
-/**
- * Compact horizontal card: square thumbnail, title, date and read time.
- *
- * No excerpt and no arrow, per the reference — the whole card is the link.
- */
+export function StaffPicksCard({ article }: { article: Article }) {
+  return (
+    <article className="staff-picks-card group">
+      <div className="featured-post-meta">
+        <div className="featured-post-meta-left">
+          <PostCategoryBadge article={article} />
+          <span aria-hidden="true" className="post-dot">
+            •
+          </span>
+          <span className="post-muted">{article.readingMinutes} mins read</span>
+        </div>
+        {/* Top-right bookmark icon removed per request */}
+      </div>
+
+      <h3 className="featured-post-title">
+        <Link href={articleHref(article)}>{article.title}</Link>
+      </h3>
+
+      <Link href={articleHref(article)} aria-label={article.title} className="featured-post-figure mb-4 block overflow-hidden rounded-lg">
+        <img
+          src={coverFor(article)}
+          alt={article.imageAlt ?? article.title}
+          width={1240}
+          height={700}
+          loading="lazy"
+          className="w-full rounded-lg object-cover transition duration-500 group-hover:scale-105"
+        />
+      </Link>
+
+      <p className="featured-post-excerpt line-clamp-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{article.description}</p>
+
+      {/* Bottom-right corner notch & arrow button */}
+      <div className="staff-picks-notch" aria-hidden="true">
+        <div className="curve-top" />
+        <div className="curve-left" />
+      </div>
+
+      <Link
+        href={articleHref(article)}
+        aria-label={`Read article: ${article.title}`}
+        className="staff-picks-arrow"
+      >
+        <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+          <path d="M19 12H4.75" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+        </svg>
+      </Link>
+    </article>
+  );
+}
+
+
 export function CompactPostCard({ article }: { article: Article }) {
   return (
     <article className="compact-post-card">

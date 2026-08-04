@@ -92,7 +92,7 @@ export default function ArticleBody({ html, products, subId, className, midSlot 
   }
 
   const PROSE =
-    'prose prose-slate max-w-prose prose-headings:scroll-mt-24 prose-headings:font-bold prose-a:text-brand-700 prose-a:font-medium hover:prose-a:text-brand-800 prose-th:text-left dark:prose-invert dark:prose-a:text-brand-400';
+    'prose prose-slate max-w-prose prose-headings:scroll-mt-24 prose-headings:font-bold prose-h2:text-[1.4rem] prose-h2:font-bold prose-h3:text-[1rem] prose-h3:font-bold prose-a:text-brand-700 prose-a:font-medium hover:prose-a:text-brand-800 prose-th:text-left dark:prose-invert dark:prose-a:text-brand-400';
 
   return (
     <div className={className}>

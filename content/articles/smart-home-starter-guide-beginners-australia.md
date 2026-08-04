@@ -6,6 +6,9 @@ type: buying-guide
 date: '2026-06-25'
 updated: '2026-08-01'
 featured: true
+coverTextFull: true
+coverTextTop: true
+coverTextCentre: true
 keyTakeaway: 'Solve one real annoyance first with three or four devices, live with it for a month, then expand. Buying a large starter bundle before you know how you actually use your home is the most common and most expensive beginner mistake.'
 tags:
   - Beginners

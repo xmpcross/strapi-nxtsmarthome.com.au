@@ -4,6 +4,8 @@ description: 'Everything here mounts with adhesive, sits on a shelf or plugs int
 category: buying-guides
 type: roundup
 date: '2026-08-04'
+coverMain: 'No drilling, no damage'
+coverSub: 'Smart home devices renters can actually install'
 keyTakeaway: 'Plug-in, adhesive-mounted and free-standing devices cover most of what a smart home actually does. The things that genuinely need a drill — hardwired switches, fixed cameras, deadbolt replacements — are also the things most likely to cost you at the end of the lease.'
 tags:
   - Renting
@@ -27,6 +29,8 @@ Renting rules out a surprising amount of smart home advice. Most guides assume y
 You can build most of a smart home without any of that. Here is what works when the walls are not yours — grouped by how it attaches, because that is the constraint that actually matters.
 
 Our broader guide on [what renters can install without losing a bond](/buying-guides/smart-home-for-renters-australia/) covers the permission side. This one is about the hardware.
+
+<img src="/covers/renter-smart-home-devices-no-drilling-inline.webp" alt="Renter-friendly smart home setup showing devices installed cleanly without drilling" class="w-full rounded-2xl object-cover my-6" style="height: 450px; max-height: 450px; object-fit: cover;" />
 
 ## Plugs into a socket, mounts to nothing
 

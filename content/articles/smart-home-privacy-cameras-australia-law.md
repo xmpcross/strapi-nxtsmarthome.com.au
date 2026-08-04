@@ -5,6 +5,8 @@ category: security
 type: explainer
 date: '2026-04-30'
 updated: '2026-08-01'
+coverMain: 'Cameras and the law'
+coverSub: 'What you can record in an Australian home'
 keyTakeaway: 'Filming your own property is generally fine. Recording audio of private conversations, pointing cameras into a neighbour''s private space, and installing cameras on strata common property are the three areas that cause real trouble.'
 tags:
   - Privacy

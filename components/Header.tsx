@@ -67,8 +67,11 @@ export default function Header() {
     };
   }, [moreOpen]);
 
+  // Same ink as a heading — slate-900 light, white dark — rather than the muted
+  // body grey the nav carried before, so the top-level links read with the same
+  // weight as the section titles they lead to. Hover still shifts to brand.
   const linkClass =
-    'text-slate-600 transition hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-400';
+    'text-slate-900 transition hover:text-brand-700 dark:text-white dark:hover:text-brand-400';
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur dark:border-card-edge dark:bg-night-50/90">
@@ -99,7 +102,7 @@ export default function Header() {
                 aria-expanded={moreOpen}
                 aria-haspopup="true"
               >
-                More Articles
+                View More
                 <ChevronIcon />
               </button>
 
@@ -174,7 +177,7 @@ export default function Header() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+                  className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-900 hover:bg-slate-100 dark:text-white dark:hover:bg-slate-800"
                 >
                   {link.label}
                 </Link>
@@ -186,7 +189,7 @@ export default function Header() {
                 {/* No dropdown on mobile — the drawer is already a list, so the
                     extra categories are simply grouped under a heading. */}
                 <p className="px-3 pb-1 text-xs font-bold uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
-                  More Articles
+                  View More
                 </p>
                 <ul className="space-y-1">
                   {moreNavLinks.map((link) => (

@@ -4,6 +4,8 @@ description: 'Imported smart home gear can be a bargain or a brick. Four things 
 category: buying-guides
 type: explainer
 date: '2026-08-04'
+coverMain: 'Will overseas gear work here?'
+coverSub: 'Plugs, voltage and warranty in Australia'
 keyTakeaway: 'Mains-powered devices fail on the plug and on electrical approval, not just on voltage. Z-Wave fails on radio frequency and cannot be fixed at all. Wi-Fi, Zigbee, Thread and Matter devices usually work fine. Check which of the four applies before you buy.'
 tags:
   - Buying advice

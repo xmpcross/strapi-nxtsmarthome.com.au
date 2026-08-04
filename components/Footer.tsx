@@ -44,6 +44,11 @@ export default function Footer() {
   return (
     <footer className="mt-16 border-t border-slate-200 bg-slate-50 dark:border-night-200 dark:bg-night-50">
       <div className="mx-auto max-w-site px-4 py-12">
+        {/*
+          Five-column grid with the brand column spanning two of them, so the
+          four visible columns land at 40 / 20 / 20 / 20. Two-up on tablet,
+          stacked on mobile.
+        */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 font-extrabold">

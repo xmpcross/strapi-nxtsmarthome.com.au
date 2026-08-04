@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SectionHeading from '@/components/SectionHeading';
 import type { Category } from '@/lib/site';
 
 interface Props {
@@ -32,12 +33,8 @@ export default function CategorySidebar({ categories, activeSlug, total, allHref
 
   return (
     <aside aria-labelledby="filter-heading" className="lg:sticky lg:top-24">
-      <h2
-        id="filter-heading"
-        className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400"
-      >
-        Browse by category
-      </h2>
+      {/* id kept: the <aside> above points aria-labelledby at it. */}
+      <SectionHeading id="filter-heading" title="Browse by category" compact />
 
       <nav>
         <ul className="flex flex-col gap-0.5">

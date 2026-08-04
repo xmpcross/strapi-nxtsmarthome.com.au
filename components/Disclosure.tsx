@@ -22,7 +22,7 @@ export default function Disclosure({ compact = false }: { compact?: boolean }) {
       <strong className="font-semibold text-slate-800 dark:text-slate-100">Heads up:</strong>{' '}
       when you buy through links on this page we may earn a commission, at no extra cost to
       you. It never changes which products we recommend or what we say about them.{' '}
-      <Link href="/affiliate-disclosure/" className="font-medium text-brand-600 underline hover:text-brand-700 dark:text-brand-400">
+      <Link href="/affiliate-disclosure/" target="_blank" rel="noopener noreferrer" className="font-medium text-brand-600 underline hover:text-brand-700 dark:text-brand-400">
         Read our full disclosure
       </Link>
       .
