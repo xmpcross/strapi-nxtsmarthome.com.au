@@ -112,15 +112,26 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
       role="dialog"
       aria-modal="true"
       aria-label="Search"
-      className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-slate-900/60 p-4 pt-[8vh] backdrop-blur-sm"
+      className="fixed inset-0 z-[60] overflow-y-auto bg-slate-900/60 p-4 backdrop-blur-sm"
       onMouseDown={(e) => {
         if (panelRef.current && !panelRef.current.contains(e.target as Node)) onClose();
       }}
     >
-      <div
-        ref={panelRef}
-        className="relative w-full max-w-4xl rounded-lg bg-slate-50 p-6 shadow-2xl sm:p-10 dark:bg-slate-900"
-      >
+      {/*
+        Centred in the viewport, both axes.
+
+        The centring lives on an inner wrapper with `min-h-full` rather than on
+        the scroll container itself. Centring directly on an `overflow-y-auto`
+        element clips the top of any panel taller than the window — the overflow
+        goes above the scroll origin and cannot be reached. This arrangement
+        centres a short panel and scrolls a tall one, which matters here because
+        the recommendations list grows the panel on a laptop screen.
+      */}
+      <div className="flex min-h-full items-center justify-center">
+        <div
+          ref={panelRef}
+          className="relative w-full max-w-4xl rounded-lg bg-slate-50 p-6 shadow-2xl sm:p-10 dark:bg-slate-900"
+        >
         <button
           type="button"
           onClick={onClose}
@@ -231,6 +242,7 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
             </ul>
           </div>
         )}
+        </div>
       </div>
     </div>
   );

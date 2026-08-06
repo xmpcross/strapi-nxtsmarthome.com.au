@@ -6,6 +6,8 @@ import ArticleCard from '@/components/ArticleCard';
 import Disclosure from '@/components/Disclosure';
 import Faq from '@/components/Faq';
 import JsonLd from '@/components/JsonLd';
+import AuthorByline from '@/components/AuthorByline';
+import { resolveAuthor } from '@/lib/authors';
 import ProductBox from '@/components/ProductBox';
 import TableOfContents from '@/components/TableOfContents';
 import ShareButtons from '@/components/ShareButtons';
@@ -164,12 +166,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
 
         <header className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center lg:gap-12">
           <div>
-            <p className="text-sm text-slate-700 dark:text-slate-300">
-              <Link href="/about/" className="font-semibold text-brand-700 hover:underline dark:text-brand-400">
-                {article.author}
-              </Link>
+            <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-700 dark:text-slate-300">
+              <AuthorByline author={resolveAuthor(article.author)} size={28} />
               <span className="text-slate-500 dark:text-slate-400">
-                {' '}on <time dateTime={article.date}>{formatDate(article.updated ?? article.date)}</time>
+                on <time dateTime={article.date}>{formatDate(article.updated ?? article.date)}</time>
               </span>
             </p>
 
@@ -229,7 +229,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
         <Disclosure />
 
         {article.keyTakeaway && (
-          <div className="mb-8 rounded-xl border-0 bg-brand-50 p-5 dark:bg-card">
+          <div className="mb-8 rounded-[8px] border-0 bg-brand-50 p-5 dark:bg-card">
             <p className="text-sm font-bold uppercase tracking-wide text-brand-800 dark:text-brand-400">
               The short answer
             </p>

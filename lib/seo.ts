@@ -1,4 +1,5 @@
 import { site } from './site';
+import { DEFAULT_AUTHOR_SLUG, resolveAuthor } from './authors';
 import type { Article } from './content';
 import { articleHref } from './urls';
 
@@ -73,11 +74,20 @@ export function articleJsonLd(article: Article) {
     inLanguage: site.language,
     datePublished: article.date,
     dateModified: article.updated ?? article.date,
-    author: {
-      '@type': 'Organization',
-      name: article.author ?? site.organisation.name,
-      url: site.url,
-    },
+    /*
+      The byline as structured data. A named contributor is a Person with their
+      own profile URL; the editorial team is an Organization. Typing an editorial
+      byline as a Person would assert that an individual wrote it.
+    */
+    author: (() => {
+      const a = resolveAuthor(article.author);
+      const isTeam = a.slug === DEFAULT_AUTHOR_SLUG;
+      return {
+        '@type': isTeam ? 'Organization' : 'Person',
+        name: a.name,
+        url: `${site.url}/authors/${a.slug}/`,
+      };
+    })(),
     publisher: { '@id': `${site.url}/#organisation` },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     ...(article.image ? { image: abs(article.image) } : {}),

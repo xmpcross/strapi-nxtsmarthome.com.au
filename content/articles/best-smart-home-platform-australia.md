@@ -91,6 +91,17 @@ The cost is time. Setup takes an afternoon, not ten minutes. Updates occasionall
 
 A pragmatic pattern many people land on: run Home Assistant as the brain, and bridge everything to Apple Home or Google Home so the rest of the household gets a simple app and voice control that always works.
 
+## The five platforms at a glance
+
+Every row below is drawn from the sections above — nothing here is a spec sheet
+claim we have not explained in context.
+
+| | Apple Home | Google Home | Amazon Alexa | SmartThings | Home Assistant |
+|---|---|---|---|---|---|
+| **Best for** | iPhone households that value privacy and reliability over flexibility | Android households, and constant voice control | The widest device compatibility and the cheapest entry point | Serious automation without running your own server | Actual control, if you do not mind earning it |
+| **Automation engine** | The least capable of the five | Middle of the pack | Functional but not sophisticated | Genuinely capable | Limited only by your patience |
+| **The Australian catch** | None — everything Apple Home does is available here | Nest hardware availability has been patchy; check before assuming a US launch applies | Localisation is good, but some US-only features and Skills never arrive | Confirm the hub is the AU/NZ Z-Wave radio variant, not the US model | None — and it keeps running when the NBN drops |
+
 ## How to actually decide
 
 **Start with the phones.** If everyone is on iPhone, Apple Home is a strong default. If the household is mixed, avoid Apple Home as the primary — it will strand someone.

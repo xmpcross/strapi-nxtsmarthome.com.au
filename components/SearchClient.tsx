@@ -91,7 +91,7 @@ export default function SearchClient() {
           {results.map((doc) => (
             <li
               key={doc.slug}
-              className="rounded-xl border border-slate-200 p-4 transition hover:border-brand-300 dark:border-slate-700 dark:hover:border-brand-600"
+              className="rounded-[8px] border border-slate-200 p-4 transition hover:border-brand-300 dark:border-slate-700 dark:hover:border-brand-600"
             >
               <p className="mb-1 text-xs font-medium text-brand-700 dark:text-brand-400">
                 {doc.categoryName}

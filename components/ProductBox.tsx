@@ -29,10 +29,26 @@ function Stars({ rating }: { rating: number }) {
  */
 export default function ProductBox({ product, subId, rank }: Props) {
   return (
-    <div className="not-prose my-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800/60">
+    <div className="not-prose my-8 overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800/60">
       <div className="border-b border-slate-100 bg-slate-50 px-5 py-4 dark:border-slate-700 dark:bg-slate-800">
         <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
+          {/*
+            The photograph, where the product has one. Catalogue entries all do;
+            the hand-written files in content/products/ mostly do not, so this is
+            conditional rather than a fixed slot — an empty grey square next to a
+            heading looks like a failed image, not a design.
+          */}
+          {product.image && (
+            <img
+              src={product.image}
+              alt=""
+              width={96}
+              height={96}
+              loading="lazy"
+              className="h-20 w-20 shrink-0 rounded-[8px] bg-white object-contain p-1.5 ring-1 ring-slate-200 dark:ring-slate-700"
+            />
+          )}
+          <div className="min-w-0 flex-1">
             {rank !== undefined && (
               <span className="mb-1 inline-block rounded bg-brand-600 px-2 py-0.5 text-xs font-bold text-white">
                 #{rank}

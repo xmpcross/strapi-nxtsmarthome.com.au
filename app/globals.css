@@ -205,9 +205,10 @@
   }
 
   /*
-   * Body metrics from originfacts.com: Plus Jakarta Sans, 1rem, weight 400,
-   * line-height 1.5, zero tracking. Element-level, so a Tailwind weight utility on
-   * a specific element still wins.
+   * Body metrics: Outfit, 1rem, weight 400, line-height 1.5, zero tracking.
+   * Element-level, so a Tailwind weight utility on a specific element still
+   * wins. The family comes from theme('fontFamily.body') rather than being
+   * named here, so this rule and the `font-body` utility cannot disagree.
    */
   body,
   p,
@@ -226,23 +227,24 @@
    * sizes they were given, and this governs headings inside article prose.
    */
   /*
-   * Heading metrics from originfacts.com: Figtree at 700, line-height 1.2 and
-   * -0.01em tracking.
+   * Heading metrics: Urbanist at 600, line-height 1.2 and -0.01em tracking.
+   * The family comes from theme('fontFamily.heading') rather than being named
+   * here, so this rule and the `font-heading` utility cannot disagree.
    */
   h1, h2, h3, h4, h5, h6 {
     font-family: theme('fontFamily.heading');
-    font-weight: 700;
+    font-weight: 700 !important;
     line-height: 1.2;
     letter-spacing: -0.01em;
     text-transform: none;
   }
-.prose h1 { font-size: var(--h1-size); font-weight: 700; }
+  .prose h1 { font-size: var(--h1-size); font-weight: 700 !important; }
   /* Single-post body headings. Spacing left to the typography plugin defaults. */
-  .prose h2 { font-size: 1.4rem; font-weight: 700; }
-  .prose h3 { font-size: 1rem; font-weight: 700; }
-  .prose h4 { font-size: var(--h4-size); font-weight: 700; }
-  .prose h5 { font-size: var(--h5-size); font-weight: 700; }
-  .prose h6 { font-size: var(--h6-size); font-weight: 700; }
+  .prose h2 { font-size: 1.4rem; font-weight: 700 !important; }
+  .prose h3 { font-size: 1rem; font-weight: 700 !important; }
+  .prose h4 { font-size: var(--h4-size); font-weight: 700 !important; }
+  .prose h5 { font-size: var(--h5-size); font-weight: 700 !important; }
+  .prose h6 { font-size: var(--h6-size); font-weight: 700 !important; }
 }
 
 @layer components {
@@ -466,13 +468,13 @@
     --post-badge-bg: theme('colors.slate.900');
     --post-badge-fg: #ffffff;
 
-    --post-card-radius: 1.125rem; /* 18px */
+    --post-card-radius: 0.5rem; /* 8px */
     --post-card-pad: 1.5rem; /* 24px */
     --post-image-h: 10.3125rem; /* 165px */
-    --post-image-radius: 0.8125rem; /* 13px */
+    --post-image-radius: 0.5rem; /* 8px */
     --post-grid-gap: 1.25rem; /* 20px */
     --compact-gap: 1.125rem; /* 18px */
-    --compact-radius: 0.875rem; /* 14px */
+    --compact-radius: 0.5rem; /* 8px */
     --compact-thumb: 5.375rem; /* 86px */
     --compact-min-h: 6.875rem; /* 110px */
   }
@@ -688,7 +690,7 @@
     height: var(--compact-thumb);
     object-fit: cover;
     object-position: left center;
-    border-radius: 0.6875rem;
+    border-radius: 0.5rem;
     display: block;
   }
 
@@ -874,7 +876,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid #e2e8f0;
   background: #ffffff;
   padding: 24px 24px 64px 24px;
@@ -1091,7 +1093,7 @@
 
 /* Staff Picks card — rounded bottom-right arrow notch */
 .staff-picks-section .staff-picks-card {
-  --card-radius: 20px;
+  --card-radius: 8px;
   --action-size: 48px;
   --notch-size: 64px;
 
@@ -1162,7 +1164,7 @@
   max-height: 450px !important;
   object-fit: cover !important;
   width: 100% !important;
-  border-radius: 16px !important;
+  border-radius: 8px !important;
 }
 
 .prose img[src*="overseas-smart-home-devices-australia-inline"],
@@ -1171,5 +1173,5 @@
   max-height: 450px !important;
   object-fit: cover !important;
   width: 100% !important;
-  border-radius: 16px !important;
+  border-radius: 8px !important;
 }

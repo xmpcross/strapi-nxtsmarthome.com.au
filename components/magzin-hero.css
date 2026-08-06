@@ -29,7 +29,8 @@
   --ink: #0e0e0f;
   --ink-muted: #64748b;
 
-  --radius: 14px;
+  /* One radius for every card and every cover image in this block. */
+  --radius: 8px;
 
   /* Same derived relationship the live post cards use: the pocket is the button
      plus an equal gap on every side, so the arrow is centred by construction. */

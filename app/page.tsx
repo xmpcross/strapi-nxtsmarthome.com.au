@@ -7,6 +7,8 @@ import SectionHeading from '@/components/SectionHeading';
 import StaffPicks from '@/components/StaffPicks';
 import { FeaturedPostCard, CompactPostCard } from '@/components/PostCards';
 import BookmarkButton from '@/components/BookmarkButton';
+import AuthorByline from '@/components/AuthorByline';
+import { resolveAuthor } from '@/lib/authors';
 import {
   articleHref,
   categoriesWithCounts,
@@ -111,10 +113,7 @@ function CoverPill({ article }: { article: Article }) {
 function Byline({ article }: { article: Article }) {
   return (
     <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-600 text-[10px] font-extrabold text-white">
-        NXT
-      </span>
-      <span className="font-semibold text-slate-800 dark:text-slate-200">{article.author}</span>
+      <AuthorByline author={resolveAuthor(article.author)} size={32} />
       <span aria-hidden="true" className="text-slate-300">•</span>
       <time dateTime={article.date} className="text-slate-500 dark:text-slate-400">
         {formatDate(article.updated ?? article.date)}
@@ -615,14 +614,25 @@ export default async function HomePage() {
     <>
       {/* Masthead strip */}
       {/*
-        The strip sits between the header and the hero. In dark mode it is a
-        half-opaque #202020 so the page background reads through it and it does
-        not become a second solid bar under the header.
+        The strip sits between the header and the hero.
+
+        A soft left-to-right wash rather than the solid dark bar it used to be:
+        brand lavender (#f1f0ff, brand-50) fading through white into a warm
+        accent tint derived from accent-400. Both ends come from the site's own
+        palette, so it reads as this brand rather than as a stock gradient.
+
+        The type is dark now because the strip is light — white on brand-50
+        measures about 1.2:1 and would be invisible.
+
+        Dark mode keeps a dark strip, tinted with brand-950 rather than pure
+        grey so the same colour relationship survives the theme switch.
       */}
-      <section className="border-0 bg-slate-900 px-4 py-3 dark:bg-[#202020]/50">
-        <div className="mx-auto flex max-w-site flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-sm text-slate-300">
-          <span className="font-semibold text-white">Made for Australian homes</span>
-          <span aria-hidden="true" className="text-slate-600">·</span>
+      <section className="border-0 bg-gradient-to-r from-brand-50 via-white to-[#fff3e6] px-4 py-3 dark:from-brand-950/40 dark:via-[#202020]/50 dark:to-accent-600/10">
+        <div className="mx-auto flex max-w-site flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-sm text-slate-600 dark:text-slate-300">
+          <span className="font-semibold text-slate-900 dark:text-white">
+            Made for Australian homes
+          </span>
+          <span aria-hidden="true" className="text-slate-400 dark:text-slate-600">·</span>
           <span>240V wiring, AS/NZS rules, local retailers and warranty law</span>
         </div>
       </section>

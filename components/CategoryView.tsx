@@ -1,4 +1,5 @@
 import ArticleCard from '@/components/ArticleCard';
+import PageHeader from '@/components/PageHeader';
 import CategorySidebar from '@/components/CategorySidebar';
 import JsonLd from '@/components/JsonLd';
 import Pagination, { PER_PAGE } from '@/components/Pagination';
@@ -21,8 +22,6 @@ export default function CategoryView({
   category: Category;
   articles: Article[];
   page: number;
-  // The sidebar's own type, not a structural copy of it — a copy silently drifts
-  // the moment a field is added to Category.
   categoryCounts: (Category & { count: number })[];
   totalArticles: number;
 }) {
@@ -39,21 +38,29 @@ export default function CategoryView({
         ])}
       />
 
-      <div className="mx-auto max-w-site px-4 py-12">
-        <header className="mb-10 max-w-3xl">
-          <div className="mb-3 text-4xl" aria-hidden="true">
-            {category.emoji}
-          </div>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-            {category.name}
-          </h1>
-          <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            {category.intro}
-          </p>
-          {page > 1 && (
-            <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">Page {page}</p>
-          )}
-        </header>
+      <div className="mx-auto max-w-[1366px] px-4 py-8 sm:px-6">
+        <PageHeader
+          eyebrow="Australian Buying Advice & Guides"
+          title={category.name}
+          intro={category.intro}
+          meta={page > 1 ? `Page ${page}` : undefined}
+        />
+
+        {/* Long-form orientation, where the category has one. Rendered only on
+            page 1 — repeating it on /page/2/ would be duplicate content and
+            pushes the articles a reader paged forward for further down. */}
+        {category.overview && page === 1 ? (
+          <section className="mb-10 w-full sm:w-4/5">
+            <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+              {category.overview.heading}
+            </h2>
+            <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base">
+              {category.overview.paragraphs.map((text) => (
+                <p key={text.slice(0, 40)}>{text}</p>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <div className="grid gap-8 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-10">
           <CategorySidebar
@@ -64,7 +71,7 @@ export default function CategoryView({
 
           <div>
             {visible.length === 0 ? (
-              <p className="rounded-xl border border-dashed border-slate-300 p-8 text-center text-slate-500 dark:border-slate-700">
+              <p className="rounded-[8px] border border-dashed border-slate-300 p-8 text-center text-slate-500 dark:border-slate-700">
                 Nothing published in this section yet — it&apos;s next on the list.
               </p>
             ) : (

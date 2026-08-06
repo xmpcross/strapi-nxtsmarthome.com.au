@@ -27,15 +27,17 @@ const STORE = path.join(process.cwd(), 'scripts', 'cover-colours.json');
  * would simply make that colour twice as likely in the rotation.
  */
 export const PALETTE = [
-  { name: 'Pale mint', hex: '#E3EEE8' },
-  { name: 'Sky blue', hex: '#66B1CF' },
-  { name: 'Slate navy', hex: '#324157' },
-  { name: 'Mulberry', hex: '#96386A' },
-  { name: 'Royal blue', hex: '#40619D' },
-  { name: 'Warm sand', hex: '#A28D69' },
-  { name: 'Crimson', hex: '#B3314B' },
-  { name: 'Emerald', hex: '#29BB75' },
-  { name: 'Light grey', hex: '#DCDCDC' },
+  { name: 'Dark slate blue', hex: '#354156' },
+  { name: 'Teal blue', hex: '#2b7e9d' },
+  { name: 'Slate charcoal', hex: '#334555' },
+  { name: 'Crimson red', hex: '#aa3344' },
+  { name: 'Soft light blue', hex: '#eaf0f5' },
+  { name: 'Light grey', hex: '#d9d9d9' },
+  { name: 'Navy slate', hex: '#324157' },
+  { name: 'Cool grey', hex: '#dcdcdc' },
+  { name: 'Sky blue', hex: '#66b1cf' },
+  { name: 'Royal blue', hex: '#40619d' },
+  { name: 'Warm sand', hex: '#a28d69' },
 ];
 
 function readStore() {
@@ -95,6 +97,40 @@ function summarise(raw, limit = 900) {
  * deliberately kept OUT of the visual description. Naming "Zigbee" or "Wi-Fi" all
  * but guarantees the model writes it on the wall.
  */
+/**
+ * The flat-grey editorial design, matching the Midjourney covers now being used
+ * on the site.
+ *
+ * Differences from buildPrompt() below, all deliberate:
+ *
+ *   - one fixed backdrop, light grey #D1D5DB, instead of the rotating palette.
+ *     These covers are a set; a different colour per article was a magazine
+ *     device that stopped applying the moment the artwork became photographic.
+ *   - no headline, and no space reserved for one. The generation is the whole
+ *     cover, so there is no left column to keep clear.
+ *   - the frame is wide, not square, because nothing is composited afterwards.
+ *
+ * Text is still forbidden outright. The last two Midjourney covers came back
+ * reading "SMART PUVES MONEY?" and with a keypad numbered 9 5 9 / 9 8 9 —
+ * diffusion models cannot spell, and a wrong word baked into a cover is
+ * permanent.
+ */
+export function buildGreyPrompt({ title, description, body }) {
+  const subject = describeSubject(title, `${description} ${body}`);
+
+  return [
+    'Photorealistic premium editorial product photograph for a technology magazine.',
+    `Scene: ${subject}`,
+    'Background: a single flat matte light grey (#D1D5DB) studio backdrop, seamless, uniform, no gradient, no banding, no pattern, no room, no wall, no furniture, no horizon line, no corner where two planes meet.',
+    'Composition: the objects sit right of centre, resting on a plain pale ledge, with generous empty backdrop to the left and above. Nothing touches an edge. Maximum four objects.',
+    'Lighting: soft commercial studio lighting, crisp edges, subtle natural shadow, restrained highlights, strong separation from the background.',
+    'Devices are modern, clean and unbranded.',
+    'NO TEXT ANYWHERE IN THE IMAGE. No words, no letters, no numbers, no digits, no labels, no captions, no signage, no logos, no branding, no packaging, no watermarks, no UI text, no keypads showing numerals, no screens showing writing or numerals.',
+    'No people, no hands, no coins, no cash, no holograms, no glowing effects, no lightning bolts, no clutter.',
+    'No power outlets, no sockets, no plugs of any country.',
+  ].join(' ');
+}
+
 export function buildPrompt({ title, body, description, colour, previous }) {
   const subject = describeSubject(title, `${description} ${body}`);
 
@@ -180,5 +216,13 @@ function matchScene(t, { fromBody = false } = {}) {
     return 'a compact roller-blind motor unit beside a small remote control.';
   if (/wi-?fi|router|dropout|network/.test(t))
     return 'a modern white mesh Wi-Fi router unit standing upright, with a second smaller node behind it at a distance.';
+  // Imports get a plain unmarked carton rather than a plug or a socket. The
+  // subject of these articles is electrical hardware bought overseas, which is
+  // precisely the thing image models render with the wrong country's geometry.
+  // A blank box carries "imported" and cannot be wrong.
+  if (/overseas|imported|import|parallel import|grey import/.test(t))
+    return 'one small white smart home hub standing beside a plain unmarked cardboard carton with no printing on it, the carton slightly behind and to one side.';
+  if (/where to buy|retailer|bunnings|jb hi-?fi|store|shop/.test(t))
+    return 'four modern unbranded white smart home devices of clearly different shapes — a hub, a speaker, a sensor puck and a camera — standing in a row on a plain pale shelf like a retail display.';
   return null;
 }

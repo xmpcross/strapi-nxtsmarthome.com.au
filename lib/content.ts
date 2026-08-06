@@ -363,6 +363,21 @@ export function coverFor(article: { slug: string; image?: string }): string {
   );
 }
 
+/**
+ * Hero banner for a category, written by scripts/generate-category-hero.mjs.
+ *
+ * Returns null when that category has no banner yet, so a page can fall back to
+ * its plain text header rather than rendering a broken image. Banners are
+ * generated one category at a time and cost credits, so "not generated yet" is
+ * the normal state for most of them, not an error.
+ *
+ * `kind` picks the set: 'product' for /products/category/<slug>/, 'post' for
+ * /categories/<slug>/. The two are different artwork on purpose.
+ */
+export function categoryHeroFor(slug: string, kind: 'post' | 'product'): string | null {
+  return assetUrl([`heroes/${kind}/${slug}.webp`], '') || null;
+}
+
 export function categoriesWithCounts(articles: Article[]) {
   return categories.map((category) => ({
     ...category,

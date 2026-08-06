@@ -60,7 +60,6 @@ export function detectNetwork(rawUrl: string): Network {
   const cjMerchants = [
     'thegoodguys.com.au',
     'kogan.com',
-    'catch.com.au',
     'lenovo.com',
     'samsung.com',
   ];

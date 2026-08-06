@@ -75,7 +75,46 @@ function loadProducts() {
     .filter(Boolean);
 }
 
-const products = loadProducts();
+/**
+ * The catalogue behind /products/, as link targets.
+ *
+ * content/products/ holds three hand-written entries. The catalogue holds 200+,
+ * every one with a photograph and retailer links, and those are the products the
+ * site actually sells against — so an article should be able to link them too.
+ *
+ * The verdict rule from CLAUDE.md still applies and is why `bestFor` is
+ * required here: a product with nothing said about it is thin affiliate content
+ * and does not get linked into an article.
+ *
+ * Match strings are built from the brand and name only. A catalogue row has no
+ * hand-written `match:` list, and inventing loose aliases is how an article
+ * about smart plugs in general ends up with a buy box for one specific plug it
+ * never mentions.
+ */
+function loadCatalogue() {
+  const file = path.join(ROOT, 'public', 'data', 'products.json');
+  if (!fs.existsSync(file)) return [];
+  const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const list = Array.isArray(raw) ? raw : (raw.products ?? []);
+
+  return list
+    .filter((p) => p?.slug && p?.name && typeof p.bestFor === 'string' && p.bestFor.trim())
+    .map((p) => {
+      const full = p.brand ? `${p.brand} ${p.name}` : p.name;
+      const match = Array.from(new Set([full, p.name].filter(Boolean)))
+        // Very short names match half the English language. "Hub", "Air", "One".
+        .filter((m) => m.length >= 8)
+        .sort((a, b) => b.length - a.length);
+      return match.length ? { slug: p.slug, name: p.name, brand: p.brand, match } : null;
+    })
+    .filter(Boolean);
+}
+
+// Curated first: on a slug collision the hand-written verdict is the better box,
+// and lib/products.ts resolves the same way.
+const curated = loadProducts();
+const curatedSlugs = new Set(curated.map((p) => p.slug));
+const products = [...curated, ...loadCatalogue().filter((p) => !curatedSlugs.has(p.slug))];
 if (!products.length) {
   console.error(`No products found in ${PRODUCTS_DIR}`);
   process.exit(1);

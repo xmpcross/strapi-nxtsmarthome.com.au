@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandMark from '@/components/BrandMark';
 import { categories, site } from '@/lib/site';
 
 function FacebookIcon() {
@@ -51,10 +52,13 @@ export default function Footer() {
         */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 font-extrabold">
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-600 text-sm text-white">
-                NXT
-              </span>
+            {/* Symbol only — the wordmark beside it already says the name, so
+                repeating "NXT" inside the mark was saying it twice. */}
+            <div className="flex items-center gap-2.5 font-extrabold">
+              <BrandMark
+                className="h-9 w-9 text-brand-600 dark:text-brand-400"
+                cutClassName="fill-slate-50 stroke-slate-50 dark:fill-night-50 dark:stroke-night-50"
+              />
               <span className="text-slate-900 dark:text-night-900">{site.shortName} AU</span>
             </div>
             {/*

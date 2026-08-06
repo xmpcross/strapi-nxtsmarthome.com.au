@@ -22,8 +22,8 @@
   --ink-muted: #64748b;
   --ink-faint: #94a3b8;
 
-  --radius: 14px;
-  --radius-sm: 10px;
+  --radius: 8px;
+  --radius-sm: 8px;
 
   --arrow-size: 44px;
   --arrow-gap: 10px;
@@ -81,6 +81,43 @@
   background: var(--bar);
 }
 
+/*
+  Dark mode inverts the bar rather than darkening it.
+
+  The reference keeps this strip pale against the black page — a light plate
+  carrying dark type, with a black arrow disc on it. Darkening the bar to match
+  the page (which is what --bar: #1d1e20 did) loses the strip entirely: the
+  section header stops reading as a header and the sparkle, the standfirst and
+  "View More" all sink into the background.
+
+  Scoped to the bar and its own children. The feature cards below stay dark —
+  they are the content, and inverting those would just be a light theme.
+*/
+:root.dark .sp__bar {
+  background: #eceef5;
+}
+
+:root.dark .sp__bar .sp__title {
+  color: #0e0e0f;
+}
+
+:root.dark .sp__bar .sp__standfirst {
+  color: #6b7280;
+}
+
+:root.dark .sp__bar .sp__more {
+  color: #0e0e0f;
+}
+
+:root.dark .sp__bar .sp__more-dot {
+  background: #111318;
+  color: #ffffff;
+}
+
+:root.dark .sp__bar .sp__more:focus-visible {
+  outline-color: #111318;
+}
+
 .sp__bar-left {
   display: flex;
   align-items: baseline;
@@ -104,6 +141,45 @@
   height: 17px;
   flex-shrink: 0;
   fill: currentColor;
+  transform-origin: center;
+  animation: sp-sparkle 3.2s ease-in-out infinite;
+}
+
+/*
+  The four-point sparkle before the section title, twinkling.
+
+  Slow and small on purpose — it sits beside a heading, and anything faster or
+  wider reads as a loading spinner. It scales and fades on the same curve, with
+  a long hold at rest between pulses so the eye is drawn once rather than
+  continuously nagged.
+*/
+@keyframes sp-sparkle {
+  0%, 62%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.85;
+  }
+  74% {
+    transform: scale(1.28) rotate(45deg);
+    opacity: 1;
+  }
+  86% {
+    transform: scale(0.94) rotate(90deg);
+    opacity: 0.9;
+  }
+  94% {
+    transform: scale(1.06) rotate(90deg);
+    opacity: 1;
+  }
+}
+
+/*
+  Anyone who has asked their system not to animate gets a static icon. A
+  decorative twinkle is exactly the kind of motion that prompts the setting.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .sp__title svg {
+    animation: none;
+  }
 }
 
 .sp__standfirst {

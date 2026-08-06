@@ -28,8 +28,8 @@
   --ink-muted: #64748b;
   --ink-faint: #94a3b8;
 
-  --radius: 14px;
-  --radius-sm: 10px;
+  --radius: 8px;
+  --radius-sm: 8px;
 
   --arrow-size: 44px;
   --arrow-gap: 10px;
@@ -99,6 +99,40 @@
   padding: 18px 22px;
   border-radius: var(--radius);
   background: var(--bar);
+}
+
+/*
+  Same inversion as the Staff Picks bar in scripts/../components/staff-picks.css:
+  in dark mode the header strip stays pale against the black page, carrying dark
+  type and a black arrow disc. Kept identical on purpose — these two section
+  headers sit one above the other on the home page, and two different treatments
+  of the same furniture reads as a mistake.
+
+  Scoped to the bar; the cards below stay dark.
+*/
+:root.dark .fy__bar {
+  background: #eceef5;
+}
+
+:root.dark .fy__bar .fy__title {
+  color: #0e0e0f;
+}
+
+:root.dark .fy__bar .fy__standfirst {
+  color: #6b7280;
+}
+
+:root.dark .fy__bar .fy__more {
+  color: #0e0e0f;
+}
+
+:root.dark .fy__bar .fy__more-dot {
+  background: #111318;
+  color: #ffffff;
+}
+
+:root.dark .fy__bar .fy__more:focus-visible {
+  outline-color: #111318;
 }
 
 .fy__bar-left {

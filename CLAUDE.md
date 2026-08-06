@@ -40,6 +40,28 @@ These apply to every output — articles, product files, meta descriptions, UI c
 6. **Flag legal and safety claims for human fact-check.** Electrical work, privacy and
    surveillance, tenancy. Never state law as settled without a `[VERIFY]` tag.
 7. **Mark unverifiable figures** — search volume, price, spec — with `[VERIFY]`.
+8. **Every article must feature real products from the catalogue.** Any new or
+   rewritten article carries at least two `::product:<slug>::` markers, drawn
+   from products that actually appear under `/products/` — the catalogue in
+   `public/data/products.json`, or a curated file in `content/products/`. Each
+   renders a `ProductBox` inline: photograph, name, what it suits, and buy
+   buttons.
+
+   The rules that constrain this:
+
+   - **Only products the article genuinely discusses.** A marker dropped into a
+     section that never mentions the product is an ad, not content, and rule 3
+     already forbids it.
+   - **Only products with a verdict.** `bestFor` or `pros` must be populated;
+     `scripts/link-products.mjs` refuses the rest.
+   - **Match the category.** An energy article links energy products.
+   - **No ratings inline.** `lib/products.ts` deliberately drops the catalogue
+     `rating` when building an inline box, because a star rating inside an
+     article reads as "we tested this" — see rule 5.
+
+   `node scripts/link-products.mjs <slug>` previews placements and `--write`
+   applies them; markers can also be written by hand where the automatic
+   placement lands badly.
 
 ## Where the rules bite in this codebase
 
