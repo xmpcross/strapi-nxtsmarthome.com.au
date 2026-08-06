@@ -198,37 +198,53 @@ node scripts/gen-article-redirects.mjs    # writes /etc/nginx/snippets/nxtsmarth
 /etc/nginx/snippets/nxtsmarthome-variant-redirects.conf    243 product-variant consolidations
 ```
 
-Both are included by the vhost. **They live outside this repository**, so a rebuild does not
-regenerate them and a move to any other host would drop them — roughly 259 redirects,
-and the accumulated ranking on every one of those URLs, would become 404s. Regenerate the
-article snippet whenever an article is added or changes category.
+These are generated into `public/_redirects` by `scripts/gen-redirects.mjs`, which
+runs on `prebuild` — so they cannot drift from the content and they travel with
+the repository. They previously lived in nginx snippets outside the repo, and
+when the site moved to Cloudflare all 259 of them silently became 404s until
+they were ported.
 
 ## Deployment
 
-```bash
-npm run deploy
+Hosted on **Cloudflare** (Workers & Pages), built from `master` on push.
+
+| Setting | Value |
+| --- | --- |
+| Framework preset | **None** |
+| Build command | `npm run build` |
+| Build output directory | `out` |
+
+**Not the Next.js preset.** It selects the OpenNext adapter, which builds
+server-rendered Next and looks for `.next/standalone/`. This project is
+`output: 'export'`, so that directory never exists and the build dies with
+`ENOENT … pages-manifest.json`. A static export needs no adapter at all.
+
+**Not `npx next build` either**, which Cloudflare's docs suggest. That skips the
+npm lifecycle, and both `prebuild` and `postbuild` matter here:
+
+- `prebuild` writes `public/search-index.json` (gitignored, so it exists only if
+  generated) and `public/_redirects` / `public/_headers`
+- `postbuild` injects the Sovrn and GA4 snippets into the exported HTML
+
+Skipping them yields a green build with no search, no redirects, no security
+headers and no analytics — all silently.
+
+### Environment variables
+
+Set these in the Cloudflare project, not in the repo:
+
+```text
+NEXT_PUBLIC_SOVRN_KEY            affiliate monetisation
+NEXT_PUBLIC_GA_MEASUREMENT_ID    analytics
 ```
 
-Builds, backs up the current web root to `/opt/backups/nxtsmarthome.com.au/`, rsyncs
-`out/` to `/var/www/html/nxtsmarthome.com.au/`, fixes ownership, and reloads nginx.
-It refuses to deploy if the build produced no `out/index.html`.
-
-nginx config: `/etc/nginx/sites-available/nxtsmarthome.com.au`
-
-A preview build publishes to `/preview/` on the same host, with `X-Robots-Tag: noindex` set by
-nginx so it cannot be indexed:
-
-```bash
-npm run deploy:preview
-```
-
-`PREVIEW_BASE_PATH` in `next.config.mjs` is what re-prefixes the assets for that subdirectory.
+Both fail quietly when unset — the build succeeds and the script simply is not
+there. Worth checking a deployed page rather than trusting the build log.
 
 ## Things worth knowing
 
-- **Cloudflare sits in front of this domain.** SSL/TLS mode must be **Full (strict)** — a valid
-  Let's Encrypt certificate is installed on the origin. Flexible mode causes an infinite
-  redirect loop, which is exactly what this domain was doing before the rebuild.
+- **Cloudflare serves this site directly** — there is no origin server any more. The
+  nginx vhost and its Let's Encrypt certificate were retired in August 2026.
 - **Trailing slashes are on.** All internal links need them: `/articles/foo/`, not `/articles/foo`.
 - **`out/` and `public/search-index.json` are build artefacts** and are gitignored.
 - **`scratch/` is gitignored** — catalogue backups, API task payloads and unused components.
