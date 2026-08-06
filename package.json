@@ -13,7 +13,7 @@
     "new:article": "node scripts/new-article.mjs",
     "fetch:products": "node scripts/fetch-top-products.mjs",
     "fetch:products:dry": "node scripts/fetch-top-products.mjs --dry-run",
-    "postbuild": "node scripts/inject-sovrn.mjs",
+    "postbuild": "node scripts/inject-sovrn.mjs && node scripts/inject-ga.mjs",
     "deploy:preview": "bash scripts/deploy-preview.sh"
   },
   "dependencies": {
