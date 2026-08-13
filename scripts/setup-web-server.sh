@@ -1,5 +1,26 @@
 #!/usr/bin/env bash
 #
+# RETIRED 13 Aug 2026 — the site moved to Cloudflare Pages, which needs no
+# origin server. This provisions one, so it is off by default.
+#
+# Kept because it is the only record of the origin's nginx configuration, and
+# because deploy/nginx/ is useless without something that installs it.
+#
+# TWO TRAPS if you ever run this again:
+#
+#   * conf.d/10-gzip.conf duplicates gzip_vary/gzip_types that Ubuntu's stock
+#     nginx.conf already sets at http level. On such a host `nginx -t` fails
+#     with `"gzip_vary" directive is duplicate` and EVERY site on that server
+#     stops being served on the next reload. This script copies all of
+#     conf.d/*.conf, so skip that file where nginx.conf already sets gzip.
+#   * conf.d/20-cloudflare-real-ip.conf sets set_real_ip_from at http level,
+#     which rewrites $remote_addr for every other site on a shared box —
+#     including any IP-based blocks. Only install it where Cloudflare really
+#     fronts the domain.
+#
+# ---------------------------------------------------------------------------
+# What it used to do:
+#
 # Provision a bare host to serve the site, and install the nginx config from
 # deploy/nginx/. Idempotent — safe to re-run to push a config change.
 #
@@ -10,6 +31,24 @@
 # not touch DNS or issue a certificate — see README, "Deployment".
 
 set -euo pipefail
+
+# Installs packages and rewrites nginx config, so it refuses by default rather
+# than reprovisioning a host that no longer serves this domain.
+if [ "${ALLOW_RETIRED_SETUP:-0}" != "1" ]; then
+  cat >&2 <<'RETIRED'
+nxtsmarthome.com.au is served by Cloudflare Pages, which has no origin server.
+
+This script installs nginx and certbot, writes /etc/nginx config and reloads
+nginx. On this host that would reinstate a vhost for a domain whose DNS now
+points at Cloudflare, and it copies conf.d/10-gzip.conf, which breaks nginx
+for every other site here (see the header).
+
+To provision a real origin deliberately:
+
+  ALLOW_RETIRED_SETUP=1 bash scripts/setup-web-server.sh [user@host]
+RETIRED
+  exit 1
+fi
 
 TARGET="${1:-local}"
 CONFIG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../deploy/nginx" && pwd)"

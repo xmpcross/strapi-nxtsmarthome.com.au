@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 #
+# RETIRED 13 Aug 2026 — the site moved to Cloudflare Pages.
+#
+# Publishing is now a git push: Cloudflare builds the repository and serves it.
+# Nothing here runs against the live site any more. The origin's nginx vhost,
+# certificate and web root were removed on the same day, so the rsync below
+# would publish into a directory that no longer exists and the nginx reload
+# would fail.
+#
+# Kept, rather than deleted, because it documents how the site was self-hosted
+# and is the starting point if it ever moves back. deploy/nginx/ holds the vhost
+# it installed. To use it again, restore that vhost with
+# scripts/setup-web-server.sh first, then remove this guard.
+#
+# ---------------------------------------------------------------------------
+# What it used to do:
+#
 # Build the static site and publish it to the web server.
 #
 #   npm run deploy
@@ -11,6 +27,26 @@
 # DEPLOY_HOST=user@host to build here and publish to a different server.
 
 set -euo pipefail
+
+# Refuses by default rather than half-publishing to a host that no longer
+# serves the domain. ALLOW_RETIRED_DEPLOY=1 overrides, for the case where the
+# origin has been deliberately rebuilt.
+if [ "${ALLOW_RETIRED_DEPLOY:-0}" != "1" ]; then
+  cat >&2 <<'RETIRED'
+nxtsmarthome.com.au is served by Cloudflare Pages, not by this host.
+
+  Publish with:  git push        (Cloudflare builds the repo)
+
+This script publishes to /var/www/html/nxtsmarthome.com.au, which was removed
+on 13 Aug 2026 along with the vhost and certificate. Running it would rebuild
+the site and rsync it nowhere useful.
+
+If you have deliberately restored the self-hosted origin, re-run with:
+
+  ALLOW_RETIRED_DEPLOY=1 npm run deploy
+RETIRED
+  exit 1
+fi
 
 # Resolved from this script's location. The absolute path was
 # '/opt/nxtsmarthome.com.au' and broke when the repo moved under /opt/projects/.
