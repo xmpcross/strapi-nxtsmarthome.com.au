@@ -1,0 +1,70 @@
+# nxtsmarthome.com.au — Next.js static export served straight off disk.
+#
+# Source of truth is /opt/nxtsmarthome.com.au. `npm run deploy` builds out/,
+# rsyncs it into the web root and reloads nginx; no node process runs in
+# production.
+#
+# Redirects and cache headers mirror the site's _redirects/_headers files, which
+# scripts/gen-redirects.mjs writes on every build. The 301 table below is
+# included from the web root so it is regenerated with the content instead of
+# drifting inside /etc/nginx — the failure that lost 259 redirects once before.
+
+# Canonical URLs carry a trailing slash (next.config.mjs sets trailingSlash), so
+# a request without one is redirected rather than answered, keeping one URL per
+# page. $nxtsmarthome_slash is empty unless $uri needs the slash added.
+map $uri $nxtsmarthome_slash {
+    default          "";
+    "~^(?<path>/.*[^/])$" $path;
+}
+
+# Keys run to ~70 characters; conf.d/00-map-hash.conf raises the bucket size to
+# fit them, and has to be parsed before any map block to take effect.
+map $uri $nxtsmarthome_redirect {
+    default "";
+    include /var/www/html/nxtsmarthome.com.au/_redirects.map;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name nxtsmarthome.com.au www.nxtsmarthome.com.au;
+
+    # Renewal is webroot-based and must answer over plain HTTP, so this stays
+    # above the redirect. It is served from outside the site tree, which the
+    # deploy rsyncs with --delete.
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/certbot-webroot;
+        default_type "text/plain";
+    }
+
+    location / {
+        return 301 https://nxtsmarthome.com.au$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
+    server_name nxtsmarthome.com.au www.nxtsmarthome.com.au;
+
+    ssl_certificate /etc/letsencrypt/live/nxtsmarthome.com.au/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/nxtsmarthome.com.au/privkey.pem;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+    ssl_session_tickets off;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+
+    root /var/www/html/nxtsmarthome.com.au;
+    index index.html;
+
+    access_log /var/log/nginx/nxtsmarthome.com.au.access.log;
+    error_log  /var/log/nginx/nxtsmarthome.com.au.error.log;
+
+    # Six months, no preload — long enough to be worth having, short enough to
+    # back out of without the domain being stuck on a preload list.
+    add_header Strict-Transport-Security "max-age=15768000" always;
+
+    include snippets/nxtsmarthome-site.conf;
+}
