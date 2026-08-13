@@ -33,7 +33,7 @@ export default async function ArticlesIndex() {
         <div className="grid gap-8 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-10">
           <CategorySidebar categories={categories} total={articles.length} />
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="articles-grid grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {articles.map((article) => (
               <ArticleCard key={article.slug} article={article} />
             ))}

@@ -4,6 +4,9 @@ description: 'Most overseas smart home guides assume DIY wiring is fine. In Aust
 category: setup-guides
 type: explainer
 date: '2026-03-19'
+coverBg: '#d6d2ca'
+coverText: false
+coverProduct: right
 updated: '2026-08-01'
 keyTakeaway: 'In every Australian state and territory, fixed electrical wiring work must be done by a licensed electrician — including replacing a light switch or a power point. Anything that plugs into a socket is yours to install freely.'
 tags:

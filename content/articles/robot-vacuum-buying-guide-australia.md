@@ -4,6 +4,9 @@ description: 'Navigation, suction, self-emptying docks and mopping — which rob
 category: robot-vacuums
 type: buying-guide
 date: '2026-06-11'
+coverBg: '#9dc3d8'
+coverText: false
+coverProduct: right
 updated: '2026-08-01'
 keyTakeaway: 'Navigation quality matters more than suction. LiDAR mapping is the single biggest jump in usefulness, and it is the feature that separates a robot you actually run from one that gets stuck under the couch and stays there.'
 tags:

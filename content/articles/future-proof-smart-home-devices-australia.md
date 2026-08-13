@@ -6,6 +6,10 @@ type: buying-guide
 date: '2026-08-04'
 coverMain: 'Will it still work in five years?'
 coverSub: 'Buying smart home gear that outlasts the brand'
+coverBg: '#d9c9a8'
+coverText: false
+coverProduct: right
+coverProductScale: 0.85
 keyTakeaway: 'Smart home devices rarely die of hardware failure — they die when a manufacturer retires a cloud service or stops issuing updates. Favour devices that keep working when the internet drops, that speak an open standard such as Zigbee, Z-Wave, Thread or Matter, and that come from a brand with a published support commitment. Anything that needs a subscription to perform its basic function is rented, not owned.'
 tags:
   - Buying advice

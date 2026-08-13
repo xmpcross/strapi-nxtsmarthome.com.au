@@ -6,6 +6,9 @@ type: buying-guide
 date: '2026-08-04'
 coverMain: 'Worth buying second-hand?'
 coverSub: 'What to check before you hand over money'
+coverBg: '#12264a'
+coverText: false
+coverProduct: right
 keyTakeaway: 'Hubs, bulbs, plugs and sensors are usually safe buys second-hand. Cameras, doorbells, locks and robot vacuums are not, because they stay tied to the previous owner''s account unless that person removes them before you pay. Buy from a business rather than a private seller wherever the device matters, because consumer guarantees generally follow the business sale and generally do not follow the private one.'
 tags:
   - Buying advice

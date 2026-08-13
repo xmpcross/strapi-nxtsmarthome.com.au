@@ -22,7 +22,7 @@
 .mzh {
   /* Light theme. --surface must equal the body background in app/globals.css,
      because the corner pockets are painted in it. */
-  --surface: #f7f8f9;
+  --surface: #fafafa;
   --card: #ffffff;
   --card-edge: #e5e7eb;
 

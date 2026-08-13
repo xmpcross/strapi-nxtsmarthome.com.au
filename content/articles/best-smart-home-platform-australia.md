@@ -4,6 +4,9 @@ description: 'Apple Home, Google Home, Alexa, SmartThings or Home Assistant — 
 category: hubs-and-platforms
 type: buying-guide
 date: '2026-02-03'
+coverBg: '#d9c9a8'
+coverText: false
+coverProduct: right
 updated: '2026-08-01'
 featured: true
 keyTakeaway: 'Pick based on the phones your household already uses and how much tinkering you enjoy. Apple Home for privacy and reliability with an iPhone household, Google Home for the best voice assistant, Alexa for the widest device support and cheapest speakers, Home Assistant if you want real control and do not mind the learning curve.'

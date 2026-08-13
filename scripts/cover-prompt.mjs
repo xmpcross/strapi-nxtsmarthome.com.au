@@ -119,12 +119,12 @@ export function buildGreyPrompt({ title, description, body }) {
   const subject = describeSubject(title, `${description} ${body}`);
 
   return [
-    'Photorealistic premium editorial product photograph for a technology magazine.',
+    leadLine(title),
     `Scene: ${subject}`,
     'Background: a single flat matte light grey (#D1D5DB) studio backdrop, seamless, uniform, no gradient, no banding, no pattern, no room, no wall, no furniture, no horizon line, no corner where two planes meet.',
     'Composition: the objects sit right of centre, resting on a plain pale ledge, with generous empty backdrop to the left and above. Nothing touches an edge. Maximum four objects.',
     'Lighting: soft commercial studio lighting, crisp edges, subtle natural shadow, restrained highlights, strong separation from the background.',
-    'Devices are modern, clean and unbranded.',
+    finishLine(title),
     'NO TEXT ANYWHERE IN THE IMAGE. No words, no letters, no numbers, no digits, no labels, no captions, no signage, no logos, no branding, no packaging, no watermarks, no UI text, no keypads showing numerals, no screens showing writing or numerals.',
     'No people, no hands, no coins, no cash, no holograms, no glowing effects, no lightning bolts, no clutter.',
     'No power outlets, no sockets, no plugs of any country.',
@@ -135,7 +135,7 @@ export function buildPrompt({ title, body, description, colour, previous }) {
   const subject = describeSubject(title, `${description} ${body}`);
 
   return [
-    `Photorealistic premium editorial product photograph for a technology magazine.`,
+    leadLine(title),
     `Scene: ${subject}`,
     // "no floor" and "no horizon" are explicit because the renders kept producing a
     // floor plane near the bottom of the frame, which stood every object low and
@@ -157,7 +157,7 @@ export function buildPrompt({ title, body, description, colour, previous }) {
     // which makes the position guaranteed rather than hoped for.
     `Composition: square 1:1 format. One group of objects centred in the frame, filling roughly 70% of the width and height, with generous empty backdrop margin on all four sides. Nothing touches an edge. Objects float against the seamless backdrop with no supporting surface beneath them. Maximum five objects.`,
     `Lighting: soft commercial studio lighting, crisp edges, subtle natural shadow, restrained highlights, strong separation from the background.`,
-    `Devices are modern, clean and unbranded.`,
+    finishLine(title),
     // The headline and sub-heading are typeset locally by scripts/compose-cover.py,
     // so the generation must contribute no lettering of any kind. Models render text
     // badly — a misspelled word baked into a cover is permanent — and any generated
@@ -165,6 +165,43 @@ export function buildPrompt({ title, body, description, colour, previous }) {
     `NO TEXT ANYWHERE IN THE IMAGE. No words, no letters, no numbers, no digits, no labels, no captions, no signage, no logos, no branding, no packaging, no watermarks, no UI text, no screens showing writing or numerals.`,
     `No people, no hands, no holograms, no glowing effects, no lightning bolts, no money.`,
   ].join(' ');
+}
+
+/**
+ * Articles whose subject is used hardware rather than new hardware.
+ *
+ * Both prompt builders otherwise assert "Devices are modern, clean and unbranded",
+ * which flatly contradicts a scene asking for scuffs, dust and yellowed plastic.
+ * Given the contradiction the model resolved it the way it resolves most of them —
+ * toward the clean studio render it has seen a million of — and returned pristine
+ * objects with no wear at all. The finish line has to agree with the scene.
+ */
+export const WORN = /second-?hand|used|pre-?owned|refurbish|resale|resell/;
+
+export function finishLine(title) {
+  return WORN.test(title.toLowerCase())
+    ? 'Devices are unbranded and visibly second-hand: scuffed, dulled and imperfect, '
+      + 'with yellowed ageing plastic, fine scratches, scuff marks, dust in the seams, '
+      + 'adhesive residue where a label was peeled off, and no packaging. '
+      + 'Not new, not pristine, not a retail product render.'
+    : 'Devices are modern, clean and unbranded.';
+}
+
+/**
+ * The opening line sets the register, and on a worn scene it fights the brief.
+ *
+ * "Premium editorial product photograph for a technology magazine" is a strong pull
+ * toward a flawless studio render — strong enough that it survived two rounds of
+ * increasingly explicit wear instructions and returned spotless objects both times.
+ * Asking for a used device in the language of advertising photography is asking for
+ * two different pictures; the register has to change with the subject.
+ */
+export function leadLine(title) {
+  return WORN.test(title.toLowerCase())
+    ? 'Photorealistic documentary photograph of well-used second-hand consumer '
+      + 'electronics, shot honestly and unglamorously, showing genuine age and wear. '
+      + 'Not advertising photography.'
+    : 'Photorealistic premium editorial product photograph for a technology magazine.';
 }
 
 /**
@@ -187,8 +224,19 @@ function describeSubject(title, text) {
 }
 
 function matchScene(t, { fromBody = false } = {}) {
+  // Asking for "white pucks" returns exactly that: featureless white cylinders that
+  // read as abstract 3D shapes rather than hardware. The fix is to name the details
+  // that make an object look manufactured — panel seams, a moulded lip, a status
+  // light, a matte-against-gloss break — and to cap the count, since "three tiny
+  // pucks" reliably came back as six. The connecting lines are gone too; rendered
+  // thin they came out as a stray wire lying on the floor.
   if (/zigbee|z-wave|thread|matter|protocol|mesh|hub|platform/.test(t))
-    return 'one small white smart home hub in the centre foreground, large and prominent, with three tiny white sensor pucks placed around it at varying distances, very thin faint connecting lines arcing between them.';
+    return 'exactly three objects: one matte white smart home hub in the centre foreground, '
+      + 'large and prominent, with a crisp moulded seam around its edge, a recessed glossy '
+      + 'top panel and one small dark status light; and two smaller matching sensor devices '
+      + 'beside it at different depths, each with the same seam and panel detailing. '
+      + 'Real consumer electronics with sharp edges and precise panel lines. '
+      + 'Not featureless blobs, not plain cylinders, not abstract shapes, no connecting lines, no wires.';
   // No plug and no socket, in any orientation. Two attempts failed: specifying the
   // AS/NZS 3112 pin layout produced a US plug, and hiding the pins produced a plug
   // whose FACE was a US pass-through outlet. Image models do not render
@@ -198,14 +246,40 @@ function matchScene(t, { fromBody = false } = {}) {
   // Scene is also title-only: a passing body mention must not select it.
   if (!fromBody && /smart plug|energy monitor|tariff|electricity bill|power bill/.test(t))
     return 'a small plain white cylindrical energy monitor puck standing upright, beside a smartphone lying flat showing a simple line graph with no words on it. No plugs, no sockets, no power outlets, no pins, no cables.';
+  // Wiring articles, before the lighting rule below can claim them.
+  //
+  // Without this they fall through to the body, where "switch" appears constantly,
+  // and get the bulb-and-switch-plate scene — the same picture as the smart bulbs
+  // vs smart switches article. The subject here is the work, not the fitting.
+  //
+  // Terminal blocks and stripped cable carry "electrical work" while staying
+  // country-neutral, which the socket ban above exists to protect: pins and outlet
+  // faces are exactly what the model renders with the wrong region's geometry.
+  // No wall plate in this one at all. Asking for a "plain blank" one produced a
+  // US-style Decora rocker anyway — the model fills a faceplate with whatever
+  // switch it knows, and the one it knows is American. Removing the plate removes
+  // the surface it can get wrong, and the module and cable carry the subject on
+  // their own.
+  if (/electrical|electrician|wiring|hardwired|licence|licensed/.test(t))
+    return 'a small in-wall automation relay module with exposed screw terminal blocks, '
+      + 'lying on a plain surface beside a short offcut of stripped three-core electrical '
+      + 'cable with bare copper ends and a single insulated screwdriver. '
+      + 'No wall, no wall plate, no faceplate, no switch, no socket, no outlet, no plug, no pins.';
   if (/smart lock|deadbolt|keypad/.test(t))
     return 'a modern matte smart deadbolt lock mounted on a plain dark timber door panel, keypad face visible.';
   if (/doorbell/.test(t))
     return 'a slim video doorbell mounted on a plain door frame edge, lens catching a soft highlight.';
   if (/camera|surveillance/.test(t))
     return 'a compact white indoor security camera on a small stand, lens forward, next to a smaller sensor puck.';
+  // The bulb base is a localisation trap of the same family as the socket ban.
+  // Australia is bayonet country; the model's default is an Edison screw thread,
+  // and an E27 bulb on an article whose whole AU angle is the B22 bayonet is the
+  // same error as a US outlet. Stated positively and negatively, because "not a
+  // screw" alone tends to produce a screw.
   if (/bulb|lighting|switch|dimmer|b22|e27/.test(t))
-    return 'a frosted smart light bulb standing upright beside a flat white wall switch plate.';
+    return 'a frosted smart light bulb standing upright beside a flat blank white wall plate. '
+      + 'The bulb has a bayonet cap base: a smooth cylindrical metal cap with two small '
+      + 'pins on its sides and a flat bottom. No screw thread, no spiral, no Edison screw base.';
   if (/vacuum|mop/.test(t))
     return 'a low round robot vacuum photographed from a three-quarter angle on a plain surface.';
   if (/speaker|audio|multi-room/.test(t))
@@ -224,5 +298,13 @@ function matchScene(t, { fromBody = false } = {}) {
     return 'one small white smart home hub standing beside a plain unmarked cardboard carton with no printing on it, the carton slightly behind and to one side.';
   if (/where to buy|retailer|bunnings|jb hi-?fi|store|shop/.test(t))
     return 'four modern unbranded white smart home devices of clearly different shapes — a hub, a speaker, a sensor puck and a camera — standing in a row on a plain pale shelf like a retail display.';
+  // Second-hand has to be carried by the STATE of the devices, not by props.
+  // The obvious shorthands are all unusable here: a price tag or a listing screen
+  // is lettering, which the global rule forbids, and a carton is already how
+  // imports are signalled one branch up. What is left is wear — mismatched
+  // brands, no packaging, a device opened up — which reads as used without a
+  // single word and cannot be mistaken for the boxed retail scene above.
+  if (/second-?hand|used|pre-?owned|refurbish|resale|resell/.test(t))
+    return 'three mismatched smart home devices of clearly different shapes, ages and finishes — a slightly yellowed older white hub, a newer grey sensor puck and a bare light bulb with no packaging — grouped loosely as if gathered for resale, one lying on its side with its battery cover off beside it, faint scuffs and fine dust visible on the older casing.';
   return null;
 }
