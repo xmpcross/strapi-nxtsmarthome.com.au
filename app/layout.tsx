@@ -51,15 +51,16 @@ export const metadata: Metadata = {
     // Without an image a summary_large_image card renders blank.
     images: [site.ogImage],
   },
-  // Search engine and affiliate network ownership verification. Rendered into
-  // <head> on every page. Add `google: '<code>'` here when Search Console
-  // gives you one. Verification codes are per-site — do not copy one between
-  // domains.
+  // Search engine ownership verification. Rendered into <head> on every page.
+  // Add `google: '<code>'` here when Search Console gives you one.
+  // Verification codes are per-site — do not copy one between domains.
+  //
+  // The Takeads and Mitgo (Takeads' parent) verification codes were removed
+  // along with the rest of the Takeads integration. This site monetises through
+  // Amazon, eBay, Impact and CJ; see lib/affiliate.ts.
   verification: {
     other: {
       'msvalidate.01': '057158952120360611CA2F41AD7D5B50',
-      'mitgo-verification': '1983d842-1da6-4a12-8d92-82d7146452a2',
-      'Takeads-verification': '4103e109-240f-47e2-a9c1-fceeded9b9b3',
     },
   },
   robots: {
