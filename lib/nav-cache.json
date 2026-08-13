@@ -1,0 +1,105 @@
+{
+  "productsNavLink": {
+    "href": "/products/",
+    "label": "All Products"
+  },
+  "productCategoryNavLinks": [
+    {
+      "href": "/products/category/security-and-cameras/",
+      "label": "Security & Cameras",
+      "emoji": "🔒"
+    },
+    {
+      "href": "/products/category/lighting/",
+      "label": "Lighting",
+      "emoji": "💡"
+    },
+    {
+      "href": "/products/category/energy-and-solar/",
+      "label": "Energy & Solar",
+      "emoji": "⚡"
+    },
+    {
+      "href": "/products/category/entertainment-and-audio/",
+      "label": "Entertainment & Audio",
+      "emoji": "🔊"
+    },
+    {
+      "href": "/products/category/climate-and-comfort/",
+      "label": "Climate & Comfort",
+      "emoji": "🌡️"
+    },
+    {
+      "href": "/products/category/hubs-and-platforms/",
+      "label": "Hubs & Platforms",
+      "emoji": "🧠"
+    },
+    {
+      "href": "/products/category/robot-vacuums/",
+      "label": "Robot Vacuums",
+      "emoji": "🤖"
+    }
+  ],
+  "topicNavLinks": [
+    {
+      "href": "/categories/security-and-cameras/",
+      "label": "Security & Cameras",
+      "emoji": "🔒"
+    },
+    {
+      "href": "/categories/lighting/",
+      "label": "Lighting",
+      "emoji": "💡"
+    },
+    {
+      "href": "/categories/energy-and-solar/",
+      "label": "Energy & Solar",
+      "emoji": "⚡"
+    },
+    {
+      "href": "/categories/entertainment-and-audio/",
+      "label": "Entertainment & Audio",
+      "emoji": "🔊"
+    },
+    {
+      "href": "/categories/climate-and-comfort/",
+      "label": "Climate & Comfort",
+      "emoji": "🌡️"
+    },
+    {
+      "href": "/categories/hubs-and-platforms/",
+      "label": "Hubs & Platforms",
+      "emoji": "🧠"
+    },
+    {
+      "href": "/categories/robot-vacuums/",
+      "label": "Robot Vacuums",
+      "emoji": "🤖"
+    }
+  ],
+  "guideNavLinks": [
+    {
+      "href": "/categories/buying-guides/",
+      "label": "Buying Guides",
+      "emoji": "🛒"
+    },
+    {
+      "href": "/categories/setup-guides/",
+      "label": "Setup Guides",
+      "emoji": "🛠️"
+    },
+    {
+      "href": "/how-we-test/",
+      "label": "How We Test",
+      "emoji": "🔬"
+    }
+  ],
+  "latestNavLink": {
+    "href": "/articles/",
+    "label": "Latest"
+  },
+  "searchLink": {
+    "href": "/search/",
+    "label": "Search"
+  }
+}

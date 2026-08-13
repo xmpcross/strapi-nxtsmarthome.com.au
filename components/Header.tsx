@@ -2,15 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import {
-  guideNavLinks,
-  latestNavLink,
-  productCategoryNavLinks,
-  productsNavLink,
-  searchLink,
-  site,
-  topicNavLinks,
-} from '@/lib/site';
+import { site } from '@/lib/site';
+import type { Nav } from '@/lib/nav';
 import SearchModal from './SearchModal';
 import ThemeToggle from './ThemeToggle';
 
@@ -53,7 +46,19 @@ function ChevronIcon() {
 
 type MenuId = 'products' | 'categories' | 'guides';
 
-export default function Header() {
+/* The nav arrives as a prop because it is fetched from the CMS in the server
+   layout — this is a client component and cannot fetch it itself. Destructured
+   back into the original names so the markup below reads unchanged. */
+export default function Header({ nav }: { nav: Nav }) {
+  const {
+    guideNavLinks,
+    latestNavLink,
+    productCategoryNavLinks,
+    productsNavLink,
+    searchLink,
+    topicNavLinks,
+  } = nav;
+
   const [open, setOpen] = useState(false);          // mobile drawer
   const [menu, setMenu] = useState<MenuId | null>(null); // which desktop dropdown
   const [searchOpen, setSearchOpen] = useState(false);
