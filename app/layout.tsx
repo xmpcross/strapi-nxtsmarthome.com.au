@@ -61,6 +61,7 @@ export const metadata: Metadata = {
   verification: {
     other: {
       'msvalidate.01': '057158952120360611CA2F41AD7D5B50',
+      'verify-admitad': 'd39c912cae',
     },
   },
   robots: {
