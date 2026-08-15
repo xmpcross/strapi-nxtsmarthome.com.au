@@ -6,6 +6,9 @@ type: roundup
 date: '2026-08-04'
 coverMain: 'No drilling, no damage'
 coverSub: 'Smart home devices renters can actually install'
+coverBg: '#104e5c'
+coverText: false
+coverProduct: right
 keyTakeaway: 'Plug-in, adhesive-mounted and free-standing devices cover most of what a smart home actually does. The things that genuinely need a drill — hardwired switches, fixed cameras, deadbolt replacements — are also the things most likely to cost you at the end of the lease.'
 tags:
   - Renting

@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
+import { getNav } from '@/lib/nav';
 import { organisationJsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
@@ -60,6 +61,7 @@ export const metadata: Metadata = {
   verification: {
     other: {
       'msvalidate.01': '057158952120360611CA2F41AD7D5B50',
+      'verify-admitad': 'd39c912cae',
     },
   },
   robots: {
@@ -70,6 +72,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Read once per build from lib/nav-cache.json and passed into the client
+  // header. getNav never throws — a missing cache falls back to lib/site.ts.
+  const nav = getNav();
+
   return (
     <html lang={site.language} suppressHydrationWarning>
       <head>
@@ -92,7 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Header />
+        <Header nav={nav} />
         <main id="main" className="flex-1">
           {children}
         </main>

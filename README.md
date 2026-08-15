@@ -18,7 +18,7 @@ nvm use 22
 
 npm run dev                # local dev on http://localhost:3011
 npm run build              # static export to out/
-npm run deploy             # build + publish to /var/www/html/nxtsmarthome.com.au + reload nginx
+npm run deploy             # build here, publish to the web server, reload its nginx
 npm run new:article -- "Title" <category> <type>
 ```
 
@@ -187,51 +187,91 @@ category **key** (`security`) while the URL uses its slug (`security-and-cameras
 `lib/site.ts` holds the mapping.
 
 They used to live at `/articles/<slug>/`, and those URLs are indexed. **A static export cannot
-redirect by itself**, so the 301s are served by nginx from generated snippets:
-
-```bash
-node scripts/gen-article-redirects.mjs    # writes /etc/nginx/snippets/nxtsmarthome-article-redirects.conf
-```
+redirect by itself**, so the 301s come from the host. `scripts/gen-redirects.mjs` writes all
+three formats on `prebuild`, from the same rules:
 
 ```text
-/etc/nginx/snippets/nxtsmarthome-article-redirects.conf    old /articles/ URLs → new ones
-/etc/nginx/snippets/nxtsmarthome-variant-redirects.conf    243 product-variant consolidations
+public/_redirects        Cloudflare Pages / Workers / Netlify format
+public/_headers          security and cache headers for the same hosts
+public/_redirects.map    the same 301s as an nginx map
 ```
 
-These are generated into `public/_redirects` by `scripts/gen-redirects.mjs`, which
-runs on `prebuild` — so they cannot drift from the content and they travel with
-the repository. They previously lived in nginx snippets outside the repo, and
-when the site moved to Cloudflare all 259 of them silently became 404s until
-they were ported.
+All three ship inside `out/`, so they land in the web root with the pages. The vhost
+includes `_redirects.map` straight from there — the rules stay in the repository and
+travel with a host change. They used to live in `/etc/nginx/snippets` instead, and when
+the site moved to Cloudflare all 259 of them silently became 404s until they were ported.
 
 ## Deployment
 
-Hosted on **Cloudflare** (Workers & Pages), built from `master` on push.
+Self-hosted on **178.105.206.112**, which both builds the site and serves it — from
+nginx, out of `/var/www/html/nxtsmarthome.com.au`. No node process runs in production;
+it is flat files behind Cloudflare.
 
-| Setting | Value |
+```bash
+npm run deploy                             # build and publish on this machine
+DEPLOY_HOST=root@host npm run deploy       # build here, publish to another server over ssh
+```
+
+`scripts/deploy.sh` builds, refuses to continue without `out/index.html` and
+`out/_redirects.map`, tars the current web root into `/opt/backups/nxtsmarthome.com.au`
+on the target (keeping five), rsyncs `out/` with `--delete`, fixes ownership, runs
+`nginx -t` before reloading, and submits the changed URLs to IndexNow.
+
+### The web server
+
+Its nginx config lives in `deploy/nginx/`, and `scripts/setup-web-server.sh` installs it —
+on a bare Ubuntu host it also installs nginx and certbot. Both are idempotent, so the
+script is also how a config change reaches the server:
+
+```bash
+bash scripts/setup-web-server.sh                  # this machine
+bash scripts/setup-web-server.sh root@1.2.3.4     # a new one
+```
+
+| Installed path | Purpose |
 | --- | --- |
-| Framework preset | **None** |
-| Build command | `npm run build` |
-| Build output directory | `out` |
+| `/etc/nginx/sites-available/nxtsmarthome.com.au` | vhost — server names, TLS, redirect maps |
+| `/etc/nginx/snippets/nxtsmarthome-site.conf` | the serving rules, shared by the HTTP and HTTPS blocks |
+| `/etc/nginx/conf.d/00-map-hash.conf` | bigger map hash buckets; must parse before any `map` |
+| `/etc/nginx/conf.d/10-gzip.conf` | Ubuntu compresses only HTML by default |
+| `/var/www/certbot-webroot` | ACME challenges, so renewal never touches the site tree |
 
-**Not the Next.js preset.** It selects the OpenNext adapter, which builds
-server-rendered Next and looks for `.next/standalone/`. This project is
-`output: 'export'`, so that directory never exists and the build dies with
-`ENOENT … pages-manifest.json`. A static export needs no adapter at all.
+### TLS and Cloudflare
 
-**Not `npx next build` either**, which Cloudflare's docs suggest. That skips the
-npm lifecycle, and both `prebuild` and `postbuild` matter here:
+The certificate is Let's Encrypt, covering the apex and `www`, issued and renewed
+through the webroot at `/var/www/certbot-webroot` by certbot's own timer:
 
-- `prebuild` writes `public/search-index.json` (gitignored, so it exists only if
-  generated) and `public/_redirects` / `public/_headers`
-- `postbuild` injects the Sovrn and GA4 snippets into the exported HTML
+```bash
+certbot certonly --webroot -w /var/www/certbot-webroot \
+  -d nxtsmarthome.com.au -d www.nxtsmarthome.com.au
+certbot renew --dry-run          # check renewal still works
+```
 
-Skipping them yields a green build with no search, no redirects, no security
-headers and no analytics — all silently.
+That webroot deliberately sits **outside** the site tree, because the deploy rsyncs
+with `--delete` and would otherwise wipe a challenge mid-renewal. The ACME location
+is also matched before the HTTP→HTTPS redirect, so validation over plain HTTP works.
+
+Cloudflare proxies the domain. Two things follow from that:
+
+- **SSL/TLS mode must be Full (strict).** Flexible produces the redirect loop this
+  domain has hit before, and with no origin certificate Full (strict) yields a 521.
+- **A deploy does not clear the edge.** Purge the Cloudflare cache, or visitors keep
+  seeing the previous build.
+
+`conf.d/20-cloudflare-real-ip.conf` maps Cloudflare's ranges back to the real client
+address, so the access log shows visitors instead of the CDN.
+
+Two details in the serving config are load-bearing:
+
+- **`try_files` ends in `=404`**, never `/404.html` — the latter serves the error page
+  with a 200 status, a soft 404 that search engines index. This bit the site once.
+- **Requests without a trailing slash get a 301**, not the page, because
+  `trailingSlash: true` makes the slashed form canonical. One URL per page.
 
 ### Environment variables
 
-Set these in the Cloudflare project, not in the repo:
+Read from `.env.local` at **build** time and inlined into the HTML, so a change
+means a rebuild:
 
 ```text
 NEXT_PUBLIC_SOVRN_KEY            affiliate monetisation
@@ -239,18 +279,35 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID    analytics
 ```
 
 Both fail quietly when unset — the build succeeds and the script simply is not
-there. Worth checking a deployed page rather than trusting the build log.
+there. `npm run build` says which it injected; worth checking a deployed page
+rather than trusting the log.
+
+`.env.local` is gitignored, so it exists only on this box. Building anywhere else
+without copying it first yields a site with no analytics and no monetisation.
+
+### Building
+
+Always `npm run build`, never `npx next build` — the latter skips the npm lifecycle,
+and both halves matter:
+
+- `prebuild` writes `public/search-index.json` (gitignored, so it exists only if
+  generated) and `public/_redirects`, `public/_headers`, `public/_redirects.map`
+- `postbuild` injects the Sovrn and GA4 snippets into the exported HTML
+
+Skipping them yields a green build with no search, no redirects, no security
+headers and no analytics — all silently.
 
 ## Things worth knowing
 
-- **Cloudflare serves this site directly** — there is no origin server any more. The
-  nginx vhost and its Let's Encrypt certificate were retired in August 2026.
+- **The site is served from 178.105.206.112**, not from this box and not from Cloudflare.
+  It ran on Cloudflare Workers through August 2026 and moved back to nginx after; the
+  Worker and its `wrangler.jsonc` are kept only as a fallback host.
 - **Trailing slashes are on.** All internal links need them: `/articles/foo/`, not `/articles/foo`.
 - **`out/` and `public/search-index.json` are build artefacts** and are gitignored.
 - **`scratch/` is gitignored** — catalogue backups, API task payloads and unused components.
   Nothing there is needed to build, and it should not reach a public repository.
-- **Anything that must survive a host change lives in this repo.** The redirect snippets
-  currently do not; see URLs and redirects above.
+- **Anything that must survive a host change lives in this repo** — including the redirect
+  and header rules, in all three host formats; see URLs and redirects above.
 - **The previous site** (an orphaned static export with no source, 143 articles) is archived at
   `/opt/backups/nxtsmarthome.com.au/static-export-archive-20260801.tar.gz` if any of its
   content is ever wanted back.

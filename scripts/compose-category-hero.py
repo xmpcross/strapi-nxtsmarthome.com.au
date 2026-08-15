@@ -45,11 +45,9 @@ SQUARE = 600
 EXTS = ('png', 'jpg', 'jpeg', 'webp')
 
 # Urbanist lives in the repo so a generation is not dependent on a scratch
-# directory surviving. scripts/compose-cover.py still points at a /tmp path;
-# assets/fonts is the durable copy.
+# directory surviving. compose-cover.py reads the same directory.
 FONT_DIRS = [
     os.path.join(ROOT, 'assets', 'fonts'),
-    '/tmp/claude-0/-var-www-html/3137644f-60bd-49cf-930c-822117827c4b/scratchpad/fonts',
 ]
 
 

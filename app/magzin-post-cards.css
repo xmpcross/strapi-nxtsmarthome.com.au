@@ -32,7 +32,7 @@
    -------------------------------------------------------------------------- */
 .magzin-style-card .post-card__media {
   /* Exact relationship between pocket and button. */
-  --page-surface: #f7f8f9;
+  --page-surface: #fafafa;
   --card-radius: 8px;
   --arrow-size: 48px;
   --arrow-gap: 10px;

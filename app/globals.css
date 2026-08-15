@@ -196,7 +196,7 @@
    */
   body {
     /* Magzin's light page sits on --tc-neutral-50 with white cards over it. */
-    background: #f7f8f9;
+    background: #fafafa;
     color: #0e0e0f;
   }
   :root.dark body {
@@ -776,6 +776,18 @@
     --pc-arrow-bg: #ffffff;
     --pc-arrow-border: #d9d9d9;
     --pc-arrow-ink: #111111;
+    /*
+     * Defined here because the card shadow below is written against it, and it did
+     * not exist in this codebase — it comes from a theme that ships a --cs-* token
+     * set. Left undefined, rgba(var(--cs-light-primary-color-rgb), .07) is simply
+     * an invalid colour and the shadow does not render at all, silently.
+     *
+     * Comma-separated, because the shadow uses the legacy rgba(r, g, b, a) form.
+     * The value is brand-950, so the shadow reads as a tinted lift rather than
+     * flat grey. Dark mode drops to black: a 7% navy shadow over the #151616
+     * surface is invisible, and a lighter tint would glow rather than recede.
+     */
+    --cs-light-primary-color-rgb: 35, 33, 89;
   }
 
   :root.dark {
@@ -783,6 +795,24 @@
     --pc-arrow-bg: theme('colors.card');
     --pc-arrow-border: theme('colors.card-edge');
     --pc-arrow-ink: #ffffff;
+    --cs-light-primary-color-rgb: 0, 0, 0;
+  }
+
+  /*
+   * Card lift on /articles.
+   *
+   * Scoped to that page rather than put on ArticleCard itself, because the same
+   * component also renders on the category, author and search listings — styling
+   * the component would have changed all of them, which is more than was asked
+   * for. Promoting this site-wide later is a one-line move: drop the wrapper and
+   * apply it in the component.
+   *
+   * The card's own hover:shadow-lg still wins on hover, since Tailwind's
+   * utilities layer is emitted after components — so this is the resting state
+   * and the hover lift is unaffected.
+   */
+  .articles-grid > article {
+    box-shadow: 0 8px 32px 0 rgba(var(--cs-light-primary-color-rgb), 0.07);
   }
 }
 

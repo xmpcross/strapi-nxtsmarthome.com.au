@@ -4,6 +4,9 @@ description: 'Wired or battery, cloud or local storage, subscription or not — 
 category: security
 type: buying-guide
 date: '2026-04-16'
+coverBg: '#9a89ab'
+coverText: false
+coverProduct: right
 updated: '2026-08-01'
 featured: true
 keyTakeaway: 'Decide on storage first, not features. Cloud subscriptions cost more over five years than the doorbell does. Then check the chime situation, because Australian doorbell wiring is inconsistent and it determines whether you can go wired at all.'

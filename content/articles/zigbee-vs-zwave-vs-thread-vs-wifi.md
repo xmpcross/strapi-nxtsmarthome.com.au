@@ -7,6 +7,9 @@ coverMain: 'Zigbee vs Z-Wave'
 coverSub: 'vs Thread vs Wi-Fi'
 type: explainer
 date: '2026-02-18'
+coverBg: '#a9541b'
+coverText: false
+coverProduct: right
 updated: '2026-08-01'
 featured: true
 keyTakeaway: 'Use Wi-Fi for mains-powered devices, Thread or Zigbee for battery-powered sensors, and only buy Z-Wave if you specifically need it — and if you do, buy the Australia/New Zealand frequency variant.'

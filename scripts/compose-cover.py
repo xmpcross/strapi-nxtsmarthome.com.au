@@ -20,6 +20,10 @@ Per-article overrides can be set in front matter:
 
     coverScrim: true           # restore the panel behind the headline
     coverTextTop: false        # centre the headline instead of pinning it top
+    coverBg: '#d8c9ae'         # override the category panel colour
+    coverText: false           # product-only cover, no headline (product centres)
+    coverProduct: right        # force the placement band: 'right' or 'centre'
+    coverProductScale: 0.85    # shrink the product within that band (0.2-1.0)
     coverMain: 'ZIGBEE VS Z-WAVE'
     coverSub:  'VS THREAD VS WI-FI'
 """
@@ -30,10 +34,13 @@ import sys
 import hashlib
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
-ROOT = '/opt/nxtsmarthome.com.au'
-FONTS = '/tmp/claude-0/-var-www-html/3137644f-60bd-49cf-930c-822117827c4b/scratchpad/fonts'
+# Resolved from this file's location rather than hardcoded. The absolute path was
+# '/opt/nxtsmarthome.com.au', which broke every cover regeneration the moment the
+# repo moved under /opt/projects/.
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FONTS = f'{ROOT}/assets/fonts'  # was a /tmp path from an old session; the fonts live in the repo
 W, H = 1240, 700          # per the cover brief
 SCALE = W / 1000          # every metric below was tuned at 1000px wide
 
@@ -61,6 +68,117 @@ CATEGORY_RGB = {
 }
 bg = CATEGORY_RGB.get(category, (30, 44, 122))
 
+# `coverBg: '#d8c9ae'` in front matter overrides the category colour.
+#
+# The category palette assumes the house composition — a white or pale product cut
+# out onto a dark panel. It inverts badly for an article whose subject is a matte
+# black device: black-on-dark-green is the same failure as white-on-white, and no
+# amount of scrim fixes a product that is the same value as its backdrop. The ink
+# picker below already handles a light backdrop, so overriding the panel is enough
+# to flip the whole cover to dark-on-light without any other change.
+#
+# `coverBg: random` instead picks one from PANEL_PALETTE below — see _pick_bg().
+_bg_hex = fm('coverBg')
+BG_RANDOM = _bg_hex.strip().lower() == 'random'
+if _bg_hex and not BG_RANDOM:
+    h = _bg_hex.lstrip('#')
+    if len(h) == 3:
+        h = ''.join(c * 2 for c in h)
+    if len(h) != 6:
+        sys.exit(f"coverBg must be a 3- or 6-digit hex colour, got '{_bg_hex}'")
+    bg = tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+# Panels for `coverBg: random`. Deliberately spans dark and light: the picker
+# below needs candidates on both sides of a product's own brightness, or a set of
+# uniformly dark panels would leave a black device with nowhere to go.
+#
+# The light end is deliberately the longer one. Consumer smart home hardware is
+# overwhelmingly matte black or charcoal, so most subjects need a light panel and
+# they all draw from the same short list — with only three pale entries, four dark
+# products across a batch produced two pairs of identical covers. Variety at this
+# end is what actually makes the picks look random across a category page.
+PANEL_PALETTE = [
+    ('Slate charcoal', (46, 51, 59)), ('Deep red', (163, 35, 48)),
+    ('Blue grey', (60, 70, 84)), ('Forest', (31, 77, 58)),
+    ('Royal blue', (30, 44, 122)), ('Deep teal', (16, 78, 92)),
+    ('Navy', (18, 38, 74)), ('Burnt orange', (169, 84, 27)),
+    ('Plum', (74, 35, 82)), ('Olive', (74, 82, 51)),
+    ('Terracotta', (180, 87, 61)), ('Warm sand', (217, 201, 168)),
+    ('Pale mint', (199, 220, 208)), ('Sky', (157, 195, 216)),
+    ('Light stone', (214, 210, 202)), ('Blush', (226, 197, 190)),
+    ('Cream', (232, 224, 205)), ('Sage', (196, 208, 188)),
+    ('Lilac grey', (206, 200, 216)), ('Pale clay', (219, 199, 181)),
+    ('Ice blue', (198, 214, 224)), ('Oat', (223, 214, 196)),
+]
+
+
+def _rel_lum(rgb):
+    out = []
+    for v in rgb:
+        v = v / 255.0
+        out.append(v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4)
+    return 0.2126 * out[0] + 0.7152 * out[1] + 0.0722 * out[2]
+
+
+def _pick_bg(cuts):
+    """A panel colour for `coverBg: random` — varied, stable, and not invisible.
+
+    Random has to survive two things it does not get for free.
+
+    Stable: the choice is seeded from the slug, not from a clock or an RNG, so
+    re-running the composer returns the same colour. A cover that reshuffles its
+    background every time it is regenerated cannot be iterated on, and a retitle
+    would silently repaint it.
+
+    Not invisible: a genuinely uniform pick eventually lands a matte black hub on
+    a slate charcoal panel, which is the same failure the coverBg override exists
+    to fix. So the palette is walked in a slug-derived order and the first entry
+    with enough contrast against the product's own mean brightness wins. That
+    keeps the result varied and unpredictable across articles while making the
+    unusable combinations unreachable rather than merely unlikely.
+    """
+    lum = []
+    for c in cuts:
+        a = np.asarray(c.getchannel('A')).astype(np.float32) / 255.0
+        rgb = np.asarray(c.convert('RGB')).astype(np.float32)
+        if a.sum() < 1:
+            continue
+        # Brightness averaged over the product only — the transparent surround
+        # would otherwise drag every subject toward whatever the padding holds.
+        lum.append(float((rgb.mean(axis=2) * a).sum() / a.sum()) / 255.0)
+    subject = _rel_lum((sum(lum) / len(lum) * 255,) * 3) if lum else 0.5
+
+    seed = int(hashlib.md5(slug.encode()).hexdigest(), 16)
+    order = list(range(len(PANEL_PALETTE)))
+    # Deterministic Fisher-Yates driven by the slug digest.
+    for i in range(len(order) - 1, 0, -1):
+        seed, j = divmod(seed, i + 1)
+        order[i], order[j] = order[j], order[i]
+
+    best = None
+    for i in order:
+        name, rgb = PANEL_PALETTE[i]
+        lo, hi = sorted((subject, _rel_lum(rgb)))
+        ratio = (hi + 0.05) / (lo + 0.05)
+        if ratio >= 2.4:
+            print(f'    panel: {name} (random, {ratio:.2f}:1 vs subject)')
+            return rgb
+        if best is None or ratio > best[0]:
+            best = (ratio, name, rgb)
+    # Nothing cleared the bar — take the best available rather than the first.
+    print(f'    panel: {best[1]} (random, best available {best[0]:.2f}:1)')
+    return best[2]
+
+# `coverText: false` drops the headline and makes it a product-only cover.
+#
+# The page already sets the title as an <h1> immediately beside the cover, so type
+# baked into the artwork is the same words twice. Leaving it off is a legitimate
+# treatment — but it changes the composition, not just the paint: the left band
+# exists to hold the headline, so with no headline the product is centred across
+# the full frame instead of being pushed right. A product still sitting in the
+# right band with nothing on the left reads as a rendering failure.
+NO_TEXT = fm('coverText', 'true').lower() in ('false', 'no', '0')
+
 # ---- text tiers -----------------------------------------------------------
 # The article title carries the whole left column — the category lead-in is not
 # shown. Front matter wins. Otherwise split the title on its colon: the punchy
@@ -87,6 +205,15 @@ if not main:
 
 main, sub = main.upper(), (sub or '').upper().rstrip('?') + ('?' if sub.strip().endswith('?') else '')
 
+# Emptying both tiers is all `coverText: false` has to do. The whole headline
+# stage below — measuring, wrapping, fitting, drawing — is already a no-op on an
+# empty string, so it needs no branch of its own and cannot drift out of step with
+# one. The layout branch in the SUPPLIED block is the only place NO_TEXT is
+# actually consulted, because centring the product is a real decision rather than
+# the absence of one.
+if NO_TEXT:
+    main = sub = ''
+
 EXTS = ('png', 'jpg', 'jpeg', 'webp')
 
 
@@ -104,10 +231,26 @@ def _cutout(im, light=200, feather=1.6):
     product is swept up too. A tighter value leaves a grey smudge, which reads as a
     white blob once the cut-out is placed on a dark cover.
 
-    Anything already carrying real alpha is returned untouched.
+    An existing alpha channel is trusted ONLY if the image's own frame edge is
+    already transparent. "Has some transparency somewhere" is not the same claim
+    and was the weaker test this used to make: several catalogue PNGs carry a few
+    soft pixels while the studio background is still fully opaque behind the
+    product, so they passed the check untouched and composited onto the panel as a
+    hard white rectangle. Checking the border instead asks the question that
+    actually matters — has the background already been removed? — and lets
+    everything else fall through to be cut properly.
     """
-    if im.mode == 'RGBA' and im.getchannel('A').getextrema()[0] < 255:
-        return im
+    if im.mode == 'RGBA':
+        alpha = np.asarray(im.getchannel('A'))
+        edge = np.concatenate([alpha[0, :], alpha[-1, :], alpha[:, 0], alpha[:, -1]])
+        if edge.max() < 32:
+            return im
+        # Falling through: flatten onto white first. Dropping the alpha channel
+        # instead would expose whatever RGB happens to sit under the transparent
+        # pixels, which in these files is arbitrary.
+        flat = Image.new('RGB', im.size, (255, 255, 255))
+        flat.paste(im, (0, 0), im)
+        im = flat
 
     rgb = im.convert('RGB')
     a = np.asarray(rgb).astype(np.int16)
@@ -155,6 +298,50 @@ def _cutout(im, light=200, feather=1.6):
     out = rgb.convert('RGBA')
     out.putalpha(Image.fromarray(alpha.astype('uint8'), 'L'))
     return out
+
+
+def _seat(canvas, cut, x, y, panel):
+    """Paste a cut-out onto the panel with a shadow, so it sits rather than floats.
+
+    A cut-out dropped straight onto a flat colour reads as a sticker: the product
+    photograph carries its own studio lighting, but nothing beneath it agrees that
+    it is standing on anything. Two shadows fix that, and both are needed —
+
+    `ambient` is the whole silhouette, blurred wide and nudged down. It gives the
+    object mass and stops the edges looking die-cut.
+
+    `contact` is the bottom sliver of the silhouette squashed into a thin band at
+    the base and blurred much less. This is the one that actually reads as a
+    surface: shadows tighten and darken where an object meets the thing it rests
+    on, and without it the ambient blur alone just looks like fog.
+
+    Combined with a lighten (max) rather than added, so the overlap where both
+    land does not double up into a black bruise. The tint is the panel colour
+    darkened rather than pure black, because a real shadow is the surface with
+    less light on it, not a smear of ink.
+    """
+    a = cut.getchannel('A')
+    w, h = cut.size
+    pad = max(8, int(h * 0.16))
+    size = (w + pad * 2, h + pad * 3)
+
+    ambient = Image.new('L', size, 0)
+    ambient.paste(a, (pad, pad + int(h * 0.045)))
+    ambient = ambient.filter(ImageFilter.GaussianBlur(max(6, int(h * 0.055))))
+    ambient = ambient.point(lambda v: int(v * 0.42))
+
+    foot = max(1, int(h * 0.14))
+    band = max(3, int(h * 0.055))
+    contact = Image.new('L', size, 0)
+    contact.paste(a.crop((0, h - foot, w, h)).resize((w, band), Image.LANCZOS),
+                  (pad, pad + h - band // 2))
+    contact = contact.filter(ImageFilter.GaussianBlur(max(3, int(h * 0.014))))
+    contact = contact.point(lambda v: min(255, int(v * 0.92)))
+
+    tint = tuple(int(c * 0.34) for c in panel)
+    canvas.paste(Image.new('RGB', size, tint), (x - pad, y - pad),
+                 ImageChops.lighter(ambient, contact))
+    canvas.paste(cut, (x, y), cut)
 
 
 def _images_in(folder):
@@ -241,36 +428,99 @@ if SUPPLIED:
     # free to re-render, and cannot invent a US power socket on an Australian
     # site — which the generated artwork did, three times running.
     print(f'  using {len(SUPPLIED)} supplied product image(s) — no fal call')
-    img = Image.new('RGB', (W, H), bg)
     cuts = [_cutout(Image.open(p)) for p in SUPPLIED]
 
-    # Lay the cut-outs in a row across the right zone, each scaled to fit, all
-    # vertically centred on the canvas mid-line. Order is the order on disk, so a
-    # deliberate filename prefix controls the arrangement.
-    ZONE_L, ZONE_R = int(W * 0.52), int(W * 0.97)
-    zone_w, zone_h = ZONE_R - ZONE_L, int(H * 0.80)
+    # Trim each cut-out to what it actually contains.
+    #
+    # Stock product photography is padded: the Hue hub arrived as 1106x1241 of
+    # product centred in a 1500x1500 frame, a quarter of it empty. Scaling that to
+    # fit the zone scales the emptiness too, so the product lands visibly smaller
+    # than the space allotted to it. Worse for the shadow — the silhouette's bottom
+    # edge is then the padding's bottom edge, so the contact shadow is cast 100px
+    # below where the product actually stands and the whole thing reads as hovering.
+    # Cropping to the alpha bounds fixes the scale and the shadow together.
+    cuts = [c.crop(c.getchannel('A').getbbox() or c.getbbox()) for c in cuts]
+
+    # Resolved here, not up with the other front matter, because a contrast-aware
+    # pick needs to have seen the product first. The canvas therefore cannot be
+    # painted until after the cut-outs are loaded and trimmed.
+    if BG_RANDOM:
+        bg = _pick_bg(cuts)
+    img = Image.new('RGB', (W, H), bg)
+
+    # Lay the cut-outs in a row, each scaled to fit, all sitting on a common
+    # baseline. Order is the order on disk, so a deliberate filename prefix
+    # controls the arrangement.
+    #
+    # Placement band. With a headline the row occupies the right and the left is
+    # left free for type; with none, it spans the frame — inset enough that the
+    # ~10% side crop the home page cards apply cannot bite into the product.
+    #
+    # `coverProduct` overrides that default, because the two questions are not the
+    # same one. "No headline right now" and "no headline ever" look identical to
+    # the composer but want opposite layouts: a cover being held for a title still
+    # needs its left column kept clear, so the artwork does not have to be redone
+    # once the words arrive.
+    PLACE = fm('coverProduct', 'centre' if NO_TEXT else 'right').lower()
+    if PLACE not in ('right', 'centre'):
+        sys.exit(f"coverProduct must be 'right' or 'centre', got '{PLACE}'")
+
+    if PLACE == 'centre':
+        BAND_L, BAND_R = int(W * 0.13), int(W * 0.87)
+    else:
+        BAND_L, BAND_R = int(W * 0.52), int(W * 0.97)
+    band_w = BAND_R - BAND_L
+
+    # `coverProductScale` shrinks the product inside its band without moving it.
+    # The band decides where the subject sits; this decides how much of that band
+    # it fills, so a cover can be given breathing room without the subject
+    # drifting off its placement as a side effect.
+    raw_scale = fm('coverProductScale', '1')
+    try:
+        PSCALE = float(raw_scale)
+    except ValueError:
+        sys.exit(f"coverProductScale must be a number, got '{raw_scale}'")
+    if not 0.2 <= PSCALE <= 1.0:
+        sys.exit(f'coverProductScale must be between 0.2 and 1.0, got {PSCALE}')
+
+    # Room is left below the row for the shadow; a product scaled to the full
+    # height would have its contact shadow clipped off by the bottom edge, which
+    # is exactly the floating look the shadow is there to remove.
+    fit_w, fit_h = band_w * PSCALE, H * 0.74 * PSCALE
     gap = int(W * 0.015)
 
-    each_w = (zone_w - gap * (len(cuts) - 1)) / len(cuts)
+    each_w = (fit_w - gap * (len(cuts) - 1)) / len(cuts)
     scaled = []
     for c in cuts:
-        f = min(each_w / c.size[0], zone_h / c.size[1])
+        f = min(each_w / c.size[0], fit_h / c.size[1])
         scaled.append(c.resize((max(1, int(c.size[0] * f)), max(1, int(c.size[1] * f))), Image.LANCZOS))
 
+    # Baseline rather than centre. Products of different heights centred on one
+    # line float at different distances from the floor, and once each is casting a
+    # contact shadow that reads as several surfaces at once. Sharing a baseline is
+    # what makes them one group standing on one surface.
+    tallest = max(s.size[1] for s in scaled)
+    base = (H + tallest) // 2 - int(H * 0.02)
+
+    # Centred in the BAND, not in the shrunken fit box — otherwise scaling down
+    # would drag the product toward the band's left edge instead of leaving it
+    # where it was placed.
     total_w = sum(s.size[0] for s in scaled) + gap * (len(scaled) - 1)
-    x = ZONE_L + (zone_w - total_w) // 2
+    x = BAND_L + (band_w - total_w) // 2
     for s in scaled:
-        img.paste(s, (x, (H - s.size[1]) // 2), s)
+        _seat(img, s, x, base - s.size[1], bg)
         x += s.size[0] + gap
+    print(f'    product: {PLACE} @ {PSCALE:g}x')
 
     # The card thumbnail reuses the largest cut-out on the same colour, so the
     # tile and the cover are visibly the same artwork.
     SQ_BUILD = 800
     sq_src = Image.new('RGB', (SQ_BUILD, SQ_BUILD), bg)
     big = max(cuts, key=lambda c: c.size[0] * c.size[1])
-    f = min(SQ_BUILD * 0.76 / big.size[0], SQ_BUILD * 0.76 / big.size[1])
+    f = min(SQ_BUILD * 0.72 / big.size[0], SQ_BUILD * 0.72 / big.size[1])
     bigr = big.resize((max(1, int(big.size[0] * f)), max(1, int(big.size[1] * f))), Image.LANCZOS)
-    sq_src.paste(bigr, ((SQ_BUILD - bigr.size[0]) // 2, (SQ_BUILD - bigr.size[1]) // 2), bigr)
+    _seat(sq_src, bigr, (SQ_BUILD - bigr.size[0]) // 2,
+          (SQ_BUILD - bigr.size[1]) // 2 - int(SQ_BUILD * 0.03), bg)
     SUPPLIED_SQUARE = sq_src
     SQUARE_SRC = False
 else:
@@ -313,17 +563,32 @@ elif SQUARE_SRC:
     # generation whose backdrop carries a vertical gradient — which most of them
     # do. Matching per row means the canvas is the same colour as the square at
     # every height, so the join cannot show whatever the model produced.
-    col = np.asarray(sq)[:, :4, :].mean(axis=1)            # side x 3, one per row
-    rows = np.clip(np.arange(H) - top, 0, side - 1)         # canvas row -> square row
-    img = Image.fromarray(
-        np.repeat(col[rows][:, None, :], W, axis=1).astype('uint8'), 'RGB'
-    )
+    # Both sides, not just the left. The product group sits at 72% of the width, so
+    # the square stops short of the right edge and leaves a strip of bare canvas —
+    # which was being painted with the square's LEFT column. On any backdrop with a
+    # horizontal gradient the two do not match, and the result was a hard vertical
+    # seam a few centimetres in from the right edge. Each side is filled from the
+    # column it actually abuts.
+    src_arr = np.asarray(sq)
+    col_l = src_arr[:, :4, :].mean(axis=1)                  # side x 3, one per row
+    col_r = src_arr[:, -4:, :].mean(axis=1)
+    rows = np.clip(np.arange(H) - top, 0, side - 1)          # canvas row -> square row
+    canvas = np.repeat(col_l[rows][:, None, :], W, axis=1)
+    right = left + side
+    if right < W:
+        canvas[:, right:, :] = col_r[rows][:, None, :]
+    img = Image.fromarray(canvas.astype('uint8'), 'RGB')
 
     # Feather the left and bottom edges so the square dissolves into that canvas.
     alpha = np.full((side, side), 255.0)
     fx, fy = int(side * 0.34), int(side * 0.22)
     alpha[:, :fx] *= np.linspace(0, 1, fx)[None, :]
     alpha[-fy:, :] *= np.linspace(1, 0, fy)[:, None]
+    # The right edge only needs feathering when it actually meets canvas. Kept
+    # narrow: the product sits close to it, and a wide fade would eat into it.
+    if right < W:
+        fr = min(int(side * 0.05), side)
+        alpha[:, -fr:] *= np.linspace(1, 0, fr)[None, :]
     img.paste(sq, (left, top), Image.fromarray(alpha.astype('uint8'), 'L'))
 else:
     # ---- wide source: original behaviour, kept for pre-existing raws --------
@@ -403,21 +668,18 @@ if fm('coverScrim', 'false').lower() in ('true', 'yes', '1'):
 # well under the 4.5:1 WCAG AA floor. Rather than put the panel back, the type
 # switches to near-black wherever that reads better — the artwork stays exactly as
 # generated, which is the point of dropping the scrim.
-def _rel_lum(rgb):
-    out = []
-    for v in rgb:
-        v = v / 255.0
-        out.append(v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4)
-    return 0.2126 * out[0] + 0.7152 * out[1] + 0.0722 * out[2]
-
-
+#
+# _rel_lum is defined once, up with the panel palette that also needs it.
 _band = img.crop((int(88 * SCALE), int(H * 0.28), int(W * 0.45), int(H * 0.72)))
 _mean = _band.resize((1, 1), Image.LANCZOS).getpixel((0, 0))
 _lum = _rel_lum(_mean)
 _white = 1.05 / (_lum + 0.05)
 _black = (_lum + 0.05) / 0.05
 
-if _white >= _black:
+if NO_TEXT:
+    INK, INK_SOFT = (255, 255, 255), (255, 255, 255, 215)
+    print('    headline: off (coverText: false)')
+elif _white >= _black:
     INK, INK_SOFT = (255, 255, 255), (255, 255, 255, 215)
     print(f'    ink: white  ({_white:.2f}:1)')
 else:

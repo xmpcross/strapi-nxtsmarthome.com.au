@@ -4,6 +4,9 @@ description: 'The bulb-or-switch decision shapes your whole lighting setup. Here
 category: lighting
 type: buying-guide
 date: '2026-03-05'
+coverBg: '#1f4d3a'
+coverText: false
+coverProduct: right
 updated: '2026-08-01'
 featured: true
 keyTakeaway: 'Smart bulbs suit renters, colour lighting and single-fitting rooms. Smart switches suit owners, multi-globe fittings and households where people flick switches out of habit. In Australia, check the fitting type first — B22 bayonet is common here and rare in imported ranges.'

@@ -7,7 +7,8 @@ import PageHeader from '@/components/PageHeader';
 import ProductGrid from '@/components/ProductGrid';
 import { getAllTopProducts } from '@/lib/products';
 import { faqJsonLd } from '@/lib/seo';
-import { categories, productCategoryNavLinks, site } from '@/lib/site';
+import { categories, site } from '@/lib/site';
+import { getNav } from '@/lib/nav';
 
 const TITLE = 'Compare Smart Home Devices in Australia';
 const DESCRIPTION =
@@ -164,6 +165,8 @@ const FAQ: { q: string; a: string; link: { href: string; label: string } }[] = [
 ];
 
 export default function ProductsPage() {
+  const { productCategoryNavLinks } = getNav();
+
   const products = getAllTopProducts();
 
   /*

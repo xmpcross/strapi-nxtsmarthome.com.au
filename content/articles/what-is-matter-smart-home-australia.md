@@ -4,6 +4,9 @@ description: 'Matter promised to make every smart home device work together. Her
 category: hubs-and-platforms
 type: explainer
 date: '2026-01-14'
+coverBg: '#e2c5be'
+coverText: false
+coverProduct: right
 updated: '2026-08-01'
 featured: true
 keyTakeaway: 'Matter is a common language that lets devices from different brands work in Apple Home, Google Home, Alexa and SmartThings without a bridge. It is worth buying into, but it standardises basic control only — advanced features still live in the manufacturer''s own app.'
