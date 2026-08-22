@@ -271,20 +271,36 @@
     text-transform: none;
   }
   .prose h1 { font-size: var(--h1-size); font-weight: 700 !important; }
-  /* Single-post body headings. Spacing left to the typography plugin defaults. */
-  .prose h2 { font-size: 1.4rem; font-weight: 700 !important; }
-  .prose h3 { font-size: 1rem; font-weight: 700 !important; }
-  .prose h4 { font-size: var(--h4-size); font-weight: 700 !important; }
-  .prose h5 { font-size: var(--h5-size); font-weight: 700 !important; }
-  .prose h6 { font-size: var(--h6-size); font-weight: 700 !important; }
+  /*
+   * Single-post body headings sit at 600, not the 700 used elsewhere. Inside an
+   * article the headings are structure rather than emphasis, and at Inter's
+   * metrics 700 competes with the h1 above them. h1 is left at 700 so the
+   * article title still leads.
+   *
+   * Kept in step with the prose-h*:font-semibold utilities in ArticleBody -
+   * these carry !important and would otherwise silently win a disagreement.
+   */
+  .prose h2 { font-size: 1.4rem; font-weight: 600 !important; }
+  .prose h3 { font-size: 1rem; font-weight: 600 !important; }
+  .prose h4 { font-size: var(--h4-size); font-weight: 600 !important; }
+  .prose h5 { font-size: var(--h5-size); font-weight: 600 !important; }
+  .prose h6 { font-size: var(--h6-size); font-weight: 600 !important; }
 }
 
 @layer components {
-  /* Heading anchors added by rehype-autolink-headings wrap the heading text. */
+  /*
+   * Heading anchors added by rehype-autolink-headings wrap the heading text.
+   *
+   * The weight has to be restated: the anchor is an <a> inside the heading, so
+   * prose-a:font-medium (500) applies to it and the heading's own 600 does not
+   * inherit through. Without this the linked headings render a step lighter
+   * than the unlinked ones and the article looks inconsistent for no reason.
+   */
   .prose h2 > a,
   .prose h3 > a,
   .prose h4 > a {
     @apply no-underline text-inherit;
+    font-weight: 600;
   }
 
   .prose h2 > a:hover,
@@ -1236,4 +1252,53 @@
   object-fit: cover !important;
   width: 100% !important;
   border-radius: 8px !important;
+}
+/*
+  Section-title sparkle
+  ---------------------------------------------------------------------------
+  The twinkle beside a section heading. It began in components/staff-picks.css
+  as sp-sparkle, applying only to Buying Guides; Latest, Hubs & Platforms and
+  Recommended had the same icon sitting still beside it.
+
+  Defined here, once, rather than copied into three more stylesheets — four
+  copies of a keyframe list is four chances for them to drift out of step, and
+  the point of the request was that they match.
+
+  Slow and small on purpose: it sits beside a heading, and anything faster or
+  wider reads as a loading spinner. It scales and fades on the same curve, with
+  a long hold at rest between pulses so the eye is drawn once rather than
+  continuously nagged.
+*/
+@keyframes sparkle-twinkle {
+  0%, 62%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.85;
+  }
+  74% {
+    transform: scale(1.28) rotate(45deg);
+    opacity: 1;
+  }
+  86% {
+    transform: scale(0.94) rotate(90deg);
+    opacity: 0.9;
+  }
+  94% {
+    transform: scale(1.06) rotate(90deg);
+    opacity: 1;
+  }
+}
+
+.sparkle-twinkle {
+  transform-origin: center;
+  animation: sparkle-twinkle 3.2s ease-in-out infinite;
+}
+
+/*
+  Anyone who has asked their system not to animate gets a static icon. A
+  decorative twinkle is exactly the kind of motion that prompts the setting.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .sparkle-twinkle {
+    animation: none;
+  }
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import BrandMark from '@/components/BrandMark';
+import CookieSettingsLink from '@/components/CookieSettingsLink';
 import { categories, site } from '@/lib/site';
 
 function FacebookIcon() {
@@ -167,6 +168,10 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              {/* Not in usefulLinks: it reopens the banner rather than navigating. */}
+              <li>
+                <CookieSettingsLink className="text-sm text-slate-600 hover:text-brand-700 dark:text-night-600 dark:hover:text-brand-400" />
+              </li>
             </ul>
           </div>
         </div>

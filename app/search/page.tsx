@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 export default function SearchPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="mb-6 text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
-        Search
-      </h1>
+    /* Full site width: the results are a three-up card grid, which a 3xl
+       column would squeeze into one. The heading moved into SearchClient
+       because it names the query, which only the client knows. */
+    <div className="mx-auto max-w-[1366px] px-4 py-12 sm:px-6">
       <Suspense fallback={<p className="text-sm text-slate-500">Loading…</p>}>
         <SearchClient />
       </Suspense>

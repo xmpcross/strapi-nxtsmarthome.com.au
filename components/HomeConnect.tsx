@@ -22,14 +22,6 @@ function Halftone() {
 }
 
 /** Four-pointed star used as a corner mark. */
-function Sparkle({ className }: { className?: string }) {
-  return (
-    <svg aria-hidden="true" className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 0c.6 5.9 5.5 10.8 12 12-6.5 1.2-11.4 6.1-12 12-.6-5.9-5.5-10.8-12-12C6.5 10.8 11.4 5.9 12 0z" />
-    </svg>
-  );
-}
-
 export default function HomeConnect() {
   return (
     <section
@@ -37,10 +29,6 @@ export default function HomeConnect() {
       aria-labelledby="connect-heading"
     >
       <Halftone />
-      <span aria-hidden="true" className="absolute bottom-10 left-10 text-slate-900 dark:text-white">
-        <Sparkle className="h-5 w-5" />
-      </span>
-
       <p className="flex items-center justify-center gap-2 text-sm text-slate-500 dark:text-slate-400">
         <svg
           aria-hidden="true"

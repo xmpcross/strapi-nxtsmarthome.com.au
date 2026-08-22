@@ -7,8 +7,11 @@
  * IMPORTANT — none of the IDs below are real. Fill them in from your network dashboards
  * via .env.local (see .env.example). Until an ID is set, the matching network is treated
  * as "not configured": the link still renders and still works, it just goes out without
- * a tracking wrapper. The Sovrn Commerce script (if enabled) will usually monetise those
- * automatically, so nothing is lost while you wait for programme approvals.
+ * that network's own wrapper.
+ *
+ * It does not go out unmonetised, though. Anything without a matching network falls
+ * through to Sovrn's redirector, built at build time from the public publisher key, so
+ * it earns without depending on the client script surviving an ad blocker.
  */
 
 export type Network = 'sovrn' | 'cj' | 'walmart' | 'ebay' | 'amazon' | 'direct';
@@ -115,10 +118,29 @@ export function affiliateUrl(rawUrl: string, options: AffiliateOptions = {}): st
 
       case 'sovrn':
       case 'direct':
-      default:
-        // Left raw on purpose. The Sovrn Commerce script monetises these client-side
-        // wherever a matching merchant programme exists.
-        return rawUrl;
+      default: {
+        /*
+         * Wrap in Sovrn's redirector. This is not an API call - sovrn.co?key=&u=
+         * IS the affiliate link, built by string concatenation, so it costs the
+         * build nothing and cannot fail at build time.
+         *
+         * Doing it here rather than leaving it to the client script is what
+         * makes these links survive an ad blocker: cdn.viglink.com is on every
+         * major blocklist, and a smart-home audience runs them. The href is a
+         * plain link in the HTML, so it works with JavaScript off entirely.
+         *
+         * The key is the public publisher key - it is already in the page source
+         * via the client script, so putting it in an href gives nothing away.
+         *
+         * The client script stays for prose links written straight into markdown,
+         * which nothing here ever sees. It skips links already pointing at
+         * sovrn.co, so the two do not fight.
+         */
+        if (!ids.sovrnKey) return rawUrl;
+        const params = new URLSearchParams({ key: ids.sovrnKey, u: rawUrl });
+        if (subId) params.set('cuid', subId);
+        return `https://sovrn.co?${params.toString()}`;
+      }
     }
   } catch {
     return rawUrl;

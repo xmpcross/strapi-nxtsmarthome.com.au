@@ -15,6 +15,17 @@
  * exactly once — immediately after <head>, which is where Google asks for it.
  *
  * No measurement id set → nothing is injected and the build is unchanged.
+ *
+ * Why the id is hardcoded below
+ * -----------------------------
+ * It used to come only from the environment or .env.local. Both are absent in
+ * the Cloudflare Pages build container -- .env.local is gitignored and lives
+ * only on the origin box -- so every published build logged "not injected" and
+ * the live site carried no tag while local builds looked fine. A GA4
+ * measurement id is not a secret (it is readable in the page source of every
+ * site that uses one), so committing it is the fix that survives a fresh clone.
+ * The environment still wins if it is set, which is what a staging property
+ * would use.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -22,18 +33,22 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'out');
 
-/** Read the id from the environment, falling back to .env.local. */
+/** The site's own GA4 property. Overridable, but never absent. */
+const DEFAULT_ID = 'G-SY9XCRZH2K';
+
+/** Read the id from the environment, falling back to .env.local, then to the default. */
 function readId() {
   if (process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID) {
     return process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID.trim();
   }
   const envFile = path.join(ROOT, '.env.local');
-  if (!fs.existsSync(envFile)) return '';
-  for (const line of fs.readFileSync(envFile, 'utf8').split('\n')) {
-    const m = line.match(/^\s*NEXT_PUBLIC_GA_MEASUREMENT_ID\s*=\s*(.*)\s*$/);
-    if (m) return m[1].replace(/^["']|["']$/g, '').trim();
+  if (fs.existsSync(envFile)) {
+    for (const line of fs.readFileSync(envFile, 'utf8').split('\n')) {
+      const m = line.match(/^\s*NEXT_PUBLIC_GA_MEASUREMENT_ID\s*=\s*(.*)\s*$/);
+      if (m) return m[1].replace(/^["']|["']$/g, '').trim();
+    }
   }
-  return '';
+  return DEFAULT_ID;
 }
 
 const id = readId();
@@ -48,14 +63,43 @@ if (!fs.existsSync(OUT_DIR)) {
   process.exit(1);
 }
 
+/*
+ * Consent Mode v2. The consent defaults must be pushed BEFORE gtag.js is
+ * fetched, which is why the inline block now comes first and the loader second
+ * — the reverse of Google's copy-paste snippet, and the reason not to "tidy"
+ * the order back.
+ *
+ * Everything starts denied, so the tag buffers rather than writing storage.
+ * components/CookieBanner.tsx sends the 'update' that releases it, and the
+ * localStorage read here re-grants on later page loads without a second ask.
+ * wait_for_update gives that read a moment on a slow device before the tag
+ * decides it is running unconsented.
+ */
 const SNIPPET = `<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=${id}"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  wait_for_update: 500
+});
+try {
+  if (window.localStorage.getItem('nxt.consent.v1') === 'granted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+  }
+} catch (e) {}
 gtag('js', new Date());
 gtag('config', '${id}');
-</script>`;
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=${id}"></script>`;
 
 function htmlFiles(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {

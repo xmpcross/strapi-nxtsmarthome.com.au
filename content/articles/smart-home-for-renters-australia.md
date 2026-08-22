@@ -1,6 +1,8 @@
 ---
 title: 'Smart Home for Renters: What You Can Install Without Losing Your Bond'
 description: 'A complete guide to building a capable smart home in a rental — what needs no permission, what does, and how to take it all with you when you move.'
+# Product-only cover: the headline is carried by the page, not baked into the art.
+coverText: false
 category: buying-guides
 type: buying-guide
 date: '2026-07-09'
