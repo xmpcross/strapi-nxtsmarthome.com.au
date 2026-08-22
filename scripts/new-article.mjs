@@ -2,8 +2,10 @@
  * Scaffold a new article with correct frontmatter.
  *
  *   npm run new:article -- "How to Pick a Smart Lock" security how-to
+ *   npm run new:article -- "..." security how-to --author=jane-smith
  *
- * Arguments: title, category key, article type.
+ * Arguments: title, category key, article type. Optional --author=<slug>,
+ * which must match a file in content/authors/; defaults to the editorial team.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -22,7 +24,13 @@ const CATEGORY_KEYS = [
 
 const TYPES = ['review', 'comparison', 'buying-guide', 'how-to', 'explainer', 'roundup', 'pillar'];
 
-const [title, category, type] = process.argv.slice(2);
+const argv = process.argv.slice(2);
+/** --author=<slug>, pulled out so the three positional arguments keep working. */
+const flag = (name) => {
+  const hit = argv.find((a) => a.startsWith(`--${name}=`));
+  return hit ? hit.slice(name.length + 3) : '';
+};
+const [title, category, type] = argv.filter((a) => !a.startsWith('--'));
 
 if (!title || !category || !type) {
   console.error('Usage: npm run new:article -- "Article Title" <category> <type>');
@@ -38,6 +46,28 @@ if (!CATEGORY_KEYS.includes(category)) {
 
 if (!TYPES.includes(type)) {
   console.error(`Unknown type "${type}". Valid: ${TYPES.join(', ')}`);
+  process.exit(1);
+}
+
+/*
+ * Byline. Defaults to the editorial team, which is what an article carries when
+ * no one person wrote it.
+ *
+ * Deliberately NOT randomised. A byline is a claim about who wrote something,
+ * and rotating it across contributors who did not would make the site's own
+ * author page - "we do not publish invented bylines" - untrue. Pass the person
+ * who actually wrote it.
+ */
+const AUTHORS_DIR = path.join(process.cwd(), 'content', 'authors');
+const authorSlugs = fs.existsSync(AUTHORS_DIR)
+  ? fs.readdirSync(AUTHORS_DIR).filter((f) => /\.mdx?$/.test(f)).map((f) => f.replace(/\.mdx?$/, ''))
+  : [];
+
+const author = flag('author') || 'nxt-smart-home-editorial';
+if (authorSlugs.length && !authorSlugs.includes(author)) {
+  console.error(`Unknown author "${author}".`);
+  console.error(`Available:  ${authorSlugs.join(', ')}`);
+  console.error(`Add one by dropping a file in content/authors/.`);
   process.exit(1);
 }
 
@@ -59,6 +89,7 @@ title: '${title.replace(/'/g, "''")}'
 description: 'One or two sentences that would make someone click this in a search result. Aim for 140-160 characters.'
 category: ${category}
 type: ${type}
+author: ${author}
 date: '${today}'
 draft: true
 keyTakeaway: 'The answer, in two sentences, for someone who will not read the whole thing.'
