@@ -15,6 +15,17 @@
  * exactly once — immediately after <head>, which is where Google asks for it.
  *
  * No measurement id set → nothing is injected and the build is unchanged.
+ *
+ * Why the id is hardcoded below
+ * -----------------------------
+ * It used to come only from the environment or .env.local. Both are absent in
+ * the Cloudflare Pages build container -- .env.local is gitignored and lives
+ * only on the origin box -- so every published build logged "not injected" and
+ * the live site carried no tag while local builds looked fine. A GA4
+ * measurement id is not a secret (it is readable in the page source of every
+ * site that uses one), so committing it is the fix that survives a fresh clone.
+ * The environment still wins if it is set, which is what a staging property
+ * would use.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -22,18 +33,22 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'out');
 
-/** Read the id from the environment, falling back to .env.local. */
+/** The site's own GA4 property. Overridable, but never absent. */
+const DEFAULT_ID = 'G-SY9XCRZH2K';
+
+/** Read the id from the environment, falling back to .env.local, then to the default. */
 function readId() {
   if (process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID) {
     return process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID.trim();
   }
   const envFile = path.join(ROOT, '.env.local');
-  if (!fs.existsSync(envFile)) return '';
-  for (const line of fs.readFileSync(envFile, 'utf8').split('\n')) {
-    const m = line.match(/^\s*NEXT_PUBLIC_GA_MEASUREMENT_ID\s*=\s*(.*)\s*$/);
-    if (m) return m[1].replace(/^["']|["']$/g, '').trim();
+  if (fs.existsSync(envFile)) {
+    for (const line of fs.readFileSync(envFile, 'utf8').split('\n')) {
+      const m = line.match(/^\s*NEXT_PUBLIC_GA_MEASUREMENT_ID\s*=\s*(.*)\s*$/);
+      if (m) return m[1].replace(/^["']|["']$/g, '').trim();
+    }
   }
-  return '';
+  return DEFAULT_ID;
 }
 
 const id = readId();
