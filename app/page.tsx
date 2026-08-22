@@ -670,8 +670,6 @@ export default async function HomePage() {
 
         <HomeConnect />
 
-        <Recommended articles={recommended} />
-
         {/* Buying Guides, in the Staff Picks layout. */}
         <div className="mb-14">
           <StaffPicks
@@ -760,6 +758,8 @@ export default async function HomePage() {
             rows={fyRows}
           />
         </div>
+
+        <Recommended articles={recommended} />
 
       </div>
     </>
