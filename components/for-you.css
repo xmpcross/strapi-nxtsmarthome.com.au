@@ -46,11 +46,11 @@
   /* Overlaid lead panel. Follows the theme: white glass with dark ink in light
      mode, dark glass with light ink in dark mode. Translucent either way, so the
      artwork tints through rather than being blocked out. */
-  --panel-bg: rgb(255 255 255 / 0.86);
+  --panel-bg: rgb(255 255 255 / 0.76);
   --panel-ink: #0e0e0f;
   --panel-ink-muted: #4b5563;
   --panel-ink-faint: #9aa3af;
-  --panel-blur: 16px;
+  --panel-blur: 20px;
 
   color: var(--ink);
 }
@@ -72,7 +72,7 @@
   --arrow-ink-hover: #111111;
   --focus-ring: #ffffff;
 
-  --panel-bg: rgb(20 20 23 / 0.80);
+  --panel-bg: rgb(20 20 23 / 0.70);
   --panel-ink: #ffffff;
   --panel-ink-muted: rgb(255 255 255 / 0.68);
   --panel-ink-faint: rgb(255 255 255 / 0.42);
@@ -342,6 +342,58 @@
   pointer-events: none;
 }
 
+/* Lead panel: bordered pocket
+   --------------------------------------------------------------------------
+   The panel is a bordered card, so its bottom-right corner takes the same 58px
+   bite as the hero's lead card — outlined on the two edges facing into the
+   panel, with concave joins where the bite meets the panel edge. Geometry is
+   the reference's (.card-corner, .curve-one/-two).
+
+   The bite is painted in --surface, which is right here because the panel hangs
+   past the artwork: its bottom 100-odd pixels are over the page, not the photo. */
+.fy__lead .fy__notch {
+  right: 0;
+  bottom: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px 0 0 0;
+  border-top: 1px solid var(--card-edge);
+  border-left: 1px solid var(--card-edge);
+  /* Offset, no spread: erases the panel's own border where the bite crosses it,
+     without painting over the two edges above. */
+  box-shadow: 6px 6px 0 0 var(--surface);
+}
+
+.fy__lead .fy__notch::before,
+.fy__lead .fy__notch::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-bottom-right-radius: 16px;
+  border-right: 1px solid var(--card-edge);
+  border-bottom: 1px solid var(--card-edge);
+  box-shadow: 5px 5px 0 5px var(--surface);
+}
+
+.fy__lead .fy__notch::before {
+  top: -16px;
+  right: -1px;
+}
+
+.fy__lead .fy__notch::after {
+  bottom: -1px;
+  left: -16px;
+}
+
+/* Centred in the bite rather than overhanging it: 58 - 8 - 46 = 4. */
+.fy__lead .fy__arrow {
+  right: 4px;
+  bottom: 4px;
+  width: 46px;
+  height: 46px;
+}
+
 .fy__arrow {
   position: absolute;
   right: calc((var(--notch-size) - var(--arrow-size)) / 2 - var(--arrow-overhang));
@@ -425,6 +477,7 @@
   margin: -94px 22px 0 34px;
   padding: 24px 26px 26px;
   border-radius: var(--radius);
+  border: 1px solid var(--card-edge);
   background: var(--panel-bg);
   backdrop-filter: blur(var(--panel-blur));
   color: var(--panel-ink);
@@ -465,8 +518,9 @@
   justify-content: space-between;
   gap: 14px;
   margin-top: 18px;
-  /* Clear of the pocket so the byline never runs under the button. */
-  padding-right: calc(var(--notch-size) - 20px);
+  /* Clear of the pocket so the byline never runs under the button. The lead
+     panel's pocket is 58px and sits wholly inside the panel now. */
+  padding-right: 70px;
 }
 
 .fy__byline {
