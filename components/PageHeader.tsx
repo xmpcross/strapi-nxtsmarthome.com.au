@@ -27,7 +27,7 @@ export default function PageHeader({
           {eyebrow}
         </span>
       ) : null}
-      <h1 className="mt-1 text-[2rem] font-bold leading-[2.25rem] tracking-tight text-slate-900 dark:text-white">
+      <h1 className="mt-1 text-[2rem] font-bold leading-[2.25rem] text-slate-900 dark:text-white">
         {title}
       </h1>
 

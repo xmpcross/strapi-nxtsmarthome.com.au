@@ -16,7 +16,7 @@ export default function NextUp({ items }: { items: Article[] }) {
     <section className="not-prose mt-12" aria-labelledby="next-up-heading">
       <h2
         id="next-up-heading"
-        className="text-xl font-bold tracking-tight text-slate-900 dark:text-white"
+        className="text-xl font-bold text-slate-900 dark:text-white"
       >
         Next Up
       </h2>

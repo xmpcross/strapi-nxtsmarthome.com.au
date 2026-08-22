@@ -144,7 +144,7 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
           </svg>
         </button>
 
-        <h2 className="text-[1.75rem] font-bold tracking-tight text-slate-900 dark:text-white">
+        <h2 className="text-[1.75rem] font-bold text-slate-900 dark:text-white">
           Search
         </h2>
 

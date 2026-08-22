@@ -174,7 +174,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
             </p>
 
             {/* Fixed 2rem / 700 — no responsive step-up, so the size is the same everywhere. */}
-            <h1 className="mt-4 text-[2rem] font-bold leading-tight tracking-tight text-slate-900 dark:text-white">
+            <h1 className="mt-4 text-[2rem] font-bold leading-tight text-slate-900 dark:text-white">
               {article.title}
             </h1>
 

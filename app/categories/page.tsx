@@ -133,7 +133,7 @@ export default async function CategoriesIndex() {
               </span>
             </div>
 
-            <h1 className="mt-5 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl leading-tight text-slate-900 dark:text-white">
+            <h1 className="mt-5 text-3xl font-extrabold sm:text-4xl lg:text-5xl leading-tight text-slate-900 dark:text-white">
               Explore Smart Home <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-brand-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-brand-300">
                 Topics &amp; Buying Guides
@@ -276,7 +276,7 @@ export default async function CategoriesIndex() {
               <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-700 dark:bg-brand-400/15 dark:text-brand-300">
                 <span aria-hidden="true">⭐</span> Editor&apos;s Picks
               </span>
-              <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
+              <h2 className="mt-2 text-2xl font-extrabold text-slate-900 sm:text-3xl dark:text-white">
                 Start with these
               </h2>
             </div>
@@ -431,7 +431,7 @@ export default async function CategoriesIndex() {
           <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-600 dark:text-emerald-400">
             {group.eyebrow}
           </span>
-          <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+          <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
             {group.heading}
           </h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
@@ -492,7 +492,7 @@ export default async function CategoriesIndex() {
       {spotlights.map(({ category, posts }) => (
         <section key={`spot-${category.slug}`} className="mb-14">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
               Latest in {category.name}
             </h2>
             <Link

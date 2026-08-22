@@ -206,7 +206,7 @@ export default function ProductsPage() {
             </div>
 
             {/* Title matching exact typography */}
-            <h1 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl leading-[1.15] text-slate-900 dark:text-white">
+            <h1 className="mt-5 text-3xl font-bold sm:text-4xl lg:text-5xl leading-[1.15] text-slate-900 dark:text-white">
               Compare Smart Home <br />
               <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-indigo-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-indigo-400">
                 Devices in Australia
@@ -361,7 +361,7 @@ export default function ProductsPage() {
         <span className="text-xs font-bold uppercase tracking-[0.16em] text-amber-600 dark:text-amber-400">
           Australia only
         </span>
-        <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+        <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
           What to check before you buy in Australia
         </h2>
 
@@ -398,7 +398,7 @@ export default function ProductsPage() {
         <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-600 dark:text-emerald-400">
           Categories
         </span>
-        <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+        <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
           Browse by category
         </h2>
         <div className="mt-8">
@@ -422,7 +422,7 @@ export default function ProductsPage() {
           <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-600 dark:text-emerald-400">
             Transparency
           </span>
-          <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+          <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
             How products get onto this page
           </h2>
 
@@ -462,7 +462,7 @@ export default function ProductsPage() {
           <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-600 dark:text-emerald-400">
             FAQ
           </span>
-          <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+          <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
             Common questions
           </h2>
           <FaqAccordion items={FAQ} />

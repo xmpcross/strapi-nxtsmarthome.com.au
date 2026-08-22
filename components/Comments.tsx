@@ -102,7 +102,7 @@ export default function Comments({
         </ul>
       )}
 
-      <h3 className="mt-10 text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+      <h3 className="mt-10 text-3xl font-bold text-slate-900 dark:text-white">
         Leave a comment
       </h3>
 

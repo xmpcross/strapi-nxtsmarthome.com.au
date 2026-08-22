@@ -44,7 +44,7 @@ export default async function ProductsHeroPreview() {
             </div>
 
             {/* Title matching exact uploaded image typography */}
-            <h1 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl leading-[1.15] text-slate-900 dark:text-white">
+            <h1 className="mt-5 text-3xl font-bold sm:text-4xl lg:text-5xl leading-[1.15] text-slate-900 dark:text-white">
               Compare Smart Home <br />
               <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-indigo-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-indigo-400">
                 Devices in Australia

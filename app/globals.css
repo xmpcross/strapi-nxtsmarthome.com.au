@@ -3,6 +3,37 @@
 @tailwind utilities;
 
 /*
+ * Inter — self-hosted variable weight 100-900, latin + latin-ext.
+ * SIL Open Font License 1.1. Files in public/fonts/, copied from
+ * @fontsource-variable/inter. Self-hosted for the same reason as the families
+ * above: no third-party request on page load, and no CLS while it arrives.
+ *
+ * Inter is the site's only family — body and headings alike. The families
+ * below it are kept rather than deleted so a theme can be switched back by
+ * editing tailwind.config.ts alone.
+ */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/inter-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/*
  * Geist — self-hosted variable weight 100-900, latin + latin-ext.
  * SIL Open Font License, Copyright 2024 The Geist Project Authors.
  * Files in public/fonts/, copied from @fontsource-variable/geist. Self-hosting
@@ -205,7 +236,7 @@
   }
 
   /*
-   * Body metrics: Outfit, 1rem, weight 400, line-height 1.5, zero tracking.
+   * Body metrics: Inter, 1rem, weight 400, line-height 1.5, zero tracking.
    * Element-level, so a Tailwind weight utility on a specific element still
    * wins. The family comes from theme('fontFamily.body') rather than being
    * named here, so this rule and the `font-body` utility cannot disagree.
@@ -227,7 +258,8 @@
    * sizes they were given, and this governs headings inside article prose.
    */
   /*
-   * Heading metrics: Urbanist at 600, line-height 1.2 and -0.01em tracking.
+   * Heading metrics: Inter at 700, line-height 1.2, no tracking. Letter
+   * spacing is 0 by request - Inter's default metrics are used as drawn.
    * The family comes from theme('fontFamily.heading') rather than being named
    * here, so this rule and the `font-heading` utility cannot disagree.
    */
@@ -235,7 +267,7 @@
     font-family: theme('fontFamily.heading');
     font-weight: 700 !important;
     line-height: 1.2;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     text-transform: none;
   }
   .prose h1 { font-size: var(--h1-size); font-weight: 700 !important; }

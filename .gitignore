@@ -10,3 +10,8 @@ public/search-index.json
 *.log
 # Working files: catalogue backups, API task payloads, unused components.
 scratch/
+
+# Env backups (.env.local.bak-YYYYMMDD and friends). The plain patterns
+# above miss them, and one was nearly committed with FAL_KEY and STRAPI_TOKEN.
+.env*.bak*
+.env.*.bak*

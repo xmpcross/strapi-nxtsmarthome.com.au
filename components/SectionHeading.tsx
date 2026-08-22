@@ -40,7 +40,7 @@ export default function SectionHeading({
   if (compact) {
     return (
       <div className="mb-4 flex items-end justify-between gap-3 border-b border-slate-200 pb-2 dark:border-card-edge">
-        <h2 id={id} className="flex items-center gap-2 text-base font-bold tracking-tight text-slate-900 dark:text-white">
+        <h2 id={id} className="flex items-center gap-2 text-base font-bold text-slate-900 dark:text-white">
           <Sparkle />
           {title}
         </h2>
@@ -61,7 +61,7 @@ export default function SectionHeading({
       <div className="flex min-w-0 flex-wrap items-baseline gap-x-4 gap-y-1">
         <h2
           id={id}
-          className="flex items-baseline gap-3 text-2xl font-bold tracking-tight text-slate-900 dark:text-white"
+          className="flex items-baseline gap-3 text-2xl font-bold text-slate-900 dark:text-white"
         >
           <Sparkle />
           {title}
