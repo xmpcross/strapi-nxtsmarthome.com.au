@@ -21,14 +21,32 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'out');
 
-/** Read NEXT_PUBLIC_SOVRN_KEY from the environment, falling back to .env.local. */
+/**
+ * Read NEXT_PUBLIC_SOVRN_KEY, in Next's own precedence order.
+ *
+ * This runs as `npm postbuild`, a separate process from `next build`, so the
+ * env files Next loaded are NOT in process.env here - they have to be read off
+ * disk again. Reading only .env.local (as this did) meant any checkout without
+ * one produced a clean, successful build with no affiliate script in it: the
+ * log said "not injected", the exit code was 0, and nothing else complained.
+ * A build that quietly earns nothing is the worst kind to ship.
+ *
+ * .env is committed and holds the key, so a fresh clone injects correctly;
+ * .env.local still wins where it exists.
+ */
 function readKey() {
   if (process.env.NEXT_PUBLIC_SOVRN_KEY) return process.env.NEXT_PUBLIC_SOVRN_KEY.trim();
-  const envFile = path.join(ROOT, '.env.local');
-  if (!fs.existsSync(envFile)) return '';
-  for (const line of fs.readFileSync(envFile, 'utf8').split('\n')) {
-    const m = line.match(/^\s*NEXT_PUBLIC_SOVRN_KEY\s*=\s*(.*)\s*$/);
-    if (m) return m[1].replace(/^["']|["']$/g, '').trim();
+
+  for (const name of ['.env.local', '.env.production', '.env']) {
+    const envFile = path.join(ROOT, name);
+    if (!fs.existsSync(envFile)) continue;
+    for (const line of fs.readFileSync(envFile, 'utf8').split('\n')) {
+      const m = line.match(/^\s*NEXT_PUBLIC_SOVRN_KEY\s*=\s*(.*)\s*$/);
+      if (m) {
+        const value = m[1].replace(/^["']|["']$/g, '').trim();
+        if (value) return value;
+      }
+    }
   }
   return '';
 }
