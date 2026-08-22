@@ -39,6 +39,7 @@ export interface StrapiPost {
   publishDate?: string;
   dateModified?: string;
   keyTakeaways?: string;
+  coverImage?: { url?: string; alternativeText?: string } | null;
   coverImageUrl?: string;
   coverImageAlt?: string;
   tags?: string[];
@@ -74,6 +75,7 @@ export async function listPosts(): Promise<StrapiPost[]> {
     'sort[0]': 'publishDate:desc',
     'populate[categories]': 'true',
     'populate[author]': 'true',
+    'populate[coverImage]': 'true',
     'populate[faq]': 'true',
   });
 

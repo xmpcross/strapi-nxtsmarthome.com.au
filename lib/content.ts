@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { articleType, listPosts, type StrapiPost } from './strapi';
+import { articleType, listPosts, mediaUrl, type StrapiPost } from './strapi';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
@@ -169,8 +169,15 @@ async function fromStrapi(post: StrapiPost): Promise<Article | null> {
     author: post.author?.slug ?? post.author?.name ?? 'NXT Smart Home',
     tags: Array.isArray(post.tags) ? post.tags : [],
     featured: Boolean(post.featured),
-    image: post.coverImageUrl || undefined,
-    imageAlt: post.coverImageAlt || undefined,
+    /*
+     * The uploaded media wins over coverImageUrl. Content Manager's image
+     * picker writes the media relation, so reading only the string field meant
+     * an upload changed nothing — and on at least one post coverImageUrl held a
+     * URL pointing back at this site's own /covers/ file, so the upload lost to
+     * the very asset it was meant to replace.
+     */
+    image: mediaUrl(post.coverImage?.url) || post.coverImageUrl || undefined,
+    imageAlt: post.coverImageAlt || post.coverImage?.alternativeText || undefined,
     keyTakeaway: post.keyTakeaways || undefined,
     faq: (post.faq ?? [])
       .map((f) => ({ q: f.q ?? f.question ?? '', a: f.a ?? f.answer ?? '' }))
