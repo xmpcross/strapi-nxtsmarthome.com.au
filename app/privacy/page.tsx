@@ -16,7 +16,7 @@ export default function PrivacyPage() {
       <div className="lg:grid lg:grid-cols-[16rem_1fr] lg:gap-12 items-start">
         <LegalSidebarTOC />
         <main className="min-w-0">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+          <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
             Privacy policy
           </h1>
 

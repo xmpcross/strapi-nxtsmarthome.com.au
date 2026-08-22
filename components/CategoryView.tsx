@@ -51,7 +51,7 @@ export default function CategoryView({
             pushes the articles a reader paged forward for further down. */}
         {category.overview && page === 1 ? (
           <section className="mb-10 w-full sm:w-4/5">
-            <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white">
               {category.overview.heading}
             </h2>
             <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base">

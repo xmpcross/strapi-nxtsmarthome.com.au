@@ -62,7 +62,7 @@ export default function ProductSlider({
           {eyebrow}
         </span>
       ) : null}
-      <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+      <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
         {heading}
       </h2>
       {intro ? (

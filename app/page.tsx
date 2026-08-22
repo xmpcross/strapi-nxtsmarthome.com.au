@@ -147,7 +147,7 @@ function Lead({ article }: { article: Article }) {
       </Link>
 
       <div className="relative rounded-lg border border-slate-200 bg-white p-6 pb-14 sm:p-7 sm:pb-16 dark:border-card-edge dark:bg-card magzin-style-card">
-        <h2 className="text-2xl font-bold leading-snug tracking-tight text-slate-900 sm:text-[1.75rem] dark:text-white">
+        <h2 className="text-2xl font-bold leading-snug text-slate-900 sm:text-[1.75rem] dark:text-white">
           <Link href={articleHref(article)} className="hover:text-brand-700 dark:hover:text-brand-400">
             {article.title}
           </Link>
@@ -297,7 +297,7 @@ function PopularTopics({
     <section className="mb-14" aria-labelledby="topics-row-heading">
       <h2
         id="topics-row-heading"
-        className="text-base font-bold tracking-tight text-slate-900 dark:text-white"
+        className="text-base font-bold text-slate-900 dark:text-white"
       >
         Most Popular Topics
       </h2>
@@ -453,7 +453,7 @@ function CategoryFeature({ items }: { items: Article[] }) {
         )}
 
         <div className="relative mx-6 -mt-28 flex flex-1 flex-col overflow-hidden rounded-lg border border-white/50 bg-white/65 p-7 pb-14 shadow-lg backdrop-blur-lg sm:mx-8 sm:pb-16 dark:border-card-edge/60 dark:bg-card/65 magzin-style-card">
-          <h3 className="pr-10 text-2xl font-bold leading-snug tracking-tight text-slate-900 dark:text-white">
+          <h3 className="pr-10 text-2xl font-bold leading-snug text-slate-900 dark:text-white">
             <Link href={articleHref(lead)} className="hover:text-brand-700 dark:hover:text-brand-400">
               {lead.title}
             </Link>

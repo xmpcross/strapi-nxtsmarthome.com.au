@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function SearchPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="mb-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+      <h1 className="mb-6 text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
         Search
       </h1>
       <Suspense fallback={<p className="text-sm text-slate-500">Loading…</p>}>

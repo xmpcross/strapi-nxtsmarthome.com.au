@@ -79,12 +79,14 @@ const config: Config = {
         },
       },
       fontFamily: {
-        // Geist is the reference theme's family for body and headings alike,
-        // self-hosted from public/fonts (see the @font-face rules in globals.css).
-        // Outfit for body and running text; Urbanist for h1-h6.
-        body: ['Outfit', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        heading: ['Urbanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        sans: ['Outfit', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        // Inter everywhere - body, headings and the `sans` utility all resolve
+        // to the same family, so nothing on the site can drift onto another
+        // one. Self-hosted from public/fonts (see the @font-face rules in
+        // globals.css). The other families remain defined there, unused, so a
+        // theme can be switched back by editing this block alone.
+        body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        heading: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       maxWidth: {
         prose: '46rem',

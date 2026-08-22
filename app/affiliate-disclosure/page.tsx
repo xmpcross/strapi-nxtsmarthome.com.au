@@ -19,7 +19,7 @@ export default function AffiliateDisclosurePage() {
       <div className="lg:grid lg:grid-cols-[16rem_1fr] lg:gap-12 items-start">
         <LegalSidebarTOC />
         <main className="min-w-0">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+          <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
             Affiliate disclosure
           </h1>
           <p className="mt-3 text-lg text-slate-600 dark:text-slate-300">

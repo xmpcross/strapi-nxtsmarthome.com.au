@@ -59,7 +59,7 @@ export default function HomeConnect() {
 
       <h2
         id="connect-heading"
-        className="mx-auto mt-4 max-w-2xl text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl dark:text-white"
+        className="mx-auto mt-4 max-w-2xl text-3xl font-bold leading-tight text-slate-900 sm:text-4xl dark:text-white"
       >
         Subscribe to our newsletter and stay updated each week
       </h2>
