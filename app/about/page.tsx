@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import LegalSidebarTOC from '@/components/LegalSidebarTOC';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -12,15 +11,24 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-[1366px] px-4 py-12 sm:px-6">
-      <div className="lg:grid lg:grid-cols-[16rem_1fr] lg:gap-12 items-start">
-        <LegalSidebarTOC />
-        <main className="min-w-0">
-          <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
-            About {site.name}
+    <div className="mx-auto max-w-[1366px] px-4 py-14 sm:px-6 sm:py-20">
+      <main className="min-w-0">
+        <header>
+          <p className="text-sm font-semibold uppercase text-brand-600 dark:text-brand-400">
+            About
+          </p>
+          <h1 className="mt-3 text-4xl font-bold text-slate-900 sm:text-5xl dark:text-white">
+            Smart home advice written for Australian homes
           </h1>
+        </header>
 
-          <div className="prose prose-slate mt-8 max-w-none dark:prose-invert prose-h2:mt-0 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0">
+        {/*
+          * One column, no rail. The legal pages keep their table of contents
+          * because they are long and cross-referenced; this is an essay, and a
+          * nav column beside it narrowed the measure without giving the reader
+          * anywhere useful to go.
+          */}
+        <div className="prose prose-slate mt-10 max-w-none dark:prose-invert prose-h2:mt-10 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0 prose-lg">
             <p className="lead">
               Almost every smart home article you find online was written for an American house. It
               assumes 120V wiring, a neutral wire in every switch box, US retailers, US warranty law
@@ -83,15 +91,21 @@ export default function AboutPage() {
               electrician. Where an article touches on wiring, we say plainly where the DIY line
               sits. Please do not treat a blog post as authority to open a switch plate.
             </p>
+        </div>
 
-            <h2>Get in touch</h2>
-            <p>
-              Corrections, questions and requests for what to cover next are all welcome —{' '}
-              <Link href="/contact/">contact us here</Link>.
-            </p>
-          </div>
-        </main>
-      </div>
+        <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900/50">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-white">Get in touch</h2>
+          <p className="mt-2 text-slate-600 dark:text-slate-300">
+            Corrections, questions and requests for what to cover next are all welcome.
+          </p>
+          <Link
+            href="/contact/"
+            className="mt-4 inline-flex items-center rounded-xl bg-brand-600 px-5 py-2.5 font-bold text-white transition hover:bg-brand-700"
+          >
+            Contact us
+          </Link>
+        </div>
+      </main>
     </div>
   );
 }
