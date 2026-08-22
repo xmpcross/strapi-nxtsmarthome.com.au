@@ -20,7 +20,7 @@ export function Sparkle() {
   return (
     <svg
       aria-hidden="true"
-      className="h-[0.85em] w-[0.85em] shrink-0 self-center text-slate-900 dark:text-white"
+      className="sparkle-twinkle h-[0.85em] w-[0.85em] shrink-0 self-center text-slate-900 dark:text-white"
       viewBox="0 0 24 24"
       fill="currentColor"
     >

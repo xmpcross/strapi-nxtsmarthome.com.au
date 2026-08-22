@@ -1253,3 +1253,52 @@
   width: 100% !important;
   border-radius: 8px !important;
 }
+/*
+  Section-title sparkle
+  ---------------------------------------------------------------------------
+  The twinkle beside a section heading. It began in components/staff-picks.css
+  as sp-sparkle, applying only to Buying Guides; Latest, Hubs & Platforms and
+  Recommended had the same icon sitting still beside it.
+
+  Defined here, once, rather than copied into three more stylesheets — four
+  copies of a keyframe list is four chances for them to drift out of step, and
+  the point of the request was that they match.
+
+  Slow and small on purpose: it sits beside a heading, and anything faster or
+  wider reads as a loading spinner. It scales and fades on the same curve, with
+  a long hold at rest between pulses so the eye is drawn once rather than
+  continuously nagged.
+*/
+@keyframes sparkle-twinkle {
+  0%, 62%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.85;
+  }
+  74% {
+    transform: scale(1.28) rotate(45deg);
+    opacity: 1;
+  }
+  86% {
+    transform: scale(0.94) rotate(90deg);
+    opacity: 0.9;
+  }
+  94% {
+    transform: scale(1.06) rotate(90deg);
+    opacity: 1;
+  }
+}
+
+.sparkle-twinkle {
+  transform-origin: center;
+  animation: sparkle-twinkle 3.2s ease-in-out infinite;
+}
+
+/*
+  Anyone who has asked their system not to animate gets a static icon. A
+  decorative twinkle is exactly the kind of motion that prompts the setting.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .sparkle-twinkle {
+    animation: none;
+  }
+}

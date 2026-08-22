@@ -141,36 +141,13 @@
   height: 17px;
   flex-shrink: 0;
   fill: currentColor;
+  /* Shared with the other three section headings; see app/globals.css. */
   transform-origin: center;
-  animation: sp-sparkle 3.2s ease-in-out infinite;
+  animation: sparkle-twinkle 3.2s ease-in-out infinite;
 }
 
-/*
-  The four-point sparkle before the section title, twinkling.
-
-  Slow and small on purpose — it sits beside a heading, and anything faster or
-  wider reads as a loading spinner. It scales and fades on the same curve, with
-  a long hold at rest between pulses so the eye is drawn once rather than
-  continuously nagged.
-*/
-@keyframes sp-sparkle {
-  0%, 62%, 100% {
-    transform: scale(1) rotate(0deg);
-    opacity: 0.85;
-  }
-  74% {
-    transform: scale(1.28) rotate(45deg);
-    opacity: 1;
-  }
-  86% {
-    transform: scale(0.94) rotate(90deg);
-    opacity: 0.9;
-  }
-  94% {
-    transform: scale(1.06) rotate(90deg);
-    opacity: 1;
-  }
-}
+/* The keyframes, and the reasoning behind their timing, moved to
+   app/globals.css so all four section headings share one definition. */
 
 /*
   Anyone who has asked their system not to animate gets a static icon. A
