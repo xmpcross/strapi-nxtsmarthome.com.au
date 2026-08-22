@@ -342,6 +342,51 @@
   pointer-events: none;
 }
 
+/* Tiles: unbordered pocket
+   --------------------------------------------------------------------------
+   The reference gives artwork tiles .card-corner.no-border — the same 58px bite
+   out of the bottom-right as the bordered cards, in the page colour, but with no
+   outline on the bite or its joins, because here it is cut out of a photograph
+   rather than out of a card.
+
+   .fy__media does not clip (.fy__clip inside it does), so the bite is not
+   trimmed by the artwork's own rounding. */
+.fy__tile .fy__notch {
+  right: 0;
+  bottom: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 32px 0 0 0;
+}
+
+.fy__tile .fy__notch::before,
+.fy__tile .fy__notch::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 5px 5px 0 5px var(--surface);
+}
+
+.fy__tile .fy__notch::before {
+  top: -16px;
+  right: 0;
+}
+
+.fy__tile .fy__notch::after {
+  bottom: 0;
+  left: -16px;
+}
+
+/* Centred in the bite rather than overhanging it: 58 - 8 - 46 = 4. */
+.fy__tile .fy__arrow {
+  right: 4px;
+  bottom: 4px;
+  width: 46px;
+  height: 46px;
+}
+
 /* Lead panel: bordered pocket
    --------------------------------------------------------------------------
    The panel is a bordered card, so its bottom-right corner takes the same 58px
@@ -409,7 +454,8 @@
   border: 1px solid var(--arrow-border);
   color: var(--arrow-ink);
   text-decoration: none;
-  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease,
+    transform 200ms ease;
 }
 
 .fy__arrow svg {
@@ -424,16 +470,14 @@
   transition: transform 200ms ease;
 }
 
+.fy__lead:hover .fy__arrow,
+.fy__tile:hover .fy__arrow,
 .fy__arrow:hover,
 .fy__arrow:focus-visible {
   background: var(--arrow-bg-hover);
   border-color: var(--arrow-bg-hover);
   color: var(--arrow-ink-hover);
-}
-
-.fy__arrow:hover svg,
-.fy__arrow:focus-visible svg {
-  transform: translateX(2px);
+  transform: rotate(-45deg);
 }
 
 .fy__arrow:focus-visible {
@@ -694,7 +738,10 @@
 
   .fy__lead:hover .fy__img,
   .fy__tile:hover .fy__img,
-  .fy__arrow:hover svg,
+  .fy__lead:hover .fy__arrow,
+  .fy__tile:hover .fy__arrow,
+  .fy__arrow:hover,
+  .fy__arrow:focus-visible,
   .fy__row:hover,
   .fy__more:hover .fy__more-dot {
     transform: none;
