@@ -3,6 +3,7 @@ import ArticleCard from '@/components/ArticleCard';
 import ForYou from '@/components/ForYou';
 import HomeConnect from '@/components/HomeConnect';
 import MagzinHero from '@/components/MagzinHero';
+import Recommended from '@/components/Recommended';
 import SectionHeading from '@/components/SectionHeading';
 import StaffPicks from '@/components/StaffPicks';
 import { FeaturedPostCard, CompactPostCard } from '@/components/PostCards';
@@ -579,6 +580,19 @@ export default async function HomePage() {
   const fyLead = hubsItems[0];
   const fyTiles = hubsItems.slice(1, 3);
   const fyRows = hubsItems.slice(3, 5);
+  /*
+   * Recommended: the newest articles the page has not already shown, so the
+   * closing grid is not a reprint of the hero. Topped up from what has been
+   * shown (minus the lead) if the site is too small to fill eight cards.
+   */
+  const shown = new Set(
+    [lead?.slug, ...secondary.map((a) => a.slug), ...latest.map((a) => a.slug)].filter(Boolean),
+  );
+  const recommended = [
+    ...articles.filter((a) => !shown.has(a.slug)),
+    ...articles.filter((a) => shown.has(a.slug) && a.slug !== lead?.slug),
+  ].slice(0, 8);
+
   const trending = [...articles].sort((a, b) => b.wordCount - a.wordCount).slice(0, 5);
   const cats = categoriesWithCounts(articles);
 
@@ -653,6 +667,10 @@ export default async function HomePage() {
         )}
 
         <PopularTopics topics={topics} />
+
+        <HomeConnect />
+
+        <Recommended articles={recommended} />
 
         {/* Buying Guides, in the Staff Picks layout. */}
         <div className="mb-14">
@@ -743,11 +761,6 @@ export default async function HomePage() {
           />
         </div>
 
-        
-
-        
-
-        <HomeConnect />
       </div>
     </>
   );

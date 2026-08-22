@@ -214,6 +214,65 @@
   pointer-events: none;
 }
 
+/* Lead card: bordered pocket
+   --------------------------------------------------------------------------
+   The circle above is right over artwork (the tiles), where an unbordered
+   pocket reads fine. On the lead card it does not: that card has a visible
+   outline, and an unbordered pocket simply breaks it, which is the missing
+   border reported against this corner.
+
+   The reference cuts a 58px bite out of the card's bottom-right corner and
+   outlines the two edges that face into the card, so the card's own outline
+   steps in and up around the button. The two pseudo-elements are the concave
+   joins where that bite meets the card edge. Geometry and the 5px/5px/0/5px
+   masking shadow are the reference's own (.card-corner, .curve-one/-two),
+   which our tokens map onto exactly: --card-edge is its #e5e7eb and --surface
+   is the page behind the card. */
+.mzh__lead-card .mzh__notch {
+  right: 0;
+  bottom: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px 0 0 0;
+  border-top: 1px solid var(--card-edge);
+  border-left: 1px solid var(--card-edge);
+  /* Offset, no spread: erases the card's own border and rounded corner where
+     the bite passes through them, without painting over the two edges above. */
+  box-shadow: 6px 6px 0 0 var(--surface);
+}
+
+.mzh__lead-card .mzh__notch::before,
+.mzh__lead-card .mzh__notch::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-bottom-right-radius: 16px;
+  border-right: 1px solid var(--card-edge);
+  border-bottom: 1px solid var(--card-edge);
+  box-shadow: 5px 5px 0 5px var(--surface);
+}
+
+/* Above the bite, turning the card's bottom edge upwards. */
+.mzh__lead-card .mzh__notch::before {
+  top: -16px;
+  right: -1px;
+}
+
+/* Left of the bite, turning it back out to the card's right edge. */
+.mzh__lead-card .mzh__notch::after {
+  bottom: -1px;
+  left: -16px;
+}
+
+/* Centred in the bite rather than overhanging it: 58 - 8 - 46 = 4. */
+.mzh__lead-card .mzh__arrow {
+  right: 4px;
+  bottom: 4px;
+  width: 46px;
+  height: 46px;
+}
+
 /* Circular arrow, centred in the pocket
    -------------------------------------------------------------------------- */
 .mzh__arrow {
@@ -329,8 +388,10 @@
   justify-content: space-between;
   gap: 16px;
   margin-top: 24px;
-  /* Clear of the pocket, so the row never runs under the arrow. */
-  padding-right: calc(var(--notch-size) - 12px);
+  /* Clear of the pocket, so the row never runs under the arrow. The lead card's
+     pocket is 58px and sits wholly inside the card (it no longer overhangs the
+     edge), so the clearance is the pocket plus a gap, not --notch-size. */
+  padding-right: 70px;
 }
 
 .mzh__byline {
