@@ -3,8 +3,8 @@ name: 'Adrian Thompson'
 slug: 'adrian-thompson'
 role: 'What they cover, e.g. Security and cameras'
 initials: ''
-avatar: ''
-bio: 'PLACEHOLDER - replace with one or two sentences of real experience: what they work on and why a reader should trust them on it. This is the E-E-A-T signal on a review site. Publish only once the real name, role and bio are filled in.'
+avatar: 'https://cms.fxnstudio.com/uploads/Adrian_84236a1243.jpg'
+bio: 'Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.'
 links:
   - label: How we test
     href: /how-we-test/
