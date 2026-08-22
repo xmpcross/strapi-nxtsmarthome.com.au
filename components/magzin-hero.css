@@ -214,6 +214,52 @@
   pointer-events: none;
 }
 
+/* Tiles: unbordered pocket
+   --------------------------------------------------------------------------
+   The reference gives the tiles .card-corner.no-border — the same 58px bite out
+   of the bottom-right corner as the lead card, in the page colour, but with no
+   outline on either the bite or its joins, because here it is cut out of
+   artwork rather than out of a bordered card.
+
+   .mzh__tile .mzh__media is already overflow: visible, with the link inside it
+   doing the clipping, so the bite is not trimmed by the image's own rounding. */
+.mzh__tile .mzh__notch {
+  right: 0;
+  bottom: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 32px 0 0 0;
+}
+
+.mzh__tile .mzh__notch::before,
+.mzh__tile .mzh__notch::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 5px 5px 0 5px var(--surface);
+}
+
+/* Above the bite, and to the left of it: the concave joins back to the edges. */
+.mzh__tile .mzh__notch::before {
+  top: -16px;
+  right: 0;
+}
+
+.mzh__tile .mzh__notch::after {
+  bottom: 0;
+  left: -16px;
+}
+
+/* Centred in the bite rather than overhanging it: 58 - 8 - 46 = 4. */
+.mzh__tile .mzh__arrow {
+  right: 4px;
+  bottom: 4px;
+  width: 46px;
+  height: 46px;
+}
+
 /* Lead card: bordered pocket
    --------------------------------------------------------------------------
    The circle above is right over artwork (the tiles), where an unbordered
@@ -292,7 +338,8 @@
   border: 1px solid var(--arrow-border);
   color: var(--arrow-ink);
   text-decoration: none;
-  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease,
+    transform 200ms ease;
 }
 
 .mzh__arrow svg {
@@ -307,20 +354,28 @@
   transition: transform 200ms ease;
 }
 
+/* The reference turns the button dark and swings it to point up and out when
+   the CARD is hovered, not just the button — .article:hover .arrow-box. Hovering
+   the button itself keeps working for anyone arriving by pointer or keyboard.
+
+   What was here set the background to #ffffff on a button whose resting
+   background is already #ffffff, so the hover did nothing but change the border.
+   --arrow-bg-hover and --arrow-ink-hover were declared for both themes and never
+   referenced; they are what this should always have used. */
+.mzh__lead:hover .mzh__arrow,
+.mzh__tile:hover .mzh__arrow,
 .mzh__arrow:hover,
 .mzh__arrow:focus-visible {
-  background: #ffffff;
-  border-color: #ffffff;
-  color: #111111;
+  background: var(--arrow-bg-hover);
+  border-color: var(--arrow-bg-hover);
+  color: var(--arrow-ink-hover);
+  transform: rotate(-45deg);
 }
 
-.mzh__arrow:hover svg,
-.mzh__arrow:focus-visible svg {
-  transform: translateX(2px);
-}
-
+/* --focus-ring, like the two hover variables above, was declared per theme and
+   never referenced: a hardcoded white ring is invisible against the light page. */
 .mzh__arrow:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
@@ -506,9 +561,14 @@
     transition: none;
   }
 
+  /* The rotation is on the button now, not on its svg. The colour change stays:
+     that is not motion, and it is what marks the button as live. */
   .mzh__card-link:hover .mzh__img,
   .mzh__tile:hover .mzh__img,
-  .mzh__arrow:hover svg {
+  .mzh__lead:hover .mzh__arrow,
+  .mzh__tile:hover .mzh__arrow,
+  .mzh__arrow:hover,
+  .mzh__arrow:focus-visible {
     transform: none;
   }
 }
