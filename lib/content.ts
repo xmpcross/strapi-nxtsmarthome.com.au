@@ -321,6 +321,10 @@ export interface SearchDoc {
   date: string;
   tags: string[];
   body: string;
+  /* Emitted by scripts/build-search-index.mjs but previously undeclared, so
+     anything reading them failed to typecheck. */
+  cover?: string;
+  readingMinutes?: number;
 }
 
 /**
