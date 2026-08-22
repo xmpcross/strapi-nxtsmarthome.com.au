@@ -15,14 +15,21 @@ export const metadata: Metadata = {
     [VERIFY] LEGAL — human review required. See CLAUDE.md rule 6.
 
     The factual content below was checked against what the built site actually
-    loads on 3 August 2026:
-      - the only third-party script is cdn.viglink.com (Sovrn Commerce)
-      - no analytics of any kind is present (no GA/gtag/Plausible/Fathom)
+    loads on 23 August 2026:
+      - two third-party scripts: cdn.viglink.com (Sovrn Commerce) and
+        googletagmanager.com/gtag/js (Google Analytics, G-SY9XCRZH2K)
+      - BOTH are gated behind consent. GA loads with Consent Mode v2 defaults of
+        denied (scripts/inject-ga.mjs) and Sovrn does not self-start; its loader
+        waits on window.__nxtLoadSovrn (scripts/inject-sovrn.mjs). The choice is
+        made in components/CookieBanner.tsx and stored as nxt.consent.v1.
       - no Facebook pixel — facebook.com appears only as a footer link
       - retailer domains appear only as outbound links, not scripts
       - Cloudflare fronts the site and may set its own security cookies
-    If any of that changes — especially adding analytics — this page must be
-    updated, and a consent banner may become necessary.
+
+    Analytics was added to the site at some point before 23 August 2026 while
+    this page still said none was present. The banner and this rewrite close
+    that gap. If the set of scripts changes again, update this page AND bump the
+    CONSENT_KEY version so past choices are not read as consent to the new set.
   */
 }
 
@@ -36,7 +43,7 @@ export default function CookiesPage() {
             Cookie information
           </h1>
           <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
-            Last updated: 3 August 2026
+            Last updated: 23 August 2026
           </p>
 
           <div className="prose prose-slate mt-8 max-w-none dark:prose-invert prose-h2:mt-0 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0">
@@ -63,6 +70,18 @@ export default function CookiesPage() {
               ones.
             </p>
 
+            <h3>Analytics</h3>
+            <p>
+              We use Google Analytics to see which guides get read and which land badly, so we know
+              what to write next and what to fix. It sets cookies that record a return visit as the
+              same visit rather than a new one.
+            </p>
+            <p>
+              <strong>It does not run unless you accept.</strong> The tag loads with its storage
+              switched off and stays that way until you choose, so declining is a real decline rather
+              than a preference recorded after the fact.
+            </p>
+
             <h3>Affiliate tracking</h3>
             <p>
               We take part in affiliate programmes, which is how the site is funded. Two things happen
@@ -70,8 +89,9 @@ export default function CookiesPage() {
             </p>
             <ul>
               <li>
-                A commerce script from Sovrn runs on our pages so that outbound merchant links can be
-                attributed. It may set a cookie to record which link you followed.
+                A commerce script from Sovrn attributes outbound merchant links, and may set a
+                cookie to record which link you followed. Like the analytics tag, it is not loaded at
+                all until you accept.
               </li>
               <li>
                 When you click through to a retailer such as Amazon AU, eBay AU, JB Hi-Fi, The Good
@@ -88,6 +108,11 @@ export default function CookiesPage() {
 
             <h2>Controlling cookies</h2>
             <p>
+              The first time you visit, a banner asks whether to allow the analytics and affiliate
+              scripts. Nothing beyond your answer is stored until you accept. To change your mind
+              later, use <strong>Cookie settings</strong> in the footer, which asks again.
+            </p>
+            <p>
               You can block or delete cookies in your browser settings — every major browser allows
               this, usually under Privacy or Site settings. Blocking cookies will not stop you reading
               anything here, because nothing on this site depends on them. It may mean a purchase is
@@ -100,9 +125,9 @@ export default function CookiesPage() {
 
             <h2>If this changes</h2>
             <p>
-              If we ever add analytics or advertising, we will update this page first and introduce a
-              consent mechanism where one is required. The date at the top shows when this was last
-              reviewed.
+              If we add or remove a script that sets cookies, we will update this page and ask again
+              rather than carry an old answer over to a new set of scripts. The date at the top shows
+              when this was last reviewed.
             </p>
 
             <h2>Related</h2>

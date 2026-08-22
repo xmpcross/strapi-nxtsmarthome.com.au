@@ -5,6 +5,7 @@ import './globals.css';
 import './magzin-post-cards.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CookieBanner from '@/components/CookieBanner';
 import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
 import { getNav } from '@/lib/nav';
@@ -103,6 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
+        <CookieBanner />
 
         {/*
           The Sovrn Commerce script is NOT rendered here on purpose.

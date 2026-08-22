@@ -63,14 +63,43 @@ if (!fs.existsSync(OUT_DIR)) {
   process.exit(1);
 }
 
+/*
+ * Consent Mode v2. The consent defaults must be pushed BEFORE gtag.js is
+ * fetched, which is why the inline block now comes first and the loader second
+ * — the reverse of Google's copy-paste snippet, and the reason not to "tidy"
+ * the order back.
+ *
+ * Everything starts denied, so the tag buffers rather than writing storage.
+ * components/CookieBanner.tsx sends the 'update' that releases it, and the
+ * localStorage read here re-grants on later page loads without a second ask.
+ * wait_for_update gives that read a moment on a slow device before the tag
+ * decides it is running unconsented.
+ */
 const SNIPPET = `<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=${id}"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  wait_for_update: 500
+});
+try {
+  if (window.localStorage.getItem('nxt.consent.v1') === 'granted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+  }
+} catch (e) {}
 gtag('js', new Date());
 gtag('config', '${id}');
-</script>`;
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=${id}"></script>`;
 
 function htmlFiles(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {

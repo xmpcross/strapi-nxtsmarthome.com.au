@@ -62,15 +62,35 @@ if (!fs.existsSync(OUT_DIR)) {
   process.exit(1);
 }
 
+/*
+ * Sovrn's own snippet runs on sight. It is wrapped here instead: the loader is
+ * parked on window.__nxtLoadSovrn and only called once consent exists, either
+ * from the localStorage read below on a return visit, or by
+ * components/CookieBanner.tsx when Accept is pressed.
+ *
+ * The guard makes it idempotent — the banner can call it on a page where the
+ * stored consent already did, without loading vglnk.js twice.
+ *
+ * This gates the script that rewrites ordinary outbound links. It does not
+ * affect the explicit sovrn.co product links built in lib/affiliate.ts, which
+ * are plain URLs and carry their own attribution.
+ */
 const snippet =
   '<script type="text/javascript">\n' +
   `  var vglnk = {key: ${JSON.stringify(key)}};\n` +
-  "  (function(d, t) {var s = d.createElement(t);\n" +
-  "    s.type = 'text/javascript';s.async = true;\n" +
-  "    s.src = 'https://cdn.viglink.com/api/vglnk.js';\n" +
-  "    var r = d.getElementsByTagName(t)[0];\n" +
-  '    r.parentNode.insertBefore(s, r);\n' +
-  "  }(document, 'script'));\n" +
+  '  window.__nxtLoadSovrn = function() {\n' +
+  '    if (window.__nxtSovrnLoaded) return;\n' +
+  '    window.__nxtSovrnLoaded = true;\n' +
+  "    (function(d, t) {var s = d.createElement(t);\n" +
+  "      s.type = 'text/javascript';s.async = true;\n" +
+  "      s.src = 'https://cdn.viglink.com/api/vglnk.js';\n" +
+  "      var r = d.getElementsByTagName(t)[0];\n" +
+  '      r.parentNode.insertBefore(s, r);\n' +
+  "    }(document, 'script'));\n" +
+  '  };\n' +
+  '  try {\n' +
+  "    if (window.localStorage.getItem('nxt.consent.v1') === 'granted') window.__nxtLoadSovrn();\n" +
+  '  } catch (e) {}\n' +
   '</script>\n';
 
 function* htmlFiles(dir) {
