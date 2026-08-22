@@ -68,8 +68,20 @@ export function mediaUrl(url?: string | null): string {
  * version of each document, whose publishedAt is null whether or not it is live
  * — the same trap that made the CMS dashboard report every row as a draft.
  */
+/*
+ * One value per build process, appended to the CMS query.
+ *
+ * Next keys its fetch cache on the URL, and that cache survives in .next/cache
+ * between builds. A cover uploaded four minutes before a rebuild was therefore
+ * served from cache, so the build baked the OLD image and it looked as though
+ * the upload had failed. cache: 'no-store' is the obvious fix but output:
+ * 'export' refuses to build an uncached fetch, so the URL changes instead.
+ */
+const BUILD_STAMP = String(Date.now());
+
 export async function listPosts(): Promise<StrapiPost[]> {
   const params = new URLSearchParams({
+    _build: BUILD_STAMP,
     status: 'published',
     'pagination[pageSize]': '200',
     'sort[0]': 'publishDate:desc',
@@ -81,7 +93,8 @@ export async function listPosts(): Promise<StrapiPost[]> {
 
   const res = await fetch(`${BASE}/api/nxtsmarthome-posts?${params}`, {
     headers: TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {},
-    // ISR handles freshness at the page level; this is the fetch-level default.
+    // Cacheable, because output: 'export' refuses to build an uncached fetch.
+    // BUILD_STAMP below is what actually guarantees freshness.
     next: { revalidate: 300 },
   });
 
