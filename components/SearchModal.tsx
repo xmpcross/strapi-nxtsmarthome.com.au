@@ -1,5 +1,7 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { categories } from '@/lib/site';
@@ -37,6 +39,7 @@ const fmt = (iso: string) =>
     .replace(/ (\d{4})$/, ', $1');
 
 export default function SearchModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const router = useRouter();
   const [docs, setDocs] = useState<Doc[]>([]);
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
@@ -148,11 +151,26 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
           Search
         </h2>
 
+        {/*
+          * Navigate first, close second.
+          *
+          * This was `onSubmit={onClose}` on a plain GET form, which looked
+          * right and did nothing: closing the modal sets open=false, the
+          * component returns null, and React removes the <form> from the DOM
+          * before the browser has processed the submission. A disconnected
+          * form does not navigate, so clicking Search went nowhere.
+          */}
         <form
           action="/search/"
           method="get"
           className="mt-6 flex flex-col gap-3 sm:flex-row"
-          onSubmit={onClose}
+          onSubmit={(event) => {
+            event.preventDefault();
+            const term = query.trim();
+            if (!term) return;
+            onClose();
+            router.push(`/search/?q=${encodeURIComponent(term)}`);
+          }}
         >
           <input
             ref={inputRef}
