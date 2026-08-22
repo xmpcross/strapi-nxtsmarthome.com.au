@@ -1,21 +1,13 @@
 ---
-name: Kritin Curtis
-slug: kritin-curtis
-role: Editor
+name: 'Kritin Curtis'
+slug: 'kritin-curtis'
+role: ''
 initials: ''
 avatar: ''
-bio: ''
+bio: 'Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.'
 links:
   - label: How we test
     href: /how-we-test/
   - label: About this site
     href: /about/
 ---
-
-<!--
-  This file exists so posts credited to Kritin in the CMS resolve to a real
-  profile instead of falling back to the editorial byline. The bio is empty on
-  purpose — you asked for two bios, and writing a third for you without your
-  input would be the same invention this site says it does not do. Fill in the
-  bio field and this body when you are ready.
--->
