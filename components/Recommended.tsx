@@ -15,7 +15,8 @@ import { articleHref, squareCoverFor, type Article } from '@/lib/content';
  *   .col-lg-3.col-md-6  four across on desktop, two on tablet, one on mobile
  *   .rounded-16         16px radius on the thumbnail
  *   .card-recommend img square artwork, capped at 280px tall
- *   h6.mt-3             18px semi-bold title, 16px below the image
+ *   h6.mt-3             18px title, 16px below the image (weight 500 and
+ *                       clamped to two lines, per the brief, not the theme)
  *   .hover-up           the card lifts 3px
  *   .hover-effect-30    the artwork scales 1.05 and rotates 1deg
  *
@@ -46,7 +47,7 @@ export default function Recommended({ articles }: { articles: Article[] }) {
                 />
               </Link>
 
-              <h3 className="mt-4 text-lg font-semibold leading-snug text-slate-900 dark:text-white">
+              <h3 className="mt-4 line-clamp-2 text-lg font-medium leading-snug text-slate-900 dark:text-white">
                 <Link href={href} className="hover:underline">
                   {article.title}
                 </Link>
