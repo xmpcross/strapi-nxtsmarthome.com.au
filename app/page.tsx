@@ -670,8 +670,9 @@ export default async function HomePage() {
 
         <HomeConnect />
 
-        {/* Buying Guides, in the Staff Picks layout. */}
-        <div className="mb-14">
+        {/* Buying Guides, in the Staff Picks layout. The newsletter above carries
+            its own mt-16 but nothing separated its underside from this. */}
+        <div className="mt-16 mb-14">
           <StaffPicks
             title="Buying Guides"
             standfirst="What to look for before you spend"
