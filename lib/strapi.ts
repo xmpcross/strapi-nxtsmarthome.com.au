@@ -46,6 +46,7 @@ export interface StrapiPost {
   readingTimeMinutes?: number;
   faq?: { q?: string; question?: string; a?: string; answer?: string }[];
   categories?: { name?: string; slug?: string }[];
+  author?: { name?: string; slug?: string } | null;
   publishedAt?: string;
 }
 
@@ -72,6 +73,7 @@ export async function listPosts(): Promise<StrapiPost[]> {
     'pagination[pageSize]': '200',
     'sort[0]': 'publishDate:desc',
     'populate[categories]': 'true',
+    'populate[author]': 'true',
     'populate[faq]': 'true',
   });
 

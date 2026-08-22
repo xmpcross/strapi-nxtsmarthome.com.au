@@ -161,7 +161,12 @@ async function fromStrapi(post: StrapiPost): Promise<Article | null> {
     type: articleType(post.postType) as Article['type'],
     date: post.publishDate ?? post.publishedAt ?? '',
     updated: post.dateModified || undefined,
-    author: 'NXT Smart Home',
+    /*
+     * The CMS author when the post has one, by slug so resolveAuthor matches a
+     * file in content/authors/ and the byline links to a real profile. Posts
+     * with no author set still fall back to the editorial byline.
+     */
+    author: post.author?.slug ?? post.author?.name ?? 'NXT Smart Home',
     tags: Array.isArray(post.tags) ? post.tags : [],
     featured: Boolean(post.featured),
     image: post.coverImageUrl || undefined,
