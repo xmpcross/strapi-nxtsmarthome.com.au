@@ -153,11 +153,11 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
             beyond what the record already holds.
           */}
           {product.description ? (
-            <p className="whitespace-pre-line text-sm leading-relaxed text-[#55555a] dark:text-slate-300">
+            <p className="whitespace-pre-line leading-relaxed text-[#55555a] dark:text-slate-300">
               {product.description}
             </p>
           ) : (
-            <p className="text-sm leading-relaxed text-[#55555a] dark:text-slate-300">
+            <p className="leading-relaxed text-[#55555a] dark:text-slate-300">
               The {product.brand ? `${product.brand} ` : ''}
               {product.name} sits in our {product.categoryName} category
               {product.subCategory ? ` under ${product.subCategory}` : ''}, and is sold in
@@ -171,7 +171,7 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
           )}
 
           {product.bestFor ? (
-            <p className="mt-4 border-t border-[#e8e8e8] pt-4 text-sm leading-relaxed text-[#55555a] dark:border-slate-700/70 dark:text-slate-300">
+            <p className="mt-4 border-t border-[#e8e8e8] pt-4 leading-relaxed text-[#55555a] dark:border-slate-700/70 dark:text-slate-300">
               <span className="font-bold text-[#1d252c] dark:text-white">Our verdict:</span>{' '}
               {product.bestFor}
             </p>
