@@ -81,13 +81,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang={site.language} suppressHydrationWarning>
       <head>
         {/*
-          Applies the saved theme (or the OS preference) before first paint. Without
-          this a dark-theme reader gets a white flash on every navigation, because
-          the class can only be set after React hydrates.
+          Applies the theme before first paint. Without this a dark reader gets a
+          white flash on every navigation, because the class can only be set once
+          React hydrates.
+
+          Dark is the default now, rather than the OS preference: the site is
+          meant to be read dark, and a light-preferring OS previously overrode
+          that. A reader's own choice still wins — the toggle writes 'theme' and
+          this reads it first — so this only decides what someone sees before
+          they have expressed one.
+
+          The class is set with .add rather than .toggle: the fallback is a
+          constant, and toggle(el, true) reads as though it might remove it.
         */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d)}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.classList.toggle('dark',t?t==='dark':true)}catch(e){document.documentElement.classList.add('dark')}})()`,
           }}
         />
       </head>

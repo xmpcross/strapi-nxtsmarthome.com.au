@@ -1302,3 +1302,20 @@
     animation: none;
   }
 }
+
+/*
+  Native UI follows the theme.
+
+  Scrollbars, form controls and the space behind the page are painted by the
+  browser, not by our CSS. Without this they stay light while everything else is
+  dark — most visibly as a white scrollbar track and a white flash between
+  navigations. Declared both ways round so a reader who has chosen light gets
+  light chrome too.
+*/
+:root {
+  color-scheme: dark;
+}
+
+:root:not(.dark) {
+  color-scheme: light;
+}

@@ -23,17 +23,15 @@ export default function ThemeToggle() {
     setReady(true);
   }, []);
 
-  // Follow the OS while the reader has not made an explicit choice.
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    const onChange = (e: MediaQueryListEvent) => {
-      if (localStorage.getItem('theme')) return;
-      document.documentElement.classList.toggle('dark', e.matches);
-      setDark(e.matches);
-    };
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
+  /*
+   * The OS is deliberately not followed any more.
+   *
+   * This used to flip the theme when the system preference changed and no
+   * choice had been saved. With dark as the default that is actively wrong: a
+   * reader on a light OS would be handed dark on load and then thrown to light
+   * mid-session the moment their machine switched at sunrise. The toggle is now
+   * the only thing that changes the theme.
+   */
 
   const set = (next: boolean) => {
     document.documentElement.classList.toggle('dark', next);
