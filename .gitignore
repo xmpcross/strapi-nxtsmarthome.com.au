@@ -15,3 +15,7 @@ scratch/
 # above miss them, and one was nearly committed with FAL_KEY and STRAPI_TOKEN.
 .env*.bak*
 .env.*.bak*
+
+# Originals kept before the product-image background recolour. Local safety net,
+# not something to carry in the repo — the sources are merchant images.
+public/images/products.bak/
