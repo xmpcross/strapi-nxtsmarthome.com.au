@@ -8,8 +8,10 @@ import ProductReviews from '@/components/ProductReviews';
 import RelatedProducts from '@/components/RelatedProducts';
 import RetailerPriceList from '@/components/RetailerPriceList';
 import RetailerPriceTable from '@/components/RetailerPriceTable';
+import JsonLd from '@/components/JsonLd';
 import { bulletsOf } from '@/lib/bullets';
 import { getAllTopProducts, getTopProductBySlug } from '@/lib/products';
+import { breadcrumbJsonLd, productJsonLd } from '@/lib/seo';
 
 export async function generateStaticParams() {
   const products = getAllTopProducts();
@@ -73,6 +75,17 @@ export default async function ProductDetailPage({
     /* The page element lives in app/layout.tsx — this is a div, not a second
        <main>, which would be invalid HTML. */
     <div className="bg-[#f0f2f4] dark:bg-slate-900">
+      {/* Product and breadcrumb data. This page had neither, so its verified
+          retailer pricing was invisible to Google's product results. */}
+      <JsonLd data={productJsonLd(product)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Products', path: '/products/' },
+          { name: product.categoryName, path: `/products/category/${product.categorySlug}/` },
+          { name: product.name, path: `/products/${product.slug}/` },
+        ])}
+      />
       <div className="mx-auto max-w-[1366px] px-4 py-6 sm:px-6">
         {/* Breadcrumb */}
         <nav className="mb-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-[#55555a] dark:text-slate-400">

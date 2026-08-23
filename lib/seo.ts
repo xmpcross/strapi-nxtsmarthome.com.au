@@ -1,6 +1,7 @@
 import { site } from './site';
 import { DEFAULT_AUTHOR_SLUG, resolveAuthor } from './authors';
 import type { Article } from './content';
+import type { TopProduct } from './products';
 import { articleHref } from './urls';
 
 const abs = (pathname: string) => new URL(pathname, site.url).toString();
@@ -157,3 +158,68 @@ export function jsonLdScript(data: unknown): string {
 }
 
 export { abs };
+
+/**
+ * Product structured data.
+ *
+ * Product pages carried only the Organization graph, so 199 pages with verified
+ * retailer pricing were invisible to Google's product results — nothing in
+ * Search Console's Merchant listings or Product snippets reports.
+ *
+ * Everything here is measured. Prices come from the verified retailer offers,
+ * not the seeded `priceAud`, which the catalogue's own notes describe as never
+ * having been a real RRP. The rating is only emitted when one exists: it is the
+ * aggregate lib/products.ts resolves from ratingReal, and a product with no
+ * measured reviews gets no aggregateRating rather than an invented one, which
+ * is both a Google policy matter and this site's own rule.
+ */
+export function productJsonLd(product: TopProduct) {
+  const priced = (product.retailers ?? []).filter(
+    (r) => typeof r.priceAud === 'number' && r.priceAud > 0,
+  );
+  const prices = priced.map((r) => r.priceAud as number).sort((a, b) => a - b);
+
+  const data: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    url: `${site.url}/products/${product.slug}/`,
+    ...(product.image ? { image: product.image } : {}),
+    ...(product.shortDescription || product.description
+      ? { description: (product.shortDescription || product.description || '').slice(0, 5000) }
+      : {}),
+    ...(product.brand ? { brand: { '@type': 'Brand', name: product.brand } } : {}),
+    ...(product.categoryName ? { category: product.categoryName } : {}),
+  };
+
+  if (prices.length) {
+    data.offers = {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'AUD',
+      lowPrice: prices[0],
+      highPrice: prices[prices.length - 1],
+      offerCount: prices.length,
+      availability: 'https://schema.org/InStock',
+      offers: priced.map((r) => ({
+        '@type': 'Offer',
+        priceCurrency: 'AUD',
+        price: r.priceAud,
+        availability: 'https://schema.org/InStock',
+        url: r.url,
+        seller: { '@type': 'Organization', name: r.name },
+      })),
+    };
+  }
+
+  if (typeof product.rating === 'number' && (product.reviewCount ?? 0) > 0) {
+    data.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: Number(product.rating.toFixed(2)),
+      reviewCount: product.reviewCount,
+      bestRating: 5,
+      worstRating: 1,
+    };
+  }
+
+  return data;
+}
