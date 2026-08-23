@@ -83,6 +83,12 @@ export interface TopProduct {
   updatedAt?: string;
   /** Manufacturer description from the Google Shopping catalogue. */
   description?: string;
+  /**
+   * Editorial blurb, written in the CMS and synced in by
+   * scripts/fetch-product-descriptions.mjs. Preferred over `description`, which
+   * is merchant copy and stays as the fallback for anything not yet rewritten.
+   */
+  shortDescription?: string;
   /** Google Shopping catalogue id — the only external identifier available. */
   googleProductId?: string;
   gtin?: string;
@@ -251,4 +257,19 @@ export function getTopProductsByCategory(categorySlugOrKey: string): TopProduct[
 export function getTopProductBySlug(slug: string): TopProduct | undefined {
   const all = getAllTopProducts();
   return all.find((p) => p.slug === slug);
+}
+
+/**
+ * Split a bulleted blurb into its lines, dropping the bullet characters.
+ *
+ * The CMS blurbs are written as "• one per line". Printed as a paragraph those
+ * markers show as literal text, and under line-clamp they run together
+ * mid-sentence — so the page renders a real list instead, and this is what
+ * decides whether it has one to render.
+ */
+export function bulletsOf(text: string): string[] {
+  return text
+    .split('\n')
+    .map((line) => line.replace(/^\s*[\u2022\-*]\s*/, '').trim())
+    .filter(Boolean);
 }

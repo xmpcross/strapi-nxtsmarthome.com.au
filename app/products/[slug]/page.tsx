@@ -8,7 +8,7 @@ import ProductReviews from '@/components/ProductReviews';
 import RelatedProducts from '@/components/RelatedProducts';
 import RetailerPriceList from '@/components/RetailerPriceList';
 import RetailerPriceTable from '@/components/RetailerPriceTable';
-import { getAllTopProducts, getTopProductBySlug } from '@/lib/products';
+import { bulletsOf, getAllTopProducts, getTopProductBySlug } from '@/lib/products';
 
 export async function generateStaticParams() {
   const products = getAllTopProducts();
@@ -136,17 +136,39 @@ export default async function ProductDetailPage({
                   ) : null}
                 </div>
 
-                {product.description || product.bestFor ? (
+                {product.shortDescription || product.description || product.bestFor ? (
                   <div className="border-t border-[#e0e0e0] pt-4 dark:border-slate-700">
                     <h2 className="mb-2.5 text-[1.05rem] font-bold text-[#1d252c] dark:text-white">
                       About this product
                     </h2>
-                    {/* The manufacturer's own short description where we have
-                        one; the editorial verdict is the fallback. Clamped
-                        here — the full text is in the Description panel. */}
-                    <p className="line-clamp-5 text-sm leading-relaxed text-[#55555a] dark:text-slate-300">
-                      {product.description || product.bestFor}
-                    </p>
+                    {/*
+                      The blurb written in the CMS comes first. It is the one
+                      someone edited for this product; the manufacturer's copy
+                      and the editorial verdict are fallbacks for anything not
+                      rewritten yet.
+
+                      Bulleted copy is rendered as a real list. It arrives as
+                      lines beginning with "•", and a paragraph would print those
+                      characters as text — and, with line-clamp, run the bullets
+                      together mid-sentence.
+                    */}
+                    {product.shortDescription && bulletsOf(product.shortDescription).length > 1 ? (
+                      <ul className="space-y-1.5 text-sm leading-relaxed text-[#55555a] dark:text-slate-300">
+                        {bulletsOf(product.shortDescription).map((line) => (
+                          <li key={line} className="flex gap-2">
+                            <span
+                              aria-hidden="true"
+                              className="mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#55555a] dark:bg-slate-400"
+                            />
+                            <span>{line}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="line-clamp-5 text-sm leading-relaxed text-[#55555a] dark:text-slate-300">
+                        {product.shortDescription || product.description || product.bestFor}
+                      </p>
+                    )}
                   </div>
                 ) : null}
               </div>
