@@ -136,9 +136,16 @@ export default async function ProductDetailPage({
                   ) : null}
                 </div>
 
+                {/*
+                  This block is pinned to 14px, heading included. The body copy
+                  was already there via text-sm; the heading was 1.05rem, so it
+                  is the part that actually moves. Set in px rather than text-sm
+                  so it holds if the rem scale is ever changed — the request was
+                  a size, not a step on the scale.
+                */}
                 {product.shortDescription || product.description || product.bestFor ? (
-                  <div className="border-t border-[#e0e0e0] pt-4 dark:border-slate-700">
-                    <h2 className="mb-2.5 text-[1.05rem] font-bold text-[#1d252c] dark:text-white">
+                  <div className="border-t border-[#e0e0e0] pt-4 text-[14px] dark:border-slate-700">
+                    <h2 className="mb-2.5 text-[14px] font-bold text-[#1d252c] dark:text-white">
                       About this product
                     </h2>
                     {/*
@@ -153,7 +160,7 @@ export default async function ProductDetailPage({
                       together mid-sentence.
                     */}
                     {product.shortDescription && bulletsOf(product.shortDescription).length > 1 ? (
-                      <ul className="space-y-1.5 text-sm leading-relaxed text-[#55555a] dark:text-slate-300">
+                      <ul className="space-y-1.5 leading-relaxed text-[#55555a] dark:text-slate-300">
                         {bulletsOf(product.shortDescription).map((line) => (
                           <li key={line} className="flex gap-2">
                             <span
@@ -165,7 +172,7 @@ export default async function ProductDetailPage({
                         ))}
                       </ul>
                     ) : (
-                      <p className="line-clamp-5 text-sm leading-relaxed text-[#55555a] dark:text-slate-300">
+                      <p className="line-clamp-5 leading-relaxed text-[#55555a] dark:text-slate-300">
                         {product.shortDescription || product.description || product.bestFor}
                       </p>
                     )}
