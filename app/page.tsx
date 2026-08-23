@@ -139,7 +139,7 @@ function Lead({ article }: { article: Article }) {
       >
         <img
           src={coverFor(article)}
-          alt=""
+          alt={article.title}
           width={1200}
           height={675}
           className="aspect-[62/35] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
@@ -250,7 +250,7 @@ function ListRow({ article, square = false }: { article: Article; square?: boole
       >
         <img
           src={coverFor(article)}
-          alt=""
+          alt={article.title}
           width={1240}
           height={700}
           className={`w-full rounded-lg object-cover object-left transition duration-500 group-hover:scale-[1.05] ${
@@ -318,7 +318,7 @@ function PopularTopics({
               >
                 <img
                   src={t.cover}
-                  alt=""
+                  alt={t.name}
                   width={1240}
                   height={700}
                   loading="lazy"
@@ -360,7 +360,7 @@ function FeatureTile({ article }: { article: Article }) {
         <Link href={articleHref(article)} aria-label={article.title} tabIndex={-1} className="post-card__image-link">
           <img
             src={coverFor(article)}
-            alt=""
+            alt={article.title}
             width={1240}
             height={700}
             className="post-card__image object-left"
@@ -430,7 +430,7 @@ function CategoryFeature({ items }: { items: Article[] }) {
         >
           <img
             src={coverFor(lead)}
-            alt=""
+            alt={lead.title}
             width={1000}
             height={500}
             className="aspect-[62/35] w-full rounded-lg object-cover transition duration-500 group-hover:scale-[1.03]"
@@ -513,7 +513,7 @@ function WideCard({ article }: { article: Article }) {
       <Link href={articleHref(article)} className="block overflow-hidden rounded-lg">
         <img
           src={coverFor(article)}
-          alt=""
+          alt={article.title}
           width={1200}
           height={675}
           className="aspect-[62/35] w-full rounded-lg object-cover transition duration-500 group-hover:scale-[1.04]"
@@ -652,6 +652,17 @@ export default async function HomePage() {
       </section>
 
       <div className="mx-auto max-w-site px-4 py-10">
+        {/*
+          The page had no h1 at all — its first heading was the screen-reader
+          "Featured articles" below, so a crawler saw a document starting at h2.
+          This design carries no visible page title on the home page, so the h1
+          is visually hidden rather than invented as a banner nobody asked for.
+          It says what the site is, which is the job of an h1 here.
+        */}
+        <h1 className="sr-only">
+          {site.name} — Australian smart home reviews, setup guides and buying advice
+        </h1>
+
         {lead && (
           <section className="mb-14" aria-labelledby="lead-heading">
             <h2 id="lead-heading" className="sr-only">

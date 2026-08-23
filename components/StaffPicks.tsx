@@ -70,7 +70,7 @@ function ListItem({ article }: { article: Article }) {
       <img
         className="sp__thumb"
         src={squareCoverFor(article)}
-        alt=""
+        alt={article.title}
         width={500}
         height={500}
         loading="lazy"

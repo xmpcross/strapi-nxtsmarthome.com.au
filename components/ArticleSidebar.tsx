@@ -129,7 +129,7 @@ export default function ArticleSidebar({
                 <Link href={articleHref(a)} className="group flex gap-3">
                   <img
                     src={squareCoverFor(a)}
-                    alt=""
+                    alt={a.title}
                     width={500}
                     height={500}
                     className="h-14 w-20 shrink-0 rounded-lg object-cover"
