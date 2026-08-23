@@ -54,7 +54,7 @@ function RetailerMark({ name }: { name: string }) {
 
   if (real) {
     return (
-      <span className="flex h-9 w-20 shrink-0 items-center justify-center rounded-md bg-white p-1 dark:bg-white">
+      <span className="flex h-9 w-20 shrink-0 items-center justify-center rounded-md p-1">
         <img
           src={real.src}
           alt={name}
