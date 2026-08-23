@@ -94,6 +94,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           The class is set with .add rather than .toggle: the fallback is a
           constant, and toggle(el, true) reads as though it might remove it.
         */}
+        {/*
+          Google AdSense.
+
+          In <head> and unconditional, which is what AdSense verification needs:
+          the reviewer and the crawler have to find the tag on a normal page
+          load. Note this does NOT pass through the consent banner that gates
+          Google Analytics and Sovrn — see app/cookies/page.tsx, which now says
+          so rather than leaving the page claiming nothing runs until you choose.
+        */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867376862905050"
+          crossOrigin="anonymous"
+        />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.classList.toggle('dark',t?t==='dark':true)}catch(e){document.documentElement.classList.add('dark')}})()`,

@@ -48,8 +48,11 @@ export default function Recommended({ articles }: { articles: Article[] }) {
                 />
               </Link>
 
-              <h3 className="mt-4 line-clamp-2 text-lg font-semibold leading-snug text-slate-900 dark:text-white">
-                <Link href={href} className="hover:underline">
+              <h3 className="mt-4 line-clamp-2 text-lg leading-snug text-slate-900 dark:text-white">
+                {/* Weight is set on the anchor, not the heading: the anchor is
+                    what the section's own styles reach, so setting it here is
+                    what actually holds. */}
+                <Link href={href} className="!font-semibold hover:underline">
                   {article.title}
                 </Link>
               </h3>

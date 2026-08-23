@@ -1,0 +1,4 @@
+# Authorised Digital Sellers — https://iabtechlab.com/ads-txt/
+# Without this file AdSense reports "Earnings at risk" and unauthorised
+# resellers can pass off inventory as ours.
+google.com, pub-2867376862905050, DIRECT, f08c47fec0942fa0
