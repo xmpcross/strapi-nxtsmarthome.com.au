@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState } from 'react';
 import Link from 'next/link';
+import { bulletsOf } from '@/lib/bullets';
 import type { TopProduct } from '@/lib/products';
 
 /**
@@ -147,14 +148,33 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
       body: (
         <>
           {/*
-            The manufacturer's own description from the catalogue is the real
-            product copy. The generated sentence below is only a fallback for
-            the products no description was returned for — it states nothing
-            beyond what the record already holds.
+            The blurb written in the CMS wins. It is the copy someone edited for
+            this product, and it is what "About this product" shows above — the
+            two disagreeing on one page is what made a rewrite look like it had
+            not applied.
+
+            The manufacturer's description is the fallback for anything not
+            rewritten yet, and the generated sentence below that for products the
+            feed returned no description for; it states nothing beyond what the
+            record already holds.
           */}
-          {product.description ? (
+          {product.shortDescription && bulletsOf(product.shortDescription).length > 1 ? (
+            /* Bulleted copy becomes a real list — as a paragraph the "•"
+               characters print as text. */
+            <ul className="space-y-2 leading-relaxed text-[#55555a] dark:text-slate-300">
+              {bulletsOf(product.shortDescription).map((line) => (
+                <li key={line} className="flex gap-2.5">
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#55555a] dark:bg-slate-400"
+                  />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          ) : product.shortDescription || product.description ? (
             <p className="whitespace-pre-line leading-relaxed text-[#55555a] dark:text-slate-300">
-              {product.description}
+              {product.shortDescription || product.description}
             </p>
           ) : (
             <p className="leading-relaxed text-[#55555a] dark:text-slate-300">

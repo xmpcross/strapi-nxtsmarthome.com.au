@@ -8,7 +8,8 @@ import ProductReviews from '@/components/ProductReviews';
 import RelatedProducts from '@/components/RelatedProducts';
 import RetailerPriceList from '@/components/RetailerPriceList';
 import RetailerPriceTable from '@/components/RetailerPriceTable';
-import { bulletsOf, getAllTopProducts, getTopProductBySlug } from '@/lib/products';
+import { bulletsOf } from '@/lib/bullets';
+import { getAllTopProducts, getTopProductBySlug } from '@/lib/products';
 
 export async function generateStaticParams() {
   const products = getAllTopProducts();
