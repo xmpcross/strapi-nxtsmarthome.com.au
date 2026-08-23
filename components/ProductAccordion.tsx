@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import Link from 'next/link';
 import type { TopProduct } from '@/lib/products';
 
@@ -8,13 +8,24 @@ import type { TopProduct } from '@/lib/products';
  * Product detail panels, matching the nxt.deals PDP: stacked accordion sections
  * inside a single white card, first section open by default.
  *
- * The reference opens Specifications and Additional Info in an off-canvas
- * "side peek" panel. That is not reproduced here — a side peek hides content
- * behind an interaction on a static export, and this site needs the
- * specifications crawlable. Every panel renders inline instead.
+ * Specifications and Additional Info open in an off-canvas "side peek", as the
+ * reference does. Description and Features stay inline.
+ *
+ * The objection that used to sit here — that a side peek hides content a static
+ * export needs crawlable — is answered by never unmounting the panel. Its markup
+ * is rendered into the served HTML exactly as before; opening it only changes
+ * the CSS that positions it. A crawler reads the specifications whether or not
+ * anyone clicks, which is the same bargain the collapsed accordion already made.
+ *
+ * Deliberately not a portal. createPortal has no DOM to target during a static
+ * export, so a portalled panel would be absent from the HTML entirely — which is
+ * the very thing this is avoiding.
  */
 
 type SectionKey = 'description' | 'features' | 'specifications' | 'additional';
+
+/** The two the reference puts off-canvas. The rest stay in the page. */
+const PEEK: ReadonlySet<SectionKey> = new Set(['specifications', 'additional']);
 
 /**
  * Specification names that describe what a product *does* rather than what it
@@ -34,6 +45,25 @@ function Chevron({ open }: { open: boolean }) {
     >
       ›
     </span>
+  );
+}
+
+/* Points right rather than down: these two open a panel from the side, and a
+   down-chevron would promise an accordion that expands in place. */
+function PeekArrow() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="ml-auto h-5 w-5 shrink-0 text-[#55555a] dark:text-slate-400"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="9 6 15 12 9 18" />
+    </svg>
   );
 }
 
@@ -100,6 +130,15 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
   const featureSpecs = allSpecs.filter((s) => FEATURE_SPEC_PATTERN.test(s.name));
   // Anything promoted into Features is not repeated in Specifications.
   const detailSpecs = allSpecs.filter((s) => !FEATURE_SPEC_PATTERN.test(s.name));
+
+  /* Escape closes an open peek. A slide-over covering the page with no keyboard
+     way out is a trap for anyone not using a mouse. */
+  useEffect(() => {
+    if (!open || !PEEK.has(open)) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(null); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
 
   const sections: Array<{ key: SectionKey; title: string; body: React.ReactNode }> = [
     {
@@ -265,6 +304,7 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
         .filter((section) => !(section.key === 'features' && featureSpecs.length === 0))
         .map((section, i) => {
         const isOpen = open === section.key;
+        const peeks = PEEK.has(section.key);
         return (
           <div
             key={section.key}
@@ -276,11 +316,12 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
                 id={`${baseId}-h-${section.key}`}
                 aria-expanded={isOpen}
                 aria-controls={`${baseId}-p-${section.key}`}
+                aria-haspopup={peeks ? 'dialog' : undefined}
                 onClick={() => setOpen(isOpen ? null : section.key)}
                 className="flex w-full items-center py-4 text-left text-base font-bold text-[#1d252c] dark:text-white"
               >
                 {section.title}
-                <Chevron open={isOpen} />
+                {peeks ? <PeekArrow /> : <Chevron open={isOpen} />}
               </button>
             </h2>
             {/*
@@ -288,14 +329,55 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
               export — a conditionally rendered panel never reaches the served
               HTML, so no crawler would ever see the specifications.
             */}
-            <div
-              id={`${baseId}-p-${section.key}`}
-              role="region"
-              aria-labelledby={`${baseId}-h-${section.key}`}
-              className={isOpen ? 'pb-5' : 'hidden'}
-            >
-              {section.body}
-            </div>
+            {peeks ? (
+              <>
+                {/* Scrim rendered always, transparent and click-through when
+                    shut, so opening inserts no node and shifts nothing. */}
+                <div
+                  aria-hidden={!isOpen}
+                  onClick={() => setOpen(null)}
+                  className={`fixed inset-0 z-40 bg-black/40 transition-opacity duration-200 ${
+                    isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
+                  }`}
+                />
+                <div
+                  id={`${baseId}-p-${section.key}`}
+                  role="dialog"
+                  aria-modal="false"
+                  aria-labelledby={`${baseId}-h-${section.key}`}
+                  className={`fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col bg-white shadow-2xl transition-transform duration-300 ease-out dark:bg-slate-800 ${
+                    isOpen ? 'translate-x-0' : 'pointer-events-none translate-x-full'
+                  }`}
+                >
+                  <div className="flex items-center justify-between border-b border-[#e0e0e0] px-5 py-4 dark:border-slate-700">
+                    <span className="text-base font-bold text-[#1d252c] dark:text-white">
+                      {section.title}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setOpen(null)}
+                      aria-label={`Close ${section.title}`}
+                      className="rounded p-1 text-[#55555a] transition hover:bg-slate-100 hover:text-[#1d252c] dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white"
+                    >
+                      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="flex-1 overflow-y-auto px-5 py-5">{section.body}</div>
+                </div>
+              </>
+            ) : (
+              <div
+                id={`${baseId}-p-${section.key}`}
+                role="region"
+                aria-labelledby={`${baseId}-h-${section.key}`}
+                className={isOpen ? 'pb-5' : 'hidden'}
+              >
+                {section.body}
+              </div>
+            )}
           </div>
         );
       })}
