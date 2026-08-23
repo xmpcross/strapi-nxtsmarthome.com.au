@@ -89,6 +89,12 @@ export interface TopProduct {
    * is merchant copy and stays as the fallback for anything not yet rewritten.
    */
   shortDescription?: string;
+  /**
+   * The CMS long description, already converted from markdown to HTML by the
+   * same sync. Converted at build time rather than in the component: the panel
+   * that renders it is a client component, and the remark stack is server-only.
+   */
+  cmsDescriptionHtml?: string;
   /** Google Shopping catalogue id — the only external identifier available. */
   googleProductId?: string;
   gtin?: string;

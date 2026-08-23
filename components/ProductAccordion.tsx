@@ -158,7 +158,21 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
             feed returned no description for; it states nothing beyond what the
             record already holds.
           */}
-          {product.shortDescription && bulletsOf(product.shortDescription).length > 1 ? (
+          {product.cmsDescriptionHtml ? (
+            /*
+              The CMS long description, written as markdown and converted at
+              build time. This panel is the place for it: "About this product"
+              above carries the short bulleted blurb, and printing the same few
+              lines twice on one page told a reader nothing new.
+
+              prose-sm gives the headings and paragraphs inside it spacing —
+              the markup arrives as real HTML, not text.
+            */
+            <div
+              className="prose prose-sm max-w-none leading-relaxed text-[#55555a] dark:prose-invert dark:text-slate-300"
+              dangerouslySetInnerHTML={{ __html: product.cmsDescriptionHtml }}
+            />
+          ) : product.shortDescription && bulletsOf(product.shortDescription).length > 1 ? (
             /* Bulleted copy becomes a real list — as a paragraph the "•"
                characters print as text. */
             <ul className="space-y-2 leading-relaxed text-[#55555a] dark:text-slate-300">

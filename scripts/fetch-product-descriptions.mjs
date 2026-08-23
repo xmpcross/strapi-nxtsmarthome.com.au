@@ -20,6 +20,28 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+
+/*
+ * commerce-product.description is markdown in the CMS. It is converted here
+ * rather than in the component, because the component that renders it is a
+ * 'use client' one and the remark stack is server-only — importing it there
+ * would pull node built-ins into the browser bundle, which has already broken
+ * this build once.
+ */
+async function toHtml(markdown) {
+  const file = await unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeStringify)
+    .process(markdown);
+  return String(file);
+}
 
 const ROOT = process.cwd();
 const CATALOGUE = path.join(ROOT, 'public', 'data', 'products.json');
@@ -52,7 +74,7 @@ async function main() {
     const url =
       `${BASE}/api/commerce-products?status=published` +
       `&filters%5Bsite%5D%5Bdomain%5D%5B%24eq%5D=${encodeURIComponent(SITE)}` +
-      `&fields%5B0%5D=slug&fields%5B1%5D=shortDescription` +
+      `&fields%5B0%5D=slug&fields%5B1%5D=shortDescription&fields%5B2%5D=description` +
       `&pagination%5BpageSize%5D=100&pagination%5Bpage%5D=${page}&_build=${Date.now()}`;
 
     const res = await fetch(url, { headers: TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {} });
@@ -64,7 +86,11 @@ async function main() {
     const rows = json?.data ?? [];
     for (const row of rows) {
       const a = row.attributes ?? row;
-      if (a.slug && (a.shortDescription || '').trim()) blurbs.set(a.slug, a.shortDescription.trim());
+      if (!a.slug) continue;
+      const entry = blurbs.get(a.slug) ?? {};
+      if ((a.shortDescription || '').trim()) entry.shortDescription = a.shortDescription.trim();
+      if ((a.description || '').trim()) entry.description = a.description.trim();
+      if (Object.keys(entry).length) blurbs.set(a.slug, entry);
     }
     const { page: cur, pageCount } = json?.meta?.pagination ?? {};
     if (!pageCount || cur >= pageCount) break;
@@ -73,13 +99,25 @@ async function main() {
   const raw = JSON.parse(fs.readFileSync(CATALOGUE, 'utf8'));
   const rows = Array.isArray(raw) ? raw : raw.products;
   let applied = 0;
+  let described = 0;
   for (const p of rows) {
-    const blurb = blurbs.get(p.slug);
-    if (blurb && p.shortDescription !== blurb) { p.shortDescription = blurb; applied += 1; }
+    const entry = blurbs.get(p.slug);
+    if (!entry) continue;
+    if (entry.shortDescription && p.shortDescription !== entry.shortDescription) {
+      p.shortDescription = entry.shortDescription;
+      applied += 1;
+    }
+    if (entry.description) {
+      const html = await toHtml(entry.description);
+      if (p.cmsDescriptionHtml !== html) { p.cmsDescriptionHtml = html; described += 1; }
+    }
   }
 
   fs.writeFileSync(CATALOGUE, JSON.stringify(raw, null, 2));
-  console.log(`[products] ${blurbs.size} blurb(s) from the CMS, ${applied} written into the catalogue.`);
+  console.log(
+    `[products] ${blurbs.size} product(s) from the CMS — ${applied} blurb(s) and ` +
+    `${described} description(s) written into the catalogue.`,
+  );
 }
 
 main().catch((err) => {
