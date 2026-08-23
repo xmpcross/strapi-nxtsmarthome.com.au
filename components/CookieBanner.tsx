@@ -19,8 +19,13 @@ import Link from 'next/link';
  * the set of scripts changes, bumping it re-asks everyone rather than treating
  * a decision made about the old set as a decision about the new one.
  *
- * Declining is a real decline — neither script runs, and nothing is written
- * beyond the record of the choice itself.
+ * Declining is a real decline for both of those — neither runs, and nothing is
+ * written beyond the record of the choice itself.
+ *
+ * AdSense is deliberately NOT gated here: Google requires the tag present for a
+ * site to be reviewed and served, so it loads on every page whatever is chosen.
+ * The banner says so rather than implying a decline covers advertising too,
+ * because a consent notice that overstates what it controls is worse than none.
  */
 
 export const CONSENT_KEY = 'nxt.consent.v1';
@@ -106,9 +111,19 @@ export default function CookieBanner() {
             Cookies on this site
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            We use Google Analytics to see which guides are read, and Sovrn Commerce so
-            outbound links to retailers can be credited to us. Neither runs until you
-            choose. Read our{' '}
+            Google Analytics tells us which guides get read, and Sovrn Commerce credits
+            outbound links to retailers. <strong>Those two wait for your answer.</strong>{' '}
+            Google AdSense serves the ads and loads either way — you can control ad
+            personalisation at{' '}
+            <a
+              href="https://myadcenter.google.com/"
+              rel="nofollow noopener"
+              target="_blank"
+              className="font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300"
+            >
+              My Ad Center
+            </a>
+            . Read our{' '}
             <Link
               href="/cookies/"
               className="font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300"
