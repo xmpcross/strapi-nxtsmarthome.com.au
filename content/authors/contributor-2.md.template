@@ -1,0 +1,17 @@
+---
+# TEMPLATE — fill in real details, then rename to <slug>.md and delete this line.
+# The slug must match the filename and the article front matter's `author:`.
+name: 'Full Name'
+slug: contributor-2
+role: 'What they cover, e.g. Security and cameras'
+initials: ''            # leave empty to derive from the name
+avatar: ''              # path under public/, or leave empty for initials
+bio: 'One or two sentences: what they work on and why a reader should trust them on it. Real experience only — this is the E-E-A-T signal on a review site.'
+links:
+  - label: How we test
+    href: /how-we-test/
+---
+
+A longer profile, shown on the author's own page at /authors/contributor-2/.
+Say what they have actually done: installations, trades background, years with a
+particular platform. Concrete beats generic.

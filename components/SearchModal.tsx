@@ -1,6 +1,9 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { categories } from '@/lib/site';
 import { articleHref } from '@/lib/urls';
@@ -37,6 +40,22 @@ const fmt = (iso: string) =>
     .replace(/ (\d{4})$/, ', $1');
 
 export default function SearchModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const router = useRouter();
+  /*
+   * Rendered through a portal onto <body>, not where it sits in the tree.
+   *
+   * SearchModal is a child of <header>, and that header carries `backdrop-blur`.
+   * An element with a filter or backdrop-filter becomes the containing block for
+   * its fixed-position descendants, so `fixed inset-0` sized itself to the
+   * header's box instead of the viewport: the overlay appeared as a strip across
+   * the header, the page underneath was never covered, and z-[60] was trapped in
+   * the header's stacking context.
+   *
+   * The mounted flag exists because a static export renders this on the server,
+   * where there is no document to portal into.
+   */
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const [docs, setDocs] = useState<Doc[]>([]);
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
@@ -103,11 +122,11 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
     [docs],
   );
 
-  if (!open) return null;
+  if (!open || !mounted) return null;
 
   const shown = query.trim() ? results : recommended;
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
@@ -148,11 +167,26 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
           Search
         </h2>
 
+        {/*
+          * Navigate first, close second.
+          *
+          * This was `onSubmit={onClose}` on a plain GET form, which looked
+          * right and did nothing: closing the modal sets open=false, the
+          * component returns null, and React removes the <form> from the DOM
+          * before the browser has processed the submission. A disconnected
+          * form does not navigate, so clicking Search went nowhere.
+          */}
         <form
           action="/search/"
           method="get"
           className="mt-6 flex flex-col gap-3 sm:flex-row"
-          onSubmit={onClose}
+          onSubmit={(event) => {
+            event.preventDefault();
+            const term = query.trim();
+            if (!term) return;
+            onClose();
+            router.push(`/search/?q=${encodeURIComponent(term)}`);
+          }}
         >
           <input
             ref={inputRef}
@@ -244,6 +278,7 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
         )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

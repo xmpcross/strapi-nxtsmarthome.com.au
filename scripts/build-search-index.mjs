@@ -6,10 +6,8 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import matter from 'gray-matter';
 
 const root = process.cwd();
-const articlesDir = path.join(root, 'content', 'articles');
 const outFile = path.join(root, 'public', 'search-index.json');
 
 // Mirrors the category list in lib/site.ts — key to display name.
@@ -66,36 +64,66 @@ function coverUrl(slug) {
   return `/covers/${slug}.png`;
 }
 
-if (!fs.existsSync(articlesDir)) {
-  console.warn('[search-index] no content/articles directory — writing empty index');
-  fs.mkdirSync(path.dirname(outFile), { recursive: true });
-  fs.writeFileSync(outFile, '[]');
-  process.exit(0);
+/*
+ * Built from the CMS, not from content/articles/.
+ *
+ * The site started reading posts from Strapi; this kept reading the markdown,
+ * so the index silently described a different set of articles than the site
+ * served. The first thing published only in the CMS was live on the site and
+ * absent from search, with nothing failing to say so.
+ */
+const STRAPI = (process.env.STRAPI_URL || 'https://cms.fxnstudio.com').replace(/\/$/, '');
+const TOKEN = process.env.STRAPI_TOKEN || process.env.STRAPI_API_TOKEN || '';
+
+const params = new URLSearchParams({
+  status: 'published',
+  'pagination[pageSize]': '200',
+  'sort[0]': 'publishDate:desc',
+  'populate[categories]': 'true',
+});
+
+const res = await fetch(`${STRAPI}/api/nxtsmarthome-posts?${params}`, {
+  headers: TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {},
+});
+
+if (!res.ok) {
+  // Never write an empty index over a good one: search would go quiet with a
+  // successful build and nothing in the log worth noticing.
+  console.error(`[search-index] Strapi returned ${res.status} — refusing to overwrite the index`);
+  process.exit(1);
 }
 
-const docs = fs
-  .readdirSync(articlesDir)
-  .filter((file) => /\.mdx?$/.test(file))
-  .map((file) => {
-    const { data, content } = matter(fs.readFileSync(path.join(articlesDir, file), 'utf8'));
-    if (data.draft) return null;
+const rows = (await res.json())?.data ?? [];
+
+/* The CMS relates a post to a category by URL slug; this file keys off the
+   category KEY, the same split lib/content.ts bridges. */
+const keyBySlug = Object.fromEntries(
+  Object.entries(categorySlugs).map(([key, slug]) => [slug, key]),
+);
+
+const docs = rows
+  .map((row) => {
+    const a = row.attributes ?? row;
+    if (!a.slug || !a.title) return null;
+    const catSlug = a.categories?.[0]?.slug ?? '';
+    const key = keyBySlug[catSlug] ?? catSlug;
+    const body = toPlainText(String(a.content ?? ''));
     return {
-      slug: file.replace(/\.mdx?$/, ''),
-      title: data.title ?? '',
-      description: data.description ?? '',
-      category: data.category ?? '',
-      categoryName: categoryNames[data.category] ?? data.category ?? '',
+      slug: a.slug,
+      title: a.title,
+      description: a.excerpt ?? '',
+      category: key,
+      categoryName: categoryNames[key] ?? a.categories?.[0]?.name ?? '',
       // Shaped like Article.categoryMeta so articleHref() works on a search doc
       // unchanged — otherwise every result would fall back to /articles/<slug>/.
-      categoryMeta: { slug: categorySlugs[data.category] ?? 'articles' },
-      type: data.type ?? '',
-      date: data.date ?? '',
-      tags: data.tags ?? [],
-      // Same 225 wpm figure lib/content.ts uses, so the modal and the article
-      // page never disagree about how long a piece takes to read.
-      readingMinutes: Math.max(1, Math.round(toPlainText(content).split(/\s+/).length / 225)),
-      cover: coverUrl(file.replace(/\.mdx?$/, '')),
-      body: toPlainText(content).slice(0, 1200),
+      categoryMeta: { slug: categorySlugs[key] ?? catSlug ?? 'articles' },
+      type: a.postType ?? '',
+      date: a.publishDate ?? a.publishedAt ?? '',
+      tags: Array.isArray(a.tags) ? a.tags : [],
+      readingMinutes:
+        a.readingTimeMinutes || Math.max(1, Math.round(body.split(/\s+/).length / 225)),
+      cover: a.coverImageUrl || coverUrl(a.slug),
+      body: body.slice(0, 1200),
     };
   })
   .filter(Boolean)
@@ -103,4 +131,4 @@ const docs = fs
 
 fs.mkdirSync(path.dirname(outFile), { recursive: true });
 fs.writeFileSync(outFile, JSON.stringify(docs));
-console.log(`[search-index] wrote ${docs.length} documents to public/search-index.json`);
+console.log(`[search-index] wrote ${docs.length} documents from Strapi to public/search-index.json`);

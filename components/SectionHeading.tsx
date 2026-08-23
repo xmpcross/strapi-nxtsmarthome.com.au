@@ -9,13 +9,18 @@ import Link from 'next/link';
  * hairline rule beneath, optional "View all" on the right.
  *
  * `id` is required because callers point aria-labelledby at it.
+ *
+ * The full variant is the Latest and Recommended heading, and carries the same
+ * bar fill as the Hubs & Platforms heading — the border went with the change,
+ * since that heading has never had one and a hairline on a filled bar reads as
+ * an outline the other section does not have.
  */
 
 export function Sparkle() {
   return (
     <svg
       aria-hidden="true"
-      className="h-[0.85em] w-[0.85em] shrink-0 self-center text-slate-900 dark:text-white"
+      className="sparkle-twinkle h-[0.85em] w-[0.85em] shrink-0 self-center text-slate-900 dark:text-white"
       viewBox="0 0 24 24"
       fill="currentColor"
     >
@@ -57,7 +62,7 @@ export default function SectionHeading({
   }
 
   return (
-    <div className="mb-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-4 rounded-lg border border-slate-200 bg-white px-6 py-5 sm:px-8 dark:border-card-edge dark:bg-card">
+    <div className="mb-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-4 rounded-lg bg-bar px-6 py-5 sm:px-8 dark:bg-bar-dark">
       <div className="flex min-w-0 flex-wrap items-baseline gap-x-4 gap-y-1">
         <h2
           id={id}

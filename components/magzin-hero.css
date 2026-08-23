@@ -214,6 +214,111 @@
   pointer-events: none;
 }
 
+/* Tiles: unbordered pocket
+   --------------------------------------------------------------------------
+   The reference gives the tiles .card-corner.no-border — the same 58px bite out
+   of the bottom-right corner as the lead card, in the page colour, but with no
+   outline on either the bite or its joins, because here it is cut out of
+   artwork rather than out of a bordered card.
+
+   .mzh__tile .mzh__media is already overflow: visible, with the link inside it
+   doing the clipping, so the bite is not trimmed by the image's own rounding. */
+.mzh__tile .mzh__notch {
+  right: 0;
+  bottom: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 32px 0 0 0;
+}
+
+.mzh__tile .mzh__notch::before,
+.mzh__tile .mzh__notch::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 5px 5px 0 5px var(--surface);
+}
+
+/* Above the bite, and to the left of it: the concave joins back to the edges. */
+.mzh__tile .mzh__notch::before {
+  top: -16px;
+  right: 0;
+}
+
+.mzh__tile .mzh__notch::after {
+  bottom: 0;
+  left: -16px;
+}
+
+/* Centred in the bite rather than overhanging it: 58 - 8 - 46 = 4. */
+.mzh__tile .mzh__arrow {
+  right: 4px;
+  bottom: 4px;
+  width: 46px;
+  height: 46px;
+}
+
+/* Lead card: bordered pocket
+   --------------------------------------------------------------------------
+   The circle above is right over artwork (the tiles), where an unbordered
+   pocket reads fine. On the lead card it does not: that card has a visible
+   outline, and an unbordered pocket simply breaks it, which is the missing
+   border reported against this corner.
+
+   The reference cuts a 58px bite out of the card's bottom-right corner and
+   outlines the two edges that face into the card, so the card's own outline
+   steps in and up around the button. The two pseudo-elements are the concave
+   joins where that bite meets the card edge. Geometry and the 5px/5px/0/5px
+   masking shadow are the reference's own (.card-corner, .curve-one/-two),
+   which our tokens map onto exactly: --card-edge is its #e5e7eb and --surface
+   is the page behind the card. */
+.mzh__lead-card .mzh__notch {
+  right: 0;
+  bottom: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px 0 0 0;
+  border-top: 1px solid var(--card-edge);
+  border-left: 1px solid var(--card-edge);
+  /* Offset, no spread: erases the card's own border and rounded corner where
+     the bite passes through them, without painting over the two edges above. */
+  box-shadow: 6px 6px 0 0 var(--surface);
+}
+
+.mzh__lead-card .mzh__notch::before,
+.mzh__lead-card .mzh__notch::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-bottom-right-radius: 16px;
+  border-right: 1px solid var(--card-edge);
+  border-bottom: 1px solid var(--card-edge);
+  box-shadow: 5px 5px 0 5px var(--surface);
+}
+
+/* Above the bite, turning the card's bottom edge upwards. */
+.mzh__lead-card .mzh__notch::before {
+  top: -16px;
+  right: -1px;
+}
+
+/* Left of the bite, turning it back out to the card's right edge. */
+.mzh__lead-card .mzh__notch::after {
+  bottom: -1px;
+  left: -16px;
+}
+
+/* Centred in the bite rather than overhanging it: 58 - 8 - 46 = 4. */
+.mzh__lead-card .mzh__arrow {
+  right: 4px;
+  bottom: 4px;
+  width: 46px;
+  height: 46px;
+}
+
 /* Circular arrow, centred in the pocket
    -------------------------------------------------------------------------- */
 .mzh__arrow {
@@ -233,7 +338,8 @@
   border: 1px solid var(--arrow-border);
   color: var(--arrow-ink);
   text-decoration: none;
-  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease,
+    transform 200ms ease;
 }
 
 .mzh__arrow svg {
@@ -248,20 +354,28 @@
   transition: transform 200ms ease;
 }
 
+/* The reference turns the button dark and swings it to point up and out when
+   the CARD is hovered, not just the button — .article:hover .arrow-box. Hovering
+   the button itself keeps working for anyone arriving by pointer or keyboard.
+
+   What was here set the background to #ffffff on a button whose resting
+   background is already #ffffff, so the hover did nothing but change the border.
+   --arrow-bg-hover and --arrow-ink-hover were declared for both themes and never
+   referenced; they are what this should always have used. */
+.mzh__lead:hover .mzh__arrow,
+.mzh__tile:hover .mzh__arrow,
 .mzh__arrow:hover,
 .mzh__arrow:focus-visible {
-  background: #ffffff;
-  border-color: #ffffff;
-  color: #111111;
+  background: var(--arrow-bg-hover);
+  border-color: var(--arrow-bg-hover);
+  color: var(--arrow-ink-hover);
+  transform: rotate(-45deg);
 }
 
-.mzh__arrow:hover svg,
-.mzh__arrow:focus-visible svg {
-  transform: translateX(2px);
-}
-
+/* --focus-ring, like the two hover variables above, was declared per theme and
+   never referenced: a hardcoded white ring is invisible against the light page. */
 .mzh__arrow:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
@@ -329,8 +443,10 @@
   justify-content: space-between;
   gap: 16px;
   margin-top: 24px;
-  /* Clear of the pocket, so the row never runs under the arrow. */
-  padding-right: calc(var(--notch-size) - 12px);
+  /* Clear of the pocket, so the row never runs under the arrow. The lead card's
+     pocket is 58px and sits wholly inside the card (it no longer overhangs the
+     edge), so the clearance is the pocket plus a gap, not --notch-size. */
+  padding-right: 70px;
 }
 
 .mzh__byline {
@@ -445,9 +561,14 @@
     transition: none;
   }
 
+  /* The rotation is on the button now, not on its svg. The colour change stays:
+     that is not motion, and it is what marks the button as live. */
   .mzh__card-link:hover .mzh__img,
   .mzh__tile:hover .mzh__img,
-  .mzh__arrow:hover svg {
+  .mzh__lead:hover .mzh__arrow,
+  .mzh__tile:hover .mzh__arrow,
+  .mzh__arrow:hover,
+  .mzh__arrow:focus-visible {
     transform: none;
   }
 }

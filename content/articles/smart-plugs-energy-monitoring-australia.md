@@ -2,6 +2,10 @@
 title: 'Do Smart Plugs Actually Save You Money on Australian Electricity?'
 description: 'Smart plugs are sold as an energy-saving device. Here is what they genuinely save, what they cost you in standby power, and where the real savings are in an Australian home.'
 category: energy
+# Matches thread-vs-matter-difference, so the two read as a pair. The shipped
+# cover was recoloured to this from its original green; a regeneration will land
+# on it directly.
+coverBg: '#a32330'
 coverLead: 'Energy and running costs'
 coverMain: 'Do smart plugs save money?'
 coverSub: 'The honest answer for Australian bills'

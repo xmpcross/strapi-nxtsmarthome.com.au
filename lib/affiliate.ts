@@ -7,8 +7,11 @@
  * IMPORTANT — none of the IDs below are real. Fill them in from your network dashboards
  * via .env.local (see .env.example). Until an ID is set, the matching network is treated
  * as "not configured": the link still renders and still works, it just goes out without
- * a tracking wrapper. The Sovrn Commerce script (if enabled) will usually monetise those
- * automatically, so nothing is lost while you wait for programme approvals.
+ * that network's own wrapper.
+ *
+ * It does not go out unmonetised, though. Anything without a matching network falls
+ * through to Sovrn's redirector, built at build time from the public publisher key, so
+ * it earns without depending on the client script surviving an ad blocker.
  */
 
 export type Network = 'sovrn' | 'cj' | 'walmart' | 'ebay' | 'amazon' | 'direct';
@@ -69,8 +72,37 @@ export function detectNetwork(rawUrl: string): Network {
 }
 
 /**
+ * Sovrn's redirector, which is the fallback for any network we cannot tag
+ * ourselves.
+ *
+ * Not an API call — sovrn.co?key=&u= IS the affiliate link, built by string
+ * concatenation, so it costs the build nothing and cannot fail at build time.
+ *
+ * Doing it here rather than leaving it to the client script is what makes these
+ * links survive an ad blocker: cdn.viglink.com is on every major blocklist and
+ * a smart-home audience runs them. It is also what makes them survive a reader
+ * declining cookies, since the client script is consent-gated and this is not —
+ * it is a plain href in the HTML and works with JavaScript off entirely.
+ *
+ * The key is the public publisher key, already in the page source via the
+ * client script, so putting it in an href gives nothing away.
+ */
+function sovrnWrap(rawUrl: string, subId: string): string {
+  if (!ids.sovrnKey) return rawUrl;
+  const params = new URLSearchParams({ key: ids.sovrnKey, u: rawUrl });
+  if (subId) params.set('cuid', subId);
+  return `https://sovrn.co?${params.toString()}`;
+}
+
+/**
  * Convert a raw merchant URL into a tracked affiliate URL.
- * Returns the URL unchanged when the relevant network is not configured yet.
+ *
+ * A network without credentials falls back to Sovrn rather than returning the
+ * link bare. That guard used to return rawUrl, which silently unmonetised every
+ * The Good Guys and Kogan link on the site: they are classified as CJ merchants
+ * and NEXT_PUBLIC_CJ_PID has never been set, so 24 links across six articles
+ * earned nothing. Sovrn carries both retailers, so the fallback is real revenue
+ * rather than a placeholder.
  */
 export function affiliateUrl(rawUrl: string, options: AffiliateOptions = {}): string {
   const network = options.network ?? detectNetwork(rawUrl);
@@ -79,7 +111,7 @@ export function affiliateUrl(rawUrl: string, options: AffiliateOptions = {}): st
   try {
     switch (network) {
       case 'ebay': {
-        if (!ids.ebayCampId) return rawUrl;
+        if (!ids.ebayCampId) return sovrnWrap(rawUrl, subId);
         const url = new URL(rawUrl);
         url.searchParams.set('mkcid', '1');
         url.searchParams.set('mkrid', EBAY_AU_ROTATION);
@@ -92,21 +124,21 @@ export function affiliateUrl(rawUrl: string, options: AffiliateOptions = {}): st
       }
 
       case 'walmart': {
-        if (!ids.walmartPid) return rawUrl;
+        if (!ids.walmartPid) return sovrnWrap(rawUrl, subId);
         const target = encodeURIComponent(rawUrl);
         const sub = subId ? `&subId1=${encodeURIComponent(subId)}` : '';
         return `https://goto.walmart.com/c/${ids.walmartPid}/565706/9383?veh=aff&sourceid=imp_000&u=${target}${sub}`;
       }
 
       case 'cj': {
-        if (!ids.cjPid) return rawUrl;
+        if (!ids.cjPid) return sovrnWrap(rawUrl, subId);
         const target = encodeURIComponent(rawUrl);
         const sub = subId ? `?sid=${encodeURIComponent(subId)}` : '';
         return `https://www.anrdoezrs.net/links/${ids.cjPid}/type/dlg/${target}${sub}`;
       }
 
       case 'amazon': {
-        if (!ids.amazonTag) return rawUrl;
+        if (!ids.amazonTag) return sovrnWrap(rawUrl, subId);
         const url = new URL(rawUrl);
         url.searchParams.set('tag', ids.amazonTag);
         if (subId) url.searchParams.set('ascsubtag', subId);
@@ -115,10 +147,26 @@ export function affiliateUrl(rawUrl: string, options: AffiliateOptions = {}): st
 
       case 'sovrn':
       case 'direct':
-      default:
-        // Left raw on purpose. The Sovrn Commerce script monetises these client-side
-        // wherever a matching merchant programme exists.
-        return rawUrl;
+      default: {
+        /*
+         * Wrap in Sovrn's redirector. This is not an API call - sovrn.co?key=&u=
+         * IS the affiliate link, built by string concatenation, so it costs the
+         * build nothing and cannot fail at build time.
+         *
+         * Doing it here rather than leaving it to the client script is what
+         * makes these links survive an ad blocker: cdn.viglink.com is on every
+         * major blocklist, and a smart-home audience runs them. The href is a
+         * plain link in the HTML, so it works with JavaScript off entirely.
+         *
+         * The key is the public publisher key - it is already in the page source
+         * via the client script, so putting it in an href gives nothing away.
+         *
+         * The client script stays for prose links written straight into markdown,
+         * which nothing here ever sees. It skips links already pointing at
+         * sovrn.co, so the two do not fight.
+         */
+        return sovrnWrap(rawUrl, subId);
+      }
     }
   } catch {
     return rawUrl;

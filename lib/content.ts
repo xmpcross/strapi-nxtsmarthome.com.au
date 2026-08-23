@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import matter from 'gray-matter';
+import { articleType, listPosts, mediaUrl, type StrapiPost } from './strapi';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
@@ -10,7 +10,6 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeStringify from 'rehype-stringify';
 import { categories, getCategoryByKey, type Category } from './site';
 
-const ARTICLES_DIR = path.join(process.cwd(), 'content', 'articles');
 
 /** The kinds of article this site publishes. Drives the badge and the JSON-LD type. */
 export type ArticleType =
@@ -129,49 +128,79 @@ async function renderMarkdown(markdown: string): Promise<string> {
   return String(file);
 }
 
-async function loadArticle(filename: string): Promise<Article | null> {
-  const fullPath = path.join(ARTICLES_DIR, filename);
-  const source = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(source);
-  const fm = data as ArticleFrontmatter;
+/**
+ * A Strapi document, in the shape the rest of this file already produced.
+ *
+ * The CMS stores the body as markdown, so it goes through exactly the same
+ * renderMarkdown pipeline the files did — headings keep their anchors and the
+ * article HTML is byte-identical for identical source.
+ *
+ * Two fields need translating rather than copying. The CMS names article types
+ * from the shared multi-site schema (`informative`, `product-roundup`), which
+ * articleType() maps to this site's vocabulary. And the CMS relates a post to a
+ * category by URL slug, while every component here keys off the category KEY —
+ * `security`, not `security-and-cameras`.
+ */
+function categoryKeyFromSlug(slug?: string): string {
+  if (!slug) return '';
+  const hit = categories.find((c) => c.slug === slug || c.key === slug);
+  return hit?.key ?? '';
+}
 
-  // Drafts are excluded from the real site. INCLUDE_DRAFTS=1 is set only by the
-  // preview build (scripts/deploy-preview.sh), which publishes to /preview/ behind
-  // a noindex header and a robots disallow.
-  if (fm.draft && !process.env.INCLUDE_DRAFTS) return null;
+async function fromStrapi(post: StrapiPost): Promise<Article | null> {
+  if (!post?.slug || !post.title) return null;
 
-  if (!fm.title || !fm.description || !fm.category) {
-    throw new Error(
-      `content/articles/${filename}: missing required frontmatter (title, description, category)`,
-    );
-  }
-
-  const words = content.trim().split(/\s+/).filter(Boolean).length;
+  const body = String(post.content ?? '');
+  const words = body.trim().split(/\s+/).filter(Boolean).length;
+  const categoryKey = categoryKeyFromSlug(post.categories?.[0]?.slug);
 
   return {
-    ...fm,
-    slug: filename.replace(/\.mdx?$/, ''),
-    html: await renderMarkdown(content),
-    raw: content,
+    title: post.title,
+    description: post.excerpt ?? '',
+    category: categoryKey,
+    type: articleType(post.postType) as Article['type'],
+    date: post.publishDate ?? post.publishedAt ?? '',
+    updated: post.dateModified || undefined,
+    /*
+     * The CMS author when the post has one, by slug so resolveAuthor matches a
+     * file in content/authors/ and the byline links to a real profile. Posts
+     * with no author set still fall back to the editorial byline.
+     */
+    author: post.author?.slug ?? post.author?.name ?? 'NXT Smart Home',
+    tags: Array.isArray(post.tags) ? post.tags : [],
+    featured: Boolean(post.featured),
+    /*
+     * The uploaded media wins over coverImageUrl. Content Manager's image
+     * picker writes the media relation, so reading only the string field meant
+     * an upload changed nothing — and on at least one post coverImageUrl held a
+     * URL pointing back at this site's own /covers/ file, so the upload lost to
+     * the very asset it was meant to replace.
+     */
+    image: mediaUrl(post.coverImage?.url) || post.coverImageUrl || undefined,
+    imageAlt: post.coverImageAlt || post.coverImage?.alternativeText || undefined,
+    keyTakeaway: post.keyTakeaways || undefined,
+    faq: (post.faq ?? [])
+      .map((f) => ({ q: f.q ?? f.question ?? '', a: f.a ?? f.answer ?? '' }))
+      .filter((f) => f.q && f.a),
+    slug: post.slug,
+    html: await renderMarkdown(body),
+    raw: body,
     wordCount: words,
-    readingMinutes: Math.max(1, Math.round(words / 225)),
-    headings: extractHeadings(content),
-    categoryMeta: getCategoryByKey(fm.category),
-    author: fm.author ?? 'NXT Smart Home',
-    tags: fm.tags ?? [],
-  };
+    // The CMS carries its own estimate; fall back to the same 225wpm the files used.
+    readingMinutes: post.readingTimeMinutes || Math.max(1, Math.round(words / 225)),
+    headings: extractHeadings(body),
+    categoryMeta: getCategoryByKey(categoryKey),
+  } as Article;
 }
 
 /** All published articles, newest first. Cached for the duration of the build. */
 export async function getAllArticles(): Promise<Article[]> {
   if (cache) return cache;
 
-  if (!fs.existsSync(ARTICLES_DIR)) return [];
+  const posts = await listPosts();
+  const built = await Promise.all(posts.map(fromStrapi));
 
-  const files = fs.readdirSync(ARTICLES_DIR).filter((f) => /\.mdx?$/.test(f));
-  const loaded = await Promise.all(files.map(loadArticle));
-
-  cache = loaded
+  cache = built
     .filter((a): a is Article => a !== null)
     .sort((a, b) => +new Date(b.date) - +new Date(a.date));
 
@@ -304,6 +333,10 @@ export interface SearchDoc {
   date: string;
   tags: string[];
   body: string;
+  /* Emitted by scripts/build-search-index.mjs but previously undeclared, so
+     anything reading them failed to typecheck. */
+  cover?: string;
+  readingMinutes?: number;
 }
 
 /**

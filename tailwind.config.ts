@@ -23,6 +23,13 @@ const config: Config = {
         // Card border in dark mode.
         'card-edge': '#313131',
         /*
+         * Section heading bar. The Hubs & Platforms heading has always used this
+         * (--bar in components/for-you.css); naming it here lets the Latest and
+         * Recommended headings share the value rather than restate the hex.
+         */
+        bar: '#eef0f3',
+        'bar-dark': '#1d1e20',
+        /*
          * Magzin's dark ramp (--tc-neutral-dark-* in its magzin-main.css). It
          * inverts: 50 is the darkest surface and 900 the lightest text, which is
          * why the footer reads bg-night-50 / text-night-900 rather than the other

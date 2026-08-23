@@ -4,10 +4,18 @@
  *   node --env-file=.env.local scripts/strapi-import.mjs --dry-run
  *   node --env-file=.env.local scripts/strapi-import.mjs
  *
- * One-way: markdown is the source of truth and this pushes it to Strapi. The site
- * itself still builds from the markdown files — nothing here changes how
- * nxtsmarthome.com.au renders. Re-running is safe; posts and categories are
- * matched on slug and updated in place rather than duplicated.
+ * One-way: this pushes markdown to Strapi. Re-running is safe; posts and
+ * categories are matched on slug and updated in place rather than duplicated.
+ *
+ * NOTE the direction has since reversed. When this was written the site built
+ * from these markdown files and Strapi was a copy. lib/content.ts now reads
+ * Strapi and nothing reads content/articles/ any more, so Strapi is the source
+ * of truth and this script is a one-off migration tool, not a sync. Running it
+ * again would push stale markdown over newer CMS edits.
+ *
+ * Articles carrying `draft: true` are skipped, which is why 23 of the 48 files
+ * in content/articles/ are not in the CMS — they are unfinished stubs, not
+ * missing content.
  *
  * The target is a MULTI-TENANT instance also serving fxnstudio, NXT Bargains and
  * others. This site has its own nxtsmarthome-* content types, so the import

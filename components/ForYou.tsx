@@ -155,7 +155,7 @@ export default function ForYou({
         <div className="fy__bar">
           <div className="fy__bar-left">
             <h2 id="for-you-heading" className="fy__title">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="sparkle-twinkle">
                 <path d="M12 0c.6 5.9 5.5 10.8 12 12-6.5 1.2-11.4 6.1-12 12-.6-5.9-5.5-10.8-12-12C6.5 10.8 11.4 5.9 12 0z" />
               </svg>
               {title}

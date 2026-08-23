@@ -6,7 +6,6 @@ type: explainer
 date: '2026-08-03'
 coverBg: '#a32330'
 coverText: false
-coverProduct: right
 keyTakeaway: 'Thread is a radio network that carries the message. Matter is the language the message is written in. They are not alternatives — a device can be both at once, or Matter over Wi-Fi with no Thread involved. If a Matter device will not set up, a missing Thread border router is the usual reason.'
 tags:
   - Matter
