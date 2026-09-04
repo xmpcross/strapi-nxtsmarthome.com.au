@@ -5,8 +5,8 @@
  *
  * Why not render it in app/layout.tsx?
  * -----------------------------------
- * Same reason inject-sovrn.mjs exists: in a static export everything React
- * renders is emitted twice — once as real HTML and once inside the RSC
+ * In a static export everything React renders is emitted twice — once as real
+ * HTML and once inside the RSC
  * hydration payload (self.__next_f.push([...])). The browser executes it once,
  * but any verifier that text-scans the page sees two copies, and Google's own
  * instruction is "don't add more than one Google tag to each page".

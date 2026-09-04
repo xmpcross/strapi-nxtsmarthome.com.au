@@ -7,20 +7,16 @@ import Link from 'next/link';
  * Cookie consent banner.
  *
  * This gates real things rather than only recording a click. Two third-party
- * scripts run on this site and both are held back until a choice is made:
+ * scripts run on this site and analytics is held back until a choice is made:
  *
  *   Google Analytics  scripts/inject-ga.mjs sets Consent Mode v2 defaults to
  *                     denied before the tag loads, so gtag buffers rather than
  *                     writes. Accepting sends the 'update' that releases it.
- *   Sovrn Commerce    scripts/inject-sovrn.mjs no longer self-starts; it parks
- *                     a loader on window.__nxtLoadSovrn, which is called here.
- *
  * The choice is stored under CONSENT_KEY. The version suffix is deliberate: if
  * the set of scripts changes, bumping it re-asks everyone rather than treating
  * a decision made about the old set as a decision about the new one.
  *
- * Declining is a real decline for both of those — neither runs, and nothing is
- * written beyond the record of the choice itself.
+ * Declining is a real decline for analytics — it does not write until accepted.
  *
  * AdSense is deliberately NOT gated here: Google requires the tag present for a
  * site to be reviewed and served, so it loads on every page whatever is chosen.
@@ -35,10 +31,7 @@ type Choice = 'granted' | 'denied';
 function apply(choice: Choice) {
   if (typeof window === 'undefined') return;
 
-  const w = window as typeof window & {
-    gtag?: (...args: unknown[]) => void;
-    __nxtLoadSovrn?: () => void;
-  };
+  const w = window as typeof window & { gtag?: (...args: unknown[]) => void };
 
   if (choice === 'granted') {
     w.gtag?.('consent', 'update', {
@@ -47,7 +40,6 @@ function apply(choice: Choice) {
       ad_personalization: 'granted',
       analytics_storage: 'granted',
     });
-    w.__nxtLoadSovrn?.();
   }
 }
 
@@ -111,9 +103,9 @@ export default function CookieBanner() {
             Cookies on this site
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Google Analytics tells us which guides get read, and Sovrn Commerce credits
-            outbound links to retailers. <strong>Those two wait for your answer.</strong>{' '}
-            Google AdSense serves the ads and loads either way — you can control ad
+            Google Analytics tells us which guides get read.{' '}
+            <strong>Analytics waits for your answer.</strong> Google AdSense serves the ads and
+            loads either way, and Geniuslink may affiliate supported retailer links — you can control ad
             personalisation at{' '}
             <a
               href="https://myadcenter.google.com/"

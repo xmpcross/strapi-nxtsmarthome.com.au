@@ -56,9 +56,8 @@ export const metadata: Metadata = {
   // Add `google: '<code>'` here when Search Console gives you one.
   // Verification codes are per-site — do not copy one between domains.
   //
-  // The Takeads and Mitgo (Takeads' parent) verification codes were removed
-  // along with the rest of the Takeads integration. This site monetises through
-  // Amazon, eBay, Impact and CJ; see lib/affiliate.ts.
+  // Affiliate link affiliation is handled by the Geniuslink script injected
+  // after the static export; see scripts/inject-geniuslink.mjs.
   verification: {
     other: {
       'msvalidate.01': '057158952120360611CA2F41AD7D5B50',
@@ -100,7 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           In <head> and unconditional, which is what AdSense verification needs:
           the reviewer and the crawler have to find the tag on a normal page
           load. Note this does NOT pass through the consent banner that gates
-          Google Analytics and Sovrn — see app/cookies/page.tsx, which now says
+          Google Analytics — see app/cookies/page.tsx, which now says
           so rather than leaving the page claiming nothing runs until you choose.
         */}
         <script
@@ -129,18 +128,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <CookieBanner />
-
-        {/*
-          The Sovrn Commerce script is NOT rendered here on purpose.
-
-          Anything React renders in a static export is written to the page twice:
-          once as real HTML, and once inside the RSC hydration payload
-          (self.__next_f.push([...])). The script only executes once, but Sovrn's
-          verifier text-scans the page and reports "multiple instances found".
-
-          It is injected into the built HTML after the export instead, by
-          scripts/inject-sovrn.mjs (npm postbuild), so it appears exactly once.
-        */}
+        {/* Geniuslink is injected into exported HTML by scripts/inject-geniuslink.mjs. */}
       </body>
     </html>
   );

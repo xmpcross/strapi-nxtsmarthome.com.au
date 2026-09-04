@@ -60,12 +60,6 @@ export default function AffiliateLinks({
         Affiliate links
       </h2>
 
-      {/*
-        Deliberately not the Amazon Associates boilerplate ("As an Amazon
-        Associate, I earn from qualifying purchases"). That sentence is a
-        programme-specific attestation and should only appear if the site is
-        actually enrolled — this wording is accurate regardless.
-      */}
       <p className="mt-2 text-slate-600 dark:text-slate-300">
         Some of the links below are affiliate links. If you buy through one we may
         earn a commission, at no extra cost to you. It never changes what we
