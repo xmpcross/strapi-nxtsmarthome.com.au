@@ -149,7 +149,7 @@ export default function SearchClient() {
               <Link href={articleHref(doc)} className="block">
                 <img
                   src={doc.cover ?? `/covers/${doc.slug}.png`}
-                  alt=""
+                  alt={doc.title}
                   loading="lazy"
                   className="aspect-[16/9] w-full object-cover"
                 />

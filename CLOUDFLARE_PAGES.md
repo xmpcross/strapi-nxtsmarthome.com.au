@@ -52,15 +52,13 @@ Required at build time (`pages-build.sh` checks them):
 | Name | Notes |
 |---|---|
 | `STRAPI_URL` | `https://cms.fxnstudio.com` |
-| `STRAPI_TOKEN` | secret, read token for articles, products, nav and authors |
-| `NEXT_PUBLIC_AMAZON_TAG` | Amazon AU tag |
-| `NEXT_PUBLIC_EBAY_CAMPID` | EPN campaign ID |
-| `NEXT_PUBLIC_WALMART_PID` | Walmart publisher ID |
+| `STRAPI_TOKEN` | secret, read token for articles, products, nav, authors and product descriptions |
+| `NEXT_PUBLIC_GENIUSLINK_TSID` | Geniuslink TSID. Without it, `inject-geniuslink.mjs` skips silently and no link is monetised |
 
-Optional at build time: `NEXT_PUBLIC_GENIUSLINK_TSID`,
-`NEXT_PUBLIC_GENIUSLINK_BASE_URL`, `NEXT_PUBLIC_GENIUSLINK_PRESERVE_EXISTING`.
-The GA ID is hard-coded in `scripts/inject-ga.mjs`, and the Sovrn key is
-committed in `.env`.
+Optional at build time: `NEXT_PUBLIC_GENIUSLINK_BASE_URL` (default
+`https://buy.geni.us`) and `NEXT_PUBLIC_GENIUSLINK_PRESERVE_EXISTING`. The GA ID
+is hard-coded in `scripts/inject-ga.mjs`. Affiliate links go through Geniuslink
+only; the Amazon, eBay, Walmart and Sovrn variables are no longer read.
 
 Runtime (Functions):
 
@@ -76,7 +74,7 @@ Optional: bind a KV namespace as `CONTACT_THROTTLE` (Settings → Bindings) for
 the per-IP limit of 5 messages every 10 minutes. The honeypot and 2-second
 checks apply either way.
 
-Do not set `FAL_KEY`, `SOVRN_API_KEY` or the DataForSEO keys on Pages. They are
+Do not set `FAL_KEY` or the DataForSEO keys on Pages. They are
 used only by the content scripts on the server.
 
 ## Mail deliverability

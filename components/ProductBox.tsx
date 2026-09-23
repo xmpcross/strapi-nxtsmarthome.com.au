@@ -41,7 +41,7 @@ export default function ProductBox({ product, subId, rank }: Props) {
           {product.image && (
             <img
               src={product.image}
-              alt=""
+              alt={product.name}
               width={96}
               height={96}
               loading="lazy"

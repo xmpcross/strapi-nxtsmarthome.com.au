@@ -54,7 +54,7 @@ function RetailerMark({ name }: { name: string }) {
 
   if (real) {
     return (
-      <span className="flex h-9 w-20 shrink-0 items-center justify-center rounded-md bg-white p-1 dark:bg-white">
+      <span className="flex h-9 w-20 shrink-0 items-center justify-center rounded-md p-1">
         <img
           src={real.src}
           alt={name}
@@ -123,7 +123,7 @@ export default function RetailerPriceList({
             <AffiliateLink
               href={retailer.url}
               subId={subId}
-              className="shrink-0 rounded-md bg-[#fdecec] px-3 py-1.5 text-xs font-medium text-[#a8636a] transition hover:bg-[#fbdcdc] dark:bg-rose-950/40 dark:text-rose-300 dark:hover:bg-rose-950/70"
+              className="shrink-0 rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-500"
             >
               View
             </AffiliateLink>

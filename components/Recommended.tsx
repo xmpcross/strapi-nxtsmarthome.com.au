@@ -40,7 +40,7 @@ export default function Recommended({ articles }: { articles: Article[] }) {
               <Link href={href} tabIndex={-1} aria-hidden="true" className="block overflow-hidden rounded-lg">
                 <img
                   src={squareCoverFor(article)}
-                  alt=""
+                  alt={article.title}
                   width={300}
                   height={300}
                   loading="lazy"

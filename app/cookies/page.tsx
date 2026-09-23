@@ -14,18 +14,17 @@ export const metadata: Metadata = {
   /*
     [VERIFY] LEGAL — human review required. See CLAUDE.md rule 6.
 
-    The factual content below was checked against what the built site actually
-    loads on 23 August 2026:
-      - three third-party scripts: cdn.viglink.com (Sovrn Commerce),
-        googletagmanager.com/gtag/js (Google Analytics, G-SY9XCRZH2K) and
-        pagead2.googlesyndication.com (AdSense, ca-pub-2867376862905050)
+    The factual content below should be checked against what the built site
+    actually loads whenever scripts change:
+      - Geniuslink for affiliate link affiliation
+      - googletagmanager.com/gtag/js for Google Analytics
+      - pagead2.googlesyndication.com for AdSense
       - AdSense is NOT consent-gated: the tag must be present for Google to
         review and serve the site. The page says so explicitly rather than
         leaving the earlier "neither runs until you choose" claim standing.
-      - BOTH are gated behind consent. GA loads with Consent Mode v2 defaults of
-        denied (scripts/inject-ga.mjs) and Sovrn does not self-start; its loader
-        waits on window.__nxtLoadSovrn (scripts/inject-sovrn.mjs). The choice is
-        made in components/CookieBanner.tsx and stored as nxt.consent.v1.
+      - Google Analytics loads with Consent Mode v2 defaults of denied
+        (scripts/inject-ga.mjs). The choice is made in
+        components/CookieBanner.tsx and stored as nxt.consent.v1.
       - no Facebook pixel — facebook.com appears only as a footer link
       - retailer domains appear only as outbound links, not scripts
       - Cloudflare fronts the site and may set its own security cookies
@@ -47,7 +46,7 @@ export default function CookiesPage() {
             Cookie information
           </h1>
           <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
-            Last updated: 23 August 2026
+            Last updated: 5 September 2026
           </p>
 
           <div className="prose prose-slate mt-8 max-w-none dark:prose-invert prose-h2:mt-0 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0">
@@ -59,9 +58,7 @@ export default function CookiesPage() {
             <h2>What we set ourselves</h2>
             <p>
               Nothing. {site.name} is a static website. There are no accounts, no logins and no
-              server-side sessions, so we do not set any cookies of our own, and{' '}
-              <strong>we do not run analytics</strong> — no Google Analytics, no tag manager, no
-              alternative tracker.
+              server-side sessions, so we do not set login or account cookies of our own.
             </p>
 
             <h2>Cookies that can come from others</h2>
@@ -105,14 +102,13 @@ export default function CookiesPage() {
 
             <h3>Affiliate tracking</h3>
             <p>
-              We take part in affiliate programmes, which is how the site is funded. Two things happen
-              here:
+              We take part in affiliate programmes, which is how the site is funded. Two things can
+              happen here:
             </p>
             <ul>
               <li>
-                A commerce script from Sovrn attributes outbound merchant links, and may set a
-                cookie to record which link you followed. Like the analytics tag, it is not loaded at
-                all until you accept.
+                Geniuslink may affiliate supported outbound merchant links and route clicks through
+                its tracking service.
               </li>
               <li>
                 When you click through to a retailer such as Amazon AU, eBay AU, JB Hi-Fi, The Good
@@ -129,8 +125,8 @@ export default function CookiesPage() {
 
             <h2>Controlling cookies</h2>
             <p>
-              The first time you visit, a banner asks whether to allow the analytics and affiliate
-              scripts. Nothing beyond your answer is stored until you accept. To change your mind
+              The first time you visit, a banner asks whether to allow analytics storage. Nothing
+              beyond your answer is stored by us until you accept. To change your mind
               later, use <strong>Cookie settings</strong> in the footer, which asks again.
             </p>
             <p>
@@ -140,8 +136,8 @@ export default function CookiesPage() {
               not credited to us, which costs us a commission and costs you nothing.
             </p>
             <p>
-              Browser features such as tracking protection or Do Not Track, and most ad blockers, will
-              also stop the affiliate script from loading.
+              Browser features such as tracking protection or Do Not Track, and most ad blockers,
+              may also stop affiliate tracking scripts from loading.
             </p>
 
             <h2>If this changes</h2>
