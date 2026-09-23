@@ -24,7 +24,7 @@ export default async function ProductsHeroPreview() {
   return (
     <main className="mx-auto max-w-[1366px] px-4 py-8 sm:px-6">
       <div className="mb-6 rounded-lg bg-amber-50 p-4 border border-amber-200 text-amber-900 text-sm font-medium">
-        🔍 <strong>Design Preview Page</strong> — This is a preview for <code className="bg-amber-100 px-1.5 py-0.5 rounded">/products/</code> header redesign. Not indexed by search engines.
+        🔍 <strong>Design Preview Page</strong> — This is a preview for <code className="bg-amber-100 px-1.5 py-0.5 rounded-sm">/products/</code> header redesign. Not indexed by search engines.
       </div>
 
       {/* Clean 2-Column Hero Header matching uploaded design (Transparent background, no border, no padding around title) */}
@@ -46,7 +46,7 @@ export default async function ProductsHeroPreview() {
             {/* Title matching exact uploaded image typography */}
             <h1 className="mt-5 text-3xl font-bold sm:text-4xl lg:text-5xl leading-[1.15] text-slate-900 dark:text-white">
               Compare Smart Home <br />
-              <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-indigo-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-indigo-400">
+              <span className="bg-linear-to-r from-emerald-600 via-teal-500 to-indigo-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-indigo-400">
                 Devices in Australia
               </span>
             </h1>
@@ -72,7 +72,7 @@ export default async function ProductsHeroPreview() {
 
           {/* Right Column: Real Transparent Product Showcase Grid */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            <div className="relative w-full overflow-hidden rounded-[8px] border border-slate-200/80 bg-gradient-to-b from-white/90 to-emerald-50/60 p-6 dark:border-slate-700/80 dark:bg-gradient-to-b dark:from-slate-800/80 dark:to-slate-900/90">
+            <div className="relative w-full overflow-hidden rounded-[8px] border border-slate-200/80 bg-linear-to-b from-white/90 to-emerald-50/60 p-6 dark:border-slate-700/80 dark:bg-linear-to-b dark:from-slate-800/80 dark:to-slate-900/90">
               <div className="absolute right-3 top-3 rounded-[8px] bg-emerald-100 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
                 AU STOCKS TESTED
               </div>

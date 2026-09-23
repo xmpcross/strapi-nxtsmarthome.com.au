@@ -26,7 +26,7 @@ export default function NextUp({ items }: { items: Article[] }) {
           <li key={article.slug}>
             <Link
               href={articleHref(article)}
-              className="group flex items-center gap-4 rounded-lg border-0 bg-white p-2.5 pr-5 shadow-sm transition hover:shadow-md dark:bg-slate-800/60"
+              className="group flex items-center gap-4 rounded-lg border-0 bg-white p-2.5 pr-5 shadow-xs transition hover:shadow-md dark:bg-slate-800/60"
             >
               <img
                 src={squareCoverFor(article)}

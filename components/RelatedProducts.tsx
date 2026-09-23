@@ -22,7 +22,7 @@ export default function RelatedProducts({ products }: { products: TopProduct[] }
               href={`/products/${product.slug}/`}
               className="group flex h-full flex-col rounded-[4px] border border-[#e0e0e0] p-3 transition hover:border-[#0046be] dark:border-slate-700 dark:hover:border-blue-500"
             >
-              <div className="mb-2.5 flex h-28 items-center justify-center overflow-hidden rounded-[4px] bg-[#f7f8f9] p-2 dark:bg-slate-900/60">
+              <div className="mb-2.5 flex h-28 items-center justify-center overflow-hidden rounded-[4px] bg-slate-50 p-2 dark:bg-slate-900/60">
                 <img
                   src={product.image || '/og-default.png'}
                   alt={product.brand ? `${product.brand} ${product.name}` : product.name}

@@ -8,7 +8,7 @@ export default function RetailerLogo({ name, className = '' }: Props) {
 
   if (cleanName.includes('jb hi-fi') || cleanName.includes('jb hifi')) {
     return (
-      <div className={`inline-flex items-center justify-center bg-[#FFE500] px-2 py-1 rounded text-black font-extrabold text-[11px] tracking-tighter leading-none font-sans uppercase ${className}`}>
+      <div className={`inline-flex items-center justify-center bg-[#FFE500] px-2 py-1 rounded-sm text-black font-extrabold text-[11px] tracking-tighter leading-none font-sans uppercase ${className}`}>
         JB HI-FI
       </div>
     );
@@ -25,7 +25,7 @@ export default function RetailerLogo({ name, className = '' }: Props) {
 
   if (cleanName.includes('good guys')) {
     return (
-      <div className={`inline-flex items-center justify-center bg-[#002D62] text-white px-1.5 py-0.5 rounded font-black text-[9px] tracking-tight leading-none uppercase ${className}`}>
+      <div className={`inline-flex items-center justify-center bg-[#002D62] text-white px-1.5 py-0.5 rounded-sm font-black text-[9px] tracking-tight leading-none uppercase ${className}`}>
         The Good Guys
       </div>
     );
@@ -33,7 +33,7 @@ export default function RetailerLogo({ name, className = '' }: Props) {
 
   if (cleanName.includes('harvey norman')) {
     return (
-      <div className={`inline-flex items-center justify-center bg-[#0A2540] text-white px-1.5 py-0.5 rounded font-bold text-[9px] tracking-tight leading-none ${className}`}>
+      <div className={`inline-flex items-center justify-center bg-[#0A2540] text-white px-1.5 py-0.5 rounded-sm font-bold text-[9px] tracking-tight leading-none ${className}`}>
         Harvey Norman
       </div>
     );
@@ -41,7 +41,7 @@ export default function RetailerLogo({ name, className = '' }: Props) {
 
   if (cleanName.includes('officeworks')) {
     return (
-      <div className={`inline-flex items-center justify-center bg-[#00186B] text-white px-1.5 py-0.5 rounded font-extrabold text-[9px] leading-none ${className}`}>
+      <div className={`inline-flex items-center justify-center bg-[#00186B] text-white px-1.5 py-0.5 rounded-sm font-extrabold text-[9px] leading-none ${className}`}>
         Officeworks
       </div>
     );
@@ -49,7 +49,7 @@ export default function RetailerLogo({ name, className = '' }: Props) {
 
   if (cleanName.includes('bunnings')) {
     return (
-      <div className={`inline-flex items-center justify-center bg-[#0D5233] text-white px-1.5 py-0.5 rounded font-bold text-[9px] tracking-tight leading-none uppercase ${className}`}>
+      <div className={`inline-flex items-center justify-center bg-[#0D5233] text-white px-1.5 py-0.5 rounded-sm font-bold text-[9px] tracking-tight leading-none uppercase ${className}`}>
         Bunnings
       </div>
     );
@@ -57,7 +57,7 @@ export default function RetailerLogo({ name, className = '' }: Props) {
 
   if (cleanName.includes('bing lee')) {
     return (
-      <div className={`inline-flex items-center justify-center bg-[#004A99] text-white px-1.5 py-0.5 rounded font-black text-[9px] leading-none uppercase ${className}`}>
+      <div className={`inline-flex items-center justify-center bg-[#004A99] text-white px-1.5 py-0.5 rounded-sm font-black text-[9px] leading-none uppercase ${className}`}>
         BING LEE
       </div>
     );
@@ -65,7 +65,7 @@ export default function RetailerLogo({ name, className = '' }: Props) {
 
   if (cleanName.includes('kogan')) {
     return (
-      <div className={`inline-flex items-center justify-center bg-[#E31B23] text-white px-1.5 py-0.5 rounded font-black text-[10px] leading-none lowercase ${className}`}>
+      <div className={`inline-flex items-center justify-center bg-[#E31B23] text-white px-1.5 py-0.5 rounded-sm font-black text-[10px] leading-none lowercase ${className}`}>
         kogan
       </div>
     );
@@ -84,7 +84,7 @@ export default function RetailerLogo({ name, className = '' }: Props) {
 
   if (cleanName.includes('scorptec')) {
     return (
-      <div className={`inline-flex items-center justify-center bg-slate-900 text-cyan-400 border border-cyan-500/30 px-1.5 py-0.5 rounded font-bold text-[9px] leading-none ${className}`}>
+      <div className={`inline-flex items-center justify-center bg-slate-900 text-cyan-400 border border-cyan-500/30 px-1.5 py-0.5 rounded-sm font-bold text-[9px] leading-none ${className}`}>
         SCORPTEC
       </div>
     );
@@ -92,7 +92,7 @@ export default function RetailerLogo({ name, className = '' }: Props) {
 
   if (cleanName.includes('mwave')) {
     return (
-      <div className={`inline-flex items-center justify-center bg-[#121E36] text-amber-400 px-1.5 py-0.5 rounded font-bold text-[9px] leading-none ${className}`}>
+      <div className={`inline-flex items-center justify-center bg-[#121E36] text-amber-400 px-1.5 py-0.5 rounded-sm font-bold text-[9px] leading-none ${className}`}>
         mwave
       </div>
     );
@@ -100,7 +100,7 @@ export default function RetailerLogo({ name, className = '' }: Props) {
 
 
   return (
-    <div className={`inline-flex items-center justify-center bg-slate-100 text-slate-800 dark:bg-slate-700 dark:text-white px-1.5 py-0.5 rounded font-semibold text-[10px] ${className}`}>
+    <div className={`inline-flex items-center justify-center bg-slate-100 text-slate-800 dark:bg-slate-700 dark:text-white px-1.5 py-0.5 rounded-sm font-semibold text-[10px] ${className}`}>
       {name}
     </div>
   );

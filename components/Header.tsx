@@ -117,7 +117,7 @@ export default function Header({ nav }: { nav: Nav }) {
     'text-slate-900 transition hover:text-brand-700 dark:text-white dark:hover:text-brand-400';
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur dark:border-card-edge dark:bg-night-50/90">
+    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur-sm dark:border-card-edge dark:bg-night-50/90">
       <div className="mx-auto flex max-w-[1366px] items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="flex items-center gap-2 font-extrabold tracking-tight">
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-600 text-sm text-white">
@@ -154,7 +154,7 @@ export default function Header({ nav }: { nav: Nav }) {
               <button
                 type="button"
                 onClick={() => setMenu((m) => (m === 'products' ? null : 'products'))}
-                className={`-m-1 rounded p-1 ${linkClass}`}
+                className={`-m-1 rounded-sm p-1 ${linkClass}`}
                 aria-expanded={menu === 'products'}
                 aria-haspopup="true"
                 aria-label={`${productsNavLink.label} categories`}
@@ -210,7 +210,7 @@ export default function Header({ nav }: { nav: Nav }) {
             </button>
 
             <div
-              className={`absolute left-0 top-full z-50 mt-2 w-[30rem] overflow-hidden rounded-lg border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-800 ${
+              className={`absolute left-0 top-full z-50 mt-2 w-120 overflow-hidden rounded-lg border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-800 ${
                 menu === 'categories' ? '' : 'hidden'
               }`}
             >

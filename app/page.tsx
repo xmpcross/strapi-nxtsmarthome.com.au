@@ -104,7 +104,7 @@ function CircleCta({
 function CoverPill({ article }: { article: Article }) {
   if (!article.categoryMeta) return null;
   return (
-    <span className="pointer-events-none absolute top-4 right-4 z-10 rounded-lg bg-white px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm">
+    <span className="pointer-events-none absolute top-4 right-4 z-10 rounded-lg bg-white px-4 py-2 text-xs font-semibold text-slate-900 shadow-xs">
       {article.categoryMeta.name}
     </span>
   );
@@ -142,7 +142,7 @@ function Lead({ article }: { article: Article }) {
           alt={article.title}
           width={1200}
           height={675}
-          className="aspect-[62/35] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+          className="aspect-62/35 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
         />
         <CoverPill article={article} />
       </Link>
@@ -246,7 +246,7 @@ function ListRow({ article, square = false }: { article: Article; square?: boole
     <article className="group flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-brand-400 dark:border-card-edge dark:bg-card/40 dark:hover:border-brand-500">
       <Link
         href={articleHref(article)}
-        className={`block shrink-0 overflow-hidden rounded-lg ${square ? 'w-[6.5rem]' : 'w-28 sm:w-32'}`}
+        className={`block shrink-0 overflow-hidden rounded-lg ${square ? 'w-26' : 'w-28 sm:w-32'}`}
       >
         <img
           src={coverFor(article)}
@@ -254,7 +254,7 @@ function ListRow({ article, square = false }: { article: Article; square?: boole
           width={1240}
           height={700}
           className={`w-full rounded-lg object-cover object-left transition duration-500 group-hover:scale-[1.05] ${
-            square ? 'aspect-square' : 'aspect-[62/35]'
+            square ? 'aspect-square' : 'aspect-62/35'
           }`}
         />
       </Link>
@@ -314,7 +314,7 @@ function PopularTopics({
             <li key={t.slug}>
               <Link
                 href={`/categories/${t.slug}/`}
-                className="group relative block h-[5.5rem] w-full overflow-hidden rounded-lg"
+                className="group relative block h-22 w-full overflow-hidden rounded-lg"
               >
                 <img
                   src={t.cover}
@@ -331,7 +331,7 @@ function PopularTopics({
                 />
                 <span className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 px-3 text-center">
                   <span className="w-full truncate text-sm font-bold text-white">{t.name}</span>
-                  <span className="rounded-full bg-white/25 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm">
+                  <span className="rounded-full bg-white/25 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-xs">
                     {t.count} {t.count === 1 ? 'post' : 'posts'}
                   </span>
                 </span>
@@ -356,7 +356,7 @@ function PopularTopics({
 function FeatureTile({ article }: { article: Article }) {
   return (
     <article className="group magzin-style-card">
-      <div className="post-card__media aspect-[2/1] w-full rounded-lg">
+      <div className="post-card__media aspect-2/1 w-full rounded-lg">
         <Link href={articleHref(article)} aria-label={article.title} tabIndex={-1} className="post-card__image-link">
           <img
             src={coverFor(article)}
@@ -433,7 +433,7 @@ function CategoryFeature({ items }: { items: Article[] }) {
             alt={lead.title}
             width={1000}
             height={500}
-            className="aspect-[62/35] w-full rounded-lg object-cover transition duration-500 group-hover:scale-[1.03]"
+            className="aspect-62/35 w-full rounded-lg object-cover transition duration-500 group-hover:scale-[1.03]"
           />
           {/*
             Soft scrim across the upper two-thirds. The covers carry their own
@@ -444,11 +444,11 @@ function CategoryFeature({ items }: { items: Article[] }) {
           */}
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/30 to-slate-900/10"
+            className="pointer-events-none absolute inset-0 bg-linear-to-b from-slate-900/70 via-slate-900/30 to-slate-900/10"
           />
         </Link>
         {lead.categoryMeta && (
-          <span className="pointer-events-none absolute left-5 top-5 z-10 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-slate-900 shadow-sm backdrop-blur">
+          <span className="pointer-events-none absolute left-5 top-5 z-10 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-slate-900 shadow-xs backdrop-blur-sm">
             {lead.categoryMeta.name}
           </span>
         )}
@@ -516,7 +516,7 @@ function WideCard({ article }: { article: Article }) {
           alt={article.title}
           width={1200}
           height={675}
-          className="aspect-[62/35] w-full rounded-lg object-cover transition duration-500 group-hover:scale-[1.04]"
+          className="aspect-62/35 w-full rounded-lg object-cover transition duration-500 group-hover:scale-[1.04]"
         />
       </Link>
       <div>
@@ -641,7 +641,7 @@ export default async function HomePage() {
         Dark mode keeps a dark strip, tinted with brand-950 rather than pure
         grey so the same colour relationship survives the theme switch.
       */}
-      <section className="border-0 bg-gradient-to-r from-brand-50 via-white to-[#fff3e6] px-4 py-3 dark:from-brand-950/40 dark:via-[#202020]/50 dark:to-accent-600/10">
+      <section className="border-0 bg-linear-to-r from-brand-50 via-white to-[#fff3e6] px-4 py-3 dark:from-brand-950/40 dark:via-[#202020]/50 dark:to-accent-600/10">
         <div className="mx-auto flex max-w-site flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-sm text-slate-600 dark:text-slate-300">
           <span className="font-semibold text-slate-900 dark:text-white">
             Made for Australian homes
@@ -732,7 +732,7 @@ export default async function HomePage() {
                         <span aria-hidden="true">{category.emoji}</span>
                         <span className="truncate">{category.name}</span>
                       </span>
-                      <span className="shrink-0 rounded bg-slate-100 px-1.5 py-0.5 text-xs font-medium tabular-nums text-slate-500 dark:bg-card dark:text-slate-400">
+                      <span className="shrink-0 rounded-sm bg-slate-100 px-1.5 py-0.5 text-xs font-medium tabular-nums text-slate-500 dark:bg-card dark:text-slate-400">
                         {category.count}
                       </span>
                     </Link>

@@ -36,7 +36,7 @@ export default function Recommended({ articles }: { articles: Article[] }) {
         {articles.map((article) => {
           const href = articleHref(article);
           return (
-            <li key={article.slug} className="group transition duration-300 hover:-translate-y-[3px]">
+            <li key={article.slug} className="group transition duration-300 hover:translate-y-[-3px]">
               <Link href={href} tabIndex={-1} aria-hidden="true" className="block overflow-hidden rounded-lg">
                 <img
                   src={squareCoverFor(article)}
@@ -44,7 +44,7 @@ export default function Recommended({ articles }: { articles: Article[] }) {
                   width={300}
                   height={300}
                   loading="lazy"
-                  className="aspect-square max-h-[280px] w-full object-cover transition duration-300 group-hover:scale-[1.05] group-hover:rotate-[1deg]"
+                  className="aspect-square max-h-[280px] w-full object-cover transition duration-300 group-hover:scale-[1.05] group-hover:rotate-1"
                 />
               </Link>
 
@@ -52,7 +52,7 @@ export default function Recommended({ articles }: { articles: Article[] }) {
                 {/* Weight is set on the anchor, not the heading: the anchor is
                     what the section's own styles reach, so setting it here is
                     what actually holds. */}
-                <Link href={href} className="!font-semibold hover:underline">
+                <Link href={href} className="font-semibold! hover:underline">
                   {article.title}
                 </Link>
               </h3>

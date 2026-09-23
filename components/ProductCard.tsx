@@ -32,13 +32,13 @@ export default function ProductCard({ product, rank }: Props) {
   const primaryRetailer = product.retailers?.find((r) => r.primary) || product.retailers?.[0];
 
   return (
-    <div className="group relative flex flex-col justify-between overflow-hidden rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm transition hover:border-slate-300 hover:shadow-md dark:border-slate-700/80 dark:bg-slate-800/80 dark:hover:border-slate-600">
+    <div className="group relative flex flex-col justify-between overflow-hidden rounded-[8px] border border-slate-200 bg-white p-5 shadow-xs transition hover:border-slate-300 hover:shadow-md dark:border-slate-700/80 dark:bg-slate-800/80 dark:hover:border-slate-600">
       <div>
         {/* Header Tags & Price */}
         <div className="mb-3 flex items-center justify-between gap-2">
           <div className="flex flex-wrap items-center gap-1.5">
             {rank !== undefined && (
-              <span className="inline-flex items-center rounded-md bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white shadow-xs">
+              <span className="inline-flex items-center rounded-md bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white shadow-2xs">
                 #{rank}
               </span>
             )}
@@ -101,7 +101,7 @@ export default function ProductCard({ product, rank }: Props) {
                     key={ret.name + i}
                     href={ret.url}
                     subId={`promoted-card-${product.slug}-${i}`}
-                    className="flex flex-col items-center justify-between rounded-lg border border-slate-200/80 bg-white p-2 shadow-xs transition hover:border-slate-300 hover:shadow-md dark:border-slate-600 dark:bg-slate-800 dark:hover:border-slate-500 min-h-[58px]"
+                    className="flex flex-col items-center justify-between rounded-lg border border-slate-200/80 bg-white p-2 shadow-2xs transition hover:border-slate-300 hover:shadow-md dark:border-slate-600 dark:bg-slate-800 dark:hover:border-slate-500 min-h-[58px]"
                   >
                     <span className="text-xs font-bold text-slate-900 dark:text-white">
                       {estPrice ? `$${estPrice.toLocaleString('en-AU')}` : 'Check'}
@@ -121,7 +121,7 @@ export default function ProductCard({ product, rank }: Props) {
           <AffiliateLink
             href={primaryRetailer.url}
             subId={`product-card-${product.slug}`}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-center text-sm font-semibold text-white shadow-xs transition hover:bg-emerald-700"
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-center text-sm font-semibold text-white shadow-2xs transition hover:bg-emerald-700"
           >
             <span>Check price at {primaryRetailer.name}</span>
           </AffiliateLink>

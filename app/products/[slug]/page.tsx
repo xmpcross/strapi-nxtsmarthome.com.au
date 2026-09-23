@@ -126,7 +126,7 @@ export default async function ProductDetailPage({
                   </div>
                 ) : null}
 
-                <h1 className="mb-2.5 mt-1.5 text-[1.2rem] font-bold leading-[1.25] text-[#1d252c] dark:text-white">
+                <h1 className="mb-2.5 mt-1.5 text-[1.2rem] font-bold leading-tight text-[#1d252c] dark:text-white">
                   {product.name}
                 </h1>
 
@@ -245,7 +245,7 @@ export default async function ProductDetailPage({
                 <AffiliateLink
                   href={ctaRetailer.url}
                   subId={`detail-cta-${product.slug}`}
-                  className="block w-full rounded-[0.25rem] bg-[#ffe000] px-4 py-3.5 text-center text-sm font-bold text-[#040c13] transition hover:bg-[#fff200]"
+                  className="block w-full rounded-sm bg-[#ffe000] px-4 py-3.5 text-center text-sm font-bold text-[#040c13] transition hover:bg-[#fff200]"
                 >
                   {cheapest ? `Buy at ${ctaRetailer.name}` : `Check price at ${ctaRetailer.name}`}
                 </AffiliateLink>

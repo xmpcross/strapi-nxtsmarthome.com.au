@@ -81,7 +81,7 @@ export default function ProductSlider({
         <ul
           ref={trackRef}
           onPointerDown={() => setPaused(true)}
-          className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 scrollbar-none [&::-webkit-scrollbar]:hidden"
         >
           {products.map((product) => (
             <li

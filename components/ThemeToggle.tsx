@@ -60,7 +60,7 @@ export default function ThemeToggle() {
         aria-label="Switch to light theme"
         title="Light theme"
         aria-pressed={ready ? !dark : undefined}
-        className="grid h-7 w-7 place-items-center rounded-full bg-white text-slate-900 shadow-sm transition dark:bg-transparent dark:text-slate-400 dark:shadow-none dark:hover:text-white"
+        className="grid h-7 w-7 place-items-center rounded-full bg-white text-slate-900 shadow-xs transition dark:bg-transparent dark:text-slate-400 dark:shadow-none dark:hover:text-white"
       >
         <svg
           aria-hidden="true"
@@ -83,7 +83,7 @@ export default function ThemeToggle() {
         aria-label="Switch to dark theme"
         title="Dark theme"
         aria-pressed={ready ? dark : undefined}
-        className="grid h-7 w-7 place-items-center rounded-full text-slate-400 transition hover:text-slate-900 dark:bg-slate-700 dark:text-white dark:shadow-sm"
+        className="grid h-7 w-7 place-items-center rounded-full text-slate-400 transition hover:text-slate-900 dark:bg-slate-700 dark:text-white dark:shadow-xs"
       >
         <svg
           aria-hidden="true"

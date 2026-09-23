@@ -87,7 +87,7 @@ export default function RetailerPriceTable({
     : null;
 
   return (
-    <div className="not-prose my-6 overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
+    <div className="not-prose my-6 overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-xs dark:border-slate-700 dark:bg-slate-800">
       <div className="border-b border-slate-100 bg-slate-50 px-5 py-4 dark:border-slate-700 dark:bg-slate-800/80">
         <h3 className="text-base font-bold text-slate-900 dark:text-white">
           Where to Buy {productName} in Australia
@@ -111,7 +111,7 @@ export default function RetailerPriceTable({
                   <img
                     src={logoUrl}
                     alt={`${retailer.name} logo`}
-                    className="h-10 w-24 rounded-lg border border-slate-200 bg-white object-contain p-2 shadow-sm"
+                    className="h-10 w-24 rounded-lg border border-slate-200 bg-white object-contain p-2 shadow-xs"
                     loading="lazy"
                   />
                 ) : (
@@ -125,7 +125,7 @@ export default function RetailerPriceTable({
                   {retailer.name}
                 </span>
                 {retailer.primary && (
-                  <span className="ml-2 inline-block rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
+                  <span className="ml-2 inline-block rounded-sm bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
                     Official AU Stock
                   </span>
                 )}
@@ -146,7 +146,7 @@ export default function RetailerPriceTable({
               <AffiliateLink
                 href={retailer.url}
                 subId={subId}
-                className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-1.5 text-xs font-semibold text-white shadow-xs transition hover:bg-emerald-700"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-1.5 text-xs font-semibold text-white shadow-2xs transition hover:bg-emerald-700"
               >
                 <span>View Deal</span>
                 <span aria-hidden="true">→</span>

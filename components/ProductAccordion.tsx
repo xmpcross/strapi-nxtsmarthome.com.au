@@ -88,7 +88,7 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
       <dt className="w-full font-bold text-[#1d252c] dark:text-white sm:w-52 sm:shrink-0">
         {label}
       </dt>
-      <dd className="min-w-0 break-words text-[#55555a] dark:text-slate-300">{value}</dd>
+      <dd className="min-w-0 wrap-break-word text-[#55555a] dark:text-slate-300">{value}</dd>
     </div>
   );
 }
@@ -391,7 +391,7 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
                       type="button"
                       onClick={() => setOpen(null)}
                       aria-label={`Close ${section.title}`}
-                      className="rounded p-1 text-[#55555a] transition hover:bg-slate-100 hover:text-[#1d252c] dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white"
+                      className="rounded-sm p-1 text-[#55555a] transition hover:bg-slate-100 hover:text-[#1d252c] dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white"
                     >
                       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                         <line x1="6" y1="6" x2="18" y2="18" />

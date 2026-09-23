@@ -16,7 +16,7 @@ function Halftone() {
   return (
     <span
       aria-hidden="true"
-      className="pointer-events-none absolute -right-4 -top-4 hidden h-40 w-64 bg-[radial-gradient(circle,theme(colors.slate.400)_1.3px,transparent_1.3px)] bg-[length:12px_12px] [mask-image:radial-gradient(circle_at_top_right,#000_0%,transparent_72%)] sm:block dark:bg-[radial-gradient(circle,theme(colors.slate.500)_1.3px,transparent_1.3px)]"
+      className="pointer-events-none absolute -right-4 -top-4 hidden h-40 w-64 bg-[radial-gradient(circle,var(--color-slate-400)_1.3px,transparent_1.3px)] bg-size-[12px_12px] mask-[radial-gradient(circle_at_top_right,#000_0%,transparent_72%)] sm:block dark:bg-[radial-gradient(circle,var(--color-slate-500)_1.3px,transparent_1.3px)]"
     />
   );
 }
@@ -74,7 +74,7 @@ export default function HomeConnect() {
             required
             autoComplete="email"
             placeholder="Your email address"
-            className="w-full max-w-md rounded-full border border-slate-300 bg-white px-7 py-4 text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:border-slate-600 dark:bg-card dark:text-white"
+            className="w-full max-w-md rounded-full border border-slate-300 bg-white px-7 py-4 text-slate-900 outline-hidden transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:border-slate-600 dark:bg-card dark:text-white"
           />
           <button
             type="submit"
@@ -93,7 +93,7 @@ export default function HomeConnect() {
             type="checkbox"
             name="terms"
             required
-            className="h-4 w-4 shrink-0 rounded border-slate-300 text-brand-600 focus:ring-brand-500 dark:border-slate-600"
+            className="h-4 w-4 shrink-0 rounded-sm border-slate-300 text-brand-600 focus:ring-brand-500 dark:border-slate-600"
           />
           <span>
             By clicking the button, you are agreeing with our{' '}

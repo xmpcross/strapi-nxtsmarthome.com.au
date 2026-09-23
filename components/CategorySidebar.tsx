@@ -29,7 +29,7 @@ export default function CategorySidebar({ categories, activeSlug, total, allHref
   const rowActive =
     'bg-brand-600 font-semibold text-white hover:bg-brand-600';
 
-  const countBase = 'shrink-0 rounded px-1.5 py-0.5 text-xs font-medium tabular-nums';
+  const countBase = 'shrink-0 rounded-sm px-1.5 py-0.5 text-xs font-medium tabular-nums';
 
   return (
     <aside aria-labelledby="filter-heading" className="lg:sticky lg:top-24">

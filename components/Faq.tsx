@@ -16,7 +16,7 @@ export default function Faq({ items }: { items: FaqItem[] }) {
 
   return (
     <section
-      className="not-prose mt-12 rounded-lg border border-slate-200 bg-white p-7 shadow-sm sm:p-9 dark:border-slate-700 dark:bg-slate-800/60"
+      className="not-prose mt-12 rounded-lg border border-slate-200 bg-white p-7 shadow-xs sm:p-9 dark:border-slate-700 dark:bg-slate-800/60"
       aria-labelledby="faq-heading"
     >
       <h2 id="faq-heading" className="text-xl font-bold text-slate-900 dark:text-white">

@@ -186,12 +186,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
               {article.categoryMeta && (
                 <Link
                   href={`/categories/${article.categoryMeta.slug}/`}
-                  className="rounded border border-slate-300 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-700 transition hover:border-brand-400 hover:text-brand-700 dark:border-slate-600 dark:text-slate-300"
+                  className="rounded-sm border border-slate-300 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-700 transition hover:border-brand-400 hover:text-brand-700 dark:border-slate-600 dark:text-slate-300"
                 >
                   {article.categoryMeta.name}
                 </Link>
               )}
-              <span className="rounded border border-slate-300 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-700 dark:border-slate-600 dark:text-slate-300">
+              <span className="rounded-sm border border-slate-300 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-700 dark:border-slate-600 dark:text-slate-300">
                 {typeLabels[article.type] ?? article.type}
               </span>
             </div>
@@ -212,7 +212,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
                 alt={article.imageAlt || article.title}
               width={1000}
               height={500}
-              className="aspect-[62/35] w-full object-cover"
+              className="aspect-62/35 w-full object-cover"
             />
           </figure>
         </header>

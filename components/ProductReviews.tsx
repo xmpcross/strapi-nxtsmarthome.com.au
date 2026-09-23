@@ -53,10 +53,10 @@ function ReviewCard({ review }: { review: ProductReview }) {
 
       {review.sourceLabel ? (
         <ul className="mt-2 flex flex-wrap gap-1.5">
-          <li className="rounded-[0.25rem] border border-[#c5cbd5] px-2 py-0.5 text-[0.6875rem] text-[#55555a] dark:border-slate-600 dark:text-slate-400">
+          <li className="rounded-sm border border-[#c5cbd5] px-2 py-0.5 text-[0.6875rem] text-[#55555a] dark:border-slate-600 dark:text-slate-400">
             Verified purchase
           </li>
-          <li className="rounded-[0.25rem] border border-[#c5cbd5] px-2 py-0.5 text-[0.6875rem] text-[#55555a] dark:border-slate-600 dark:text-slate-400">
+          <li className="rounded-sm border border-[#c5cbd5] px-2 py-0.5 text-[0.6875rem] text-[#55555a] dark:border-slate-600 dark:text-slate-400">
             via {review.sourceLabel}
           </li>
         </ul>
@@ -165,9 +165,9 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
                     {star}
                   </span>
                   <span className="shrink-0 text-amber-500" aria-hidden="true">★</span>
-                  <span className="h-2.5 flex-1 overflow-hidden rounded-sm bg-[#d5d5d5] dark:bg-slate-600">
+                  <span className="h-2.5 flex-1 overflow-hidden rounded-xs bg-[#d5d5d5] dark:bg-slate-600">
                     <span
-                      className="block h-full rounded-sm bg-[#0c5adb] dark:bg-blue-500"
+                      className="block h-full rounded-xs bg-[#0c5adb] dark:bg-blue-500"
                       style={{ width: `${pct}%` }}
                     />
                   </span>
@@ -214,7 +214,7 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
               <button
                 type="button"
                 onClick={() => setShowAll((v) => !v)}
-                className="rounded-[0.25rem] bg-[#0c5adb] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#0949ad]"
+                className="rounded-sm bg-[#0c5adb] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#0949ad]"
               >
                 {showAll
                   ? 'Show fewer reviews'
@@ -244,7 +244,7 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
             <AffiliateLink
               href={readMoreHref}
               subId={`reviews-cta-${product.slug}`}
-              className="mt-4 inline-block rounded-[0.25rem] bg-[#0c5adb] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#0949ad]"
+              className="mt-4 inline-block rounded-sm bg-[#0c5adb] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#0949ad]"
             >
               Read customer reviews at {primaryRetailer.name}
             </AffiliateLink>

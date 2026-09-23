@@ -1,8 +1,700 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-card: #222324;
+  --color-card-edge: #313131;
+  --color-bar: #eef0f3;
+  --color-bar-dark: #1d1e20;
+
+  --color-night-50: #151616;
+  --color-night-100: #181818;
+  --color-night-200: #282828;
+  --color-night-300: #343434;
+  --color-night-400: #565656;
+  --color-night-500: #727272;
+  --color-night-600: #9ca3af;
+  --color-night-700: #d1d5db;
+  --color-night-800: #e5e7eb;
+  --color-night-900: #f3f4f6;
+
+  --color-slate-50: #f7f8f9;
+  --color-slate-100: #eaecee;
+  --color-slate-200: #e5e7eb;
+  --color-slate-300: #d1d5db;
+  --color-slate-400: #a7aaaf;
+  --color-slate-500: #75787d;
+  --color-slate-600: #626568;
+  --color-slate-700: #3a3b3d;
+  --color-slate-800: #1a1b1c;
+  --color-slate-900: #0e0e0f;
+  --color-slate-950: #000000;
+
+  --color-brand-50: #f1f0ff;
+  --color-brand-100: #deddff;
+  --color-brand-200: #c6c4ff;
+  --color-brand-300: #aeabff;
+  --color-brand-400: #9895ff;
+  --color-brand-500: #7b77e4;
+  --color-brand-600: #5955d1;
+  --color-brand-700: #514dcc;
+  --color-brand-800: #4440b4;
+  --color-brand-900: #37348f;
+  --color-brand-950: #232159;
+
+  --color-accent-400: #ffb545;
+  --color-accent-500: #ff9b1a;
+  --color-accent-600: #e97c06;
+
+  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica Neue, Arial, sans-serif;
+
+  --container-prose: 46rem;
+  --container-site: 81rem;
+}
 
 /*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility prose {
+  /*
+   * Heading anchors added by rehype-autolink-headings wrap the heading text.
+   *
+   * The weight has to be restated: the anchor is an <a> inside the heading, so
+   * prose-a:font-medium (500) applies to it and the heading's own 600 does not
+   * inherit through. Without this the linked headings render a step lighter
+   * than the unlinked ones and the article looks inconsistent for no reason.
+   */
+  & h2 > a {
+    @apply no-underline text-inherit;
+    font-weight: 600;
+  }
+  & h3 > a {
+    @apply no-underline text-inherit;
+    font-weight: 600;
+  }
+  & h4 > a {
+    @apply no-underline text-inherit;
+    font-weight: 600;
+  }
+
+  & h2 > a:hover {
+    @apply text-brand-700 dark:text-brand-400;
+  }
+
+  & h3 > a:hover {
+    @apply text-brand-700 dark:text-brand-400;
+  }
+
+  /* Outbound links inside article bodies get a subtle affordance. */
+  & a[target='_blank']::after {
+    content: ' ↗';
+    @apply text-xs text-slate-400;
+  }
+}
+
+@utility notched-card {
+  /* Tablet: same shapes, a little smaller. */
+
+  /* Mobile: 44px is the minimum comfortable touch target, so the button stops there. */
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  /* Button hangs off the corner: cut-out centred close to it. */
+  --notch-c: var(--notch-card-inset);
+  --notch-r: var(--notch-card-r);
+  -webkit-mask-image: radial-gradient(
+    circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
+    transparent 0 var(--notch-r),
+    #000 calc(var(--notch-r) + 0.5px)
+  );
+  mask-image: radial-gradient(
+    circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
+    transparent 0 var(--notch-r),
+    #000 calc(var(--notch-r) + 0.5px)
+  );
+}
+
+@utility notched-image {
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  /* Button sits inside the frame: cut-out centred one radius in. */
+  --notch-c: var(--notch-image-r);
+  --notch-r: var(--notch-image-r);
+  -webkit-mask-image: radial-gradient(
+    circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
+    transparent 0 var(--notch-r),
+    #000 calc(var(--notch-r) + 0.5px)
+  );
+  mask-image: radial-gradient(
+    circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
+    transparent 0 var(--notch-r),
+    #000 calc(var(--notch-r) + 0.5px)
+  );
+}
+
+@utility article-image-wrap {
+  /* Wrapper that owns the positioning context for a notched image + its button. */
+  position: relative;
+}
+
+@utility card-arrow {
+  /*
+   * The button. Centred on the cut-out by construction: half its width back from
+   * the notch centre, so it stays concentric at every breakpoint as the custom
+   * properties change.
+   */
+  /* Same surface, ring and ink as the header tiles' arrow, so every detached
+       CTA on the page reads as one control rather than three near-misses. */
+  background: var(--pc-arrow-bg);
+  border: 1px solid var(--pc-arrow-border);
+  color: var(--pc-arrow-ink);
+  display: grid;
+  place-items: center;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  border-radius: 9999px;
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+
+  /* The detached pair hang in a mask cut-out, so they are positioned against the
+     card or image that owns them. */
+  position: absolute;
+  right: calc(var(--notch-card-inset) - var(--arrow-size) / 2);
+  bottom: calc(var(--notch-card-inset) - var(--arrow-size) / 2);
+
+  & svg {
+    width: var(--arrow-icon);
+    height: var(--arrow-icon);
+  }
+
+  /* Nudge up and to the right, as if following the arrow. */
+  .group:hover & {
+    transform: translate(3px, -3px) rotate(-8deg);
+  }
+  &:hover {
+    transform: translate(3px, -3px) rotate(-8deg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+
+    .group:hover & {
+      transform: none;
+    }
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@utility image-arrow {
+  /* Same surface, ring and ink as the header tiles' arrow, so every detached
+       CTA on the page reads as one control rather than three near-misses. */
+  background: var(--pc-arrow-bg);
+  border: 1px solid var(--pc-arrow-border);
+  color: var(--pc-arrow-ink);
+  display: grid;
+  place-items: center;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  border-radius: 9999px;
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+  position: absolute;
+  right: calc(var(--notch-image-r) - var(--arrow-size) / 2);
+  bottom: calc(var(--notch-image-r) - var(--arrow-size) / 2);
+
+  & svg {
+    width: var(--arrow-icon);
+    height: var(--arrow-icon);
+  }
+
+  .group:hover & {
+    transform: translate(3px, -3px) rotate(-8deg);
+  }
+  &:hover {
+    transform: translate(3px, -3px) rotate(-8deg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+
+    .group:hover & {
+      transform: none;
+    }
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@utility inline-arrow {
+  /* Same surface, ring and ink as the header tiles' arrow, so every detached
+       CTA on the page reads as one control rather than three near-misses. */
+  background: var(--pc-arrow-bg);
+  border: 1px solid var(--pc-arrow-border);
+  color: var(--pc-arrow-ink);
+  display: grid;
+  place-items: center;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  border-radius: 9999px;
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+
+  /* Same control in normal flow, for a card with no cut-out to hang in. It sits
+     in a flex row, so it must not be squeezed below its touch target. */
+  flex: none;
+
+  & svg {
+    width: var(--arrow-icon);
+    height: var(--arrow-icon);
+  }
+
+  .group:hover & {
+    transform: translate(3px, -3px) rotate(-8deg);
+  }
+  &:hover {
+    transform: translate(3px, -3px) rotate(-8deg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+
+    .group:hover & {
+      transform: none;
+    }
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@utility group {
+  /* Nudge up and to the right, as if following the arrow. */
+  &:hover .card-arrow {
+    transform: translate(3px, -3px) rotate(-8deg);
+  }
+  &:hover .image-arrow {
+    transform: translate(3px, -3px) rotate(-8deg);
+  }
+  &:hover .inline-arrow {
+    transform: translate(3px, -3px) rotate(-8deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &:hover .card-arrow {
+      transform: none;
+    }
+
+    &:hover .image-arrow {
+      transform: none;
+    }
+
+    &:hover .inline-arrow {
+      transform: none;
+    }
+  }
+}
+
+@utility dark {
+  &.dark {
+    --post-card-bg: var(--color-card);
+    --post-card-border: var(--color-card-edge);
+    --post-text: #ffffff;
+    --post-muted: rgb(255 255 255 / 0.4);
+    --post-badge-bg: #0d0f0f;
+    --post-badge-fg: #ffffff;
+  }
+
+  &.dark {
+    --page-bg: var(--color-night-50);
+    --pc-arrow-bg: var(--color-card);
+    --pc-arrow-border: var(--color-card-edge);
+    --pc-arrow-ink: #ffffff;
+    --cs-light-primary-color-rgb: 0, 0, 0;
+  }
+}
+
+@utility featured-post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--post-grid-gap);
+  align-items: stretch;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 699px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@utility compact-post-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--compact-gap) 1.25rem;
+  margin-top: var(--post-grid-gap);
+
+  @media (max-width: 699px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(21, minmax(0, 1fr));
+
+    & > *:nth-child(4n + 1) {
+      grid-column: span 9;
+    }
+
+    & > *:nth-child(4n + 4) {
+      grid-column: span 9;
+    }
+
+    & > *:nth-child(4n + 2) {
+      grid-column: span 12;
+    }
+
+    & > *:nth-child(4n + 3) {
+      grid-column: span 12;
+    }
+  }
+}
+
+@utility featured-post-card {
+  /* ---- large card ---- */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--post-card-pad);
+  /* Room at the foot so the detached arrow never sits over the excerpt. */
+  padding-bottom: calc(var(--post-card-pad) + 1.25rem);
+  background: var(--post-card-bg);
+  border: 1px solid var(--post-card-border);
+  border-radius: var(--post-card-radius);
+}
+
+@utility featured-post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+@utility featured-post-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-width: 0;
+}
+
+@utility post-badge {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  background: var(--post-badge-bg);
+  color: var(--post-badge-fg);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@utility post-dot {
+  color: var(--post-muted);
+}
+
+@utility post-muted {
+  color: var(--post-muted);
+  font-size: 0.75rem;
+}
+
+@utility bookmark-btn {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 1.625rem;
+  height: 1.625rem;
+  border: 1px solid var(--post-card-border);
+  border-radius: 0.3125rem;
+  background: transparent;
+  color: var(--post-muted);
+  transition:
+    color 200ms ease,
+    border-color 200ms ease;
+
+  & svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  &:hover {
+    color: var(--post-text);
+    border-color: var(--post-text);
+  }
+
+  &[aria-pressed='true'] {
+    color: var(--post-text);
+    border-color: var(--post-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+  }
+}
+
+@utility compact-post-link {
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+  }
+  display: flex;
+  align-items: center;
+  gap: 0.9375rem;
+  min-height: var(--compact-min-h);
+  padding: 0.75rem;
+  border-radius: inherit;
+}
+
+@utility featured-post-title {
+  & a:focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+  }
+
+  /*
+   * Fixed title box. Without it the three cards' images start at different
+   * heights whenever one headline wraps to a third line.
+   */
+  margin-top: 1rem;
+  min-height: 2.75rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--post-text);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+  & a:hover {
+    color: var(--color-brand-600);
+  }
+}
+
+@utility featured-post-figure {
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+  }
+  display: block;
+  margin-top: 1rem;
+  border-radius: var(--post-image-radius);
+  overflow: hidden;
+
+  & img {
+    display: block;
+    width: 100%;
+    height: var(--post-image-h);
+    object-fit: cover;
+    object-position: left center;
+    border-radius: var(--post-image-radius);
+  }
+}
+
+@utility featured-post-excerpt {
+  margin-top: 1rem;
+  /* Clear of the arrow's corner. */
+  padding-right: 3.25rem;
+  color: var(--post-muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+@utility post-arrow {
+  background: var(--post-card-bg);
+  border: 1px solid var(--post-card-border);
+  color: var(--post-text);
+
+  &:hover {
+    background: var(--color-brand-600);
+    border-color: var(--color-brand-600);
+    color: #ffffff;
+  }
+}
+
+@utility compact-post-card {
+  /* ---- compact card ---- */
+  background: var(--post-card-bg);
+  border: 1px solid var(--post-card-border);
+  border-radius: var(--compact-radius);
+  transition:
+    border-color 200ms ease,
+    transform 200ms ease;
+
+  &:hover {
+    border-color: var(--post-muted);
+    transform: translateY(-2px);
+  }
+
+  &:hover .compact-post-title {
+    color: var(--color-brand-600);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: border-color 200ms ease;
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@utility compact-post-thumb {
+  flex-shrink: 0;
+  width: var(--compact-thumb);
+  height: var(--compact-thumb);
+  object-fit: cover;
+  object-position: left center;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+@utility compact-post-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+@utility compact-post-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--post-text);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+  .compact-post-card:hover & {
+    color: var(--color-brand-600);
+  }
+}
+
+@utility compact-post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--post-muted);
+  font-size: 0.6875rem;
+}
+
+/*
+ * Compact cards alternate width row by row, as in the reference: narrow-wide,
+ * then wide-narrow, then narrow-wide again.
+ *
+ * CSS grid cannot vary column widths per row, so the row is laid out on a
+ * 21-column track and each card spans either 9 or 12 of them (43% / 57%). The
+ * pattern repeats every four cards, which is what produces the two-row swap.
+ */
+
+@utility articles-grid {
+  /*
+   * Card lift on /articles.
+   *
+   * Scoped to that page rather than put on ArticleCard itself, because the same
+   * component also renders on the category, author and search listings — styling
+   * the component would have changed all of them, which is more than was asked
+   * for. Promoting this site-wide later is a one-line move: drop the wrapper and
+   * apply it in the component.
+   *
+   * The card's own hover:shadow-lg still wins on hover, since Tailwind's
+   * utilities layer is emitted after components — so this is the resting state
+   * and the hover lift is unaffected.
+   */
+  & > article {
+    box-shadow: 0 8px 32px 0 rgba(var(--cs-light-primary-color-rgb), 0.07);
+  }
+}
+
+@utility category-block {
+  /*
+   * Wraps a category row's featured cards and its compact list in one bordered
+   * group. The cards inside keep their own surface; this is the container that
+   * makes the two halves read as a single section.
+   */
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  @media (max-width: 699px) {
+    padding: 0;
+  }
+}
+
+@layer utilities {
+  /*
  * Inter — self-hosted variable weight 100-900, latin + latin-ext.
  * SIL Open Font License 1.1. Files in public/fonts/, copied from
  * @fontsource-variable/inter. Self-hosted for the same reason as the families
@@ -12,181 +704,197 @@
  * below it are kept rather than deleted so a theme can be switched back by
  * editing tailwind.config.ts alone.
  */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('/fonts/inter-latin-ext-wght-normal.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('/fonts/inter-latin-ext-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
 
-/*
+  /*
  * Geist — self-hosted variable weight 100-900, latin + latin-ext.
  * SIL Open Font License, Copyright 2024 The Geist Project Authors.
  * Files in public/fonts/, copied from @fontsource-variable/geist. Self-hosting
  * avoids a third-party request on every page load and the CLS that comes with it.
  */
-/*
+  /*
  * Figtree and Plus Jakarta Sans — self-hosted variable, latin + latin-ext.
  * Both SIL Open Font License 1.1. Downloaded from Google Fonts.
  *
  * This is the pairing originfacts.com uses: Figtree carries every heading, Plus
  * Jakarta Sans carries body copy. Their exact metrics are applied below.
  */
-@font-face {
-  font-family: 'Figtree';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 300 900;
-  src: url('/fonts/figtree-latin-wght-normal.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Figtree';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 300 900;
-  src: url('/fonts/figtree-latin-ext-wght-normal.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200 800;
-  src: url('/fonts/jakarta-latin-wght-normal.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200 800;
-  src: url('/fonts/jakarta-latin-ext-wght-normal.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+  @font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300 900;
+    src: url('/fonts/figtree-latin-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300 900;
+    src: url('/fonts/figtree-latin-ext-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 200 800;
+    src: url('/fonts/jakarta-latin-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 200 800;
+    src: url('/fonts/jakarta-latin-ext-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
 
-/*
+  /*
  * DM Sans — self-hosted variable weight 100-1000, latin + latin-ext.
  * SIL Open Font License 1.1, Copyright 2014-2024 The DM Sans Project Authors.
  * Downloaded from Google Fonts (v17). This is the single family used across
  * thesmarthome.blog — headings, body, meta and menu alike — so it now carries
  * all of them here too.
  */
-@font-face {
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 1000;
-  src: url('/fonts/dm-sans-latin-wght-normal.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 1000;
-  src: url('/fonts/dm-sans-latin-ext-wght-normal.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 1000;
+    src: url('/fonts/dm-sans-latin-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 1000;
+    src: url('/fonts/dm-sans-latin-ext-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
 
-/*
+  /*
  * Outfit — self-hosted variable weight 100-900, latin + latin-ext.
  * SIL Open Font License 1.1, Copyright 2020 The Outfit Project Authors.
  * Downloaded from Google Fonts (v15) into public/fonts/. Carries body copy.
  */
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('/fonts/outfit-latin-wght-normal.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('/fonts/outfit-latin-ext-wght-normal.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('/fonts/outfit-latin-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('/fonts/outfit-latin-ext-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
 
-/*
+  /*
  * Urbanist — self-hosted variable weight 100-900, latin + latin-ext.
  * SIL Open Font License 1.1, Copyright 2020 The Urbanist Project Authors.
  * Downloaded from Google Fonts (v18) into public/fonts/. Self-hosted for the same
  * reason as Geist: no third-party request on page load, and no CLS from a late
  * font swap. Urbanist sets every heading; Geist remains the body face.
  */
-@font-face {
-  font-family: 'Urbanist';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('/fonts/urbanist-latin-wght-normal.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Urbanist';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('/fonts/urbanist-latin-ext-wght-normal.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Geist';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('/fonts/geist-latin-wght-normal.woff2') format('woff2-variations');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Geist';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('/fonts/geist-latin-ext-wght-normal.woff2') format('woff2-variations');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  @font-face {
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('/fonts/urbanist-latin-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('/fonts/urbanist-latin-ext-wght-normal.woff2') format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Geist';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('/fonts/geist-latin-wght-normal.woff2') format('woff2-variations');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Geist';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('/fonts/geist-latin-ext-wght-normal.woff2')
+      format('woff2-variations');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
 }
 
 @layer base {
@@ -245,7 +953,7 @@
   p,
   ul li,
   ul li a {
-    font-family: theme('fontFamily.body');
+    font-family: var(--font-body);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -264,7 +972,7 @@
    * here, so this rule and the `font-heading` utility cannot disagree.
    */
   h1, h2, h3, h4, h5, h6 {
-    font-family: theme('fontFamily.heading');
+    font-family: var(--font-heading);
     font-weight: 700 !important;
     line-height: 1.2;
     letter-spacing: 0;
@@ -295,34 +1003,6 @@
   .prose h6 { font-size: 16px; font-weight: 600 !important; letter-spacing: -0.2px; }
 }
 
-@layer components {
-  /*
-   * Heading anchors added by rehype-autolink-headings wrap the heading text.
-   *
-   * The weight has to be restated: the anchor is an <a> inside the heading, so
-   * prose-a:font-medium (500) applies to it and the heading's own 600 does not
-   * inherit through. Without this the linked headings render a step lighter
-   * than the unlinked ones and the article looks inconsistent for no reason.
-   */
-  .prose h2 > a,
-  .prose h3 > a,
-  .prose h4 > a {
-    @apply no-underline text-inherit;
-    font-weight: 600;
-  }
-
-  .prose h2 > a:hover,
-  .prose h3 > a:hover {
-    @apply text-brand-700 dark:text-brand-400;
-  }
-
-  /* Outbound links inside article bodies get a subtle affordance. */
-  .prose a[target='_blank']::after {
-    content: ' ↗';
-    @apply text-xs text-slate-400;
-  }
-}
-
 /*
  * Notched cards
  * =============
@@ -350,8 +1030,6 @@
     --arrow-size: 3rem; /* 48px */
     --arrow-icon: 1.125rem;
   }
-
-  /* Tablet: same shapes, a little smaller. */
   @media (max-width: 1024px) {
     :root {
       --notch-card-r: 1.75rem;
@@ -359,145 +1037,11 @@
       --arrow-size: 2.875rem;
     }
   }
-
-  /* Mobile: 44px is the minimum comfortable touch target, so the button stops there. */
   @media (max-width: 640px) {
     :root {
       --notch-card-r: 1.625rem;
       --notch-image-r: 1.5rem;
       --arrow-size: 2.75rem; /* 44px */
-    }
-  }
-
-  .notched-card,
-  .notched-image {
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-  }
-
-  /* Button hangs off the corner: cut-out centred close to it. */
-  .notched-card {
-    --notch-c: var(--notch-card-inset);
-    --notch-r: var(--notch-card-r);
-    -webkit-mask-image: radial-gradient(
-      circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
-      transparent 0 var(--notch-r),
-      #000 calc(var(--notch-r) + 0.5px)
-    );
-    mask-image: radial-gradient(
-      circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
-      transparent 0 var(--notch-r),
-      #000 calc(var(--notch-r) + 0.5px)
-    );
-  }
-
-  /* Button sits inside the frame: cut-out centred one radius in. */
-  .notched-image {
-    --notch-c: var(--notch-image-r);
-    --notch-r: var(--notch-image-r);
-    -webkit-mask-image: radial-gradient(
-      circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
-      transparent 0 var(--notch-r),
-      #000 calc(var(--notch-r) + 0.5px)
-    );
-    mask-image: radial-gradient(
-      circle at calc(100% - var(--notch-c)) calc(100% - var(--notch-c)),
-      transparent 0 var(--notch-r),
-      #000 calc(var(--notch-r) + 0.5px)
-    );
-  }
-
-  /* Wrapper that owns the positioning context for a notched image + its button. */
-  .article-image-wrap {
-    position: relative;
-  }
-
-  /*
-   * The button. Centred on the cut-out by construction: half its width back from
-   * the notch centre, so it stays concentric at every breakpoint as the custom
-   * properties change.
-   */
-  .card-arrow,
-  .image-arrow,
-  .inline-arrow {
-    /* Same surface, ring and ink as the header tiles' arrow, so every detached
-       CTA on the page reads as one control rather than three near-misses. */
-    background: var(--pc-arrow-bg);
-    border: 1px solid var(--pc-arrow-border);
-    color: var(--pc-arrow-ink);
-    display: grid;
-    place-items: center;
-    width: var(--arrow-size);
-    height: var(--arrow-size);
-    border-radius: 9999px;
-    transition:
-      transform 200ms ease,
-      background-color 200ms ease,
-      color 200ms ease,
-      border-color 200ms ease;
-  }
-
-  /* The detached pair hang in a mask cut-out, so they are positioned against the
-     card or image that owns them. */
-  .card-arrow,
-  .image-arrow {
-    position: absolute;
-  }
-
-  /* Same control in normal flow, for a card with no cut-out to hang in. It sits
-     in a flex row, so it must not be squeezed below its touch target. */
-  .inline-arrow {
-    flex: none;
-  }
-
-  .card-arrow {
-    right: calc(var(--notch-card-inset) - var(--arrow-size) / 2);
-    bottom: calc(var(--notch-card-inset) - var(--arrow-size) / 2);
-  }
-
-  .image-arrow {
-    right: calc(var(--notch-image-r) - var(--arrow-size) / 2);
-    bottom: calc(var(--notch-image-r) - var(--arrow-size) / 2);
-  }
-
-  .card-arrow svg,
-  .image-arrow svg,
-  .inline-arrow svg {
-    width: var(--arrow-icon);
-    height: var(--arrow-icon);
-  }
-
-  /* Nudge up and to the right, as if following the arrow. */
-  .group:hover .card-arrow,
-  .group:hover .image-arrow,
-  .group:hover .inline-arrow,
-  .card-arrow:hover,
-  .image-arrow:hover,
-  .inline-arrow:hover {
-    transform: translate(3px, -3px) rotate(-8deg);
-  }
-
-  .card-arrow:focus-visible,
-  .image-arrow:focus-visible,
-  .inline-arrow:focus-visible {
-    outline: 2px solid theme('colors.brand.600');
-    outline-offset: 3px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .card-arrow,
-    .image-arrow,
-    .inline-arrow {
-      transition: background-color 200ms ease, color 200ms ease;
-    }
-
-    .group:hover .card-arrow,
-    .group:hover .image-arrow,
-    .group:hover .inline-arrow,
-    .card-arrow:hover,
-    .image-arrow:hover,
-    .inline-arrow:hover {
-      transform: none;
     }
   }
 }
@@ -518,10 +1062,10 @@
 @layer components {
   :root {
     --post-card-bg: #ffffff;
-    --post-card-border: theme('colors.slate.200');
-    --post-text: theme('colors.slate.900');
-    --post-muted: theme('colors.slate.500');
-    --post-badge-bg: theme('colors.slate.900');
+    --post-card-border: var(--color-slate-200);
+    --post-text: var(--color-slate-900);
+    --post-muted: var(--color-slate-500);
+    --post-badge-bg: var(--color-slate-900);
     --post-badge-fg: #ffffff;
 
     --post-card-radius: 0.5rem; /* 8px */
@@ -535,284 +1079,10 @@
     --compact-min-h: 6.875rem; /* 110px */
   }
 
-  :root.dark {
-    --post-card-bg: theme('colors.card');
-    --post-card-border: theme('colors.card-edge');
-    --post-text: #ffffff;
-    --post-muted: rgb(255 255 255 / 0.4);
-    --post-badge-bg: #0d0f0f;
-    --post-badge-fg: #ffffff;
-  }
-
-  .featured-post-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--post-grid-gap);
-    align-items: stretch;
-  }
-
-  .compact-post-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--compact-gap) 1.25rem;
-    margin-top: var(--post-grid-gap);
-  }
-
-  @media (max-width: 1023px) {
-    .featured-post-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
   @media (max-width: 699px) {
     :root {
       --post-card-pad: 1.125rem;
       --compact-thumb: 4.75rem;
-    }
-    .featured-post-grid,
-    .compact-post-grid {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-
-  /* ---- large card ---- */
-  .featured-post-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: var(--post-card-pad);
-    /* Room at the foot so the detached arrow never sits over the excerpt. */
-    padding-bottom: calc(var(--post-card-pad) + 1.25rem);
-    background: var(--post-card-bg);
-    border: 1px solid var(--post-card-border);
-    border-radius: var(--post-card-radius);
-  }
-
-  .featured-post-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-  }
-
-  .featured-post-meta-left {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    min-width: 0;
-  }
-
-  .post-badge {
-    display: inline-block;
-    padding: 0.5rem 0.75rem;
-    border-radius: 9999px;
-    background: var(--post-badge-bg);
-    color: var(--post-badge-fg);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    line-height: 1;
-    white-space: nowrap;
-  }
-
-  .post-dot {
-    color: var(--post-muted);
-  }
-
-  .post-muted {
-    color: var(--post-muted);
-    font-size: 0.75rem;
-  }
-
-  .bookmark-btn {
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-    width: 1.625rem;
-    height: 1.625rem;
-    border: 1px solid var(--post-card-border);
-    border-radius: 0.3125rem;
-    background: transparent;
-    color: var(--post-muted);
-    transition: color 200ms ease, border-color 200ms ease;
-  }
-
-  .bookmark-btn svg {
-    width: 0.875rem;
-    height: 0.875rem;
-  }
-
-  .bookmark-btn:hover,
-  .bookmark-btn[aria-pressed='true'] {
-    color: var(--post-text);
-    border-color: var(--post-text);
-  }
-
-  .bookmark-btn:focus-visible,
-  .compact-post-link:focus-visible,
-  .featured-post-title a:focus-visible,
-  .featured-post-figure:focus-visible {
-    outline: 2px solid theme('colors.brand.600');
-    outline-offset: 3px;
-  }
-
-  /*
-   * Fixed title box. Without it the three cards' images start at different
-   * heights whenever one headline wraps to a third line.
-   */
-  .featured-post-title {
-    margin-top: 1rem;
-    min-height: 2.75rem;
-    font-size: 1.0625rem;
-    font-weight: 700;
-    line-height: 1.15;
-    color: var(--post-text);
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-
-  .featured-post-title a:hover {
-    color: theme('colors.brand.600');
-  }
-
-  .featured-post-figure {
-    display: block;
-    margin-top: 1rem;
-    border-radius: var(--post-image-radius);
-    overflow: hidden;
-  }
-
-  .featured-post-figure img {
-    display: block;
-    width: 100%;
-    height: var(--post-image-h);
-    object-fit: cover;
-    object-position: left center;
-    border-radius: var(--post-image-radius);
-  }
-
-  .featured-post-excerpt {
-    margin-top: 1rem;
-    /* Clear of the arrow's corner. */
-    padding-right: 3.25rem;
-    color: var(--post-muted);
-    font-size: 0.75rem;
-    line-height: 1.55;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-  }
-
-  .post-arrow {
-    background: var(--post-card-bg);
-    border: 1px solid var(--post-card-border);
-    color: var(--post-text);
-  }
-
-  .post-arrow:hover {
-    background: theme('colors.brand.600');
-    border-color: theme('colors.brand.600');
-    color: #ffffff;
-  }
-
-  /* ---- compact card ---- */
-  .compact-post-card {
-    background: var(--post-card-bg);
-    border: 1px solid var(--post-card-border);
-    border-radius: var(--compact-radius);
-    transition: border-color 200ms ease, transform 200ms ease;
-  }
-
-  .compact-post-card:hover {
-    border-color: var(--post-muted);
-    transform: translateY(-2px);
-  }
-
-  .compact-post-link {
-    display: flex;
-    align-items: center;
-    gap: 0.9375rem;
-    min-height: var(--compact-min-h);
-    padding: 0.75rem;
-    border-radius: inherit;
-  }
-
-  .compact-post-thumb {
-    flex-shrink: 0;
-    width: var(--compact-thumb);
-    height: var(--compact-thumb);
-    object-fit: cover;
-    object-position: left center;
-    border-radius: 0.5rem;
-    display: block;
-  }
-
-  .compact-post-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    min-width: 0;
-  }
-
-  .compact-post-title {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--post-text);
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-
-  .compact-post-card:hover .compact-post-title {
-    color: theme('colors.brand.600');
-  }
-
-  .compact-post-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.375rem;
-    color: var(--post-muted);
-    font-size: 0.6875rem;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .compact-post-card {
-      transition: border-color 200ms ease;
-    }
-    .compact-post-card:hover {
-      transform: none;
-    }
-  }
-}
-
-/*
- * Compact cards alternate width row by row, as in the reference: narrow-wide,
- * then wide-narrow, then narrow-wide again.
- *
- * CSS grid cannot vary column widths per row, so the row is laid out on a
- * 21-column track and each card spans either 9 or 12 of them (43% / 57%). The
- * pattern repeats every four cards, which is what produces the two-row swap.
- */
-@layer components {
-  @media (min-width: 700px) {
-    .compact-post-grid {
-      grid-template-columns: repeat(21, minmax(0, 1fr));
-    }
-
-    .compact-post-grid > *:nth-child(4n + 1),
-    .compact-post-grid > *:nth-child(4n + 4) {
-      grid-column: span 9;
-    }
-
-    .compact-post-grid > *:nth-child(4n + 2),
-    .compact-post-grid > *:nth-child(4n + 3) {
-      grid-column: span 12;
     }
   }
 }
@@ -844,50 +1114,6 @@
      * surface is invisible, and a lighter tint would glow rather than recede.
      */
     --cs-light-primary-color-rgb: 35, 33, 89;
-  }
-
-  :root.dark {
-    --page-bg: theme('colors.night.50');
-    --pc-arrow-bg: theme('colors.card');
-    --pc-arrow-border: theme('colors.card-edge');
-    --pc-arrow-ink: #ffffff;
-    --cs-light-primary-color-rgb: 0, 0, 0;
-  }
-
-  /*
-   * Card lift on /articles.
-   *
-   * Scoped to that page rather than put on ArticleCard itself, because the same
-   * component also renders on the category, author and search listings — styling
-   * the component would have changed all of them, which is more than was asked
-   * for. Promoting this site-wide later is a one-line move: drop the wrapper and
-   * apply it in the component.
-   *
-   * The card's own hover:shadow-lg still wins on hover, since Tailwind's
-   * utilities layer is emitted after components — so this is the resting state
-   * and the hover lift is unaffected.
-   */
-  .articles-grid > article {
-    box-shadow: 0 8px 32px 0 rgba(var(--cs-light-primary-color-rgb), 0.07);
-  }
-}
-
-@layer components {
-  /*
-   * Wraps a category row's featured cards and its compact list in one bordered
-   * group. The cards inside keep their own surface; this is the container that
-   * makes the two halves read as a single section.
-   */
-.category-block {
-    padding: 0;
-    border: 0;
-    background: transparent;
-  }
-
-  @media (max-width: 699px) {
-    .category-block {
-      padding: 0;
-    }
   }
 }
 

@@ -208,7 +208,7 @@ export default function ProductsPage() {
             {/* Title matching exact typography */}
             <h1 className="mt-5 text-3xl font-bold sm:text-4xl lg:text-5xl leading-[1.15] text-slate-900 dark:text-white">
               Compare Smart Home <br />
-              <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-indigo-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-indigo-400">
+              <span className="bg-linear-to-r from-emerald-600 via-teal-500 to-indigo-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-indigo-400">
                 Devices in Australia
               </span>
             </h1>
@@ -234,7 +234,7 @@ export default function ProductsPage() {
 
           {/* Right Column: Real Transparent Product Showcase Grid */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            <div className="relative w-full overflow-hidden rounded-[8px] border border-slate-200/80 bg-gradient-to-b from-white/90 to-emerald-50/60 p-6 dark:border-slate-700/80 dark:bg-gradient-to-b dark:from-slate-800/80 dark:to-slate-900/90">
+            <div className="relative w-full overflow-hidden rounded-[8px] border border-slate-200/80 bg-linear-to-b from-white/90 to-emerald-50/60 p-6 dark:border-slate-700/80 dark:bg-linear-to-b dark:from-slate-800/80 dark:to-slate-900/90">
               <div className="absolute right-3 top-3 rounded-[8px] bg-emerald-100 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
                 AU STOCKS TESTED
               </div>
@@ -340,7 +340,7 @@ export default function ProductsPage() {
           horizontally on narrow screens rather than wrapping into a block that
           competes with the grid below it. */}
       <nav aria-label="Product categories" className="-mx-4 mb-5 px-4 sm:mx-0 sm:px-0">
-        <ul className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <ul className="flex gap-2 overflow-x-auto pb-1 scrollbar-none [&::-webkit-scrollbar]:hidden">
           {productCategoryNavLinks.map((cat) => (
             <li key={cat.href} className="shrink-0">
               <Link

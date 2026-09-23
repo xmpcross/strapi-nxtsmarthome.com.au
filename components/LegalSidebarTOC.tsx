@@ -75,7 +75,7 @@ export default function LegalSidebarTOC() {
                       history.pushState(null, '', `#${item.id}`);
                     }
                   }}
-                  className={`block -ml-[2px] border-l-2 py-1 pl-3.5 text-[14px] leading-snug transition-colors ${
+                  className={`block ml-[-2px] border-l-2 py-1 pl-3.5 text-[14px] leading-snug transition-colors ${
                     item.level === 3 ? 'ml-3 text-[13px]' : 'font-medium'
                   } ${
                     isActive

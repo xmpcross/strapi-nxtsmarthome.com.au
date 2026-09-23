@@ -27,8 +27,8 @@ export default function ArticleCard({ article, featured = false }: Props) {
         the sides and slice the headline that is baked into the artwork.
       */}
       <div
-        className={`relative flex shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-brand-500 to-brand-700 text-5xl ${
-          featured ? 'sm:h-auto sm:w-2/5 sm:text-7xl' : 'aspect-[2/1] w-full'
+        className={`relative flex shrink-0 items-center justify-center overflow-hidden bg-linear-to-br from-brand-500 to-brand-700 text-5xl ${
+          featured ? 'sm:h-auto sm:w-2/5 sm:text-7xl' : 'aspect-2/1 w-full'
         }`}
         aria-hidden="true"
       >

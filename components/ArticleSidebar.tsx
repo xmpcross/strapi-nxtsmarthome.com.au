@@ -86,7 +86,7 @@ export default function ArticleSidebar({
                     <span aria-hidden="true">{c.emoji}</span>
                     <span className="truncate">{c.name}</span>
                   </span>
-                  <span className="shrink-0 rounded bg-slate-100 px-1.5 py-0.5 text-xs font-medium tabular-nums text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                  <span className="shrink-0 rounded-sm bg-slate-100 px-1.5 py-0.5 text-xs font-medium tabular-nums text-slate-500 dark:bg-slate-800 dark:text-slate-400">
                     {c.count}
                   </span>
                 </Link>

@@ -135,7 +135,7 @@ export default async function CategoriesIndex() {
 
             <h1 className="mt-5 text-3xl font-extrabold sm:text-4xl lg:text-5xl leading-tight text-slate-900 dark:text-white">
               Explore Smart Home <br className="hidden sm:inline" />
-              <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-brand-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-brand-300">
+              <span className="bg-linear-to-r from-emerald-600 via-teal-600 to-brand-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-brand-300">
                 Topics &amp; Buying Guides
               </span>
             </h1>
@@ -162,7 +162,7 @@ export default async function CategoriesIndex() {
 
           {/* Right Side: Real Transparent Product Showcase Card */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            <div className="relative w-full overflow-hidden rounded-[8px] border border-slate-200/80 bg-gradient-to-b from-white/90 to-emerald-50/60 p-6 dark:border-slate-700/80 dark:bg-gradient-to-b dark:from-slate-800/80 dark:to-slate-900/90">
+            <div className="relative w-full overflow-hidden rounded-[8px] border border-slate-200/80 bg-linear-to-b from-white/90 to-emerald-50/60 p-6 dark:border-slate-700/80 dark:bg-linear-to-b dark:from-slate-800/80 dark:to-slate-900/90">
               <div className="absolute right-3 top-3 rounded-[8px] bg-emerald-100 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
                 AU Stocks Tested
               </div>
@@ -290,7 +290,7 @@ export default async function CategoriesIndex() {
             <article className="group relative overflow-hidden rounded-[8px] border border-slate-200 bg-white p-2 shadow-md transition-all duration-300 hover:border-brand-500/40 hover:shadow-xl dark:border-card-edge dark:bg-card dark:hover:border-brand-500/40">
               <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
                 {/* Image Container */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[8px] bg-slate-100 lg:col-span-7 dark:bg-slate-800">
+                <div className="relative aspect-video w-full overflow-hidden rounded-[8px] bg-slate-100 lg:col-span-7 dark:bg-slate-800">
                   <img
                     src={coverFor(lead)}
                     alt={lead.title}
@@ -298,7 +298,7 @@ export default async function CategoriesIndex() {
                     height={500}
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-60 transition-opacity group-hover:opacity-40" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent opacity-60 transition-opacity group-hover:opacity-40" />
                   {lead.categoryMeta && (
                     <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-slate-900/80 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md dark:bg-black/80">
                       <span aria-hidden="true">{lead.categoryMeta.emoji}</span>
@@ -356,9 +356,9 @@ export default async function CategoriesIndex() {
                 {alsoFeatured.map((article) => (
                   <article
                     key={article.slug}
-                    className="group relative flex flex-col overflow-hidden rounded-[8px] border border-slate-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-lg dark:border-card-edge dark:bg-card dark:hover:border-brand-500/30"
+                    className="group relative flex flex-col overflow-hidden rounded-[8px] border border-slate-200 bg-white p-4 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-lg dark:border-card-edge dark:bg-card dark:hover:border-brand-500/30"
                   >
-                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
+                    <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
                       <img
                         src={coverFor(article)}
                         alt={article.title}
@@ -367,7 +367,7 @@ export default async function CategoriesIndex() {
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       {article.categoryMeta && (
-                        <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-slate-900/80 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-sm dark:bg-black/80">
+                        <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-slate-900/80 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-xs dark:bg-black/80">
                           <span>{article.categoryMeta.emoji}</span>
                           <span>{article.categoryMeta.name}</span>
                         </span>
