@@ -7,6 +7,7 @@ import './magzin-post-cards.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
+import HeadScripts from '@/components/HeadScripts';
 import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
 import { getNav } from '@/lib/nav';
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
   // Verification codes are per-site — do not copy one between domains.
   //
   // Affiliate link affiliation is handled by the Geniuslink script injected
-  // after the static export; see scripts/inject-geniuslink.mjs.
+  // from <head>; see components/HeadScripts.tsx.
   verification: {
     other: {
       'msvalidate.01': '057158952120360611CA2F41AD7D5B50',
@@ -117,6 +118,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
 
+        <HeadScripts />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.classList.toggle('dark',t?t==='dark':true)}catch(e){document.documentElement.classList.add('dark')}})()`,
@@ -137,7 +140,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <CookieBanner />
-        {/* Geniuslink is injected into exported HTML by scripts/inject-geniuslink.mjs. */}
       </body>
     </html>
   );

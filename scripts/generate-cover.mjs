@@ -182,17 +182,6 @@ if (GREY) {
   });
 }
 
-// Copy to web root if exists
-const WEB_ROOT = '/var/www/html/nxtsmarthome.com.au/covers';
-if (fs.existsSync(WEB_ROOT)) {
-  const mainWebp = path.join(OUT_DIR, `${slug}.webp`);
-  const sqWebp = path.join(OUT_DIR, 'square', `${slug}.webp`);
-  if (fs.existsSync(mainWebp)) {
-    fs.copyFileSync(mainWebp, path.join(WEB_ROOT, `${slug}.webp`));
-  }
-  if (fs.existsSync(sqWebp)) {
-    fs.mkdirSync(path.join(WEB_ROOT, 'square'), { recursive: true });
-    fs.copyFileSync(sqWebp, path.join(WEB_ROOT, 'square', `${slug}.webp`));
-  }
-  console.log(`Synced webp covers to ${WEB_ROOT}`);
-}
+// The site runs on `next start`, which serves public/ as it was at build time:
+// new covers go live with the next ./deploy.sh.
+console.log('Covers written to public/covers/ -- run ./deploy.sh to publish them.');

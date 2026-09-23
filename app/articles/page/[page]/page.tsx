@@ -4,6 +4,9 @@ import ArticlesList from '@/components/ArticlesList';
 import { pageCount } from '@/components/Pagination';
 import { getAllArticles } from '@/lib/content';
 
+// Listings refresh from Strapi every 5 minutes (ISR), like the article pages.
+export const revalidate = 300;
+
 /**
  * Pages two and up. Page one stays at /articles/, so /articles/page/1/ is
  * deliberately never generated — it would be a duplicate of the list under a

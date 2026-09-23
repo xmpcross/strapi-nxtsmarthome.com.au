@@ -1,12 +1,13 @@
 # nxtsmarthome.com.au
 
-Smart home blog for the Australian market. Next.js static export, Strapi-backed
-editorial content, a local product catalogue, nginx hosting, affiliate tracking,
-consent handling, analytics and advertising.
+Smart home blog for the Australian market. A Next.js server (`next start`) with
+Strapi-backed editorial content, a local product catalogue, nginx in front,
+affiliate tracking, consent handling, analytics and advertising.
 
-The production site is still a flat-file export. There is no Node process in
-production, but the build now reads posts, authors, navigation and cover media
-from Strapi before writing `out/`.
+Since 24 Sep 2026 production runs as a Node server, like bestlooking.skin and
+originfacts.com: `nxtsmarthome-com-au.service` on `127.0.0.1:3013`, behind
+nginx and Cloudflare. Posts and listings refresh from Strapi by ISR every 5
+minutes and the sitemap hourly, so publishing a post in Strapi needs no deploy.
 
 **Source of truth is split deliberately:**
 
@@ -28,9 +29,9 @@ cd /opt/projects/nxtsmarthome.com.au
 nvm use 22
 
 npm run dev                # local dev on http://localhost:3011
-npm run build              # prebuild + Next static export + postbuild injectors
-git push origin master      # production: Cloudflare Pages builds and deploys
-npm run deploy             # legacy: publish to the /opt nginx copy (no longer serves the site)
+npm run build              # prebuild + next build (production server build)
+./deploy.sh                # production: build aside, swap in, restart, IndexNow
+                           # (npm run deploy runs the same script)
 npm run deploy:preview     # build/publish preview target
 npm run seed:menu          # seed/update Strapi navigation menu
 npm run new:article -- "Title" <category> <type> [--author=slug]
@@ -41,7 +42,8 @@ run `nvm use 22` first.
 
 Always use `npm run build`, never `npx next build`; the npm lifecycle is part of
 the product. `prebuild` creates the search index, redirect/header files, nav cache
-and author cache. `postbuild` injects the Geniuslink and GA4 scripts into the exported HTML.
+and author cache. GA4 and Geniuslink are rendered into `<head>` by
+`components/HeadScripts.tsx`; their inline code is in `public/js/`.
 
 ## Content source
 
@@ -50,7 +52,7 @@ Published articles come from Strapi via `lib/strapi.ts` and are adapted in
 still consume `Article` objects, but the source is now:
 
 ```text
-Strapi nxtsmarthome-posts  ->  lib/strapi.ts  ->  lib/content.ts  ->  static export
+Strapi nxtsmarthome-posts  ->  lib/strapi.ts  ->  lib/content.ts  ->  next start (ISR, 5 min)
 ```
 
 The build asks Strapi for `status=published`, populates categories, author,
@@ -199,8 +201,8 @@ CONTACT_TO / CONTACT_FROM        recipient / sender (sender defaults to SMTP_USE
 CONTACT_ORIGIN                   CORS origin, default https://nxtsmarthome.com.au
 ```
 
-Values are read at build time and baked into `out/`, so rebuild after changing
-them. On Cloudflare Pages they come from the dashboard, never from `.env.local`.
+`NEXT_PUBLIC_*` values are read at build time and baked into the build, so run
+`./deploy.sh` after changing them in `.env.local`.
 
 ### Consent and advertising
 
@@ -217,7 +219,7 @@ no analytics is present.
 ## Structure
 
 ```text
-app/                         routes (App Router, static export)
+app/                         routes (App Router, served by next start)
   [category]/[slug]/         article template — live article URL
   articles/                  article index, paginated at /articles/page/2/
   categories/[slug]/         category landing pages
@@ -263,8 +265,8 @@ scripts/
 Articles live at `/<category-slug>/<article-slug>/`. The site category key can
 be different from the URL slug; `lib/site.ts` holds the mapping.
 
-Legacy article URLs used `/articles/<slug>/`. A static export cannot redirect by
-itself, so `scripts/gen-redirects.mjs` writes all host formats on `prebuild`:
+Legacy article URLs used `/articles/<slug>/`. `scripts/gen-redirects.mjs` writes
+the 301s in every host format on `prebuild`:
 
 ```text
 public/_redirects        Cloudflare Pages / Workers / Netlify format
@@ -272,36 +274,58 @@ public/_headers          security and cache headers for the same hosts
 public/_redirects.map    the same 301s as an nginx map
 ```
 
-All three ship inside `out/`, so they land in the web root with the pages. The
-nginx vhost includes `_redirects.map` from the web root, which keeps redirect
-rules in the repository and portable across hosts.
+nginx includes `public/_redirects.map` straight from this checkout, and
+`deploy.sh` reloads nginx after each build. The redirect rules stay in the
+repository and portable across hosts. nginx returns 404 for
+`/_redirects*` and `/_headers`, so they are never served.
 
 Trailing slashes are canonical. Internal links should use `/articles/foo/`, not
 `/articles/foo`.
 
 ## Deployment
 
-**Production is Cloudflare Pages (since 24 Sep 2026).** A push to `master`
-builds and deploys the site; work on `master` only. Strapi content appears after
-the next build. See [`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md).
-
-The sections below describe the previous self-hosted setup on **178.105.206.112**
-(nginx serving `/var/www/html/nxtsmarthome.com.au`). It is kept for fallback and
-is due to be retired.
+Production runs on this server (**51.161.208.188**) from this checkout. Work on
+`master`; pushing does not publish anything.
 
 ```bash
-npm run deploy                             # build and publish on this machine
-DEPLOY_HOST=root@host npm run deploy       # build here, publish to another server over ssh
+cd /opt/projects/nxtsmarthome.com.au
+./deploy.sh                # build the working tree, swap it in, restart
+./deploy.sh --pull         # git pull --ff-only first
+./deploy.sh --allow-dirty  # build with uncommitted changes (refuses otherwise)
 ```
 
-`scripts/deploy.sh` builds, refuses to continue without `out/index.html` and
-`out/_redirects.map`, tars the current web root into
-`/opt/backups/nxtsmarthome.com.au` on the target (keeping five), rsyncs `out/`
-with `--delete`, fixes ownership, runs `nginx -t` before reloading, and submits
-changed URLs to IndexNow.
+| Piece | Where |
+| --- | --- |
+| App | `nxtsmarthome-com-au.service`: `next start -H 127.0.0.1 -p 3013`, Node 22 (nvm), env from `.env.local`, log `/var/log/nxtsmarthome-com-au.log`. Unit file: `deploy/systemd/` |
+| nginx | `deploy/nginx/sites-available/nxtsmarthome.com.au` + `snippets/nxtsmarthome-site.conf`: TLS, www → apex, 301 map, `/api/*` to the contact service, `/preview/`, everything else proxied to 3013 |
+| 301 map | `public/_redirects.map`, generated by `prebuild`, included by nginx; `deploy.sh` reloads nginx |
+| Forms | `nxtsmarthome-contact.service` on 4320 (below) |
+| TLS | Let's Encrypt, webroot renewal via `/var/www/certbot-webroot`; Cloudflare SSL mode Full (strict) |
 
-That output check matters: a bare `npm run build && rsync` can republish the
-previous build if the export failed or did not produce the files expected.
+What `deploy.sh` does:
+- Builds into `.next-build` while the live server keeps serving `.next`.
+- Only after a successful build does it stop the service, swap the directories
+  and start again. Downtime is a few seconds, and a failed build never touches
+  the live site.
+- Checks the home page and that every stylesheet it links returns 200. If not,
+  it rolls back to the previous build.
+- Reloads nginx for the redirect map.
+- Submits to IndexNow the sitemap URLs that are new or whose `lastmod` changed.
+
+When a change needs a deploy:
+- **Strapi posts, authors and listings** do not; they refresh within 5 minutes.
+- **Code, the product catalogue, covers in `public/`, the nav cache and the
+  search index** do; they change only with a build.
+
+Hosting history:
+- A static export on nginx until 24 Sep 2026.
+- Cloudflare Pages/Workers, briefly, the same day. It was switched off because
+  the form Functions never ran there and the Geniuslink TSID was missing.
+  [`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md) is kept for reference.
+
+The draft preview (`npm run deploy:preview`) is still a static export. It is
+published to `/var/www/nxtsmarthome-preview/preview` and served at `/preview/`
+with `noindex`.
 
 ### Contact and comment forms
 
@@ -330,10 +354,10 @@ When delivery fails, the reader gets a 502 that asks them to email
 For mail sent through Stalwart to pass SPF and DKIM, the domain's DNS needs
 `ip4:51.161.208.188` in SPF and Stalwart's DKIM records. MX stays on Google.
 
-### Cloudflare Pages (production since 24 Sep 2026)
+### Cloudflare Pages (disabled)
 
-Pages builds `master` on every push, so work on `master` only. Strapi changes
-appear after the next build. The repo's Pages pieces:
+Not in use; production is `npm run deploy` on the server. The repo keeps the
+Pages pieces:
 - `functions/api/contact.js` and `functions/api/comment.js` do the service's job
   with the same checks, sending with `worker-mailer`.
 - `scripts/pages-build.sh` is the build command. It refuses to run without the
@@ -398,8 +422,8 @@ Two details in the serving config are load-bearing:
 - `master` now includes the Strapi-driven content work merged in PR #4 on
   2026-08-23. Before that merge, rebuilding from `master` would not match what
   was deployed.
-- Hosting history: Cloudflare Workers/Pages, then nginx on /opt from 23 Aug 2026,
-  and Cloudflare Pages again from 24 Sep 2026. See
+- Hosting history: Cloudflare Workers/Pages, then nginx on /opt from 23 Aug 2026;
+  a brief return to Cloudflare on 24 Sep 2026 was reverted the same day. See
   [`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md).
 - The contact and comment forms post to `/api/contact` and `/api/comment`. On
   the server, nginx proxies these to `nxtsmarthome-contact.service`
@@ -408,7 +432,7 @@ Two details in the serving config are load-bearing:
   24 Sep 2026.
 - `content/articles/` is not the live article store. Update Strapi for published
   content.
-- `out/`, `public/search-index.json`, `public/_redirects`, `public/_headers` and
+- `.next*/`, `out/`, `public/search-index.json`, `public/_redirects`, `public/_headers` and
   `public/_redirects.map` are build artefacts and are gitignored.
 - `scratch/` is gitignored; catalogue backups, API task payloads and unused
   components there should not reach the public repository.

@@ -23,3 +23,8 @@ scratch/
 # not something to carry in the repo — the sources are merchant images.
 public/images/products.bak/
 public/images/retailers.bak/
+
+# deploy.sh side builds
+.next-build/
+.next-prev/
+.next-preview/

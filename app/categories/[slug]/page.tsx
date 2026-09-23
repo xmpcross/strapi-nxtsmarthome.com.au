@@ -4,6 +4,9 @@ import CategoryView from '@/components/CategoryView';
 import { categoriesWithCounts, getAllArticles, getArticlesByCategory } from '@/lib/content';
 import { categories, getCategory } from '@/lib/site';
 
+// Listings refresh from Strapi every 5 minutes (ISR), like the article pages.
+export const revalidate = 300;
+
 export async function generateStaticParams() {
   return categories.map((category) => ({ slug: category.slug }));
 }

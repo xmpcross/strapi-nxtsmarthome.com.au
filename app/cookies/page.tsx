@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         review and serve the site. The page says so explicitly rather than
         leaving the earlier "neither runs until you choose" claim standing.
       - Google Analytics loads with Consent Mode v2 defaults of denied
-        (scripts/inject-ga.mjs). The choice is made in
+        (components/HeadScripts.tsx). The choice is made in
         components/CookieBanner.tsx and stored as nxt.consent.v1.
       - no Facebook pixel — facebook.com appears only as a footer link
       - retailer domains appear only as outbound links, not scripts
