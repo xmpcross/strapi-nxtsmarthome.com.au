@@ -1,5 +1,5 @@
 /**
- * Google Analytics and Geniuslink, rendered into <head> on every page.
+ * Google Analytics, Geniuslink and Sovrn Commerce, rendered into <head> on every page.
  *
  * These used to be injected into the exported HTML after the build
  * (scripts/inject-ga.mjs, scripts/inject-geniuslink.mjs), because anything React
@@ -12,11 +12,14 @@
  *
  * GA runs with Consent Mode v2 defaults denied until the cookie banner grants
  * them. Geniuslink converts Amazon links on page load; no TSID, no script.
+ * Sovrn affiliates other merchant links and loads only after consent
+ * (public/js/sovrn-init.js, released by the cookie banner); no key, no script.
  */
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-SY9XCRZH2K';
 const GENIUSLINK_TSID = (process.env.NEXT_PUBLIC_GENIUSLINK_TSID || '').trim();
 const GENIUSLINK_BASE = process.env.NEXT_PUBLIC_GENIUSLINK_BASE_URL || 'https://buy.geni.us';
 const GENIUSLINK_PRESERVE = process.env.NEXT_PUBLIC_GENIUSLINK_PRESERVE_EXISTING === 'true';
+const SOVRN_KEY = (process.env.NEXT_PUBLIC_SOVRN_KEY || '').trim();
 
 export default function HeadScripts() {
   const geniuslink = /^\d+$/.test(GENIUSLINK_TSID);
@@ -37,6 +40,7 @@ export default function HeadScripts() {
           />
         </>
       )}
+      {SOVRN_KEY && <script src="/js/sovrn-init.js" defer data-key={SOVRN_KEY} />}
     </>
   );
 }

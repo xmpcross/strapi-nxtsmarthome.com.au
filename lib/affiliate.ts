@@ -11,6 +11,8 @@ export type Network = 'direct';
 const ids = {
   /** Geniuslink JavaScript snippet TSID for link affiliation/localization. */
   geniuslinkTsid: process.env.NEXT_PUBLIC_GENIUSLINK_TSID ?? '',
+  /** Sovrn Commerce (VigLink) public key; the script loads after cookie consent. */
+  sovrnKey: process.env.NEXT_PUBLIC_SOVRN_KEY ?? '',
 };
 
 export interface AffiliateOptions {
@@ -38,6 +40,7 @@ export function affiliateUrl(rawUrl: string, options: AffiliateOptions = {}): st
 export function configuredNetworks(): string[] {
   const live: string[] = [];
   if (ids.geniuslinkTsid) live.push('Geniuslink');
+  if (ids.sovrnKey) live.push('Sovrn Commerce');
   return live;
 }
 

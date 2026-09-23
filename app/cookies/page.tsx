@@ -17,6 +17,8 @@ export const metadata: Metadata = {
     The factual content below should be checked against what the built site
     actually loads whenever scripts change:
       - Geniuslink for affiliate link affiliation
+      - cdn.viglink.com (Sovrn Commerce), consent-gated: public/js/sovrn-init.js
+        parks its loader on window.__nxtLoadSovrn until the banner is accepted
       - googletagmanager.com/gtag/js for Google Analytics
       - pagead2.googlesyndication.com for AdSense
       - AdSense is NOT consent-gated: the tag must be present for Google to
@@ -102,13 +104,18 @@ export default function CookiesPage() {
 
             <h3>Affiliate tracking</h3>
             <p>
-              We take part in affiliate programmes, which is how the site is funded. Two things can
+              We take part in affiliate programmes, which is how the site is funded. Three things can
               happen here:
             </p>
             <ul>
               <li>
                 Geniuslink may affiliate supported outbound merchant links and route clicks through
                 its tracking service.
+              </li>
+              <li>
+                A commerce script from Sovrn attributes outbound merchant links, and may set a
+                cookie to record which link you followed. Like the analytics tag, it is not loaded at
+                all until you accept.
               </li>
               <li>
                 When you click through to a retailer such as Amazon AU, eBay AU, JB Hi-Fi, The Good
