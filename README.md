@@ -352,8 +352,14 @@ Two details in the serving config are load-bearing:
 - `master` now includes the Strapi-driven content work merged in PR #4 on
   2026-08-23. Before that merge, rebuilding from `master` would not match what
   was deployed.
-- The site moved back from Cloudflare Workers/Pages to nginx. `wrangler.jsonc`
-  remains only as fallback host history.
+- The site moved back from Cloudflare Workers/Pages to nginx on 23 Aug 2026.
+  It is prepared to return to Pages (`wrangler.jsonc`, `functions/`,
+  `scripts/pages-build.sh`). See [`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md).
+- The contact and comment forms post to `/api/contact` and `/api/comment`. On
+  the server, nginx proxies these to `nxtsmarthome-contact.service`
+  (`/opt/nxtsmarthome-contact`); on Pages, `functions/api/` handles them. Both
+  send through Stalwart SMTP (`mail.fxnstudio.com`). Brevo was removed on
+  24 Sep 2026.
 - `content/articles/` is not the live article store. Update Strapi for published
   content.
 - `out/`, `public/search-index.json`, `public/_redirects`, `public/_headers` and

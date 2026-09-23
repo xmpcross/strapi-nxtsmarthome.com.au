@@ -15,3 +15,6 @@ scratch/
 # above miss them, and one was nearly committed with FAL_KEY and STRAPI_TOKEN.
 .env*.bak*
 .env.*.bak*
+
+# Local wrangler dev state
+.wrangler/
