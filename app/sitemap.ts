@@ -5,7 +5,8 @@ import { getAllTopProducts } from '@/lib/products';
 import { categories, site } from '@/lib/site';
 import { getAllAuthors } from '@/lib/authors';
 
-export const dynamic = 'force-static';
+// Regenerated hourly by the Node server, so new Strapi posts appear without a rebuild.
+export const revalidate = 3600;
 
 /**
  * Every indexable page.

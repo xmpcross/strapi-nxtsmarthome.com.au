@@ -9,6 +9,9 @@ import { getAllAuthors, getAuthorBySlug, resolveAuthor } from '@/lib/authors';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { site } from '@/lib/site';
 
+// Listings refresh from Strapi every 5 minutes (ISR), like the article pages.
+export const revalidate = 300;
+
 export async function generateStaticParams() {
   return getAllAuthors().map((a) => ({ slug: a.slug }));
 }

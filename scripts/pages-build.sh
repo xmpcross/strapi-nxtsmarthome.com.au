@@ -20,7 +20,7 @@ if [ ${#missing[@]} -gt 0 ]; then
   exit 1
 fi
 
-npm run build
+STATIC_EXPORT=1 npm run build
 
 for f in out/index.html out/404.html out/_redirects out/_headers; do
   [ -s "$f" ] || { echo "pages-build: $f is missing or empty — not publishing." >&2; exit 1; }

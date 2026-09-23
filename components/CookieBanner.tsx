@@ -9,7 +9,7 @@ import Link from 'next/link';
  * This gates real things rather than only recording a click. Two third-party
  * scripts run on this site and analytics is held back until a choice is made:
  *
- *   Google Analytics  scripts/inject-ga.mjs sets Consent Mode v2 defaults to
+ *   Google Analytics  components/HeadScripts.tsx (public/js/ga-init.js) sets Consent Mode v2 defaults to
  *                     denied before the tag loads, so gtag buffers rather than
  *                     writes. Accepting sends the 'update' that releases it.
  * The choice is stored under CONSENT_KEY. The version suffix is deliberate: if

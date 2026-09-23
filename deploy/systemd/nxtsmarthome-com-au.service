@@ -1,0 +1,21 @@
+[Unit]
+Description=nxtsmarthome.com.au frontend (Next.js, next start)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/projects/nxtsmarthome.com.au
+# Node 22, pinned like the other frontends; the system Node is v26.
+ExecStart=/root/.nvm/versions/node/v22.23.1/bin/node /opt/projects/nxtsmarthome.com.au/node_modules/next/dist/bin/next start -H 127.0.0.1 -p 3013
+Environment=NODE_ENV=production
+EnvironmentFile=-/opt/projects/nxtsmarthome.com.au/.env.local
+Restart=always
+RestartSec=5
+User=root
+Group=root
+StandardOutput=append:/var/log/nxtsmarthome-com-au.log
+StandardError=append:/var/log/nxtsmarthome-com-au.log
+
+[Install]
+WantedBy=multi-user.target

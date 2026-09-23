@@ -5,6 +5,9 @@ import { pageCount } from '@/components/Pagination';
 import { categoriesWithCounts, getAllArticles, getArticlesByCategory } from '@/lib/content';
 import { categories, getCategory } from '@/lib/site';
 
+// Listings refresh from Strapi every 5 minutes (ISR), like the article pages.
+export const revalidate = 300;
+
 /**
  * Pages 2..N of a category listing.
  *

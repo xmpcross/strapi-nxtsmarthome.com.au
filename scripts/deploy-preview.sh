@@ -15,8 +15,9 @@
 
 set -euo pipefail
 
-PROJECT_DIR="/opt/nxtsmarthome.com.au"
-PREVIEW_DIR="/var/www/html/nxtsmarthome.com.au/preview"
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# Outside the live app: nginx serves /preview/ from this root (location ^~ /preview/).
+PREVIEW_DIR="/var/www/nxtsmarthome-preview/preview"
 
 cd "$PROJECT_DIR"
 
@@ -26,7 +27,8 @@ export NVM_DIR="${NVM_DIR:-/root/.nvm}"
 nvm use 22 >/dev/null
 
 echo "==> Building preview (drafts included, basePath /preview)"
-INCLUDE_DRAFTS=1 PREVIEW_BASE_PATH=/preview npm run build
+# Own dist dir: the live server runs from .next, which this must never touch.
+INCLUDE_DRAFTS=1 PREVIEW_BASE_PATH=/preview NEXT_DIST_DIR=.next-preview npm run build
 
 if [ ! -f "out/index.html" ]; then
   echo "!! Preview build produced no out/index.html — refusing to publish" >&2
