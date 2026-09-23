@@ -30,7 +30,7 @@ export default function NextUp({ items }: { items: Article[] }) {
             >
               <img
                 src={squareCoverFor(article)}
-                alt=""
+                alt={article.title}
                 width={500}
                 height={500}
                 loading="lazy"

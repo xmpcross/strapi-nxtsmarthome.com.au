@@ -205,7 +205,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
           <figure className="overflow-hidden rounded-lg">
             <img
               src={coverFor(article)}
-              alt={article.imageAlt ?? ''}
+              /* Falls back to the title rather than an empty string. coverImageAlt is
+                   unset on most posts, so this rendered alt="" on the main image of
+                   the page — the one an image search would most want to read. Set
+                   coverImageAlt in Strapi for something better than the headline. */
+                alt={article.imageAlt || article.title}
               width={1000}
               height={500}
               className="aspect-[62/35] w-full object-cover"
@@ -310,7 +314,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
                 href={articleHref(older)}
                 className="group flex items-center gap-3 rounded-lg border border-slate-200 p-4 transition hover:border-brand-400 dark:border-slate-700"
               >
-                <img src={coverFor(older)} alt="" width={1200} height={675} className="h-14 w-20 shrink-0 rounded-lg object-cover" />
+                <img src={coverFor(older)} alt={older.title} width={1200} height={675} className="h-14 w-20 shrink-0 rounded-lg object-cover" />
                 <span className="min-w-0">
                   <span className="block text-xs font-semibold uppercase tracking-wide text-slate-400">Previous</span>
                   <span className="line-clamp-2 text-sm font-bold text-slate-900 group-hover:text-brand-700 dark:text-white">
@@ -326,7 +330,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
                 href={articleHref(newer)}
                 className="group flex items-center gap-3 rounded-lg border border-slate-200 p-4 text-right transition hover:border-brand-400 sm:flex-row-reverse dark:border-slate-700"
               >
-                <img src={coverFor(newer)} alt="" width={1200} height={675} className="h-14 w-20 shrink-0 rounded-lg object-cover" />
+                <img src={coverFor(newer)} alt={newer.title} width={1200} height={675} className="h-14 w-20 shrink-0 rounded-lg object-cover" />
                 <span className="min-w-0">
                   <span className="block text-xs font-semibold uppercase tracking-wide text-slate-400">Next</span>
                   <span className="line-clamp-2 text-sm font-bold text-slate-900 group-hover:text-brand-700 dark:text-white">

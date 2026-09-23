@@ -249,7 +249,7 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
                   >
                     <img
                       src={d.cover ?? `/covers/${d.slug}.png`}
-                      alt=""
+                      alt={d.title}
                       width={1000}
                       height={500}
                       loading="lazy"

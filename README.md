@@ -41,7 +41,7 @@ run `nvm use 22` first.
 
 Always use `npm run build`, never `npx next build`; the npm lifecycle is part of
 the product. `prebuild` creates the search index, redirect/header files, nav cache
-and author cache. `postbuild` injects Sovrn and GA4 scripts into the exported HTML.
+and author cache. `postbuild` injects the Geniuslink and GA4 scripts into the exported HTML.
 
 ## Content source
 
@@ -169,31 +169,25 @@ site-scoped.
 
 ## Affiliate, analytics and ads
 
-Affiliate wrapping happens at render time in `lib/affiliate.ts`. Put the raw
-merchant URL in a product's `retailers[].url`; do not paste pre-built affiliate
-links into content.
+Outbound merchant links are left as plain retailer URLs: `affiliateUrl()` in
+`lib/affiliate.ts` returns them unchanged. `scripts/inject-geniuslink.mjs`
+(`postbuild`) then adds the Geniuslink snippet to every exported page, and the
+snippet affiliates and localises supported merchants in the browser. Put the raw
+merchant URL in a product's `retailers[].url`, and do not paste pre-built
+affiliate links into content.
 
-Networks with configured IDs build explicit tracked links. A network with no
-credentials falls back to Sovrn instead of returning a bare merchant URL. This is
-important for merchants such as The Good Guys and Kogan when no CJ PID is set.
-
-`NEXT_PUBLIC_SOVRN_KEY` is intentionally committed in `.env` because it is a
-public publisher key and `scripts/inject-sovrn.mjs` needs it on any build machine.
-Secrets still belong only in `.env.local`.
+Sovrn, and the per-network IDs for Amazon, eBay, Walmart and CJ, are no longer
+used.
 
 Useful environment variables:
 
 ```text
-NEXT_PUBLIC_SOVRN_KEY            public Sovrn Commerce publisher key
-NEXT_PUBLIC_GA_MEASUREMENT_ID    Google Analytics 4 measurement ID
-NEXT_PUBLIC_CJ_PID               CJ publisher ID
-NEXT_PUBLIC_WALMART_PID          Walmart publisher ID
-NEXT_PUBLIC_EBAY_CAMPID          eBay campaign ID
-NEXT_PUBLIC_AMAZON_TAG           Amazon Associates tag
-SOVRN_API_KEY                    server-side Sovrn API key
-SOVRN_API_SECRET                 server-side Sovrn API secret
-STRAPI_URL                       CMS base URL, defaults in code
-STRAPI_TOKEN / STRAPI_API_TOKEN  optional CMS API token
+NEXT_PUBLIC_GENIUSLINK_TSID               Geniuslink TSID (numeric); unset = no snippet, no affiliation
+NEXT_PUBLIC_GENIUSLINK_BASE_URL           default https://buy.geni.us
+NEXT_PUBLIC_GENIUSLINK_PRESERVE_EXISTING  keep links that are already affiliated
+NEXT_PUBLIC_GA_MEASUREMENT_ID             GA4 ID (also hard-coded in scripts/inject-ga.mjs)
+STRAPI_URL                                CMS base URL, defaults in code
+STRAPI_TOKEN / STRAPI_API_TOKEN           CMS API token
 ```
 
 Form mail (the contact service on the server, Pages Functions on Pages):
@@ -206,16 +200,14 @@ CONTACT_ORIGIN                   CORS origin, default https://nxtsmarthome.com.a
 ```
 
 Values are read at build time and baked into `out/`, so rebuild after changing
-them. A blank affiliate value disables that explicit network; Sovrn handles the
-fallback path where possible.
+them. On Cloudflare Pages they come from the dashboard, never from `.env.local`.
 
 ### Consent and advertising
 
-The cookie banner gates Google Analytics and the Sovrn loader:
+The cookie banner gates Google Analytics:
 
 - GA4 is injected with Consent Mode v2 defaults set to denied until accepted.
-- Sovrn's script is parked behind `window.__nxtLoadSovrn()` and only loaded after
-  consent, or on a later visit with stored consent.
+- The Geniuslink snippet is not gated by the banner: it loads on every page.
 - AdSense is not gated. Google needs the AdSense tag present for review and ad
   serving, so `/cookies` and the banner copy describe that plainly.
 
@@ -247,7 +239,7 @@ lib/
   authors.ts                 author loading and byline resolution
   site.ts                    site config + category definitions
   products.ts                catalogue loading; drops ratings from inline boxes
-  affiliate.ts               network URL builders and Sovrn fallback
+  affiliate.ts               plain retailer URLs; Geniuslink affiliates in the browser
   urls.ts                    canonical path building
   dataforseo.ts              API client for product pipeline
   seo.ts                     JSON-LD builders
@@ -256,7 +248,7 @@ scripts/
   gen-redirects.mjs          prebuild redirects, headers and nginx map writer
   fetch-nav.mjs              prebuild Strapi navigation cache
   fetch-authors.mjs          prebuild Strapi author cache
-  inject-sovrn.mjs           postbuild consent-aware Sovrn injection
+  inject-geniuslink.mjs      postbuild Geniuslink snippet injection
   inject-ga.mjs              postbuild GA4 Consent Mode injection
   strapi-import.mjs          old markdown-to-Strapi migration tool, not sync
   strapi-import-products.mjs catalogue-to-Strapi commerce import

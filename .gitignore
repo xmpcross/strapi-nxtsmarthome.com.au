@@ -18,3 +18,8 @@ scratch/
 
 # Local wrangler dev state
 .wrangler/
+
+# Originals kept before the product-image background recolour. Local safety net,
+# not something to carry in the repo — the sources are merchant images.
+public/images/products.bak/
+public/images/retailers.bak/

@@ -5,13 +5,9 @@
  * useful even when a model is renamed or restocked, and they can be swapped for
  * a direct product link later without touching anything else.
  *
- * None of these carry affiliate tracking yet. lib/affiliate.ts treats unknown
- * hostnames as `direct` and returns them unchanged, so the links work today and
- * Sovrn's script will monetise them client-side where a programme exists. When
- * you are approved with Commission Factory (JB Hi-Fi, Bunnings, The Good Guys and
- * Kogan all run through it in Australia) the URLs get wrapped by adding those
- * hosts to the network detection in lib/affiliate.ts — the product files stay
- * exactly as they are.
+ * None of these carry hardcoded affiliate tracking. lib/affiliate.ts returns
+ * them unchanged, and the Geniuslink script handles supported merchants after
+ * the static export.
  *
  * Every pattern below was checked to return HTTP 200 for a real query.
  * Kogan is deliberately absent: it returns 403 to non-browser requests, so its

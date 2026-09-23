@@ -39,7 +39,7 @@ export default function RelatedPosts({
             >
               <img
                 src={coverFor(article)}
-                alt=""
+                alt={article.title}
                 width={1000}
                 height={500}
                 className="aspect-[62/35] w-full object-cover transition duration-500 group-hover:scale-[1.04]"

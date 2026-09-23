@@ -2,14 +2,14 @@
 # Cloudflare Pages build command: `bash scripts/pages-build.sh`, output directory `out`.
 #
 # Several build steps skip silently when a variable is missing (affiliate IDs are
-# baked into the HTML, fetch-authors needs STRAPI_URL) — a build that succeeds
+# injected after the export, fetch-authors needs STRAPI_URL) — a build that succeeds
 # but ships a site with no affiliate links. .env.local does not exist in the Pages
 # container, so this refuses to build until the dashboard variables are set, and
 # refuses to publish an export that is missing its pages or redirect rules.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-required=(STRAPI_URL STRAPI_TOKEN NEXT_PUBLIC_AMAZON_TAG NEXT_PUBLIC_EBAY_CAMPID NEXT_PUBLIC_WALMART_PID)
+required=(STRAPI_URL STRAPI_TOKEN NEXT_PUBLIC_GENIUSLINK_TSID)
 missing=()
 for name in "${required[@]}"; do
   [ -n "${!name:-}" ] || missing+=("$name")

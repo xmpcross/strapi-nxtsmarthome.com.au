@@ -24,11 +24,19 @@ const socialLinks = [
   },
 ].filter(Boolean) as { href: string; label: string; icon: React.ReactNode }[];
 
-/** "About Us" column — who we are and how to reach us. */
-const aboutLinks = [
+/**
+ * "About Us" column — who we are and how to reach us.
+ *
+ * `external` is typed rather than inferred: the only entry using it was the raw
+ * /sitemap.xml link, and dropping that made the renderer's `link.external`
+ * branch fail to compile even though the branch is still wanted.
+ */
+const aboutLinks: Array<{ href: string; label: string; external?: boolean }> = [
   { href: '/', label: 'Home' },
   { href: '/about/', label: 'About' },
-  { href: '/sitemap.xml', label: 'Sitemap', external: true },
+  // Was /sitemap.xml — a raw feed is not something to hand a reader. The HTML
+  // page links the XML from inside it, for anyone who wants it.
+  { href: '/sitemap/', label: 'Sitemap' },
   { href: '/contact/', label: 'Contact' },
 ];
 

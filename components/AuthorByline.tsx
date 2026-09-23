@@ -14,7 +14,7 @@ export function AuthorAvatar({ author, size = 32 }: { author: Author; size?: num
     return (
       <img
         src={author.avatar}
-        alt=""
+        alt={author.name}
         width={size}
         height={size}
         loading="lazy"

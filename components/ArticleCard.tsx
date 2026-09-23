@@ -34,7 +34,7 @@ export default function ArticleCard({ article, featured = false }: Props) {
       >
         <img
           src={coverFor(article)}
-          alt=""
+          alt={article.title}
           width={1000}
           height={500}
           loading="lazy"

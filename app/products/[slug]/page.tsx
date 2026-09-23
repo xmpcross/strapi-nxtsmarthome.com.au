@@ -8,7 +8,10 @@ import ProductReviews from '@/components/ProductReviews';
 import RelatedProducts from '@/components/RelatedProducts';
 import RetailerPriceList from '@/components/RetailerPriceList';
 import RetailerPriceTable from '@/components/RetailerPriceTable';
+import JsonLd from '@/components/JsonLd';
+import { bulletsOf } from '@/lib/bullets';
 import { getAllTopProducts, getTopProductBySlug } from '@/lib/products';
+import { breadcrumbJsonLd, productJsonLd } from '@/lib/seo';
 
 export async function generateStaticParams() {
   const products = getAllTopProducts();
@@ -72,6 +75,17 @@ export default async function ProductDetailPage({
     /* The page element lives in app/layout.tsx — this is a div, not a second
        <main>, which would be invalid HTML. */
     <div className="bg-[#f0f2f4] dark:bg-slate-900">
+      {/* Product and breadcrumb data. This page had neither, so its verified
+          retailer pricing was invisible to Google's product results. */}
+      <JsonLd data={productJsonLd(product)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Products', path: '/products/' },
+          { name: product.categoryName, path: `/products/category/${product.categorySlug}/` },
+          { name: product.name, path: `/products/${product.slug}/` },
+        ])}
+      />
       <div className="mx-auto max-w-[1366px] px-4 py-6 sm:px-6">
         {/* Breadcrumb */}
         <nav className="mb-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-[#55555a] dark:text-slate-400">
@@ -136,17 +150,46 @@ export default async function ProductDetailPage({
                   ) : null}
                 </div>
 
-                {product.description || product.bestFor ? (
-                  <div className="border-t border-[#e0e0e0] pt-4 dark:border-slate-700">
-                    <h2 className="mb-2.5 text-[1.05rem] font-bold text-[#1d252c] dark:text-white">
+                {/*
+                  This block is pinned to 14px, heading included. The body copy
+                  was already there via text-sm; the heading was 1.05rem, so it
+                  is the part that actually moves. Set in px rather than text-sm
+                  so it holds if the rem scale is ever changed — the request was
+                  a size, not a step on the scale.
+                */}
+                {product.shortDescription || product.description || product.bestFor ? (
+                  <div className="border-t border-[#e0e0e0] pt-4 text-[14px] dark:border-slate-700">
+                    <h2 className="mb-2.5 text-[14px] font-bold text-[#1d252c] dark:text-white">
                       About this product
                     </h2>
-                    {/* The manufacturer's own short description where we have
-                        one; the editorial verdict is the fallback. Clamped
-                        here — the full text is in the Description panel. */}
-                    <p className="line-clamp-5 text-sm leading-relaxed text-[#55555a] dark:text-slate-300">
-                      {product.description || product.bestFor}
-                    </p>
+                    {/*
+                      The blurb written in the CMS comes first. It is the one
+                      someone edited for this product; the manufacturer's copy
+                      and the editorial verdict are fallbacks for anything not
+                      rewritten yet.
+
+                      Bulleted copy is rendered as a real list. It arrives as
+                      lines beginning with "•", and a paragraph would print those
+                      characters as text — and, with line-clamp, run the bullets
+                      together mid-sentence.
+                    */}
+                    {product.shortDescription && bulletsOf(product.shortDescription).length > 1 ? (
+                      <ul className="space-y-1.5 leading-relaxed text-[#55555a] dark:text-slate-300">
+                        {bulletsOf(product.shortDescription).map((line) => (
+                          <li key={line} className="flex gap-2">
+                            <span
+                              aria-hidden="true"
+                              className="mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#55555a] dark:bg-slate-400"
+                            />
+                            <span>{line}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="line-clamp-5 leading-relaxed text-[#55555a] dark:text-slate-300">
+                        {product.shortDescription || product.description || product.bestFor}
+                      </p>
+                    )}
                   </div>
                 ) : null}
               </div>
