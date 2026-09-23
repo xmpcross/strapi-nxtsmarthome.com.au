@@ -2,7 +2,7 @@
   "name": "nxtsmarthome-com-au",
   "version": "1.0.0",
   "private": true,
-  "description": "NXT Smart Home AU \u2014 smart home reviews, setup guides and buying advice for Australia",
+  "description": "NXT Smart Home AU — smart home reviews, setup guides and buying advice for Australia",
   "scripts": {
     "dev": "node scripts/build-search-index.mjs && node scripts/fetch-nav.mjs && next dev -p 3011",
     "prebuild": "node scripts/build-search-index.mjs && node scripts/gen-redirects.mjs && node scripts/fetch-nav.mjs && node scripts/fetch-authors.mjs",
@@ -32,7 +32,8 @@
     "remark-gfm": "^4.0.0",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.1",
-    "unified": "^11.0.5"
+    "unified": "^11.0.5",
+    "worker-mailer": "^1.2.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",

@@ -18,7 +18,7 @@ import path from 'node:path';
 const ROOT = path.dirname(path.dirname(new URL(import.meta.url).pathname));
 const CACHE = path.join(ROOT, 'lib', 'nav-cache.json');
 const SITE = 'nxtsmarthome.com.au';
-const URL_BASE = (process.env.STRAPI_URL ?? 'https://strapi.fxnstudio.com').replace(/\/$/, '');
+const URL_BASE = (process.env.STRAPI_URL || 'https://cms.fxnstudio.com').replace(/\/$/, '');
 
 const GROUPS = ['products-root', 'product-categories', 'topics', 'guides', 'latest', 'search'];
 

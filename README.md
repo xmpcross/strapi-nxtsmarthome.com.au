@@ -24,19 +24,20 @@ Editorial rules (what may be claimed, how products are placed) live in
 ## Quick reference
 
 ```bash
-cd /opt/nxtsmarthome.com.au
+cd /opt/projects/nxtsmarthome.com.au
 nvm use 22
 
 npm run dev                # local dev on http://localhost:3011
 npm run build              # prebuild + Next static export + postbuild injectors
-npm run deploy             # build, publish to nginx, reload, submit IndexNow
+git push origin master      # production: Cloudflare Pages builds and deploys
+npm run deploy             # legacy: publish to the /opt nginx copy (no longer serves the site)
 npm run deploy:preview     # build/publish preview target
 npm run seed:menu          # seed/update Strapi navigation menu
 npm run new:article -- "Title" <category> <type> [--author=slug]
 ```
 
-Node 22 is required (`.nvmrc` pins it). Node 18 is the system default, so run
-`nvm use 22` first.
+Node 22 is required (`.nvmrc` pins it). The system Node on the server is v26, so
+run `nvm use 22` first.
 
 Always use `npm run build`, never `npx next build`; the npm lifecycle is part of
 the product. `prebuild` creates the search index, redirect/header files, nav cache
@@ -195,6 +196,15 @@ STRAPI_URL                       CMS base URL, defaults in code
 STRAPI_TOKEN / STRAPI_API_TOKEN  optional CMS API token
 ```
 
+Form mail (the contact service on the server, Pages Functions on Pages):
+
+```text
+SMTP_HOST / SMTP_PORT            Stalwart, default mail.fxnstudio.com:465
+SMTP_USER / SMTP_PASS            Stalwart account the forms send as (secret)
+CONTACT_TO / CONTACT_FROM        recipient / sender (sender defaults to SMTP_USER)
+CONTACT_ORIGIN                   CORS origin, default https://nxtsmarthome.com.au
+```
+
 Values are read at build time and baked into `out/`, so rebuild after changing
 them. A blank affiliate value disables that explicit network; Sovrn handles the
 fallback path where possible.
@@ -279,9 +289,13 @@ Trailing slashes are canonical. Internal links should use `/articles/foo/`, not
 
 ## Deployment
 
-Self-hosted on **178.105.206.112**, which both builds the site and serves it from
-nginx out of `/var/www/html/nxtsmarthome.com.au`. No Node process runs in
-production; it is flat files behind Cloudflare.
+**Production is Cloudflare Pages (since 24 Sep 2026).** A push to `master`
+builds and deploys the site; work on `master` only. Strapi content appears after
+the next build. See [`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md).
+
+The sections below describe the previous self-hosted setup on **178.105.206.112**
+(nginx serving `/var/www/html/nxtsmarthome.com.au`). It is kept for fallback and
+is due to be retired.
 
 ```bash
 npm run deploy                             # build and publish on this machine
@@ -296,6 +310,46 @@ changed URLs to IndexNow.
 
 That output check matters: a bare `npm run build && rsync` can republish the
 previous build if the export failed or did not produce the files expected.
+
+### Contact and comment forms
+
+The contact form posts to `/api/contact`, and article comments post to
+`/api/comment`. On the server, nginx proxies both paths to
+`nxtsmarthome-contact.service` (`/opt/nxtsmarthome-contact/server.mjs`,
+`127.0.0.1:4320`). The service is not in this repo, and its settings are in
+`/opt/nxtsmarthome-contact/.env`.
+
+Mail goes through the FXN **Stalwart** server (`mail.fxnstudio.com:465`) using
+`SMTP_USER` / `SMTP_PASS`. Brevo was removed on 24 Sep 2026. Stalwart rejects a
+sender the account does not own, so `CONTACT_FROM` defaults to `SMTP_USER`.
+Messages go to `CONTACT_TO` (default `hello@nxtsmarthome.com.au`), with Reply-To
+set to the reader.
+
+Checks:
+- A honeypot field (`company`) catches bots.
+- A submission sent less than 2 seconds after the form loaded is dropped.
+- Bot submissions get a 200 response, so a bot learns nothing.
+- Each IP address can send 5 messages per 10 minutes.
+
+When delivery fails, the reader gets a 502 that asks them to email
+`CONTACT_TO` directly. Check with
+`journalctl -u nxtsmarthome-contact -n 20`.
+
+For mail sent through Stalwart to pass SPF and DKIM, the domain's DNS needs
+`ip4:51.161.208.188` in SPF and Stalwart's DKIM records. MX stays on Google.
+
+### Cloudflare Pages (production since 24 Sep 2026)
+
+Pages builds `master` on every push, so work on `master` only. Strapi changes
+appear after the next build. The repo's Pages pieces:
+- `functions/api/contact.js` and `functions/api/comment.js` do the service's job
+  with the same checks, sending with `worker-mailer`.
+- `scripts/pages-build.sh` is the build command. It refuses to run without the
+  Strapi and affiliate variables, and refuses to publish an incomplete export.
+
+Settings, variables and the switch-over steps are in
+[`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md). Keep
+`functions/_lib/mail-form.js` and the server's `server.mjs` in step.
 
 ### The web server
 
@@ -352,8 +406,14 @@ Two details in the serving config are load-bearing:
 - `master` now includes the Strapi-driven content work merged in PR #4 on
   2026-08-23. Before that merge, rebuilding from `master` would not match what
   was deployed.
-- The site moved back from Cloudflare Workers/Pages to nginx. `wrangler.jsonc`
-  remains only as fallback host history.
+- Hosting history: Cloudflare Workers/Pages, then nginx on /opt from 23 Aug 2026,
+  and Cloudflare Pages again from 24 Sep 2026. See
+  [`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md).
+- The contact and comment forms post to `/api/contact` and `/api/comment`. On
+  the server, nginx proxies these to `nxtsmarthome-contact.service`
+  (`/opt/nxtsmarthome-contact`); on Pages, `functions/api/` handles them. Both
+  send through Stalwart SMTP (`mail.fxnstudio.com`). Brevo was removed on
+  24 Sep 2026.
 - `content/articles/` is not the live article store. Update Strapi for published
   content.
 - `out/`, `public/search-index.json`, `public/_redirects`, `public/_headers` and
