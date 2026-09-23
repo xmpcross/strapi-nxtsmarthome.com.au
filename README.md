@@ -29,8 +29,7 @@ nvm use 22
 
 npm run dev                # local dev on http://localhost:3011
 npm run build              # prebuild + Next static export + postbuild injectors
-git push origin master      # production: Cloudflare Pages builds and deploys
-npm run deploy             # legacy: publish to the /opt nginx copy (no longer serves the site)
+npm run deploy             # production: build, publish to nginx, reload, submit IndexNow
 npm run deploy:preview     # build/publish preview target
 npm run seed:menu          # seed/update Strapi navigation menu
 npm run new:article -- "Title" <category> <type> [--author=slug]
@@ -281,13 +280,15 @@ Trailing slashes are canonical. Internal links should use `/articles/foo/`, not
 
 ## Deployment
 
-**Production is Cloudflare Pages (since 24 Sep 2026).** A push to `master`
-builds and deploys the site; work on `master` only. Strapi content appears after
-the next build. See [`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md).
+Self-hosted on **51.161.208.188**, which builds the site and serves it from nginx
+out of `/var/www/html/nxtsmarthome.com.au`, behind the Cloudflare proxy. No Node
+process serves pages in production. Publish with `npm run deploy` from `master`;
+pushing to `master` does not publish anything.
 
-The sections below describe the previous self-hosted setup on **178.105.206.112**
-(nginx serving `/var/www/html/nxtsmarthome.com.au`). It is kept for fallback and
-is due to be retired.
+Cloudflare Pages/Workers hosting was tried again on 24 Sep 2026 and switched off
+the same day. It was running as a Worker, so the form Functions never ran, and the
+build had no Geniuslink TSID. [`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md) is kept
+in case the site moves back.
 
 ```bash
 npm run deploy                             # build and publish on this machine
@@ -330,10 +331,10 @@ When delivery fails, the reader gets a 502 that asks them to email
 For mail sent through Stalwart to pass SPF and DKIM, the domain's DNS needs
 `ip4:51.161.208.188` in SPF and Stalwart's DKIM records. MX stays on Google.
 
-### Cloudflare Pages (production since 24 Sep 2026)
+### Cloudflare Pages (disabled)
 
-Pages builds `master` on every push, so work on `master` only. Strapi changes
-appear after the next build. The repo's Pages pieces:
+Not in use; production is `npm run deploy` on the server. The repo keeps the
+Pages pieces:
 - `functions/api/contact.js` and `functions/api/comment.js` do the service's job
   with the same checks, sending with `worker-mailer`.
 - `scripts/pages-build.sh` is the build command. It refuses to run without the
@@ -398,8 +399,8 @@ Two details in the serving config are load-bearing:
 - `master` now includes the Strapi-driven content work merged in PR #4 on
   2026-08-23. Before that merge, rebuilding from `master` would not match what
   was deployed.
-- Hosting history: Cloudflare Workers/Pages, then nginx on /opt from 23 Aug 2026,
-  and Cloudflare Pages again from 24 Sep 2026. See
+- Hosting history: Cloudflare Workers/Pages, then nginx on /opt from 23 Aug 2026;
+  a brief return to Cloudflare on 24 Sep 2026 was reverted the same day. See
   [`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md).
 - The contact and comment forms post to `/api/contact` and `/api/comment`. On
   the server, nginx proxies these to `nxtsmarthome-contact.service`
