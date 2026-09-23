@@ -1,13 +1,17 @@
 # Deploying on Cloudflare Pages
 
-The site is a static export (`output: 'export'`), so Cloudflare Pages hosts it
-directly. **Since 24 Sep 2026, `nxtsmarthome.com.au` is served by Cloudflare
-Pages.** Every push to `master` builds and deploys the site: work on `master`
-only.
+> **Status: disabled (24 Sep 2026).** Production is self-hosted again: `npm run
+> deploy` on the /opt server (see README). Cloudflare Pages/Workers hosting was
+> switched off the same day it went live:
+> - the project had been connected as a **Worker**, so `functions/` never ran and
+>   the forms returned 404;
+> - the build had no `NEXT_PUBLIC_GENIUSLINK_TSID`, so no link was affiliated.
+>
+> The notes below are kept for a future move. If the site moves back, create a
+> real **Pages** project and set the build variables first.
 
-The site does not update when a post is published in Strapi. Content is read at
-build time, so a new post only appears after the next build. See "Rebuilding
-after Strapi changes" below.
+The site is a static export (`output: 'export'`), so Cloudflare Pages can host it
+directly.
 
 ## What runs where on Pages
 
