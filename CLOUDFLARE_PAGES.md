@@ -17,7 +17,7 @@ until the switch below is made. This file covers the Pages setup.
 
 ## Project settings
 
-Workers & Pages → Create → Pages → Connect to Git → `xmpcross/strapi-nxtsmarthomes`.
+Workers & Pages → Create → Pages → Connect to Git → `xmpcross/strapi-nxtsmarthome.com.au`.
 
 | Setting | Value |
 |---|---|
