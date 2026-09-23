@@ -20,10 +20,8 @@ export const metadata: Metadata = {
       - cdn.viglink.com (Sovrn Commerce), consent-gated: public/js/sovrn-init.js
         parks its loader on window.__nxtLoadSovrn until the banner is accepted
       - googletagmanager.com/gtag/js for Google Analytics
-      - pagead2.googlesyndication.com for AdSense
-      - AdSense is NOT consent-gated: the tag must be present for Google to
-        review and serve the site. The page says so explicitly rather than
-        leaving the earlier "neither runs until you choose" claim standing.
+      - no advertising scripts: AdSense and the SearchAtlas script were removed
+        on 24 Sep 2026
       - Google Analytics loads with Consent Mode v2 defaults of denied
         (components/HeadScripts.tsx). The choice is made in
         components/CookieBanner.tsx and stored as nxt.consent.v1.
@@ -71,23 +69,6 @@ export default function CookiesPage() {
               strictly functional cookies to distinguish genuine visitors from automated traffic and
               to keep the site available. These are security and delivery cookies, not advertising
               ones.
-            </p>
-
-            <h3>Advertising</h3>
-            <p>
-              We show ads through Google AdSense. Google and its partners use cookies to
-              choose which ads you see, to limit how often you see the same one, and to measure
-              whether an ad worked.
-            </p>
-            <p>
-              <strong>Unlike the analytics and affiliate scripts below, the AdSense tag loads on
-              every page regardless of your choice in the banner.</strong> Google requires it to be
-              present for a site to be reviewed and served. You can control ad personalisation
-              directly at{' '}
-              <a href="https://myadcenter.google.com/" rel="nofollow noopener" target="_blank">
-                Google My Ad Center
-              </a>
-              , and blocking third-party cookies in your browser stops most of what it sets.
             </p>
 
             <h3>Analytics</h3>

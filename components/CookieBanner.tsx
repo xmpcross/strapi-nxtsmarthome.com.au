@@ -22,10 +22,7 @@ import Link from 'next/link';
  * Declining is a real decline for both: neither runs, and nothing is written
  * beyond the record of the choice itself.
  *
- * AdSense is deliberately NOT gated here: Google requires the tag present for a
- * site to be reviewed and served, so it loads on every page whatever is chosen.
- * The banner says so rather than implying a decline covers advertising too,
- * because a consent notice that overstates what it controls is worse than none.
+ * The site shows no ads (AdSense was removed on 24 Sep 2026).
  */
 
 export const CONSENT_KEY = 'nxt.consent.v1';
@@ -113,18 +110,8 @@ export default function CookieBanner() {
           <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
             Google Analytics tells us which guides get read, and Sovrn Commerce credits us when a
             link you follow leads to a purchase.{' '}
-            <strong>Both wait for your answer.</strong> Google AdSense serves the ads and
-            loads either way, and Geniuslink may affiliate supported retailer links — you can control ad
-            personalisation at{' '}
-            <a
-              href="https://myadcenter.google.com/"
-              rel="nofollow noopener"
-              target="_blank"
-              className="font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300"
-            >
-              My Ad Center
-            </a>
-            . Read our{' '}
+            <strong>Both wait for your answer.</strong> Geniuslink may also affiliate supported
+            retailer links. Read our{' '}
             <Link
               href="/cookies/"
               className="font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300"

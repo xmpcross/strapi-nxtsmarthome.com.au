@@ -210,8 +210,8 @@ The cookie banner gates Google Analytics:
 
 - GA4 is injected with Consent Mode v2 defaults set to denied until accepted.
 - The Geniuslink snippet is not gated by the banner: it loads on every page.
-- AdSense is not gated. Google needs the AdSense tag present for review and ad
-  serving, so `/cookies` and the banner copy describe that plainly.
+- No ads: Google AdSense and the SearchAtlas (OTTO) script were removed on
+  24 Sep 2026. Monetisation is Geniuslink and Sovrn Commerce only.
 
 `/cookies` should stay in sync with the actual scripts. It no longer claims that
 no analytics is present.
