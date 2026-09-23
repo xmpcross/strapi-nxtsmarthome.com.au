@@ -1,9 +1,5 @@
-// Cloudflare Pages project config — see CLOUDFLARE_PAGES.md.
-// Static export in ./out; /api/contact and /api/comment are Pages Functions (functions/).
 {
   "name": "nxtsmarthome",
-  "pages_build_output_dir": "./out",
   "compatibility_date": "2026-08-06",
-  // worker-mailer (SMTP to Stalwart over TCP sockets) needs Node compatibility.
-  "compatibility_flags": ["nodejs_compat"]
+  "assets": { "directory": "./out" }
 }

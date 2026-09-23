@@ -1,8 +1,13 @@
 # Deploying on Cloudflare Pages
 
-The site is a static export (`output: 'export'`), so Cloudflare Pages can host it
-directly. Production is still the `/opt` server (`npm run deploy`, see README)
-until the switch below is made. This file covers the Pages setup.
+The site is a static export (`output: 'export'`), so Cloudflare Pages hosts it
+directly. **Since 24 Sep 2026, `nxtsmarthome.com.au` is served by Cloudflare
+Pages.** Every push to `master` builds and deploys the site: work on `master`
+only.
+
+The site does not update when a post is published in Strapi. Content is read at
+build time, so a new post only appears after the next build. See "Rebuilding
+after Strapi changes" below.
 
 ## What runs where on Pages
 
@@ -27,9 +32,10 @@ Workers & Pages → Create → Pages → Connect to Git → `xmpcross/strapi-nxt
 | Build output directory | `out` |
 | Node version | from `.nvmrc` (22) |
 
-`wrangler.jsonc` holds the output directory and the `nodejs_compat` flag that the
-Functions need. Pages reads it on git builds, so do not also set the flag in the
-dashboard.
+Keep `wrangler.jsonc` without `pages_build_output_dir`, as it is now. If that key
+is added, Pages treats the file as the source of truth for the project's settings
+and variables, which can override what is set in the dashboard. No compatibility
+flag is needed: `worker-mailer` only uses `cloudflare:sockets`.
 
 `scripts/pages-build.sh` refuses to build if a required variable is missing.
 Several build steps otherwise skip silently, and the site would ship without
@@ -86,20 +92,30 @@ relying on it, publish in Cloudflare DNS for `nxtsmarthome.com.au`:
 Without them, mail sent through Stalwart fails SPF and DKIM and may land in spam.
 The MX records can stay on Google.
 
-## Switching production to Pages
+## Rebuilding after Strapi changes
 
-1. Merge the in-flight branches into `master` first. Pages builds `master`, not
-   whatever the server checkout has.
-2. Deploy once to `*.pages.dev`. Check the home page, an article, a redirected
-   old URL (`curl -I`), and a contact form send.
-3. Custom domains → add `nxtsmarthome.com.au` and `www.nxtsmarthome.com.au`. Add
-   a Cloudflare Redirect Rule from www to the apex (301). `_redirects` cannot
-   match on hostname.
-4. To rebuild when content is published, add a Pages deploy hook and call it
-   from a Strapi webhook on `nxtsmarthome-*` publish. Without the hook, Strapi
-   edits appear only on the next push.
-5. Then retire the server copy:
-   - stop `nxtsmarthome-contact`;
-   - unlink the nginx vhost;
-   - update README, CLAUDE.md and `/opt/CLAUDE.md`, which currently say "do not
-     publish by pushing master".
+Pages builds on a push to `master`, or on **Retry deployment** in the dashboard.
+Publishing in Strapi does not trigger a build yet.
+
+To trigger builds from Strapi, create a deploy hook (Settings → Builds → Deploy
+hooks, branch `master`). Keep its URL secret. Two ways to call it:
+
+- **Directly from a Strapi webhook.** One Strapi serves every FXN site, and
+  webhooks cannot be limited to a content type, so every publish on every site
+  would start a build. The free plan allows 500 builds a month.
+- **Through a relay (preferred).** A relay forwards only `nxtsmarthome-*` changes
+  and turns a burst of edits into one build. Add a nightly build as well, so
+  product prices refresh.
+
+## Remaining switch-over steps
+
+1. Set the variables above, then change the build command to
+   `bash scripts/pages-build.sh`.
+2. Fix `www.nxtsmarthome.com.au`, which serves a 404: add a Cloudflare Redirect
+   Rule from www to the apex (301).
+3. Retire the `/opt` copy:
+   - unlink `/etc/nginx/sites-enabled/nxtsmarthome.com.au`;
+   - `systemctl disable --now nxtsmarthome-contact`;
+   - pause certbot renewal for `nxtsmarthome.com.au`.
+4. `npm run deploy` still publishes to the old nginx web root, which no longer
+   serves the site. Run `npm run indexnow` from the server after a deploy.
