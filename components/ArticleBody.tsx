@@ -91,8 +91,9 @@ export default function ArticleBody({ html, products, subId, className, midSlot 
     }
   }
 
+  // Ncmaz single-post typography (neutral prose, primary links).
   const PROSE =
-    'prose prose-slate max-w-prose prose-headings:scroll-mt-24 prose-headings:font-semibold prose-h2:text-[1.4rem] prose-h2:font-semibold prose-h3:text-[1rem] prose-h3:font-semibold prose-a:text-brand-700 prose-a:font-medium hover:prose-a:text-brand-800 prose-th:text-left dark:prose-invert dark:prose-a:text-brand-400';
+    'prose prose-neutral max-w-none lg:prose-lg prose-headings:scroll-mt-24 prose-headings:font-semibold prose-a:text-primary-600 prose-a:font-medium hover:prose-a:text-primary-700 prose-img:rounded-2xl prose-th:text-left dark:prose-invert dark:prose-a:text-primary-400';
 
   return (
     <div className={className}>
@@ -102,7 +103,7 @@ export default function ArticleBody({ html, products, subId, className, midSlot 
             return (
               <div key={`h-${i}`}>
                 <div className={PROSE} dangerouslySetInnerHTML={{ __html: part.value.slice(0, slotAt.offset) }} />
-                <div className="max-w-prose">{midSlot}</div>
+                <div>{midSlot}</div>
                 <div className={PROSE} dangerouslySetInnerHTML={{ __html: part.value.slice(slotAt.offset) }} />
               </div>
             );

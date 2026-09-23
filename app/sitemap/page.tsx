@@ -88,7 +88,7 @@ export default async function SitemapPage() {
   const articlePages = Array.from({ length: Math.max(0, pageCount(articles.length) - 1) }, (_, i) => i + 2);
 
   return (
-    <div className="mx-auto max-w-site px-4 py-12">
+    <div className="container py-14 lg:py-20">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: 'Home', path: '/' },

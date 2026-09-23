@@ -125,7 +125,7 @@ export default function RetailerPriceTable({
                   {retailer.name}
                 </span>
                 {retailer.primary && (
-                  <span className="ml-2 inline-block rounded-sm bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
+                  <span className="ml-2 inline-block rounded-sm bg-primary-100 px-2 py-0.5 text-[10px] font-bold text-primary-800 dark:bg-primary-900/80 dark:text-primary-300">
                     Official AU Stock
                   </span>
                 )}
@@ -146,7 +146,7 @@ export default function RetailerPriceTable({
               <AffiliateLink
                 href={retailer.url}
                 subId={subId}
-                className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-1.5 text-xs font-semibold text-white shadow-2xs transition hover:bg-emerald-700"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-primary-600 px-4 py-1.5 text-xs font-semibold text-white shadow-2xs transition hover:bg-primary-700"
               >
                 <span>View Deal</span>
                 <span aria-hidden="true">→</span>

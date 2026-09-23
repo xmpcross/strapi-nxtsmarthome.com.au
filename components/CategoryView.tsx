@@ -1,9 +1,12 @@
-import ArticleCard from '@/components/ArticleCard';
-import PageHeader from '@/components/PageHeader';
-import CategorySidebar from '@/components/CategorySidebar';
+import ArchiveHeader from '@/components/ArchiveHeader';
+import Card11 from '@/components/PostCards/Card11';
 import JsonLd from '@/components/JsonLd';
 import Pagination, { PER_PAGE } from '@/components/Pagination';
+import TopicChips from '@/components/TopicChips';
+import { categoryColor } from '@/data/categories';
+import { toTPost } from '@/data/posts';
 import { breadcrumbJsonLd } from '@/lib/seo';
+import { categoryHeroFor, coverFor } from '@/lib/content';
 import type { Article } from '@/lib/content';
 import type { Category } from '@/lib/site';
 
@@ -29,6 +32,9 @@ export default function CategoryView({
   const start = (page - 1) * PER_PAGE;
   const visible = articles.slice(start, start + PER_PAGE);
 
+  const hero = categoryHeroFor(category.slug, 'post');
+  const thumb = articles[0] ? coverFor(articles[0]) : hero ?? undefined;
+
   return (
     <>
       <JsonLd
@@ -38,52 +44,47 @@ export default function CategoryView({
         ])}
       />
 
-      <div className="mx-auto max-w-[1366px] px-4 py-8 sm:px-6">
-        <PageHeader
-          eyebrow="Australian Buying Advice & Guides"
+      <div className={`page-category-${category.slug}`}>
+        <ArchiveHeader
+          eyebrow="Topic"
+          eyebrowColor={categoryColor(category.key)}
           title={category.name}
-          intro={category.intro}
-          meta={page > 1 ? `Page ${page}` : undefined}
+          intro={<p>{category.intro}</p>}
+          meta={`${articles.length} ${articles.length === 1 ? 'article' : 'articles'}${page > 1 ? ` · Page ${page}` : ''}`}
+          image={thumb}
+          banner={hero}
         />
 
-        {/* Long-form orientation, where the category has one. Rendered only on
-            page 1 — repeating it on /page/2/ would be duplicate content and
-            pushes the articles a reader paged forward for further down. */}
-        {category.overview && page === 1 ? (
-          <section className="mb-10 w-full sm:w-4/5">
-            <h2 className="text-xl font-bold text-slate-900 dark:text-white">
-              {category.overview.heading}
-            </h2>
-            <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base">
-              {category.overview.paragraphs.map((text) => (
-                <p key={text.slice(0, 40)}>{text}</p>
+        <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">
+          <TopicChips categories={categoryCounts} activeSlug={category.slug} total={totalArticles} />
+
+          {visible.length === 0 ? (
+            <p className="mt-10 rounded-2xl border border-dashed border-neutral-300 p-8 text-center text-neutral-500 dark:border-neutral-700">
+              Nothing published in this section yet — it&apos;s next on the list.
+            </p>
+          ) : (
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 md:gap-7 lg:mt-10 lg:grid-cols-3">
+              {visible.map((article) => (
+                <Card11 key={article.slug} post={toTPost(article)} />
               ))}
             </div>
-          </section>
-        ) : null}
+          )}
 
-        <div className="grid gap-8 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-10">
-          <CategorySidebar
-            categories={categoryCounts}
-            activeSlug={category.slug}
-            total={totalArticles}
-          />
+          <Pagination base={base} page={page} total={articles.length} />
 
-          <div>
-            {visible.length === 0 ? (
-              <p className="rounded-[8px] border border-dashed border-slate-300 p-8 text-center text-slate-500 dark:border-slate-700">
-                Nothing published in this section yet — it&apos;s next on the list.
-              </p>
-            ) : (
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {visible.map((article) => (
-                  <ArticleCard key={article.slug} article={article} />
+          {/* Long-form orientation, page 1 only (it would be duplicate content on /page/2/). */}
+          {category.overview && page === 1 ? (
+            <section className="mx-auto mt-20 max-w-3xl rounded-3xl bg-neutral-50 p-8 lg:p-10 dark:bg-neutral-800/50">
+              <h2 className="text-xl font-semibold text-neutral-900 lg:text-2xl dark:text-white">
+                {category.overview.heading}
+              </h2>
+              <div className="mt-4 space-y-3 leading-relaxed text-neutral-600 dark:text-neutral-300">
+                {category.overview.paragraphs.map((text) => (
+                  <p key={text.slice(0, 40)}>{text}</p>
                 ))}
               </div>
-            )}
-
-            <Pagination base={base} page={page} total={articles.length} />
-          </div>
+            </section>
+          ) : null}
         </div>
       </div>
     </>

@@ -1,16 +1,25 @@
 import type { Metadata } from 'next';
 import './globals.css';
-// After globals.css: plain CSS, unlayered, so it settles the cascade for the
-// hero's secondary tiles without needing !important.
-import './magzin-post-cards.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { Be_Vietnam_Pro } from 'next/font/google';
+import { AudioProvider } from '@/components/AudioProvider';
+import Aside from '@/components/aside';
+import AsideSidebarNavigation from '@/components/aside-sidebar-navigation';
+import Footer from '@/components/Footer/Footer';
+import Header2 from '@/components/Header/Header2';
+import ThemeProvider from './theme-provider';
 import CookieBanner from '@/components/CookieBanner';
 import HeadScripts from '@/components/HeadScripts';
 import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
-import { getNav } from '@/lib/nav';
 import { organisationJsonLd } from '@/lib/seo';
+
+// Ncmaz's typeface, self-hosted by next/font at build time.
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-be-vietnam-pro',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -73,12 +82,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Read once per build from lib/nav-cache.json and passed into the client
-  // header. getNav never throws — a missing cache falls back to lib/site.ts.
-  const nav = getNav();
-
   return (
-    <html lang={site.language} suppressHydrationWarning>
+    <html lang={site.language} className={beVietnamPro.variable} suppressHydrationWarning>
       <head>
         {/*
           Applies the theme before first paint. Without this a dark reader gets a
@@ -103,19 +108,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="flex min-h-screen flex-col">
+      <body className="bg-white font-sans text-base text-neutral-900 antialiased dark:bg-neutral-900 dark:text-neutral-200">
         <JsonLd data={organisationJsonLd()} />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-primary-600 focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to content
         </a>
-        <Header nav={nav} />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider>
+          <AudioProvider>
+            <Aside.Provider>
+              <Header2 bottomBorder />
+              <main id="main">{children}</main>
+              <Footer />
+              <AsideSidebarNavigation />
+            </Aside.Provider>
+          </AudioProvider>
+        </ThemeProvider>
         <CookieBanner />
       </body>
     </html>

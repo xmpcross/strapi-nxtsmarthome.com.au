@@ -93,7 +93,16 @@ export interface Heading {
 /** Article shape without the rendered body — cheap to pass into list components. */
 export type ArticleSummary = Omit<Article, 'html' | 'raw' | 'headings'>;
 
-let cache: Article[] | null = null;
+/*
+ * Per-process memo of the built article list. The site runs on `next start`,
+ * where a module-level cache lives as long as the server — so it must expire,
+ * or ISR regenerations keep rebuilding pages from the list fetched at boot and
+ * new Strapi posts never appear. A minute is enough to share one fetch across
+ * a build or a burst of regenerations; the fetch itself is cached for 5
+ * minutes by Next's data cache (lib/strapi.ts).
+ */
+const CACHE_TTL_MS = 60_000;
+let cache: { at: number; articles: Article[] } | null = null;
 
 function slugify(value: string): string {
   return value
@@ -195,16 +204,17 @@ async function fromStrapi(post: StrapiPost): Promise<Article | null> {
 
 /** All published articles, newest first. Cached for the duration of the build. */
 export async function getAllArticles(): Promise<Article[]> {
-  if (cache) return cache;
+  if (cache && Date.now() - cache.at < CACHE_TTL_MS) return cache.articles;
 
   const posts = await listPosts();
   const built = await Promise.all(posts.map(fromStrapi));
 
-  cache = built
+  const articles = built
     .filter((a): a is Article => a !== null)
     .sort((a, b) => +new Date(b.date) - +new Date(a.date));
+  cache = { at: Date.now(), articles };
 
-  return cache;
+  return articles;
 }
 
 export async function getArticle(slug: string): Promise<Article | undefined> {

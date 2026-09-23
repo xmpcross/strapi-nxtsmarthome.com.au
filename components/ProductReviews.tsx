@@ -143,7 +143,7 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
                  survey question this data does not answer. This is simply the
                  share of imported reviews rated four stars or higher. */
               <p className="mt-4 flex items-start gap-2 text-sm text-[#1d252c] dark:text-slate-200">
-                <span className="text-emerald-600" aria-hidden="true">✓</span>
+                <span className="text-primary-600" aria-hidden="true">✓</span>
                 <span>
                   <strong className="font-bold">{stats.positivePct}%</strong> rated this 4 stars or
                   higher

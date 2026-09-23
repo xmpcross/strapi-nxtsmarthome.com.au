@@ -1,6 +1,291 @@
+/* Ncmaz template base (Tailwind 4); primary = the site's brand ramp. */
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/aspect-ratio";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
+  --color-primary-50: #f1f0ff;
+  --color-primary-100: #deddff;
+  --color-primary-200: #c6c4ff;
+  --color-primary-300: #aeabff;
+  --color-primary-400: #9895ff;
+  --color-primary-500: #7b77e4;
+  --color-primary-600: #5955d1;
+  --color-primary-700: #514dcc;
+  --color-primary-800: #4440b4;
+  --color-primary-900: #37348f;
+
+  --color-secondary-50: rgb(240, 253, 250);
+  --color-secondary-100: rgb(204, 251, 241);
+  --color-secondary-200: rgb(153, 246, 228);
+  --color-secondary-300: rgb(153, 246, 228);
+  --color-secondary-400: rgb(45, 212, 191);
+  --color-secondary-500: rgb(20, 184, 166);
+  --color-secondary-600: rgb(13, 148, 136);
+  --color-secondary-700: rgb(15, 118, 110);
+  --color-secondary-800: rgb(17, 94, 89);
+  --color-secondary-900: rgb(19, 78, 74);
+
+  --color-neutral-50: rgb(249, 250, 251);
+  --color-neutral-100: rgb(243, 244, 246);
+  --color-neutral-200: rgb(229, 231, 235);
+  --color-neutral-300: rgb(209, 213, 219);
+  --color-neutral-400: rgb(156, 163, 175);
+  --color-neutral-500: rgb(107, 114, 128);
+  --color-neutral-600: rgb(75, 85, 99);
+  --color-neutral-700: rgb(55, 65, 81);
+  --color-neutral-800: rgb(31, 41, 55);
+  --color-neutral-900: rgb(17, 24, 39);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    @apply border-neutral-200/80 dark:border-neutral-700;
+  }
+
+  button.gm-control-active.gm-fullscreen-control {
+    border-radius: var(--radius-xl) !important;
+  }
+  [type='button'] {
+    -webkit-appearance: none !important;
+  }
+
+  hr {
+    @apply border-t border-neutral-200 dark:border-neutral-700;
+  }
+
+  input[type='time']::-webkit-calendar-picker-indicator {
+    @apply rounded-md dark:bg-neutral-500;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media screen and (min-width: 1536px) {
+    padding-inline: 8rem;
+  }
+}
+
+@utility pl-container {
+  @apply pl-4 sm:pl-[calc((100vw-40rem+2rem)/2)] md:pl-[calc((100vw-48rem+2rem)/2)] lg:pl-[calc((100vw-64rem+2rem)/2)] xl:pl-[calc((100vw-80rem+2rem)/2)] 2xl:pl-[calc((100vw-96rem+16rem)/2)];
+}
+
+/* embla carousel */
+@utility embla {
+  overflow: hidden;
+}
+@utility embla-overflow-unset {
+  overflow: unset;
+}
+@utility embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+@utility embla__slide {
+  flex-shrink: 0;
+  flex-grow: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+/* // CUSTOM STYLES */
+@utility hidden-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* // CARD TITLE */
+/* @utility post-card-title {
+  @apply transition-colors duration-75 hover:text-primary-900 hover:underline dark:hover:text-primary-300;
+} */
+
+/* // Z-MAX */
+@utility z-max {
+  z-index: 99999999;
+}
+
+/* // POST CARD COMMENT BTN */
+.nc-PostCardCommentBtn,
+.nc-PostCardLikeAction,
+.nc-CommentCardLikeReply > button {
+  &:hover {
+    span {
+      color: inherit;
+    }
+  }
+}
+
+/* // ORIGIN */
+@utility origin-100 {
+  transform-origin: 100% 50% 0px;
+}
+@utility origin-50 {
+  transform-origin: 50% 50% 0px;
+}
+
+/* // POST FEATURED MEDIA */
+.nc-PostFeaturedMedia {
+  .glide__bullet--active {
+    @apply bg-white;
+  }
+}
+
+.modalPhotos-single-gallery {
+  .controls_nav {
+    .glide__bullet--active {
+      display: block;
+    }
+  }
+}
+
+@utility nc-animation-spin {
+  animation: myspin 20s linear infinite;
+  animation-play-state: paused;
+  &.playing {
+    animation-play-state: running;
+  }
+}
+@keyframes myspin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+[type='button'] {
+  -webkit-appearance: none !important;
+}
+
+@utility section-rounded-none {
+  *[class*='rounded'],
+  *[class*='nc-box'] {
+    border-radius: 0 !important;
+  }
+}
+
+@utility section-rounded-md {
+  *[class*='rounded'],
+  *[class*='nc-box'] {
+    border-radius: var(--radius-md) !important;
+  }
+}
+
+@utility nc-google-shadow {
+  box-shadow:
+    0px 6px 10px 0px rgb(0 0 0 / 14%),
+    0px 1px 18px 0px rgb(0 0 0 / 12%),
+    0px 3px 5px -1px rgb(0 0 0 / 20%);
+}
+
+.menuIsNew_lv1 {
+  > a::before {
+    content: 'New!';
+    position: absolute;
+    top: -2px;
+    @apply end-0;
+    display: inline-block;
+    padding: 0 5px;
+    line-height: 15px;
+    border-radius: 4px;
+    background-color: #f35656;
+    color: #fff;
+    font-size: 10px;
+    font-weight: normal;
+  }
+}
+.menuIsNew {
+  > a::after {
+    content: 'New!';
+    display: inline-block;
+    padding: 0 5px;
+    line-height: 15px;
+    border-radius: 4px;
+    background-color: #f35656;
+    color: #fff;
+    font-size: 10px;
+    @apply ms-1.5;
+  }
+}
+
+.nc-PostCardCommentBtn,
+.nc-PostCardLikeAction,
+.nc-CommentCardLikeReply > button {
+  &:hover {
+    span {
+      color: inherit;
+    }
+  }
+}
+
+.nc-CardLarge1--hasAnimation {
+  .nc-CardLarge1__left {
+    animation-name: CardLarge1ExampleLeft;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+  }
+  .nc-CardLarge1__right {
+    animation-name: CardLarge1ExampleRight;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes CardLarge1ExampleRight {
+  from {
+    transform: scale(1.05) translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes CardLarge1ExampleLeft {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@utility custom-shadow-1 {
+  box-shadow:
+    rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+/* // MENU MEGAMENU */
+@utility menu-item {
+  @apply flex;
+  &:hover {
+    > .sub-menu {
+      @apply block;
+    }
+  }
+}
+@utility sub-menu {
+  @apply hidden;
+}
+
+
+/* ===== Site styles kept from the previous theme ===== */
+
 
 @theme {
   --color-card: #222324;
@@ -47,35 +332,15 @@
   --color-accent-500: #ff9b1a;
   --color-accent-600: #e97c06;
 
-  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-heading: Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-sans:
-    Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-    Helvetica Neue, Arial, sans-serif;
+  --font-body: var(--font-sans);
+  --font-heading: var(--font-sans);
 
   --container-prose: 46rem;
   --container-site: 81rem;
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
-}
-
-@utility prose {
+@layer components {
   /*
    * Heading anchors added by rehype-autolink-headings wrap the heading text.
    *
@@ -84,29 +349,29 @@
    * inherit through. Without this the linked headings render a step lighter
    * than the unlinked ones and the article looks inconsistent for no reason.
    */
-  & h2 > a {
+  .prose h2 > a {
     @apply no-underline text-inherit;
     font-weight: 600;
   }
-  & h3 > a {
+  .prose h3 > a {
     @apply no-underline text-inherit;
     font-weight: 600;
   }
-  & h4 > a {
+  .prose h4 > a {
     @apply no-underline text-inherit;
     font-weight: 600;
   }
 
-  & h2 > a:hover {
+  .prose h2 > a:hover {
     @apply text-brand-700 dark:text-brand-400;
   }
 
-  & h3 > a:hover {
+  .prose h3 > a:hover {
     @apply text-brand-700 dark:text-brand-400;
   }
 
   /* Outbound links inside article bodies get a subtle affordance. */
-  & a[target='_blank']::after {
+  .prose a[target='_blank']::after {
     content: ' ↗';
     @apply text-xs text-slate-400;
   }
@@ -324,35 +589,35 @@
   }
 }
 
-@utility group {
+@layer components {
   /* Nudge up and to the right, as if following the arrow. */
-  &:hover .card-arrow {
+  .group:hover .card-arrow {
     transform: translate(3px, -3px) rotate(-8deg);
   }
-  &:hover .image-arrow {
+  .group:hover .image-arrow {
     transform: translate(3px, -3px) rotate(-8deg);
   }
-  &:hover .inline-arrow {
+  .group:hover .inline-arrow {
     transform: translate(3px, -3px) rotate(-8deg);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    &:hover .card-arrow {
+    .group:hover .card-arrow {
       transform: none;
     }
 
-    &:hover .image-arrow {
+    .group:hover .image-arrow {
       transform: none;
     }
 
-    &:hover .inline-arrow {
+    .group:hover .inline-arrow {
       transform: none;
     }
   }
 }
 
-@utility dark {
-  &.dark {
+@layer components {
+  .dark {
     --post-card-bg: var(--color-card);
     --post-card-border: var(--color-card-edge);
     --post-text: #ffffff;
@@ -361,7 +626,7 @@
     --post-badge-fg: #ffffff;
   }
 
-  &.dark {
+  .dark {
     --page-bg: var(--color-night-50);
     --pc-arrow-bg: var(--color-card);
     --pc-arrow-border: var(--color-card-edge);
@@ -897,110 +1162,13 @@
   }
 }
 
-@layer base {
-  :root {
-    /* Values lifted from the reference theme's --tc-* custom properties. */
-    --body-font-size: 16px;
-    --body-line-height: 1.5;
-    --heading-line-height: 1.2;
-    --h1-size: 56px;
-    --h2-size: 48px;
-    --h3-size: 38px;
-    --h4-size: 31px;
-    --h5-size: 25px;
-    --h6-size: 18px;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    /* Offset anchor jumps so headings clear the sticky header. */
-    scroll-padding-top: 5rem;
-  }
-
-  body {
-    @apply bg-white text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-100;
-    /* Reference typography: 16px body at 1.5. */
-    font-size: var(--body-font-size);
-    line-height: var(--body-line-height);
-  }
-
-  /*
-   * Outfit at 300 for running text. Element-level, so any Tailwind font-weight
-   * utility on a specific element still wins — this sets the default, it does not
-   * flatten deliberately bolder copy.
-   */
-  /*
-   * Site background: Magzin's --tc-neutral-50 in light mode, with cards in white
-   * over it, and the dark surface in dark mode.
-   */
-  body {
-    /* Magzin's light page sits on --tc-neutral-50 with white cards over it. */
-    background: #fafafa;
-    color: #0e0e0f;
-  }
-  :root.dark body {
-    background: #151616;
-    color: #fff;
-  }
-
-  /*
-   * Body metrics: Inter, 1rem, weight 400, line-height 1.5, zero tracking.
-   * Element-level, so a Tailwind weight utility on a specific element still
-   * wins. The family comes from theme('fontFamily.body') rather than being
-   * named here, so this rule and the `font-body` utility cannot disagree.
-   */
-  body,
-  p,
-  ul li,
-  ul li a {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: 0;
-  }
-
-  /*
-   * Heading scale from the reference theme. These are element-level rules, so any
-   * Tailwind size utility on a heading still wins — component headings keep the
-   * sizes they were given, and this governs headings inside article prose.
-   */
-  /*
-   * Heading metrics: Inter at 700, line-height 1.2, no tracking. Letter
-   * spacing is 0 by request - Inter's default metrics are used as drawn.
-   * The family comes from theme('fontFamily.heading') rather than being named
-   * here, so this rule and the `font-heading` utility cannot disagree.
-   */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: 700 !important;
-    line-height: 1.2;
-    letter-spacing: 0;
-    text-transform: none;
-  }
-  .prose h1 { font-size: var(--h1-size); font-weight: 700 !important; }
-  /*
-   * Single-post body headings sit at 600, not the 700 used elsewhere. Inside an
-   * article the headings are structure rather than emphasis, and at Inter's
-   * metrics 700 competes with the h1 above them. h1 is left at 700 so the
-   * article title still leads.
-   *
-   * Kept in step with the prose-h*:font-semibold utilities in ArticleBody -
-   * these carry !important and would otherwise silently win a disagreement.
-   */
-  /*
-    Article body headings, on an explicit descending scale.
-
-    They did not descend before: h2 was 1.4rem (22.4px) and h3 1rem (16px), but
-    h4/h5/h6 still used the theme's global --h4/5/6-size of 31/25/18px. An h4
-    therefore rendered nearly twice its h3 and larger than the h2 above it, so
-    any article reaching for a fourth level inverted its own hierarchy.
-  */
-  .prose h2 { font-size: 26px; font-weight: 600 !important; letter-spacing: -0.2px; }
-  .prose h3 { font-size: 22px; font-weight: 600 !important; letter-spacing: -0.2px; }
-  .prose h4 { font-size: 20px; font-weight: 600 !important; letter-spacing: -0.2px; }
-  .prose h5 { font-size: 18px; font-weight: 600 !important; letter-spacing: -0.2px; }
-  .prose h6 { font-size: 16px; font-weight: 600 !important; letter-spacing: -0.2px; }
+@layer components {
+  /* Article body heading scale (kept from the previous theme). */
+  .prose h2 { font-size: 26px; font-weight: 600; letter-spacing: -0.2px; }
+  .prose h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.2px; }
+  .prose h4 { font-size: 20px; font-weight: 600; letter-spacing: -0.2px; }
+  .prose h5 { font-size: 18px; font-weight: 600; letter-spacing: -0.2px; }
+  .prose h6 { font-size: 16px; font-weight: 600; letter-spacing: -0.2px; }
 }
 
 /*
@@ -1552,4 +1720,13 @@
 
 :root:not(.dark) {
   color-scheme: light;
+}
+
+/* Heading anchors (rehype-autolink-headings) wrap article headings: they are
+   links, but must read as headings, not underlined link text. Unlayered so it
+   wins over the typography plugin's link styles. */
+.prose :where(h2, h3, h4, h5, h6) > a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
 }

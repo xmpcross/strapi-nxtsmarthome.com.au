@@ -38,7 +38,7 @@ export default function ProductCard({ product, rank }: Props) {
         <div className="mb-3 flex items-center justify-between gap-2">
           <div className="flex flex-wrap items-center gap-1.5">
             {rank !== undefined && (
-              <span className="inline-flex items-center rounded-md bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white shadow-2xs">
+              <span className="inline-flex items-center rounded-md bg-primary-600 px-2 py-0.5 text-xs font-bold text-white shadow-2xs">
                 #{rank}
               </span>
             )}
@@ -72,7 +72,7 @@ export default function ProductCard({ product, rank }: Props) {
         </Link>
 
         {/* Title */}
-        <h3 className="mb-1 text-base font-bold text-slate-900 group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400">
+        <h3 className="mb-1 text-base font-bold text-slate-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400">
           <Link href={`/products/${product.slug}/`}>
             {product.brand ? `${product.brand} ` : ''}{product.name}
           </Link>
@@ -121,7 +121,7 @@ export default function ProductCard({ product, rank }: Props) {
           <AffiliateLink
             href={primaryRetailer.url}
             subId={`product-card-${product.slug}`}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-center text-sm font-semibold text-white shadow-2xs transition hover:bg-emerald-700"
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-center text-sm font-semibold text-white shadow-2xs transition hover:bg-primary-700"
           >
             <span>Check price at {primaryRetailer.name}</span>
           </AffiliateLink>
@@ -130,7 +130,7 @@ export default function ProductCard({ product, rank }: Props) {
         <div className="mt-2 flex items-center justify-between">
           <Link
             href={`/products/${product.slug}/`}
-            className="text-xs font-semibold text-slate-600 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400"
+            className="text-xs font-semibold text-slate-600 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400"
           >
             View full specs & price comparison →
           </Link>

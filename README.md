@@ -216,6 +216,33 @@ The cookie banner gates Google Analytics:
 `/cookies` should stay in sync with the actual scripts. It no longer claims that
 no analytics is present.
 
+## Design: Ncmaz template
+
+Since 24 Sep 2026 the site uses the **Ncmaz** blog/magazine template (Next.js,
+Tailwind 4, Headless UI; source zip in `/opt/projects/assets/templates/`). The
+template's code was merged in rather than used as a new base, so URLs, SEO,
+Strapi data, products and affiliate scripts are unchanged.
+
+- `components/` holds the template's sections and cards (`SectionMagazine*`,
+  `PostCards/Card*`, `Widget*`, `Header/`, `Footer/`) alongside the site's own
+  components (`ArticleBody`, `ProductBox`, `Faq`, `Comments`, ...).
+  `shared/` holds its UI primitives, and `hooks/`, `utils/` and `images/` its
+  helpers.
+- `data/` is the adapter layer. It exposes the template's data API
+  (`getAllPosts`, `TPost`, `getCategories`, `getNavigation`, ...) built from
+  `lib/content.ts` (Strapi), `lib/site.ts` and `lib/authors.ts`.
+  - A post's `handle` is its canonical path without the leading slash, so
+    template links (`/${handle}`) land on real article URLs.
+  - Template links were rewritten: `/post/*` to the article URL, `/category/*`
+    to `/categories/*/`, and `/author/*` to `/authors/*/`.
+- `app/globals.css` is the template's Tailwind 4 theme, with primary = the
+  brand purple. Styles kept from the previous theme follow it. The font is
+  Be Vietnam Pro, via `next/font`.
+- Removed from the template, because they have no backing: likes and comment
+  counts, follow/report/hide actions, login and dashboard, and audio, video
+  and gallery posts.
+- Section headings are `h2`; each page has exactly one `h1`.
+
 ## Structure
 
 ```text

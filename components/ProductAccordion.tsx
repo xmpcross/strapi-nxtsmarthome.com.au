@@ -236,7 +236,7 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
                         key={item}
                         className="flex gap-2 text-sm text-[#55555a] dark:text-slate-300"
                       >
-                        <span className="text-emerald-600" aria-hidden="true">✓</span>
+                        <span className="text-primary-600" aria-hidden="true">✓</span>
                         <span>{item}</span>
                       </li>
                     ))}

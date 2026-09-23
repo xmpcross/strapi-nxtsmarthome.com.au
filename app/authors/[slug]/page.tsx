@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import ArticleCard from '@/components/ArticleCard';
+import ArchiveHeader from '@/components/ArchiveHeader';
+import Card11 from '@/components/PostCards/Card11';
+import { toTPost } from '@/data/posts';
 import JsonLd from '@/components/JsonLd';
-import PageHeader from '@/components/PageHeader';
-import { AuthorAvatar } from '@/components/AuthorByline';
 import { getAllArticles } from '@/lib/content';
 import { getAllAuthors, getAuthorBySlug, resolveAuthor } from '@/lib/authors';
 import { breadcrumbJsonLd } from '@/lib/seo';
@@ -44,7 +44,7 @@ export default async function AuthorPage({ params }: { params: Promise<{ slug: s
   );
 
   return (
-    <div className="mx-auto max-w-[1366px] px-4 py-8 sm:px-6">
+    <div className="page-author">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: 'Home', path: '/' },
@@ -62,48 +62,46 @@ export default async function AuthorPage({ params }: { params: Promise<{ slug: s
         }}
       />
 
-      <header className="mb-10 flex flex-wrap items-start gap-5">
-        <AuthorAvatar author={author} size={72} />
-        <div className="min-w-0 flex-1">
-          <PageHeader
-            eyebrow={author.role ?? 'Author'}
-            title={author.name}
-            intro={author.bio}
-            meta={`${articles.length} ${articles.length === 1 ? 'article' : 'articles'}`}
-          />
-          {author.links?.length ? (
-            <div className="-mt-4 flex flex-wrap gap-4 text-sm">
-              {author.links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="font-medium text-brand-700 hover:underline dark:text-brand-400"
-                >
-                  {l.label} →
-                </a>
-              ))}
-            </div>
-          ) : null}
-        </div>
-      </header>
+      <ArchiveHeader
+        eyebrow={author.role ?? 'Author'}
+        title={author.name}
+        intro={
+          <>
+            {author.bio && <p>{author.bio}</p>}
+            {author.links?.length ? (
+              <p className="mt-2 flex flex-wrap gap-4">
+                {author.links.map((l) => (
+                  <a key={l.href} href={l.href} className="font-medium text-primary-600 hover:underline dark:text-primary-400">
+                    {l.label} →
+                  </a>
+                ))}
+              </p>
+            ) : null}
+          </>
+        }
+        meta={`${articles.length} ${articles.length === 1 ? 'article' : 'articles'}`}
+        image={author.avatar || undefined}
+        initials={author.initials}
+        round
+      />
 
-      {author.note ? (
-        <p className="mb-10 w-full text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:w-4/5 sm:text-base">
-          {author.note}
-        </p>
-      ) : null}
+      <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">
+        {author.note ? (
+          <p className="mb-10 max-w-3xl leading-relaxed text-neutral-600 dark:text-neutral-300">{author.note}</p>
+        ) : null}
 
-      {articles.length ? (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {articles.map((article) => (
-            <ArticleCard key={article.slug} article={article} />
-          ))}
-        </div>
-      ) : (
-        <p className="rounded-[8px] border border-dashed border-slate-300 p-8 text-center text-slate-500 dark:border-slate-700">
-          Nothing published under this byline yet.
-        </p>
-      )}
+        {articles.length ? (
+          <div className="grid gap-6 sm:grid-cols-2 md:gap-7 lg:grid-cols-3">
+            {articles.map((article) => (
+              <Card11 key={article.slug} post={toTPost(article)} />
+            ))}
+          </div>
+        ) : (
+          <p className="rounded-2xl border border-dashed border-neutral-300 p-8 text-center text-neutral-500 dark:border-neutral-700">
+            Nothing published under this byline yet.
+          </p>
+        )}
+      </div>
     </div>
   );
 }

@@ -86,7 +86,7 @@ export default async function ProductDetailPage({
           { name: product.name, path: `/products/${product.slug}/` },
         ])}
       />
-      <div className="mx-auto max-w-[1366px] px-4 py-6 sm:px-6">
+      <div className="container py-8 lg:py-12">
         {/* Breadcrumb */}
         <nav className="mb-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-[#55555a] dark:text-slate-400">
           <Link href="/" className="hover:text-[#0046be] dark:hover:text-blue-400">Home</Link>

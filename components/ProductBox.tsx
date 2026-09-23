@@ -71,13 +71,13 @@ export default function ProductBox({ product, subId, rank }: Props) {
         <div className="grid gap-4 px-5 py-4 sm:grid-cols-2">
           {product.pros?.length ? (
             <div>
-              <h4 className="mb-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400">
+              <h4 className="mb-2 text-sm font-semibold text-primary-700 dark:text-primary-400">
                 What we like
               </h4>
               <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
                 {product.pros.map((pro) => (
                   <li key={pro} className="flex gap-2">
-                    <span className="text-emerald-600" aria-hidden="true">
+                    <span className="text-primary-600" aria-hidden="true">
                       ✓
                     </span>
                     <span>{pro}</span>

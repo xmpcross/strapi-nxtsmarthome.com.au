@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-[1366px] px-4 py-14 sm:px-6 sm:py-20">
+    <div className="container py-16 lg:py-24">
       <main className="min-w-0">
         <header>
           <p className="text-sm font-semibold uppercase text-brand-600 dark:text-brand-400">
             About
           </p>
-          <h1 className="mt-3 text-4xl font-bold text-slate-900 sm:text-5xl dark:text-white">
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl dark:text-white">
             Smart home advice written for Australian homes
           </h1>
         </header>
@@ -28,7 +28,7 @@ export default function AboutPage() {
           * nav column beside it narrowed the measure without giving the reader
           * anywhere useful to go.
           */}
-        <div className="prose prose-slate mt-10 max-w-none dark:prose-invert prose-h2:mt-10 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0 prose-lg">
+        <div className="prose prose-neutral mt-10 max-w-none dark:prose-invert prose-h2:mt-10 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0 prose-lg">
             <p className="lead">
               Almost every smart home article you find online was written for an American house. It
               assumes 120V wiring, a neutral wire in every switch box, US retailers, US warranty law
