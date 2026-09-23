@@ -24,7 +24,7 @@ Editorial rules (what may be claimed, how products are placed) live in
 ## Quick reference
 
 ```bash
-cd /opt/nxtsmarthome.com.au
+cd /opt/projects/nxtsmarthome.com.au
 nvm use 22
 
 npm run dev                # local dev on http://localhost:3011
@@ -35,8 +35,8 @@ npm run seed:menu          # seed/update Strapi navigation menu
 npm run new:article -- "Title" <category> <type> [--author=slug]
 ```
 
-Node 22 is required (`.nvmrc` pins it). Node 18 is the system default, so run
-`nvm use 22` first.
+Node 22 is required (`.nvmrc` pins it). The system Node on the server is v26, so
+run `nvm use 22` first.
 
 Always use `npm run build`, never `npx next build`; the npm lifecycle is part of
 the product. `prebuild` creates the search index, redirect/header files, nav cache
@@ -195,6 +195,15 @@ STRAPI_URL                       CMS base URL, defaults in code
 STRAPI_TOKEN / STRAPI_API_TOKEN  optional CMS API token
 ```
 
+Form mail (the contact service on the server, Pages Functions on Pages):
+
+```text
+SMTP_HOST / SMTP_PORT            Stalwart, default mail.fxnstudio.com:465
+SMTP_USER / SMTP_PASS            Stalwart account the forms send as (secret)
+CONTACT_TO / CONTACT_FROM        recipient / sender (sender defaults to SMTP_USER)
+CONTACT_ORIGIN                   CORS origin, default https://nxtsmarthome.com.au
+```
+
 Values are read at build time and baked into `out/`, so rebuild after changing
 them. A blank affiliate value disables that explicit network; Sovrn handles the
 fallback path where possible.
@@ -296,6 +305,46 @@ changed URLs to IndexNow.
 
 That output check matters: a bare `npm run build && rsync` can republish the
 previous build if the export failed or did not produce the files expected.
+
+### Contact and comment forms
+
+The contact form posts to `/api/contact`, and article comments post to
+`/api/comment`. On the server, nginx proxies both paths to
+`nxtsmarthome-contact.service` (`/opt/nxtsmarthome-contact/server.mjs`,
+`127.0.0.1:4320`). The service is not in this repo, and its settings are in
+`/opt/nxtsmarthome-contact/.env`.
+
+Mail goes through the FXN **Stalwart** server (`mail.fxnstudio.com:465`) using
+`SMTP_USER` / `SMTP_PASS`. Brevo was removed on 24 Sep 2026. Stalwart rejects a
+sender the account does not own, so `CONTACT_FROM` defaults to `SMTP_USER`.
+Messages go to `CONTACT_TO` (default `hello@nxtsmarthome.com.au`), with Reply-To
+set to the reader.
+
+Checks:
+- A honeypot field (`company`) catches bots.
+- A submission sent less than 2 seconds after the form loaded is dropped.
+- Bot submissions get a 200 response, so a bot learns nothing.
+- Each IP address can send 5 messages per 10 minutes.
+
+When delivery fails, the reader gets a 502 that asks them to email
+`CONTACT_TO` directly. Check with
+`journalctl -u nxtsmarthome-contact -n 20`.
+
+For mail sent through Stalwart to pass SPF and DKIM, the domain's DNS needs
+`ip4:51.161.208.188` in SPF and Stalwart's DKIM records. MX stays on Google.
+
+### Cloudflare Pages (prepared, not live)
+
+The repo can also deploy to Cloudflare Pages:
+- `wrangler.jsonc` is in the Pages form.
+- `functions/api/contact.js` and `functions/api/comment.js` do the service's job
+  with the same checks, sending with `worker-mailer`.
+- `scripts/pages-build.sh` is the build command. It refuses to run without the
+  Strapi and affiliate variables, and refuses to publish an incomplete export.
+
+Settings, variables and the switch-over steps are in
+[`CLOUDFLARE_PAGES.md`](CLOUDFLARE_PAGES.md). Keep
+`functions/_lib/mail-form.js` and the server's `server.mjs` in step.
 
 ### The web server
 
