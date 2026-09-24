@@ -58,5 +58,10 @@
     "from": "/energy-and-solar/smart-plugs-energy-monitors-cut-power-bill-australia/",
     "to": "/energy-and-solar/smart-plugs-energy-monitors-lower-power-bill-australia/",
     "reason": "Duplicate article merged into the survivor (AdSense Task 7, cluster 2, 24 Sep 2026)"
+  },
+  {
+    "from": "/authors/k-curtis/",
+    "to": "/authors/kritin-curtis/",
+    "reason": "Same person under two slugs; Strapi's \"K Curtis\" is aliased to kritin-curtis in lib/authors.ts (AdSense Task 9, 24 Sep 2026)"
   }
 ]

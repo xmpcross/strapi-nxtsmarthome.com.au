@@ -214,7 +214,7 @@ export default async function HomePage() {
           posts={(lastTopic.posts ?? []).slice(0, 8)}
           postCardName="card4"
           gridClass="sm:grid-cols-2"
-          widgetAuthors={authors.slice(0, 4)}
+          widgetAuthors={authors.filter((a) => a.count > 0).slice(0, 4)}
           widgetCategories={topics}
           widgetTags={tags.slice(0, 12)}
           widgetPosts={inDepth}

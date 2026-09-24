@@ -93,9 +93,14 @@ async function main() {
           .map((l) => `  - label: ${q(l.label ?? l.name ?? 'Profile')}\n    href: ${q(l.href ?? l.url)}`)
       : ['  - label: How we test\n    href: /how-we-test/', '  - label: About this site\n    href: /about/'];
 
-    // Body deliberately empty: the CMS has no long-profile field, and anything
-    // left here shows verbatim on /authors/<slug>/ — an HTML comment in this
-    // position rendered as visible text on the page.
+    // The CMS has no long-profile field, so the body comes from the repo:
+    // content/author-notes/<slug>.md, plain prose, shown verbatim on
+    // /authors/<slug>/ under the header (lib/authors.ts `note`). The short CMS
+    // bio stays the byline under every article. No note file, no body — and
+    // nothing else goes here: an HTML comment in this position rendered as
+    // visible text on the page.
+    const notePath = path.join(ROOT, 'content', 'author-notes', `${a.slug}.md`);
+    const note = fs.existsSync(notePath) ? fs.readFileSync(notePath, 'utf8').trim() : '';
     const md =
       '---\n' +
       `name: ${q(a.name)}\n` +
@@ -106,7 +111,8 @@ async function main() {
       `bio: ${q((a.bio ?? '').replace(/\s+/g, ' ').trim())}\n` +
       'links:\n' +
       links.join('\n') +
-      '\n---\n';
+      '\n---\n' +
+      (note ? `\n${note}\n` : '');
 
     fs.writeFileSync(path.join(DIR, `${a.slug}.md`), md);
     written += 1;

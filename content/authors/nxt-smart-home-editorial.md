@@ -4,7 +4,7 @@ slug: nxt-smart-home-editorial
 role: Editorial team
 initials: NXT
 avatar: ''
-bio: 'The NXT Smart Home editorial team researches, writes and maintains the guides on this site. Everything here is written for Australian conditions specifically — 240V power and Type I plugs, AS/NZS wiring rules, local retailers and Australian Consumer Law.'
+bio: 'The NXT Smart Home editorial team researches, writes and maintains the guides on this site. Everything here is written for Australian conditions specifically — 230V power and Type I plugs, AS/NZS wiring rules, local retailers and Australian Consumer Law.'
 links:
   - label: How we test
     href: /how-we-test/

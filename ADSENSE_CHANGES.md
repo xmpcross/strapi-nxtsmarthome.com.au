@@ -2180,3 +2180,75 @@ checked.
   major failures, and marketplace rights running against the seller;
 - The Good Guys' 20% restocking fee;
 - the Harvey Norman franchising inference.
+
+---
+
+## 24 September 2026: Task 9, author pages clean-up
+
+**Already done in PR #12, now confirmed live:**
+- Strapi's "K Curtis" (`k-curtis`) is aliased to `kritin-curtis`. All 22
+  posts show under one profile, and `/authors/k-curtis/` returns 301 to
+  `/authors/kritin-curtis/`.
+- A placeholder role ("What they cover, e.g. …") renders as no role line.
+- `nxt-smart-home-editorial` has 0 posts, so it is `noindex, follow` and is
+  left out of the sitemap.
+
+**Changed in this task:**
+- **`data/redirects-adsense.json`:** `/authors/k-curtis/` →
+  `/authors/kritin-curtis/` added. It was already generated from
+  AUTHOR_ALIASES; `gen-redirects.mjs` de-duplicates it.
+- **`app/page.tsx`:** the home page "Hottest authors" widget now lists only
+  authors with at least one post. The 0-post editorial profile was showing
+  there.
+- **Templates:** `content/authors/contributor-1..5.md.template` were
+  deleted. Nothing referenced them, and they held the "What they cover, e.g.
+  Security and cameras" placeholder role.
+- **Long author profiles:** the CMS has no long-profile field, and
+  `scripts/fetch-authors.mjs` rewrites `content/authors/*.md` from Strapi on
+  every build, so a body written there was lost.
+  - The profiles now live in `content/author-notes/<slug>.md`, and
+    `fetch-authors.mjs` appends that file as the body.
+  - The short Strapi bio stays the byline under each article.
+  - The author page shows the note under its header.
+  - They exist for adrian-thompson, harry-cheng and kritin-curtis.
+- **What the profiles say:** each states only what the site itself
+  supports:
+  - how many guides the author has written ("more than 15" or "more than
+    20");
+  - the topics they cover and four real article titles;
+  - the site's research method, as stated on /how-we-test/.
+
+  No personal background, qualifications or hands-on testing is claimed.
+  The user asked for this to be done automatically without supplying author
+  facts.
+- **Voltage:** "240V" became "230V" in:
+  - Adrian Thompson's Strapi bio (backup:
+    `exports/strapi-backup/author-adrian-thompson-<timestamp>.json`);
+  - the local editorial bio.
+
+**Audit** (`npm run audit:thin`):
+
+| Author | Profile words | Verdict |
+|---|---|---|
+| adrian-thompson | 46 → 183 | OK |
+| harry-cheng | 60 → 202 | OK |
+| kritin-curtis | 58 → 196 | OK |
+| nxt-smart-home-editorial | 0 posts | THIN, noindex (as intended) |
+
+Indexable THIN authors: 0. Whole site: 0 indexable thin pages; all 63
+articles are OK.
+
+**Checked:**
+- The build passes with no Strapi fallback, and the nginx map has no
+  duplicate keys.
+- On a test server (:3022), the author page shows the profile note and the
+  home page no longer lists the editorial profile.
+
+**Left for a human:**
+- The profiles are factual but impersonal. A real bio (background, what
+  each person owns and uses, where they are based) would strengthen them;
+  edit `content/author-notes/<slug>.md` and the short bio in Strapi.
+- Adrian Thompson and Harry Cheng were assigned by the article generator's
+  random-author setting. If either is not a real person, move their posts
+  to a real byline or to NXT Smart Home Editorial: the site says it does
+  not publish invented bylines.
