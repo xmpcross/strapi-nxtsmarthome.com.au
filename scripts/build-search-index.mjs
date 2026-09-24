@@ -80,6 +80,10 @@ const params = new URLSearchParams({
   'pagination[pageSize]': '200',
   'sort[0]': 'publishDate:desc',
   'populate[categories]': 'true',
+  // Scheduled posts (showFrom in the future) stay out of search until released,
+  // matching lib/strapi.ts.
+  'filters[$or][0][showFrom][$null]': 'true',
+  'filters[$or][1][showFrom][$lte]': new Date().toISOString(),
 });
 
 const res = await fetch(`${STRAPI}/api/nxtsmarthome-posts?${params}`, {

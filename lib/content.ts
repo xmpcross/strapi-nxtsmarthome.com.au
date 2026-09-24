@@ -168,7 +168,8 @@ async function fromStrapi(post: StrapiPost): Promise<Article | null> {
     description: post.excerpt ?? '',
     category: categoryKey,
     type: articleType(post.postType) as Article['type'],
-    date: post.publishDate ?? post.publishedAt ?? '',
+    // A scheduled post dates from its release (showFrom), not from when it was written.
+    date: post.showFrom ?? post.publishDate ?? post.publishedAt ?? '',
     updated: post.dateModified || undefined,
     /*
      * The CMS author when the post has one, by slug so resolveAuthor matches a
