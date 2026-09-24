@@ -58,6 +58,8 @@ export default function CategoryView({
           meta={`${articles.length} ${articles.length === 1 ? 'article' : 'articles'}${page > 1 ? ` · Page ${page}` : ''}`}
           image={thumb}
           banner={banner}
+          fullWidth
+          introClassName="text-base/7"
         />
 
         <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">

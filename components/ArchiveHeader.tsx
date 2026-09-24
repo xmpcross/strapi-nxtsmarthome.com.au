@@ -22,6 +22,8 @@ export default function ArchiveHeader({
   round = false,
   banner,
   className,
+  fullWidth = false,
+  introClassName = 'text-sm/6',
 }: {
   eyebrow: string
   eyebrowColor?: BadgeColor
@@ -34,6 +36,10 @@ export default function ArchiveHeader({
   round?: boolean
   banner?: string | null
   className?: string
+  /** Let the title, intro and meta use the card's full width instead of a readable measure. */
+  fullWidth?: boolean
+  /** Size of the intro text. Defaults to the shared archive scale. */
+  introClassName?: string
 }) {
   return (
     <div className={clsx('w-full', className)}>
@@ -58,12 +64,12 @@ export default function ArchiveHeader({
             />
           )}
           <div className="flex-1 lg:ps-4">
-            <div className="max-w-(--breakpoint-md) space-y-3.5">
+            <div className={clsx('space-y-3.5', !fullWidth && 'max-w-(--breakpoint-md)')}>
               <div>
                 <Badge color={eyebrowColor}>{eyebrow}</Badge>
                 <h1 className="mt-2 text-2xl font-semibold lg:text-3xl">{title}</h1>
               </div>
-              {intro && <div className="text-sm/6 text-neutral-600 dark:text-neutral-300">{intro}</div>}
+              {intro && <div className={clsx('text-neutral-600 dark:text-neutral-300', introClassName)}>{intro}</div>}
               {meta && <p className="text-sm font-medium text-neutral-700 dark:text-neutral-300">{meta}</p>}
             </div>
           </div>
