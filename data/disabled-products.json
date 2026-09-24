@@ -1,0 +1,6 @@
+{
+  "_comment": "Catalogue products taken off the site: out of /products/, category pages, related products, article product boxes and the sitemap, and the page 404s. The entry stays in public/data/products.json, so re-enabling is deleting the slug from this list. A list rather than a flag in products.json, because a catalogue refresh rewrites that file. Read by lib/products.ts getAllTopProducts() and scripts/audit-thin-content.mjs.",
+  "disabled": [
+    { "slug": "apple-homepod-2nd-generation", "date": "2026-09-24", "reason": "user request" }
+  ]
+}

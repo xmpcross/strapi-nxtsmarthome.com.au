@@ -219,6 +219,16 @@ export function getProductsBySlugs(slugs: string[]): Product[] {
 
 let topProductsCache: TopProduct[] | null = null;
 
+/** Slugs in data/disabled-products.json: taken off the site but kept in the catalogue file. */
+function disabledSlugs(): Set<string> {
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', 'disabled-products.json'), 'utf8'));
+    return new Set((raw.disabled ?? []).map((d: { slug: string } | string) => (typeof d === 'string' ? d : d.slug)));
+  } catch {
+    return new Set();
+  }
+}
+
 export function getAllTopProducts(): TopProduct[] {
   if (topProductsCache) return topProductsCache;
   if (!fs.existsSync(JSON_PRODUCTS_PATH)) {
@@ -227,7 +237,10 @@ export function getAllTopProducts(): TopProduct[] {
   }
   try {
     const raw = fs.readFileSync(JSON_PRODUCTS_PATH, 'utf8');
-    const parsed = JSON.parse(raw) as TopProduct[];
+    // Disabled products are dropped here, so every listing, the sitemap and the
+    // product route (which 404s on a miss) leave them out.
+    const disabled = disabledSlugs();
+    const parsed = (JSON.parse(raw) as TopProduct[]).filter((p) => !disabled.has(p.slug));
     /*
      * Where a genuine aggregate has been imported from the review catalogue,
      * it wins over the seeded `rating` / `reviewCount`. The seeded values are

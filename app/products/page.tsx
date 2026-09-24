@@ -194,6 +194,10 @@ export default function ProductsPage() {
         title="Compare smart home devices in Australia"
         intro="Every device here is sold in Australia, runs on 240V power, and is stocked by at least one local retailer with Australian warranty support. We link you to the retailer to check the current price, because prices move daily. Order is based on what we'd recommend, not on what pays us the most."
         meta={`${products.length} devices catalogued`}
+        // h1 at 2.5rem; description full width at 1rem (user requests, 24 Sep 2026).
+        // text-[1rem]! beats PageHeader's md:text-lg default.
+        titleClassName="text-[2.5rem] leading-tight"
+        introClassName="max-w-none text-[1rem]!"
       />
 
       <p className="text-sm text-neutral-700 sm:text-base dark:text-neutral-300">

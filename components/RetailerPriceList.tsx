@@ -1,5 +1,6 @@
 import AffiliateLink from './AffiliateLink';
 import type { TopProductRetailer } from '@/lib/products';
+import { retailerLogoIsDark, retailerLogoSrc } from '@/lib/retailer-logos';
 
 /**
  * Compact retailer price list for the product page's right column.
@@ -9,25 +10,6 @@ import type { TopProductRetailer } from '@/lib/products';
  * left to the full "Where to Buy" table further down the page, which still
  * lists every retailer.
  */
-
-/**
- * Real brand marks. These are wordmarks at roughly 3:1, so the slot is a
- * rectangle rather than the square an icon would want — squeezing "BUNNINGS
- * WAREHOUSE" into 36px makes it unreadable.
- */
-const REAL_LOGOS: Array<{ match: string; src: string }> = [
-  { match: 'jb hi-fi', src: '/images/retailers/jbhifi.png' },
-  { match: 'jbhifi', src: '/images/retailers/jbhifi.png' },
-  { match: 'good guys', src: '/images/retailers/thegoodguys.png' },
-  { match: 'harvey norman', src: '/images/retailers/HarveyNorman.svg' },
-  { match: 'officeworks', src: '/images/retailers/officeworks.png' },
-  { match: 'bunnings', src: '/images/retailers/bunnings.png' },
-  { match: 'kogan', src: '/images/retailers/kogan.png' },
-  { match: 'scorptec', src: '/images/retailers/scorptec.png' },
-  { match: 'mwave', src: '/images/retailers/mwave-logo.png' },
-  { match: 'amazon', src: '/images/retailers/amazon-au.svg' },
-  { match: 'ebay', src: '/images/retailers/ebay-au.svg' },
-];
 
 /** Brand colours for the fallback initial tile, so rows stay distinguishable. */
 const TILE_COLOURS: Array<{ match: string; bg: string; fg: string }> = [
@@ -50,13 +32,19 @@ const TILE_COLOURS: Array<{ match: string; bg: string; fg: string }> = [
  */
 function RetailerMark({ name }: { name: string }) {
   const lower = name.toLowerCase();
-  const real = REAL_LOGOS.find((l) => lower.includes(l.match));
+  const src = retailerLogoSrc(name);
 
-  if (real) {
+  // White backing in both themes: the marks are drawn for a light background,
+  // and several (Amazon, Kogan, The Good Guys) vanish on the dark row.
+  if (src) {
     return (
-      <span className="flex h-9 w-20 shrink-0 items-center justify-center rounded-md p-1">
+      <span
+        className={`flex h-9 w-20 shrink-0 items-center justify-center rounded-md p-1 ring-1 ring-black/5 ${
+          retailerLogoIsDark(name) ? 'bg-[#111]' : 'bg-white'
+        }`}
+      >
         <img
-          src={real.src}
+          src={src}
           alt={name}
           loading="lazy"
           className="max-h-full max-w-full object-contain"

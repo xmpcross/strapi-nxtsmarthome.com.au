@@ -1,3 +1,5 @@
+import { retailerLogoSrc } from '@/lib/retailer-logos';
+
 interface Props {
   name: string;
   className?: string;
@@ -55,12 +57,16 @@ export default function RetailerLogo({ name, className = '' }: Props) {
     );
   }
 
-  if (cleanName.includes('bing lee')) {
-    return (
-      <div className={`inline-flex items-center justify-center bg-[#004A99] text-white px-1.5 py-0.5 rounded-sm font-black text-[9px] leading-none uppercase ${className}`}>
-        BING LEE
-      </div>
-    );
+  // Marks added after the styled badges below were written come from the shared
+  // logo list (lib/retailer-logos.ts), on white so they read in dark mode.
+  if (['big w', 'dick smith', 'telstra', 'bing lee'].some((n) => cleanName.includes(n))) {
+    const src = retailerLogoSrc(name);
+    if (src) {
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={src} alt={name} className={`h-4 w-auto rounded-sm bg-white px-1 py-0.5 ${className}`} />
+      );
+    }
   }
 
   if (cleanName.includes('kogan')) {

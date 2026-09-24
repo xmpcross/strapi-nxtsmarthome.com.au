@@ -75,20 +75,15 @@ const Footer: React.FC = () => {
             Research-based smart home guides for Australian homes: 240V wiring, AS/NZS rules,
             renters, local retailers and Australian Consumer Law.
           </p>
-          <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/contact/"
-              className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-700"
-            >
-              Contact us
-            </Link>
-            <a
-              href={`mailto:${site.organisation.email}`}
-              className="text-sm font-medium text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-white"
-            >
-              {site.organisation.email}
-            </a>
-          </div>
+          {/* Email only, 18px bold (user request, 24 Sep 2026); the Contact
+              page is in the site column below. break-all keeps it inside
+              the column on a phone. */}
+          <a
+            href={`mailto:${site.organisation.email}`}
+            className="text-[18px] font-bold break-all text-neutral-800 hover:text-primary-600 dark:text-neutral-100 dark:hover:text-white"
+          >
+            {site.organisation.email}
+          </a>
           {site.social.facebook && (
             <a
               href={site.social.facebook}
