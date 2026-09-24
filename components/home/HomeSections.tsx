@@ -28,7 +28,7 @@ export function HomeHero({ articleCount, topicCount }: { articleCount: number; t
       <p className="mt-5 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
         Buying guides, setup help and plain-English explainers for smart lighting, security
         cameras, energy monitoring, climate control, robot vacuums and the platforms that tie
-        them together, written for 240V wiring, Australian retailers and renters as well as
+        them together, written for 230V wiring, Australian retailers and renters as well as
         owners. {articleCount} articles across {topicCount} topics.
       </p>
       <div className="mt-8 flex flex-wrap gap-3">
@@ -106,6 +106,99 @@ export function HomeTopics({ topics }: { topics: TCategory[] }) {
   )
 }
 
+/**
+ * The Buying Guides topic, redesigned (24 Sep 2026). It replaced the Ncmaz
+ * posts-with-widgets block: a 2-column grid of image cards (most guides have no
+ * cover, so most cards were blank) beside four sidebar widgets that repeated
+ * the topic list. Now one featured guide and a numbered shelf of text cards.
+ */
+export function HomeBuyingGuides({
+  heading,
+  subHeading,
+  posts,
+  moreHref,
+  moreLabel,
+}: {
+  heading: string
+  subHeading?: string
+  posts: TPost[]
+  moreHref: string
+  moreLabel: string
+}) {
+  if (!posts.length) return null
+  const [featured, ...rest] = posts
+  const meta = (post: TPost) => (
+    <span className="text-xs text-neutral-500 dark:text-neutral-400">
+      {post.author.name} · {new Date(post.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })} ·{' '}
+      {post.readingTime} min read
+    </span>
+  )
+  return (
+    <section>
+      <HeadingWithSub subHeading={subHeading}>{heading}</HeadingWithSub>
+      <div className="grid gap-6 lg:grid-cols-3">
+        <Link
+          href={`/${featured.handle}/`}
+          className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white transition hover:border-primary-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700"
+        >
+          {/* On large screens the card matches the list's height; the cover takes the slack. */}
+          <div className="relative aspect-16/10 w-full lg:aspect-auto lg:min-h-56 lg:flex-1">
+            {featured.featuredImage?.src ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={featured.featuredImage.src}
+                alt={featured.featuredImage.alt || featured.title}
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-50 dark:from-primary-950/60 dark:to-neutral-900" />
+            )}
+          </div>
+          <div className="flex flex-col p-6">
+            <span className="text-xs font-semibold tracking-wider text-primary-700 uppercase dark:text-primary-300">Featured guide</span>
+            <h3 className="mt-2 text-xl leading-snug font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+              {featured.title}
+            </h3>
+            {featured.excerpt && (
+              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{featured.excerpt}</p>
+            )}
+            <div className="pt-4">{meta(featured)}</div>
+          </div>
+        </Link>
+        <ol className="grid gap-4 sm:grid-cols-2 lg:col-span-2">
+          {rest.map((post, i) => (
+            <li key={post.id}>
+              <Link
+                href={`/${post.handle}/`}
+                className="group flex h-full gap-4 rounded-2xl border border-neutral-200 bg-white p-5 transition hover:border-primary-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700"
+              >
+                <span className="text-2xl leading-none font-bold text-primary-600 tabular-nums dark:text-primary-400" aria-hidden="true">
+                  {String(i + 2).padStart(2, '0')}
+                </span>
+                <span className="flex min-w-0 flex-col">
+                  <span className="font-semibold leading-snug text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+                    {post.title}
+                  </span>
+                  {post.excerpt && (
+                    <span className="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
+                  )}
+                  <span className="mt-auto pt-3">{meta(post)}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div className="mt-8 flex justify-end">
+        <Link href={moreHref} className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-400">
+          {moreLabel} →
+        </Link>
+      </div>
+    </section>
+  )
+}
+
 /** Product pages with our own research notes (the indexable ones). */
 export function HomeProducts({ products }: { products: TopProduct[] }) {
   if (!products.length) return null
@@ -132,7 +225,7 @@ export function HomeTrust({ editorName, editorSlug }: { editorName: string; edit
   const points = [
     {
       title: 'Written for Australian homes',
-      body: '240V wiring and AS/NZS rules, Australian retailers and warranties, renters and strata, and our climate.',
+      body: '230V wiring and AS/NZS rules, Australian retailers and warranties, renters and strata, and our climate.',
     },
     {
       title: 'Research, not hype',

@@ -5,10 +5,8 @@ import SectionMagazine2 from '@/components/SectionMagazine2'
 import SectionMagazine7 from '@/components/SectionMagazine7'
 import SectionMagazine8 from '@/components/SectionMagazine8'
 import SectionMagazine9 from '@/components/SectionMagazine9'
-import SectionPostsWithWidgets from '@/components/SectionPostsWithWidgets'
 import SectionSliderPosts from '@/components/SectionSliderPosts'
-import { getAuthors } from '@/data/authors'
-import { getCategoriesWithPosts, getTags, type TCategory } from '@/data/categories'
+import { getCategoriesWithPosts, type TCategory } from '@/data/categories'
 import { toTPost, type TPost } from '@/data/posts'
 import { getAllArticles } from '@/lib/content'
 import { site } from '@/lib/site'
@@ -16,7 +14,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import JsonLd from '@/components/JsonLd'
-import { HomeHero, HomeProducts, HomeStartHere, HomeTopics, HomeTrust } from '@/components/home/HomeSections'
+import { HomeBuyingGuides, HomeHero, HomeProducts, HomeStartHere, HomeTopics, HomeTrust } from '@/components/home/HomeSections'
 import { getIndexableTopProducts, toListingCard } from '@/lib/products'
 
 // Home page on the Ncmaz "Home Demo 5" layout, filled from Strapi and
@@ -34,7 +32,7 @@ export const revalidate = 300
 
 const HOME_TITLE = 'Smart Home Guides for Australian Homes'
 const HOME_DESCRIPTION =
-  'Independent smart home buying guides, setup help and explainers for Australian homes: lighting, security cameras, energy, climate, robot vacuums and hubs, with Australian retailers and 240V wiring in mind.'
+  'Independent smart home buying guides, setup help and explainers for Australian homes: lighting, security cameras, energy, climate, robot vacuums and hubs, with Australian retailers and 230V wiring in mind.'
 
 export const metadata: Metadata = {
   title: { absolute: `${HOME_TITLE} | ${site.name}` },
@@ -75,7 +73,12 @@ function ViewAll({ category }: { category: TCategory }) {
   )
 }
 
+// Topic sections drawn without the grey BackgroundSection panel (user request,
+// 24 Sep 2026).
+const NO_BACKGROUND = new Set(['hubs-and-platforms'])
+
 function CategorySection({ category, posts, layout }: { category: TCategory; posts: TPost[]; layout: Layout }) {
+  const plain = NO_BACKGROUND.has(category.handle)
   const heading = category.name
   const subHeading = category.description
   let body: ReactNode
@@ -101,7 +104,7 @@ function CategorySection({ category, posts, layout }: { category: TCategory; pos
     case 'slider':
       return (
         <div className="relative py-16 lg:py-20">
-          <BackgroundSection />
+          {!plain && <BackgroundSection />}
           <SectionSliderPosts postCardName="card10V2" heading={heading} subHeading={subHeading} posts={posts} />
           <ViewAll category={category} />
         </div>
@@ -109,7 +112,7 @@ function CategorySection({ category, posts, layout }: { category: TCategory; pos
     default:
       return (
         <div className="relative py-16 lg:py-20">
-          <BackgroundSection />
+          {!plain && <BackgroundSection />}
           <SectionGridPosts
             headingIsCenter
             postCardName="card11"
@@ -136,11 +139,11 @@ export default async function HomePage() {
   // Featured first, then newest, for the lead grid.
   const lead = [...articles.filter((a) => a.featured), ...articles.filter((a) => !a.featured)].slice(0, 8)
 
-  const [categories, authors, tags] = await Promise.all([getCategoriesWithPosts(), getAuthors(), getTags()])
+  const categories = await getCategoriesWithPosts()
   const topics = categories.filter((c) => c.count > 0).sort((a, b) => b.count - a.count)
 
   // Pinned slots: Entertainment & Audio is the first section under Top topics,
-  // Buying Guides closes the page in the posts-with-widgets layout. The other
+  // Buying Guides closes the page (HomeBuyingGuides). The other
   // topics rotate between them, biggest first. (A pinned topic with no posts
   // falls back to the count order.)
   const lastTopic = topics.find((c) => c.handle === 'buying-guides') ?? topics[topics.length - 1]
@@ -165,11 +168,6 @@ export default async function HomePage() {
   // Topic sections before and after the researched-products block.
   const splitAt = Math.ceil(sectionTopics.length / 2)
   const editor = site.organisation.editor
-
-  const inDepth = [...articles]
-    .sort((a, b) => b.wordCount - a.wordCount)
-    .slice(0, 4)
-    .map(toTPost)
 
   const renderTopic = (category: TCategory, i: number) => {
     const posts = category.posts ?? []
@@ -211,16 +209,10 @@ export default async function HomePage() {
       <HomeTrust editorName={editor.name} editorSlug={editor.slug} />
 
       {lastTopic && (
-        <SectionPostsWithWidgets
+        <HomeBuyingGuides
           heading={lastTopic.name}
           subHeading={lastTopic.description}
-          posts={(lastTopic.posts ?? []).slice(0, 8)}
-          postCardName="card4"
-          gridClass="sm:grid-cols-2"
-          widgetAuthors={authors.filter((a) => a.count > 0).slice(0, 4)}
-          widgetCategories={topics}
-          widgetTags={tags.slice(0, 12)}
-          widgetPosts={inDepth}
+          posts={(lastTopic.posts ?? []).slice(0, 9)}
           moreHref={`/categories/${lastTopic.handle}/`}
           moreLabel={`All ${lastTopic.name}`}
         />
