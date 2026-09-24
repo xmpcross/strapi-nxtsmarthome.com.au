@@ -86,13 +86,18 @@ export async function generateMetadata({
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ category: string; slug: string }> }) {
-  const { slug } = await params;
+  const { category, slug } = await params;
   // A near-duplicate folded into another article. nginx 301s these first; this
   // covers any request that reaches the server directly.
   const survivor = mergedInto(slug);
   if (survivor) permanentRedirect(survivor);
   const article = await getArticle(slug);
   if (!article) notFound();
+  // The article resolves by slug alone, so /climate/<slug>/ (a category key, as
+  // generated article links often use) rendered the same page as the canonical
+  // /climate-and-comfort/<slug>/. 301 to the one URL instead of serving a copy.
+  const canonical = articleHref(article);
+  if (canonical.split('/')[1] !== category) permanentRedirect(canonical);
 
   const relatedScored = await getRelatedWithScores(article, 3);
   // A wider pool so the three blocks (mid-article, Next Up, Related Posts) show

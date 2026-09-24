@@ -2252,3 +2252,51 @@ articles are OK.
   random-author setting. If either is not a real person, move their posts
   to a real byline or to NXT Smart Home Editorial: the site says it does
   not publish invented bylines.
+
+---
+
+## 24 September 2026: Task 10, final verification before reapplying
+
+The full report is in **`reports/adsense-readiness.md`**, with the pass/fail
+table, human actions and go / no-go.
+
+**Result: no-go until two short steps are done, then go.** Content quality
+passes throughout:
+- 0 indexable thin, duplicate, off-topic or placeholder pages;
+- 0 guard-blocked posts;
+- 0 broken internal links;
+- 0 noindexed URLs in the sitemap;
+- no banned strings in visible text.
+
+**The blockers:** the site cannot be verified.
+- **No verification tag or ads.txt.** `NEXT_PUBLIC_ADSENSE_CLIENT` is unset,
+  so there is no `google-adsense-account` meta and `/ads.txt` returns 404.
+- **Privacy & messaging** (the certified CMP for EEA/UK/CH) must be
+  switched on in AdSense.
+
+**Fixed in this task:**
+- **`app/[category]/[slug]/page.tsx`:** a URL with the wrong category
+  segment (e.g. `/climate/<slug>/`, which generated article links use) now
+  301s to the canonical `/<category slug>/<slug>/`. It used to render a
+  second copy at a 200; the canonical tag was already right.
+- **`next.config.mjs`:** `/product/:slug` now 301s to `/products/:slug/`.
+  `smart-lighting-scene-ideas` had 5 such links, all 404.
+- **`app/sitemap.ts`:** the 10 paginated `/articles/page/N/` listings were
+  removed. The sitemap is 108 → 98 URLs and holds only the allowed page
+  types.
+
+**Checked:**
+- `npm run build` passes;
+- `npm run audit:thin`: 0 indexable thin pages;
+- a crawl of the production build (98 sitemap URLs plus 334 linked URLs)
+  finds every URL ending 200.
+
+**Corrected count:** 15 of 63 live articles have fewer than two product
+markers, not 9 as noted earlier. The list is in the readiness report.
+
+**Files changed:**
+- app/[category]/[slug]/page.tsx
+- next.config.mjs
+- app/sitemap.ts
+- reports/adsense-readiness.md
+- reports/thin-content-audit.csv

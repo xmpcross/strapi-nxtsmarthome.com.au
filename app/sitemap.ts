@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
 import { articleHref, getAllArticles } from '@/lib/content';
-import { pageCount } from '@/components/Pagination';
 import { getIndexableTopProducts } from '@/lib/products';
 import { categories, site } from '@/lib/site';
 import { getAllAuthors, resolveAuthor } from '@/lib/authors';
@@ -16,6 +15,10 @@ export const revalidate = 3600;
  * product pages had no path in it at all and relied on being found by crawl
  * alone.
  *
+ * The paginated /articles/page/N/ listings were taken back out (AdSense Task
+ * 10, 24 Sep 2026): they are ~230-word card grids, not destinations, and stay
+ * reachable through /articles/ pagination. Page one, /articles/, stays.
+ *
  * /search/, /preview/ and /design-preview/ stay out — robots.txt disallows them,
  * and a sitemap that lists a disallowed URL is a contradiction Search Console
  * reports back.
@@ -30,12 +33,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     articles.some((a) => resolveAuthor(a.author).slug === author.slug),
   );
   const newest = articles[0]?.date ? new Date(articles[0].date) : new Date();
-
-  // Page one lives at /articles/, already in staticPages; this adds 2..N.
-  const articlePages = Array.from(
-    { length: Math.max(0, pageCount(articles.length) - 1) },
-    (_, i) => i + 2,
-  );
 
   const perCategory = new Map<string, number>();
   for (const p of products) perCategory.set(p.categorySlug, (perCategory.get(p.categorySlug) ?? 0) + 1);
@@ -73,12 +70,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(article.updated ?? article.date),
       changeFrequency: 'monthly' as const,
       priority: article.featured ? 0.9 : 0.8,
-    })),
-    ...articlePages.map((n) => ({
-      url: `${site.url}/articles/page/${n}/`,
-      lastModified: newest,
-      changeFrequency: 'daily' as const,
-      priority: 0.4,
     })),
     // The hub only when it lists something indexable (it is noindex otherwise).
     ...(products.length

@@ -43,7 +43,17 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  ...(staticExport ? {} : { redirects: async () => adsenseRedirects() }),
+  ...(staticExport
+    ? {}
+    : {
+        redirects: async () => [
+          ...adsenseRedirects(),
+          // Generated article text sometimes links /product/<slug> (singular),
+          // which 404s; the pages live at /products/<slug>/ (AdSense Task 10).
+          { source: '/product/:slug', destination: '/products/:slug/', permanent: true },
+          { source: '/product/:slug/', destination: '/products/:slug/', permanent: true },
+        ],
+      }),
 };
 
 export default nextConfig;
