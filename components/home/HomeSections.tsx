@@ -18,7 +18,7 @@ import { site } from '@/lib/site'
 
 export function HomeHero({ articleCount, topicCount }: { articleCount: number; topicCount: number }) {
   return (
-    <section className="rounded-2xl border border-neutral-200 bg-gradient-to-br from-primary-50 via-white to-white px-6 py-10 sm:px-10 lg:px-14 lg:py-14 dark:border-neutral-800 dark:from-primary-950/40 dark:via-neutral-900 dark:to-neutral-900">
+    <section>
       <p className="text-sm font-semibold tracking-wider text-primary-700 uppercase dark:text-primary-300">
         Independent · Australian
       </p>
