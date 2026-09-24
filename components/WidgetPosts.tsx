@@ -19,6 +19,8 @@ const WidgetPosts: FC<Props> = ({ className = 'bg-neutral-100 dark:bg-neutral-80
             className="p-4 hover:bg-neutral-200 xl:px-5 xl:py-6 dark:hover:bg-neutral-700"
             key={post.id}
             post={post}
+            showMeta={false}
+            titleLines={2}
           />
         ))}
       </div>

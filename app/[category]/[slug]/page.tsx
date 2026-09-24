@@ -113,10 +113,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
   const post = toTPost(article)
   const author = resolveAuthor(article.author)
   const relatedPosts = relatedPool.map((r) => toTPost(r.article))
-  const moreFromAuthor = all
-    .filter((a) => a.slug !== article.slug && resolveAuthor(a.author).slug === author.slug)
-    .slice(0, 8)
-    .map(toTPost)
   const [widgetCategories, widgetTags] = await Promise.all([getCategories(), getTags()])
 
   return (
@@ -277,7 +273,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
           </aside>
         </div>
 
-        <SingleRelatedPosts relatedPosts={relatedPosts} moreFromAuthorPosts={moreFromAuthor} />
+        <SingleRelatedPosts relatedPosts={relatedPosts} />
       </div>
     </>
   );

@@ -1567,6 +1567,12 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-body);
     font-weight: 400;
   }
+  /* Card titles wrap their text in a <p> inside the heading: keep the
+     heading's weight and font there, not body copy's. */
+  :is(h1, h2, h3, h4, h5, h6) p {
+    font-family: inherit;
+    font-weight: inherit;
+  }
 }
 
 /* Single post template: every heading (title, article body, sidebar and

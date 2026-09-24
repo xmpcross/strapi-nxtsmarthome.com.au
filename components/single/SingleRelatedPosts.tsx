@@ -4,16 +4,15 @@ import { FC } from 'react'
 
 interface Props {
   relatedPosts: TPost[]
-  moreFromAuthorPosts: TPost[]
 }
 
-const SingleRelatedPosts: FC<Props> = ({ relatedPosts, moreFromAuthorPosts }) => {
+// "More from author" was removed from the single post template (24 Sep 2026).
+const SingleRelatedPosts: FC<Props> = ({ relatedPosts }) => {
   return (
     <div className="relative mt-16 bg-neutral-50 py-16 lg:mt-28 lg:py-24 dark:bg-neutral-800">
       {/* RELATED  */}
       <div className="container space-y-16 lg:space-y-28">
         <SectionSliderPosts posts={relatedPosts} heading="Don't miss these" postCardName="card7" />
-        <SectionSliderPosts posts={moreFromAuthorPosts} heading="More from author" />
       </div>
     </div>
   )
