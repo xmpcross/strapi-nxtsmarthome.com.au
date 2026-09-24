@@ -17,7 +17,7 @@
   --radius-2xl: 8px;
   --radius-3xl: 8px;
   --radius-4xl: 8px;
-  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --color-primary-50: #f1f0ff;
   --color-primary-100: #deddff;
   --color-primary-200: #c6c4ff;
@@ -343,7 +343,7 @@
   --color-accent-600: #e97c06;
 
   --font-body: var(--font-sans);
-  --font-heading: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --container-prose: 46rem;
   --container-site: 81rem;
@@ -968,210 +968,6 @@
   }
 }
 
-@layer utilities {
-  /*
- * Inter — self-hosted variable weight 100-900, latin + latin-ext.
- * SIL Open Font License 1.1. Files in public/fonts/, copied from
- * @fontsource-variable/inter. Self-hosted for the same reason as the families
- * above: no third-party request on page load, and no CLS while it arrives.
- *
- * Inter is the site's only family — body and headings alike. The families
- * below it are kept rather than deleted so a theme can be switched back by
- * editing tailwind.config.ts alone.
- */
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-      U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url('/fonts/inter-latin-ext-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
-      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-
-  /*
- * Geist — self-hosted variable weight 100-900, latin + latin-ext.
- * SIL Open Font License, Copyright 2024 The Geist Project Authors.
- * Files in public/fonts/, copied from @fontsource-variable/geist. Self-hosting
- * avoids a third-party request on every page load and the CLS that comes with it.
- */
-  /*
- * Figtree and Plus Jakarta Sans — self-hosted variable, latin + latin-ext.
- * Both SIL Open Font License 1.1. Downloaded from Google Fonts.
- *
- * This is the pairing originfacts.com uses: Figtree carries every heading, Plus
- * Jakarta Sans carries body copy. Their exact metrics are applied below.
- */
-  @font-face {
-    font-family: 'Figtree';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 300 900;
-    src: url('/fonts/figtree-latin-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-      U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Figtree';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 300 900;
-    src: url('/fonts/figtree-latin-ext-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
-      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  @font-face {
-    font-family: 'Plus Jakarta Sans';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 200 800;
-    src: url('/fonts/jakarta-latin-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-      U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Plus Jakarta Sans';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 200 800;
-    src: url('/fonts/jakarta-latin-ext-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
-      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-
-  /*
- * DM Sans — self-hosted variable weight 100-1000, latin + latin-ext.
- * SIL Open Font License 1.1, Copyright 2014-2024 The DM Sans Project Authors.
- * Downloaded from Google Fonts (v17). This is the single family used across
- * thesmarthome.blog — headings, body, meta and menu alike — so it now carries
- * all of them here too.
- */
-  @font-face {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 1000;
-    src: url('/fonts/dm-sans-latin-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-      U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 1000;
-    src: url('/fonts/dm-sans-latin-ext-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
-      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-
-  /*
- * Outfit — self-hosted variable weight 100-900, latin + latin-ext.
- * SIL Open Font License 1.1, Copyright 2020 The Outfit Project Authors.
- * Downloaded from Google Fonts (v15) into public/fonts/. Carries body copy.
- */
-  @font-face {
-    font-family: 'Outfit';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url('/fonts/outfit-latin-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-      U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Outfit';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url('/fonts/outfit-latin-ext-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
-      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-
-  /*
- * Urbanist — self-hosted variable weight 100-900, latin + latin-ext.
- * SIL Open Font License 1.1, Copyright 2020 The Urbanist Project Authors.
- * Downloaded from Google Fonts (v18) into public/fonts/. Self-hosted for the same
- * reason as Geist: no third-party request on page load, and no CLS from a late
- * font swap. Urbanist sets every heading; Geist remains the body face.
- */
-  @font-face {
-    font-family: 'Urbanist';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url('/fonts/urbanist-latin-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-      U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Urbanist';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url('/fonts/urbanist-latin-ext-wght-normal.woff2') format('woff2');
-    unicode-range:
-      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
-      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  @font-face {
-    font-family: 'Geist';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url('/fonts/geist-latin-wght-normal.woff2') format('woff2-variations');
-    unicode-range:
-      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-      U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Geist';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url('/fonts/geist-latin-ext-wght-normal.woff2')
-      format('woff2-variations');
-    unicode-range:
-      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
-      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-}
-
 @layer components {
   /* Article body heading scale (kept from the previous theme). */
   .prose h2 { font-size: 26px; font-weight: 600; letter-spacing: -0.2px; }
@@ -1741,9 +1537,9 @@
   text-decoration: none;
 }
 
-/* Headings and titles on every page use Urbanist (loaded in app/layout.tsx);
-   body copy stays Be Vietnam Pro. Unlayered so it applies to headings inside
-   components and article prose alike. */
+/* Headings and titles on every page use the heading font (Inter, loaded in
+   app/layout.tsx). Unlayered so it applies to headings inside components and
+   article prose alike. */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
@@ -1762,14 +1558,14 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 8px !important;
 }
 
-/* Body copy: Outfit at weight 300 on every page (fonts loaded in
+/* Body copy: Inter at the default weight (400) on every page (loaded in
    app/layout.tsx). In the base layer, so a weight utility on a specific
    element (font-medium, font-semibold, ...) still wins. */
 @layer base {
   body,
   p {
     font-family: var(--font-body);
-    font-weight: 300;
+    font-weight: 400;
   }
 }
 

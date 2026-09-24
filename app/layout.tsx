@@ -13,24 +13,16 @@ import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
 import { organisationJsonLd } from '@/lib/seo';
 
-// Body text: Outfit, self-hosted from app/fonts/outfit (Google Fonts, SIL OFL
-// 1.1 — licence alongside). One variable file covers every weight; body and
-// paragraphs default to 300 (app/globals.css).
-const outfit = localFont({
-  src: [{ path: './fonts/outfit/Outfit-latin-variable.woff2', weight: '100 900', style: 'normal' }],
-  display: 'swap',
-  variable: '--font-outfit',
-});
-
-// Headings (h1–h6): Urbanist, self-hosted from app/fonts/urbanist (Google Fonts,
-// SIL OFL 1.1 — licence alongside). One variable file covers every weight.
-const urbanist = localFont({
+// Site font: Inter for body text and headings, self-hosted from app/fonts/inter
+// (Google Fonts, SIL OFL 1.1 — licence alongside). The variable files cover
+// every weight; body text uses the default weight (400).
+const inter = localFont({
   src: [
-    { path: './fonts/urbanist/Urbanist-latin-variable.woff2', weight: '100 900', style: 'normal' },
-    { path: './fonts/urbanist/Urbanist-latin-italic-variable.woff2', weight: '100 900', style: 'italic' },
+    { path: './fonts/inter/Inter-latin-variable.woff2', weight: '100 900', style: 'normal' },
+    { path: './fonts/inter/Inter-latin-italic-variable.woff2', weight: '100 900', style: 'italic' },
   ],
   display: 'swap',
-  variable: '--font-urbanist',
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -95,7 +87,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={site.language} className={`${outfit.variable} ${urbanist.variable}`} suppressHydrationWarning>
+    <html lang={site.language} className={inter.variable} suppressHydrationWarning>
       <head>
         {/*
           Applies the theme before first paint. Without this a dark reader gets a
