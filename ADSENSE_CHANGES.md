@@ -2098,3 +2098,85 @@ boxes, where four had none before.
 - reports/task7-cluster1..6-review.md
 - reports/thin-content-audit.csv
 - this file
+
+---
+
+## 24 September 2026: Task 8, expand borderline articles and restructure the hub guide
+
+**Approved** by the user after reviewing `reports/task8-review.md`, which has
+the per-article meta, FAQs, source tables and diffs.
+
+**Written to Strapi** with `PUT ?status=published`. Each update set the
+body, seoTitle, seoDescription, excerpt, keyTakeaways ("The short answer")
+and FAQ, plus the title for the hub guide. `publishDate` was kept, and
+`dateModified` was set to today. Both the published and draft copies were
+checked.
+
+| Article | Body words | H2s | FAQ | Product boxes | Backup |
+|---|---|---|---|---|---|
+| buying-guides/where-to-buy-smart-home-australia | 728 → 1,459 | 7 → 6 | 4 → 5 | 0 → 2 | exports/strapi-backup/where-to-buy-smart-home-australia-2026-09-24T11-54-18-696Z.json |
+| hubs-and-platforms/thread-vs-matter-difference | 756 → 1,464 | 7 → 10 | 4 → 5 | 0 → 4 | exports/strapi-backup/thread-vs-matter-difference-2026-09-24T11-54-18-696Z.json |
+| buying-guides/smart-home-hub-buying-guide-australia | ~1,520 → ~1,600 | 0 → 9 | 10 → 4 | 0 → 4 | exports/strapi-backup/smart-home-hub-buying-guide-australia-2026-09-24T11-54-18-696Z.json |
+
+**Where to buy:**
+- **Change of mind versus faults:** a new section, citing the ACCC.
+- **Retailer by retailer:** a section for each of the seven retailers.
+  - Policy pages are cited for Bunnings, Officeworks, The Good Guys, Amazon
+    AU and eBay AU, plus Harvey Norman Holdings on franchising.
+  - JB Hi-Fi's and Harvey Norman's policy pages would not load, so no terms
+    are stated for them; readers are told to check the current policy.
+- **Grey imports and overseas sellers:** a new section, citing the ACCC.
+- **Decision table:** it gains a "Watch for" column.
+
+**Thread vs Matter:**
+- **How they work together:** a new section.
+- **Thread border routers you may already own:** each one confirmed on the
+  Apple, Google, Amazon or Aqara official pages. Local availability is
+  confirmed for HomePod mini and Apple TV 4K only.
+- **Matter over Wi-Fi versus Thread:** a new section, including the P110
+  versus P110M trap.
+- **Common setup problems:** a new section.
+- **Analogy:** the existing postal analogy was extended.
+- **Maintenance comment:** updated to say the border-router list must be
+  re-checked.
+
+**Hub guide:**
+- **Structure:** 9 descriptive H2s, 4 FAQs (from 10) and a new "The short
+  answer".
+- **Samsung:** Samsung AU has not sold a standalone SmartThings hub since
+  2023 (sourced to ChannelNews quoting Samsung); the hub is built into its
+  TVs.
+- **Aqara:** the Hub M3 is stocked by Officeworks.
+- **Removed:** "Alexa has more devices".
+- **Softened:** the outage and retailer-stock claims.
+- **Title:** it dropped "2025". It is now "Smart Home Hubs in Australia: Do
+  You Need One, and Which Hub Suits You?".
+  - The approved title ended "…and Which to Choose". Once published, that
+    scored title similarity 0.56 with best-smart-home-platform-australia
+    ("Which Smart Home Platform Should You Choose in Australia?"), and the
+    audit flagged the pair as DUPLICATE; the bodies are 0.00 similar.
+  - The title was changed to keep the same meaning at 0.40, under the 0.5
+    threshold.
+
+**Product boxes:** catalogue products only, all with a verdict and a photo.
+- The hub guide draft's `apple-homepod`, `aqara-hub-m3` and
+  `philips-hue-bridge` were swapped for `apple-homepod-mini`,
+  `aqara-hub-m3-matter-zigbee-coordinator` and `philips-hue-bridge-v2`.
+- The originals had no catalogue record and no photo, and `apple-homepod`
+  is model A2825, the disabled HomePod 2nd gen.
+
+**Audit** (`npm run audit:thin`):
+- 63 articles, all OK (the 2 BORDERLINE before are now OK);
+- 0 duplicate pairs;
+- indexable thin pages: only the 3 author profiles (Task 9).
+
+**Found, not changed:**
+- The Tapo P110 catalogue entry's JB Hi-Fi link points to a P110M page.
+- The curated `aqara-hub-m3.md` and `philips-hue-bridge.md` files carry
+  `[VERIFY]` model-number YAML comments (not rendered).
+
+**For legal review:**
+- ACCC paraphrases: change of mind, being referred to the manufacturer,
+  major failures, and marketplace rights running against the seller;
+- The Good Guys' 20% restocking fee;
+- the Harvey Norman franchising inference.

@@ -1,0 +1,318 @@
+{
+  "published": {
+    "id": 366,
+    "documentId": "fzo0useua0qyei5vmsz20kvv",
+    "title": "Where to Buy Smart Home Gear in Australia: Bunnings vs JB Hi-Fi",
+    "slug": "where-to-buy-smart-home-australia",
+    "excerpt": "Australian retailers stock very different slices of the smart home market. Knowing who carries what saves a wasted trip and makes returns far easier.",
+    "content": "Smart home gear in Australia is sold through retailers that barely overlap. The same shopping list can send you to a hardware store, an electronics chain and a marketplace listing, and knowing who stocks what saves a wasted trip.\n\nThis is a guide to where each retailer actually fits, not a claim about who is cheapest on any given day.\n\n## Why it is worth thinking about at all\n\nTwo reasons, and neither is price.\n\n**Returns.** Smart home devices have a higher-than-usual chance of not working out — wrong fitting, wrong protocol, will not join your network, does not do what the box implied. A retailer with a physical store you can walk into makes that far less painful than a marketplace seller in another country.\n\n**Suitability for Australia.** Bulb fittings, plug shape and mains voltage all differ from the US market. A retailer selling into Australia has already filtered for this. A marketplace listing has not necessarily done so.\n\n## The hardware stores\n\n**Bunnings** is where the practical, non-glamorous end of the category lives: smart plugs, sensors, garden and outdoor gear, security lighting, and the electrical accessories you need around an install. Range on marquee ecosystem devices is narrower.\n\nThe advantages are opening hours, physical stores nearly everywhere, and a returns process that does not require an argument. If you are mid-project on a Sunday afternoon, this matters more than a small price difference.\n\n## The electronics chains\n\n**JB Hi-Fi** and **Harvey Norman** carry the mainstream ecosystem hardware — speakers, displays, streaming devices, cameras, doorbells, robot vacuums. This is where you find the brands with marketing budgets.\n\n**The Good Guys** overlaps heavily, with more weight on appliances, which matters if you are looking at smart whitegoods rather than accessories.\n\n**Officeworks** sits slightly apart: strong on the small, cheap end — plugs, bulbs, basic cameras — and convenient, but not the place for anything specialised.\n\nYou can generally see these products working in-store, which is genuinely useful for anything involving screens, sound or physical build quality.\n\n## The online marketplaces\n\n**Amazon AU** and **eBay AU** carry, between them, close to everything — including the brands that never reach an Australian shelf. If you want a specific Zigbee sensor or a niche hub, this is realistically your only option.\n\nThe trade-off is that you must read listings carefully:\n\n- **Check the fitting and the plug.** A bulb listed as E27 may still be a US E26 built for 120 volts. See our guide to B22 versus E27 fittings.\n- **Check the seller's location.** \"Ships from Australia\" and \"sold by an Australian business\" are different claims, and only the second helps much if something goes wrong.\n- **Check the app region.** Some devices are tied to a regional account and will not enrol on an Australian one.\n\nNone of this makes marketplaces a bad choice. It makes them a choice that rewards five minutes of reading.\n\n## A simple decision rule\n\n| Situation | Buy from |\n|---|---|\n| You might need to return it | A retailer with a local store |\n| You need it today | Bunnings or Officeworks |\n| Mainstream ecosystem hardware | JB Hi-Fi, Harvey Norman, The Good Guys |\n| Niche protocol gear, enthusiast brands | Amazon AU or eBay AU |\n| Anything mains-wired | Wherever your electrician sources it |\n\nThat last row matters. If a device is being hard-wired, the person doing the work often has preferences about what they will install, and it is worth asking before you buy.\n\n## Your rights, briefly\n\nBuying from a business selling into Australia gives you consumer guarantees under Australian Consumer Law. Those exist independently of any manufacturer warranty and cannot be signed away by a warranty card.\n\nThe practical point is not the law, it is enforcement. Pursuing a remedy from a chain with local stores is straightforward. Pursuing one from an overseas marketplace seller often is not, even where the same rights technically apply.\n\nFor anything expensive, or anything you expect to run for years, that difference is worth paying a little for.\n\n## When to wait\n\nTwo windows genuinely move prices in Australia: **end of financial year** in June, and **Black Friday and Cyber Monday** in late November. Both routinely discount smart home hardware.\n\nIf the purchase is discretionary — a robot vacuum, a speaker, a camera upgrade — waiting is often worth it. If something is broken and you need it working, the saving rarely justifies the delay.\n\n<!--\n  Editorial maintenance notes (not reader-facing):\n  - Which retailer stocks which brand moves constantly. No specific range or\n    stock claim should be tightened beyond the general positioning used here\n    without re-checking.\n  - No prices appear anywhere in this article, deliberately: they change weekly\n    and would be wrong within a fortnight.\n-->",
+    "keyTakeaways": "Buy locally when you might need to return it, and buy online when you need range. Bunnings and Officeworks cover the practical basics, JB Hi-Fi and Harvey Norman cover the big ecosystems, and Amazon AU or eBay AU cover everything else — with the caveat that grey imports may not suit Australian mains or fittings.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/where-to-buy-smart-home-australia.webp",
+    "coverImageAlt": "Where to Buy Smart Home Gear in Australia: Bunnings vs JB Hi-Fi",
+    "postType": "product-comparison",
+    "publishDate": "2026-08-04T00:00:00.000Z",
+    "dateModified": "2026-09-24T08:36:33.537Z",
+    "featured": false,
+    "tags": [
+      "Buying advice",
+      "Retailers",
+      "Australia",
+      "Warranty",
+      "Consumer rights"
+    ],
+    "readingTimeMinutes": 4,
+    "seoTitle": "Where to Buy Smart Home Gear in Australia: Bunnings vs JB Hi-Fi",
+    "seoDescription": "Australian retailers stock very different slices of the smart home market. Knowing who carries what saves a wasted trip and makes returns far easier.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/buying-guides/where-to-buy-smart-home-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:46.854Z",
+    "updatedAt": "2026-09-24T08:36:35.279Z",
+    "publishedAt": "2026-09-24T08:36:35.311Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3974,
+      "documentId": "a18zqld8dt5dys8vupzrglzm",
+      "name": "Where to Buy Smart Home Gear in Australia Bunnings vs JB HiFi.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3.jpg",
+          "hash": "large_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3",
+          "mime": "image/jpeg",
+          "name": "large_Where to Buy Smart Home Gear in Australia Bunnings vs JB HiFi.jpg",
+          "path": null,
+          "size": 27.41,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 27414
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3.jpg",
+          "hash": "small_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3",
+          "mime": "image/jpeg",
+          "name": "small_Where to Buy Smart Home Gear in Australia Bunnings vs JB HiFi.jpg",
+          "path": null,
+          "size": 9.44,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 9439
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3.jpg",
+          "hash": "medium_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3",
+          "mime": "image/jpeg",
+          "name": "medium_Where to Buy Smart Home Gear in Australia Bunnings vs JB HiFi.jpg",
+          "path": null,
+          "size": 17.46,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 17462
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3.jpg",
+          "hash": "thumbnail_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Where to Buy Smart Home Gear in Australia Bunnings vs JB HiFi.jpg",
+          "path": null,
+          "size": 3.42,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 3424
+        }
+      },
+      "hash": "Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 56.64,
+      "url": "/uploads/Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T23:49:16.076Z",
+      "updatedAt": "2026-08-22T23:49:16.076Z",
+      "publishedAt": "2026-08-22T23:49:16.076Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 3597,
+        "question": "Is it safe to buy smart home devices from overseas sellers?",
+        "answer": "It carries real risk. Devices may be built for a different mains voltage, use a different plug or bulb fitting, or be locked to a regional app account. Australian Consumer Law protections are also far harder to enforce against an overseas seller. Buying stock sold into the Australian market avoids all three problems."
+      },
+      {
+        "order": 1,
+        "id": 3598,
+        "question": "Which Australian retailer has the best smart home range?",
+        "answer": "It depends what you are buying. Hardware and electrical basics lean towards Bunnings, mainstream ecosystem devices towards JB Hi-Fi and Harvey Norman, and niche or enthusiast gear is usually online only. No single Australian retailer carries the whole category."
+      },
+      {
+        "order": 2,
+        "id": 3599,
+        "question": "Do I get a warranty if I buy from Amazon AU or eBay AU?",
+        "answer": "You have consumer guarantees under Australian Consumer Law when you buy from a business selling into Australia, and these apply regardless of what a warranty card says. The practical difficulty is enforcement — a marketplace seller shipping from overseas is far harder to pursue than a retailer with a local store."
+      },
+      {
+        "order": 3,
+        "id": 3600,
+        "question": "Is it worth waiting for a sale?",
+        "answer": "For discretionary purchases, often yes. The two largest discounting windows in Australia are end of financial year in June and the Black Friday period in late November. For a device you need working now, the saving rarely justifies the wait."
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "documentId": "fznrs0xa43imqgijen01hgus",
+        "name": "Buying Guides",
+        "slug": "buying-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.609Z",
+        "updatedAt": "2026-08-22T18:30:53.551Z",
+        "publishedAt": "2026-08-22T18:30:53.546Z"
+      }
+    ],
+    "author": {
+      "id": 13,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": "2026-08-22T21:55:22.398Z"
+    }
+  },
+  "draft": {
+    "id": 69,
+    "documentId": "fzo0useua0qyei5vmsz20kvv",
+    "title": "Where to Buy Smart Home Gear in Australia: Bunnings vs JB Hi-Fi",
+    "slug": "where-to-buy-smart-home-australia",
+    "excerpt": "Australian retailers stock very different slices of the smart home market. Knowing who carries what saves a wasted trip and makes returns far easier.",
+    "content": "Smart home gear in Australia is sold through retailers that barely overlap. The same shopping list can send you to a hardware store, an electronics chain and a marketplace listing, and knowing who stocks what saves a wasted trip.\n\nThis is a guide to where each retailer actually fits, not a claim about who is cheapest on any given day.\n\n## Why it is worth thinking about at all\n\nTwo reasons, and neither is price.\n\n**Returns.** Smart home devices have a higher-than-usual chance of not working out — wrong fitting, wrong protocol, will not join your network, does not do what the box implied. A retailer with a physical store you can walk into makes that far less painful than a marketplace seller in another country.\n\n**Suitability for Australia.** Bulb fittings, plug shape and mains voltage all differ from the US market. A retailer selling into Australia has already filtered for this. A marketplace listing has not necessarily done so.\n\n## The hardware stores\n\n**Bunnings** is where the practical, non-glamorous end of the category lives: smart plugs, sensors, garden and outdoor gear, security lighting, and the electrical accessories you need around an install. Range on marquee ecosystem devices is narrower.\n\nThe advantages are opening hours, physical stores nearly everywhere, and a returns process that does not require an argument. If you are mid-project on a Sunday afternoon, this matters more than a small price difference.\n\n## The electronics chains\n\n**JB Hi-Fi** and **Harvey Norman** carry the mainstream ecosystem hardware — speakers, displays, streaming devices, cameras, doorbells, robot vacuums. This is where you find the brands with marketing budgets.\n\n**The Good Guys** overlaps heavily, with more weight on appliances, which matters if you are looking at smart whitegoods rather than accessories.\n\n**Officeworks** sits slightly apart: strong on the small, cheap end — plugs, bulbs, basic cameras — and convenient, but not the place for anything specialised.\n\nYou can generally see these products working in-store, which is genuinely useful for anything involving screens, sound or physical build quality.\n\n## The online marketplaces\n\n**Amazon AU** and **eBay AU** carry, between them, close to everything — including the brands that never reach an Australian shelf. If you want a specific Zigbee sensor or a niche hub, this is realistically your only option.\n\nThe trade-off is that you must read listings carefully:\n\n- **Check the fitting and the plug.** A bulb listed as E27 may still be a US E26 built for 120 volts. See our guide to B22 versus E27 fittings.\n- **Check the seller's location.** \"Ships from Australia\" and \"sold by an Australian business\" are different claims, and only the second helps much if something goes wrong.\n- **Check the app region.** Some devices are tied to a regional account and will not enrol on an Australian one.\n\nNone of this makes marketplaces a bad choice. It makes them a choice that rewards five minutes of reading.\n\n## A simple decision rule\n\n| Situation | Buy from |\n|---|---|\n| You might need to return it | A retailer with a local store |\n| You need it today | Bunnings or Officeworks |\n| Mainstream ecosystem hardware | JB Hi-Fi, Harvey Norman, The Good Guys |\n| Niche protocol gear, enthusiast brands | Amazon AU or eBay AU |\n| Anything mains-wired | Wherever your electrician sources it |\n\nThat last row matters. If a device is being hard-wired, the person doing the work often has preferences about what they will install, and it is worth asking before you buy.\n\n## Your rights, briefly\n\nBuying from a business selling into Australia gives you consumer guarantees under Australian Consumer Law. Those exist independently of any manufacturer warranty and cannot be signed away by a warranty card.\n\nThe practical point is not the law, it is enforcement. Pursuing a remedy from a chain with local stores is straightforward. Pursuing one from an overseas marketplace seller often is not, even where the same rights technically apply.\n\nFor anything expensive, or anything you expect to run for years, that difference is worth paying a little for.\n\n## When to wait\n\nTwo windows genuinely move prices in Australia: **end of financial year** in June, and **Black Friday and Cyber Monday** in late November. Both routinely discount smart home hardware.\n\nIf the purchase is discretionary — a robot vacuum, a speaker, a camera upgrade — waiting is often worth it. If something is broken and you need it working, the saving rarely justifies the delay.\n\n<!--\n  Editorial maintenance notes (not reader-facing):\n  - Which retailer stocks which brand moves constantly. No specific range or\n    stock claim should be tightened beyond the general positioning used here\n    without re-checking.\n  - No prices appear anywhere in this article, deliberately: they change weekly\n    and would be wrong within a fortnight.\n-->",
+    "keyTakeaways": "Buy locally when you might need to return it, and buy online when you need range. Bunnings and Officeworks cover the practical basics, JB Hi-Fi and Harvey Norman cover the big ecosystems, and Amazon AU or eBay AU cover everything else — with the caveat that grey imports may not suit Australian mains or fittings.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/where-to-buy-smart-home-australia.webp",
+    "coverImageAlt": "Where to Buy Smart Home Gear in Australia: Bunnings vs JB Hi-Fi",
+    "postType": "product-comparison",
+    "publishDate": "2026-08-04T00:00:00.000Z",
+    "dateModified": "2026-09-24T08:36:33.537Z",
+    "featured": false,
+    "tags": [
+      "Buying advice",
+      "Retailers",
+      "Australia",
+      "Warranty",
+      "Consumer rights"
+    ],
+    "readingTimeMinutes": 4,
+    "seoTitle": "Where to Buy Smart Home Gear in Australia: Bunnings vs JB Hi-Fi",
+    "seoDescription": "Australian retailers stock very different slices of the smart home market. Knowing who carries what saves a wasted trip and makes returns far easier.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/buying-guides/where-to-buy-smart-home-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:46.854Z",
+    "updatedAt": "2026-09-24T08:36:35.279Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3974,
+      "documentId": "a18zqld8dt5dys8vupzrglzm",
+      "name": "Where to Buy Smart Home Gear in Australia Bunnings vs JB HiFi.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3.jpg",
+          "hash": "large_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3",
+          "mime": "image/jpeg",
+          "name": "large_Where to Buy Smart Home Gear in Australia Bunnings vs JB HiFi.jpg",
+          "path": null,
+          "size": 27.41,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 27414
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3.jpg",
+          "hash": "small_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3",
+          "mime": "image/jpeg",
+          "name": "small_Where to Buy Smart Home Gear in Australia Bunnings vs JB HiFi.jpg",
+          "path": null,
+          "size": 9.44,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 9439
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3.jpg",
+          "hash": "medium_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3",
+          "mime": "image/jpeg",
+          "name": "medium_Where to Buy Smart Home Gear in Australia Bunnings vs JB HiFi.jpg",
+          "path": null,
+          "size": 17.46,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 17462
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3.jpg",
+          "hash": "thumbnail_Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Where to Buy Smart Home Gear in Australia Bunnings vs JB HiFi.jpg",
+          "path": null,
+          "size": 3.42,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 3424
+        }
+      },
+      "hash": "Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 56.64,
+      "url": "/uploads/Where_to_Buy_Smart_Home_Gear_in_Australia_Bunnings_vs_JB_Hi_Fi_836941bdb3.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T23:49:16.076Z",
+      "updatedAt": "2026-08-22T23:49:16.076Z",
+      "publishedAt": "2026-08-22T23:49:16.076Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 3593,
+        "question": "Is it safe to buy smart home devices from overseas sellers?",
+        "answer": "It carries real risk. Devices may be built for a different mains voltage, use a different plug or bulb fitting, or be locked to a regional app account. Australian Consumer Law protections are also far harder to enforce against an overseas seller. Buying stock sold into the Australian market avoids all three problems."
+      },
+      {
+        "order": 1,
+        "id": 3594,
+        "question": "Which Australian retailer has the best smart home range?",
+        "answer": "It depends what you are buying. Hardware and electrical basics lean towards Bunnings, mainstream ecosystem devices towards JB Hi-Fi and Harvey Norman, and niche or enthusiast gear is usually online only. No single Australian retailer carries the whole category."
+      },
+      {
+        "order": 2,
+        "id": 3595,
+        "question": "Do I get a warranty if I buy from Amazon AU or eBay AU?",
+        "answer": "You have consumer guarantees under Australian Consumer Law when you buy from a business selling into Australia, and these apply regardless of what a warranty card says. The practical difficulty is enforcement — a marketplace seller shipping from overseas is far harder to pursue than a retailer with a local store."
+      },
+      {
+        "order": 3,
+        "id": 3596,
+        "question": "Is it worth waiting for a sale?",
+        "answer": "For discretionary purchases, often yes. The two largest discounting windows in Australia are end of financial year in June and the Black Friday period in late November. For a device you need working now, the saving rarely justifies the wait."
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "documentId": "fznrs0xa43imqgijen01hgus",
+        "name": "Buying Guides",
+        "slug": "buying-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.609Z",
+        "updatedAt": "2026-08-22T18:30:53.551Z",
+        "publishedAt": "2026-08-22T18:30:53.546Z"
+      }
+    ],
+    "author": {
+      "id": 4,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": null
+    }
+  }
+}
