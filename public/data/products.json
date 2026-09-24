@@ -13,7 +13,7 @@
     "reviewCount": 410,
     "priceAud": 299,
     "currency": "AUD",
-    "image": "/images/products/ring-floodlight-cam-plus-wired.webp",
+    "image": "/images/products/ring-floodlight-cam-plus-wired-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -405,7 +405,7 @@
     "reviewCount": 350,
     "priceAud": 329,
     "currency": "AUD",
-    "image": "/images/products/ring-spotlight-cam-pro-battery.webp",
+    "image": "/images/products/ring-spotlight-cam-pro-battery-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -793,7 +793,7 @@
     "reviewCount": 890,
     "priceAud": 179,
     "currency": "AUD",
-    "image": "/images/products/ring-stick-up-cam-battery.webp",
+    "image": "/images/products/ring-stick-up-cam-battery-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -1181,7 +1181,7 @@
     "bestFor": "Home owners wanting indoor camera monitoring across multiple rooms",
     "priceAud": 99,
     "currency": "AUD",
-    "image": "/images/products/ring-indoor-cam-2nd-gen.webp",
+    "image": "/images/products/ring-indoor-cam-2nd-gen-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -1291,7 +1291,7 @@
     "reviewCount": 290,
     "priceAud": 399,
     "currency": "AUD",
-    "image": "/images/products/ring-video-doorbell-pro-2.jpg",
+    "image": "/images/products/ring-video-doorbell-pro-2-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -1661,7 +1661,7 @@
     "reviewCount": 480,
     "priceAud": 249,
     "currency": "AUD",
-    "image": "/images/products/ring-battery-doorbell-plus.webp",
+    "image": "/images/products/ring-battery-doorbell-plus-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -2017,7 +2017,7 @@
     "reviewCount": 1200,
     "priceAud": 149,
     "currency": "AUD",
-    "image": "/images/products/ring-video-doorbell-2nd-gen.webp",
+    "image": "/images/products/ring-video-doorbell-2nd-gen-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -2393,7 +2393,7 @@
     "categoryName": "Security & Cameras",
     "subCategory": "Alarm Systems & Sensors",
     "bestFor": "Complete DIY home security system with base station and keypad",
-    "image": "/images/products/ring-alarm-5-piece-security-kit-2nd-gen.webp",
+    "image": "/images/products/ring-alarm-5-piece-security-kit-2nd-gen-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -2641,7 +2641,7 @@
     "categoryName": "Security & Cameras",
     "subCategory": "Security Cameras",
     "bestFor": "4K solar-powered camera with BionicMind AI & local HomeBase 3 storage",
-    "image": "/images/products/eufy-eufycam-3-s380-4k-solar-security-camera.webp",
+    "image": "/images/products/eufy-eufycam-3-s380-4k-solar-security-camera-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -2711,7 +2711,7 @@
     "reviewCount": 780,
     "priceAud": 449,
     "currency": "AUD",
-    "image": "/images/products/eufy-eufycam-2c-pro-2k-wireless-security-system.webp",
+    "image": "/images/products/eufy-eufycam-2c-pro-2k-wireless-security-system-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -3090,7 +3090,7 @@
     "reviewCount": 230,
     "priceAud": 219,
     "currency": "AUD",
-    "image": "/images/products/eufy-security-indoor-cam-s350-dual-lens.webp",
+    "image": "/images/products/eufy-security-indoor-cam-s350-dual-lens-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -3444,7 +3444,7 @@
     "reviewCount": 390,
     "priceAud": 349,
     "currency": "AUD",
-    "image": "/images/products/eufy-video-doorbell-e340-dual-camera.webp",
+    "image": "/images/products/eufy-video-doorbell-e340-dual-camera-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -3795,7 +3795,7 @@
     "reviewCount": 310,
     "priceAud": 329,
     "currency": "AUD",
-    "image": "/images/products/eufy-security-solocam-s340-solar-pan-tilt.webp",
+    "image": "/images/products/eufy-security-solocam-s340-solar-pan-tilt-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -4353,7 +4353,7 @@
     "bestFor": "Fingerprint smart door lock with built-in Wi-Fi and keypad",
     "priceAud": 269,
     "currency": "AUD",
-    "image": "/images/products/eufy-smart-lock-c220-with-wi-fi.webp",
+    "image": "/images/products/eufy-smart-lock-c220-with-wi-fi-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -4760,7 +4760,7 @@
     "reviewCount": 490,
     "priceAud": 329,
     "currency": "AUD",
-    "image": "/images/products/arlo-pro-5-2k-wireless-security-camera.webp",
+    "image": "/images/products/arlo-pro-5-2k-wireless-security-camera-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -5102,7 +5102,7 @@
     "bestFor": "Households wanting outdoor security alerts with 4K recording and night visibility",
     "priceAud": 449,
     "currency": "AUD",
-    "image": "/images/products/arlo-ultra-2-4k-spotlight-camera.webp",
+    "image": "/images/products/arlo-ultra-2-4k-spotlight-camera-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -5203,7 +5203,7 @@
     "reviewCount": 340,
     "priceAud": 229,
     "currency": "AUD",
-    "image": "/images/products/arlo-essential-wireless-video-doorbell-2k.webp",
+    "image": "/images/products/arlo-essential-wireless-video-doorbell-2k-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -5571,7 +5571,7 @@
     "reviewCount": 920,
     "priceAud": 69,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-c220-2k-pan-tilt-security-camera.webp",
+    "image": "/images/products/tp-link-tapo-c220-2k-pan-tilt-security-camera-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -5944,7 +5944,7 @@
     "reviewCount": 410,
     "priceAud": 129,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-c520ws-outdoor-pan-tilt-security-camera.webp",
+    "image": "/images/products/tp-link-tapo-c520ws-outdoor-pan-tilt-security-camera-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -6265,7 +6265,7 @@
     "reviewCount": 160,
     "priceAud": 199,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-d230s1-smart-video-doorbell.jpg",
+    "image": "/images/products/tp-link-tapo-d230s1-smart-video-doorbell-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -6547,7 +6547,7 @@
     "reviewCount": 280,
     "priceAud": 239,
     "currency": "AUD",
-    "image": "/images/products/reolink-argus-3-ultra-4k-solar-camera.webp",
+    "image": "/images/products/reolink-argus-3-ultra-4k-solar-camera-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -6708,7 +6708,7 @@
     "reviewCount": 510,
     "priceAud": 179,
     "currency": "AUD",
-    "image": "/images/products/reolink-video-doorbell-wifi-2k.webp",
+    "image": "/images/products/reolink-video-doorbell-wifi-2k-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -7340,7 +7340,7 @@
     "reviewCount": 630,
     "priceAud": 329,
     "currency": "AUD",
-    "image": "/images/products/google-nest-cam-outdoor-or-indoor-battery.webp",
+    "image": "/images/products/google-nest-cam-outdoor-or-indoor-battery-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -7714,7 +7714,7 @@
     "reviewCount": 710,
     "priceAud": 329,
     "currency": "AUD",
-    "image": "/images/products/google-nest-doorbell-battery.webp",
+    "image": "/images/products/google-nest-doorbell-battery-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -8078,7 +8078,7 @@
     "reviewCount": 210,
     "priceAud": 349,
     "currency": "AUD",
-    "image": "/images/products/aqara-smart-lock-u100-apple-homekey.webp",
+    "image": "/images/products/aqara-smart-lock-u100-apple-homekey-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -8484,7 +8484,7 @@
     "categoryName": "Security & Cameras",
     "subCategory": "Security Cameras",
     "bestFor": "Gesture recognition AI camera hub with Zigbee 3.0 border router",
-    "image": "/og-default.png",
+    "image": "/images/products/aqara-camera-hub-g3-pan-tilt-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -8528,7 +8528,7 @@
     "reviewCount": 240,
     "priceAud": 219,
     "currency": "AUD",
-    "image": "/images/products/aqara-doorbell-camera-g4-matter.webp",
+    "image": "/images/products/aqara-doorbell-camera-g4-matter-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -9210,7 +9210,7 @@
     "reviewCount": 150,
     "priceAud": 699,
     "currency": "AUD",
-    "image": "/images/products/swann-max-4k-ultra-hd-security-system.webp",
+    "image": "/images/products/swann-max-4k-ultra-hd-security-system-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -9801,7 +9801,7 @@
     "bestFor": "Homeowners wanting key-free entry without mechanical locks",
     "priceAud": 329,
     "currency": "AUD",
-    "image": "/images/products/yale-assure-lock-sl-key-free-deadbolt.webp",
+    "image": "/images/products/yale-assure-lock-sl-key-free-deadbolt-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -9886,7 +9886,7 @@
     "reviewCount": 420,
     "priceAud": 349,
     "currency": "AUD",
-    "image": "/images/products/august-wi-fi-smart-lock-4th-gen.webp",
+    "image": "/images/products/august-wi-fi-smart-lock-4th-gen-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -10308,7 +10308,7 @@
     "reviewCount": 840,
     "priceAud": 329,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-white-color-ambiance-starter-kit-e27.webp",
+    "image": "/images/products/philips-hue-white-color-ambiance-starter-kit-e27-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -10497,7 +10497,7 @@
     "reviewCount": 650,
     "priceAud": 99,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-white-color-ambiance-b22-bulb.webp",
+    "image": "/images/products/philips-hue-white-color-ambiance-b22-bulb-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -10671,7 +10671,7 @@
     "reviewCount": 520,
     "priceAud": 149,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-lightstrip-plus-2m-base-v4.webp",
+    "image": "/images/products/philips-hue-lightstrip-plus-2m-base-v4-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -11028,7 +11028,7 @@
     "bestFor": "Immersive PC gaming & TV backlight synchronization",
     "priceAud": 239,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-play-light-bar-2-pack.webp",
+    "image": "/images/products/philips-hue-play-light-bar-2-pack-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -11092,7 +11092,7 @@
     "reviewCount": 980,
     "priceAud": 39,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-smart-dimmer-switch-v2.webp",
+    "image": "/images/products/philips-hue-smart-dimmer-switch-v2-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -11534,7 +11534,7 @@
     "reviewCount": 190,
     "priceAud": 549,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-outdoor-lily-spotlight-base-kit.webp",
+    "image": "/images/products/philips-hue-outdoor-lily-spotlight-base-kit-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -11886,7 +11886,7 @@
     "reviewCount": 210,
     "priceAud": 89,
     "currency": "AUD",
-    "image": "/images/products/lifx-clean-antibacterial-smart-bulb-e27.webp",
+    "image": "/images/products/lifx-clean-antibacterial-smart-bulb-e27-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -12020,7 +12020,7 @@
     "bestFor": "Ultra-bright 1100 lumens Wi-Fi bulb requiring no hub",
     "priceAud": 69,
     "currency": "AUD",
-    "image": "/images/products/lifx-color-smart-bulb-b22.webp",
+    "image": "/images/products/lifx-color-smart-bulb-b22-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -12110,7 +12110,7 @@
     "reviewCount": 310,
     "priceAud": 129,
     "currency": "AUD",
-    "image": "/images/products/lifx-z-led-lightstrip-starter-kit-2m.webp",
+    "image": "/images/products/lifx-z-led-lightstrip-starter-kit-2m-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -12473,7 +12473,7 @@
     "reviewCount": 1100,
     "priceAud": 19,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-l530e-smart-wi-fi-light-bulb-e27.webp",
+    "image": "/images/products/tp-link-tapo-l530e-smart-wi-fi-light-bulb-e27-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -12838,7 +12838,7 @@
     "reviewCount": 620,
     "priceAud": 349,
     "currency": "AUD",
-    "image": "/images/products/nanoleaf-shapes-hexagons-starter-kit-9-panels.webp",
+    "image": "/images/products/nanoleaf-shapes-hexagons-starter-kit-9-panels-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -13078,7 +13078,7 @@
     "reviewCount": 290,
     "priceAud": 89,
     "currency": "AUD",
-    "image": "/images/products/nanoleaf-essentials-matter-led-lightstrip-2m.webp",
+    "image": "/images/products/nanoleaf-essentials-matter-led-lightstrip-2m-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -13334,7 +13334,7 @@
     "reviewCount": 380,
     "priceAud": 34,
     "currency": "AUD",
-    "image": "/images/products/nanoleaf-essentials-matter-smart-bulb-e27.webp",
+    "image": "/images/products/nanoleaf-essentials-matter-smart-bulb-e27-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -13443,7 +13443,7 @@
     "reviewCount": 240,
     "priceAud": 39,
     "currency": "AUD",
-    "image": "/images/products/wiz-smart-led-color-downlight-90mm.webp",
+    "image": "/images/products/wiz-smart-led-color-downlight-90mm-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -13674,7 +13674,7 @@
     "bestFor": "Retrofitting smart wall switches in older Australian homes without neutral wires",
     "rating": 4.8,
     "reviewCount": 180,
-    "image": "/images/products/aqara-smart-light-switch-h1-eu-no-neutral.webp",
+    "image": "/images/products/aqara-smart-light-switch-h1-eu-no-neutral-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -13953,7 +13953,7 @@
     "reviewCount": 1400,
     "priceAud": 24,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-p110-smart-plug-with-energy-monitoring.webp",
+    "image": "/images/products/tp-link-tapo-p110-smart-plug-with-energy-monitoring-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -14296,7 +14296,7 @@
     "reviewCount": 360,
     "priceAud": 79,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-p300-smart-wi-fi-power-strip.webp",
+    "image": "/images/products/tp-link-tapo-p300-smart-wi-fi-power-strip-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -14657,7 +14657,7 @@
     "bestFor": "Apple Home users and Matter ecosystems wanting remote control and energy monitoring",
     "priceAud": 79,
     "currency": "AUD",
-    "image": "/images/products/eve-energy-smart-plug-matter-over-thread.webp",
+    "image": "/images/products/eve-energy-smart-plug-matter-over-thread-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -14798,7 +14798,7 @@
     "categoryName": "Energy & Solar",
     "subCategory": "Power Boards",
     "bestFor": "Surge protected triple power board with total energy consumption graphs",
-    "image": "/og-default.png",
+    "image": "/images/products/eve-energy-strip-3-outlet-smart-power-board-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -14840,7 +14840,7 @@
     "bestFor": "Compact Wi-Fi plug compatible with HomeKit, Alexa, and Google Assistant",
     "priceAud": 22,
     "currency": "AUD",
-    "image": "/images/products/meross-smart-wi-fi-plug-mini-au-mss210.webp",
+    "image": "/images/products/meross-smart-wi-fi-plug-mini-au-mss210-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -14905,7 +14905,7 @@
     "categoryName": "Energy & Solar",
     "subCategory": "Smart Plugs",
     "bestFor": "Integrating plug loads into Sensibo climate & solar energy automations",
-    "image": "/og-default.png",
+    "image": "/images/products/sensibo-power-smart-plug-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -14948,7 +14948,7 @@
     "reviewCount": 190,
     "priceAud": 99,
     "currency": "AUD",
-    "image": "/images/products/fibaro-wall-plug-z-wave-plus-au-plug.jpg",
+    "image": "/images/products/fibaro-wall-plug-z-wave-plus-au-plug-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -15365,7 +15365,7 @@
     "bestFor": "Bluetooth & Wi-Fi smart plug for SwitchBot ecosystem automation",
     "rating": 4.6,
     "reviewCount": 150,
-    "image": "/images/products/switchbot-smart-plug-mini-au.webp",
+    "image": "/images/products/switchbot-smart-plug-mini-au-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -15713,7 +15713,7 @@
     "categoryName": "Energy & Solar",
     "subCategory": "Smart Plugs",
     "bestFor": "Automating curtains to open for passive morning sunlight & thermal insulation",
-    "image": "/og-default.png",
+    "image": "/images/products/switchbot-curtain-3-motorized-rod-track-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -15757,7 +15757,7 @@
     "reviewCount": 490,
     "priceAud": 269,
     "currency": "AUD",
-    "image": "/images/products/netatmo-smart-weather-station.webp",
+    "image": "/images/products/netatmo-smart-weather-station-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -15868,7 +15868,7 @@
     "categoryName": "Energy & Solar",
     "subCategory": "Energy Relays & Meters",
     "bestFor": "In-wall smart relay behind switch plates with power measurement for solar diversion",
-    "image": "/images/products/shelly-1pm-gen3-wi-fi-power-relay.webp",
+    "image": "/images/products/shelly-1pm-gen3-wi-fi-power-relay-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -15913,7 +15913,7 @@
     "reviewCount": 120,
     "priceAud": 199,
     "currency": "AUD",
-    "image": "/images/products/shelly-pro-4pm-4-channel-din-rail-relay.webp",
+    "image": "/images/products/shelly-pro-4pm-4-channel-din-rail-relay-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -16363,7 +16363,7 @@
     "reviewCount": 290,
     "priceAud": 1599,
     "currency": "AUD",
-    "image": "/images/products/ecoflow-delta-2-portable-power-station-1024wh.webp",
+    "image": "/images/products/ecoflow-delta-2-portable-power-station-1024wh-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -16682,7 +16682,7 @@
     "reviewCount": 180,
     "priceAud": 1499,
     "currency": "AUD",
-    "image": "/images/products/anker-solix-c1000-portable-power-station.webp",
+    "image": "/images/products/anker-solix-c1000-portable-power-station-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -17060,7 +17060,7 @@
     "reviewCount": 1800,
     "priceAud": 149,
     "currency": "AUD",
-    "image": "/images/products/apple-homepod-mini.webp",
+    "image": "/images/products/apple-homepod-mini-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -17431,7 +17431,7 @@
     "reviewCount": 410,
     "priceAud": 399,
     "currency": "AUD",
-    "image": "/images/products/sonos-era-100-smart-speaker.webp",
+    "image": "/images/products/sonos-era-100-smart-speaker-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -17819,7 +17819,7 @@
     "bestFor": "Sonos ecosystem users wanting a compact speaker with Alexa voice control",
     "priceAud": 749,
     "currency": "AUD",
-    "image": "/images/products/sonos-era-300-spatial-audio-speaker.webp",
+    "image": "/images/products/sonos-era-300-spatial-audio-speaker-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -17931,7 +17931,7 @@
     "reviewCount": 230,
     "priceAud": 799,
     "currency": "AUD",
-    "image": "/images/products/sonos-move-2-portable-smart-speaker.webp",
+    "image": "/images/products/sonos-move-2-portable-smart-speaker-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -18425,7 +18425,7 @@
     "reviewCount": 620,
     "priceAud": 699,
     "currency": "AUD",
-    "image": "/images/products/sonos-beam-gen-2-compact-smart-soundbar.webp",
+    "image": "/images/products/sonos-beam-gen-2-compact-smart-soundbar-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -18590,7 +18590,7 @@
     "bestFor": "11 high-performance drivers for cinematic cinema sound in Australia",
     "priceAud": 1499,
     "currency": "AUD",
-    "image": "/images/products/sonos-arc-premium-smart-soundbar.webp",
+    "image": "/images/products/sonos-arc-premium-smart-soundbar-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -18669,7 +18669,7 @@
     "reviewCount": 370,
     "priceAud": 699,
     "currency": "AUD",
-    "image": "/images/products/sonos-sub-mini-wireless-subwoofer.webp",
+    "image": "/images/products/sonos-sub-mini-wireless-subwoofer-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -19176,7 +19176,7 @@
     "categoryName": "Entertainment & Audio",
     "subCategory": "Smart Speakers",
     "bestFor": "Multi-room audio control via Google Assistant in connected homes",
-    "image": "/images/products/google-nest-audio-smart-speaker.webp",
+    "image": "/images/products/google-nest-audio-smart-speaker-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -19268,7 +19268,7 @@
     "reviewCount": 1450,
     "priceAud": 149,
     "currency": "AUD",
-    "image": "/images/products/google-nest-hub-2nd-gen-smart-display.webp",
+    "image": "/images/products/google-nest-hub-2nd-gen-smart-display-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -19838,7 +19838,7 @@
     "bestFor": "Alexa homes wanting a speaker with a built-in Zigbee smart home hub",
     "priceAud": 169,
     "currency": "AUD",
-    "image": "/images/products/amazon-echo-4th-gen-smart-speaker.webp",
+    "image": "/images/products/amazon-echo-4th-gen-smart-speaker-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -19950,7 +19950,7 @@
     "reviewCount": 310,
     "priceAud": 399,
     "currency": "AUD",
-    "image": "/images/products/amazon-echo-show-10-3rd-gen-hd-display.webp",
+    "image": "/images/products/amazon-echo-show-10-3rd-gen-hd-display-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -20384,7 +20384,7 @@
     "reviewCount": 260,
     "priceAud": 1399,
     "currency": "AUD",
-    "image": "/images/products/bose-smart-soundbar-ultra.webp",
+    "image": "/images/products/bose-smart-soundbar-ultra-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -20748,7 +20748,7 @@
     "reviewCount": 750,
     "priceAud": 149,
     "currency": "AUD",
-    "image": "/images/products/sensibo-sky-smart-air-conditioner-controller.webp",
+    "image": "/images/products/sensibo-sky-smart-air-conditioner-controller-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -20960,7 +20960,7 @@
     "reviewCount": 310,
     "priceAud": 249,
     "currency": "AUD",
-    "image": "/images/products/sensibo-air-pro-smart-ac-controller-with-air-quality.webp",
+    "image": "/images/products/sensibo-air-pro-smart-ac-controller-with-air-quality-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -21060,7 +21060,7 @@
     "reviewCount": 140,
     "priceAud": 199,
     "currency": "AUD",
-    "image": "/images/products/sensibo-elements-indoor-air-quality-monitor.webp",
+    "image": "/images/products/sensibo-elements-indoor-air-quality-monitor-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -21156,7 +21156,7 @@
     "reviewCount": 390,
     "priceAud": 449,
     "currency": "AUD",
-    "image": "/images/products/ecobee-smart-thermostat-premium.webp",
+    "image": "/images/products/ecobee-smart-thermostat-premium-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -21603,7 +21603,7 @@
     "reviewCount": 220,
     "priceAud": 149,
     "currency": "AUD",
-    "image": "/images/products/ecobee-smartsensor-2-pack.webp",
+    "image": "/images/products/ecobee-smartsensor-2-pack-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -21947,7 +21947,7 @@
     "bestFor": "HEPA H13 purification, heating & cooling fan with formaldehyde destruction",
     "priceAud": 1149,
     "currency": "AUD",
-    "image": "/images/products/dyson-purifier-hot-cool-formaldehyde-hp09.webp",
+    "image": "/images/products/dyson-purifier-hot-cool-formaldehyde-hp09-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -22008,7 +22008,7 @@
     "reviewCount": 390,
     "priceAud": 899,
     "currency": "AUD",
-    "image": "/images/products/dyson-purifier-cool-autoreact-tp07.webp",
+    "image": "/images/products/dyson-purifier-cool-autoreact-tp07-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -22555,7 +22555,7 @@
     "reviewCount": 290,
     "priceAud": 149,
     "currency": "AUD",
-    "image": "/images/products/tado-smart-ac-control-v3.jpg",
+    "image": "/images/products/tado-smart-ac-control-v3-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -22910,7 +22910,7 @@
     "reviewCount": 180,
     "priceAud": 299,
     "currency": "AUD",
-    "image": "/images/products/netatmo-smart-thermostat.webp",
+    "image": "/images/products/netatmo-smart-thermostat-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -23116,7 +23116,7 @@
     "bestFor": "Households wanting a smart air purifier they can control from their iPhone",
     "priceAud": 249,
     "currency": "AUD",
-    "image": "/images/products/airversa-smart-air-purifier-matter-over-thread.jpg",
+    "image": "/images/products/airversa-smart-air-purifier-matter-over-thread-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -23215,7 +23215,7 @@
     "bestFor": "People with older appliances who want to control them from Apple Home or voice assistants",
     "rating": 4.7,
     "reviewCount": 280,
-    "image": "/images/products/switchbot-hub-2-matter-ir-ac-controller.webp",
+    "image": "/images/products/switchbot-hub-2-matter-ir-ac-controller-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -23386,7 +23386,7 @@
     "reviewCount": 820,
     "priceAud": 29,
     "currency": "AUD",
-    "image": "/images/products/aqara-temperature-and-humidity-sensor-t1.webp",
+    "image": "/images/products/aqara-temperature-and-humidity-sensor-t1-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -23801,7 +23801,7 @@
     "bestFor": "Connecting Zigbee sensors and Thread accessories locally across platforms",
     "rating": 4.8,
     "reviewCount": 240,
-    "image": "/images/products/aqara-hub-m3-matter-zigbee-coordinator.webp",
+    "image": "/images/products/aqara-hub-m3-matter-zigbee-coordinator-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -23924,7 +23924,7 @@
     "categoryName": "Hubs & Platforms",
     "subCategory": "Zigbee & Z-Wave Coordinators",
     "bestFor": "360° IR blaster & Ethernet port for local Zigbee 3.0 accessories",
-    "image": "/og-default.png",
+    "image": "/images/products/aqara-hub-m2-multi-protocol-hub-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -23964,7 +23964,7 @@
     "categoryName": "Hubs & Platforms",
     "subCategory": "Matter & Thread Hubs",
     "bestFor": "Fastest 4K streaming box and ultimate Apple Home Hub + Thread Border Router",
-    "image": "/og-default.png",
+    "image": "/images/products/apple-tv-4k-128gb-wi-fi-ethernet-thread-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -24003,7 +24003,7 @@
     "categoryName": "Hubs & Platforms",
     "subCategory": "Automation Controllers",
     "bestFor": "Turnkey local Home Assistant automation hardware with Zigbee/Thread radio",
-    "image": "/og-default.png",
+    "image": "/images/products/nabu-casa-home-assistant-yellow-hub-poe-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -24043,7 +24043,7 @@
     "categoryName": "Hubs & Platforms",
     "subCategory": "Automation Controllers",
     "bestFor": "Beginner-friendly home automation hub running Home Assistant OS out of the box",
-    "image": "/og-default.png",
+    "image": "/images/products/nabu-casa-home-assistant-green-plug-and-play-hub-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -24087,7 +24087,7 @@
     "reviewCount": 2100,
     "priceAud": 99,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-bridge-v2.webp",
+    "image": "/images/products/philips-hue-bridge-v2-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -24435,7 +24435,7 @@
     "reviewCount": 180,
     "priceAud": 699,
     "currency": "AUD",
-    "image": "/images/products/homey-pro-2023-smart-home-hub.jpg",
+    "image": "/images/products/homey-pro-2023-smart-home-hub-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -24533,7 +24533,7 @@
     "reviewCount": 270,
     "priceAud": 129,
     "currency": "AUD",
-    "image": "/images/products/samsung-smartthings-station-with-15w-wireless-charger.webp",
+    "image": "/images/products/samsung-smartthings-station-with-15w-wireless-charger-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -24962,7 +24962,7 @@
     "reviewCount": 490,
     "priceAud": 219,
     "currency": "AUD",
-    "image": "/images/products/aeotec-smart-home-hub-smartthings.webp",
+    "image": "/images/products/aeotec-smart-home-hub-smartthings-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -25461,7 +25461,7 @@
     "reviewCount": 210,
     "priceAud": 329,
     "currency": "AUD",
-    "image": "/images/products/amazon-echo-hub-8-smart-home-control-panel.webp",
+    "image": "/images/products/amazon-echo-hub-8-smart-home-control-panel-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -25569,7 +25569,7 @@
     "bestFor": "Homes needing a robot vacuum and mop with automated cleaning and drying",
     "priceAud": 2899,
     "currency": "AUD",
-    "image": "/images/products/roborock-s8-maxv-ultra-robot-vacuum-and-mop.webp",
+    "image": "/images/products/roborock-s8-maxv-ultra-robot-vacuum-and-mop-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -25632,7 +25632,7 @@
     "reviewCount": 310,
     "priceAud": 2199,
     "currency": "AUD",
-    "image": "/images/products/roborock-qrevo-master-robot-vacuum.webp",
+    "image": "/images/products/roborock-qrevo-master-robot-vacuum-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -25894,7 +25894,7 @@
     "categoryName": "Robot Vacuums",
     "subCategory": "Self-Emptying Docks",
     "bestFor": "Dual rubber DuoRoller brushes with 2.5L dust bag dock",
-    "image": "/og-default.png",
+    "image": "/images/products/roborock-q5-pro-self-emptying-robot-vacuum-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -25947,7 +25947,7 @@
     "reviewCount": 290,
     "priceAud": 2299,
     "currency": "AUD",
-    "image": "/images/products/dreame-l20-ultra-robot-vacuum-with-mopextend.webp",
+    "image": "/images/products/dreame-l20-ultra-robot-vacuum-with-mopextend-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -26186,7 +26186,7 @@
     "reviewCount": 640,
     "priceAud": 1599,
     "currency": "AUD",
-    "image": "/images/products/dreame-l10s-ultra-robot-vacuum-and-mop.webp",
+    "image": "/images/products/dreame-l10s-ultra-robot-vacuum-and-mop-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -26527,7 +26527,7 @@
     "reviewCount": 180,
     "priceAud": 2799,
     "currency": "AUD",
-    "image": "/images/products/dreame-x40-ultra-flagship-robot-vacuum.webp",
+    "image": "/images/products/dreame-x40-ultra-flagship-robot-vacuum-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -26861,7 +26861,7 @@
     "bestFor": "Homes with hard floors and carpets wanting automated vacuuming and mopping",
     "rating": 4.7,
     "reviewCount": 380,
-    "image": "/images/products/ecovacs-deebot-x2-omni-square-robot-vacuum.webp",
+    "image": "/images/products/ecovacs-deebot-x2-omni-square-robot-vacuum-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -27219,7 +27219,7 @@
     "reviewCount": 230,
     "priceAud": 1799,
     "currency": "AUD",
-    "image": "/images/products/ecovacs-deebot-t30-pro-omni-robot-vacuum.webp",
+    "image": "/images/products/ecovacs-deebot-t30-pro-omni-robot-vacuum-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -27664,7 +27664,7 @@
     "reviewCount": 410,
     "priceAud": 2199,
     "currency": "AUD",
-    "image": "/images/products/irobot-roomba-combo-j9-robot-vacuum-mop.webp",
+    "image": "/images/products/irobot-roomba-combo-j9-robot-vacuum-mop-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -28016,7 +28016,7 @@
     "reviewCount": 680,
     "priceAud": 899,
     "currency": "AUD",
-    "image": "/images/products/irobot-roomba-combo-i5-robot-vacuum.webp",
+    "image": "/images/products/irobot-roomba-combo-i5-robot-vacuum-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -28376,7 +28376,7 @@
     "reviewCount": 310,
     "priceAud": 1499,
     "currency": "AUD",
-    "image": "/images/products/eufy-clean-x10-pro-omni-robot-vacuum.webp",
+    "image": "/images/products/eufy-clean-x10-pro-omni-robot-vacuum-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -28792,7 +28792,7 @@
     "reviewCount": 260,
     "priceAud": 1999,
     "currency": "AUD",
-    "image": "/images/products/narwal-freo-x-ultra-robot-vacuum-mop.webp",
+    "image": "/images/products/narwal-freo-x-ultra-robot-vacuum-mop-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -29145,7 +29145,7 @@
     "reviewCount": 340,
     "priceAud": 899,
     "currency": "AUD",
-    "image": "/images/products/xiaomi-robot-vacuum-x20-self-cleaning.webp",
+    "image": "/images/products/xiaomi-robot-vacuum-x20-self-cleaning-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -29556,7 +29556,7 @@
     "subCategory": "Smart Bulbs",
     "priceAud": 19,
     "currency": "AUD",
-    "image": "/images/products/wiz-smart-colour-bulb-a60-b22.webp",
+    "image": "/images/products/wiz-smart-colour-bulb-a60-b22-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -29717,7 +29717,7 @@
     "subCategory": "Outdoor Lighting",
     "priceAud": 308,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-discover-outdoor-floodlight.webp",
+    "image": "/images/products/philips-hue-discover-outdoor-floodlight-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -30029,7 +30029,7 @@
     "subCategory": "Smart Bulbs",
     "priceAud": 39,
     "currency": "AUD",
-    "image": "/images/products/wiz-colour-smart-downlight.webp",
+    "image": "/images/products/wiz-colour-smart-downlight-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -30094,7 +30094,7 @@
     "subCategory": "Smart Bulbs",
     "priceAud": 49,
     "currency": "AUD",
-    "image": "/images/products/nanoleaf-essentials-smart-bulb-e27-2-pack.webp",
+    "image": "/images/products/nanoleaf-essentials-smart-bulb-e27-2-pack-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -30164,7 +30164,7 @@
     "subCategory": "Smart Lightstrips",
     "priceAud": 49,
     "currency": "AUD",
-    "image": "/images/products/laser-smart-home-6m-rgb-light-strip-tv-sync-kit-alexa-google-assistant.webp",
+    "image": "/images/products/laser-smart-home-6m-rgb-light-strip-tv-sync-kit-alexa-google-assistant-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -30191,7 +30191,7 @@
     "subCategory": "Smart Wall Switches",
     "priceAud": 49,
     "currency": "AUD",
-    "image": "/images/products/nanoleaf-sense-smart-wireles-switch.webp",
+    "image": "/images/products/nanoleaf-sense-smart-wireles-switch-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -30220,7 +30220,7 @@
     "subCategory": "Outdoor Lighting",
     "priceAud": 199,
     "currency": "AUD",
-    "image": "/images/products/govee-outdoor-spot-light-2-pack.webp",
+    "image": "/images/products/govee-outdoor-spot-light-2-pack-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -30278,7 +30278,7 @@
     "subCategory": "Smart Bulbs",
     "priceAud": 98,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-akari-downlight.webp",
+    "image": "/images/products/philips-hue-akari-downlight-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -30470,7 +30470,7 @@
     "subCategory": "Smart Bulbs",
     "priceAud": 29,
     "currency": "AUD",
-    "image": "/images/products/govee-smart-light-bulb-b22.webp",
+    "image": "/images/products/govee-smart-light-bulb-b22-sq500.webp",
     "retailers": [
       {
         "name": "Harvey Norman",
@@ -30541,7 +30541,7 @@
     "subCategory": "Smart Bulbs",
     "priceAud": 25,
     "currency": "AUD",
-    "image": "/images/products/mirabella-genio-9w-led-wi-fi-dimmable-downlight.webp",
+    "image": "/images/products/mirabella-genio-9w-led-wi-fi-dimmable-downlight-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -30682,7 +30682,7 @@
     "subCategory": "Smart Bulbs",
     "priceAud": 17,
     "currency": "AUD",
-    "image": "/images/products/tapo-l530b-tp-link-smart-wi-fi-light-bulb.webp",
+    "image": "/images/products/tapo-l530b-tp-link-smart-wi-fi-light-bulb-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -30836,7 +30836,7 @@
     "subCategory": "Smart Wall Switches",
     "priceAud": 35.99,
     "currency": "AUD",
-    "image": "/images/products/kogan-smarterhome-smart-touch-single-light-switch.webp",
+    "image": "/images/products/kogan-smarterhome-smart-touch-single-light-switch-sq500.webp",
     "retailers": [
       {
         "name": "Kogan AU",
@@ -30933,7 +30933,7 @@
     "subCategory": "Smart Bulbs",
     "priceAud": 54,
     "currency": "AUD",
-    "image": "/images/products/govee-smart-colour-downlight.webp",
+    "image": "/images/products/govee-smart-colour-downlight-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -30990,7 +30990,7 @@
     "subCategory": "Smart Bulbs",
     "priceAud": 12,
     "currency": "AUD",
-    "image": "/images/products/connect-smart-rgb-led-light-bulb-b22.webp",
+    "image": "/images/products/connect-smart-rgb-led-light-bulb-b22-sq500.webp",
     "retailers": [
       {
         "name": "The Good Guys",
@@ -31083,7 +31083,7 @@
     "subCategory": "Outdoor Lighting",
     "priceAud": 194,
     "currency": "AUD",
-    "image": "/images/products/eufy-e22-permanent-outdoor-lights-15m.webp",
+    "image": "/images/products/eufy-e22-permanent-outdoor-lights-15m-sq500.webp",
     "retailers": [
       {
         "name": "The Good Guys",
@@ -31208,7 +31208,7 @@
     "subCategory": "Smart Bulbs",
     "priceAud": 29,
     "currency": "AUD",
-    "image": "/images/products/govee-wi-fi-bluetooth-smart-light-bulb-e27.webp",
+    "image": "/images/products/govee-wi-fi-bluetooth-smart-light-bulb-e27-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -31284,7 +31284,7 @@
     "subCategory": "Smart Lightstrips",
     "priceAud": 69,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-smart-wi-fi-light-strip.webp",
+    "image": "/images/products/tp-link-tapo-smart-wi-fi-light-strip-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -31354,7 +31354,7 @@
     "subCategory": "Outdoor Lighting",
     "priceAud": 199,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-lily-xl-outdoor-led-spot-light.webp",
+    "image": "/images/products/philips-hue-lily-xl-outdoor-led-spot-light-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -31419,7 +31419,7 @@
     "subCategory": "Smart Plugs",
     "priceAud": 47,
     "currency": "AUD",
-    "image": "/images/products/tapo-p110-smart-energy-monitoring.webp",
+    "image": "/images/products/tapo-p110-smart-energy-monitoring-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -31479,7 +31479,7 @@
     "subCategory": "Energy Relays & Meters",
     "priceAud": 32.99,
     "currency": "AUD",
-    "image": "/images/products/tuya-zigbee-smart-circuit-breaker.webp",
+    "image": "/images/products/tuya-zigbee-smart-circuit-breaker-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -31519,7 +31519,7 @@
     "subCategory": "Power Boards",
     "priceAud": 79,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-smart-wi-fi-power-strip.webp",
+    "image": "/images/products/tp-link-tapo-smart-wi-fi-power-strip-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -31589,7 +31589,7 @@
     "subCategory": "Energy Relays & Meters",
     "priceAud": 199,
     "currency": "AUD",
-    "image": "/images/products/powersensor-energy-and-solar-monitoring-solution.webp",
+    "image": "/images/products/powersensor-energy-and-solar-monitoring-solution-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -31626,7 +31626,7 @@
     "subCategory": "Smart Plugs",
     "priceAud": 28,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-p110m-mini-smart-wi-fi-plug.webp",
+    "image": "/images/products/tp-link-tapo-p110m-mini-smart-wi-fi-plug-sq500.webp",
     "retailers": [
       {
         "name": "Harvey Norman",
@@ -31689,7 +31689,7 @@
     "subCategory": "Power Boards",
     "priceAud": 12.95,
     "currency": "AUD",
-    "image": "/images/products/smart-power-strip-with-6-outlets.webp",
+    "image": "/images/products/smart-power-strip-with-6-outlets-sq500.webp",
     "retailers": [
       {
         "name": "Harvey Norman",
@@ -31740,7 +31740,7 @@
     "subCategory": "Smart Plugs",
     "priceAud": 24,
     "currency": "AUD",
-    "image": "/images/products/wiz-smart-plug.webp",
+    "image": "/images/products/wiz-smart-plug-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -31836,7 +31836,7 @@
     "subCategory": "Energy Relays & Meters",
     "priceAud": 31.01,
     "currency": "AUD",
-    "image": "/images/products/lt1-63t-smart-switch-circuit-breaker-touch-control-power-metering-timer-relay-63.webp",
+    "image": "/images/products/lt1-63t-smart-switch-circuit-breaker-touch-control-power-metering-timer-relay-63-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -31863,7 +31863,7 @@
     "subCategory": "Power Boards",
     "priceAud": 59.99,
     "currency": "AUD",
-    "image": "/images/products/useelink-wifi-smart-power-strip-power-board-with-4-outlets-and-2-usb-ports-2-typ.webp",
+    "image": "/images/products/useelink-wifi-smart-power-strip-power-board-with-4-outlets-and-2-usb-ports-2-typ-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -31890,7 +31890,7 @@
     "subCategory": "Portable Power Stations",
     "priceAud": 1381.02,
     "currency": "AUD",
-    "image": "/images/products/bluetti-ac180p-portable-power-station.webp",
+    "image": "/images/products/bluetti-ac180p-portable-power-station-sq500.webp",
     "retailers": [
       {
         "name": "Bunnings",
@@ -31949,7 +31949,7 @@
     "subCategory": "Energy Relays & Meters",
     "priceAud": 313.63,
     "currency": "AUD",
-    "image": "/images/products/smart-home-energy-monitor-real-time-electricity-monitor-with-16-50a-3-300a-circu.webp",
+    "image": "/images/products/smart-home-energy-monitor-real-time-electricity-monitor-with-16-50a-3-300a-circu-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -31976,7 +31976,7 @@
     "subCategory": "Smart Plugs",
     "priceAud": 57,
     "currency": "AUD",
-    "image": "/images/products/philips-hue-smart-plug.webp",
+    "image": "/images/products/philips-hue-smart-plug-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -32041,7 +32041,7 @@
     "subCategory": "Energy Relays & Meters",
     "priceAud": 30.09,
     "currency": "AUD",
-    "image": "/images/products/tuya-smart-circuit-breaker.webp",
+    "image": "/images/products/tuya-smart-circuit-breaker-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -32077,7 +32077,7 @@
     "subCategory": "Power Boards",
     "priceAud": 57,
     "currency": "AUD",
-    "image": "/images/products/powerboard-10in1-surge-protection-smart-usb-c-power-board.webp",
+    "image": "/images/products/powerboard-10in1-surge-protection-smart-usb-c-power-board-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -32146,7 +32146,7 @@
     "subCategory": "Power Boards",
     "priceAud": 55.99,
     "currency": "AUD",
-    "image": "/images/products/smart-power-board-wifi-power-strip-compatible-with-alexa-and-google-home-wifi-ve.webp",
+    "image": "/images/products/smart-power-board-wifi-power-strip-compatible-with-alexa-and-google-home-wifi-ve-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -32173,7 +32173,7 @@
     "subCategory": "Smart Plugs",
     "priceAud": 22,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-p100-mini-smart-wi-fi-socket-plug.webp",
+    "image": "/images/products/tp-link-tapo-p100-mini-smart-wi-fi-socket-plug-sq500.webp",
     "retailers": [
       {
         "name": "The Good Guys",
@@ -32238,7 +32238,7 @@
     "subCategory": "Energy Relays & Meters",
     "priceAud": 59.19,
     "currency": "AUD",
-    "image": "/images/products/tuya-wifi-intelligent-circuit-breaker-power-measurement-energy-kwh-meter-1p-1-63.webp",
+    "image": "/images/products/tuya-wifi-intelligent-circuit-breaker-power-measurement-energy-kwh-meter-1p-1-63-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -32267,7 +32267,7 @@
     "subCategory": "Power Boards",
     "priceAud": 64.99,
     "currency": "AUD",
-    "image": "/images/products/smart-mirabella-genio-wi-fi-powerboard.webp",
+    "image": "/images/products/smart-mirabella-genio-wi-fi-powerboard-sq500.webp",
     "retailers": [
       {
         "name": "Woolworths",
@@ -32385,7 +32385,7 @@
     "subCategory": "Energy Relays & Meters",
     "priceAud": 172,
     "currency": "AUD",
-    "image": "/images/products/iammeter-wem3050t-wifi-energy-meter.webp",
+    "image": "/images/products/iammeter-wem3050t-wifi-energy-meter-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -32425,7 +32425,7 @@
     "subCategory": "Portable Power Stations",
     "priceAud": 449,
     "currency": "AUD",
-    "image": "/images/products/voltx-e600-portable-power-station.webp",
+    "image": "/images/products/voltx-e600-portable-power-station-sq500.webp",
     "retailers": [
       {
         "name": "Harvey Norman",
@@ -32507,7 +32507,7 @@
     "subCategory": "Smart Speakers",
     "priceAud": 389.99,
     "currency": "AUD",
-    "image": "/images/products/avantree-harmony-2-multi-room-wireless-speaker-system.webp",
+    "image": "/images/products/avantree-harmony-2-multi-room-wireless-speaker-system-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -32645,7 +32645,7 @@
     "subCategory": "Smart Soundbars",
     "priceAud": 179,
     "currency": "AUD",
-    "image": "/images/products/hisense-hs2100-2-1ch-soundbar.webp",
+    "image": "/images/products/hisense-hs2100-2-1ch-soundbar-sq500.webp",
     "retailers": [
       {
         "name": "BIG W",
@@ -32712,7 +32712,7 @@
     "subCategory": "Smart Speakers",
     "priceAud": 99,
     "currency": "AUD",
-    "image": "/images/products/amazon-echo-dot-5th-gen-smart-speaker.webp",
+    "image": "/images/products/amazon-echo-dot-5th-gen-smart-speaker-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -32792,7 +32792,7 @@
     "subCategory": "Smart Speakers",
     "priceAud": 398,
     "currency": "AUD",
-    "image": "/images/products/samsung-music-studio-5-speaker.webp",
+    "image": "/images/products/samsung-music-studio-5-speaker-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -32868,7 +32868,7 @@
     "subCategory": "Smart Displays & TV Boxes",
     "priceAud": 378,
     "currency": "AUD",
-    "image": "/images/products/nvidia-shield-tv-pro-4k-hdr-streaming-media-player.webp",
+    "image": "/images/products/nvidia-shield-tv-pro-4k-hdr-streaming-media-player-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -32947,7 +32947,7 @@
     "subCategory": "Smart Soundbars",
     "priceAud": 199,
     "currency": "AUD",
-    "image": "/images/products/sony-hts100f-soundbar.webp",
+    "image": "/images/products/sony-hts100f-soundbar-sq500.webp",
     "retailers": [
       {
         "name": "Officeworks",
@@ -33011,7 +33011,7 @@
     "subCategory": "Smart Speakers",
     "priceAud": 197,
     "currency": "AUD",
-    "image": "/images/products/amazon-echo-dot-max-speaker.webp",
+    "image": "/images/products/amazon-echo-dot-max-speaker-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -33102,7 +33102,7 @@
     "subCategory": "Smart Displays & TV Boxes",
     "priceAud": 39,
     "currency": "AUD",
-    "image": "/images/products/laser-digital-full-hd-media-player.webp",
+    "image": "/images/products/laser-digital-full-hd-media-player-sq500.webp",
     "retailers": [
       {
         "name": "BIG W",
@@ -33256,7 +33256,7 @@
     "subCategory": "Smart Soundbars",
     "priceAud": 69,
     "currency": "AUD",
-    "image": "/images/products/anko-pro-home-soundbar.webp",
+    "image": "/images/products/anko-pro-home-soundbar-sq500.webp",
     "retailers": [
       {
         "name": "Kmart",
@@ -33314,7 +33314,7 @@
     "subCategory": "Smart Speakers",
     "priceAud": 599,
     "currency": "AUD",
-    "image": "/images/products/samsung-music-studio-7-wifi-bluetooth-wireless-speaker.webp",
+    "image": "/images/products/samsung-music-studio-7-wifi-bluetooth-wireless-speaker-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -33391,7 +33391,7 @@
     "subCategory": "Smart Displays & TV Boxes",
     "priceAud": 549,
     "currency": "AUD",
-    "image": "/images/products/amazon-echo-show-15-2nd-gen.webp",
+    "image": "/images/products/amazon-echo-show-15-2nd-gen-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -33484,7 +33484,7 @@
     "subCategory": "Smart Displays & TV Boxes",
     "priceAud": 59,
     "currency": "AUD",
-    "image": "/images/products/blaupunkt-bptv10-android-tv-streaming-device.webp",
+    "image": "/images/products/blaupunkt-bptv10-android-tv-streaming-device-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -33599,7 +33599,7 @@
     "subCategory": "Smart Soundbars",
     "priceAud": 249,
     "currency": "AUD",
-    "image": "/images/products/jbl-cinema-sb510-3-1-channel-soundbar.webp",
+    "image": "/images/products/jbl-cinema-sb510-3-1-channel-soundbar-sq500.webp",
     "retailers": [
       {
         "name": "BIG W",
@@ -33791,7 +33791,7 @@
     "subCategory": "Smart Speakers",
     "priceAud": 295,
     "currency": "AUD",
-    "image": "/images/products/jbl-authentics-200-smart-home-speaker.webp",
+    "image": "/images/products/jbl-authentics-200-smart-home-speaker-sq500.webp",
     "retailers": [
       {
         "name": "The Good Guys",
@@ -33873,7 +33873,7 @@
     "subCategory": "Smart Displays & TV Boxes",
     "priceAud": 368,
     "currency": "AUD",
-    "image": "/images/products/eufy-e10-smart-display.webp",
+    "image": "/images/products/eufy-e10-smart-display-sq500.webp",
     "retailers": [
       {
         "name": "Harvey Norman",
@@ -33920,7 +33920,7 @@
     "subCategory": "Smart Speakers",
     "priceAud": 545.95,
     "currency": "AUD",
-    "image": "/images/products/bose-lifestyle-ultra-speaker.webp",
+    "image": "/images/products/bose-lifestyle-ultra-speaker-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -34004,7 +34004,7 @@
     "subCategory": "Smart Soundbars",
     "priceAud": 345,
     "currency": "AUD",
-    "image": "/images/products/sonos-ray-soundbar.webp",
+    "image": "/images/products/sonos-ray-soundbar-sq500.webp",
     "retailers": [
       {
         "name": "Harvey Norman",
@@ -34202,7 +34202,7 @@
     "subCategory": "Smart Speakers",
     "priceAud": 249,
     "currency": "AUD",
-    "image": "/images/products/google-premium-audio-speaker.webp",
+    "image": "/images/products/google-premium-audio-speaker-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -34246,7 +34246,7 @@
     "subCategory": "Smart Displays & TV Boxes",
     "priceAud": 1635,
     "currency": "AUD",
-    "image": "/images/products/lg-stanbyme-2-27-portable-smart-touch-screen-tv.webp",
+    "image": "/images/products/lg-stanbyme-2-27-portable-smart-touch-screen-tv-sq500.webp",
     "retailers": [
       {
         "name": "eBay AU",
@@ -34494,7 +34494,7 @@
     "subCategory": "Smart Speakers",
     "priceAud": 285,
     "currency": "AUD",
-    "image": "/images/products/sonos-era-100-sl.webp",
+    "image": "/images/products/sonos-era-100-sl-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -34544,7 +34544,7 @@
     "subCategory": "Smart AC Controllers & Thermostats",
     "priceAud": 50.89,
     "currency": "AUD",
-    "image": "/images/products/tuya-smart-wifi-ir-air-conditioner-controller-thermostat.webp",
+    "image": "/images/products/tuya-smart-wifi-ir-air-conditioner-controller-thermostat-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -34592,7 +34592,7 @@
     "subCategory": "Air Purifiers & Monitors",
     "priceAud": 249,
     "currency": "AUD",
-    "image": "/images/products/levoit-core-300s-smart-air-purifier.webp",
+    "image": "/images/products/levoit-core-300s-smart-air-purifier-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -34668,7 +34668,7 @@
     "subCategory": "Smart AC Controllers & Thermostats",
     "priceAud": 179,
     "currency": "AUD",
-    "image": "/images/products/sensibo-air-smart-air-conditioner-controller.webp",
+    "image": "/images/products/sensibo-air-smart-air-conditioner-controller-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -34765,7 +34765,7 @@
     "subCategory": "Air Purifiers & Monitors",
     "priceAud": 189,
     "currency": "AUD",
-    "image": "/images/products/breville-smart-air-viral-protect-night-glow-purifier.webp",
+    "image": "/images/products/breville-smart-air-viral-protect-night-glow-purifier-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -34961,7 +34961,7 @@
     "subCategory": "Smart AC Controllers & Thermostats",
     "priceAud": 149,
     "currency": "AUD",
-    "image": "/images/products/bing-lee-smart-air-conditioner-wifi-controller.webp",
+    "image": "/images/products/bing-lee-smart-air-conditioner-wifi-controller-sq500.webp",
     "retailers": [
       {
         "name": "The Good Guys",
@@ -35051,7 +35051,7 @@
     "subCategory": "Climate Sensors",
     "priceAud": 29.99,
     "currency": "AUD",
-    "image": "/images/products/tuya-wifi-temperature-humidity-sensor-indoor-hygrometer-thermometer-detector-sma.webp",
+    "image": "/images/products/tuya-wifi-temperature-humidity-sensor-indoor-hygrometer-thermometer-detector-sma-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -35097,7 +35097,7 @@
     "subCategory": "Air Purifiers & Monitors",
     "priceAud": 228,
     "currency": "AUD",
-    "image": "/images/products/philips-pureprotect-mini-900-series-smart-air-purifier.webp",
+    "image": "/images/products/philips-pureprotect-mini-900-series-smart-air-purifier-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -35170,7 +35170,7 @@
     "subCategory": "Climate Sensors",
     "priceAud": 59,
     "currency": "AUD",
-    "image": "/images/products/tp-link-tapo-smart-temperature-humidity-monitor.webp",
+    "image": "/images/products/tp-link-tapo-smart-temperature-humidity-monitor-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -35335,7 +35335,7 @@
     "subCategory": "Smart AC Controllers & Thermostats",
     "priceAud": 126.87,
     "currency": "AUD",
-    "image": "/images/products/google-nest-learning-thermostat-e-3rd-generation.webp",
+    "image": "/images/products/google-nest-learning-thermostat-e-3rd-generation-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -35395,7 +35395,7 @@
     "subCategory": "Air Purifiers & Monitors",
     "priceAud": 399,
     "currency": "AUD",
-    "image": "/images/products/levoit-core-400s-air-purifier.webp",
+    "image": "/images/products/levoit-core-400s-air-purifier-sq500.webp",
     "retailers": [
       {
         "name": "Harvey Norman",
@@ -35670,7 +35670,7 @@
     "subCategory": "Smart AC Controllers & Thermostats",
     "priceAud": 189.99,
     "currency": "AUD",
-    "image": "/images/products/google-nest-smart-thermostat.webp",
+    "image": "/images/products/google-nest-smart-thermostat-sq500.webp",
     "retailers": [
       {
         "name": "Kogan AU",
@@ -35750,7 +35750,7 @@
     "subCategory": "Smart AC Controllers & Thermostats",
     "priceAud": 60,
     "currency": "AUD",
-    "image": "/images/products/aircon-off-universal-air-conditioner-smart-remote.webp",
+    "image": "/images/products/aircon-off-universal-air-conditioner-smart-remote-sq500.webp",
     "retailers": [
       {
         "name": "The Good Guys",
@@ -35827,7 +35827,7 @@
     "subCategory": "Air Purifiers & Monitors",
     "priceAud": 139,
     "currency": "AUD",
-    "image": "/images/products/breville-easy-air-connect-purifier.webp",
+    "image": "/images/products/breville-easy-air-connect-purifier-sq500.webp",
     "retailers": [
       {
         "name": "BIG W",
@@ -36019,7 +36019,7 @@
     "subCategory": "Smart AC Controllers & Thermostats",
     "priceAud": 27.27,
     "currency": "AUD",
-    "image": "/images/products/smart-thermostat-temperature-controller.webp",
+    "image": "/images/products/smart-thermostat-temperature-controller-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -36081,7 +36081,7 @@
     "subCategory": "Climate Sensors",
     "priceAud": 29.99,
     "currency": "AUD",
-    "image": "/images/products/uantii-zigbee-temperature-humidity-sensor-with-external-probe-for-for-plants-aqu.webp",
+    "image": "/images/products/uantii-zigbee-temperature-humidity-sensor-with-external-probe-for-for-plants-aqu-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -36108,7 +36108,7 @@
     "subCategory": "Air Purifiers & Monitors",
     "priceAud": 599,
     "currency": "AUD",
-    "image": "/images/products/levoit-core-600s-smart-air-purifier.webp",
+    "image": "/images/products/levoit-core-600s-smart-air-purifier-sq500.webp",
     "retailers": [
       {
         "name": "JB Hi-Fi",
@@ -36369,7 +36369,7 @@
     "subCategory": "Climate Sensors",
     "priceAud": 59.99,
     "currency": "AUD",
-    "image": "/images/products/wifi-digital-thermometer-fridge-hygrometer-room-indoor-humidity-meter.webp",
+    "image": "/images/products/wifi-digital-thermometer-fridge-hygrometer-room-indoor-humidity-meter-sq500.webp",
     "retailers": [
       {
         "name": "BIG W",
@@ -36398,7 +36398,7 @@
     "subCategory": "Air Purifiers & Monitors",
     "priceAud": 359,
     "currency": "AUD",
-    "image": "/images/products/shark-neverchange5-air-purifier.webp",
+    "image": "/images/products/shark-neverchange5-air-purifier-sq500.webp",
     "retailers": [
       {
         "name": "The Good Guys",
@@ -36463,7 +36463,7 @@
     "subCategory": "Smart AC Controllers & Thermostats",
     "priceAud": 98.28,
     "currency": "AUD",
-    "image": "/images/products/bosch-ii-smart-thermostat.webp",
+    "image": "/images/products/bosch-ii-smart-thermostat-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -36598,7 +36598,7 @@
     "subCategory": "Air Purifiers & Monitors",
     "priceAud": 319,
     "currency": "AUD",
-    "image": "/images/products/xiaomi-smart-air-purifier-6.webp",
+    "image": "/images/products/xiaomi-smart-air-purifier-6-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -36642,7 +36642,7 @@
     "subCategory": "Automation Controllers",
     "priceAud": 156.21,
     "currency": "AUD",
-    "image": "/images/products/homey-bridge-the-ultimate-home-automation-hub.webp",
+    "image": "/images/products/homey-bridge-the-ultimate-home-automation-hub-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -36753,7 +36753,7 @@
     "subCategory": "Matter & Thread Hubs",
     "priceAud": 89.76,
     "currency": "AUD",
-    "image": "/images/products/matter-smart-home-hub-thread-tuya-zigbee-3-0-control-your-connected-devices.webp",
+    "image": "/images/products/matter-smart-home-hub-thread-tuya-zigbee-3-0-control-your-connected-devices-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -36782,7 +36782,7 @@
     "subCategory": "Matter & Thread Hubs",
     "priceAud": 78.93,
     "currency": "AUD",
-    "image": "/images/products/zemismart-matter-zigbee-thread-smart-home-hub.webp",
+    "image": "/images/products/zemismart-matter-zigbee-thread-smart-home-hub-sq500.webp",
     "retailers": [
       {
         "name": "eBay AU",
@@ -36925,7 +36925,7 @@
     "subCategory": "Zigbee & Z-Wave Coordinators",
     "priceAud": 47.61,
     "currency": "AUD",
-    "image": "/images/products/sonoff-zigbee-3-0-usb-dongle.webp",
+    "image": "/images/products/sonoff-zigbee-3-0-usb-dongle-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -37060,7 +37060,7 @@
     "subCategory": "Matter & Thread Hubs",
     "priceAud": 71.96,
     "currency": "AUD",
-    "image": "/images/products/matter-smart-home-hub-m6-zigbee-3-0-gateway-with-antenna-for-home-automation.webp",
+    "image": "/images/products/matter-smart-home-hub-m6-zigbee-3-0-gateway-with-antenna-for-home-automation-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -37087,7 +37087,7 @@
     "subCategory": "Automation Controllers",
     "priceAud": 37.49,
     "currency": "AUD",
-    "image": "/images/products/wifi-rf-bridge-smart-home-automation-module.webp",
+    "image": "/images/products/wifi-rf-bridge-smart-home-automation-module-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -37125,7 +37125,7 @@
     "subCategory": "Matter & Thread Hubs",
     "priceAud": 411.34,
     "currency": "AUD",
-    "image": "/images/products/ha-smart-home-matter-hub.webp",
+    "image": "/images/products/ha-smart-home-matter-hub-sq500.webp",
     "retailers": [
       {
         "name": "Kogan AU",
@@ -37150,7 +37150,7 @@
     "subCategory": "Automation Controllers",
     "priceAud": 207.92,
     "currency": "AUD",
-    "image": "/images/products/3-5-inch-smart-home-control-panel.webp",
+    "image": "/images/products/3-5-inch-smart-home-control-panel-sq500.webp",
     "retailers": [
       {
         "name": "Kogan AU",
@@ -37212,7 +37212,7 @@
     "subCategory": "Zigbee & Z-Wave Coordinators",
     "priceAud": 60.4,
     "currency": "AUD",
-    "image": "/images/products/tuya-smart-home-bridge.webp",
+    "image": "/images/products/tuya-smart-home-bridge-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -37272,7 +37272,7 @@
     "subCategory": "Automation Controllers",
     "priceAud": 135.97,
     "currency": "AUD",
-    "image": "/images/products/3-5-inch-smart-home-control-panel-with-3-gang-relay-touchscreen-and-3-button-app.webp",
+    "image": "/images/products/3-5-inch-smart-home-control-panel-with-3-gang-relay-touchscreen-and-3-button-app-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -37297,7 +37297,7 @@
     "subCategory": "Automation Controllers",
     "priceAud": 310.21,
     "currency": "AUD",
-    "image": "/images/products/go-smart-bridge-home-automation-hub.webp",
+    "image": "/images/products/go-smart-bridge-home-automation-hub-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -37373,7 +37373,7 @@
     "subCategory": "Matter & Thread Hubs",
     "priceAud": 84.95,
     "currency": "AUD",
-    "image": "/images/products/tuya-zigbee-matter-thread-gateway-smart-home-bridge-matter-hub.webp",
+    "image": "/images/products/tuya-zigbee-matter-thread-gateway-smart-home-bridge-matter-hub-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
@@ -37519,7 +37519,7 @@
     "subCategory": "Automation Controllers",
     "priceAud": 65.11,
     "currency": "AUD",
-    "image": "/images/products/rf-bridge.webp",
+    "image": "/images/products/rf-bridge-sq500.webp",
     "retailers": [
       {
         "name": "BIG W",
@@ -37563,7 +37563,7 @@
     "subCategory": "Automation Controllers",
     "priceAud": 191.66,
     "currency": "AUD",
-    "image": "/images/products/atlantic-cozytouch-v2-bridge-box-home-automation-connection-for-cozytouch-applic.webp",
+    "image": "/images/products/atlantic-cozytouch-v2-bridge-box-home-automation-connection-for-cozytouch-applic-sq500.webp",
     "retailers": [
       {
         "name": "Amazon AU",
