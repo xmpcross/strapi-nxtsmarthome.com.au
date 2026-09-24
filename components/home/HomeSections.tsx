@@ -25,7 +25,7 @@ export function HomeHero({ articleCount, topicCount }: { articleCount: number; t
       <h1 className="mt-3 max-w-3xl text-[2.5rem] leading-tight font-bold tracking-tight text-neutral-900 dark:text-white">
         Smart home guides for Australian homes
       </h1>
-      <p className="mt-5 max-w-3xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
+      <p className="mt-5 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
         Buying guides, setup help and plain-English explainers for smart lighting, security
         cameras, energy monitoring, climate control, robot vacuums and the platforms that tie
         them together, written for 240V wiring, Australian retailers and renters as well as
