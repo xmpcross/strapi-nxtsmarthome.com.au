@@ -74,21 +74,21 @@ export default function CategoryCarousel({ cards }: { cards: CategoryCard[] }) {
                fourth card does not spill. */
             className="w-[85%] shrink-0 snap-start sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-2rem)/3)] xl:w-[calc((100%-3rem)/4)]"
           >
-            <div className="flex h-full flex-col rounded-[8px] border border-slate-200 bg-white p-5 transition hover:border-brand-400 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-brand-500">
+            <div className="flex h-full flex-col rounded-[8px] border border-neutral-200 bg-white p-5 transition hover:border-primary-400 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-primary-500">
               <Link
                 href={`/products/category/${cat.slug}/`}
                 className="group flex items-baseline gap-2.5"
               >
                 <span className="text-lg" aria-hidden="true">{cat.emoji}</span>
-                <span className="text-base font-bold text-slate-900 group-hover:text-brand-700 dark:text-white dark:group-hover:text-brand-400">
+                <span className="text-base font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-400">
                   {cat.name}
                 </span>
-                <span className="ml-auto text-xs text-slate-500 dark:text-slate-400">
+                <span className="ml-auto text-xs text-neutral-500 dark:text-neutral-400">
                   {cat.count}
                 </span>
               </Link>
 
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
                 {cat.body}
               </p>
 
@@ -97,7 +97,7 @@ export default function CategoryCarousel({ cards }: { cards: CategoryCard[] }) {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm font-medium text-brand-700 hover:underline dark:text-brand-400"
+                      className="text-sm font-medium text-primary-700 hover:underline dark:text-primary-400"
                     >
                       → {link.label}
                     </Link>
@@ -114,7 +114,7 @@ export default function CategoryCarousel({ cards }: { cards: CategoryCard[] }) {
           type="button"
           onClick={() => scrollByCard(-1)}
           aria-label="Previous categories"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 text-neutral-600 transition hover:bg-neutral-50 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-700"
         >
           <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M15 19l-7-7 7-7" />
@@ -124,13 +124,13 @@ export default function CategoryCarousel({ cards }: { cards: CategoryCard[] }) {
           type="button"
           onClick={() => scrollByCard(1)}
           aria-label="Next categories"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 text-neutral-600 transition hover:bg-neutral-50 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-700"
         >
           <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 5l7 7-7 7" />
           </svg>
         </button>
-        <span className="ml-1 text-xs text-slate-400 dark:text-slate-500">
+        <span className="ml-1 text-xs text-neutral-400 dark:text-neutral-500">
           {paused ? 'Paused' : 'Auto-scrolling'}
         </span>
       </div>

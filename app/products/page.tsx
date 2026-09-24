@@ -199,7 +199,7 @@ export default function ProductsPage() {
       <PageHeader
         eyebrow="Product catalogue"
         title="Compare smart home devices in Australia"
-        intro="Every device here is sold in Australia, runs on 240V power, and is stocked by at least one local retailer with Australian warranty support. We link you to the retailer to check the current price, because prices move daily. Order is based on what we'd recommend, not on what pays us the most."
+        intro="Every device here is sold in Australia, runs on 230V power, and is stocked by at least one local retailer with Australian warranty support. We link you to the retailer to check the current price, because prices move daily. Order is based on what we'd recommend, not on what pays us the most."
         meta={`${products.length} devices catalogued`}
         // h1 at 2.5rem; description full width at 1rem (user requests, 24 Sep 2026).
         // text-[1rem]! beats PageHeader's md:text-lg default.
@@ -241,7 +241,7 @@ export default function ProductsPage() {
             <li key={cat.href} className="shrink-0">
               <Link
                 href={cat.href}
-                className="inline-block whitespace-nowrap rounded-full border border-slate-300 bg-white px-4 py-1.5 text-sm font-medium text-slate-700 transition hover:border-brand-500 hover:text-brand-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-brand-400 dark:hover:text-brand-400"
+                className="inline-block whitespace-nowrap rounded-full border border-neutral-300 bg-white px-4 py-1.5 text-sm font-medium text-neutral-700 transition hover:border-primary-500 hover:text-primary-700 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:border-primary-400 dark:hover:text-primary-400"
               >
                 {cat.label}
               </Link>
@@ -253,33 +253,33 @@ export default function ProductsPage() {
       <ProductGrid products={products.map(toListingCard)} categoriesList={categories} pageSize={6} />
 
       {/* What to check — the Australia-specific traps, ordered by cost of error. */}
-      <section className="mt-16 border-t border-slate-200 pt-10 dark:border-slate-700">
-        <span className="text-xs font-bold uppercase tracking-[0.16em] text-amber-600 dark:text-amber-400">
+      <section className="mt-16 border-t border-neutral-200 pt-10 dark:border-neutral-700">
+        <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
           Australia only
         </span>
-        <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
+        <h2 className="mt-2 text-2xl font-bold text-neutral-900 dark:text-white">
           What to check before you buy in Australia
         </h2>
 
         <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {CHECKS.map((item, i) => (
-            <div key={item.label} className="border-t border-slate-200 pt-4 dark:border-slate-700">
+            <div key={item.label} className="border-t border-neutral-200 pt-4 dark:border-neutral-700">
               <div className="flex items-baseline gap-3">
                 <span
                   aria-hidden="true"
-                  className="text-2xl font-bold leading-none text-amber-200 dark:text-amber-900/70"
+                  className="text-2xl font-bold leading-none text-primary-200 dark:text-primary-900/70"
                 >
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">{item.label}</h3>
+                <h3 className="text-base font-bold text-neutral-900 dark:text-white">{item.label}</h3>
               </div>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
                 {item.body}
               </p>
               {item.link ? (
                 <Link
                   href={item.link.href}
-                  className="mt-2 inline-block text-sm font-medium text-brand-700 hover:underline dark:text-brand-400"
+                  className="mt-2 inline-block text-sm font-medium text-primary-700 hover:underline dark:text-primary-400"
                 >
                   → {item.link.label}
                 </Link>
@@ -290,11 +290,11 @@ export default function ProductsPage() {
       </section>
 
       {/* Browse by category — auto-advancing cards. */}
-      <section className="mt-16 border-t border-slate-200 pt-10 dark:border-slate-700">
+      <section className="mt-16 border-t border-neutral-200 pt-10 dark:border-neutral-700">
         <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
           Categories
         </span>
-        <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
+        <h2 className="mt-2 text-2xl font-bold text-neutral-900 dark:text-white">
           Browse by category
         </h2>
         <div className="mt-8">
@@ -313,16 +313,16 @@ export default function ProductsPage() {
         two more things to scroll past. Stacks below lg, where two columns
         would leave the FAQ answers too narrow to read.
       */}
-      <section className="mt-16 grid gap-x-12 gap-y-12 border-t border-slate-200 pt-10 dark:border-slate-700 lg:grid-cols-2">
+      <section className="mt-16 grid gap-x-12 gap-y-12 border-t border-neutral-200 pt-10 dark:border-neutral-700 lg:grid-cols-2">
         <div>
           <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
             Transparency
           </span>
-          <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
+          <h2 className="mt-2 text-2xl font-bold text-neutral-900 dark:text-white">
             How products get onto this page
           </h2>
 
-          <div className="mt-6 space-y-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+          <div className="mt-6 space-y-4 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
             <p>
               We list devices that are actually available in Australia from a retailer with local
               warranty support. Imported-only gear is excluded.
@@ -340,14 +340,14 @@ export default function ProductsPage() {
             <p className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1">
               <Link
                 href="/how-we-test/"
-                className="text-sm font-medium text-brand-700 hover:underline dark:text-brand-400"
+                className="text-sm font-medium text-primary-700 hover:underline dark:text-primary-400"
               >
                 → How we research
               </Link>
-              <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">·</span>
+              <span aria-hidden="true" className="text-neutral-300 dark:text-neutral-600">·</span>
               <Link
                 href="/affiliate-disclosure/"
-                className="text-sm font-medium text-brand-700 hover:underline dark:text-brand-400"
+                className="text-sm font-medium text-primary-700 hover:underline dark:text-primary-400"
               >
                 Affiliate disclosure
               </Link>
@@ -359,7 +359,7 @@ export default function ProductsPage() {
           <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
             FAQ
           </span>
-          <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
+          <h2 className="mt-2 text-2xl font-bold text-neutral-900 dark:text-white">
             Common questions
           </h2>
           <FaqAccordion items={FAQ} />

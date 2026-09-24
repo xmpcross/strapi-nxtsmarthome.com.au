@@ -24,11 +24,11 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
   const baseId = useId();
 
   return (
-    <div className="mt-8 border-t border-slate-200 dark:border-slate-700">
+    <div className="mt-8 border-t border-neutral-200 dark:border-neutral-700">
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
-          <div key={item.q} className="border-b border-slate-200 dark:border-slate-700">
+          <div key={item.q} className="border-b border-neutral-200 dark:border-neutral-700">
             <h3>
               <button
                 type="button"
@@ -38,11 +38,11 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
                 onClick={() => setOpen(isOpen ? null : i)}
                 className="flex w-full items-center justify-between gap-6 py-5 text-left"
               >
-                <span className="text-[0.9375rem] text-slate-800 dark:text-slate-100">
+                <span className="text-[0.9375rem] text-neutral-800 dark:text-neutral-100">
                   {item.q}
                 </span>
                 <svg
-                  className={`h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200 dark:text-slate-500 ${
+                  className={`h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200 dark:text-neutral-500 ${
                     isOpen ? 'rotate-180' : ''
                   }`}
                   viewBox="0 0 24 24"
@@ -64,13 +64,13 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
               aria-labelledby={`${baseId}-q-${i}`}
               className={isOpen ? 'pb-6 pr-10' : 'hidden'}
             >
-              <p className="max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              <p className="max-w-3xl text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
                 {item.a}
               </p>
               {item.link ? (
                 <Link
                   href={item.link.href}
-                  className="mt-3 inline-block text-sm font-medium text-brand-700 hover:underline dark:text-brand-400"
+                  className="mt-3 inline-block text-sm font-medium text-primary-700 hover:underline dark:text-primary-400"
                 >
                   → {item.link.label}
                 </Link>

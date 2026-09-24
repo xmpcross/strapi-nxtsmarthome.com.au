@@ -71,7 +71,7 @@ export default async function CategoryProductsPage({
             height={600}
             className="w-full rounded-[8px]"
           />
-          <p className="mt-6 w-full text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base">
+          <p className="mt-6 w-full text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 sm:text-base">
             {category.intro}
           </p>
         </header>

@@ -200,7 +200,7 @@ export default function ProductGrid({
       <div className="mb-4 flex items-center justify-between lg:hidden">
         <button
           onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
-          className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 shadow-2xs dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+          className="inline-flex items-center gap-2 rounded-lg border border-neutral-300 bg-white px-4 py-2 text-xs font-semibold text-neutral-800 shadow-2xs dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
         >
           <span>🔍 Filter & Sort</span>
           {activeFilterCount > 0 && (
@@ -209,7 +209,7 @@ export default function ProductGrid({
             </span>
           )}
         </button>
-        <span className="text-xs text-slate-500 dark:text-slate-400">
+        <span className="text-xs text-neutral-500 dark:text-neutral-400">
           {filteredProducts.length} items found
         </span>
       </div>
@@ -221,9 +221,9 @@ export default function ProductGrid({
             isMobileFilterOpen ? 'block' : 'hidden lg:block'
           } mb-6 lg:mb-0`}
         >
-          <div className="sticky top-20 space-y-6 rounded-[8px] border border-slate-200 bg-white p-5 shadow-2xs dark:border-slate-700/80 dark:bg-slate-800/80">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-700">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+          <div className="sticky top-20 space-y-6 rounded-[8px] border border-neutral-200 bg-white p-5 shadow-2xs dark:border-neutral-700/80 dark:bg-neutral-800/80">
+            <div className="flex items-center justify-between border-b border-neutral-100 pb-3 dark:border-neutral-700">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-900 dark:text-white">
                 Filter Products
               </h3>
               {activeFilterCount > 0 && (
@@ -244,7 +244,7 @@ export default function ProductGrid({
 
             {/* Keyword Search Filter */}
             <div>
-              <label htmlFor="product-search" className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              <label htmlFor="product-search" className="mb-1.5 block text-xs font-semibold text-neutral-700 dark:text-neutral-300">
                 Search Products
               </label>
               <input
@@ -253,20 +253,20 @@ export default function ProductGrid({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="e.g. Roborock, Eufy, Doorbell..."
-                className="w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-xs text-slate-900 placeholder-slate-400 focus:border-primary-500 focus:bg-white focus:outline-hidden dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-400"
+                className="w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs text-neutral-900 placeholder-neutral-400 focus:border-primary-500 focus:bg-white focus:outline-hidden dark:border-neutral-600 dark:bg-neutral-700 dark:text-white dark:placeholder-neutral-400"
               />
             </div>
 
             {/* Sort Order Selector */}
             <div>
-              <label htmlFor="sidebar-sort-by" className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              <label htmlFor="sidebar-sort-by" className="mb-1.5 block text-xs font-semibold text-neutral-700 dark:text-neutral-300">
                 Sort By
               </label>
               <select
                 id="sidebar-sort-by"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-800 focus:border-primary-500 focus:outline-hidden dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100"
+                className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-xs font-medium text-neutral-800 focus:border-primary-500 focus:outline-hidden dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-100"
               >
                 <option value="name">Name (A–Z)</option>
                 <option value="price-asc">Price: Low to High</option>
@@ -277,7 +277,7 @@ export default function ProductGrid({
             {/* Product Category & Nested Subcategories Filter */}
             {productCategories.length > 0 && (
               <div>
-                <label className="mb-2 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+                <label className="mb-2 block text-xs font-semibold text-neutral-700 dark:text-neutral-300">
                   Categories & Subcategories
                 </label>
                 <div className="space-y-1.5">
@@ -291,7 +291,7 @@ export default function ProductGrid({
                     className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-medium transition ${
                       selectedCategory === 'all'
                         ? 'bg-primary-600 font-bold text-white shadow-2xs'
-                        : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700'
+                        : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-700'
                     }`}
                   >
                     <span className="flex items-center gap-2">
@@ -331,7 +331,7 @@ export default function ProductGrid({
                           className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-medium transition ${
                             isSelected
                               ? 'bg-primary-600 font-bold text-white shadow-2xs'
-                              : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700'
+                              : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-700'
                           }`}
                         >
                           <span className="flex items-center gap-2 truncate">
@@ -356,8 +356,8 @@ export default function ProductGrid({
                               onClick={() => setSelectedSubCategory('all')}
                               className={`flex w-full items-center justify-between rounded-md px-2.5 py-1 text-[11px] font-medium transition ${
                                 selectedSubCategory === 'all'
-                                  ? 'bg-slate-900 font-bold text-white dark:bg-slate-700'
-                                  : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700'
+                                  ? 'bg-primary-600 font-bold text-white dark:bg-primary-500'
+                                  : 'text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-700'
                               }`}
                             >
                               <span>All {cat.name}</span>
@@ -380,7 +380,7 @@ export default function ProductGrid({
                                   className={`flex w-full items-center justify-between rounded-md px-2.5 py-1 text-[11px] font-medium transition ${
                                     isSubSelected
                                       ? 'bg-primary-700 font-bold text-white shadow-2xs'
-                                      : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700'
+                                      : 'text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-700'
                                   }`}
                                 >
                                   <span className="truncate flex items-center gap-1">
@@ -401,8 +401,8 @@ export default function ProductGrid({
             )}
 
             {/* Price Filter */}
-            <div className="border-t border-slate-100 pt-4 dark:border-slate-700">
-              <label className="mb-2 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <div className="border-t border-neutral-100 pt-4 dark:border-neutral-700">
+              <label className="mb-2 block text-xs font-semibold text-neutral-700 dark:text-neutral-300">
                 Price
               </label>
               <div className="space-y-1.5">
@@ -411,8 +411,8 @@ export default function ProductGrid({
                   onClick={() => setSelectedPrice('all')}
                   className={`flex w-full items-center justify-between rounded-lg px-3 py-1.5 text-xs font-medium transition ${
                     selectedPrice === 'all'
-                      ? 'bg-slate-900 text-white font-bold dark:bg-slate-700'
-                      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700'
+                      ? 'bg-primary-600 text-white font-bold dark:bg-primary-500'
+                      : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-700'
                   }`}
                 >
                   <span>Any price</span>
@@ -431,8 +431,8 @@ export default function ProductGrid({
                       onClick={() => setSelectedPrice(band.key)}
                       className={`flex w-full items-center justify-between rounded-lg px-3 py-1.5 text-xs font-medium transition ${
                         selectedPrice === band.key
-                          ? 'bg-slate-900 text-white font-bold dark:bg-slate-700'
-                          : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700'
+                          ? 'bg-primary-600 text-white font-bold dark:bg-primary-500'
+                          : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-700'
                       }`}
                     >
                       <span>{band.label}</span>
@@ -444,8 +444,8 @@ export default function ProductGrid({
             </div>
 
             {/* Australian Retailer Filter */}
-            <div className="border-t border-slate-100 pt-4 dark:border-slate-700">
-              <label className="mb-2 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <div className="border-t border-neutral-100 pt-4 dark:border-neutral-700">
+              <label className="mb-2 block text-xs font-semibold text-neutral-700 dark:text-neutral-300">
                 Australian Retailer
               </label>
               <div className="space-y-1.5">
@@ -454,8 +454,8 @@ export default function ProductGrid({
                   onClick={() => setSelectedRetailer('all')}
                   className={`flex w-full items-center justify-between rounded-lg px-3 py-1.5 text-xs font-medium transition ${
                     selectedRetailer === 'all'
-                      ? 'bg-slate-900 text-white font-bold dark:bg-slate-700'
-                      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700'
+                      ? 'bg-primary-600 text-white font-bold dark:bg-primary-500'
+                      : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-700'
                   }`}
                 >
                   <span>All Retailers</span>
@@ -476,8 +476,8 @@ export default function ProductGrid({
                       onClick={() => setSelectedRetailer(ret)}
                       className={`flex w-full items-center justify-between rounded-lg px-3 py-1.5 text-xs font-medium transition ${
                         selectedRetailer === ret
-                          ? 'bg-slate-900 text-white font-bold dark:bg-slate-700'
-                          : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700'
+                          ? 'bg-primary-600 text-white font-bold dark:bg-primary-500'
+                          : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-700'
                       }`}
                     >
                       <span>{ret}</span>
@@ -493,9 +493,9 @@ export default function ProductGrid({
         {/* Right Product Grid Area */}
         <main className="min-w-0 flex-1">
           {/* Header Bar showing count */}
-          <div className="mb-4 hidden items-center justify-between border-b border-slate-100 pb-3 lg:flex dark:border-slate-800">
-            <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">
-              Showing <span className="font-bold text-slate-900 dark:text-white">{paginatedProducts.length}</span> of <span className="font-bold text-slate-900 dark:text-white">{filteredProducts.length}</span> products
+          <div className="mb-4 hidden items-center justify-between border-b border-neutral-100 pb-3 lg:flex dark:border-neutral-800">
+            <p className="text-xs font-semibold text-neutral-600 dark:text-neutral-400">
+              Showing <span className="font-bold text-neutral-900 dark:text-white">{paginatedProducts.length}</span> of <span className="font-bold text-neutral-900 dark:text-white">{filteredProducts.length}</span> products
             </p>
             <div className="flex flex-wrap gap-2">
               {selectedCategory !== 'all' && (
@@ -547,9 +547,9 @@ export default function ProductGrid({
               {totalPages > 1 && (
                 <nav
                   aria-label="Product pagination"
-                  className="mt-8 flex flex-col items-end gap-3 border-t border-slate-100 pt-5 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between"
+                  className="mt-8 flex flex-col items-end gap-3 border-t border-neutral-100 pt-5 dark:border-neutral-800 sm:flex-row sm:items-center sm:justify-between"
                 >
-                  <span className="text-sm text-slate-500 dark:text-slate-400">
+                  <span className="text-sm text-neutral-500 dark:text-neutral-400">
                     Showing {(currentPage - 1) * PAGE_SIZE + 1}–{Math.min(currentPage * PAGE_SIZE, filteredProducts.length)} of {filteredProducts.length} products
                   </span>
 
@@ -560,7 +560,7 @@ export default function ProductGrid({
                       onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                       disabled={currentPage === 1}
                       aria-label="Previous page"
-                      className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-600 transition hover:bg-slate-50 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-slate-900 disabled:opacity-40 disabled:hover:bg-white dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:focus-visible:outline-slate-200"
+                      className="flex h-10 w-10 items-center justify-center rounded-md border border-neutral-300 bg-white text-neutral-600 transition hover:bg-neutral-50 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-neutral-900 disabled:opacity-40 disabled:hover:bg-white dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus-visible:outline-neutral-200"
                     >
                       <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -574,7 +574,7 @@ export default function ProductGrid({
                           <span
                             key={`gap-${idx}`}
                             aria-hidden="true"
-                            className="px-1 text-sm text-slate-400 dark:text-slate-500"
+                            className="px-1 text-sm text-neutral-400 dark:text-neutral-500"
                           >
                             …
                           </span>
@@ -589,10 +589,10 @@ export default function ProductGrid({
                           onClick={() => setCurrentPage(pageNum)}
                           aria-label={`Page ${pageNum}`}
                           aria-current={isActive ? 'page' : undefined}
-                          className={`flex h-10 w-10 items-center justify-center rounded-md text-sm transition focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-slate-900 dark:focus-visible:outline-slate-200 ${
+                          className={`flex h-10 w-10 items-center justify-center rounded-md text-sm transition focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-neutral-900 dark:focus-visible:outline-neutral-200 ${
                             isActive
-                              ? 'bg-[#0c5adb] font-semibold text-white dark:bg-blue-600'
-                              : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700'
+                              ? 'bg-primary-600 font-semibold text-white dark:bg-primary-500'
+                              : 'border border-neutral-300 bg-white text-neutral-700 hover:bg-neutral-50 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700'
                           }`}
                         >
                           {pageNum}
@@ -606,7 +606,7 @@ export default function ProductGrid({
                       onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                       disabled={currentPage === totalPages}
                       aria-label="Next page"
-                      className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-600 transition hover:bg-slate-50 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-slate-900 disabled:opacity-40 disabled:hover:bg-white dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:focus-visible:outline-slate-200"
+                      className="flex h-10 w-10 items-center justify-center rounded-md border border-neutral-300 bg-white text-neutral-600 transition hover:bg-neutral-50 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-neutral-900 disabled:opacity-40 disabled:hover:bg-white dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus-visible:outline-neutral-200"
                     >
                       <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -617,8 +617,8 @@ export default function ProductGrid({
               )}
             </>
           ) : (
-            <div className="rounded-[8px] border border-dashed border-slate-300 p-8 text-center dark:border-slate-700">
-              <p className="text-base font-semibold text-slate-700 dark:text-slate-300">
+            <div className="rounded-[8px] border border-dashed border-neutral-300 p-8 text-center dark:border-neutral-700">
+              <p className="text-base font-semibold text-neutral-700 dark:text-neutral-300">
                 No products found matching your selected filter criteria.
               </p>
               <button
