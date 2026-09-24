@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Be_Vietnam_Pro } from 'next/font/google';
 import localFont from 'next/font/local';
 import { AudioProvider } from '@/components/AudioProvider';
 import Aside from '@/components/aside';
@@ -14,12 +13,13 @@ import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
 import { organisationJsonLd } from '@/lib/seo';
 
-// Ncmaz's typeface, self-hosted by next/font at build time.
-const beVietnamPro = Be_Vietnam_Pro({
-  subsets: ['latin'],
+// Body text: Outfit, self-hosted from app/fonts/outfit (Google Fonts, SIL OFL
+// 1.1 — licence alongside). One variable file covers every weight; body and
+// paragraphs default to 300 (app/globals.css).
+const outfit = localFont({
+  src: [{ path: './fonts/outfit/Outfit-latin-variable.woff2', weight: '100 900', style: 'normal' }],
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-be-vietnam-pro',
+  variable: '--font-outfit',
 });
 
 // Headings (h1–h6): Urbanist, self-hosted from app/fonts/urbanist (Google Fonts,
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={site.language} className={`${beVietnamPro.variable} ${urbanist.variable}`} suppressHydrationWarning>
+    <html lang={site.language} className={`${outfit.variable} ${urbanist.variable}`} suppressHydrationWarning>
       <head>
         {/*
           Applies the theme before first paint. Without this a dark reader gets a
