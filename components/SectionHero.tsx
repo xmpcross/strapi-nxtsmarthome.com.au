@@ -22,7 +22,7 @@ const SectionHero: FC<Props> = ({ className, rightImg, heading, subHeading, btnT
           {!!btnText && <ButtonPrimary href={btnHref || '/'}>{btnText}</ButtonPrimary>}
         </div>
         <div className="grow">
-          <Image className="w-full" src={rightImg} alt="" sizes="(max-width: 1024px) 100vw, 60vw" />
+          <Image className="w-full" src={rightImg} alt={typeof heading === 'string' ? heading : 'Smart home hero image'} sizes="(max-width: 1024px) 100vw, 60vw" />
         </div>
       </div>
     </div>

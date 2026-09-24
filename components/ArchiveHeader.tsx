@@ -48,7 +48,7 @@ export default function ArchiveHeader({
   return (
     <div className={clsx('w-full', className)}>
       <div className="relative h-32 w-full overflow-hidden bg-neutral-100 md:h-48 dark:bg-white/10">
-        {banner && <img src={banner} alt="" className="absolute inset-0 size-full object-cover opacity-90" />}
+        {banner && <img src={banner} alt={title ? `${title} banner` : 'Category banner'} className="absolute inset-0 size-full object-cover opacity-90" />}
       </div>
       <div className="container -mt-16">
         <div className="relative flex flex-col items-start gap-6 rounded-3xl border border-transparent bg-white p-5 shadow-xl md:flex-row md:rounded-4xl lg:p-8 lg:px-9 dark:border-neutral-700 dark:bg-neutral-900">

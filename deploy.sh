@@ -123,4 +123,8 @@ node -e '
 ' "$SITEMAP_BEFORE" "$SITEMAP_AFTER" "$CHANGED" || true
 node scripts/submit-indexnow.mjs "$CHANGED" || echo "IndexNow submission failed (deploy is fine)" >&2
 
+if [ -f "/opt/seranking/.venv/bin/python3" ]; then
+  /opt/seranking/.venv/bin/python3 scripts/seranking-audit.py recheck >/dev/null 2>&1 && echo "SE Ranking audit triggered (Audit ID: 414163)" || true
+fi
+
 echo "deployed: $(git log --oneline -1)"

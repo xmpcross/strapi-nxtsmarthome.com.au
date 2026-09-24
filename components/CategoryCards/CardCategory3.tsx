@@ -18,7 +18,7 @@ const CardCategory3: FC<Props> = ({ className = '', category }) => {
           className="h-full w-full rounded-2xl object-cover"
           sizes="(min-width: 1024px) 20rem, (min-width: 640px) 16rem, 12rem"
           fill
-          alt=""
+          alt={name}
         />
         <span className="absolute inset-0 bg-black/10 opacity-0 transition-opacity group-hover:opacity-100"></span>
       </div>
