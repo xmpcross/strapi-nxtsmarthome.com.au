@@ -19,7 +19,7 @@ export default function ReadAlso({ items }: { items: Article[] }) {
 
   return (
     <aside
-      className="not-prose my-10 rounded-lg border border-slate-200 bg-white p-7 shadow-sm sm:p-8 dark:border-slate-700 dark:bg-slate-800/60"
+      className="not-prose my-10 rounded-lg border border-slate-200 bg-white p-7 shadow-xs sm:p-8 dark:border-slate-700 dark:bg-slate-800/60"
       aria-labelledby="read-also-heading"
     >
       <h2
@@ -36,7 +36,7 @@ export default function ReadAlso({ items }: { items: Article[] }) {
               href={articleHref(article)}
               tabIndex={-1}
               aria-hidden="true"
-              className="block w-[4.5rem] shrink-0 overflow-hidden rounded-lg"
+              className="block w-18 shrink-0 overflow-hidden rounded-lg"
             >
               <img
                 src={squareCoverFor(article)}

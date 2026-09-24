@@ -50,6 +50,12 @@ function toPlainText(markdown) {
  * lib/content.ts. Without it the modal's thumbnails keep serving a stale image
  * from the 30-day cache after a cover is regenerated.
  */
+/** Absolute URL for a Strapi media path (uploads are served by the CMS). */
+function mediaUrl(url) {
+  if (!url) return '';
+  return /^https?:\/\//.test(url) ? url : `${STRAPI}${url}`;
+}
+
 function coverUrl(slug) {
   for (const ext of ['webp', 'png']) {
     try {
@@ -80,6 +86,11 @@ const params = new URLSearchParams({
   'pagination[pageSize]': '200',
   'sort[0]': 'publishDate:desc',
   'populate[categories]': 'true',
+  'populate[coverImage]': 'true',
+  // Scheduled posts (showFrom in the future) stay out of search until released,
+  // matching lib/strapi.ts.
+  'filters[$or][0][showFrom][$null]': 'true',
+  'filters[$or][1][showFrom][$lte]': new Date().toISOString(),
 });
 
 const res = await fetch(`${STRAPI}/api/nxtsmarthome-posts?${params}`, {
@@ -118,11 +129,15 @@ const docs = rows
       // unchanged — otherwise every result would fall back to /articles/<slug>/.
       categoryMeta: { slug: categorySlugs[key] ?? catSlug ?? 'articles' },
       type: a.postType ?? '',
-      date: a.publishDate ?? a.publishedAt ?? '',
+      date: a.showFrom ?? a.publishDate ?? a.publishedAt ?? '',
       tags: Array.isArray(a.tags) ? a.tags : [],
       readingMinutes:
         a.readingTimeMinutes || Math.max(1, Math.round(body.split(/\s+/).length / 225)),
-      cover: a.coverImageUrl || coverUrl(a.slug),
+      // Same order as lib/content.ts: the uploaded Cover Image wins, then
+      // coverImageUrl, then a generated file in public/covers. Before this the
+      // uploaded image was ignored and 23 of 48 results pointed at a missing
+      // /covers/<slug>.png.
+      cover: mediaUrl(a.coverImage?.url) || a.coverImageUrl || coverUrl(a.slug),
       body: body.slice(0, 1200),
     };
   })

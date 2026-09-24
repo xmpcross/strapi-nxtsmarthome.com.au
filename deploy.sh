@@ -54,6 +54,10 @@ trap 'rm -f "$SITEMAP_BEFORE" "$SITEMAP_AFTER" "$CHANGED"' EXIT
 curl -s -m 20 "http://127.0.0.1:$PORT/sitemap.xml" -o "$SITEMAP_BEFORE" || true
 
 rm -rf .next-build
+# tsconfig includes .next/types, the live build's route type stubs. They only
+# serve type-checking, and they go stale once a route is deleted, which fails
+# the new build's type check. The running server does not read them.
+rm -rf .next/types
 # lib/strapi.ts throws if Strapi is unreachable, so a CMS outage fails the build
 # here instead of publishing a site with no articles.
 if ! NEXT_DIST_DIR=.next-build npm run build; then

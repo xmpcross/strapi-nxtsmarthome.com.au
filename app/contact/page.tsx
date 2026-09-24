@@ -37,9 +37,9 @@ const NOTES = [
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-[1366px] px-4 py-14 sm:px-6 sm:py-20">
+    <div className="container py-16 lg:py-24">
       <header className="max-w-2xl">
-        <h1 className="text-4xl font-bold text-slate-900 sm:text-5xl dark:text-white">Contact</h1>
+        <h1 className="text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl dark:text-white">Contact</h1>
         <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
           Corrections, coverage requests, or anything else. We read everything that arrives.
         </p>
@@ -55,7 +55,7 @@ export default function ContactPage() {
       </header>
 
       <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16 lg:items-start">
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900/50">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:p-8 dark:border-slate-800 dark:bg-slate-900/50">
           <ContactForm />
         </div>
 

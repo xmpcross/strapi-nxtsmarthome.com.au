@@ -12,7 +12,7 @@ export default function RelatedProducts({ products }: { products: TopProduct[] }
   if (!products.length) return null;
 
   return (
-    <section className="mt-5 rounded-[4px] bg-white p-5 dark:bg-slate-800 sm:p-6">
+    <section className="mt-5 rounded-[8px] bg-white p-5 dark:bg-slate-800 sm:p-6">
       <h2 className="mb-4 text-2xl font-bold text-[#1d252c] dark:text-white">Related Products</h2>
 
       <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
@@ -20,9 +20,9 @@ export default function RelatedProducts({ products }: { products: TopProduct[] }
           <li key={product.slug}>
             <Link
               href={`/products/${product.slug}/`}
-              className="group flex h-full flex-col rounded-[4px] border border-[#e0e0e0] p-3 transition hover:border-[#0046be] dark:border-slate-700 dark:hover:border-blue-500"
+              className="group flex h-full flex-col rounded-[8px] border border-[#e0e0e0] p-3 transition hover:border-[#0046be] dark:border-slate-700 dark:hover:border-blue-500"
             >
-              <div className="mb-2.5 flex h-28 items-center justify-center overflow-hidden rounded-[4px] bg-[#f7f8f9] p-2 dark:bg-slate-900/60">
+              <div className="mb-2.5 flex h-28 items-center justify-center overflow-hidden rounded-[8px] bg-slate-50 p-2 dark:bg-slate-900/60">
                 <img
                   src={product.image || '/og-default.png'}
                   alt={product.brand ? `${product.brand} ${product.name}` : product.name}

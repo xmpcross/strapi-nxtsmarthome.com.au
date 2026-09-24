@@ -40,7 +40,7 @@ export default async function CategoryProductsPage({
   const heading = `Best ${category.name} in Australia`;
 
   return (
-    <main className="mx-auto max-w-[1366px] px-4 py-8 sm:px-6">
+    <main className="container py-10 lg:py-16">
       {/*
         The banner already carries the eyebrow, the heading and the category
         blurb as artwork, so printing them again underneath would say everything

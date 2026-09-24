@@ -1,17 +1,29 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import './globals.css';
-// After globals.css: plain CSS, unlayered, so it settles the cascade for the
-// hero's secondary tiles without needing !important.
-import './magzin-post-cards.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import localFont from 'next/font/local';
+import { AudioProvider } from '@/components/AudioProvider';
+import Aside from '@/components/aside';
+import AsideSidebarNavigation from '@/components/aside-sidebar-navigation';
+import Footer from '@/components/Footer/Footer';
+import Header2 from '@/components/Header/Header2';
+import ThemeProvider from './theme-provider';
 import CookieBanner from '@/components/CookieBanner';
 import HeadScripts from '@/components/HeadScripts';
 import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
-import { getNav } from '@/lib/nav';
 import { organisationJsonLd } from '@/lib/seo';
+
+// Site font: Inter for body text and headings, self-hosted from app/fonts/inter
+// (Google Fonts, SIL OFL 1.1 — licence alongside). The variable files cover
+// every weight; body text uses the default weight (400).
+const inter = localFont({
+  src: [
+    { path: './fonts/inter/Inter-latin-variable.woff2', weight: '100 900', style: 'normal' },
+    { path: './fonts/inter/Inter-latin-italic-variable.woff2', weight: '100 900', style: 'italic' },
+  ],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -74,21 +86,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Read once per build from lib/nav-cache.json and passed into the client
-  // header. getNav never throws — a missing cache falls back to lib/site.ts.
-  const nav = getNav();
-
   return (
-    <html lang={site.language} suppressHydrationWarning>
+    <html lang={site.language} className={inter.variable} suppressHydrationWarning>
       <head>
-        <Script
-          {...({ nowprocket: '', 'nitro-exclude': '' } as Record<string, string>)}
-          type="text/javascript"
-          id="sa-dynamic-optimization"
-          data-uuid="9db46612-c24d-4a98-bd45-587abfd27f71"
-          src="https://dashboard.searchatlas.com/scripts/dynamic_optimization.js"
-          strategy="beforeInteractive"
-        />
         {/*
           Applies the theme before first paint. Without this a dark reader gets a
           white flash on every navigation, because the class can only be set once
@@ -103,20 +103,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           The class is set with .add rather than .toggle: the fallback is a
           constant, and toggle(el, true) reads as though it might remove it.
         */}
-        {/*
-          Google AdSense.
-
-          In <head> and unconditional, which is what AdSense verification needs:
-          the reviewer and the crawler have to find the tag on a normal page
-          load. Note this does NOT pass through the consent banner that gates
-          Google Analytics — see app/cookies/page.tsx, which now says
-          so rather than leaving the page claiming nothing runs until you choose.
-        */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867376862905050"
-          crossOrigin="anonymous"
-        />
 
         <HeadScripts />
 
@@ -126,19 +112,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="flex min-h-screen flex-col">
+      <body className="bg-white font-sans text-base text-neutral-900 antialiased dark:bg-neutral-900 dark:text-neutral-200">
         <JsonLd data={organisationJsonLd()} />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-primary-600 focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to content
         </a>
-        <Header nav={nav} />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider>
+          <AudioProvider>
+            <Aside.Provider>
+              <Header2 bottomBorder />
+              <main id="main">{children}</main>
+              <Footer />
+              <AsideSidebarNavigation />
+            </Aside.Provider>
+          </AudioProvider>
+        </ThemeProvider>
         <CookieBanner />
       </body>
     </html>

@@ -210,11 +210,38 @@ The cookie banner gates Google Analytics:
 
 - GA4 is injected with Consent Mode v2 defaults set to denied until accepted.
 - The Geniuslink snippet is not gated by the banner: it loads on every page.
-- AdSense is not gated. Google needs the AdSense tag present for review and ad
-  serving, so `/cookies` and the banner copy describe that plainly.
+- No ads: Google AdSense and the SearchAtlas (OTTO) script were removed on
+  24 Sep 2026. Monetisation is Geniuslink and Sovrn Commerce only.
 
 `/cookies` should stay in sync with the actual scripts. It no longer claims that
 no analytics is present.
+
+## Design: Ncmaz template
+
+Since 24 Sep 2026 the site uses the **Ncmaz** blog/magazine template (Next.js,
+Tailwind 4, Headless UI; source zip in `/opt/projects/assets/templates/`). The
+template's code was merged in rather than used as a new base, so URLs, SEO,
+Strapi data, products and affiliate scripts are unchanged.
+
+- `components/` holds the template's sections and cards (`SectionMagazine*`,
+  `PostCards/Card*`, `Widget*`, `Header/`, `Footer/`) alongside the site's own
+  components (`ArticleBody`, `ProductBox`, `Faq`, `Comments`, ...).
+  `shared/` holds its UI primitives, and `hooks/`, `utils/` and `images/` its
+  helpers.
+- `data/` is the adapter layer. It exposes the template's data API
+  (`getAllPosts`, `TPost`, `getCategories`, `getNavigation`, ...) built from
+  `lib/content.ts` (Strapi), `lib/site.ts` and `lib/authors.ts`.
+  - A post's `handle` is its canonical path without the leading slash, so
+    template links (`/${handle}`) land on real article URLs.
+  - Template links were rewritten: `/post/*` to the article URL, `/category/*`
+    to `/categories/*/`, and `/author/*` to `/authors/*/`.
+- `app/globals.css` is the template's Tailwind 4 theme, with primary = the
+  brand purple. Styles kept from the previous theme follow it. The font is
+  Be Vietnam Pro, via `next/font`.
+- Removed from the template, because they have no backing: likes and comment
+  counts, follow/report/hide actions, login and dashboard, and audio, video
+  and gallery posts.
+- Section headings are `h2`; each page has exactly one `h1`.
 
 ## Structure
 
@@ -332,13 +359,19 @@ with `noindex`.
 The contact form posts to `/api/contact`, and article comments post to
 `/api/comment`. On the server, nginx proxies both paths to
 `nxtsmarthome-contact.service` (`/opt/nxtsmarthome-contact/server.mjs`,
-`127.0.0.1:4320`). The service is not in this repo, and its settings are in
-`/opt/nxtsmarthome-contact/.env`.
+`127.0.0.1:4320`). The service is not in this repo.
+
+Its SMTP settings are read from **this project's `.env.local`**: `SMTP_HOST`,
+`SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`.
+A systemd drop-in loads them
+(`/etc/systemd/system/nxtsmarthome-contact.service.d/project-env.conf`); the
+service's own `/opt/nxtsmarthome-contact/.env` holds only the defaults. After
+editing `.env.local`, run `systemctl restart nxtsmarthome-contact`.
 
 Mail goes through the FXN **Stalwart** server (`mail.fxnstudio.com:465`) using
 `SMTP_USER` / `SMTP_PASS`. Brevo was removed on 24 Sep 2026. Stalwart rejects a
-sender the account does not own, so `CONTACT_FROM` defaults to `SMTP_USER`.
-Messages go to `CONTACT_TO` (default `hello@nxtsmarthome.com.au`), with Reply-To
+sender the account does not own, so the sender defaults to `SMTP_USER`.
+Messages go to `CONTACT_TO_EMAIL` (`contact@nxtsmarthome.com.au`), with Reply-To
 set to the reader.
 
 Checks:

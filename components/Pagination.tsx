@@ -36,25 +36,25 @@ export default function Pagination({
   if (pages <= 1) return null;
 
   const numbers = Array.from({ length: pages }, (_, i) => i + 1);
+  // Ncmaz pagination: round buttons, primary for the current page.
   const box =
-    'inline-flex h-10 min-w-10 items-center justify-center rounded-lg border px-3 text-sm font-semibold transition';
+    'inline-flex size-11 min-w-11 items-center justify-center rounded-full border text-sm font-medium transition-colors';
   const idle =
-    'border-slate-200 text-slate-600 hover:border-brand-400 hover:text-brand-700 dark:border-card-edge dark:text-slate-300 dark:hover:border-brand-500 dark:hover:text-brand-400';
-  const current = 'border-brand-600 bg-brand-600 text-white';
-  const muted =
-    'border-slate-200 text-slate-300 dark:border-card-edge dark:text-slate-600 pointer-events-none';
+    'border-neutral-200 bg-white text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800';
+  const current = 'border-primary-600 bg-primary-600 text-white';
+  const muted = 'pointer-events-none border-neutral-200 text-neutral-300 dark:border-neutral-700 dark:text-neutral-600';
 
   return (
-    <nav aria-label="Pagination" className="mt-10 flex justify-end">
+    <nav aria-label="Pagination" className="mt-16 flex justify-center">
       <ul className="flex flex-wrap items-center gap-2">
         <li>
           {page > 1 ? (
-            <Link href={pageHref(base, page - 1)} rel="prev" className={`${box} ${idle}`}>
-              Previous
+            <Link href={pageHref(base, page - 1)} rel="prev" aria-label="Previous page" className={`${box} ${idle} w-auto px-4`}>
+              ←
             </Link>
           ) : (
-            <span className={`${box} ${muted}`} aria-hidden="true">
-              Previous
+            <span className={`${box} ${muted} w-auto px-4`} aria-hidden="true">
+              ←
             </span>
           )}
         </li>
@@ -75,12 +75,12 @@ export default function Pagination({
 
         <li>
           {page < pages ? (
-            <Link href={pageHref(base, page + 1)} rel="next" className={`${box} ${idle}`}>
-              Next
+            <Link href={pageHref(base, page + 1)} rel="next" aria-label="Next page" className={`${box} ${idle} w-auto px-4`}>
+              →
             </Link>
           ) : (
-            <span className={`${box} ${muted}`} aria-hidden="true">
-              Next
+            <span className={`${box} ${muted} w-auto px-4`} aria-hidden="true">
+              →
             </span>
           )}
         </li>

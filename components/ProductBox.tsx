@@ -29,7 +29,7 @@ function Stars({ rating }: { rating: number }) {
  */
 export default function ProductBox({ product, subId, rank }: Props) {
   return (
-    <div className="not-prose my-8 overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800/60">
+    <div className="not-prose my-8 overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-xs dark:border-slate-700 dark:bg-slate-800/60">
       <div className="border-b border-slate-100 bg-slate-50 px-5 py-4 dark:border-slate-700 dark:bg-slate-800">
         <div className="flex flex-wrap items-start justify-between gap-3">
           {/*
@@ -50,7 +50,7 @@ export default function ProductBox({ product, subId, rank }: Props) {
           )}
           <div className="min-w-0 flex-1">
             {rank !== undefined && (
-              <span className="mb-1 inline-block rounded bg-brand-600 px-2 py-0.5 text-xs font-bold text-white">
+              <span className="mb-1 inline-block rounded-sm bg-brand-600 px-2 py-0.5 text-xs font-bold text-white">
                 #{rank}
               </span>
             )}
@@ -71,13 +71,13 @@ export default function ProductBox({ product, subId, rank }: Props) {
         <div className="grid gap-4 px-5 py-4 sm:grid-cols-2">
           {product.pros?.length ? (
             <div>
-              <h4 className="mb-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400">
+              <h4 className="mb-2 text-sm font-semibold text-primary-700 dark:text-primary-400">
                 What we like
               </h4>
               <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
                 {product.pros.map((pro) => (
                   <li key={pro} className="flex gap-2">
-                    <span className="text-emerald-600" aria-hidden="true">
+                    <span className="text-primary-600" aria-hidden="true">
                       ✓
                     </span>
                     <span>{pro}</span>
@@ -128,7 +128,7 @@ export default function ProductBox({ product, subId, rank }: Props) {
                 >
                   <span>Check price at {retailer.name}</span>
                   {retailer.price && (
-                    <span className="rounded bg-white/20 px-1.5 py-0.5 text-xs">
+                    <span className="rounded-sm bg-white/20 px-1.5 py-0.5 text-xs">
                       {retailer.price}
                     </span>
                   )}

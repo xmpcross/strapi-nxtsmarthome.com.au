@@ -44,14 +44,14 @@ export default function ProductHighlights({ product }: { product: TopProduct }) 
   if (!tiles.length) return null;
 
   return (
-    <section className="rounded-[4px] bg-white p-5 dark:bg-slate-800 sm:p-6">
+    <section className="rounded-[8px] bg-white p-5 dark:bg-slate-800 sm:p-6">
       <h2 className="mb-4 text-xl font-bold text-[#1d252c] dark:text-white">Highlights</h2>
 
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {tiles.map((spec) => (
           <li
             key={spec.name}
-            className="flex items-center justify-between gap-3 rounded-[6px] bg-[#f5f5f5] px-4 py-3 dark:bg-slate-900/60"
+            className="flex items-center justify-between gap-3 rounded-[8px] bg-[#f5f5f5] px-4 py-3 dark:bg-slate-900/60"
           >
             <span className="min-w-0">
               <span className="block truncate text-xs text-[#8a8a8f] dark:text-slate-400">

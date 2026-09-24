@@ -12,15 +12,15 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="mx-auto max-w-[1366px] px-4 py-12 sm:px-6">
+    <div className="container py-14 lg:py-20">
       <div className="lg:grid lg:grid-cols-[16rem_1fr] lg:gap-12 items-start">
         <LegalSidebarTOC />
         <main className="min-w-0">
-          <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
+          <h1 className="text-3xl font-semibold tracking-tight text-neutral-900 md:text-4xl xl:text-5xl dark:text-white">
             Privacy policy
           </h1>
 
-          <div className="prose prose-slate mt-8 max-w-none dark:prose-invert prose-h2:mt-0 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0">
+          <div className="prose prose-neutral mt-8 max-w-none dark:prose-invert prose-h2:mt-0 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0">
             <p>
               This policy explains what {site.name} (&quot;we&quot;) collects when you visit{' '}
               {site.domain}, and what our commercial partners collect. We handle personal

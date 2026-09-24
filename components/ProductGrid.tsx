@@ -194,11 +194,11 @@ export default function ProductGrid({
       <div className="mb-4 flex items-center justify-between lg:hidden">
         <button
           onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
-          className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 shadow-xs dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+          className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 shadow-2xs dark:border-slate-700 dark:bg-slate-800 dark:text-white"
         >
           <span>🔍 Filter & Sort</span>
           {activeFilterCount > 0 && (
-            <span className="rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] text-white font-bold">
+            <span className="rounded-full bg-primary-600 px-2 py-0.5 text-[10px] text-white font-bold">
               {activeFilterCount}
             </span>
           )}
@@ -215,7 +215,7 @@ export default function ProductGrid({
             isMobileFilterOpen ? 'block' : 'hidden lg:block'
           } mb-6 lg:mb-0`}
         >
-          <div className="sticky top-20 space-y-6 rounded-[8px] border border-slate-200 bg-white p-5 shadow-xs dark:border-slate-700/80 dark:bg-slate-800/80">
+          <div className="sticky top-20 space-y-6 rounded-[8px] border border-slate-200 bg-white p-5 shadow-2xs dark:border-slate-700/80 dark:bg-slate-800/80">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-700">
               <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
                 Filter Products
@@ -229,7 +229,7 @@ export default function ProductGrid({
                     setSelectedPrice('all');
                     setSearchQuery('');
                   }}
-                  className="text-xs font-semibold text-emerald-600 hover:underline dark:text-emerald-400"
+                  className="text-xs font-semibold text-primary-600 hover:underline dark:text-primary-400"
                 >
                   Reset All
                 </button>
@@ -247,7 +247,7 @@ export default function ProductGrid({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="e.g. Roborock, Eufy, Doorbell..."
-                className="w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-xs text-slate-900 placeholder-slate-400 focus:border-emerald-500 focus:bg-white focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-400"
+                className="w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-xs text-slate-900 placeholder-slate-400 focus:border-primary-500 focus:bg-white focus:outline-hidden dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-400"
               />
             </div>
 
@@ -260,7 +260,7 @@ export default function ProductGrid({
                 id="sidebar-sort-by"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-800 focus:border-emerald-500 focus:outline-none dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100"
+                className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-800 focus:border-primary-500 focus:outline-hidden dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100"
               >
                 <option value="rating">★ Highest Rated First</option>
                 <option value="price-asc">Price: Low to High</option>
@@ -284,7 +284,7 @@ export default function ProductGrid({
                     }}
                     className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-medium transition ${
                       selectedCategory === 'all'
-                        ? 'bg-emerald-600 font-bold text-white shadow-xs'
+                        ? 'bg-primary-600 font-bold text-white shadow-2xs'
                         : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700'
                     }`}
                   >
@@ -324,7 +324,7 @@ export default function ProductGrid({
                           }}
                           className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-medium transition ${
                             isSelected
-                              ? 'bg-emerald-600 font-bold text-white shadow-xs'
+                              ? 'bg-primary-600 font-bold text-white shadow-2xs'
                               : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700'
                           }`}
                         >
@@ -344,7 +344,7 @@ export default function ProductGrid({
 
                         {/* Sub-menu display/show ONLY when clicked/expanded */}
                         {isExpanded && catSubCategories.length > 0 && (
-                          <div className="ml-3.5 border-l-2 border-emerald-500/50 pl-2.5 py-1 space-y-1 animate-fadeIn">
+                          <div className="ml-3.5 border-l-2 border-primary-500/50 pl-2.5 py-1 space-y-1 animate-fadeIn">
                             <button
                               type="button"
                               onClick={() => setSelectedSubCategory('all')}
@@ -373,7 +373,7 @@ export default function ProductGrid({
                                   onClick={() => setSelectedSubCategory(sub)}
                                   className={`flex w-full items-center justify-between rounded-md px-2.5 py-1 text-[11px] font-medium transition ${
                                     isSubSelected
-                                      ? 'bg-emerald-700 font-bold text-white shadow-xs'
+                                      ? 'bg-primary-700 font-bold text-white shadow-2xs'
                                       : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700'
                                   }`}
                                 >
@@ -493,25 +493,25 @@ export default function ProductGrid({
             </p>
             <div className="flex flex-wrap gap-2">
               {selectedCategory !== 'all' && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                <span className="inline-flex items-center gap-1 rounded-full bg-primary-100 px-3 py-0.5 text-xs font-semibold text-primary-800 dark:bg-primary-900 dark:text-primary-300">
                   Category: {productCategories.find(c => c.slug === selectedCategory || c.key === selectedCategory)?.name || selectedCategory}
-                  <button onClick={() => setSelectedCategory('all')} className="ml-1 font-bold hover:text-emerald-950">
+                  <button onClick={() => setSelectedCategory('all')} className="ml-1 font-bold hover:text-primary-900">
                     ×
                   </button>
                 </span>
               )}
               {selectedSubCategory !== 'all' && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                <span className="inline-flex items-center gap-1 rounded-full bg-primary-100 px-3 py-0.5 text-xs font-semibold text-primary-800 dark:bg-primary-900 dark:text-primary-300">
                   Subcategory: {selectedSubCategory}
-                  <button onClick={() => setSelectedSubCategory('all')} className="ml-1 font-bold hover:text-emerald-950">
+                  <button onClick={() => setSelectedSubCategory('all')} className="ml-1 font-bold hover:text-primary-900">
                     ×
                   </button>
                 </span>
               )}
               {selectedRetailer !== 'all' && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                <span className="inline-flex items-center gap-1 rounded-full bg-primary-100 px-3 py-0.5 text-xs font-semibold text-primary-800 dark:bg-primary-900 dark:text-primary-300">
                   Retailer: {selectedRetailer}
-                  <button onClick={() => setSelectedRetailer('all')} className="ml-1 font-bold hover:text-emerald-950">
+                  <button onClick={() => setSelectedRetailer('all')} className="ml-1 font-bold hover:text-primary-900">
                     ×
                   </button>
                 </span>
@@ -554,7 +554,7 @@ export default function ProductGrid({
                       onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                       disabled={currentPage === 1}
                       aria-label="Previous page"
-                      className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-600 transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-slate-900 disabled:opacity-40 disabled:hover:bg-white dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:focus-visible:outline-slate-200"
+                      className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-600 transition hover:bg-slate-50 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-slate-900 disabled:opacity-40 disabled:hover:bg-white dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:focus-visible:outline-slate-200"
                     >
                       <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -583,7 +583,7 @@ export default function ProductGrid({
                           onClick={() => setCurrentPage(pageNum)}
                           aria-label={`Page ${pageNum}`}
                           aria-current={isActive ? 'page' : undefined}
-                          className={`flex h-10 w-10 items-center justify-center rounded-md text-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-slate-900 dark:focus-visible:outline-slate-200 ${
+                          className={`flex h-10 w-10 items-center justify-center rounded-md text-sm transition focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-slate-900 dark:focus-visible:outline-slate-200 ${
                             isActive
                               ? 'bg-[#0c5adb] font-semibold text-white dark:bg-blue-600'
                               : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700'
@@ -600,7 +600,7 @@ export default function ProductGrid({
                       onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                       disabled={currentPage === totalPages}
                       aria-label="Next page"
-                      className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-600 transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-slate-900 disabled:opacity-40 disabled:hover:bg-white dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:focus-visible:outline-slate-200"
+                      className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-600 transition hover:bg-slate-50 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-slate-900 disabled:opacity-40 disabled:hover:bg-white dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:focus-visible:outline-slate-200"
                     >
                       <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -623,7 +623,7 @@ export default function ProductGrid({
                   setSelectedPrice('all');
                   setSearchQuery('');
                 }}
-                className="mt-3 inline-flex items-center rounded-lg bg-emerald-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-emerald-700"
+                className="mt-3 inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-primary-700"
               >
                 Clear all filters
               </button>

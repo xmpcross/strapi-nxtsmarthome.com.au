@@ -44,11 +44,11 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
   /*
    * Rendered through a portal onto <body>, not where it sits in the tree.
    *
-   * SearchModal is a child of <header>, and that header carries `backdrop-blur`.
+   * SearchModal is a child of <header>, and that header carries `backdrop-blur-sm`.
    * An element with a filter or backdrop-filter becomes the containing block for
    * its fixed-position descendants, so `fixed inset-0` sized itself to the
    * header's box instead of the viewport: the overlay appeared as a strip across
-   * the header, the page underneath was never covered, and z-[60] was trapped in
+   * the header, the page underneath was never covered, and z-60 was trapped in
    * the header's stacking context.
    *
    * The mounted flag exists because a static export renders this on the server,
@@ -131,7 +131,7 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
       role="dialog"
       aria-modal="true"
       aria-label="Search"
-      className="fixed inset-0 z-[60] overflow-y-auto bg-slate-900/60 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-60 overflow-y-auto bg-slate-900/60 p-4 backdrop-blur-xs"
       onMouseDown={(e) => {
         if (panelRef.current && !panelRef.current.contains(e.target as Node)) onClose();
       }}
@@ -195,11 +195,11 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="What Are You Looking For?"
-            className="w-full rounded-full border border-slate-300 bg-white px-6 py-4 text-base text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+            className="w-full rounded-full border border-slate-300 bg-white px-6 py-4 text-base text-slate-900 outline-hidden transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
           />
           <button
             type="submit"
-            className="shrink-0 rounded-full bg-slate-900 px-10 py-4 font-bold text-white transition hover:bg-brand-600 sm:min-w-[10.5rem] dark:bg-white dark:text-slate-900 dark:hover:bg-brand-500 dark:hover:text-white"
+            className="shrink-0 rounded-full bg-slate-900 px-10 py-4 font-bold text-white transition hover:bg-brand-600 sm:min-w-42 dark:bg-white dark:text-slate-900 dark:hover:bg-brand-500 dark:hover:text-white"
           >
             Search
           </button>
@@ -238,10 +238,10 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
             past both edges of the panel, which is what tells the reader there is
             more to see — a 3-up grid would hide the rest with no such cue.
           */
-          <div className="-mx-6 mt-5 overflow-x-auto px-6 pb-2 sm:-mx-10 sm:px-10 [scrollbar-width:thin]">
+          <div className="-mx-6 mt-5 overflow-x-auto px-6 pb-2 sm:-mx-10 sm:px-10 scrollbar-thin">
             <ul className="flex snap-x snap-mandatory gap-6">
               {shown.map((d) => (
-                <li key={d.slug} className="w-[19rem] shrink-0 snap-start">
+                <li key={d.slug} className="w-76 shrink-0 snap-start">
                   <Link
                     href={articleHref(d)}
                     onClick={onClose}
@@ -253,7 +253,7 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
                       width={1000}
                       height={500}
                       loading="lazy"
-                      className="h-[4.75rem] w-[6.5rem] shrink-0 rounded-lg object-cover"
+                      className="h-19 w-26 shrink-0 rounded-lg object-cover"
                     />
                     <div className="min-w-0">
                       <p className="line-clamp-2 text-sm font-bold leading-snug text-slate-900 group-hover:text-brand-700 dark:text-white dark:group-hover:text-brand-400">

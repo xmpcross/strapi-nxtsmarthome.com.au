@@ -96,7 +96,7 @@ export default function ContactForm() {
 
   const field =
     'mt-1.5 block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-slate-900 ' +
-    'placeholder:text-slate-400 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/20 ' +
+    'placeholder:text-slate-400 focus:border-brand-600 focus:outline-hidden focus:ring-2 focus:ring-brand-600/20 ' +
     'dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-500';
   const label = 'block text-sm font-semibold text-slate-900 dark:text-slate-200';
 

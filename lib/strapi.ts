@@ -37,6 +37,8 @@ export interface StrapiPost {
   content?: string;
   postType?: string;
   publishDate?: string;
+  /** Release date: a future value keeps the post hidden until then (see publishedCutoff). */
+  showFrom?: string | null;
   dateModified?: string;
   keyTakeaways?: string;
   coverImage?: { url?: string; alternativeText?: string } | null;
@@ -79,12 +81,41 @@ export function mediaUrl(url?: string | null): string {
  */
 const BUILD_STAMP = String(Date.now());
 
+/*
+ * Scheduled publishing.
+ *
+ * `showFrom` is a datetime field on nxtsmarthome-post. A post whose showFrom
+ * is in the future is queued: written and Published in Strapi, but invisible
+ * here until that moment passes. Empty showFrom = an ordinary post. (Strapi's
+ * own publishedAt is a system field, and timed publishing is a paid Strapi
+ * feature.) The AI writer sets it with --publishedAt; editors can set it in
+ * the admin.
+ *
+ * The gate is in the query, so every channel (pages, listings, sitemap)
+ * inherits it. The cutoff is floored to the minute because it is part of the
+ * fetch cache key; with ISR (5 min) a queued post appears within ~5 minutes of
+ * its time. SHOW_SCHEDULED_POSTS=1 (server-side) shows the queue in a preview.
+ */
+const SHOW_SCHEDULED = process.env.SHOW_SCHEDULED_POSTS === '1';
+
+/** Now, floored to the minute, as an ISO string. */
+export function publishedCutoff(): string {
+  const now = Date.now();
+  return new Date(now - (now % 60_000)).toISOString();
+}
+
 export async function listPosts(): Promise<StrapiPost[]> {
   const params = new URLSearchParams({
     _build: BUILD_STAMP,
     status: 'published',
     'pagination[pageSize]': '200',
     'sort[0]': 'publishDate:desc',
+    ...(SHOW_SCHEDULED
+      ? {}
+      : {
+          'filters[$or][0][showFrom][$null]': 'true',
+          'filters[$or][1][showFrom][$lte]': publishedCutoff(),
+        }),
     'populate[categories]': 'true',
     'populate[author]': 'true',
     'populate[coverImage]': 'true',

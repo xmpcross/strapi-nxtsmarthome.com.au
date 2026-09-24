@@ -17,11 +17,11 @@ export const metadata: Metadata = {
     The factual content below should be checked against what the built site
     actually loads whenever scripts change:
       - Geniuslink for affiliate link affiliation
+      - cdn.viglink.com (Sovrn Commerce), consent-gated: public/js/sovrn-init.js
+        parks its loader on window.__nxtLoadSovrn until the banner is accepted
       - googletagmanager.com/gtag/js for Google Analytics
-      - pagead2.googlesyndication.com for AdSense
-      - AdSense is NOT consent-gated: the tag must be present for Google to
-        review and serve the site. The page says so explicitly rather than
-        leaving the earlier "neither runs until you choose" claim standing.
+      - no advertising scripts: AdSense and the SearchAtlas script were removed
+        on 24 Sep 2026
       - Google Analytics loads with Consent Mode v2 defaults of denied
         (components/HeadScripts.tsx). The choice is made in
         components/CookieBanner.tsx and stored as nxt.consent.v1.
@@ -38,18 +38,18 @@ export const metadata: Metadata = {
 
 export default function CookiesPage() {
   return (
-    <div className="mx-auto max-w-[1366px] px-4 py-12 sm:px-6">
+    <div className="container py-14 lg:py-20">
       <div className="lg:grid lg:grid-cols-[16rem_1fr] lg:gap-12 items-start">
         <LegalSidebarTOC />
         <main className="min-w-0">
-          <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
+          <h1 className="text-3xl font-semibold tracking-tight text-neutral-900 md:text-4xl xl:text-5xl dark:text-white">
             Cookie information
           </h1>
           <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
             Last updated: 5 September 2026
           </p>
 
-          <div className="prose prose-slate mt-8 max-w-none dark:prose-invert prose-h2:mt-0 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0">
+          <div className="prose prose-neutral mt-8 max-w-none dark:prose-invert prose-h2:mt-0 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0">
             <p>
               Cookies are small files a website asks your browser to store. This page sets out which
               ones are actually involved when you visit {site.domain} — not a generic list.
@@ -71,23 +71,6 @@ export default function CookiesPage() {
               ones.
             </p>
 
-            <h3>Advertising</h3>
-            <p>
-              We show ads through Google AdSense. Google and its partners use cookies to
-              choose which ads you see, to limit how often you see the same one, and to measure
-              whether an ad worked.
-            </p>
-            <p>
-              <strong>Unlike the analytics and affiliate scripts below, the AdSense tag loads on
-              every page regardless of your choice in the banner.</strong> Google requires it to be
-              present for a site to be reviewed and served. You can control ad personalisation
-              directly at{' '}
-              <a href="https://myadcenter.google.com/" rel="nofollow noopener" target="_blank">
-                Google My Ad Center
-              </a>
-              , and blocking third-party cookies in your browser stops most of what it sets.
-            </p>
-
             <h3>Analytics</h3>
             <p>
               We use Google Analytics to see which guides get read and which land badly, so we know
@@ -102,13 +85,18 @@ export default function CookiesPage() {
 
             <h3>Affiliate tracking</h3>
             <p>
-              We take part in affiliate programmes, which is how the site is funded. Two things can
+              We take part in affiliate programmes, which is how the site is funded. Three things can
               happen here:
             </p>
             <ul>
               <li>
                 Geniuslink may affiliate supported outbound merchant links and route clicks through
                 its tracking service.
+              </li>
+              <li>
+                A commerce script from Sovrn attributes outbound merchant links, and may set a
+                cookie to record which link you followed. Like the analytics tag, it is not loaded at
+                all until you accept.
               </li>
               <li>
                 When you click through to a retailer such as Amazon AU, eBay AU, JB Hi-Fi, The Good

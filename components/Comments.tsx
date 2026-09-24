@@ -95,7 +95,7 @@ export default function Comments({
   };
 
   const field =
-    'w-full rounded-lg border border-slate-200 bg-white px-4 py-3.5 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:border-card-edge dark:bg-card dark:text-white';
+    'w-full rounded-lg border border-slate-200 bg-white px-4 py-3.5 text-slate-900 outline-hidden transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:border-card-edge dark:bg-card dark:text-white';
 
   return (
     <section className="not-prose mt-12" aria-labelledby="comments-heading">
@@ -114,7 +114,7 @@ export default function Comments({
             <li key={c.id} className="flex gap-5">
               <span
                 aria-hidden="true"
-                className="grid h-[4.5rem] w-[4.5rem] shrink-0 place-items-center rounded bg-slate-100 text-slate-400 dark:bg-night-100"
+                className="grid h-18 w-18 shrink-0 place-items-center rounded-sm bg-slate-100 text-slate-400 dark:bg-night-100"
               >
                 <svg className="h-9 w-9" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z" />
@@ -212,7 +212,7 @@ export default function Comments({
               type="checkbox"
               checked={remember}
               onChange={(e) => setRemember(e.target.checked)}
-              className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-brand-600 focus:ring-brand-500 dark:border-card-edge"
+              className="mt-0.5 h-4 w-4 shrink-0 rounded-sm border-slate-300 text-brand-600 focus:ring-brand-500 dark:border-card-edge"
             />
             <span>
               Save my name, email, and website in this browser for the next time I comment.

@@ -109,7 +109,7 @@ export default function SearchClient() {
           onChange={(e) => setDraft(e.target.value)}
           placeholder="Try “Matter”, “video doorbell”, “smart switch wiring”…"
           autoComplete="off"
-          className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+          className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 outline-hidden transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
         />
         <button
           type="submit"
@@ -151,7 +151,7 @@ export default function SearchClient() {
                   src={doc.cover ?? `/covers/${doc.slug}.png`}
                   alt={doc.title}
                   loading="lazy"
-                  className="aspect-[16/9] w-full object-cover"
+                  className="aspect-video w-full object-cover"
                 />
               </Link>
 
