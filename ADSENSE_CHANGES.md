@@ -1487,3 +1487,79 @@ creation.
 - thread-vs-matter-difference (1)
 - future-proof-smart-home-devices-australia (1)
 - where-to-buy-smart-home-australia (1)
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 7, final)
+
+**Approved** by the user after reviewing `reports/task6-review-batch7.md`.
+The 9 tags were few enough to research directly, without research agents.
+**Written to Strapi** the same way as batch 6: the existing `publishDate`
+(3-4 Aug 2026) was kept on all five.
+
+**Checked:**
+- **Before the write:** each live record still matched its backup.
+- **After the write:** both the published and draft copies were re-fetched.
+  All five have zero `[VERIFY`, match the approved content, and still have
+  4 FAQ entries each.
+
+| Article | Tags | Decisions | Backup |
+|---|---|---|---|
+| smart-home-devices-older-australians | 4 → 0 | a 2 / c 2 | exports/strapi-backup/smart-home-devices-older-australians-2026-09-24T08-28-48-837Z.json |
+| future-proof-smart-home-devices-australia | 1 → 0 | a 1 | exports/strapi-backup/future-proof-smart-home-devices-australia-2026-09-24T08-28-48-837Z.json |
+| smart-home-devices-without-internet | 2 → 0 | b 2 (maintenance comment) | exports/strapi-backup/smart-home-devices-without-internet-2026-09-24T08-28-48-837Z.json |
+| thread-vs-matter-difference | 1 → 0 | b 1 (maintenance comment) | exports/strapi-backup/thread-vs-matter-difference-2026-09-24T08-28-48-837Z.json |
+| where-to-buy-smart-home-australia | 1 → 0 | b 1 (maintenance comment) | exports/strapi-backup/where-to-buy-smart-home-australia-2026-09-24T08-28-48-837Z.json |
+
+**Sources:**
+- Energy Safe Victoria;
+- OAIC (security cameras);
+- the My Aged Care and Department of Health, Disability and Ageing pages on
+  the AT-HM scheme;
+- the ACCC ("Broken but out of warranty? Your consumer guarantee rights may
+  still apply").
+
+**Changes beyond the tags** (both approved):
+- The older Australians article's "Home Care Package" wording was updated
+  to Support at Home, in the body and in the FAQ 1511 question and answer.
+- The unsourced "reimbursement after the fact is far harder" claim was
+  removed.
+
+### Task 6 result
+
+**Every live post is now free of `[VERIFY]`:** 69 published posts, and 0
+live posts carry a tag. Across the seven batches, 29 articles were cleaned.
+The editorial guard no longer holds back any live post, and every one
+returns 200.
+
+**Remaining tags are on merged-away duplicates only.** These redirect to
+their survivors and are excluded from listings and the sitemap:
+- renter-smart-home-devices-no-drilling (3)
+- robot-vacuum-buying-guide-australian-homes-pets (8)
+- smart-light-switches-no-neutral-wire-australia (9)
+- how-to-keep-security-cameras-running-through-a-blackout-or-nbn-outage (10)
+- reverse-cycle-split-system-voice-app-control-without-replacing (6)
+
+Move their unique sections into the survivors, then unpublish them in
+Strapi.
+
+**Thin-content audit** (`npm run audit:thin`, re-run after the write) finds
+5 indexable thin pages:
+- where-to-buy-smart-home-australia: 720 words, borderline;
+- thread-vs-matter-difference: 748 words, borderline;
+- three author profiles under 150 words: adrian-thompson, harry-cheng and
+  kritin-curtis.
+
+**Still open, not part of Task 6:** 9 live articles have no `::product:`
+boxes, which breaks CLAUDE.md rule 8:
+- second-hand-smart-home-devices-australia
+- smart-home-holiday-house-australia
+- smart-home-hub-buying-guide-australia
+- overseas-smart-home-devices-australia
+- smart-home-devices-older-australians
+- future-proof-smart-home-devices-australia
+- smart-home-devices-without-internet
+- thread-vs-matter-difference
+- where-to-buy-smart-home-australia
+
+The hub guide's title still says "2025".
