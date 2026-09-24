@@ -1581,3 +1581,10 @@ h1, h2, h3, h4, h5, h6 {
 .single-post-page :is(h1, h2, h3, h4, h5, h6) {
   font-weight: 700;
 }
+
+/* "Where to buy" retailer list the AI writer appends to articles
+   (<ul class="where-to-buy">): items and links at 1rem. */
+.where-to-buy li,
+.where-to-buy li a {
+  font-size: 1rem;
+}
