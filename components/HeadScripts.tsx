@@ -1,5 +1,6 @@
 /**
- * Google Analytics, Geniuslink and Sovrn Commerce, rendered into <head> on every page.
+ * Google Analytics, Google AdSense, Geniuslink and Sovrn Commerce, rendered into
+ * <head> on every page.
  *
  * These used to be injected into the exported HTML after the build
  * (scripts/inject-ga.mjs, scripts/inject-geniuslink.mjs), because anything React
@@ -14,7 +15,20 @@
  * them. Geniuslink converts Amazon links on page load; no TSID, no script.
  * Sovrn affiliates other merchant links and loads only after consent
  * (public/js/sovrn-init.js, released by the cookie banner); no key, no script.
+ *
+ * AdSense, two stages (lib/ads.ts). With NEXT_PUBLIC_ADSENSE_CLIENT set, only
+ * the google-adsense-account meta renders, which is what Google needs to
+ * verify the site for review; no ad script loads. ADS ARE OFF until the site
+ * is approved and NEXT_PUBLIC_ADSENSE_SHOW_ADS=1 is set too; then the
+ * adsbygoogle.js loader goes on every page as well. No ad units are placed by
+ * hand: Auto ads are switched on in the AdSense dashboard. AdSense reads the same Consent Mode
+ * v2 signals as GA (defaults denied), and for EEA/UK/CH visitors Google's own
+ * consent message (AdSense Privacy & messaging) takes over from our banner —
+ * see components/CookieBanner.tsx. Keep app/cookies/page.tsx in step with
+ * this list.
  */
+import { ADSENSE_CLIENT, ADS_ENABLED } from '@/lib/ads';
+
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-SY9XCRZH2K';
 const GENIUSLINK_TSID = (process.env.NEXT_PUBLIC_GENIUSLINK_TSID || '').trim();
 const GENIUSLINK_BASE = process.env.NEXT_PUBLIC_GENIUSLINK_BASE_URL || 'https://buy.geni.us';
@@ -25,6 +39,15 @@ export default function HeadScripts() {
   const geniuslink = /^\d+$/.test(GENIUSLINK_TSID);
   return (
     <>
+      {/* Verification only: no ads without ADS_ENABLED. */}
+      {ADSENSE_CLIENT && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
+      {ADS_ENABLED && (
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+          crossOrigin="anonymous"
+        />
+      )}
       {/* Consent defaults must be queued before gtag.js loads, so this one is not async. */}
       <script src="/js/ga-init.js" data-ga-id={GA_ID} />
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />

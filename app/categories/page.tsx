@@ -37,7 +37,7 @@ export default async function CategoriesIndex() {
     .filter((s) => s.posts.length >= SPOTLIGHT_MIN);
 
   return (
-    <div className="container pt-14 pb-24 lg:pt-20 lg:pb-28">
+    <div className="page-categories-index container pt-14 pb-24 lg:pt-20 lg:pb-28">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: 'Home', path: '/' },
@@ -67,6 +67,8 @@ export default async function CategoriesIndex() {
       <PageHeader
         eyebrow="Topics"
         title="Explore smart home topics"
+        // h1 at 2.5rem, section h2s at 2rem (app/globals.css), user request 24 Sep 2026.
+        titleClassName="text-[2.5rem] leading-tight"
         intro={`Everything we publish, organised by what you're trying to do: ${articles.length} guides across ${cats.length} topics, written for Australian homes, retailers and electrical rules.`}
       />
 

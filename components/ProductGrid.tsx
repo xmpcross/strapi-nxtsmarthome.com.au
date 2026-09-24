@@ -53,7 +53,7 @@ export default function ProductGrid({
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>('all');
   const [selectedRetailer, setSelectedRetailer] = useState<string>('all');
   const [selectedPrice, setSelectedPrice] = useState<string>('all');
-  const [sortBy, setSortBy] = useState<'rating' | 'price-asc' | 'price-desc'>('rating');
+  const [sortBy, setSortBy] = useState<'name' | 'price-asc' | 'price-desc'>('name');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState<boolean>(false);
@@ -126,16 +126,22 @@ export default function ProductGrid({
 
     // Sorting
     result.sort((a, b) => {
-      if (sortBy === 'rating') {
-        return (b.rating || 0) - (a.rating || 0);
+      // Sorted by the lowest verified retailer price, not the seeded priceAud;
+      // unpriced products go last either way. No "highest rated" sort: the
+      // catalogue rating is not ours and should not rank products here.
+      const lowest = (p: typeof a) => {
+        const prices = (p.retailers || [])
+          .map((r) => r.priceAud)
+          .filter((x): x is number => typeof x === 'number' && x > 0);
+        return prices.length ? Math.min(...prices) : undefined;
+      };
+      if (sortBy === 'price-asc' || sortBy === 'price-desc') {
+        const pa = lowest(a);
+        const pb = lowest(b);
+        if (pa === undefined || pb === undefined) return pa === pb ? 0 : pa === undefined ? 1 : -1;
+        return sortBy === 'price-asc' ? pa - pb : pb - pa;
       }
-      if (sortBy === 'price-asc') {
-        return (a.priceAud || 0) - (b.priceAud || 0);
-      }
-      if (sortBy === 'price-desc') {
-        return (b.priceAud || 0) - (a.priceAud || 0);
-      }
-      return 0;
+      return `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`);
     });
 
     return result;
@@ -262,7 +268,7 @@ export default function ProductGrid({
                 onChange={(e) => setSortBy(e.target.value as any)}
                 className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-800 focus:border-primary-500 focus:outline-hidden dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100"
               >
-                <option value="rating">★ Highest Rated First</option>
+                <option value="name">Name (A–Z)</option>
                 <option value="price-asc">Price: Low to High</option>
                 <option value="price-desc">Price: High to Low</option>
               </select>

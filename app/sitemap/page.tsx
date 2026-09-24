@@ -4,7 +4,7 @@ import JsonLd from '@/components/JsonLd';
 import PageHeader from '@/components/PageHeader';
 import { pageCount } from '@/components/Pagination';
 import { articleHref, categoriesWithCounts, getAllArticles } from '@/lib/content';
-import { getAllAuthors } from '@/lib/authors';
+import { getAllAuthors, resolveAuthor } from '@/lib/authors';
 import { getAllTopProducts } from '@/lib/products';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { site } from '@/lib/site';
@@ -36,7 +36,7 @@ const SITE_PAGES: Array<{ href: string; label: string }> = [
   { href: '/categories/', label: 'Topics and categories' },
   { href: '/products/', label: 'Product catalogue' },
   { href: '/about/', label: 'About this site' },
-  { href: '/how-we-test/', label: 'How we test' },
+  { href: '/how-we-test/', label: 'How we research' },
   { href: '/contact/', label: 'Contact' },
   { href: '/affiliate-disclosure/', label: 'Affiliate disclosure' },
   { href: '/privacy/', label: 'Privacy policy' },
@@ -69,10 +69,17 @@ function Section({
 const linkClass =
   'text-sm text-slate-600 underline-offset-2 hover:text-brand-700 hover:underline dark:text-slate-300 dark:hover:text-brand-400';
 
+// Refreshes with the article data (ISR, 5 minutes); without it this page was
+// frozen at the last deploy, like /articles/ was.
+export const revalidate = 300;
+
 export default async function SitemapPage() {
   const articles = await getAllArticles();
   const products = getAllTopProducts();
-  const authors = getAllAuthors();
+  // Only bylines with something published, matching sitemap.xml.
+  const authors = getAllAuthors().filter((author) =>
+    articles.some((a) => resolveAuthor(a.author).slug === author.slug),
+  );
   const cats = categoriesWithCounts(articles).filter((c) => c.count > 0);
 
   const productCats = Array.from(

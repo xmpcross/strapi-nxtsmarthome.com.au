@@ -4,7 +4,7 @@
  *
  * Nothing loads by itself: this parks a loader on window.__nxtLoadSovrn, which
  * the cookie banner calls on "Accept". A reader who accepted on an earlier visit
- * (nxt.consent.v1 = granted) gets it straight away.
+ * (nxt.consent.v2 = granted) gets it straight away.
  */
 (function () {
   var script = document.currentScript;
@@ -23,6 +23,6 @@
     r.parentNode.insertBefore(s, r);
   };
   try {
-    if (window.localStorage.getItem('nxt.consent.v1') === 'granted') window.__nxtLoadSovrn();
+    if (window.localStorage.getItem('nxt.consent.v2') === 'granted') window.__nxtLoadSovrn();
   } catch (e) {}
 })();

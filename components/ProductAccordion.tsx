@@ -110,14 +110,9 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
   const specs: Array<{ label: string; value: React.ReactNode }> = [];
   if (product.brand) specs.push({ label: 'Brand', value: product.brand });
   specs.push({ label: 'Model', value: product.name });
-  if (product.rating) {
-    specs.push({
-      label: 'Rating',
-      value: `★ ${product.rating.toFixed(1)} / 5.0${
-        product.reviewCount ? ` from ${product.reviewCount.toLocaleString('en-AU')} reviews` : ''
-      }`,
-    });
-  }
+  // No "Rating" row: the catalogue figure pools reviews from storefronts
+  // worldwide, and in a spec table it reads as our score. Retailer customer
+  // reviews, labelled as theirs, are in the reviews block.
 
   const updated = product.updatedAt
     ? new Date(product.updatedAt).toLocaleDateString('en-AU', {

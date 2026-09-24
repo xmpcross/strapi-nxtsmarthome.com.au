@@ -1,0 +1,29 @@
+{
+  "_comment": "Near-duplicate articles merged into one survivor. Each 'from' is excluded from every listing, the search index and the sitemap, and answers a 301 to 'to': in nginx (scripts/gen-redirects.mjs writes it into public/_redirects.map) and in the article route itself. Survivor = the longer article, unless the longer one is held back by [VERIFY] tags while the other is live. The loser's unique sections are listed in ADSENSE_CHANGES.md for moving into the survivor in Strapi; unpublish the loser there once they are. Paths are full site paths, category slug included.",
+  "merges": [
+    {
+      "from": "/security-and-cameras/how-to-keep-security-cameras-running-through-a-blackout-or-nbn-outage/",
+      "to": "/security-and-cameras/keep-security-cameras-running-blackout-nbn-outage/"
+    },
+    {
+      "from": "/energy-and-solar/smart-plugs-energy-monitors-cut-power-bill-australia/",
+      "to": "/energy-and-solar/smart-plugs-energy-monitors-lower-power-bill-australia/"
+    },
+    {
+      "from": "/lighting/smart-light-switches-no-neutral-wire-australia/",
+      "to": "/lighting/smart-light-switches-neutral-wire-older-australian-homes/"
+    },
+    {
+      "from": "/robot-vacuums/robot-vacuum-buying-guide-australian-homes-pets/",
+      "to": "/robot-vacuums/robot-vacuum-buying-guide-australia/"
+    },
+    {
+      "from": "/setup-guides/reverse-cycle-split-system-voice-app-control-without-replacing/",
+      "to": "/climate-and-comfort/make-split-system-aircon-smart-australia/"
+    },
+    {
+      "from": "/buying-guides/renter-smart-home-devices-no-drilling/",
+      "to": "/buying-guides/smart-home-for-renters-australia/"
+    }
+  ]
+}

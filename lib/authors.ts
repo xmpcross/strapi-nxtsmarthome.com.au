@@ -37,6 +37,29 @@ const AUTHORS_DIR = path.join(process.cwd(), 'content', 'authors');
 
 export const DEFAULT_AUTHOR_SLUG = 'nxt-smart-home-editorial';
 
+/*
+ * One person, one profile. Strapi's author for Kritin Curtis has the slug
+ * `k-curtis` and the name "K Curtis", while this site had already published
+ * /authors/kritin-curtis/. Both profiles were live, splitting one person's
+ * articles across two pages. The site keeps kritin-curtis: an alias resolves
+ * the CMS slug to it (posts in Strapi stay linked to k-curtis, so the AI
+ * writer needs no change), scripts/fetch-authors.mjs writes the CMS profile
+ * under the kept slug, and /authors/k-curtis/ 301s to it.
+ */
+export const AUTHOR_ALIASES: Record<string, string> = {
+  'k-curtis': 'kritin-curtis',
+};
+
+/*
+ * A role still holding the CMS template text ("What they cover, e.g. Security
+ * and cameras") renders as no role line at all rather than as placeholder copy.
+ */
+function cleanRole(role: unknown): string | undefined {
+  const value = String(role ?? '').trim();
+  if (!value || /what they cover|e\.g\./i.test(value)) return undefined;
+  return value;
+}
+
 let cache: Author[] | null = null;
 
 /** Initials from a name, for an avatar with no photograph behind it. */
@@ -59,10 +82,12 @@ export function getAllAuthors(): Author[] {
       const { data, content } = matter(fs.readFileSync(path.join(AUTHORS_DIR, f), 'utf8'));
       if (!data?.name) return null;
       const slug = String(data.slug ?? f.replace(/\.mdx?$/, ''));
+      // A stale file under an aliased slug would bring the duplicate back.
+      if (AUTHOR_ALIASES[slug]) return null;
       return {
         slug,
         name: String(data.name),
-        role: data.role ? String(data.role) : undefined,
+        role: cleanRole(data.role),
         initials: String(data.initials ?? initialsFor(String(data.name))),
         avatar: data.avatar ? String(data.avatar) : undefined,
         bio: data.bio ? String(data.bio) : undefined,
@@ -93,7 +118,8 @@ export function resolveAuthor(value?: string): Author {
   };
   if (!authors.length) return fallback;
 
-  const wanted = (value ?? '').trim().toLowerCase();
+  const raw = (value ?? '').trim().toLowerCase();
+  const wanted = AUTHOR_ALIASES[raw] ?? raw;
   const match =
     authors.find((a) => a.slug.toLowerCase() === wanted) ??
     authors.find((a) => a.name.toLowerCase() === wanted);

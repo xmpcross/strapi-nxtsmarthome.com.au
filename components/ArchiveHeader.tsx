@@ -24,8 +24,10 @@ export default function ArchiveHeader({
   className,
   fullWidth = false,
   introClassName = 'text-sm/6',
+  titleClassName = 'text-2xl lg:text-3xl',
 }: {
-  eyebrow: string
+  /** Badge above the title; omitted when empty (e.g. an author with no role). */
+  eyebrow?: string
   eyebrowColor?: BadgeColor
   title: string
   intro?: ReactNode
@@ -40,6 +42,8 @@ export default function ArchiveHeader({
   fullWidth?: boolean
   /** Size of the intro text. Defaults to the shared archive scale. */
   introClassName?: string
+  /** Size of the h1. Defaults to the shared archive scale. */
+  titleClassName?: string
 }) {
   return (
     <div className={clsx('w-full', className)}>
@@ -66,8 +70,8 @@ export default function ArchiveHeader({
           <div className="flex-1 lg:ps-4">
             <div className={clsx('space-y-3.5', !fullWidth && 'max-w-(--breakpoint-md)')}>
               <div>
-                <Badge color={eyebrowColor}>{eyebrow}</Badge>
-                <h1 className="mt-2 text-2xl font-semibold lg:text-3xl">{title}</h1>
+                {eyebrow ? <Badge color={eyebrowColor}>{eyebrow}</Badge> : null}
+                <h1 className={clsx(eyebrow && 'mt-2', 'font-semibold', titleClassName)}>{title}</h1>
               </div>
               {intro && <div className={clsx('text-neutral-600 dark:text-neutral-300', introClassName)}>{intro}</div>}
               {meta && <p className="text-sm font-medium text-neutral-700 dark:text-neutral-300">{meta}</p>}

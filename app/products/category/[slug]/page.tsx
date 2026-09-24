@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/PageHeader';
 import ProductGrid from '@/components/ProductGrid';
 import { categoryHeroFor } from '@/lib/content';
-import { getAllTopProducts } from '@/lib/products';
+import { getAllTopProducts, toListingCard } from '@/lib/products';
 import { categories, getCategory } from '@/lib/site';
 
 export async function generateStaticParams() {
@@ -78,7 +78,7 @@ export default async function CategoryProductsPage({
 
       {/* Main Grid with Left Filter Sidebar */}
       <ProductGrid
-        products={allProducts}
+        products={allProducts.map(toListingCard)}
         categoriesList={categories}
         currentCategorySlug={category.slug}
       />

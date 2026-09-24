@@ -26,7 +26,7 @@ export async function generateMetadata({
   return {
     title: `All Articles — Page ${page}`,
     description:
-      'Every smart home review, setup guide, comparison and buying guide published on NXT Smart Home, newest first.',
+      'Every smart home buying guide, setup guide, comparison and explainer published on NXT Smart Home, newest first.',
     alternates: { canonical: `/articles/page/${page}/` },
   };
 }

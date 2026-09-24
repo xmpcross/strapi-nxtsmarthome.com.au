@@ -6,6 +6,8 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { editorialHits, postTexts } from '../lib/editorial-guard.mjs';
+import { mergedSlugTargets } from '../lib/merged-articles.mjs';
 
 const root = process.cwd();
 const outFile = path.join(root, 'public', 'search-index.json');
@@ -87,6 +89,8 @@ const params = new URLSearchParams({
   'sort[0]': 'publishDate:desc',
   'populate[categories]': 'true',
   'populate[coverImage]': 'true',
+  // FAQ text is checked by the editorial guard below.
+  'populate[faq]': 'true',
   // Scheduled posts (showFrom in the future) stay out of search until released,
   // matching lib/strapi.ts.
   'filters[$or][0][showFrom][$null]': 'true',
@@ -112,10 +116,20 @@ const keyBySlug = Object.fromEntries(
   Object.entries(categorySlugs).map(([key, slug]) => [slug, key]),
 );
 
+// Same hold-back as lib/content.ts: unfinished posts ([VERIFY] or placeholder
+// text) and merged near-duplicates are not searchable, since their pages 404/301.
+const merged = mergedSlugTargets(root);
+const heldBack = [];
+
 const docs = rows
   .map((row) => {
     const a = row.attributes ?? row;
     if (!a.slug || !a.title) return null;
+    if (merged.has(a.slug)) return null;
+    if (editorialHits(postTexts(a)).length) {
+      heldBack.push(a.slug);
+      return null;
+    }
     const catSlug = a.categories?.[0]?.slug ?? '';
     const key = keyBySlug[catSlug] ?? catSlug;
     const body = toPlainText(String(a.content ?? ''));
@@ -147,3 +161,4 @@ const docs = rows
 fs.mkdirSync(path.dirname(outFile), { recursive: true });
 fs.writeFileSync(outFile, JSON.stringify(docs));
 console.log(`[search-index] wrote ${docs.length} documents from Strapi to public/search-index.json`);
+if (heldBack.length) console.log(`[search-index] held back ${heldBack.length} unfinished post(s): ${heldBack.join(', ')}`);

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import LegalSidebarTOC from '@/components/LegalSidebarTOC';
 import { configuredNetworks } from '@/lib/affiliate';
 import { site } from '@/lib/site';
+import { ADS_ENABLED } from '@/lib/ads';
 
 export const metadata: Metadata = {
   title: 'Affiliate Disclosure',
@@ -34,6 +35,13 @@ export default function AffiliateDisclosurePage() {
               small commission from the retailer. <strong>You never pay more</strong> — the
               commission comes out of the retailer&apos;s margin, not your pocket.
             </p>
+            {ADS_ENABLED ? (
+              <p>
+                The site also displays advertising (Google AdSense). Ads are labelled and kept
+                separate from editorial content, and neither advertisers nor affiliate partners have
+                any say in what we write.
+              </p>
+            ) : null}
 
             <h2>What this does and does not influence</h2>
             <p>It does not influence:</p>

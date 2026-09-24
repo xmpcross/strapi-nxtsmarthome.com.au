@@ -24,6 +24,18 @@ const ROOT = process.cwd();
 const DIR = path.join(ROOT, 'content', 'authors');
 const KEEP = new Set(['nxt-smart-home-editorial']);
 
+// CMS slug -> the profile the site publishes it as. Same map as AUTHOR_ALIASES
+// in lib/authors.ts, which explains why.
+const RENAME = {
+  'k-curtis': { slug: 'kritin-curtis', name: 'Kritin Curtis' },
+};
+
+// CMS template text left in the role field renders as no role line.
+const cleanRole = (role) => {
+  const value = String(role ?? '').trim();
+  return !value || /what they cover|e\.g\./i.test(value) ? '' : value;
+};
+
 function env(name) {
   if (process.env[name]) return process.env[name].trim();
   for (const f of ['.env.local', '.env']) {
@@ -64,9 +76,12 @@ async function main() {
 
   let written = 0;
   for (const row of rows) {
-    const a = row.attributes ?? row;
-    if (!a.slug || !a.name) continue;
-    if (KEEP.has(a.slug)) continue;
+    const cms = row.attributes ?? row;
+    if (!cms.slug || !cms.name) continue;
+    if (KEEP.has(cms.slug)) continue;
+    const a = RENAME[cms.slug] ? { ...cms, ...RENAME[cms.slug] } : cms;
+    // Drop a file an earlier run wrote under the CMS slug.
+    if (a.slug !== cms.slug) fs.rmSync(path.join(DIR, `${cms.slug}.md`), { force: true });
 
     const avatar = a.avatar?.url
       ? (/^https?:\/\//.test(a.avatar.url) ? a.avatar.url : `${BASE}${a.avatar.url}`)
@@ -85,7 +100,7 @@ async function main() {
       '---\n' +
       `name: ${q(a.name)}\n` +
       `slug: ${q(a.slug)}\n` +
-      `role: ${q(a.role ?? '')}\n` +
+      `role: ${q(cleanRole(a.role))}\n` +
       `initials: ''\n` +
       `avatar: ${q(avatar)}\n` +
       `bio: ${q((a.bio ?? '').replace(/\s+/g, ' ').trim())}\n` +

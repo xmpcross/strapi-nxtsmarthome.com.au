@@ -10,7 +10,7 @@ import { categoryHeroFor, coverFor } from '@/lib/content';
 import type { Article } from '@/lib/content';
 import type { Category } from '@/lib/site';
 
-const NO_BANNER = new Set(['security-and-cameras']);
+const NO_BANNER = new Set(['security-and-cameras', 'lighting']);
 
 /**
  * The category listing, shared by /categories/[slug]/ and its /page/N/ routes so
@@ -60,6 +60,8 @@ export default function CategoryView({
           banner={banner}
           fullWidth
           introClassName="text-base/7"
+          // Category title at 2.5rem (user request, 24 Sep 2026).
+          titleClassName="text-[2.5rem] leading-tight"
         />
 
         <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">

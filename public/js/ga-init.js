@@ -13,7 +13,7 @@
     wait_for_update: 500
   });
   try {
-    if (window.localStorage.getItem('nxt.consent.v1') === 'granted') {
+    if (window.localStorage.getItem('nxt.consent.v2') === 'granted') {
       gtag('consent', 'update', {
         ad_storage: 'granted',
         ad_user_data: 'granted',

@@ -9,6 +9,8 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeStringify from 'rehype-stringify';
 import { categories, getCategoryByKey, type Category } from './site';
+import { editorialHits, postTexts } from './editorial-guard.mjs';
+import { mergedSlugTargets } from './merged-articles.mjs';
 
 
 /** The kinds of article this site publishes. Drives the badge and the JSON-LD type. */
@@ -203,11 +205,53 @@ async function fromStrapi(post: StrapiPost): Promise<Article | null> {
   } as Article;
 }
 
+/*
+ * Posts the site publishes in Strapi but does not serve.
+ *
+ *   - Unfinished: body, excerpt, key takeaways or FAQ still carries a [VERIFY]
+ *     fact-check tag or a template placeholder (lib/editorial-guard.mjs). They
+ *     come back on their own once the markers are cleared in Strapi.
+ *   - Merged: a near-duplicate folded into another article
+ *     (data/merged-articles.json). The article route 301s these.
+ *
+ * Held back here, before anything is built, so every channel that reads
+ * getAllArticles (pages, listings, categories, related posts, authors, the
+ * sitemap) drops them in one place. getArticle then misses, so the page 404s.
+ */
+let lastHeldBack = '';
+
+function withoutHeldBack(posts: StrapiPost[]): StrapiPost[] {
+  const merged = mergedSlugTargets();
+  const unfinished: string[] = [];
+  const kept = posts.filter((post) => {
+    if (merged.has(post.slug)) return false;
+    const hits = editorialHits(postTexts(post));
+    if (!hits.length) return true;
+    unfinished.push(`${post.slug} (${hits.map((h) => `${h.label} x${h.count}`).join(', ')})`);
+    return false;
+  });
+
+  // Logged when the set changes, not on every one-minute cache refresh.
+  const summary = unfinished.join('\n');
+  if (summary !== lastHeldBack) {
+    lastHeldBack = summary;
+    if (unfinished.length) {
+      console.warn(`[content] holding back ${unfinished.length} unfinished post(s):\n  ${unfinished.join('\n  ')}`);
+    }
+  }
+  return kept;
+}
+
+/** Survivor path for a merged-away article slug, if it was merged. */
+export function mergedInto(slug: string): string | undefined {
+  return mergedSlugTargets().get(slug);
+}
+
 /** All published articles, newest first. Cached for the duration of the build. */
 export async function getAllArticles(): Promise<Article[]> {
   if (cache && Date.now() - cache.at < CACHE_TTL_MS) return cache.articles;
 
-  const posts = await listPosts();
+  const posts = withoutHeldBack(await listPosts());
   const built = await Promise.all(posts.map(fromStrapi));
 
   const articles = built
