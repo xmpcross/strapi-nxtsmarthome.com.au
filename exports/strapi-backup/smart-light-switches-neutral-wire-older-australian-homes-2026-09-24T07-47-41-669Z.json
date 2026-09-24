@@ -1,0 +1,334 @@
+{
+  "published": {
+    "id": 257,
+    "documentId": "nlfz72mk22svtyyw6igmfbsq",
+    "title": "Smart Light Switches and the Neutral Wire Problem in Older Australian Homes",
+    "slug": "smart-light-switches-neutral-wire-older-australian-homes",
+    "excerpt": "Most Australian homes built before the 1990s run a switch loop with no neutral at the wall plate, which is exactly what a smart switch wants. Here are the five realistic ways around it, what each one costs, where flicker comes from, and where a licensed electrician is legally required.",
+    "content": "If you have ever opened a smart switch box, seen \"neutral wire required\" on the back of the packet, and quietly put it back in the drawer, you are in very good company. It is probably the single most common reason an Australian smart lighting project stalls before it starts.\n\nThe good news: there are at least five workable paths, and only two of them involve rewiring anything.\n\n## Why so many Australian switches have no neutral\n\nIn a traditional Australian light circuit, the active and neutral both go to the ceiling — to the batten holder, ceiling rose or junction box. From there, a **switch loop** drops a single pair down the wall: active down, switched active back up. The neutral never leaves the ceiling.\n\nThat wiring style was cheap, compliant and completely sensible for a mechanical rocker, which only needs to break one conductor. It becomes a problem when you want the wall plate to contain a Wi‑Fi or Zigbee radio, because that radio needs a continuous small supply — an active *and* a neutral — even when the light is off.\n\nRoughly speaking, homes wired from the 1990s onward are more likely to have a neutral run to switch positions, and newer builds more likely again [VERIFY — practice varied by state, builder and era; the only reliable answer is an inspection]. Renovated rooms in old houses are a genuine coin toss.\n\nThere is a second, less discussed obstacle: **depth**. Australian wall plates typically mount to a shallow plaster bracket or mounting block rather than a deep gang box, so there may be only 25–35 mm of usable space behind the plate [VERIFY]. Plenty of imported smart mechanisms simply will not fold in behind a standard plate.\n\n## First, work out what you actually have\n\nDo not open the switch yourself. In every Australian state and territory, work on fixed wiring — including swapping a light switch — is restricted to a licensed electrician, and DIY work can affect insurance and future sale obligations [VERIFY with your state or territory electrical safety regulator].\n\nWhat you *can* do before you call anyone:\n\n- **Check the age of the switchboard.** Ceramic rewireable fuses and no RCDs usually signal older wiring and a switch-loop layout.\n- **Look at the ceiling fittings.** If your lights are on old batten holders rather than downlights, the original wiring is probably untouched.\n- **Ask about ceiling access.** A crawlable roof space over the room makes running a neutral dramatically cheaper than a slab-ceiling apartment.\n- **Count the gangs.** A four-gang plate controlling hallway, porch, stairs and pantry is where smart switches earn their money — and also where depth problems bite.\n\nWhen the sparkie is on site for something else, ask them to pull one plate and photograph it. It costs you nothing extra and settles the question.\n\n## Option 1: Have a neutral run to the switch\n\nThis is the clean answer. You get a full-featured smart switch, no flicker workarounds, and a wiring layout the next owner's electrician will understand instantly.\n\nCost depends almost entirely on access. A single switch position under an accessible roof space is a modest job; a downstairs switch in a double-storey home with a plasterboard ceiling above it may mean patching and painting. Budget a callout fee plus labour, and expect a real quote to vary widely by location [VERIFY — get at least two quotes].\n\nWorth doing when you are already renovating, re-lighting a room, or replacing a switchboard. Rarely worth it for one switch in isolation.\n\n## Option 2: No-neutral smart switches, and why they flicker\n\nNo-neutral (sometimes \"single-live\" or \"2-wire\") smart switches solve the problem by trickling a tiny current *through the light fitting itself* to keep their electronics alive. With a 60 W incandescent globe, that current was invisible. With a 5 W LED, it can be enough to make the lamp glow faintly, flash every few seconds, or refuse to turn fully off.\n\nThe standard fix is a **bypass capacitor** wired in parallel at the light fitting — again, a job for a licensed electrician, and it needs somewhere to physically live inside the canopy or ceiling rose.\n\nThings to check before buying:\n\n- Minimum and maximum load ratings for LED, stated in watts, at 240 V.\n- Whether a bypass is included in the box or sold separately.\n- Whether the mechanism fits an Australian plate and mounting bracket, and whether the plate style matches the rest of your house.\n- That the product carries an **RCM mark** and is legally sold for use on 240 V Australian circuits. Grey imports from overseas marketplaces frequently do not [VERIFY — check the supplier's compliance documentation].\n\nExpect somewhere in the $35–$90 range per gang for reputable no-neutral models sold locally [VERIFY current pricing at Bunnings, Amazon AU, eBay AU and specialist automation retailers].\n\n## Option 3: Put the smarts in the ceiling instead\n\nHere is the elegant trick: the neutral you are missing is sitting right there at the light fitting. Compact relay modules (Shelly, Sonoff and similar Zigbee or Wi‑Fi micro-modules) install *at the ceiling* where active, neutral and switched active all meet.\n\nThe existing dumb rocker becomes an input to the module rather than a direct load switch, so the wall plate never changes, the family keeps using the switch they already know, and nothing needs to fit behind a shallow bracket.\n\nCaveats: the module has to physically fit in the canopy, the fitting must not run hot around it, and installation is fixed-wiring work — licensed electrician, no exceptions [VERIFY with your state regulator]. Also confirm the specific module is approved for sale and installation in Australia; the specification sheet, not the marketplace listing, is what matters.\n\n## Option 4: Don't touch the wiring at all\n\nFor renters, heritage homes and anyone who would rather not book a sparkie, plug-in and bulb-based approaches remain the fastest route:\n\n- **Smart globes** in existing fittings, with the wall switch left permanently on. Add a battery-powered wireless button stuck over or beside the switch plate so guests do not kill power to the globe.\n- **Smart plugs** for lamps, which cover a surprising share of everyday lighting in living areas and bedrooms.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nOn specification, a mini plug like this suits a floor lamp or bedside light comfortably; check the stated maximum load before putting anything with a heating element on it. For a media unit or a desk with several devices, a smart powerboard with individually switched outlets does more work per Type I socket used.\n\n::product:smart-mirabella-genio-wi-fi-powerboard::\n\nNeither approach gives you the tactile satisfaction of a wall switch, but both are reversible, tenancy-friendly and cost a fraction of rewiring [VERIFY your lease terms before making any permanent changes].\n\n## Choose the protocol before you choose the switch\n\nWhatever route you pick, decide early between Wi‑Fi and Zigbee/Thread. Wi‑Fi switches are simplest for one or two positions. Once you are past about six devices, a mesh protocol behaves better — mains-powered switches make excellent Zigbee repeaters, which is a genuine bonus of the in-wall approach.\n\nFor a hub-based Zigbee or Thread setup that also speaks Matter to Apple Home, Google Home and Alexa:\n\n::product:zemismart-matter-zigbee-thread-smart-home-hub::\n\nAnd if you are running Home Assistant on a mini PC or Raspberry Pi, a USB coordinator keeps your lighting local and working during an internet outage — which is the whole point of putting the intelligence in the wall in the first place.\n\n::product:sonoff-zigbee-3-0-usb-dongle::\n\n## The practical order of attack\n\n1. Try smart globes plus a wireless button in one room. Live with it for a month.\n2. If you want the real wall-switch experience, get an electrician to inspect one switch position and tell you whether a neutral is present.\n3. If there is a neutral, buy a standard smart switch and be done.\n4. If there is not, choose between running a neutral (best long-term), a ceiling relay module (best value where the fitting has room) or a no-neutral switch with a bypass (fastest, most flicker risk).\n\nAll fixed-wiring options in that list require a licensed electrician. Nothing about a smart switch changes that.",
+    "keyTakeaways": "Most Australian homes wired before the 1990s use a switch loop, so there is no neutral at the wall plate and standard smart switches will not work. Your realistic options are to have a licensed electrician run a neutral, use a no-neutral switch with a bypass capacitor, fit a relay module at the ceiling where the neutral already is, or skip wiring entirely with smart globes and plugs.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "smart lighting",
+      "light switches",
+      "wiring",
+      "older homes",
+      "Zigbee",
+      "renters",
+      "electrician"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Light Switches Without a Neutral Wire (Australia)",
+    "seoDescription": "No neutral at your light switch? Here are five ways Australian homeowners and renters can get smart lighting in older homes, plus what needs an electrician.",
+    "seoKeywords": "smart light switch no neutral, neutral wire Australia, smart switch older homes, switch loop wiring, Zigbee light switch Australia, smart lighting renters",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-22T23:42:04.319Z",
+    "updatedAt": "2026-08-23T00:41:36.101Z",
+    "publishedAt": "2026-08-23T00:41:36.161Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3970,
+      "documentId": "egv7ij8f02go6penfizc5e6q",
+      "name": "smart-light-switches-and-the-neutral-wire-problem--cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670.jpg",
+          "hash": "large_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670",
+          "mime": "image/jpeg",
+          "name": "large_smart-light-switches-and-the-neutral-wire-problem--cover.jpg",
+          "path": null,
+          "size": 54.41,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 54407
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670.jpg",
+          "hash": "small_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670",
+          "mime": "image/jpeg",
+          "name": "small_smart-light-switches-and-the-neutral-wire-problem--cover.jpg",
+          "path": null,
+          "size": 17.09,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 17085
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670.jpg",
+          "hash": "medium_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670",
+          "mime": "image/jpeg",
+          "name": "medium_smart-light-switches-and-the-neutral-wire-problem--cover.jpg",
+          "path": null,
+          "size": 32.72,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 32724
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670.jpg",
+          "hash": "thumbnail_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670",
+          "mime": "image/jpeg",
+          "name": "thumbnail_smart-light-switches-and-the-neutral-wire-problem--cover.jpg",
+          "path": null,
+          "size": 5.81,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5814
+        }
+      },
+      "hash": "smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 125.74,
+      "url": "/uploads/smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T23:42:04.294Z",
+      "updatedAt": "2026-08-22T23:42:04.294Z",
+      "publishedAt": "2026-08-22T23:42:04.295Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1557,
+        "question": "Can I just swap a light switch for a smart one myself if I'm careful?",
+        "answer": "No. In every Australian state and territory, work on fixed wiring — including swapping a light switch — is restricted to a licensed electrician, and DIY work can affect insurance and future sale obligations [VERIFY with your state or territory electrical safety regulator]. Ask your sparkie to pull one plate and photograph it next time they're on site; it settles the neutral question at no extra cost."
+      },
+      {
+        "order": 2,
+        "id": 1558,
+        "question": "Why does my LED globe glow faintly or flash after installing a no-neutral switch?",
+        "answer": "No-neutral switches keep their electronics alive by trickling a small current through the light fitting itself. That was invisible with a 60 W incandescent, but with a 5 W LED it can cause a faint glow, a flash every few seconds, or a lamp that won't turn fully off. The usual remedy is a bypass capacitor wired in parallel at the fitting, which is again licensed electrician work and needs physical room inside the canopy or ceiling rose."
+      },
+      {
+        "order": 3,
+        "id": 1559,
+        "question": "Is there a way to get smart control without changing the wall plate at all?",
+        "answer": "Yes — a compact relay module (Shelly, Sonoff and similar Zigbee or Wi‑Fi micro-modules) installs at the light fitting, where active, neutral and switched active all meet. The existing rocker becomes an input to the module, so the plate never changes and nothing has to squeeze behind a shallow bracket. Installation is still fixed-wiring work requiring a licensed electrician, and you should confirm the specific module is approved for sale and installation in Australia."
+      },
+      {
+        "order": 4,
+        "id": 1560,
+        "question": "I'm renting — what are my options?",
+        "answer": "Smart globes in existing fittings, with the wall switch left permanently on and a battery-powered wireless button stuck beside the plate so guests don't cut power, plus smart plugs for lamps. Both are reversible, cost a fraction of rewiring and don't touch fixed wiring. Check your lease terms before making any permanent changes [VERIFY]."
+      },
+      {
+        "order": 5,
+        "id": 1561,
+        "question": "How much should I budget for a no-neutral smart switch in Australia?",
+        "answer": "Expect roughly $35–$90 per gang for reputable no-neutral models sold locally [VERIFY current pricing at Bunnings, Amazon AU, eBay AU and specialist automation retailers]. Before buying, check the LED load ratings at 240 V, whether a bypass is included or sold separately, and that the product carries an RCM mark — grey imports frequently do not [VERIFY the supplier's compliance documentation]."
+      }
+    ],
+    "categories": [
+      {
+        "id": 6,
+        "documentId": "lbjx41g8uqij9ktmnodxn4x2",
+        "name": "Lighting",
+        "slug": "lighting",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.919Z",
+        "updatedAt": "2026-08-22T18:30:53.746Z",
+        "publishedAt": "2026-08-22T18:30:53.744Z"
+      }
+    ],
+    "author": {
+      "id": 12,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": "2026-08-22T21:55:03.953Z"
+    }
+  },
+  "draft": {
+    "id": 178,
+    "documentId": "nlfz72mk22svtyyw6igmfbsq",
+    "title": "Smart Light Switches and the Neutral Wire Problem in Older Australian Homes",
+    "slug": "smart-light-switches-neutral-wire-older-australian-homes",
+    "excerpt": "Most Australian homes built before the 1990s run a switch loop with no neutral at the wall plate, which is exactly what a smart switch wants. Here are the five realistic ways around it, what each one costs, where flicker comes from, and where a licensed electrician is legally required.",
+    "content": "If you have ever opened a smart switch box, seen \"neutral wire required\" on the back of the packet, and quietly put it back in the drawer, you are in very good company. It is probably the single most common reason an Australian smart lighting project stalls before it starts.\n\nThe good news: there are at least five workable paths, and only two of them involve rewiring anything.\n\n## Why so many Australian switches have no neutral\n\nIn a traditional Australian light circuit, the active and neutral both go to the ceiling — to the batten holder, ceiling rose or junction box. From there, a **switch loop** drops a single pair down the wall: active down, switched active back up. The neutral never leaves the ceiling.\n\nThat wiring style was cheap, compliant and completely sensible for a mechanical rocker, which only needs to break one conductor. It becomes a problem when you want the wall plate to contain a Wi‑Fi or Zigbee radio, because that radio needs a continuous small supply — an active *and* a neutral — even when the light is off.\n\nRoughly speaking, homes wired from the 1990s onward are more likely to have a neutral run to switch positions, and newer builds more likely again [VERIFY — practice varied by state, builder and era; the only reliable answer is an inspection]. Renovated rooms in old houses are a genuine coin toss.\n\nThere is a second, less discussed obstacle: **depth**. Australian wall plates typically mount to a shallow plaster bracket or mounting block rather than a deep gang box, so there may be only 25–35 mm of usable space behind the plate [VERIFY]. Plenty of imported smart mechanisms simply will not fold in behind a standard plate.\n\n## First, work out what you actually have\n\nDo not open the switch yourself. In every Australian state and territory, work on fixed wiring — including swapping a light switch — is restricted to a licensed electrician, and DIY work can affect insurance and future sale obligations [VERIFY with your state or territory electrical safety regulator].\n\nWhat you *can* do before you call anyone:\n\n- **Check the age of the switchboard.** Ceramic rewireable fuses and no RCDs usually signal older wiring and a switch-loop layout.\n- **Look at the ceiling fittings.** If your lights are on old batten holders rather than downlights, the original wiring is probably untouched.\n- **Ask about ceiling access.** A crawlable roof space over the room makes running a neutral dramatically cheaper than a slab-ceiling apartment.\n- **Count the gangs.** A four-gang plate controlling hallway, porch, stairs and pantry is where smart switches earn their money — and also where depth problems bite.\n\nWhen the sparkie is on site for something else, ask them to pull one plate and photograph it. It costs you nothing extra and settles the question.\n\n## Option 1: Have a neutral run to the switch\n\nThis is the clean answer. You get a full-featured smart switch, no flicker workarounds, and a wiring layout the next owner's electrician will understand instantly.\n\nCost depends almost entirely on access. A single switch position under an accessible roof space is a modest job; a downstairs switch in a double-storey home with a plasterboard ceiling above it may mean patching and painting. Budget a callout fee plus labour, and expect a real quote to vary widely by location [VERIFY — get at least two quotes].\n\nWorth doing when you are already renovating, re-lighting a room, or replacing a switchboard. Rarely worth it for one switch in isolation.\n\n## Option 2: No-neutral smart switches, and why they flicker\n\nNo-neutral (sometimes \"single-live\" or \"2-wire\") smart switches solve the problem by trickling a tiny current *through the light fitting itself* to keep their electronics alive. With a 60 W incandescent globe, that current was invisible. With a 5 W LED, it can be enough to make the lamp glow faintly, flash every few seconds, or refuse to turn fully off.\n\nThe standard fix is a **bypass capacitor** wired in parallel at the light fitting — again, a job for a licensed electrician, and it needs somewhere to physically live inside the canopy or ceiling rose.\n\nThings to check before buying:\n\n- Minimum and maximum load ratings for LED, stated in watts, at 240 V.\n- Whether a bypass is included in the box or sold separately.\n- Whether the mechanism fits an Australian plate and mounting bracket, and whether the plate style matches the rest of your house.\n- That the product carries an **RCM mark** and is legally sold for use on 240 V Australian circuits. Grey imports from overseas marketplaces frequently do not [VERIFY — check the supplier's compliance documentation].\n\nExpect somewhere in the $35–$90 range per gang for reputable no-neutral models sold locally [VERIFY current pricing at Bunnings, Amazon AU, eBay AU and specialist automation retailers].\n\n## Option 3: Put the smarts in the ceiling instead\n\nHere is the elegant trick: the neutral you are missing is sitting right there at the light fitting. Compact relay modules (Shelly, Sonoff and similar Zigbee or Wi‑Fi micro-modules) install *at the ceiling* where active, neutral and switched active all meet.\n\nThe existing dumb rocker becomes an input to the module rather than a direct load switch, so the wall plate never changes, the family keeps using the switch they already know, and nothing needs to fit behind a shallow bracket.\n\nCaveats: the module has to physically fit in the canopy, the fitting must not run hot around it, and installation is fixed-wiring work — licensed electrician, no exceptions [VERIFY with your state regulator]. Also confirm the specific module is approved for sale and installation in Australia; the specification sheet, not the marketplace listing, is what matters.\n\n## Option 4: Don't touch the wiring at all\n\nFor renters, heritage homes and anyone who would rather not book a sparkie, plug-in and bulb-based approaches remain the fastest route:\n\n- **Smart globes** in existing fittings, with the wall switch left permanently on. Add a battery-powered wireless button stuck over or beside the switch plate so guests do not kill power to the globe.\n- **Smart plugs** for lamps, which cover a surprising share of everyday lighting in living areas and bedrooms.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nOn specification, a mini plug like this suits a floor lamp or bedside light comfortably; check the stated maximum load before putting anything with a heating element on it. For a media unit or a desk with several devices, a smart powerboard with individually switched outlets does more work per Type I socket used.\n\n::product:smart-mirabella-genio-wi-fi-powerboard::\n\nNeither approach gives you the tactile satisfaction of a wall switch, but both are reversible, tenancy-friendly and cost a fraction of rewiring [VERIFY your lease terms before making any permanent changes].\n\n## Choose the protocol before you choose the switch\n\nWhatever route you pick, decide early between Wi‑Fi and Zigbee/Thread. Wi‑Fi switches are simplest for one or two positions. Once you are past about six devices, a mesh protocol behaves better — mains-powered switches make excellent Zigbee repeaters, which is a genuine bonus of the in-wall approach.\n\nFor a hub-based Zigbee or Thread setup that also speaks Matter to Apple Home, Google Home and Alexa:\n\n::product:zemismart-matter-zigbee-thread-smart-home-hub::\n\nAnd if you are running Home Assistant on a mini PC or Raspberry Pi, a USB coordinator keeps your lighting local and working during an internet outage — which is the whole point of putting the intelligence in the wall in the first place.\n\n::product:sonoff-zigbee-3-0-usb-dongle::\n\n## The practical order of attack\n\n1. Try smart globes plus a wireless button in one room. Live with it for a month.\n2. If you want the real wall-switch experience, get an electrician to inspect one switch position and tell you whether a neutral is present.\n3. If there is a neutral, buy a standard smart switch and be done.\n4. If there is not, choose between running a neutral (best long-term), a ceiling relay module (best value where the fitting has room) or a no-neutral switch with a bypass (fastest, most flicker risk).\n\nAll fixed-wiring options in that list require a licensed electrician. Nothing about a smart switch changes that.",
+    "keyTakeaways": "Most Australian homes wired before the 1990s use a switch loop, so there is no neutral at the wall plate and standard smart switches will not work. Your realistic options are to have a licensed electrician run a neutral, use a no-neutral switch with a bypass capacitor, fit a relay module at the ceiling where the neutral already is, or skip wiring entirely with smart globes and plugs.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "smart lighting",
+      "light switches",
+      "wiring",
+      "older homes",
+      "Zigbee",
+      "renters",
+      "electrician"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Light Switches Without a Neutral Wire (Australia)",
+    "seoDescription": "No neutral at your light switch? Here are five ways Australian homeowners and renters can get smart lighting in older homes, plus what needs an electrician.",
+    "seoKeywords": "smart light switch no neutral, neutral wire Australia, smart switch older homes, switch loop wiring, Zigbee light switch Australia, smart lighting renters",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-22T23:42:04.319Z",
+    "updatedAt": "2026-08-23T00:41:36.101Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3970,
+      "documentId": "egv7ij8f02go6penfizc5e6q",
+      "name": "smart-light-switches-and-the-neutral-wire-problem--cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670.jpg",
+          "hash": "large_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670",
+          "mime": "image/jpeg",
+          "name": "large_smart-light-switches-and-the-neutral-wire-problem--cover.jpg",
+          "path": null,
+          "size": 54.41,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 54407
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670.jpg",
+          "hash": "small_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670",
+          "mime": "image/jpeg",
+          "name": "small_smart-light-switches-and-the-neutral-wire-problem--cover.jpg",
+          "path": null,
+          "size": 17.09,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 17085
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670.jpg",
+          "hash": "medium_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670",
+          "mime": "image/jpeg",
+          "name": "medium_smart-light-switches-and-the-neutral-wire-problem--cover.jpg",
+          "path": null,
+          "size": 32.72,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 32724
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670.jpg",
+          "hash": "thumbnail_smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670",
+          "mime": "image/jpeg",
+          "name": "thumbnail_smart-light-switches-and-the-neutral-wire-problem--cover.jpg",
+          "path": null,
+          "size": 5.81,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5814
+        }
+      },
+      "hash": "smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 125.74,
+      "url": "/uploads/smart_light_switches_and_the_neutral_wire_problem_cover_d4e8068670.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T23:42:04.294Z",
+      "updatedAt": "2026-08-22T23:42:04.294Z",
+      "publishedAt": "2026-08-22T23:42:04.295Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1552,
+        "question": "Can I just swap a light switch for a smart one myself if I'm careful?",
+        "answer": "No. In every Australian state and territory, work on fixed wiring — including swapping a light switch — is restricted to a licensed electrician, and DIY work can affect insurance and future sale obligations [VERIFY with your state or territory electrical safety regulator]. Ask your sparkie to pull one plate and photograph it next time they're on site; it settles the neutral question at no extra cost."
+      },
+      {
+        "order": 2,
+        "id": 1553,
+        "question": "Why does my LED globe glow faintly or flash after installing a no-neutral switch?",
+        "answer": "No-neutral switches keep their electronics alive by trickling a small current through the light fitting itself. That was invisible with a 60 W incandescent, but with a 5 W LED it can cause a faint glow, a flash every few seconds, or a lamp that won't turn fully off. The usual remedy is a bypass capacitor wired in parallel at the fitting, which is again licensed electrician work and needs physical room inside the canopy or ceiling rose."
+      },
+      {
+        "order": 3,
+        "id": 1554,
+        "question": "Is there a way to get smart control without changing the wall plate at all?",
+        "answer": "Yes — a compact relay module (Shelly, Sonoff and similar Zigbee or Wi‑Fi micro-modules) installs at the light fitting, where active, neutral and switched active all meet. The existing rocker becomes an input to the module, so the plate never changes and nothing has to squeeze behind a shallow bracket. Installation is still fixed-wiring work requiring a licensed electrician, and you should confirm the specific module is approved for sale and installation in Australia."
+      },
+      {
+        "order": 4,
+        "id": 1555,
+        "question": "I'm renting — what are my options?",
+        "answer": "Smart globes in existing fittings, with the wall switch left permanently on and a battery-powered wireless button stuck beside the plate so guests don't cut power, plus smart plugs for lamps. Both are reversible, cost a fraction of rewiring and don't touch fixed wiring. Check your lease terms before making any permanent changes [VERIFY]."
+      },
+      {
+        "order": 5,
+        "id": 1556,
+        "question": "How much should I budget for a no-neutral smart switch in Australia?",
+        "answer": "Expect roughly $35–$90 per gang for reputable no-neutral models sold locally [VERIFY current pricing at Bunnings, Amazon AU, eBay AU and specialist automation retailers]. Before buying, check the LED load ratings at 240 V, whether a bypass is included or sold separately, and that the product carries an RCM mark — grey imports frequently do not [VERIFY the supplier's compliance documentation]."
+      }
+    ],
+    "categories": [
+      {
+        "id": 6,
+        "documentId": "lbjx41g8uqij9ktmnodxn4x2",
+        "name": "Lighting",
+        "slug": "lighting",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.919Z",
+        "updatedAt": "2026-08-22T18:30:53.746Z",
+        "publishedAt": "2026-08-22T18:30:53.744Z"
+      }
+    ],
+    "author": {
+      "id": 3,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": null
+    }
+  }
+}

@@ -543,7 +543,7 @@
 /products/eufy-clean-x10-pro-omni-robot-vacuum-gen-4 /products/eufy-clean-x10-pro-omni-robot-vacuum/ 301
 /products/eufy-clean-x10-pro-omni-robot-vacuum-gen-4/ /products/eufy-clean-x10-pro-omni-robot-vacuum/ 301
 
-# Near-duplicate articles and author profiles merged into one.
+# Merged articles and author profiles, and removed URLs (data/redirects-adsense.json).
 /security-and-cameras/how-to-keep-security-cameras-running-through-a-blackout-or-nbn-outage /security-and-cameras/keep-security-cameras-running-blackout-nbn-outage/ 301
 /security-and-cameras/how-to-keep-security-cameras-running-through-a-blackout-or-nbn-outage/ /security-and-cameras/keep-security-cameras-running-blackout-nbn-outage/ 301
 /energy-and-solar/smart-plugs-energy-monitors-cut-power-bill-australia /energy-and-solar/smart-plugs-energy-monitors-lower-power-bill-australia/ 301
@@ -558,3 +558,15 @@
 /buying-guides/renter-smart-home-devices-no-drilling/ /buying-guides/smart-home-for-renters-australia/ 301
 /authors/k-curtis /authors/kritin-curtis/ 301
 /authors/k-curtis/ /authors/kritin-curtis/ 301
+/products/bosch-pof-1200-ae-1200w-corded-router /products/category/hubs-and-platforms/ 301
+/products/bosch-pof-1200-ae-1200w-corded-router/ /products/category/hubs-and-platforms/ 301
+/products/ryobi-400w-trim-router-rtr400-s /products/category/hubs-and-platforms/ 301
+/products/ryobi-400w-trim-router-rtr400-s/ /products/category/hubs-and-platforms/ 301
+/products/ryobi-1600w-plunge-router-rrt1600-s /products/category/hubs-and-platforms/ 301
+/products/ryobi-1600w-plunge-router-rrt1600-s/ /products/category/hubs-and-platforms/ 301
+/products/ozito-850w-router /products/category/hubs-and-platforms/ 301
+/products/ozito-850w-router/ /products/category/hubs-and-platforms/ 301
+/products/ozito-pxc-18v-brushless-trim-router-pxblts-018 /products/category/hubs-and-platforms/ 301
+/products/ozito-pxc-18v-brushless-trim-router-pxblts-018/ /products/category/hubs-and-platforms/ 301
+/products/electric-wood-trimmer-hand-router-trimmer /products/category/hubs-and-platforms/ 301
+/products/electric-wood-trimmer-hand-router-trimmer/ /products/category/hubs-and-platforms/ 301

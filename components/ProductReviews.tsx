@@ -10,10 +10,12 @@ import { joinNames, MIN_AGGREGATE_REVIEWS, retailerReviews } from '@/lib/review-
  * histogram and review themes across the top, then a grid of review cards and
  * a call to action.
  *
- * Only reviews from named Australian retailers are shown (lib/review-sources.ts),
- * and the block says whose they are and that we did not write them. There is
- * no "Verified purchase" badge: these are syndicated, and we cannot verify that
- * anyone bought anything.
+ * Only reviews from allow-listed sources are shown (lib/review-sources.ts):
+ * Australian retailers, the brand's own AU site, and the brand's global store
+ * labelled as such. The block says whose they are and that we did not write
+ * them. No "Verified purchase" badge: these are syndicated, and we cannot
+ * verify that anyone bought anything. Under MIN_VISIBLE_REVIEWS allowed
+ * reviews the block does not render at all.
  *
  * Every figure is counted from the reviews shown — the score, the histogram
  * and the "4 stars or higher" share — and none of them appear below
@@ -127,7 +129,10 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
 
   return (
     <section className="rounded-[8px] bg-white p-5 dark:bg-slate-800 sm:p-6">
-      <h2 className="text-2xl font-bold text-[#1d252c] dark:text-white">Reviews</h2>
+      <h2 className="text-2xl font-bold text-[#1d252c] dark:text-white">What customers say at {from}</h2>
+      <p className="mt-1 text-sm text-[#55555a] dark:text-slate-400">
+        Reviews written by customers of these retailers — not by NXT Smart Home, and not a test result.
+      </p>
 
       {/*
         Laid out like the reference PDP: score and histogram on the left, the
@@ -199,9 +204,9 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
         <div>
           <h3 className="text-base font-bold text-[#1d252c] dark:text-white">About these reviews</h3>
           <p className="mt-1.5 text-sm leading-relaxed text-[#1d252c] dark:text-slate-300">
-            Customer reviews syndicated from {from}&apos;s product pages. We do not edit them, we
-            cannot confirm the reviewers bought the product, and NXT Smart Home has not reviewed or
-            tested it.
+            Customer reviews syndicated from {from}. We do not edit them, and we cannot confirm the
+            reviewers bought the product. Only Australian retailers and the brand&apos;s own store
+            are included; a brand&apos;s overseas store is marked &ldquo;global store&rdquo;.
           </p>
           <p className="mt-2 text-[0.6875rem] text-[#55555a] dark:text-slate-400">
             Reviews may relate to a different variant, bundle or colour. Check the retailer&apos;s page

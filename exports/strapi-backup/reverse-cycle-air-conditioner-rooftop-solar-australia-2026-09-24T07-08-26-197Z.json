@@ -1,0 +1,336 @@
+{
+  "published": {
+    "id": 268,
+    "documentId": "yzxf3wblm3l64mrwzpvdt979",
+    "title": "Running Your Reverse Cycle Air Conditioner Off Rooftop Solar Instead of the Grid",
+    "slug": "reverse-cycle-air-conditioner-rooftop-solar-australia",
+    "excerpt": "Your split system is probably the biggest single load in the house, and your solar is probably being exported for a few cents. Here's how to line the two up using pre-cooling, smart aircon controllers and real-time energy monitoring - plus where an electrician is legally required.",
+    "content": "Most Australian homes with rooftop solar are quietly giving away their cheapest electricity. The panels peak between roughly 10am and 3pm, nobody's home, and the surplus goes to the grid for a feed-in tariff that in many states has collapsed to single-digit cents per kilowatt-hour [VERIFY]. Meanwhile the reverse cycle air conditioner - the single hungriest appliance in the house - gets switched on at 6pm when you're buying power back at three to seven times that rate.\n\nThe fix isn't a battery. It's timing.\n\n## Why the maths works so strongly in your favour\n\nThe value of running your aircon on solar isn't the solar itself, it's the gap between what you'd have been paid for exporting and what you'd have paid to import.\n\nAs a rough guide for 2025: a typical residential import rate sits somewhere around 30-40c/kWh depending on state, retailer and tariff type, while many feed-in tariffs now sit between 2c and 8c/kWh [VERIFY]. Every kilowatt-hour of solar you self-consume instead of export is therefore worth roughly 25-35c [VERIFY] - not the 5c the export would have earned.\n\nA 7.1kW (cooling capacity) split system usually draws somewhere around 1.8-2.2kW of electrical input at full tilt, and considerably less once it's reached setpoint and the inverter compressor throttles back [VERIFY - check your unit's nameplate and specification sheet]. Run it for four midday hours and you might consume 4-6kWh. Shift that from grid to solar and you're saving roughly $1.20-$2.00 a day [VERIFY], every day you'd have run it anyway.\n\nThat's the whole idea. You're not using less energy. You're using the same energy at a much better price.\n\n## Pre-cooling and pre-heating: the core tactic\n\nA well-sealed, reasonably insulated Australian home behaves like a slow thermal battery. You can charge it with solar.\n\n**In summer:** start the aircon around 11am-midday while the array is producing, and pull the house down to 21-22°C rather than the 24°C you'd normally accept. By late afternoon when solar output falls away, the building fabric is already cold and the unit needs far less run time to hold a comfortable temperature through the evening peak.\n\n**In winter:** the same trick in reverse. Reverse cycle heating is also dramatically more efficient in the middle of the day, because heat pump performance drops as the outdoor temperature falls. Heating at 1pm when it's 16°C outside costs meaningfully less per unit of heat delivered than heating at 7am when it's 4°C - so a solar-timed schedule wins twice.\n\nHow well this works depends entirely on your building. A double-brick or well-insulated home with decent window coverings might hold pre-cooling for four or five hours. A 1970s brick veneer with single glazing and no ceiling insulation top-up may bleed it in ninety minutes. Test it before you commit to a schedule: set a temperature logger in the living area and watch how fast the room drifts back after the unit stops.\n\n::product:tp-link-tapo-smart-temperature-humidity-monitor::\n\n## Getting a smart controller onto a dumb split system\n\nMost split systems in Australian homes have no cloud connectivity at all - just an infrared remote. An IR bridge controller solves this without touching the wiring, which matters enormously if you're renting.\n\nThese devices sit in line of sight of the indoor head unit, learn its IR command set, and expose the aircon to your phone, to voice assistants, and critically to schedules and automations. Sensibo's controller is the most established option in this category and includes its own temperature and humidity sensing, plus geofencing and climate-based scheduling.\n\n::product:sensibo-air-smart-air-conditioner-controller::\n\nBudget Tuya-based IR thermostats do much the same job for a fraction of the price and work with Smart Life and Home Assistant. They're generally less refined - state tracking can drift, because IR is one-way and the controller only knows what it last sent, not what the unit is actually doing.\n\n::product:tuya-smart-wifi-ir-air-conditioner-controller-thermostat::\n\nA note on plug-in smart switches: don't try to control a split system with a standard 10A smart plug. Reverse cycle units are typically either hardwired or on a dedicated 15A circuit, and cycling power at the plug is a poor way to control a compressor anyway. Any change to hardwired circuits, isolators or dedicated aircon wiring must be done by a licensed electrician under AS/NZS 3000 [VERIFY current edition and your state's requirements].\n\n## Triggering on actual solar production, not just the clock\n\nA fixed 11am-3pm schedule is a fine start. Triggering on real export is better, because it survives cloudy days, dirty panels and the days you left the pool pump running.\n\nThe approach: measure net grid flow at the switchboard, and only allow the aircon to run its solar-priority schedule when the house is exporting more than, say, 1.5kW. A whole-home energy meter with current transformer clamps gives you that signal in real time.\n\n::product:iammeter-wem3050t-wifi-energy-meter::\n\nThis class of device reports per-phase power and direction over Wi-Fi and integrates with Home Assistant, which is where the logic lives. A basic automation looks like:\n\n- **If** grid export > 1.5kW **for** 10 minutes **and** indoor temp > 23°C **and** time is between 10:00 and 15:30 → set aircon to 21°C\n- **If** export drops below 300W **for** 15 minutes → raise setpoint to 24°C or turn off\n\nThe delay timers matter. Without them, a passing cloud makes your compressor short-cycle, which is hard on the equipment and inefficient.\n\n**Important:** CT clamps go around live conductors inside the switchboard. In Australia, installing them is electrical work and requires a licensed electrician - this is not a DIY job regardless of what an overseas installation video shows [VERIFY with your state's electrical safety regulator].\n\nIf you have a hybrid inverter or battery system, check whether your inverter brand already exposes production and export data to Home Assistant. Fronius, SolarEdge, Sungrow and Enphase all have integrations of varying maturity [VERIFY current support], which can save you buying a separate meter.\n\n## What this doesn't fix\n\nBe realistic about the limits.\n\n**Evening peaks still cost money.** Pre-cooling reduces evening run time; it doesn't eliminate it. On a 40°C Adelaide or Western Sydney day, you'll still be importing after sunset.\n\n**Oversized systems behave badly.** An aircon much larger than the room needs will satisfy the thermostat quickly and then cycle, which is inefficient and uncomfortable. Solar timing won't rescue a badly specified install.\n\n**Export limits apply.** Many networks now impose export limits or dynamic export control, and some states have introduced minimum-export or curtailment rules [VERIFY with your DNSP]. Self-consumption becomes more valuable, not less, under those conditions - which strengthens the case here.\n\n**Draughts undo everything.** Before spending on controllers, spend twenty dollars on door seals and check your ceiling insulation. Pre-cooling a leaky house is like filling a bath with the plug out.\n\n## A sensible order to do this in\n\n1. Read your last four quarterly bills and find your actual import rate and feed-in tariff. Everything downstream depends on that gap.\n2. Seal draughts and check insulation.\n3. Add a temperature sensor in your main living area and log how fast the room drifts after the aircon stops. That tells you how long pre-cooling will hold.\n4. Add an IR controller and run a simple time-based schedule for two weeks. Compare bills or meter readings.\n5. Only then invest in switchboard-level monitoring and export-triggered automation.\n\nSteps one to four cost very little and deliver most of the benefit. Step five is for people who enjoy the optimisation as much as the savings - and if you're reading a smart-home site, that's probably you.",
+    "keyTakeaways": "Yes - and the savings come from timing, not hardware. Pre-cool or pre-heat your home between roughly 10am and 3pm while your panels are producing, so you self-consume solar worth 30-40c/kWh instead of exporting it for a few cents [VERIFY your own rates]. An infrared aircon controller plus a simple schedule captures most of the benefit; export-triggered automation captures the rest.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "reverse cycle air conditioning",
+      "rooftop solar",
+      "self-consumption",
+      "Home Assistant",
+      "energy monitoring",
+      "pre-cooling",
+      "Sensibo",
+      "Australian energy"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Run Your Reverse Cycle Aircon Off Solar, Not the Grid",
+    "seoDescription": "How Australian homes can shift reverse cycle air conditioning onto rooftop solar using pre-cooling, IR controllers and export-triggered automation.",
+    "seoKeywords": "reverse cycle air conditioner solar, run aircon off solar Australia, solar self consumption air conditioning, pre-cooling solar, Sensibo Air Australia, smart aircon controller, Home Assistant solar automation, feed-in tariff aircon",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:16:50.580Z",
+    "updatedAt": "2026-08-23T00:43:55.122Z",
+    "publishedAt": "2026-08-23T00:43:55.173Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3985,
+      "documentId": "merov04myscfr1fyqbzg7y1v",
+      "name": "running-your-reverse-cycle-air-conditioner-off-roo-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610.jpg",
+          "hash": "large_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610",
+          "mime": "image/jpeg",
+          "name": "large_running-your-reverse-cycle-air-conditioner-off-roo-cover.jpg",
+          "path": null,
+          "size": 84.62,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 84617
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610.jpg",
+          "hash": "small_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610",
+          "mime": "image/jpeg",
+          "name": "small_running-your-reverse-cycle-air-conditioner-off-roo-cover.jpg",
+          "path": null,
+          "size": 24.42,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 24418
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610.jpg",
+          "hash": "medium_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610",
+          "mime": "image/jpeg",
+          "name": "medium_running-your-reverse-cycle-air-conditioner-off-roo-cover.jpg",
+          "path": null,
+          "size": 49.86,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 49863
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610.jpg",
+          "hash": "thumbnail_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610",
+          "mime": "image/jpeg",
+          "name": "thumbnail_running-your-reverse-cycle-air-conditioner-off-roo-cover.jpg",
+          "path": null,
+          "size": 7.42,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 7421
+        }
+      },
+      "hash": "running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 196.26,
+      "url": "/uploads/running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:16:50.555Z",
+      "updatedAt": "2026-08-23T00:16:50.555Z",
+      "publishedAt": "2026-08-23T00:16:50.555Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1667,
+        "question": "Do I need a home battery to use my solar for air conditioning?",
+        "answer": "No - the article's whole point is that timing, not storage, does most of the work. Running your split system during peak production hours turns solar you'd otherwise export for a few cents into energy you'd otherwise buy at 30-40c/kWh [VERIFY]. A well-sealed home effectively acts as a slow thermal battery for a few hours."
+      },
+      {
+        "order": 2,
+        "id": 1668,
+        "question": "Can I use a 10A smart plug to switch my split system on and off?",
+        "answer": "No. Reverse cycle units are typically hardwired or on a dedicated 15A circuit, and cutting power at the plug is a poor way to control a compressor. Use an infrared bridge controller instead, and note that any change to hardwired circuits, isolators or dedicated aircon wiring must be done by a licensed electrician under AS/NZS 3000 [VERIFY current edition and your state's rules]."
+      },
+      {
+        "order": 3,
+        "id": 1669,
+        "question": "I'm renting - can I still do this without modifying anything?",
+        "answer": "Yes, an IR bridge controller sits in line of sight of the indoor head unit and learns its remote commands, so no wiring is touched. That gets you scheduling, app control and automations. The switchboard-level monitoring step is the part you'd skip, since CT clamps require a licensed electrician [VERIFY with your state's electrical safety regulator]."
+      },
+      {
+        "order": 4,
+        "id": 1670,
+        "question": "How do I know if pre-cooling will actually hold in my house?",
+        "answer": "Test it before building a schedule around it. Put a temperature logger in the main living area and record how quickly the room drifts back after the unit stops. A double-brick or well-insulated home with good window coverings might hold four or five hours; a 1970s brick veneer with single glazing may lose it in ninety minutes."
+      },
+      {
+        "order": 5,
+        "id": 1671,
+        "question": "Is it worth buying a separate energy meter if I already have a hybrid inverter?",
+        "answer": "Possibly not. Check whether your inverter brand already exposes production and export figures to Home Assistant - Fronius, SolarEdge, Sungrow and Enphase all have integrations of varying maturity [VERIFY current support]. If the data is already available, you can build export-triggered automations without buying additional hardware."
+      }
+    ],
+    "categories": [
+      {
+        "id": 2,
+        "documentId": "kr7s0nrg74tdavub6vyhm1of",
+        "name": "Climate",
+        "slug": "climate",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.690Z",
+        "updatedAt": "2026-08-22T18:30:53.594Z",
+        "publishedAt": "2026-08-22T18:30:53.592Z"
+      }
+    ],
+    "author": {
+      "id": 13,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": "2026-08-22T21:55:22.398Z"
+    }
+  },
+  "draft": {
+    "id": 205,
+    "documentId": "yzxf3wblm3l64mrwzpvdt979",
+    "title": "Running Your Reverse Cycle Air Conditioner Off Rooftop Solar Instead of the Grid",
+    "slug": "reverse-cycle-air-conditioner-rooftop-solar-australia",
+    "excerpt": "Your split system is probably the biggest single load in the house, and your solar is probably being exported for a few cents. Here's how to line the two up using pre-cooling, smart aircon controllers and real-time energy monitoring - plus where an electrician is legally required.",
+    "content": "Most Australian homes with rooftop solar are quietly giving away their cheapest electricity. The panels peak between roughly 10am and 3pm, nobody's home, and the surplus goes to the grid for a feed-in tariff that in many states has collapsed to single-digit cents per kilowatt-hour [VERIFY]. Meanwhile the reverse cycle air conditioner - the single hungriest appliance in the house - gets switched on at 6pm when you're buying power back at three to seven times that rate.\n\nThe fix isn't a battery. It's timing.\n\n## Why the maths works so strongly in your favour\n\nThe value of running your aircon on solar isn't the solar itself, it's the gap between what you'd have been paid for exporting and what you'd have paid to import.\n\nAs a rough guide for 2025: a typical residential import rate sits somewhere around 30-40c/kWh depending on state, retailer and tariff type, while many feed-in tariffs now sit between 2c and 8c/kWh [VERIFY]. Every kilowatt-hour of solar you self-consume instead of export is therefore worth roughly 25-35c [VERIFY] - not the 5c the export would have earned.\n\nA 7.1kW (cooling capacity) split system usually draws somewhere around 1.8-2.2kW of electrical input at full tilt, and considerably less once it's reached setpoint and the inverter compressor throttles back [VERIFY - check your unit's nameplate and specification sheet]. Run it for four midday hours and you might consume 4-6kWh. Shift that from grid to solar and you're saving roughly $1.20-$2.00 a day [VERIFY], every day you'd have run it anyway.\n\nThat's the whole idea. You're not using less energy. You're using the same energy at a much better price.\n\n## Pre-cooling and pre-heating: the core tactic\n\nA well-sealed, reasonably insulated Australian home behaves like a slow thermal battery. You can charge it with solar.\n\n**In summer:** start the aircon around 11am-midday while the array is producing, and pull the house down to 21-22°C rather than the 24°C you'd normally accept. By late afternoon when solar output falls away, the building fabric is already cold and the unit needs far less run time to hold a comfortable temperature through the evening peak.\n\n**In winter:** the same trick in reverse. Reverse cycle heating is also dramatically more efficient in the middle of the day, because heat pump performance drops as the outdoor temperature falls. Heating at 1pm when it's 16°C outside costs meaningfully less per unit of heat delivered than heating at 7am when it's 4°C - so a solar-timed schedule wins twice.\n\nHow well this works depends entirely on your building. A double-brick or well-insulated home with decent window coverings might hold pre-cooling for four or five hours. A 1970s brick veneer with single glazing and no ceiling insulation top-up may bleed it in ninety minutes. Test it before you commit to a schedule: set a temperature logger in the living area and watch how fast the room drifts back after the unit stops.\n\n::product:tp-link-tapo-smart-temperature-humidity-monitor::\n\n## Getting a smart controller onto a dumb split system\n\nMost split systems in Australian homes have no cloud connectivity at all - just an infrared remote. An IR bridge controller solves this without touching the wiring, which matters enormously if you're renting.\n\nThese devices sit in line of sight of the indoor head unit, learn its IR command set, and expose the aircon to your phone, to voice assistants, and critically to schedules and automations. Sensibo's controller is the most established option in this category and includes its own temperature and humidity sensing, plus geofencing and climate-based scheduling.\n\n::product:sensibo-air-smart-air-conditioner-controller::\n\nBudget Tuya-based IR thermostats do much the same job for a fraction of the price and work with Smart Life and Home Assistant. They're generally less refined - state tracking can drift, because IR is one-way and the controller only knows what it last sent, not what the unit is actually doing.\n\n::product:tuya-smart-wifi-ir-air-conditioner-controller-thermostat::\n\nA note on plug-in smart switches: don't try to control a split system with a standard 10A smart plug. Reverse cycle units are typically either hardwired or on a dedicated 15A circuit, and cycling power at the plug is a poor way to control a compressor anyway. Any change to hardwired circuits, isolators or dedicated aircon wiring must be done by a licensed electrician under AS/NZS 3000 [VERIFY current edition and your state's requirements].\n\n## Triggering on actual solar production, not just the clock\n\nA fixed 11am-3pm schedule is a fine start. Triggering on real export is better, because it survives cloudy days, dirty panels and the days you left the pool pump running.\n\nThe approach: measure net grid flow at the switchboard, and only allow the aircon to run its solar-priority schedule when the house is exporting more than, say, 1.5kW. A whole-home energy meter with current transformer clamps gives you that signal in real time.\n\n::product:iammeter-wem3050t-wifi-energy-meter::\n\nThis class of device reports per-phase power and direction over Wi-Fi and integrates with Home Assistant, which is where the logic lives. A basic automation looks like:\n\n- **If** grid export > 1.5kW **for** 10 minutes **and** indoor temp > 23°C **and** time is between 10:00 and 15:30 → set aircon to 21°C\n- **If** export drops below 300W **for** 15 minutes → raise setpoint to 24°C or turn off\n\nThe delay timers matter. Without them, a passing cloud makes your compressor short-cycle, which is hard on the equipment and inefficient.\n\n**Important:** CT clamps go around live conductors inside the switchboard. In Australia, installing them is electrical work and requires a licensed electrician - this is not a DIY job regardless of what an overseas installation video shows [VERIFY with your state's electrical safety regulator].\n\nIf you have a hybrid inverter or battery system, check whether your inverter brand already exposes production and export data to Home Assistant. Fronius, SolarEdge, Sungrow and Enphase all have integrations of varying maturity [VERIFY current support], which can save you buying a separate meter.\n\n## What this doesn't fix\n\nBe realistic about the limits.\n\n**Evening peaks still cost money.** Pre-cooling reduces evening run time; it doesn't eliminate it. On a 40°C Adelaide or Western Sydney day, you'll still be importing after sunset.\n\n**Oversized systems behave badly.** An aircon much larger than the room needs will satisfy the thermostat quickly and then cycle, which is inefficient and uncomfortable. Solar timing won't rescue a badly specified install.\n\n**Export limits apply.** Many networks now impose export limits or dynamic export control, and some states have introduced minimum-export or curtailment rules [VERIFY with your DNSP]. Self-consumption becomes more valuable, not less, under those conditions - which strengthens the case here.\n\n**Draughts undo everything.** Before spending on controllers, spend twenty dollars on door seals and check your ceiling insulation. Pre-cooling a leaky house is like filling a bath with the plug out.\n\n## A sensible order to do this in\n\n1. Read your last four quarterly bills and find your actual import rate and feed-in tariff. Everything downstream depends on that gap.\n2. Seal draughts and check insulation.\n3. Add a temperature sensor in your main living area and log how fast the room drifts after the aircon stops. That tells you how long pre-cooling will hold.\n4. Add an IR controller and run a simple time-based schedule for two weeks. Compare bills or meter readings.\n5. Only then invest in switchboard-level monitoring and export-triggered automation.\n\nSteps one to four cost very little and deliver most of the benefit. Step five is for people who enjoy the optimisation as much as the savings - and if you're reading a smart-home site, that's probably you.",
+    "keyTakeaways": "Yes - and the savings come from timing, not hardware. Pre-cool or pre-heat your home between roughly 10am and 3pm while your panels are producing, so you self-consume solar worth 30-40c/kWh instead of exporting it for a few cents [VERIFY your own rates]. An infrared aircon controller plus a simple schedule captures most of the benefit; export-triggered automation captures the rest.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "reverse cycle air conditioning",
+      "rooftop solar",
+      "self-consumption",
+      "Home Assistant",
+      "energy monitoring",
+      "pre-cooling",
+      "Sensibo",
+      "Australian energy"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Run Your Reverse Cycle Aircon Off Solar, Not the Grid",
+    "seoDescription": "How Australian homes can shift reverse cycle air conditioning onto rooftop solar using pre-cooling, IR controllers and export-triggered automation.",
+    "seoKeywords": "reverse cycle air conditioner solar, run aircon off solar Australia, solar self consumption air conditioning, pre-cooling solar, Sensibo Air Australia, smart aircon controller, Home Assistant solar automation, feed-in tariff aircon",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:16:50.580Z",
+    "updatedAt": "2026-08-23T00:43:55.122Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3985,
+      "documentId": "merov04myscfr1fyqbzg7y1v",
+      "name": "running-your-reverse-cycle-air-conditioner-off-roo-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610.jpg",
+          "hash": "large_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610",
+          "mime": "image/jpeg",
+          "name": "large_running-your-reverse-cycle-air-conditioner-off-roo-cover.jpg",
+          "path": null,
+          "size": 84.62,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 84617
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610.jpg",
+          "hash": "small_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610",
+          "mime": "image/jpeg",
+          "name": "small_running-your-reverse-cycle-air-conditioner-off-roo-cover.jpg",
+          "path": null,
+          "size": 24.42,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 24418
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610.jpg",
+          "hash": "medium_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610",
+          "mime": "image/jpeg",
+          "name": "medium_running-your-reverse-cycle-air-conditioner-off-roo-cover.jpg",
+          "path": null,
+          "size": 49.86,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 49863
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610.jpg",
+          "hash": "thumbnail_running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610",
+          "mime": "image/jpeg",
+          "name": "thumbnail_running-your-reverse-cycle-air-conditioner-off-roo-cover.jpg",
+          "path": null,
+          "size": 7.42,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 7421
+        }
+      },
+      "hash": "running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 196.26,
+      "url": "/uploads/running_your_reverse_cycle_air_conditioner_off_roo_cover_fe11cc5610.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:16:50.555Z",
+      "updatedAt": "2026-08-23T00:16:50.555Z",
+      "publishedAt": "2026-08-23T00:16:50.555Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1662,
+        "question": "Do I need a home battery to use my solar for air conditioning?",
+        "answer": "No - the article's whole point is that timing, not storage, does most of the work. Running your split system during peak production hours turns solar you'd otherwise export for a few cents into energy you'd otherwise buy at 30-40c/kWh [VERIFY]. A well-sealed home effectively acts as a slow thermal battery for a few hours."
+      },
+      {
+        "order": 2,
+        "id": 1663,
+        "question": "Can I use a 10A smart plug to switch my split system on and off?",
+        "answer": "No. Reverse cycle units are typically hardwired or on a dedicated 15A circuit, and cutting power at the plug is a poor way to control a compressor. Use an infrared bridge controller instead, and note that any change to hardwired circuits, isolators or dedicated aircon wiring must be done by a licensed electrician under AS/NZS 3000 [VERIFY current edition and your state's rules]."
+      },
+      {
+        "order": 3,
+        "id": 1664,
+        "question": "I'm renting - can I still do this without modifying anything?",
+        "answer": "Yes, an IR bridge controller sits in line of sight of the indoor head unit and learns its remote commands, so no wiring is touched. That gets you scheduling, app control and automations. The switchboard-level monitoring step is the part you'd skip, since CT clamps require a licensed electrician [VERIFY with your state's electrical safety regulator]."
+      },
+      {
+        "order": 4,
+        "id": 1665,
+        "question": "How do I know if pre-cooling will actually hold in my house?",
+        "answer": "Test it before building a schedule around it. Put a temperature logger in the main living area and record how quickly the room drifts back after the unit stops. A double-brick or well-insulated home with good window coverings might hold four or five hours; a 1970s brick veneer with single glazing may lose it in ninety minutes."
+      },
+      {
+        "order": 5,
+        "id": 1666,
+        "question": "Is it worth buying a separate energy meter if I already have a hybrid inverter?",
+        "answer": "Possibly not. Check whether your inverter brand already exposes production and export figures to Home Assistant - Fronius, SolarEdge, Sungrow and Enphase all have integrations of varying maturity [VERIFY current support]. If the data is already available, you can build export-triggered automations without buying additional hardware."
+      }
+    ],
+    "categories": [
+      {
+        "id": 2,
+        "documentId": "kr7s0nrg74tdavub6vyhm1of",
+        "name": "Climate",
+        "slug": "climate",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.690Z",
+        "updatedAt": "2026-08-22T18:30:53.594Z",
+        "publishedAt": "2026-08-22T18:30:53.592Z"
+      }
+    ],
+    "author": {
+      "id": 4,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": null
+    }
+  }
+}

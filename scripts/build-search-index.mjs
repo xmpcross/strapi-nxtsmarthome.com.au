@@ -6,7 +6,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { editorialHits, postTexts } from '../lib/editorial-guard.mjs';
+import { editorialHits, guardMode, postTexts } from '../lib/editorial-guard.mjs';
 import { mergedSlugTargets } from '../lib/merged-articles.mjs';
 
 const root = process.cwd();
@@ -126,9 +126,10 @@ const docs = rows
     const a = row.attributes ?? row;
     if (!a.slug || !a.title) return null;
     if (merged.has(a.slug)) return null;
-    if (editorialHits(postTexts(a)).length) {
-      heldBack.push(a.slug);
-      return null;
+    const hits = editorialHits(postTexts(a));
+    if (hits.length) {
+      heldBack.push(`${a.slug} (${hits.map((h) => `${h.label} x${h.count}`).join(', ')})`);
+      if (guardMode() === 'block') return null;
     }
     const catSlug = a.categories?.[0]?.slug ?? '';
     const key = keyBySlug[catSlug] ?? catSlug;
@@ -161,4 +162,9 @@ const docs = rows
 fs.mkdirSync(path.dirname(outFile), { recursive: true });
 fs.writeFileSync(outFile, JSON.stringify(docs));
 console.log(`[search-index] wrote ${docs.length} documents from Strapi to public/search-index.json`);
-if (heldBack.length) console.log(`[search-index] held back ${heldBack.length} unfinished post(s): ${heldBack.join(', ')}`);
+if (heldBack.length) {
+  console.log(
+    `[editorial-guard] search index: ${guardMode() === 'warn' ? 'WARN, still indexed' : 'held back'} ` +
+      `${heldBack.length} post(s): ${heldBack.join('; ')}`,
+  );
+}

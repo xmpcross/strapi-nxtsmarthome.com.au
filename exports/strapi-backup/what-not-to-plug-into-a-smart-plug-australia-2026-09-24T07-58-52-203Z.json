@@ -1,0 +1,328 @@
+{
+  "published": {
+    "id": 161,
+    "documentId": "y98w8jba1385is568tebas5l",
+    "title": "What You Should Never Plug Into a Smart Plug",
+    "slug": "what-not-to-plug-into-a-smart-plug-australia",
+    "excerpt": "Smart plugs are cheap, useful and occasionally a genuinely bad idea. The appliances to keep off them, why the current rating matters more than anything else, and where the real risk sits.",
+    "content": "Smart plugs are the least glamorous and most useful thing in most smart homes. They are also the device most often used in a way the manufacturer did not intend, because they cost very little and look like they will run anything.\n\nThey will not. There are two categories of appliance to keep off them, and they fail in completely different ways.\n\n## Everything starts with the current rating\n\nA smart plug carries the full load of whatever is plugged into it. Australian general power outlets are rated to 10 amps, and Australian smart plugs are typically rated to match. [VERIFY] That figure is printed on the plug body and stated in its specifications, and it is a limit, not a target.\n\nMost household electronics are nowhere near it. A television, a lamp, a phone charger, a router, a fan — all trivial loads.\n\nThe appliances that get close are the ones that make heat or turn a motor. That is the whole list worth worrying about, and it is where the rest of this article sits.\n\n## Category one: anything that draws near the limit\n\n**Portable heaters.** Fan heaters, oil column heaters, radiant heaters. High-output models draw current close to the rating of a standard plug, and they do it continuously rather than in bursts. Many heater manufacturers explicitly say not to run their product through a timer, a remote switch or an extension lead — check the manual for the specific appliance, because this varies by model. [VERIFY]\n\n**Portable air conditioners.** Same problem, plus a compressor that surges on start-up.\n\n**Kettles, toasters and portable cooktops.** Short duty cycles, but high draw while running. There is also very little reason to automate them.\n\n**Clothes dryers and anything similar.** If it heats a room-sized volume of air, it is not a smart plug load.\n\nThe failure here is not subtle. An undersized or marginal connection carrying a heavy load generates heat at the connection point, and heat at a connection point is how electrical fires start. This is the part of the article worth taking literally.\n\n## Category two: anything that must not switch off unexpectedly\n\nThis second group is not about current at all. These appliances may draw almost nothing. The problem is that a smart plug introduces a new way for them to lose power — a firmware update, a dropped network, a mistyped automation, a voice command misheard in another room.\n\n**Fridges and freezers.** The classic example. Nothing dramatic happens when the power goes; you simply find out days later.\n\n**Medical equipment.** CPAP machines, oxygen concentrators, anything a household depends on. Do not put a remotely switchable device in that path.\n\n**Aquarium and pond pumps, reptile heat lamps.** Living things on a timer that can silently fail.\n\n**Anything mid-cycle.** A dishwasher, a washing machine or a 3D printer cut off partway through does not resume gracefully.\n\n**Network gear you rely on.** There is an argument for putting a router on a smart plug so it can be power-cycled remotely. Think it through first: if the router is down, the plug that controls it is unreachable too, unless it is Zigbee or Z-Wave on a hub with its own connection.\n\n## The arrangement to avoid entirely\n\nDo not plug a power board or an extension lead into a smart plug.\n\nThe plug is rated for one load. A power board is an invitation to connect several, and nobody adds up the total. It is the single easiest way to exceed a rating without noticing, and it is worse because the smart plug is doing the switching — repeatedly making and breaking a connection under a load it was never specified for.\n\nDaisy-chaining a smart plug into another smart plug is the same mistake with extra steps.\n\n## Motors deserve their own note\n\nMotors draw a surge when they start — well above their steady running draw. A pool pump, a compressor, a workshop tool.\n\nSome plugs cope with this. Some do not. And a relay switching a motor thousands of times may eventually fail, sometimes stuck closed, which means the plug reports \"off\" while the appliance runs. That is a failure mode worth knowing about before you rely on a plug to turn something off.\n\nIf you want to switch a large motor load on a schedule, that is a job for properly rated equipment, and in most cases it is fixed wiring — which is licensed electrician territory in every Australian state and territory. [VERIFY]\n\n## What smart plugs are genuinely good for\n\nThe list is long and boring, which is the point:\n\n- Lamps and floor lighting, especially in rented homes where wiring is not an option\n- Televisions, media gear and consoles with meaningful standby draw\n- Fans and air purifiers\n- Christmas lights and anything seasonal that would otherwise stay on\n- Chargers you would rather not leave live all day\n- Measuring what an appliance actually uses, before deciding whether to do something about it\n\nThat covers almost everything people want a smart plug for. The exceptions above are exceptions precisely because they are unusual.\n\nFor those jobs, a compact plug sold for the Australian market is all that is needed. Check the rating printed on the body against the appliance before you commit to it, whichever you buy. [VERIFY]\n\n::product:meross-smart-wi-fi-plug-mini-au-mss210::\n\nIf part of the reason is finding out what an appliance actually costs to run, a plug with energy monitoring answers that question directly — and it is a far better use of a plug than switching something that should never be switched.\n\n::product:tp-link-tapo-p110-smart-plug-with-energy-monitoring::\n\nFor anything larger or permanently installed, the honest answer is that it is not a plug-in job at all. In-wall relays exist for exactly that, and fitting one is licensed electrical work in every Australian state and territory. [VERIFY]\n\n::product:shelly-1pm-gen3-wi-fi-power-relay::\n\n## If you are unsure\n\nCheck three things, in this order:\n\n1. **The appliance manual.** If it says do not use a timer or remote switch, that settles it.\n2. **The plug's rating**, against the appliance's draw. If it is close, do not.\n3. **What happens if it switches off at the worst moment.** If the answer is \"spoiled food\", \"an unheated aquarium\" or \"a medical device stops\", the plug is the wrong tool regardless of the electrical maths.\n\nNone of this makes smart plugs a risky product. It makes them a product with a specified limit, sold at a price that encourages people to ignore it.",
+    "keyTakeaways": "Two kinds of appliance do not belong on a smart plug: anything that draws close to the plug is rated for, and anything where an unexpected switch-off causes a problem. A heater is the first. A freezer or a medical device is the second.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/what-not-to-plug-into-a-smart-plug-australia.webp",
+    "coverImageAlt": "What You Should Never Plug Into a Smart Plug",
+    "postType": "informative",
+    "publishDate": "2026-08-05T00:00:00.000Z",
+    "dateModified": "2026-08-05T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Energy",
+      "Smart plugs",
+      "Safety",
+      "Buying advice"
+    ],
+    "readingTimeMinutes": 5,
+    "seoTitle": "What You Should Never Plug Into a Smart Plug",
+    "seoDescription": "Smart plugs are cheap, useful and occasionally a genuinely bad idea. The appliances to keep off them, why the current rating matters more than anything else",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/energy/what-not-to-plug-into-a-smart-plug-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:46.776Z",
+    "updatedAt": "2026-08-22T22:09:05.155Z",
+    "publishedAt": "2026-08-22T22:09:05.212Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3953,
+      "documentId": "tsudby17jgzzud3gn4o4ior0",
+      "name": "What You Should Never Plug Into a Smart Plug.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade.jpg",
+          "hash": "large_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade",
+          "mime": "image/jpeg",
+          "name": "large_What You Should Never Plug Into a Smart Plug.jpg",
+          "path": null,
+          "size": 47.18,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 47176
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade.jpg",
+          "hash": "small_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade",
+          "mime": "image/jpeg",
+          "name": "small_What You Should Never Plug Into a Smart Plug.jpg",
+          "path": null,
+          "size": 13.42,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13421
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade.jpg",
+          "hash": "medium_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade",
+          "mime": "image/jpeg",
+          "name": "medium_What You Should Never Plug Into a Smart Plug.jpg",
+          "path": null,
+          "size": 26.07,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 26071
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade.jpg",
+          "hash": "thumbnail_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade",
+          "mime": "image/jpeg",
+          "name": "thumbnail_What You Should Never Plug Into a Smart Plug.jpg",
+          "path": null,
+          "size": 4.5,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4498
+        }
+      },
+      "hash": "What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 139.53,
+      "url": "/uploads/What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T22:08:59.828Z",
+      "updatedAt": "2026-08-22T22:08:59.828Z",
+      "publishedAt": "2026-08-22T22:08:59.828Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1449,
+        "question": "Can I run a portable heater from a smart plug?",
+        "answer": "It is the appliance most often warned against, for two reasons. High-output heaters draw current close to the limit of a standard 10 amp plug, and a heater that switches on remotely can come on in an empty room with something resting against it. Many heater manufacturers specifically say not to use timers or remote switching. Check the appliance manual before you do it. [VERIFY]"
+      },
+      {
+        "order": 1,
+        "id": 1450,
+        "question": "Is it safe to plug a power board into a smart plug?",
+        "answer": "It defeats the point of the plug's rating. The smart plug is rated for a single load, and a power board invites several. It is also the arrangement most likely to end up overloaded quietly, because nobody adds up what is connected. Plug appliances directly."
+      },
+      {
+        "order": 2,
+        "id": 1451,
+        "question": "What about a fridge or freezer?",
+        "answer": "The risk is not electrical, it is silent failure. A plug that drops off the network, gets switched off by an automation, or loses power during setup takes the appliance with it, and you may not notice until food has spoiled. If you want to monitor a fridge, use an energy monitor that reports without switching."
+      },
+      {
+        "order": 3,
+        "id": 1452,
+        "question": "Can smart plugs handle motors and pumps?",
+        "answer": "Motors draw a surge of current when they start, well above their running draw. Some plugs handle it, some do not, and some relays fail closed over time under repeated switching. Check the manufacturer's guidance for the specific plug and appliance rather than assuming."
+      },
+      {
+        "order": 4,
+        "id": 1453,
+        "question": "Is any of this different in Australia?",
+        "answer": "The principle is the same everywhere, but the numbers are ours. Standard Australian general power outlets are rated to 10 amps at 230 volts, and Australian smart plugs are typically rated to match. Advice written for 120 volt markets does not translate directly. [VERIFY]"
+      }
+    ],
+    "categories": [
+      {
+        "id": 3,
+        "documentId": "x4x6ijm6yyzgidc7zrbnx1m2",
+        "name": "Energy",
+        "slug": "energy",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.748Z",
+        "updatedAt": "2026-08-22T18:30:53.633Z",
+        "publishedAt": "2026-08-22T18:30:53.631Z"
+      }
+    ],
+    "author": {
+      "id": 13,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": "2026-08-22T21:55:22.398Z"
+    }
+  },
+  "draft": {
+    "id": 67,
+    "documentId": "y98w8jba1385is568tebas5l",
+    "title": "What You Should Never Plug Into a Smart Plug",
+    "slug": "what-not-to-plug-into-a-smart-plug-australia",
+    "excerpt": "Smart plugs are cheap, useful and occasionally a genuinely bad idea. The appliances to keep off them, why the current rating matters more than anything else, and where the real risk sits.",
+    "content": "Smart plugs are the least glamorous and most useful thing in most smart homes. They are also the device most often used in a way the manufacturer did not intend, because they cost very little and look like they will run anything.\n\nThey will not. There are two categories of appliance to keep off them, and they fail in completely different ways.\n\n## Everything starts with the current rating\n\nA smart plug carries the full load of whatever is plugged into it. Australian general power outlets are rated to 10 amps, and Australian smart plugs are typically rated to match. [VERIFY] That figure is printed on the plug body and stated in its specifications, and it is a limit, not a target.\n\nMost household electronics are nowhere near it. A television, a lamp, a phone charger, a router, a fan — all trivial loads.\n\nThe appliances that get close are the ones that make heat or turn a motor. That is the whole list worth worrying about, and it is where the rest of this article sits.\n\n## Category one: anything that draws near the limit\n\n**Portable heaters.** Fan heaters, oil column heaters, radiant heaters. High-output models draw current close to the rating of a standard plug, and they do it continuously rather than in bursts. Many heater manufacturers explicitly say not to run their product through a timer, a remote switch or an extension lead — check the manual for the specific appliance, because this varies by model. [VERIFY]\n\n**Portable air conditioners.** Same problem, plus a compressor that surges on start-up.\n\n**Kettles, toasters and portable cooktops.** Short duty cycles, but high draw while running. There is also very little reason to automate them.\n\n**Clothes dryers and anything similar.** If it heats a room-sized volume of air, it is not a smart plug load.\n\nThe failure here is not subtle. An undersized or marginal connection carrying a heavy load generates heat at the connection point, and heat at a connection point is how electrical fires start. This is the part of the article worth taking literally.\n\n## Category two: anything that must not switch off unexpectedly\n\nThis second group is not about current at all. These appliances may draw almost nothing. The problem is that a smart plug introduces a new way for them to lose power — a firmware update, a dropped network, a mistyped automation, a voice command misheard in another room.\n\n**Fridges and freezers.** The classic example. Nothing dramatic happens when the power goes; you simply find out days later.\n\n**Medical equipment.** CPAP machines, oxygen concentrators, anything a household depends on. Do not put a remotely switchable device in that path.\n\n**Aquarium and pond pumps, reptile heat lamps.** Living things on a timer that can silently fail.\n\n**Anything mid-cycle.** A dishwasher, a washing machine or a 3D printer cut off partway through does not resume gracefully.\n\n**Network gear you rely on.** There is an argument for putting a router on a smart plug so it can be power-cycled remotely. Think it through first: if the router is down, the plug that controls it is unreachable too, unless it is Zigbee or Z-Wave on a hub with its own connection.\n\n## The arrangement to avoid entirely\n\nDo not plug a power board or an extension lead into a smart plug.\n\nThe plug is rated for one load. A power board is an invitation to connect several, and nobody adds up the total. It is the single easiest way to exceed a rating without noticing, and it is worse because the smart plug is doing the switching — repeatedly making and breaking a connection under a load it was never specified for.\n\nDaisy-chaining a smart plug into another smart plug is the same mistake with extra steps.\n\n## Motors deserve their own note\n\nMotors draw a surge when they start — well above their steady running draw. A pool pump, a compressor, a workshop tool.\n\nSome plugs cope with this. Some do not. And a relay switching a motor thousands of times may eventually fail, sometimes stuck closed, which means the plug reports \"off\" while the appliance runs. That is a failure mode worth knowing about before you rely on a plug to turn something off.\n\nIf you want to switch a large motor load on a schedule, that is a job for properly rated equipment, and in most cases it is fixed wiring — which is licensed electrician territory in every Australian state and territory. [VERIFY]\n\n## What smart plugs are genuinely good for\n\nThe list is long and boring, which is the point:\n\n- Lamps and floor lighting, especially in rented homes where wiring is not an option\n- Televisions, media gear and consoles with meaningful standby draw\n- Fans and air purifiers\n- Christmas lights and anything seasonal that would otherwise stay on\n- Chargers you would rather not leave live all day\n- Measuring what an appliance actually uses, before deciding whether to do something about it\n\nThat covers almost everything people want a smart plug for. The exceptions above are exceptions precisely because they are unusual.\n\nFor those jobs, a compact plug sold for the Australian market is all that is needed. Check the rating printed on the body against the appliance before you commit to it, whichever you buy. [VERIFY]\n\n::product:meross-smart-wi-fi-plug-mini-au-mss210::\n\nIf part of the reason is finding out what an appliance actually costs to run, a plug with energy monitoring answers that question directly — and it is a far better use of a plug than switching something that should never be switched.\n\n::product:tp-link-tapo-p110-smart-plug-with-energy-monitoring::\n\nFor anything larger or permanently installed, the honest answer is that it is not a plug-in job at all. In-wall relays exist for exactly that, and fitting one is licensed electrical work in every Australian state and territory. [VERIFY]\n\n::product:shelly-1pm-gen3-wi-fi-power-relay::\n\n## If you are unsure\n\nCheck three things, in this order:\n\n1. **The appliance manual.** If it says do not use a timer or remote switch, that settles it.\n2. **The plug's rating**, against the appliance's draw. If it is close, do not.\n3. **What happens if it switches off at the worst moment.** If the answer is \"spoiled food\", \"an unheated aquarium\" or \"a medical device stops\", the plug is the wrong tool regardless of the electrical maths.\n\nNone of this makes smart plugs a risky product. It makes them a product with a specified limit, sold at a price that encourages people to ignore it.",
+    "keyTakeaways": "Two kinds of appliance do not belong on a smart plug: anything that draws close to the plug is rated for, and anything where an unexpected switch-off causes a problem. A heater is the first. A freezer or a medical device is the second.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/what-not-to-plug-into-a-smart-plug-australia.webp",
+    "coverImageAlt": "What You Should Never Plug Into a Smart Plug",
+    "postType": "informative",
+    "publishDate": "2026-08-05T00:00:00.000Z",
+    "dateModified": "2026-08-05T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Energy",
+      "Smart plugs",
+      "Safety",
+      "Buying advice"
+    ],
+    "readingTimeMinutes": 5,
+    "seoTitle": "What You Should Never Plug Into a Smart Plug",
+    "seoDescription": "Smart plugs are cheap, useful and occasionally a genuinely bad idea. The appliances to keep off them, why the current rating matters more than anything else",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/energy/what-not-to-plug-into-a-smart-plug-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:46.776Z",
+    "updatedAt": "2026-08-22T22:09:05.155Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3953,
+      "documentId": "tsudby17jgzzud3gn4o4ior0",
+      "name": "What You Should Never Plug Into a Smart Plug.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade.jpg",
+          "hash": "large_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade",
+          "mime": "image/jpeg",
+          "name": "large_What You Should Never Plug Into a Smart Plug.jpg",
+          "path": null,
+          "size": 47.18,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 47176
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade.jpg",
+          "hash": "small_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade",
+          "mime": "image/jpeg",
+          "name": "small_What You Should Never Plug Into a Smart Plug.jpg",
+          "path": null,
+          "size": 13.42,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13421
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade.jpg",
+          "hash": "medium_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade",
+          "mime": "image/jpeg",
+          "name": "medium_What You Should Never Plug Into a Smart Plug.jpg",
+          "path": null,
+          "size": 26.07,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 26071
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade.jpg",
+          "hash": "thumbnail_What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade",
+          "mime": "image/jpeg",
+          "name": "thumbnail_What You Should Never Plug Into a Smart Plug.jpg",
+          "path": null,
+          "size": 4.5,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4498
+        }
+      },
+      "hash": "What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 139.53,
+      "url": "/uploads/What_You_Should_Never_Plug_Into_a_Smart_Plug_0421f48ade.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T22:08:59.828Z",
+      "updatedAt": "2026-08-22T22:08:59.828Z",
+      "publishedAt": "2026-08-22T22:08:59.828Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1291,
+        "question": "Can I run a portable heater from a smart plug?",
+        "answer": "It is the appliance most often warned against, for two reasons. High-output heaters draw current close to the limit of a standard 10 amp plug, and a heater that switches on remotely can come on in an empty room with something resting against it. Many heater manufacturers specifically say not to use timers or remote switching. Check the appliance manual before you do it. [VERIFY]"
+      },
+      {
+        "order": 1,
+        "id": 1292,
+        "question": "Is it safe to plug a power board into a smart plug?",
+        "answer": "It defeats the point of the plug's rating. The smart plug is rated for a single load, and a power board invites several. It is also the arrangement most likely to end up overloaded quietly, because nobody adds up what is connected. Plug appliances directly."
+      },
+      {
+        "order": 2,
+        "id": 1293,
+        "question": "What about a fridge or freezer?",
+        "answer": "The risk is not electrical, it is silent failure. A plug that drops off the network, gets switched off by an automation, or loses power during setup takes the appliance with it, and you may not notice until food has spoiled. If you want to monitor a fridge, use an energy monitor that reports without switching."
+      },
+      {
+        "order": 3,
+        "id": 1294,
+        "question": "Can smart plugs handle motors and pumps?",
+        "answer": "Motors draw a surge of current when they start, well above their running draw. Some plugs handle it, some do not, and some relays fail closed over time under repeated switching. Check the manufacturer's guidance for the specific plug and appliance rather than assuming."
+      },
+      {
+        "order": 4,
+        "id": 1295,
+        "question": "Is any of this different in Australia?",
+        "answer": "The principle is the same everywhere, but the numbers are ours. Standard Australian general power outlets are rated to 10 amps at 230 volts, and Australian smart plugs are typically rated to match. Advice written for 120 volt markets does not translate directly. [VERIFY]"
+      }
+    ],
+    "categories": [
+      {
+        "id": 3,
+        "documentId": "x4x6ijm6yyzgidc7zrbnx1m2",
+        "name": "Energy",
+        "slug": "energy",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.748Z",
+        "updatedAt": "2026-08-22T18:30:53.633Z",
+        "publishedAt": "2026-08-22T18:30:53.631Z"
+      }
+    ],
+    "author": {
+      "id": 4,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": null
+    }
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "published": {
+    "id": 158,
+    "documentId": "pe4wurwf69gcoh3dx0y7nltr",
+    "title": "Do Smart Home Devices Still Work When the Internet Drops?",
+    "slug": "smart-home-devices-without-internet",
+    "excerpt": "Some smart home devices keep working during an outage and some become useless plastic. The difference is where the decision is made, not what the box says.",
+    "content": "Australian internet has its moments. An NBN fault, a router reboot, a storm through the local exchange — and suddenly the question is whether your house still works.\n\nThe answer is not the same for every device, and it has almost nothing to do with price or brand. It comes down to one thing: **where the decision gets made.**\n\n## The only distinction that matters\n\nWhen you tap a button, something has to decide what happens.\n\n**Local control** means the decision is made inside your home. Your hub receives the command, works out which device to talk to, and sends it over a local radio. Nothing leaves the house. No internet required.\n\n**Cloud control** means the command travels to a manufacturer's server, which decides what should happen and sends an instruction back to the device. That round trip may cross the Pacific twice before your light comes on.\n\nCloud control is not stupid. It makes devices cheap, setup simple, and remote access trivial. But it means an internet outage — or the vendor having a bad day — breaks control of hardware sitting three metres away from you.\n\n## What keeps working\n\n**Zigbee, Z-Wave and Thread devices paired to a local hub.** These protocols do not use your internet connection at all. The mesh runs on its own radio, the hub coordinates it, and automations continue firing. If your sensors and lights are on one of these, an outage is close to a non-event inside the house.\n\nOur [protocol comparison](/hubs-and-platforms/zigbee-vs-zwave-vs-thread-vs-wifi/) covers how these differ if you are choosing.\n\n**Matter devices with a local controller.** Matter was designed around local operation on your own network. A Matter light controlled by an Apple, Google or Amazon hub in the house generally keeps responding. See [what Matter actually delivers](/hubs-and-platforms/what-is-matter-smart-home-australia/) for the caveats.\n\n**Anything physical.** Smart switches still work as switches. Smart bulbs still respond to the wall switch, provided the switch has not been permanently left on and hidden behind a wall plate. Smart locks still have a key or a keypad.\n\n**Schedules already stored on a hub.** If the automation lives locally, the clock keeps running.\n\n## What stops\n\n**Wi-Fi devices tied to a manufacturer cloud.** This is the largest category in most homes: budget plugs, bulbs, cameras and sensors that connect straight to your router and talk to a vendor server. When the internet goes, the app usually cannot reach them, even though your phone and the device are on the same Wi-Fi.\n\nSome brands include a local fallback that keeps same-network control alive. It is worth checking before you buy, and it is rarely advertised prominently.\n\n**Voice assistants.** Almost universally cloud-dependent, because the speech recognition happens on a server. This is the outage people notice first — asking for the lights and getting silence.\n\n**Remote access.** Obviously. Checking a camera from work needs a path to the internet by definition.\n\n**Cloud-to-cloud integrations.** Anything of the form \"when my doorbell sees someone, turn on my other brand's light\" typically routes through two vendors' servers. Those break early and recover unpredictably.\n\n## The failure mode nobody warns you about\n\nThere is a worse version of this than \"the app does not work\".\n\nSome Wi-Fi devices, when they cannot reach their server, do not simply refuse commands. They sit in a retry loop, become slow to respond to anything, or drop off the network entirely and need a power cycle to come back once the connection returns.\n\nThat turns a thirty-minute outage into a job. It is also why an outage sometimes appears to \"break\" devices that were working fine — they did not break, they lost their conversation partner and handled it badly.\n\nIf your devices already drop off Wi-Fi regularly, that is a related problem worth fixing first. Our guide on [devices that keep dropping off Wi-Fi](/setup-guides/fix-smart-home-wifi-dropouts/) covers the usual causes.\n\n## How to find out what you actually own\n\nYou do not need documentation. Test it.\n\n1. Turn off the internet at the router — **not** the whole router, just the WAN connection, or unplug the NBN box. Your local Wi-Fi must stay up.\n2. Wait a minute.\n3. Try the app, try a wall switch, try an automation.\n\nWhatever still responds is local. Whatever does not is cloud-dependent. Ten minutes tells you more than any spec sheet, and it costs nothing.\n\nWorth doing before you expand a system rather than after.\n\n## What to do with the answer\n\nYou do not need everything local. You need the right things local.\n\n**Worth insisting on local control:** lights on circulation paths, door locks, anything security-related, heating and cooling, and any automation that matters when you are asleep or away.\n\n**Fine to leave in the cloud:** novelties, seasonal lighting, anything you only ever operate deliberately while standing in front of it.\n\nThe practical middle path for most Australian homes is a hub that speaks Zigbee or Thread locally, with cloud devices layered on for the things that do not matter. That keeps the house functional during an outage without demanding you run a server.\n\nIf you want to go further than that, the end point is a house where every decision that matters is made locally and the cloud is a convenience rather than a dependency. That is a bigger build, and a separate decision from the one this article is about.\n\n<!--\n  Editorial maintenance notes (not reader-facing):\n  - \"Some brands include a local fallback\" is deliberately unnamed. Name specific\n    brands only after confirming current firmware behaviour — it changes between\n    releases and a wrong claim here is the kind readers notice. [VERIFY]\n  - The local-control claim for each major Matter controller is stated as\n    \"generally\" for the same reason. [VERIFY] before strengthening it.\n  - Pairs with local-only-smart-home-australia: this one answers the fear, that\n    one is the build guide. Link them once that draft is published.\n-->",
+    "keyTakeaways": "It depends entirely on whether the device thinks locally or asks a server. Zigbee, Z-Wave and Thread devices paired to a hub keep working with no internet at all. Most Wi-Fi devices that talk to a manufacturer cloud stop responding, including to their own wall switch in some cases.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/smart-home-devices-without-internet.webp",
+    "coverImageAlt": "Do Smart Home Devices Still Work When the Internet Drops?",
+    "postType": "informative",
+    "publishDate": "2026-08-03T00:00:00.000Z",
+    "dateModified": "2026-08-03T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Local control",
+      "Reliability",
+      "Hubs",
+      "Matter",
+      "Australia"
+    ],
+    "readingTimeMinutes": 5,
+    "seoTitle": "Do Smart Home Devices Still Work When the Internet Drops?",
+    "seoDescription": "Some smart home devices keep working during an outage and some become useless plastic. The difference is where the decision is made, not what the box says.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/hubs-and-platforms/smart-home-devices-without-internet/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:45.212Z",
+    "updatedAt": "2026-08-22T21:41:08.685Z",
+    "publishedAt": "2026-08-22T21:41:08.724Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3947,
+      "documentId": "vcujh7svqycrvljqpslsnss1",
+      "name": "Do Smart Home Devices Still Work When the Internet Drops.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959.jpg",
+          "hash": "large_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959",
+          "mime": "image/jpeg",
+          "name": "large_Do Smart Home Devices Still Work When the Internet Drops.jpg",
+          "path": null,
+          "size": 45.83,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 45834
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959.jpg",
+          "hash": "small_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959",
+          "mime": "image/jpeg",
+          "name": "small_Do Smart Home Devices Still Work When the Internet Drops.jpg",
+          "path": null,
+          "size": 16.23,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 16233
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959.jpg",
+          "hash": "medium_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959",
+          "mime": "image/jpeg",
+          "name": "medium_Do Smart Home Devices Still Work When the Internet Drops.jpg",
+          "path": null,
+          "size": 29.09,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 29085
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959.jpg",
+          "hash": "thumbnail_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Do Smart Home Devices Still Work When the Internet Drops.jpg",
+          "path": null,
+          "size": 6.07,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6071
+        }
+      },
+      "hash": "Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 104.99,
+      "url": "/uploads/Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T21:41:04.913Z",
+      "updatedAt": "2026-08-22T21:41:04.913Z",
+      "publishedAt": "2026-08-22T21:41:04.914Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1437,
+        "question": "Will my smart lights still turn on if the internet goes down?",
+        "answer": "If they are Zigbee, Z-Wave or Thread bulbs paired to a local hub, yes, including automations. If they are Wi-Fi bulbs that rely on a manufacturer cloud, usually no from the app, though some brands offer a limited local fallback on the same network. The physical wall switch always works if the bulb still has power."
+      },
+      {
+        "order": 1,
+        "id": 1438,
+        "question": "Does Matter fix this?",
+        "answer": "Largely, yes. Matter is designed around local control on your own network, so a Matter device controlled by a local hub generally keeps working without internet. You still lose remote access from outside the house, and any vendor feature that lives in the manufacturer app rather than in Matter."
+      },
+      {
+        "order": 2,
+        "id": 1439,
+        "question": "What stops working first in an outage?",
+        "answer": "Voice assistants, remote access and anything involving a cloud-to-cloud integration. Voice is the one people notice most, because the speaker needs to send your request away to be understood."
+      },
+      {
+        "order": 3,
+        "id": 1440,
+        "question": "Is Home Assistant the answer?",
+        "answer": "It is one answer. Running a local controller means the decision-making happens in your house, so automations survive an outage. It is more setup than most people want, and it introduces a single box you now depend on. A mainstream hub with local Zigbee or Thread gets most of the benefit for far less work."
+      }
+    ],
+    "categories": [
+      {
+        "id": 5,
+        "documentId": "rdw596573jt32mz2tvel8fjw",
+        "name": "Hubs & Platforms",
+        "slug": "hubs-and-platforms",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.866Z",
+        "updatedAt": "2026-08-22T18:30:53.710Z",
+        "publishedAt": "2026-08-22T18:30:53.708Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 37,
+    "documentId": "pe4wurwf69gcoh3dx0y7nltr",
+    "title": "Do Smart Home Devices Still Work When the Internet Drops?",
+    "slug": "smart-home-devices-without-internet",
+    "excerpt": "Some smart home devices keep working during an outage and some become useless plastic. The difference is where the decision is made, not what the box says.",
+    "content": "Australian internet has its moments. An NBN fault, a router reboot, a storm through the local exchange — and suddenly the question is whether your house still works.\n\nThe answer is not the same for every device, and it has almost nothing to do with price or brand. It comes down to one thing: **where the decision gets made.**\n\n## The only distinction that matters\n\nWhen you tap a button, something has to decide what happens.\n\n**Local control** means the decision is made inside your home. Your hub receives the command, works out which device to talk to, and sends it over a local radio. Nothing leaves the house. No internet required.\n\n**Cloud control** means the command travels to a manufacturer's server, which decides what should happen and sends an instruction back to the device. That round trip may cross the Pacific twice before your light comes on.\n\nCloud control is not stupid. It makes devices cheap, setup simple, and remote access trivial. But it means an internet outage — or the vendor having a bad day — breaks control of hardware sitting three metres away from you.\n\n## What keeps working\n\n**Zigbee, Z-Wave and Thread devices paired to a local hub.** These protocols do not use your internet connection at all. The mesh runs on its own radio, the hub coordinates it, and automations continue firing. If your sensors and lights are on one of these, an outage is close to a non-event inside the house.\n\nOur [protocol comparison](/hubs-and-platforms/zigbee-vs-zwave-vs-thread-vs-wifi/) covers how these differ if you are choosing.\n\n**Matter devices with a local controller.** Matter was designed around local operation on your own network. A Matter light controlled by an Apple, Google or Amazon hub in the house generally keeps responding. See [what Matter actually delivers](/hubs-and-platforms/what-is-matter-smart-home-australia/) for the caveats.\n\n**Anything physical.** Smart switches still work as switches. Smart bulbs still respond to the wall switch, provided the switch has not been permanently left on and hidden behind a wall plate. Smart locks still have a key or a keypad.\n\n**Schedules already stored on a hub.** If the automation lives locally, the clock keeps running.\n\n## What stops\n\n**Wi-Fi devices tied to a manufacturer cloud.** This is the largest category in most homes: budget plugs, bulbs, cameras and sensors that connect straight to your router and talk to a vendor server. When the internet goes, the app usually cannot reach them, even though your phone and the device are on the same Wi-Fi.\n\nSome brands include a local fallback that keeps same-network control alive. It is worth checking before you buy, and it is rarely advertised prominently.\n\n**Voice assistants.** Almost universally cloud-dependent, because the speech recognition happens on a server. This is the outage people notice first — asking for the lights and getting silence.\n\n**Remote access.** Obviously. Checking a camera from work needs a path to the internet by definition.\n\n**Cloud-to-cloud integrations.** Anything of the form \"when my doorbell sees someone, turn on my other brand's light\" typically routes through two vendors' servers. Those break early and recover unpredictably.\n\n## The failure mode nobody warns you about\n\nThere is a worse version of this than \"the app does not work\".\n\nSome Wi-Fi devices, when they cannot reach their server, do not simply refuse commands. They sit in a retry loop, become slow to respond to anything, or drop off the network entirely and need a power cycle to come back once the connection returns.\n\nThat turns a thirty-minute outage into a job. It is also why an outage sometimes appears to \"break\" devices that were working fine — they did not break, they lost their conversation partner and handled it badly.\n\nIf your devices already drop off Wi-Fi regularly, that is a related problem worth fixing first. Our guide on [devices that keep dropping off Wi-Fi](/setup-guides/fix-smart-home-wifi-dropouts/) covers the usual causes.\n\n## How to find out what you actually own\n\nYou do not need documentation. Test it.\n\n1. Turn off the internet at the router — **not** the whole router, just the WAN connection, or unplug the NBN box. Your local Wi-Fi must stay up.\n2. Wait a minute.\n3. Try the app, try a wall switch, try an automation.\n\nWhatever still responds is local. Whatever does not is cloud-dependent. Ten minutes tells you more than any spec sheet, and it costs nothing.\n\nWorth doing before you expand a system rather than after.\n\n## What to do with the answer\n\nYou do not need everything local. You need the right things local.\n\n**Worth insisting on local control:** lights on circulation paths, door locks, anything security-related, heating and cooling, and any automation that matters when you are asleep or away.\n\n**Fine to leave in the cloud:** novelties, seasonal lighting, anything you only ever operate deliberately while standing in front of it.\n\nThe practical middle path for most Australian homes is a hub that speaks Zigbee or Thread locally, with cloud devices layered on for the things that do not matter. That keeps the house functional during an outage without demanding you run a server.\n\nIf you want to go further than that, the end point is a house where every decision that matters is made locally and the cloud is a convenience rather than a dependency. That is a bigger build, and a separate decision from the one this article is about.\n\n<!--\n  Editorial maintenance notes (not reader-facing):\n  - \"Some brands include a local fallback\" is deliberately unnamed. Name specific\n    brands only after confirming current firmware behaviour — it changes between\n    releases and a wrong claim here is the kind readers notice. [VERIFY]\n  - The local-control claim for each major Matter controller is stated as\n    \"generally\" for the same reason. [VERIFY] before strengthening it.\n  - Pairs with local-only-smart-home-australia: this one answers the fear, that\n    one is the build guide. Link them once that draft is published.\n-->",
+    "keyTakeaways": "It depends entirely on whether the device thinks locally or asks a server. Zigbee, Z-Wave and Thread devices paired to a hub keep working with no internet at all. Most Wi-Fi devices that talk to a manufacturer cloud stop responding, including to their own wall switch in some cases.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/smart-home-devices-without-internet.webp",
+    "coverImageAlt": "Do Smart Home Devices Still Work When the Internet Drops?",
+    "postType": "informative",
+    "publishDate": "2026-08-03T00:00:00.000Z",
+    "dateModified": "2026-08-03T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Local control",
+      "Reliability",
+      "Hubs",
+      "Matter",
+      "Australia"
+    ],
+    "readingTimeMinutes": 5,
+    "seoTitle": "Do Smart Home Devices Still Work When the Internet Drops?",
+    "seoDescription": "Some smart home devices keep working during an outage and some become useless plastic. The difference is where the decision is made, not what the box says.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/hubs-and-platforms/smart-home-devices-without-internet/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:45.212Z",
+    "updatedAt": "2026-08-22T21:41:08.685Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3947,
+      "documentId": "vcujh7svqycrvljqpslsnss1",
+      "name": "Do Smart Home Devices Still Work When the Internet Drops.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959.jpg",
+          "hash": "large_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959",
+          "mime": "image/jpeg",
+          "name": "large_Do Smart Home Devices Still Work When the Internet Drops.jpg",
+          "path": null,
+          "size": 45.83,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 45834
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959.jpg",
+          "hash": "small_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959",
+          "mime": "image/jpeg",
+          "name": "small_Do Smart Home Devices Still Work When the Internet Drops.jpg",
+          "path": null,
+          "size": 16.23,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 16233
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959.jpg",
+          "hash": "medium_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959",
+          "mime": "image/jpeg",
+          "name": "medium_Do Smart Home Devices Still Work When the Internet Drops.jpg",
+          "path": null,
+          "size": 29.09,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 29085
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959.jpg",
+          "hash": "thumbnail_Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Do Smart Home Devices Still Work When the Internet Drops.jpg",
+          "path": null,
+          "size": 6.07,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6071
+        }
+      },
+      "hash": "Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 104.99,
+      "url": "/uploads/Do_Smart_Home_Devices_Still_Work_When_the_Internet_Drops_84023de959.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T21:41:04.913Z",
+      "updatedAt": "2026-08-22T21:41:04.913Z",
+      "publishedAt": "2026-08-22T21:41:04.914Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1187,
+        "question": "Will my smart lights still turn on if the internet goes down?",
+        "answer": "If they are Zigbee, Z-Wave or Thread bulbs paired to a local hub, yes, including automations. If they are Wi-Fi bulbs that rely on a manufacturer cloud, usually no from the app, though some brands offer a limited local fallback on the same network. The physical wall switch always works if the bulb still has power."
+      },
+      {
+        "order": 1,
+        "id": 1188,
+        "question": "Does Matter fix this?",
+        "answer": "Largely, yes. Matter is designed around local control on your own network, so a Matter device controlled by a local hub generally keeps working without internet. You still lose remote access from outside the house, and any vendor feature that lives in the manufacturer app rather than in Matter."
+      },
+      {
+        "order": 2,
+        "id": 1189,
+        "question": "What stops working first in an outage?",
+        "answer": "Voice assistants, remote access and anything involving a cloud-to-cloud integration. Voice is the one people notice most, because the speaker needs to send your request away to be understood."
+      },
+      {
+        "order": 3,
+        "id": 1190,
+        "question": "Is Home Assistant the answer?",
+        "answer": "It is one answer. Running a local controller means the decision-making happens in your house, so automations survive an outage. It is more setup than most people want, and it introduces a single box you now depend on. A mainstream hub with local Zigbee or Thread gets most of the benefit for far less work."
+      }
+    ],
+    "categories": [
+      {
+        "id": 5,
+        "documentId": "rdw596573jt32mz2tvel8fjw",
+        "name": "Hubs & Platforms",
+        "slug": "hubs-and-platforms",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.866Z",
+        "updatedAt": "2026-08-22T18:30:53.710Z",
+        "publishedAt": "2026-08-22T18:30:53.708Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}

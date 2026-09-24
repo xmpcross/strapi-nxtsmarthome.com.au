@@ -37,9 +37,18 @@ These apply to every output — articles, product files, meta descriptions, UI c
 5. **Be honest about hands-on testing.** Never fabricate test results. Do not write a
    star `rating:` unless the device has genuinely been tested — an unearned rating
    implies testing that did not happen. Leave the field out otherwise.
-6. **Flag legal and safety claims for human fact-check.** Electrical work, privacy and
-   surveillance, tenancy. Never state law as settled without a `[VERIFY]` tag.
-7. **Mark unverifiable figures** — search volume, price, spec — with `[VERIFY]`.
+6. **Flag legal and safety claims for human fact-check — in drafts only.** Electrical
+   work, privacy and surveillance, tenancy. While drafting, tag any such claim
+   `[VERIFY]`. A post must have **zero `[VERIFY]` tags before it is published**: the
+   site refuses to render a tagged post (it 404s and drops out of every listing, via
+   `lib/editorial-guard.mjs`). Resolve each tag before publishing: confirm the claim
+   against the official source, or remove it, or rewrite it to point readers to that
+   source (e.g. "check your state's electrical safety regulator"). Never state law as
+   settled.
+7. **Mark unverifiable figures in drafts** — search volume, price, spec — with
+   `[VERIFY]`, and resolve them the same way before publishing: a confirmed figure
+   with its source, no figure, or a pointer to where readers can check it. The same
+   guard blocks TODO, TBD, "lorem ipsum" and template placeholder text.
 8. **Every article must feature real products from the catalogue.** Any new or
    rewritten article carries at least two `::product:<slug>::` markers, drawn
    from products that actually appear under `/products/` — the catalogue in

@@ -1,0 +1,318 @@
+{
+  "published": {
+    "id": 159,
+    "documentId": "e6s2i3bwbcdpdvpcv3jpsbwq",
+    "title": "Do Overseas Smart Home Devices Work in Australia?",
+    "slug": "overseas-smart-home-devices-australia",
+    "excerpt": "Imported smart home gear can be a bargain or a brick. Four things decide which one you get — and only one of them is fixed by an adaptor.",
+    "content": "An imported smart home device is often noticeably cheaper, and the listing rarely mentions which market it was built for. Sometimes it arrives and works perfectly. Sometimes it arrives and cannot be made to work by any means.\n\nThe difference is not luck. Four things decide it, and they fail in very different ways.\n\n## 1. The plug, and what an adaptor does not fix\n\nAustralia uses the AS/NZS 3112 plug — two flat pins angled into a V, with a third vertical earth pin. Almost nowhere else uses it.\n\nA travel adaptor changes the pin shape. That is all it does. It does not change voltage, and it does not confer electrical approval.\n\nFor a **plug-in mains device** — a smart plug, an in-line switch, a powerboard — that matters twice over:\n\n- **Voltage.** Australia runs 230 V nominal at 50 Hz. A device built for the US market expects a nominal 120 V at 60 Hz. Running it from Australian mains through a passive adaptor applies roughly double the voltage it was designed for. European and UK devices are much closer on voltage but are still not sold into this market.\n- **Approval.** Electrical equipment sold in Australia has to meet local requirements, which is what the Regulatory Compliance Mark on the packaging indicates. An imported unit will not carry it.\n\nThis is the one category where importing is genuinely a bad idea rather than merely inconvenient. [VERIFY] the current electrical equipment safety requirements for your state before relying on any specific rule — the framework is national but administered by each state and territory.\n\n**Low-voltage devices that run from USB** sidestep the problem entirely, because the power supply is the only mains-connected part and you can use a local one.\n\n## 2. The radio, and the one protocol that cannot be fixed\n\nThis is the failure that surprises people, because the device looks perfect and simply refuses to pair.\n\n**Z-Wave uses different frequency allocations in different regions, and Australia and New Zealand have their own.** A Z-Wave sensor bought for the US or European market cannot join an Australian Z-Wave network. The two radios are not listening on the same frequency, so they never hear each other.\n\nNothing fixes this. Not a firmware update, not a setting, not a different hub. The radio hardware is wrong for where you live. Our [protocol comparison](/hubs-and-platforms/zigbee-vs-zwave-vs-thread-vs-wifi/) covers this in more detail, because it is the strongest argument for checking the protocol before you check the price.\n\n**Zigbee, Thread and Matter over Thread** all operate in the 2.4 GHz band, which is consistent internationally. An imported Zigbee sensor will generally pair with an Australian Zigbee hub without complaint.\n\n**Wi-Fi** devices are also usually 2.4 GHz in this category, and that band is consistent enough not to be the thing that breaks. Some 5 GHz channel allocations differ by country, but smart home gear rarely depends on them.\n\n## 3. The app region\n\nA device can be electrically fine and on the right radio, and still be useless because the app will not accept it.\n\nSome manufacturers tie an account to a region and will not let a device registered in one region be added in another. Others ship separate app builds per market. You find out after the box is open.\n\nThere is no way to check this from a listing. The practical test is whether the manufacturer sells the same model into Australia — if they do, the app supports the region.\n\n## 4. Fittings and physical fit\n\nTwo Australian specifics catch imported gear:\n\n- **Bulb fittings.** B22 bayonet remains common here alongside E27 screw. Imported bulbs are usually E27 or E26, and E26 is not the same as E27 even though it looks close enough to try.\n- **Wall plate dimensions.** Australian switch plates follow local sizing. An imported smart switch will not necessarily line up with an existing wall opening.\n\nAnything involving fixed wiring is licensed work in Australia regardless of where the device came from — see [what you can legally do yourself](/setup-guides/smart-home-electrical-work-australia-legal/).\n\n## The short decision\n\nBefore buying from an overseas seller, ask two questions in this order.\n\n**Is it mains-powered?** If yes, buy the Australian model. The saving is not worth the voltage and approval problem.\n\n**Is it Z-Wave?** If yes, buy the Australian model. Anything else will not pair, at any price.\n\nIf the answer to both is no — a battery sensor, a USB-powered device, something on Zigbee, Thread or Wi-Fi — importing is usually fine, with app region the remaining unknown.\n\nThe general principle holds beyond smart home gear: the closer a device gets to your wiring, the more the market it was built for matters. A battery-powered door sensor barely cares. A smart plug cares a great deal.\n\n<!--\n  Editorial maintenance notes (not reader-facing):\n  - Specific Z-Wave frequency figures are deliberately not quoted. The regional\n    split is the durable fact; exact MHz values should be checked against current\n    Z-Wave Alliance documentation before being stated. [VERIFY]\n  - Electrical approval is described in general terms and flagged, because the\n    framework is national but administered per state. [VERIFY] before tightening.\n  - The B22/E27 point should link to b22-vs-e27-smart-bulb-fittings-australia\n    once that draft is published.\n-->",
+    "keyTakeaways": "Mains-powered devices fail on the plug and on electrical approval, not just on voltage. Z-Wave fails on radio frequency and cannot be fixed at all. Wi-Fi, Zigbee, Thread and Matter devices usually work fine. Check which of the four applies before you buy.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/overseas-smart-home-devices-australia.webp",
+    "coverImageAlt": "Do Overseas Smart Home Devices Work in Australia?",
+    "postType": "informative",
+    "publishDate": "2026-08-04T00:00:00.000Z",
+    "dateModified": "2026-08-04T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Buying advice",
+      "Australia",
+      "Z-Wave",
+      "Standards",
+      "Imports"
+    ],
+    "readingTimeMinutes": 4,
+    "seoTitle": "Do Overseas Smart Home Devices Work in Australia?",
+    "seoDescription": "Imported smart home gear can be a bargain or a brick. Four things decide which one you get — and only one of them is fixed by an adaptor.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/buying-guides/overseas-smart-home-devices-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:44.000Z",
+    "updatedAt": "2026-08-22T21:57:38.123Z",
+    "publishedAt": "2026-08-22T21:57:38.160Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3951,
+      "documentId": "fpn5z38kiyqv8xgtl4z10sn9",
+      "name": "Do Overseas Smart Home Devices Work in Australia.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d.jpg",
+          "hash": "large_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d",
+          "mime": "image/jpeg",
+          "name": "large_Do Overseas Smart Home Devices Work in Australia.jpg",
+          "path": null,
+          "size": 47.79,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 47789
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d.jpg",
+          "hash": "small_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d",
+          "mime": "image/jpeg",
+          "name": "small_Do Overseas Smart Home Devices Work in Australia.jpg",
+          "path": null,
+          "size": 16.72,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 16720
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d.jpg",
+          "hash": "medium_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d",
+          "mime": "image/jpeg",
+          "name": "medium_Do Overseas Smart Home Devices Work in Australia.jpg",
+          "path": null,
+          "size": 30.86,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 30858
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d.jpg",
+          "hash": "thumbnail_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Do Overseas Smart Home Devices Work in Australia.jpg",
+          "path": null,
+          "size": 5.83,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5832
+        }
+      },
+      "hash": "Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 111.6,
+      "url": "/uploads/Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T21:57:34.764Z",
+      "updatedAt": "2026-08-22T21:57:34.764Z",
+      "publishedAt": "2026-08-22T21:57:34.765Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1441,
+        "question": "Can I just use a travel adaptor on an imported smart plug?",
+        "answer": "A travel adaptor changes the pin shape and nothing else. It does not convert voltage, and it does not give the device Australian electrical approval. For a mains-powered device built for the US market, an adaptor alone is the wrong answer. Buy the model sold into the Australian market instead."
+      },
+      {
+        "order": 1,
+        "id": 1442,
+        "question": "Why will my imported Z-Wave devices not pair?",
+        "answer": "Z-Wave uses a different radio frequency in different regions, and Australia and New Zealand sit on their own allocation. A device built for the US or European market cannot talk to an Australian Z-Wave hub, because the radios are not listening on the same frequency. This is a hardware difference, so no firmware update, app setting or adaptor fixes it."
+      },
+      {
+        "order": 2,
+        "id": 1443,
+        "question": "Do imported Zigbee, Thread or Matter devices work here?",
+        "answer": "Usually yes. Those run in the 2.4 GHz band, which is consistent internationally, so the radio side is not the problem. What can still bite is a device locked to an overseas app region, or a mains-powered unit with the wrong plug."
+      },
+      {
+        "order": 3,
+        "id": 1444,
+        "question": "What about warranty on something bought overseas?",
+        "answer": "Australian Consumer Law guarantees apply to goods bought from businesses selling into Australia. Buying direct from an overseas seller makes those rights considerably harder to enforce in practice, whatever the seller's own warranty says. [VERIFY] the current position with the ACCC before relying on it for an expensive purchase."
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "documentId": "fznrs0xa43imqgijen01hgus",
+        "name": "Buying Guides",
+        "slug": "buying-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.609Z",
+        "updatedAt": "2026-08-22T18:30:53.551Z",
+        "publishedAt": "2026-08-22T18:30:53.546Z"
+      }
+    ],
+    "author": {
+      "id": 13,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": "2026-08-22T21:55:22.398Z"
+    }
+  },
+  "draft": {
+    "id": 18,
+    "documentId": "e6s2i3bwbcdpdvpcv3jpsbwq",
+    "title": "Do Overseas Smart Home Devices Work in Australia?",
+    "slug": "overseas-smart-home-devices-australia",
+    "excerpt": "Imported smart home gear can be a bargain or a brick. Four things decide which one you get — and only one of them is fixed by an adaptor.",
+    "content": "An imported smart home device is often noticeably cheaper, and the listing rarely mentions which market it was built for. Sometimes it arrives and works perfectly. Sometimes it arrives and cannot be made to work by any means.\n\nThe difference is not luck. Four things decide it, and they fail in very different ways.\n\n## 1. The plug, and what an adaptor does not fix\n\nAustralia uses the AS/NZS 3112 plug — two flat pins angled into a V, with a third vertical earth pin. Almost nowhere else uses it.\n\nA travel adaptor changes the pin shape. That is all it does. It does not change voltage, and it does not confer electrical approval.\n\nFor a **plug-in mains device** — a smart plug, an in-line switch, a powerboard — that matters twice over:\n\n- **Voltage.** Australia runs 230 V nominal at 50 Hz. A device built for the US market expects a nominal 120 V at 60 Hz. Running it from Australian mains through a passive adaptor applies roughly double the voltage it was designed for. European and UK devices are much closer on voltage but are still not sold into this market.\n- **Approval.** Electrical equipment sold in Australia has to meet local requirements, which is what the Regulatory Compliance Mark on the packaging indicates. An imported unit will not carry it.\n\nThis is the one category where importing is genuinely a bad idea rather than merely inconvenient. [VERIFY] the current electrical equipment safety requirements for your state before relying on any specific rule — the framework is national but administered by each state and territory.\n\n**Low-voltage devices that run from USB** sidestep the problem entirely, because the power supply is the only mains-connected part and you can use a local one.\n\n## 2. The radio, and the one protocol that cannot be fixed\n\nThis is the failure that surprises people, because the device looks perfect and simply refuses to pair.\n\n**Z-Wave uses different frequency allocations in different regions, and Australia and New Zealand have their own.** A Z-Wave sensor bought for the US or European market cannot join an Australian Z-Wave network. The two radios are not listening on the same frequency, so they never hear each other.\n\nNothing fixes this. Not a firmware update, not a setting, not a different hub. The radio hardware is wrong for where you live. Our [protocol comparison](/hubs-and-platforms/zigbee-vs-zwave-vs-thread-vs-wifi/) covers this in more detail, because it is the strongest argument for checking the protocol before you check the price.\n\n**Zigbee, Thread and Matter over Thread** all operate in the 2.4 GHz band, which is consistent internationally. An imported Zigbee sensor will generally pair with an Australian Zigbee hub without complaint.\n\n**Wi-Fi** devices are also usually 2.4 GHz in this category, and that band is consistent enough not to be the thing that breaks. Some 5 GHz channel allocations differ by country, but smart home gear rarely depends on them.\n\n## 3. The app region\n\nA device can be electrically fine and on the right radio, and still be useless because the app will not accept it.\n\nSome manufacturers tie an account to a region and will not let a device registered in one region be added in another. Others ship separate app builds per market. You find out after the box is open.\n\nThere is no way to check this from a listing. The practical test is whether the manufacturer sells the same model into Australia — if they do, the app supports the region.\n\n## 4. Fittings and physical fit\n\nTwo Australian specifics catch imported gear:\n\n- **Bulb fittings.** B22 bayonet remains common here alongside E27 screw. Imported bulbs are usually E27 or E26, and E26 is not the same as E27 even though it looks close enough to try.\n- **Wall plate dimensions.** Australian switch plates follow local sizing. An imported smart switch will not necessarily line up with an existing wall opening.\n\nAnything involving fixed wiring is licensed work in Australia regardless of where the device came from — see [what you can legally do yourself](/setup-guides/smart-home-electrical-work-australia-legal/).\n\n## The short decision\n\nBefore buying from an overseas seller, ask two questions in this order.\n\n**Is it mains-powered?** If yes, buy the Australian model. The saving is not worth the voltage and approval problem.\n\n**Is it Z-Wave?** If yes, buy the Australian model. Anything else will not pair, at any price.\n\nIf the answer to both is no — a battery sensor, a USB-powered device, something on Zigbee, Thread or Wi-Fi — importing is usually fine, with app region the remaining unknown.\n\nThe general principle holds beyond smart home gear: the closer a device gets to your wiring, the more the market it was built for matters. A battery-powered door sensor barely cares. A smart plug cares a great deal.\n\n<!--\n  Editorial maintenance notes (not reader-facing):\n  - Specific Z-Wave frequency figures are deliberately not quoted. The regional\n    split is the durable fact; exact MHz values should be checked against current\n    Z-Wave Alliance documentation before being stated. [VERIFY]\n  - Electrical approval is described in general terms and flagged, because the\n    framework is national but administered per state. [VERIFY] before tightening.\n  - The B22/E27 point should link to b22-vs-e27-smart-bulb-fittings-australia\n    once that draft is published.\n-->",
+    "keyTakeaways": "Mains-powered devices fail on the plug and on electrical approval, not just on voltage. Z-Wave fails on radio frequency and cannot be fixed at all. Wi-Fi, Zigbee, Thread and Matter devices usually work fine. Check which of the four applies before you buy.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/overseas-smart-home-devices-australia.webp",
+    "coverImageAlt": "Do Overseas Smart Home Devices Work in Australia?",
+    "postType": "informative",
+    "publishDate": "2026-08-04T00:00:00.000Z",
+    "dateModified": "2026-08-04T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Buying advice",
+      "Australia",
+      "Z-Wave",
+      "Standards",
+      "Imports"
+    ],
+    "readingTimeMinutes": 4,
+    "seoTitle": "Do Overseas Smart Home Devices Work in Australia?",
+    "seoDescription": "Imported smart home gear can be a bargain or a brick. Four things decide which one you get — and only one of them is fixed by an adaptor.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/buying-guides/overseas-smart-home-devices-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:44.000Z",
+    "updatedAt": "2026-08-22T21:57:38.123Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3951,
+      "documentId": "fpn5z38kiyqv8xgtl4z10sn9",
+      "name": "Do Overseas Smart Home Devices Work in Australia.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d.jpg",
+          "hash": "large_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d",
+          "mime": "image/jpeg",
+          "name": "large_Do Overseas Smart Home Devices Work in Australia.jpg",
+          "path": null,
+          "size": 47.79,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 47789
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d.jpg",
+          "hash": "small_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d",
+          "mime": "image/jpeg",
+          "name": "small_Do Overseas Smart Home Devices Work in Australia.jpg",
+          "path": null,
+          "size": 16.72,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 16720
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d.jpg",
+          "hash": "medium_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d",
+          "mime": "image/jpeg",
+          "name": "medium_Do Overseas Smart Home Devices Work in Australia.jpg",
+          "path": null,
+          "size": 30.86,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 30858
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d.jpg",
+          "hash": "thumbnail_Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Do Overseas Smart Home Devices Work in Australia.jpg",
+          "path": null,
+          "size": 5.83,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5832
+        }
+      },
+      "hash": "Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 111.6,
+      "url": "/uploads/Do_Overseas_Smart_Home_Devices_Work_in_Australia_18a161815d.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T21:57:34.764Z",
+      "updatedAt": "2026-08-22T21:57:34.764Z",
+      "publishedAt": "2026-08-22T21:57:34.765Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1132,
+        "question": "Can I just use a travel adaptor on an imported smart plug?",
+        "answer": "A travel adaptor changes the pin shape and nothing else. It does not convert voltage, and it does not give the device Australian electrical approval. For a mains-powered device built for the US market, an adaptor alone is the wrong answer. Buy the model sold into the Australian market instead."
+      },
+      {
+        "order": 1,
+        "id": 1133,
+        "question": "Why will my imported Z-Wave devices not pair?",
+        "answer": "Z-Wave uses a different radio frequency in different regions, and Australia and New Zealand sit on their own allocation. A device built for the US or European market cannot talk to an Australian Z-Wave hub, because the radios are not listening on the same frequency. This is a hardware difference, so no firmware update, app setting or adaptor fixes it."
+      },
+      {
+        "order": 2,
+        "id": 1134,
+        "question": "Do imported Zigbee, Thread or Matter devices work here?",
+        "answer": "Usually yes. Those run in the 2.4 GHz band, which is consistent internationally, so the radio side is not the problem. What can still bite is a device locked to an overseas app region, or a mains-powered unit with the wrong plug."
+      },
+      {
+        "order": 3,
+        "id": 1135,
+        "question": "What about warranty on something bought overseas?",
+        "answer": "Australian Consumer Law guarantees apply to goods bought from businesses selling into Australia. Buying direct from an overseas seller makes those rights considerably harder to enforce in practice, whatever the seller's own warranty says. [VERIFY] the current position with the ACCC before relying on it for an expensive purchase."
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "documentId": "fznrs0xa43imqgijen01hgus",
+        "name": "Buying Guides",
+        "slug": "buying-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.609Z",
+        "updatedAt": "2026-08-22T18:30:53.551Z",
+        "publishedAt": "2026-08-22T18:30:53.546Z"
+      }
+    ],
+    "author": {
+      "id": 4,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": null
+    }
+  }
+}

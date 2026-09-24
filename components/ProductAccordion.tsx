@@ -3,7 +3,7 @@
 import { useEffect, useId, useState } from 'react';
 import Link from 'next/link';
 import { bulletsOf } from '@/lib/bullets';
-import { isFeatureSpec } from '@/lib/feature-specs';
+import { featureItems, isFeatureSpec } from '@/lib/feature-specs';
 import { splitDescriptionFaqs } from '@/lib/description-faq';
 import DescriptionFaqs from '@/components/DescriptionFaqs';
 import type { TopProduct } from '@/lib/products';
@@ -121,9 +121,10 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
     : null;
 
   const allSpecs = product.specifications || [];
-  // Feature-type specs are shown under Highlights (components/ProductHighlights.tsx),
-  // so they are not repeated in Specifications.
+  // Feature-type specs are listed under their own "Features" heading below the
+  // specification table, not as table rows (user request, 24 Sep 2026).
   const detailSpecs = allSpecs.filter((s) => !isFeatureSpec(s.name));
+  const featureSpecs = allSpecs.filter((s) => isFeatureSpec(s.name));
 
   /* Escape closes an open peek. A slide-over covering the page with no keyboard
      way out is a trap for anyone not using a mouse. */
@@ -215,11 +216,40 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
               <SpecRow key={spec.label} label={spec.label} value={spec.value} />
             ))}
             {/* Manufacturer specifications from the Google Shopping catalogue.
-                Feature-style entries live in the Features panel instead. */}
+                Feature-style entries are listed under Features, below. */}
             {detailSpecs.map((spec) => (
               <SpecRow key={`mfr-${spec.name}`} label={spec.name} value={spec.value} />
             ))}
           </dl>
+
+          {featureSpecs.length ? (
+            <div className="mt-6">
+              <h3 className="mb-3 text-base font-bold text-[#1d252c] dark:text-white">Features</h3>
+              <ul className="space-y-4">
+                {featureSpecs.map((spec) => {
+                  const items = featureItems(spec.value);
+                  return (
+                    <li key={spec.name}>
+                      <h4 className="text-sm font-bold text-[#1d252c] dark:text-white">{spec.name}</h4>
+                      {items.length > 1 ? (
+                        <ul className="mt-1.5 space-y-1">
+                          {items.map((item) => (
+                            <li key={item} className="flex gap-2 text-sm text-[#55555a] dark:text-slate-300">
+                              <span className="text-primary-600" aria-hidden="true">✓</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="mt-1 text-sm text-[#55555a] dark:text-slate-300">{spec.value}</p>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ) : null}
+
           {detailSpecs.length ? (
             <p className="mt-4 text-xs text-[#55555a] dark:text-slate-400">
               Specifications are sourced from the manufacturer listing. Confirm details on the

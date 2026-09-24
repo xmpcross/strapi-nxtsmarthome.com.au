@@ -635,3 +635,855 @@ The differences:
   cons ≥ 2, 300+ words including shortDescription) than the live
   `productEditorial()` (150+ words). The script mirrors the live rule; if Task 2
   changes it, update the replica in the script too.
+
+---
+
+## 24 September 2026: Task 1, off-topic products removed
+
+**Removed** from `public/data/products.json` (205 → 199 products), along with
+their images in `public/images/products/`:
+- `bosch-pof-1200-ae-1200w-corded-router`
+- `ryobi-400w-trim-router-rtr400-s`
+- `ryobi-1600w-plunge-router-rrt1600-s`
+- `ozito-850w-router`
+- `ozito-pxc-18v-brushless-trim-router-pxblts-018`
+- `electric-wood-trimmer-hand-router-trimmer`
+
+No `content/products/*.md` files existed for them, and nothing generated at
+build time indexes products.
+
+**References:** none. None of the six appears in the repo's article drafts, or
+in any of the 69 published and 70 draft Strapi posts (checked for
+`::product:` markers and links). So there are no Strapi edits to make.
+
+**Redirects:** `data/redirects-adsense.json` (new, `[{ from, to, reason }]`)
+sends each `/products/<slug>/` to `/products/category/hubs-and-platforms/`.
+The file feeds two places, and both forms (with and without the trailing
+slash) are covered:
+- `next.config.mjs`, as `redirects()` with `permanent: true`;
+- `scripts/gen-redirects.mjs`, which writes the rules into
+  `public/_redirects` and nginx's `_redirects.map`.
+
+`scripts/audit-thin-content.mjs` reads only the article entries from that
+file, so these product entries don't affect its article checks.
+
+**Root cause:** `scripts/import-category-products.mjs` accepted any Google
+Shopping result with a title, price, image and Australian retailer. Nothing
+checked it was a smart home product, so the "Thread border router Australia"
+query brought in Bunnings woodworking routers.
+
+**The fix is a new guard, `lib/catalogue-guard.mjs`** (`offTopicReason(title,
+category)`). It is used by both keyword-search importers
+(`import-category-products.mjs` and `fetch-top-products.mjs`) and by the
+audit. It rejects:
+- "router" without a networking signal (Wi-Fi, mesh, Thread, Matter, Zigbee,
+  modem, NBN and similar);
+- power-tool and workshop terms (trim, plunge, corded router, wood, trimmer,
+  drill, saw and so on);
+- power-tool brands, but only in Hubs & Platforms. Bosch also makes the smart
+  thermostat in the catalogue, so a global brand ban would be wrong.
+
+Tested against the catalogue as it was before the removal: it flags exactly
+these six and nothing else, and lets through a mesh Wi-Fi router, a Thread
+border router and the Bosch thermostat.
+
+**Checks:** `npm run build` passes. `npm run audit:thin` reports **OFF-TOPIC
+= 0**, with 198 products (199 minus the disabled HomePod): 23 THIN - EMPTY,
+175 THIN, none indexable. On a test server, all six URLs redirect to the Hubs
+category, and it no longer lists them. **Not deployed.**
+
+**Also in this change:** the product page's Features list moved from the
+Highlights card to the Specifications panel, below the spec table (user
+request).
+
+---
+
+## 24 September 2026: Task 2, product quality gate
+
+**The rule** is `isIndexableProduct(product)` in `lib/products.ts`. A product
+page is indexable only with all of:
+- a curated file, `content/products/<slug>.md`;
+- a non-empty bestFor line, at least 3 pros and at least 2 cons;
+- 300+ words of original text, measured by `originalWordCount(product)`.
+
+**What counts as original text:** the curated body (HTML comments excluded),
+bestFor, pros, cons and the shortDescription blurb. The long description counts
+only when it's our rewrite (`descriptionRewrite.model`). For the 63 products
+not rewritten, that field holds the old generated template ("… is a X option
+for shoppers comparing current deals"), which isn't original writing. Scraped
+descriptions, specs, retailer data and reviews never count.
+
+**Replaces the earlier rule:** `productEditorial()`, which asked for only 150
+words and no minimum number of pros or cons. `scripts/audit-thin-content.mjs`
+carries a copy of the rule, since it can't import TypeScript; change both
+together.
+
+**Quick check:** `node scripts/check-original-words.mts` (new) passed all 6
+expectations on three products: the Echo (rewritten, 671 words), the eufy
+C220 (template description not counted, 35 words) and the curated
+`apple-homepod` file (131 words, 4 pros and 3 cons, so not indexable).
+
+**Where it applies:**
+- **Product pages** (`app/products/[slug]`): non-indexable pages are
+  `noindex, follow`, and show "Price listing — not a review. See our guides
+  for recommendations." The link goes to that category's article list.
+- **Meta description** (indexable pages only): bestFor plus the first sentence
+  of the curated verdict. Noindexed pages keep a plain line: "Where to buy X
+  in Australia. Compare prices at Australian retailers."
+- **Empty listings (under 50 words, `isEmptyListing`):** kept out of the
+  `/products/` hub, the category lists, related products, the HTML sitemap and
+  article product boxes. Their URLs still work (200, noindex).
+- **`app/sitemap.ts`:** only indexable products; only product-category pages
+  with 3 or more indexable products; the hub only if it lists an indexable
+  product.
+- **`/products/` hub and `/products/category/*`:** `noindex, follow` when they
+  list no indexable product.
+
+**Counts after the build**, from `npm run audit:thin` and a test server:
+- **Indexable product URLs: 0.** The task expected possibly 3, but none of the
+  3 curated files shares a slug with a catalogue product, and the most any of
+  them has is 131 words.
+- **Sitemap: 62 URLs**, down from 64: no product pages, no product-category
+  pages, and the hub dropped out as noindex.
+- **THIN - EMPTY: 63** (the reference CSV says 37). The difference is that the
+  template text is no longer counted. These are exactly the 63 products held
+  back from the description rewrite. THIN: 135 (no curated file, so no pros or
+  cons).
+- **Checked on a test server:** empty products return 200 with noindex, and
+  none is linked from the hub. The hub and category pages are noindex.
+
+**Needs a decision:** 33 of the 153 product boxes in published articles point
+at empty products, and now render nothing. Two live articles fall below
+CLAUDE.md rule 8's minimum of 2 boxes:
+- `smart-lock-compatibility-australian-doors` (3 → 1 box: eufy C220 and
+  Aqara U100 hidden);
+- `indoor-air-quality-monitor-co2-pm25` (3 → 1: Sensibo Elements and Sensibo
+  Air Pro hidden).
+
+Two ways to fix this:
+- write descriptions for the embedded empty products, which lifts them over
+  50 words (about 20 products, roughly $0.10);
+- swap those markers in Strapi for products that have content.
+
+**Not deployed.**
+
+---
+
+## 24 September 2026: Task 3, product reviews and ratings
+
+Most of Task 3 was already done in the first AdSense pass:
+- no "Verified purchase" badge;
+- an Australian-retailer filter;
+- scores counted only from the shown reviews, 20 or more;
+- no stars or review counts on the hub, cards or related products;
+- "PROMOTED" removed, with its made-up prices.
+
+There is no paid-placement flag in the catalogue, so no card is labelled
+"Sponsored". This task tightened the rest.
+
+**One allow-list:** `lib/review-sources.ts`. The product page, the reviews
+block, the structured data and `scripts/audit-thin-content.mjs` all read it;
+the audit imports the `.ts` file directly, which needs Node 22.18 or later.
+A review renders only when its source is:
+- **an Australian retailer:** jbhifi, thegoodguys, harveynorman, bunnings,
+  officeworks, amazon.com.au, ebay.com.au, binglee, myer, appliancesonline,
+  betta, costco.com.au, mwave, mightyape, kogan.com / .com.au, mitre10;
+- **the brand's own Australian site:** e.g. dyson.com.au, shown as "Dyson
+  Australia";
+- **the brand's global store:** ring.com, sonos.com, eufylife.com and so on,
+  shown as "<Brand> (global store)", and only when the domain matches the
+  product's brand. Marketplaces and overseas chains are never treated as brand
+  stores.
+
+**Thresholds:**
+- under **5** allowed reviews, the block is hidden;
+- the score and histogram are counted from the allowed reviews only, and
+  appear only from **20** up;
+- the catalogue's pooled Google Shopping rating is never shown.
+
+**Heading:** "What customers say at <retailers>", with the note "Reviews
+written by customers of these retailers — not by NXT Smart Home, and not a
+test result."
+
+**Structured data:** `AggregateRating` is emitted only when the page shows a
+score, so none when the block is hidden or has fewer than 20 reviews. No
+`Review` items are emitted. Only the allowed reviews are sent to the browser,
+so the others never appear in the page HTML.
+
+**How many products still show reviews:** **33 of 198** active products,
+with 651 reviews between them, and 17 of the 33 show a score.
+- **80** products have imported reviews at all. **76** of them had reviews
+  from sources that aren't allowed.
+- **10** products now hide the block, because fewer than 5 allowed reviews
+  remain.
+- **Global-store reviews shown:** eufy 82, Sonos 71, ecobee 47, Anker 29,
+  Ring 27, Bose 27, SwitchBot 18, Narwal 18, Swann 17, Arlo 16, Shelly 14,
+  Google 10, Dyson 4, tado 2.
+
+**Checked:** `npm run build` passes. The spot-check used the dev server on port
+3023 with its own build folder. The `npm run dev` script binds port 3011,
+which is nxt.deals' live port on this host, and it writes into the live
+`.next`. The three pages:
+- `ring-floodlight-cam-plus-wired`: 21 reviews, a score, and `AggregateRating`
+  in the page;
+- `tado-smart-ac-control-v3`: exactly 5 reviews, "(global store)" labels, no
+  score, no `AggregateRating`;
+- `google-nest-doorbell-battery`: 30 imported reviews, all from US and
+  Canadian stores, so the block is hidden.
+
+None contained "Verified purchase" or any foreign store name, and the hub
+shows no stars or "PROMOTED". `npm run audit:thin` agrees: 33 products with
+the block shown, 17 with a score.
+
+**Not deployed.**
+
+---
+
+## 24 September 2026: Task 5, editorial guard for [VERIFY] and placeholders
+
+Code only; the content itself is fixed in Task 6.
+
+**`editorialIssues(post): string[]`** in `lib/content.ts`, built on the shared
+marker list in `lib/editorial-guard.mjs`. It checks the body, excerpt, key
+takeaways and every FAQ question and answer, case-insensitive, for:
+- `[VERIFY`, `TODO`, `TBD` and `lorem ipsum`;
+- `Tag one`, `Tag two`, `One or two sentences that would`, `What they
+  cover, e.g.` and `A direct answer in two to four sentences`.
+
+Matching is now case-insensitive; TODO and TBD used to match upper case only.
+The last marker is new.
+
+**Blocking:** a post with any issue is left out of `getAllArticles()`, and
+everything reads from that: listings, category pages, related posts, the
+homepage, author pages and the sitemap. Its article page then returns
+`notFound()`. `scripts/build-search-index.mjs` applies the same check.
+
+**Logging:** each blocked slug is logged with its issues, prefixed
+`[editorial-guard]`, at build time and whenever the flagged set changes on
+revalidation.
+
+**`EDITORIAL_GUARD=warn`** (server environment variable) keeps flagged posts
+live and in search, but still logs every one. The default, `block`, applies
+when the variable is unset or has any other value.
+
+**CLAUDE.md rules 6 and 7** now say `[VERIFY]` tags belong in drafts only.
+A post must have zero tags before it is published, because the site refuses
+to render tagged posts. Unverifiable claims must be confirmed, removed, or
+rewritten to point readers to the official source.
+
+**Build with `EDITORIAL_GUARD=warn`:** it passes, and **29 posts** would be
+blocked:
+- **26 with visible `[VERIFY]` tags**, which matches the audit's FIX count.
+  The old reference CSV said 24; since then the two merge survivors moved
+  from DUPLICATE to FIX.
+- **3 with tags only inside HTML comments:** `thread-vs-matter-difference`,
+  `where-to-buy-smart-home-australia` and
+  `smart-home-devices-without-internet`. The comments still ship in the page
+  source, so the guard counts them.
+
+The 5 merged-away posts that also carry tags aren't counted; they're already
+off the site. No post tripped any of the other markers.
+
+The 29 (tag counts in brackets): smart-light-switches-neutral-wire-older-australian-homes (12),
+wiring-video-doorbell-australian-chime-transformer (11),
+local-recording-vs-cloud-subscriptions-security-cameras-australia (12),
+smart-downlights-australian-ceilings-insulation-clearance-rules (12),
+keep-security-cameras-running-blackout-nbn-outage (16),
+smart-lighting-rental-australia-no-wiring (7),
+streaming-box-australia-free-to-air-catch-up-tv (12),
+movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard (8),
+outdoor-tvs-projectors-speakers-australian-summer (18),
+smart-zoning-ducted-air-conditioning-cost-australia (17),
+reverse-cycle-air-conditioner-rooftop-solar-australia (14),
+bathroom-humidity-sensor-exhaust-fan-automation-australia (9),
+smart-thermostat-gas-ducted-hydronic-heating-australia (16),
+robot-vacuum-local-home-assistant-no-cloud (7),
+zigbee-mesh-garage-granny-flat-double-brick-home (13),
+robot-vacuum-running-costs-australia (16),
+robot-vacuum-dock-placement-rental-apartment-no-new-wiring (13),
+home-assistant-energy-dashboard-solar-export-time-of-use-tariffs (11),
+smart-home-hub-buying-guide-australia (5), smart-plug-buying-guide-australia (6),
+what-not-to-plug-into-a-smart-plug-australia (7), overseas-smart-home-devices-australia (4),
+future-proof-smart-home-devices-australia (1), second-hand-smart-home-devices-australia (7),
+smart-home-devices-older-australians (4), smart-home-holiday-house-australia (6),
+where-to-buy-smart-home-australia (1, in a comment), thread-vs-matter-difference (1, in a comment),
+smart-home-devices-without-internet (2, in comments).
+
+### Step to take: when to block in production
+
+The task says not to switch the default to `block` in production until Task
+6 has cleaned the content. **But production already blocks.** The guard went
+live with PR #12 on 24 September, when the first AdSense brief asked for it,
+and these posts have returned 404 since then. The choice is yours:
+- **Keep blocking** (current live state; nothing to do). The tagged posts
+  stay hidden until Task 6 clears each one, and each reappears within about
+  5 minutes of being fixed in Strapi.
+- **Relax until Task 6 is done:** add `EDITORIAL_GUARD=warn` to `.env.local`
+  and run `./deploy.sh`. The 29 posts come back with their `[VERIFY]` notes
+  visible to readers and to an AdSense reviewer. When Task 6 is finished,
+  remove the variable and deploy again.
+
+**Not deployed.**
+
+---
+
+## 24 September 2026: Task 4, editorial for the most-linked products (batch 1 of N)
+
+**Priority list:** products referenced by `::product:` markers in the 69
+published Strapi posts, counted per post. None passed `isIndexableProduct`
+before this batch. Three curated files (`apple-homepod`, `philips-hue-bridge`,
+`aqara-hub-m3`) have no catalogue entry, so they have no product page to make
+indexable; `apple-homepod`'s 4 references were therefore skipped.
+
+**Completed:** ten new files in `content/products/`, all now indexable. Each
+is research-based, with no rating, no product price and no testing language:
+
+| Product | Posts linking | Body words | Sources |
+|---|---|---|---|
+| tp-link-tapo-p100-mini-smart-wi-fi-socket-plug | 13 | 459 | 7 |
+| ecovacs-deebot-x2-omni-square-robot-vacuum | 6 | 458 | 6 |
+| sonoff-zigbee-3-0-usb-dongle | 6 | 441 | 7 |
+| arlo-ultra-2-4k-spotlight-camera | 4 | 417 | 7 |
+| dreame-l10s-ultra-robot-vacuum-and-mop | 4 | 438 | 6 |
+| tp-link-tapo-p110-smart-plug-with-energy-monitoring | 4 | 384 | 7 |
+| tp-link-tapo-smart-temperature-humidity-monitor | 4 | 433 | 6 |
+| voltx-e600-portable-power-station | 4 | 439 | 5 |
+| bose-smart-soundbar-ultra | 3 | 421 | 4 |
+| philips-hue-smart-dimmer-switch-v2 | 3 | 427 | 4 |
+
+**Format:** the front matter follows the existing curated files: name, brand,
+bestFor, match, identifiers, pros (4–5) and cons (3–4). The `rating` field is
+left out, with a comment saying why. So is the `retailers` block: for a
+catalogue product the page and product boxes use the catalogue's verified
+retailers and photo, so a second list would only compete with them.
+
+**Sources:** each file ends with a "Sources" list, which also renders on the
+page. They are mostly the manufacturer's Australian pages:
+- tp-link.com/au, ecovacs.com/au, dreame.com.au, voltx.com.au, bose.com.au,
+  philips-hue.com/en-au, au.arlo.com;
+- plus ITEAD/Sonoff and kb.arlo.com where no AU page existed;
+- plus the AU retailers that list each product: The Good Guys, JB Hi-Fi,
+  Bunnings, Officeworks, Amazon AU and Outbax;
+- plus Home Assistant's integration pages and a ChannelNews launch report.
+
+Brand claims are attributed to the brand. The only AUD figures are Arlo
+Secure plan prices from au.arlo.com. A draft that quoted Dreame consumable
+prices was edited to leave the prices out.
+
+**Code:**
+- `lib/products.ts`:
+  - `getProductBySlug` merges a curated file over its catalogue record: the
+    editorial comes from the file, while the photo and verified retailers come
+    from the catalogue. Before, the curated file replaced the record
+    wholesale, which would have dropped both.
+  - `getCuratedProduct()` added.
+- `components/ProductEditorial.tsx` (new) adds an "Our research notes" card on
+  the product page:
+  - best for, pros and cons, the body and its sources;
+  - a line reading "Research-based … NXT Smart Home has not tested this
+    product".
+- The verdict card and the meta description now use the curated bestFor.
+
+**Checked:**
+- `isIndexableProduct` passes for all ten, at 1,030–1,220 original words each
+  (the files plus the rewritten descriptions and blurbs).
+- `npm run build` passes. On a test server all ten pages render the notes and
+  sources, with no noindex and no "Price listing" label.
+- The sitemap is now 74 URLs: 10 product pages, 1 product category (Energy &
+  Solar, the only one with 3 or more indexable products) and the `/products/`
+  hub, which is back in the index.
+- `npm run audit:thin`: product OK 10 (all indexable), THIN 125,
+  THIN - EMPTY 63.
+- **Article links (rule 8):** each product is already embedded by the posts
+  that put it in the queue. No markers were added or changed in Strapi.
+
+**Open questions** are in `reports/product-editorial-todo.md`: everything the
+research could not confirm, and conflicts between sources. The main ones:
+- **Tapo P110:** the catalogue entry's description matches the **P110M**
+  (Matter, Siri), not the P110. Its rewritten Description panel may mention
+  Matter, while the new research notes follow TP-Link's P110 page, which
+  lists no Matter. Fix the catalogue text, or repoint the entry to the P110M.
+- **Arlo Ultra 2:** a retailer marks it end of life, replaced by the Ultra 3,
+  and Arlo's AU pages returned 403. The hub requirement, Wi-Fi band and IP
+  rating are unconfirmed.
+- **Dreame L10s Ultra:** Dreame's AU product page returns 404, so the specs
+  come from its global page. The model may have been superseded by the Gen 2.
+- **Ecovacs X2 Omni:** shown as sold out on Ecovacs AU; only the Amazon AU
+  listing is confirmed. Ecovacs' own pages give conflicting mop-wash
+  temperature and runtime figures, so both were left out.
+- **Tapo temperature and humidity monitor:** it's the T315. The JB Hi-Fi link
+  in the catalogue may point at the T310.
+- **VoltX E600:** sources disagree on the output count (6 or 10), the charge
+  time and the warranty (2 years on the product page, 12 months in the terms).
+- **Sonoff dongle:** written as the ZBDongle-E, per the catalogue text. The
+  exact variant sold is unconfirmed (Amazon AU offers P, E and MG24).
+
+**Next 10 in the queue**, by the number of published posts linking to each:
+1. philips-hue-white-color-ambiance-starter-kit-e27 (3)
+2. sensibo-air-smart-air-conditioner-controller (3)
+3. smart-mirabella-genio-wi-fi-powerboard (3)
+4. tp-link-tapo-l530e-smart-wi-fi-light-bulb-e27 (3)
+5. tuya-smart-wifi-ir-air-conditioner-controller-thermostat (3)
+6. zemismart-matter-zigbee-thread-smart-home-hub (3)
+7. amazon-echo-show-10-3rd-gen-hd-display (2)
+8. dyson-purifier-cool-autoreact-tp07 (2)
+9. ecovacs-deebot-t30-pro-omni-robot-vacuum (2)
+10. eufy-eufycam-2c-pro-2k-wireless-security-system (2)
+
+**Not deployed.**
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 1)
+
+**Approved** by the user after reviewing `reports/task6-review-batch1.md`,
+which has the per-article diffs, the decision tables and every source URL.
+**Written to Strapi** with `PUT /api/nxtsmarthome-posts/<documentId>?status=published`.
+
+Each update set:
+- `content`, `excerpt`, `keyTakeaways` and `faq` to the approved versions;
+- `dateModified` to 2026-09-24;
+- `publishDate` to the post's original `publishedAt`. A REST update resets
+  `publishedAt`, and these posts had no `publishDate`, so without this the
+  site would have dated them today.
+
+**Checked:** both the published and draft copies were re-fetched after the
+write, and all four have zero `[VERIFY` and match the approved text.
+
+| Article | Tags | a / b / c | Backup |
+|---|---|---|---|
+| outdoor-tvs-projectors-speakers-australian-summer | 18 → 0 | 5 / 7 / 6 | exports/strapi-backup/outdoor-tvs-projectors-speakers-australian-summer-2026-09-24T06-56-38-734Z.json |
+| smart-zoning-ducted-air-conditioning-cost-australia | 17 → 0 | 5 / 11 / 1 | exports/strapi-backup/smart-zoning-ducted-air-conditioning-cost-australia-2026-09-24T06-56-38-734Z.json |
+| smart-thermostat-gas-ducted-hydronic-heating-australia | 16 → 0 | 9 / 5 / 2 | exports/strapi-backup/smart-thermostat-gas-ducted-hydronic-heating-australia-2026-09-24T06-56-38-734Z.json |
+| robot-vacuum-running-costs-australia | 16 → 0 | 3 / 10 / 3 | exports/strapi-backup/robot-vacuum-running-costs-australia-2026-09-24T06-56-38-734Z.json |
+
+Decisions: a = verified and linked to its source; b = rewritten as a range or
+as guidance; c = unverifiable or legal, so the claim was removed and readers
+are pointed to the authority. To restore an article, PUT the `published`
+record from its backup file.
+
+**Changes beyond the tags** (both approved):
+- **Outdoor TVs:** the unsourced "voids the warranty" line now points readers
+  to the manufacturer's warranty terms.
+- **Robot vacuum running costs:** the metering-plug product box is now the
+  Tapo P110. The P100 it showed has no energy monitoring.
+
+**For a human to check (legal).** These sentences were reworded to point to
+an authority, but they still touch regulated areas:
+- **Electrical work:**
+  - licensed electricians for new outdoor outlets and for 240V thermostat or
+    mains wiring;
+  - AS/NZS 3000 and RCD safety switches;
+  - zone damper motors and switched supplies;
+  - that extension leads are temporary only;
+  - smart-plug load and adaptor/extension-lead safety.
+
+  These cite Energy Safe Victoria and the NSW Government as examples.
+- **Gas work:** use a licensed gasfitter; DIY retrofits and safety
+  interlocks; the claim that DIY work voids warranties and insurance.
+- **Refrigerant:** licensing, per arctick.org.
+- **Tenancy:**
+  - landlord permission for outdoor wiring and for thermostat or controller
+    changes;
+  - reinstating the original controller at move-out.
+
+  These cite the NSW rules and Consumer Affairs Victoria as examples.
+- **Noise rules** for outdoor audio, with EPA Victoria's times as an example.
+- **Consumer law:**
+  - the consumer guarantee still applying after a warranty expires (ACCC
+    wording);
+  - warranty risk from non-genuine detergent, generic parts and DIY battery
+    replacement.
+
+**Effect on the site:** with no tags left, the editorial guard stops blocking
+these four. They come back to the live site within about 5 minutes (ISR); no
+deploy is needed.
+
+**Next 4 in the queue:**
+1. reverse-cycle-air-conditioner-rooftop-solar-australia (14)
+2. zigbee-mesh-garage-granny-flat-double-brick-home (13)
+3. robot-vacuum-dock-placement-rental-apartment-no-new-wiring (13)
+4. streaming-box-australia-free-to-air-catch-up-tv (12)
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 2)
+
+**Approved** by the user after reviewing `reports/task6-review-batch2.md`,
+which has the per-article diffs, the decision tables and every source URL.
+**Written to Strapi** with `PUT /api/nxtsmarthome-posts/<documentId>?status=published`,
+the same way as batch 1: `content`, `excerpt`, `keyTakeaways` and `faq` set
+to the approved versions, `dateModified` set to 2026-09-24, and
+`publishDate` set to the post's original `publishedAt`.
+
+**Checked:** before the write, the live records still matched the backups (no
+edits since). After the write, both the published and draft copies were
+re-fetched: all four have zero `[VERIFY`, match the approved text, and still
+have 5 FAQ entries.
+
+| Article | Tags | a / b / c | Backup |
+|---|---|---|---|
+| reverse-cycle-air-conditioner-rooftop-solar-australia | 14 → 0 | 6 / 5 / 3 | exports/strapi-backup/reverse-cycle-air-conditioner-rooftop-solar-australia-2026-09-24T07-08-26-197Z.json |
+| zigbee-mesh-garage-granny-flat-double-brick-home | 13 → 0 | 3 / 7 / 3 | exports/strapi-backup/zigbee-mesh-garage-granny-flat-double-brick-home-2026-09-24T07-08-26-197Z.json |
+| robot-vacuum-dock-placement-rental-apartment-no-new-wiring | 13 → 0 | 7 / 2 / 4 | exports/strapi-backup/robot-vacuum-dock-placement-rental-apartment-no-new-wiring-2026-09-24T07-08-26-197Z.json |
+| streaming-box-australia-free-to-air-catch-up-tv | 12 → 0 | 7 / 3 / 2 | exports/strapi-backup/streaming-box-australia-free-to-air-catch-up-tv-2026-09-24T07-08-26-197Z.json |
+
+To restore an article, PUT the `published` record from its backup file.
+
+**Changes beyond the tags** (all three approved):
+- **Robot vacuum dock:**
+  - "One approved extension lead is fine" now treats a lead as a temporary
+    stop-gap. This covers the body, the key takeaways, FAQ 2 and FAQ 3, and
+    cites Queensland's Electrical Safety Office
+    (https://www.electricalsafety.qld.gov.au/sites/default/files/2022-07/electricity-in-the-home.pdf).
+  - The invented "Ninety per cent of 'my robot won't dock' complaints"
+    statistic now reads "often a placement problem".
+- **Zigbee mesh:** "single-digit milliwatts" now says most devices transmit
+  at low power and that some amplified adapters reach about 100 mW, citing
+  Zigbee2MQTT. "Two-year lifespans" became "run for a long time".
+
+**Flagged but not changed:** some untagged sentences still have no source.
+Each is listed in the review file.
+- **Rooftop solar:**
+  - "three to seven times that rate";
+  - "4-6kWh";
+  - "dedicated 15A circuit";
+  - no caveat for households on gross metering.
+- **Zigbee:** "every 6–10 metres", "three to five routers" and
+  "10–15 minutes".
+- **Dock:** the power-board advice against Dreame's 1000 W emptying draw;
+  "2.4 GHz only".
+- **Streaming box:**
+  - "240V", where the nominal supply is 230V;
+  - "25/5 plan";
+  - "2GB RAM";
+  - "still running iview in five years".
+
+**For a human to check (legal).** These sentences were reworded to point to
+an authority, but they still touch regulated areas:
+- **Electrical work:**
+  - licensed electricians for hardwired circuits, CT clamps, new power
+    points, outdoor circuits and relays;
+  - AS/NZS 3000;
+  - ESV's warning that DIY electrical work is illegal (Victoria);
+  - extension leads, power boards and RCM approval;
+  - the 10A smart plug and 15A circuit claim;
+  - plug and supply ratings on grey imports.
+- **Tenancy and strata:**
+  - landlord permission for wiring;
+  - NSW strata "minor renovations";
+  - "completely bond-safe", an absolute claim;
+  - adhesive clips;
+  - permanent water connections;
+  - control of a granny-flat tenant's power, and recording devices.
+- **Regulatory:**
+  - Victoria's solar emergency backstop, sourced to AusNet only;
+  - network export limits;
+  - ACMA cabling rules for data points;
+  - Zigbee transmit power.
+- **Consumer law:** how the ACL applies to overseas and marketplace sellers.
+
+**Effect on the site:** with no tags left, the editorial guard stops blocking
+these four. They come back to the live site once the cached 404s expire (ISR,
+about 5 minutes); no deploy is needed.
+
+**Next 4 in the queue:**
+1. smart-downlights-australian-ceilings-insulation-clearance-rules (12)
+2. local-recording-vs-cloud-subscriptions-security-cameras-australia (12)
+3. home-assistant-energy-dashboard-solar-export-time-of-use-tariffs (11)
+4. wiring-video-doorbell-australian-chime-transformer (11)
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 3)
+
+**Approved** by the user after reviewing `reports/task6-review-batch3.md`,
+which has the per-article diffs, the decision tables and every source URL.
+**Written to Strapi** the same way as batches 1 and 2.
+
+**Checked:**
+- **Before the write:** each live record still matched its backup.
+- **After the write:** both the published and draft copies were re-fetched.
+  All four have zero `[VERIFY`, match the approved content, excerpt and key
+  takeaways, and still have 5 FAQ entries.
+
+| Article | Tags | a / b / c | Backup |
+|---|---|---|---|
+| smart-downlights-australian-ceilings-insulation-clearance-rules | 12 → 0 | 9 / 1 / 2 | exports/strapi-backup/smart-downlights-australian-ceilings-insulation-clearance-rules-2026-09-24T07-31-02-572Z.json |
+| local-recording-vs-cloud-subscriptions-security-cameras-australia | 12 → 0 | 5 / 2 / 5 | exports/strapi-backup/local-recording-vs-cloud-subscriptions-security-cameras-australia-2026-09-24T07-31-02-572Z.json |
+| home-assistant-energy-dashboard-solar-export-time-of-use-tariffs | 11 → 0 | 6 / 3 / 2 | exports/strapi-backup/home-assistant-energy-dashboard-solar-export-time-of-use-tariffs-2026-09-24T07-31-02-572Z.json |
+| wiring-video-doorbell-australian-chime-transformer | 11 → 0 | 6 / 2 / 3 | exports/strapi-backup/wiring-video-doorbell-australian-chime-transformer-2026-09-24T07-31-02-572Z.json |
+
+**Changes beyond the tags** (all four approved):
+- **Smart downlights, insulation classifications:** the body list, key
+  takeaways, excerpt and FAQ 1 were corrected against Table ZD1 of
+  AS/NZS 60598.2.2:2016.
+  - Non-IC fittings are for commercial and industrial use only, not homes.
+  - A Do-Not-Cover bullet was added; it carries the manufacturer-clearance
+    rule.
+  - IC fittings can be abutted as well as covered.
+  - The unlisted "CA80" became CA90, and CA135 is New Zealand only.
+- **Smart downlights, excerpt:** "legally required" now reads "where you need
+  a licensed electrician".
+- **Video doorbell, key takeaways:** "Plug-in transformers are DIY-friendly"
+  was removed. Ring AU says a licensed electrician must install its
+  doorbells, so the text now points to the state regulator.
+- **Video doorbell, key takeaways and excerpt:** "expect North American
+  16-24V AC" was removed, since Ring's wired doorbell takes 8-24V AC. Both
+  now tell readers to check their model's figures.
+
+**Prices with a date:**
+- **Security cameras:** Arlo AU plan prices, and Officeworks' $98 for
+  SanDisk's 128GB High Endurance microSD card, which replaces a wrong
+  $25-$40.
+- **Smart downlights:** Hue prices corrected to $59.95 and $104.95.
+
+Each is "at the time of writing", with a link.
+
+**Flagged but not changed** (listed in the review file):
+- **Downlights:** the 50°C roof-space figure, capacitor failure and Ta
+  ratings, and the neutral-wire claim.
+- **Cameras:** "2-4Mbps", and PoE cabling with no mention of a registered
+  cabler.
+- **Home Assistant energy:**
+  - "highest rooftop solar uptake in the world";
+  - "trapezoidal" advice that conflicts with the Home Assistant docs;
+  - percentage figures that look invented;
+  - the YAML example's 2pm-8pm peak, which is labelled illustrative.
+- **Doorbell:** DC plug packs, "15 metres", and "240V" (the nominal supply is
+  230V).
+
+**For a human to check (legal):**
+- **Electrical work:**
+  - dimmer modules, smart switches and full downlight replacement;
+  - CT clamps and switchboard work;
+  - mains versus low-voltage doorbell wiring;
+  - AS/NZS 3000;
+  - the CA135 status, where the 2017 and 2021 amendments were not checked.
+- **Privacy:**
+  - the OAIC position on household cameras;
+  - state listening-device laws for audio;
+  - eufy's overseas data transfers;
+  - smart-meter data.
+- **Tenancy:** Victorian removable versus hard-wired camera consent, and
+  Victorian and NSW renter consent for doorbells.
+- **Consumer law:** the RCM sale requirement.
+
+**Queue correction.** The earlier "next 4" lists left out two merge
+survivors: keep-security-cameras-running-blackout-nbn-outage (16) and
+smart-light-switches-neutral-wire-older-australian-homes (12). The five
+merged-away posts still carry tags (36 in total), but they only redirect
+(data/merged-articles.json), so they are not in the queue; unpublish them in
+Strapi once their unique sections have moved.
+
+**Remaining:** 17 live posts, 103 tags, which is about 5 more batches.
+
+**Next 4 in the queue:**
+1. keep-security-cameras-running-blackout-nbn-outage (16)
+2. smart-light-switches-neutral-wire-older-australian-homes (12)
+3. bathroom-humidity-sensor-exhaust-fan-automation-australia (9)
+4. movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard (8)
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 4)
+
+**Approved** by the user after reviewing `reports/task6-review-batch4.md`,
+which has the per-article diffs, the decision tables and every source URL.
+**Written to Strapi** the same way as batches 1-3.
+
+**Checked:**
+- **Before the write:** each live record still matched its backup.
+- **After the write:** both the published and draft copies were re-fetched.
+  All four have zero `[VERIFY`, match the approved content, excerpt and key
+  takeaways, and still have 5 FAQ entries.
+
+| Article | Tags | a / b / c | Backup |
+|---|---|---|---|
+| keep-security-cameras-running-blackout-nbn-outage | 16 → 0 | 8 / 7 / 1 | exports/strapi-backup/keep-security-cameras-running-blackout-nbn-outage-2026-09-24T07-47-41-669Z.json |
+| smart-light-switches-neutral-wire-older-australian-homes | 12 → 0 | 7 / 5 / 0 | exports/strapi-backup/smart-light-switches-neutral-wire-older-australian-homes-2026-09-24T07-47-41-669Z.json |
+| bathroom-humidity-sensor-exhaust-fan-automation-australia | 9 → 0 | 5 / 2 / 2 | exports/strapi-backup/bathroom-humidity-sensor-exhaust-fan-automation-australia-2026-09-24T07-47-41-669Z.json |
+| movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard | 8 → 0 | 2 / 3 / 3 | exports/strapi-backup/movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard-2026-09-24T07-47-41-669Z.json |
+
+**Errors corrected in the originals:**
+- **Blackout cameras:**
+  - On FTTC, the in-home box powers the service; the article said the
+    street equipment had its own power.
+  - 500Wh ÷ 25W is 20 hours, not 17, before losses.
+  - nbn stopped offering FTTP battery back-up units in June 2024.
+- **Bathroom humidity:** the unsupported 40-60% band became the National
+  Asthma Council's 30-50%.
+- **Smart light switches:** the unsourced depth and price figures were
+  removed, along with "future sale obligations".
+- **Movie-night lighting:** the budget figures were removed. The Hue Smart
+  Button price, dated "at the time of writing", is $54.95 at Hue AU and $49
+  at JB Hi-Fi.
+
+**Consistency edits:** the excerpts, key takeaways and FAQs were changed to
+match the body corrections. These are listed per article in the review
+file.
+
+**Changes beyond the tags** (both approved): in the smart light switches
+excerpt, "no neutral … which is exactly what a smart switch wants", which
+had the meaning backwards, was fixed. "Legally required" now reads "where you
+need a licensed electrician".
+
+**Flagged but not changed:** listed in the review file. They include
+"240V", the bathroom fan trigger numbers, and the missing pointer to a
+tenancy authority in the bathroom article.
+
+**For a human to check (legal):**
+- **Electrical work:**
+  - swapping a switch;
+  - bypass capacitors;
+  - relay modules;
+  - generator back-feeding;
+  - bathroom wiring and fan replacement;
+  - the NCC discharge rule;
+  - the state-by-state licensing line.
+- **Other areas:**
+  - DIY work voiding insurance, citing NSW;
+  - the RCM legal-sale wording;
+  - renter consent, with Victoria as the example;
+  - humidity and mould health claims.
+
+**Remaining:** 13 live posts, 58 tags.
+
+**Next 4 in the queue:**
+1. what-not-to-plug-into-a-smart-plug-australia (7)
+2. second-hand-smart-home-devices-australia (7)
+3. smart-lighting-rental-australia-no-wiring (7)
+4. robot-vacuum-local-home-assistant-no-cloud (7)
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 5)
+
+**Approved** by the user after reviewing `reports/task6-review-batch5.md`,
+which has the per-article diffs, the decision tables and every source URL.
+**Written to Strapi** the same way as batches 1-4.
+
+**Checked:**
+- **Before the write:** each live record still matched its backup.
+- **After the write:** both the published and draft copies were re-fetched.
+  All four have zero `[VERIFY` and match the approved content, excerpt and
+  key takeaways. Each kept its FAQ count (5, 4, 5, 5).
+
+| Article | Tags | Backup |
+|---|---|---|
+| what-not-to-plug-into-a-smart-plug-australia | 7 → 0 | exports/strapi-backup/what-not-to-plug-into-a-smart-plug-australia-2026-09-24T07-58-52-203Z.json |
+| second-hand-smart-home-devices-australia | 7 → 0 | exports/strapi-backup/second-hand-smart-home-devices-australia-2026-09-24T07-58-52-203Z.json |
+| smart-lighting-rental-australia-no-wiring | 7 → 0 | exports/strapi-backup/smart-lighting-rental-australia-no-wiring-2026-09-24T07-58-52-203Z.json |
+| robot-vacuum-local-home-assistant-no-cloud | 7 → 0 | exports/strapi-backup/robot-vacuum-local-home-assistant-no-cloud-2026-09-24T07-58-52-203Z.json |
+
+**Errors corrected in the originals:**
+- **Robot vacuum:** Matter room and zone cleaning (service areas) arrived
+  in Matter 1.4, and Home Assistant added initial support in 2026.3.
+- **Second-hand devices:** private sales still carry the guarantees of
+  title, undisturbed possession and no hidden debts.
+- **Rental lighting:** AS/NZS 3000 is the Wiring Rules, not the licensing
+  law.
+- **Smart plug:** ratings now come from the Tapo P110M AU spec and Kmart AU
+  heater manuals.
+
+**Changes beyond the tags** (all three approved):
+- **Robot vacuum, Ecovacs:** "no local path" now mentions the self-hosted
+  (Bumper) option that Home Assistant documents, in the body and FAQ 2.
+- **Robot vacuum, excerpt:** the dated "in 2024-25" was removed.
+- **Rental lighting:**
+  - "no landlord conversation, no risk" now reads "in most rentals",
+    noting the heritage-listed exception;
+  - "almost universally fine" now reads "generally the lowest-risk changes"
+    (body and FAQ 5).
+
+**Date fix (after the write):** two of these posts already had a
+`publishDate`, and the write had overwritten it with `publishedAt`:
+- second-hand-smart-home-devices-australia had 4 Aug 2026;
+- what-not-to-plug-into-a-smart-plug-australia had 5 Aug 2026.
+
+Both were restored from their backups on 24 Sep 2026 and checked on both the
+published and draft copies. Batches 1-4 were not affected: none of those
+posts had a `publishDate`. From batch 6 on, the write keeps an existing
+`publishDate` and only fills it when it is empty.
+
+**Open, not part of Task 6:** second-hand-smart-home-devices-australia has no
+`::product:` boxes (CLAUDE.md rule 8). Two catalogue products could be added
+as a separate change.
+
+**Flagged but not changed:** listed in the review file. They include the
+E26 bulb claim, the "stuck closed" relays and the L10s Ultra Gen2
+distinction.
+
+**Remaining:** 9 live posts, 30 tags.
+
+**Next 4 in the queue:**
+1. smart-plug-buying-guide-australia (6)
+2. smart-home-holiday-house-australia (6)
+3. smart-home-hub-buying-guide-australia (5)
+4. overseas-smart-home-devices-australia (4)
+
+After that: smart-home-devices-older-australians (4),
+smart-home-devices-without-internet (2), thread-vs-matter-difference (1),
+future-proof-smart-home-devices-australia (1) and
+where-to-buy-smart-home-australia (1).
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 6)
+
+**Approved** by the user after reviewing `reports/task6-review-batch6.md`,
+which has the per-article diffs, the decision tables and every source URL.
+
+**Written to Strapi** the same way as before, with one change: an existing
+`publishDate` is now kept. The smart plug guide (5 Aug), holiday house
+(4 Aug) and overseas devices (4 Aug) kept theirs.
+
+**Checked:**
+- **Before the write:** each live record still matched its backup.
+- **After the write:** both the published and draft copies were re-fetched.
+  All four have zero `[VERIFY` and match the approved content, excerpt and
+  key takeaways, and each kept its FAQ count (5, 4, 10, 4).
+
+**Hub guide date:** the smart home hub guide had no `publishDate`. Its
+`publishedAt` had already been reset to 24 Sep 2026 02:14 UTC by the
+FAQ-to-field conversion earlier that day, so the write first gave it
+today's date. Its original publish time was not kept anywhere, so its
+`publishDate` is set to its `createdAt`, 13 Aug 2026. That is the best
+available estimate: 24 of the 69 posts were published within an hour of
+creation.
+
+| Article | Tags | a / b / c | Backup |
+|---|---|---|---|
+| smart-plug-buying-guide-australia | 6 → 0 | 5 / 0 / 1 | exports/strapi-backup/smart-plug-buying-guide-australia-2026-09-24T08-13-02-919Z.json |
+| smart-home-holiday-house-australia | 6 → 0 | 2 / 1 / 3 | exports/strapi-backup/smart-home-holiday-house-australia-2026-09-24T08-13-02-919Z.json |
+| smart-home-hub-buying-guide-australia | 5 → 0 | 1 / 3 / 1 | exports/strapi-backup/smart-home-hub-buying-guide-australia-2026-09-24T08-13-02-919Z.json |
+| overseas-smart-home-devices-australia | 4 → 0 | 3 / 0 / 1 | exports/strapi-backup/overseas-smart-home-devices-australia-2026-09-24T08-13-02-919Z.json |
+
+**Changes beyond the tags** (all five approved):
+- **Hub guide:**
+  - iPad was removed as an Apple home hub, per Apple's AU support page.
+  - The unsourced and wrong price ranges became a cheapest-to-dearest
+    ranking, with one dated example: the Aqara Hub M3 at $297, Officeworks.
+- **Holiday house:** the indoor-camera ban and outdoor-camera disclosure are
+  now attributed to Airbnb. "Not a judgement call" was softened.
+- **Overseas devices:** "will not carry" the RCM became "may not".
+  "Licensed work regardless" became "generally", with a pointer to the
+  state rules.
+- **Smart plug guide:** the Wikipedia citations were removed, and the 10A
+  figure now rests on the TP-Link Tapo P110 AU spec. The heading "Compliance
+  is not optional here" became "Check for compliance".
+
+**Error corrected in the original:** overseas devices called EESS
+"national". Only Qld, WA, Vic and Tas are signatories.
+
+**Open, not part of Task 6:**
+- **No `::product:` boxes (CLAUDE.md rule 8):** holiday house, hub guide and
+  overseas devices, plus second-hand devices from batch 5.
+- **Hub guide title:** it still says "2025".
+
+**Remaining:** 5 live posts, 9 tags:
+- smart-home-devices-older-australians (4)
+- smart-home-devices-without-internet (2)
+- thread-vs-matter-difference (1)
+- future-proof-smart-home-devices-australia (1)
+- where-to-buy-smart-home-australia (1)

@@ -6,7 +6,6 @@ import SectionMagazine7 from '@/components/SectionMagazine7'
 import SectionMagazine8 from '@/components/SectionMagazine8'
 import SectionMagazine9 from '@/components/SectionMagazine9'
 import SectionPostsWithWidgets from '@/components/SectionPostsWithWidgets'
-import SectionSliderNewCategories from '@/components/SectionSliderNewCategories'
 import SectionSliderPosts from '@/components/SectionSliderPosts'
 import { getAuthors } from '@/data/authors'
 import { getCategoriesWithPosts, getTags, type TCategory } from '@/data/categories'
@@ -14,17 +13,41 @@ import { toTPost, type TPost } from '@/data/posts'
 import { getAllArticles } from '@/lib/content'
 import { site } from '@/lib/site'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import JsonLd from '@/components/JsonLd'
+import { HomeHero, HomeProducts, HomeStartHere, HomeTopics, HomeTrust } from '@/components/home/HomeSections'
+import { getIndexableTopProducts, toListingCard } from '@/lib/products'
 
 // Home page on the Ncmaz "Home Demo 5" layout, filled from Strapi and
-// revalidated with the article data (ISR, 5 minutes).
+// revalidated with the article data (ISR, 5 minutes). SEO redesign (24 Sep
+// 2026): a visible h1 and intro, "Start here", text topic links, the
+// researched product pages and the research/trust statement
+// (components/home/HomeSections.tsx) around the topic sections.
 //
-// Below the lead grid and the topic slider, every section is one of the site's
+// Below the lead grid, "Start here" and the topic links, every section is one of the site's
 // topics: its title and description come from lib/site.ts and it shows only
 // that topic's posts. Topics are ordered by post count and rotate through the
 // template layouts, so a new topic or new posts reshape the page with no code
 // change.
 export const revalidate = 300
+
+const HOME_TITLE = 'Smart Home Guides for Australian Homes'
+const HOME_DESCRIPTION =
+  'Independent smart home buying guides, setup help and explainers for Australian homes: lighting, security cameras, energy, climate, robot vacuums and hubs, with Australian retailers and 240V wiring in mind.'
+
+export const metadata: Metadata = {
+  title: { absolute: `${HOME_TITLE} | ${site.name}` },
+  description: HOME_DESCRIPTION,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    title: `${HOME_TITLE} | ${site.name}`,
+    description: HOME_DESCRIPTION,
+    images: [site.ogImage],
+  },
+}
 
 type Layout = 'magazine9' | 'magazine8' | 'magazine2' | 'magazine7' | 'grid' | 'slider'
 
@@ -126,32 +149,63 @@ export default async function HomePage() {
     ...(firstTopic ? [firstTopic] : []),
     ...topics.filter((c) => c !== lastTopic && c !== firstTopic),
   ]
+  // "Start here": buying guides and complete (pillar) guides, longest first,
+  // not already in the lead grid above.
+  const leadSlugs = new Set(lead.map((a) => a.slug))
+  const startHere = articles
+    .filter((a) => (a.type === 'buying-guide' || a.type === 'pillar') && !leadSlugs.has(a.slug))
+    .sort((a, b) => b.wordCount - a.wordCount)
+    .slice(0, 4)
+    .map(toTPost)
+  // Product pages with our own research notes: the indexable ones.
+  const researched = getIndexableTopProducts().slice(0, 8).map(toListingCard)
+  // Topic sections before and after the researched-products block.
+  const splitAt = Math.ceil(sectionTopics.length / 2)
+  const editor = site.organisation.editor
+
   const inDepth = [...articles]
     .sort((a, b) => b.wordCount - a.wordCount)
     .slice(0, 4)
     .map(toTPost)
 
+  const renderTopic = (category: TCategory, i: number) => {
+    const posts = category.posts ?? []
+    const slot = ROTATION[i % ROTATION.length]
+    const layout: Layout = posts.length >= slot.min ? slot.layout : 'grid'
+    return <CategorySection key={category.id} category={category} posts={posts} layout={layout} />
+  }
+
   return (
-    <div className="relative container space-y-28 pt-10 pb-28 lg:space-y-32 lg:pt-16 lg:pb-32">
-      {/* The page's one h1; section titles are h2. */}
-      <h1 className="sr-only">{`${site.name} — ${site.shortTagline}`}</h1>
+    <div className="page-home relative container space-y-28 pt-10 pb-28 lg:space-y-32 lg:pt-16 lg:pb-32">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: HOME_TITLE,
+          description: HOME_DESCRIPTION,
+          url: `${site.url}/`,
+          inLanguage: site.language,
+          isPartOf: { '@type': 'WebSite', name: site.name, url: `${site.url}/` },
+          about: topics.map((t) => ({ '@type': 'Thing', name: t.name })),
+        }}
+      />
+
+      {/* The page's one h1, visible; section titles are h2 (2rem / 700 here: app/globals.css .page-home). */}
+      <HomeHero articleCount={articles.length} topicCount={topics.length} />
 
       <SectionMagazine10 posts={lead.map(toTPost)} />
 
-      {/* Topic slider (Ncmaz card5), biggest topics first. */}
-      <SectionSliderNewCategories
-        heading="Top topics"
-        subHeading={`Discover all ${topics.length} topics`}
-        categories={topics}
-        categoryCardType="card5"
-      />
+      <HomeStartHere posts={startHere} />
 
-      {sectionTopics.map((category, i) => {
-        const posts = category.posts ?? []
-        const slot = ROTATION[i % ROTATION.length]
-        const layout: Layout = posts.length >= slot.min ? slot.layout : 'grid'
-        return <CategorySection key={category.id} category={category} posts={posts} layout={layout} />
-      })}
+      <HomeTopics topics={topics} />
+
+      {sectionTopics.slice(0, splitAt).map((category, i) => renderTopic(category, i))}
+
+      <HomeProducts products={researched} />
+
+      {sectionTopics.slice(splitAt).map((category, i) => renderTopic(category, i + splitAt))}
+
+      <HomeTrust editorName={editor.name} editorSlug={editor.slug} />
 
       {lastTopic && (
         <SectionPostsWithWidgets

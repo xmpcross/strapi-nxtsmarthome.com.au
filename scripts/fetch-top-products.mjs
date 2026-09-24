@@ -13,6 +13,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { offTopicReason } from '../lib/catalogue-guard.mjs';
 
 // Parse .env.local if present
 const envLocalPath = path.join(process.cwd(), '.env.local');
@@ -353,6 +354,9 @@ async function main() {
       const items = await fetchFromDataForSEO(cat.keyword, login, password);
       console.log(`  Received ${items.length} items from DataForSEO.`);
       for (const item of items) {
+        // Not a smart home product: lib/catalogue-guard.mjs.
+        const offTopic = offTopicReason(item.title, cat.categorySlug);
+        if (offTopic) { console.log(`  ✗ skipped (${offTopic}): ${item.title}`); continue; }
         allProducts.push(transformApiItemToProduct(item, cat));
       }
     } catch (err) {

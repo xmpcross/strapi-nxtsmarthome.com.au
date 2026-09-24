@@ -1,5 +1,5 @@
 import type { TopProduct } from '@/lib/products';
-import { featureItems, isFeatureSpec } from '@/lib/feature-specs';
+import { isFeatureSpec } from '@/lib/feature-specs';
 
 /**
  * "Highlights" strip above the Description: the most useful specifications as
@@ -9,9 +9,8 @@ import { featureItems, isFeatureSpec } from '@/lib/feature-specs';
  * catalogue. A product with no specs renders nothing rather than showing empty
  * tiles or invented values.
  *
- * Below the tiles, the feature-type specs (lib/feature-specs.ts) as a Features
- * list, which used to be its own section in ProductAccordion. They are kept out
- * of the tiles so nothing shows twice.
+ * Feature-type specs (lib/feature-specs.ts) are kept out of the tiles: they are
+ * listed under Features in the Specifications panel (ProductAccordion).
  */
 
 /**
@@ -43,15 +42,12 @@ export default function ProductHighlights({ product }: { product: TopProduct }) 
     .filter((s) => s.value.length <= 40 && !isFeatureSpec(s.name))
     .sort((a, b) => rank(a.name) - rank(b.name))
     .slice(0, 6);
-  const features = specs.filter((s) => isFeatureSpec(s.name));
-
-  if (!tiles.length && !features.length) return null;
+  if (!tiles.length) return null;
 
   return (
     <section className="rounded-[8px] bg-white p-5 dark:bg-slate-800 sm:p-6">
       <h2 className="mb-4 text-xl font-bold text-[#1d252c] dark:text-white">Highlights</h2>
 
-      {tiles.length ? (
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {tiles.map((spec) => (
           <li
@@ -72,35 +68,7 @@ export default function ProductHighlights({ product }: { product: TopProduct }) 
           </li>
         ))}
       </ul>
-      ) : null}
 
-      {features.length ? (
-        <div className={tiles.length ? 'mt-6 border-t border-[#e8e8e8] pt-5 dark:border-slate-700/70' : ''}>
-          <h3 className="mb-3 text-base font-bold text-[#1d252c] dark:text-white">Features</h3>
-          <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
-            {features.map((spec) => {
-              const items = featureItems(spec.value);
-              return (
-                <li key={spec.name}>
-                  <h4 className="text-sm font-bold text-[#1d252c] dark:text-white">{spec.name}</h4>
-                  {items.length > 1 ? (
-                    <ul className="mt-1.5 space-y-1">
-                      {items.map((item) => (
-                        <li key={item} className="flex gap-2 text-sm text-[#55555a] dark:text-slate-300">
-                          <span className="text-primary-600" aria-hidden="true">✓</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="mt-1 text-sm text-[#55555a] dark:text-slate-300">{spec.value}</p>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ) : null}
     </section>
   );
 }

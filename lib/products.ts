@@ -193,7 +193,7 @@ function fromCatalogue(p: TopProduct): Product {
 }
 
 /**
- * Curated product files first, then the catalogue behind /products/.
+ * Curated product files and the catalogue behind /products/.
  *
  * content/products/ holds three hand-written entries with real pros and cons.
  * The catalogue holds 200+ with photographs and retailer links. An article that
@@ -201,14 +201,41 @@ function fromCatalogue(p: TopProduct): Product {
  * only those three could be embedded — a marker for anything else silently
  * rendered nothing.
  *
- * Curated wins on a slug collision: a hand-written verdict beats an imported row.
+ * On a slug collision the curated file supplies the editorial and the catalogue
+ * record the photograph and retailers (see below).
  */
 export function getProductBySlug(slug: string): Product | undefined {
   const curated = getAllProducts().find((p) => p.slug === slug);
-  if (curated) return curated;
+  // An empty listing is not embedded: the box would link to a page with
+  // nothing on it (isEmptyListing).
+  const listed = getListableTopProducts().find((p) => p.slug === slug || p.id === slug);
 
-  const listed = getAllTopProducts().find((p) => p.slug === slug || p.id === slug);
+  /*
+   * A curated file for a catalogue product supplies the editorial (bestFor,
+   * pros, cons, note, match) on top of the catalogue record, which keeps the
+   * real photograph and the verified retailer prices. Replacing the record
+   * wholesale, as a curated-only product does, would swap those for the
+   * file's placeholder search links.
+   */
+  if (curated && listed) {
+    const base = fromCatalogue(listed);
+    return {
+      ...base,
+      bestFor: curated.bestFor || base.bestFor,
+      pros: curated.pros,
+      cons: curated.cons,
+      note: curated.note,
+      identifiers: curated.identifiers,
+      match: Array.from(new Set([...curated.match, ...base.match])),
+    };
+  }
+  if (curated) return curated;
   return listed ? fromCatalogue(listed) : undefined;
+}
+
+/** The curated file for a slug, if there is one (content/products/<slug>.md). */
+export function getCuratedProduct(slug: string): Product | undefined {
+  return getAllProducts().find((p) => p.slug === slug);
 }
 
 export function getProductsBySlugs(slugs: string[]): Product[] {
@@ -281,54 +308,76 @@ export function getTopProductBySlug(slug: string): TopProduct | undefined {
 /*
  * Which product pages carry enough of our own writing to be worth indexing.
  *
- * A /products/<slug>/ page is otherwise a price listing: merchant copy, a
- * catalogue spec table and retailer links, the same as every other price
- * comparison site. Indexed at scale (200+), that reads to Google and to an
- * AdSense reviewer as thin affiliate content, which CLAUDE.md rule 3 already
- * forbids publishing as if it were editorial.
+ * A /products/<slug>/ page is otherwise a price listing: catalogue specs,
+ * retailer prices and syndicated reviews, the same as every other price
+ * comparison site. Indexed at scale, that reads to Google and an AdSense
+ * reviewer as thin affiliate content (CLAUDE.md rule 3).
  *
- * A page stays indexable only with all three:
- *   - a curated file in content/products/ with the same slug,
- *   - bestFor, pros and cons filled in,
- *   - at least EDITORIAL_MIN_WORDS words of our own text across the note
- *     (HTML comments excluded), bestFor, pros and cons.
- * Everything else is noindex, follow, kept out of the sitemap, and labelled
- * "Price listing — not a review" on the page.
+ * The rule (AdSense Task 2, 24 Sep 2026). A page is indexable only with ALL of:
+ *   - a curated file in content/products/<slug>.md,
+ *   - a bestFor line, at least 3 pros and at least 2 cons,
+ *   - INDEXABLE_MIN_WORDS words of original editorial text (originalWordCount).
+ * Everything else is noindex, follow, out of the sitemap, and labelled as a
+ * price listing on the page. Under EMPTY_BELOW_WORDS it is also kept out of
+ * every listing (isEmptyListing), so no internal link points at an empty page;
+ * its URL still resolves.
+ *
+ * scripts/audit-thin-content.mjs replicates this rule (it cannot import
+ * TypeScript); change both together.
  */
-export const EDITORIAL_MIN_WORDS = 150;
-
-export interface ProductEditorial {
-  indexable: boolean;
-  words: number;
-  /** Why it is not indexable; empty when it is. */
-  missing: string[];
-}
+export const INDEXABLE_MIN_WORDS = 300;
+export const EMPTY_BELOW_WORDS = 50;
 
 function countWords(text: string): number {
   return text.split(/\s+/).filter(Boolean).length;
 }
 
-export function productEditorial(slug: string): ProductEditorial {
-  const curated = getAllProducts().find((p) => p.slug === slug);
-  if (!curated) return { indexable: false, words: 0, missing: ['no curated file in content/products/'] };
+const stripHtml = (html?: string) =>
+  String(html ?? '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ');
 
-  const missing: string[] = [];
-  if (!curated.bestFor) missing.push('bestFor');
-  if (!curated.pros?.length) missing.push('pros');
-  if (!curated.cons?.length) missing.push('cons');
-
-  const note = (curated.note ?? '').replace(/<!--[\s\S]*?-->/g, ' ');
-  const words = countWords(
-    [note, curated.bestFor ?? '', ...(curated.pros ?? []), ...(curated.cons ?? [])].join(' '),
-  );
-  if (words < EDITORIAL_MIN_WORDS) missing.push(`editorial text ${words}/${EDITORIAL_MIN_WORDS} words`);
-
-  return { indexable: missing.length === 0, words, missing };
+/**
+ * Words of our own editorial text on a product page: the curated file's body
+ * (HTML comments excluded), bestFor, pros and cons, and the shortDescription
+ * blurb. The long description counts only when it is our rewrite
+ * (descriptionRewrite.model set): otherwise that field holds the old generated
+ * template, which is not original writing. Never counted: the scraped
+ * manufacturer description, specifications, retailer data or reviews.
+ */
+export function originalWordCount(product: TopProduct): number {
+  const curated = getAllProducts().find((p) => p.slug === product.slug);
+  const note = (curated?.note ?? '').replace(/<!--[\s\S]*?-->/g, ' ');
+  const bestFor = curated?.bestFor || product.bestFor || '';
+  const pros = curated?.pros ?? product.pros ?? [];
+  const cons = curated?.cons ?? product.cons ?? [];
+  const rewritten = (product as TopProduct & { descriptionRewrite?: { model?: string } }).descriptionRewrite?.model
+    ? stripHtml(product.cmsDescriptionHtml)
+    : '';
+  return countWords([note, bestFor, ...pros, ...cons, product.shortDescription ?? '', rewritten].join(' '));
 }
 
-/** Catalogue products whose pages are indexable (see productEditorial). */
+/** The indexing rule above. */
+export function isIndexableProduct(product: TopProduct): boolean {
+  const curated = getAllProducts().find((p) => p.slug === product.slug);
+  if (!curated) return false;
+  if (!(curated.bestFor || product.bestFor)) return false;
+  if ((curated.pros ?? product.pros ?? []).length < 3) return false;
+  if ((curated.cons ?? product.cons ?? []).length < 2) return false;
+  return originalWordCount(product) >= INDEXABLE_MIN_WORDS;
+}
+
+/** Under EMPTY_BELOW_WORDS of our own text: kept out of every listing. */
+export function isEmptyListing(product: TopProduct): boolean {
+  return originalWordCount(product) < EMPTY_BELOW_WORDS;
+}
+
+/** Catalogue products whose pages are indexable. */
 export function getIndexableTopProducts(): TopProduct[] {
-  return getAllTopProducts().filter((p) => productEditorial(p.slug).indexable);
+  return getAllTopProducts().filter(isIndexableProduct);
+}
+
+/** Catalogue products that may be listed or linked (not empty listings). */
+export function getListableTopProducts(): TopProduct[] {
+  return getAllTopProducts().filter((p) => !isEmptyListing(p));
 }
 
 /**

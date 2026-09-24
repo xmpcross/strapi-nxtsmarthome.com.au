@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT Smart Home — Redesigned Logo Showcase</title>
+  <style>
+    @font-face {
+      font-family: 'UrbanistLocal';
+      src: url('/fonts/urbanist-latin-wght-normal.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+    :root {
+      --font-urbanist: 'UrbanistLocal', system-ui, -apple-system, sans-serif;
+    }
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: var(--font-urbanist);
+      background: #090d16;
+      color: #f1f5f9;
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0 0 10px 0;
+      background: linear-gradient(135deg, #a5b4fc, #6366f1, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      color: #94a3b8;
+      font-size: 15px;
+    }
+    .card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+    .card-title {
+      padding: 18px 24px;
+      background: #172033;
+      border-bottom: 1px solid #243048;
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 768px) {
+      .split-grid { grid-template-columns: 1fr; }
+    }
+    .panel {
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      position: relative;
+    }
+    .panel.light {
+      background: #ffffff;
+      color: #0f172a;
+    }
+    .panel.dark {
+      background: #0f172a;
+      color: #ffffff;
+    }
+    .tag {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .panel.light .tag { background: #f1f5f9; color: #475569; }
+    .panel.dark .tag { background: #1e293b; color: #94a3b8; }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .logo-container:hover {
+      transform: translateY(-2px);
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .brand-title {
+      font-family: var(--font-urbanist);
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .slogan-text {
+      font-family: var(--font-urbanist);
+      font-weight: 700;
+      font-size: 9.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 5px;
+      line-height: 1;
+    }
+    .panel.light .slogan-text { color: #64748b; }
+    .panel.dark .slogan-text { color: #94a3b8; }
+
+    .header-bar {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 14px 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .panel.light .header-bar {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .panel.dark .header-bar {
+      background: #111827;
+      border: 1px solid #1f2937;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .header-nav {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .panel.light .header-nav { color: #475569; }
+    .panel.dark .header-nav { color: #94a3b8; }
+    
+    .assets-list {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      background: #0f1524;
+      border-top: 1px solid #1f2937;
+    }
+    .asset-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #172033;
+      border-radius: 8px;
+      border: 1px solid #243048;
+      text-decoration: none;
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .asset-item:hover {
+      background: #1e293b;
+      color: #ffffff;
+      border-color: #6366f1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>NXT Smart Home — Redesigned Identity</h1>
+      <p class="subtitle">Selected: Concept 3 (Unframed Architectural Monogram) • Urbanist 700 Typography • Light &amp; Dark Modes</p>
+    </header>
+
+    <div class="card">
+      <div class="card-title">
+        <span>Full Brand Lockup (Header &amp; Marketing)</span>
+        <span style="font-size: 12px; color: #818cf8;">Font: Urbanist 700 • Slogan: "AUSTRALIA'S SMART HOME GUIDE"</span>
+      </div>
+
+      <div class="split-grid">
+        <!-- Light Mode Panel -->
+        <div class="panel light">
+          <span class="tag">Light Mode</span>
+
+          <!-- Full Lockup Light -->
+          <div class="logo-container">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="p-rf-l" x1="6" y1="6" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#4F46E5"/>
+                  <stop offset="100%" stop-color="#7C3AED"/>
+                </linearGradient>
+              </defs>
+              <path d="M8 36V18L22 7L36 18V36" stroke="url(#p-rf-l)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11 19L33 34" stroke="#4F46E5" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="22" cy="22" r="2.5" fill="#0EA5E9"/>
+              <path d="M17 17.5C18.5 16 25.5 16 27 17.5" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M14.5 14.5C17 12.5 27 12.5 29.5 14.5" stroke="#0EA5E9" stroke-width="1.8" stroke-linecap="round" stroke-opacity="0.75"/>
+            </svg>
+            <div class="logo-text">
+              <div class="brand-title" style="color: #0f172a;">
+                <span style="color: #4f46e5;">NXT</span> Smart Home
+              </div>
+              <div class="slogan-text">AUSTRALIA'S SMART HOME GUIDE</div>
+            </div>
+          </div>
+
+          <!-- Header Integration Mockup -->
+          <div class="header-bar">
+            <div class="logo-container" style="transform: scale(0.9); transform-origin: left center;">
+              <svg width="40" height="40" viewBox="0 0 44 44" fill="none">
+                <path d="M8 36V18L22 7L36 18V36" stroke="url(#p-rf-l)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 19L33 34" stroke="#4F46E5" stroke-width="3.5" stroke-linecap="round"/>
+                <circle cx="22" cy="22" r="2.5" fill="#0EA5E9"/>
+                <path d="M17 17.5C18.5 16 25.5 16 27 17.5" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M14.5 14.5C17 12.5 27 12.5 29.5 14.5" stroke="#0EA5E9" stroke-width="1.8" stroke-linecap="round" stroke-opacity="0.75"/>
+              </svg>
+              <div class="logo-text">
+                <div class="brand-title" style="color: #0f172a; font-size: 21px;">
+                  <span style="color: #4f46e5;">NXT</span> Smart Home
+                </div>
+                <div class="slogan-text" style="font-size: 8.5px;">AUSTRALIA'S SMART HOME GUIDE</div>
+              </div>
+            </div>
+            <div class="header-nav">
+              <span>Products</span>
+              <span>Guides</span>
+              <span>Advice</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Mode Panel -->
+        <div class="panel dark">
+          <span class="tag">Dark Mode</span>
+
+          <!-- Full Lockup Dark -->
+          <div class="logo-container">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="p-rf-d" x1="6" y1="6" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#818CF8"/>
+                  <stop offset="100%" stop-color="#C084FC"/>
+                </linearGradient>
+                <linearGradient id="p-dg-d" x1="11" y1="19" x2="33" y2="34" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#38BDF8"/>
+                  <stop offset="100%" stop-color="#818CF8"/>
+                </linearGradient>
+              </defs>
+              <path d="M8 36V18L22 7L36 18V36" stroke="url(#p-rf-d)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11 19L33 34" stroke="url(#p-dg-d)" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="22" cy="22" r="2.5" fill="#38BDF8"/>
+              <path d="M17 17.5C18.5 16 25.5 16 27 17.5" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M14.5 14.5C17 12.5 27 12.5 29.5 14.5" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-opacity="0.8"/>
+            </svg>
+            <div class="logo-text">
+              <div class="brand-title" style="color: #ffffff;">
+                <span style="color: #818cf8;">NXT</span> Smart Home
+              </div>
+              <div class="slogan-text">AUSTRALIA'S SMART HOME GUIDE</div>
+            </div>
+          </div>
+
+          <!-- Header Integration Mockup -->
+          <div class="header-bar">
+            <div class="logo-container" style="transform: scale(0.9); transform-origin: left center;">
+              <svg width="40" height="40" viewBox="0 0 44 44" fill="none">
+                <path d="M8 36V18L22 7L36 18V36" stroke="url(#p-rf-d)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 19L33 34" stroke="url(#p-dg-d)" stroke-width="3.5" stroke-linecap="round"/>
+                <circle cx="22" cy="22" r="2.5" fill="#38BDF8"/>
+                <path d="M17 17.5C18.5 16 25.5 16 27 17.5" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M14.5 14.5C17 12.5 27 12.5 29.5 14.5" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-opacity="0.8"/>
+              </svg>
+              <div class="logo-text">
+                <div class="brand-title" style="color: #ffffff; font-size: 21px;">
+                  <span style="color: #818cf8;">NXT</span> Smart Home
+                </div>
+                <div class="slogan-text" style="font-size: 8.5px;">AUSTRALIA'S SMART HOME GUIDE</div>
+              </div>
+            </div>
+            <div class="header-nav">
+              <span>Products</span>
+              <span>Guides</span>
+              <span>Advice</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generated Vector Asset Links -->
+      <div class="assets-list">
+        <a class="asset-item" href="/logo-light.svg" target="_blank">
+          <span>📄</span> logo-light.svg (Full Light)
+        </a>
+        <a class="asset-item" href="/logo-dark.svg" target="_blank">
+          <span>📄</span> logo-dark.svg (Full Dark)
+        </a>
+        <a class="asset-item" href="/logo-icon-light.svg" target="_blank">
+          <span>📐</span> logo-icon-light.svg (Mark Light)
+        </a>
+        <a class="asset-item" href="/logo-icon-dark.svg" target="_blank">
+          <span>📐</span> logo-icon-dark.svg (Mark Dark)
+        </a>
+        <a class="asset-item" href="/icon.svg" target="_blank">
+          <span>📱</span> icon.svg (Favicon / App Icon)
+        </a>
+        <a class="asset-item" href="/logo.svg" target="_blank">
+          <span>🌐</span> logo.svg (Adaptive Theme)
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

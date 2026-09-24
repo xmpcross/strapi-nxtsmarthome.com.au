@@ -10,7 +10,8 @@ import RetailerPriceList from '@/components/RetailerPriceList';
 import RetailerPriceTable from '@/components/RetailerPriceTable';
 import JsonLd from '@/components/JsonLd';
 import { bulletsOf } from '@/lib/bullets';
-import { getAllTopProducts, getTopProductBySlug, productEditorial } from '@/lib/products';
+import { getAllProducts, getAllTopProducts, getCuratedProduct, getListableTopProducts, getProductBySlug, getTopProductBySlug, isIndexableProduct } from '@/lib/products';
+import ProductEditorial from '@/components/ProductEditorial';
 import { breadcrumbJsonLd, productJsonLd } from '@/lib/seo';
 import { retailerReviews } from '@/lib/review-sources';
 
@@ -29,20 +30,32 @@ export async function generateMetadata({
   if (!product) return {};
 
   const fullName = `${product.brand ? product.brand + ' ' : ''}${product.name}`;
-  // Built from the product's own "best for" line when it has one, rather than
-  // one sentence templated across 200+ pages.
-  const description = product.bestFor
-    ? `${fullName}: best for ${product.bestFor.replace(/\.$/, '').replace(/^./, (c) => c.toLowerCase())}. Compare current prices at Australian retailers.`
-    : `${fullName} prices at Australian retailers, with specifications and where to buy.`;
+  const indexable = isIndexableProduct(product);
+  /*
+   * Indexable (curated) pages: bestFor plus the first sentence of the curated
+   * verdict. Price listings are noindex, so they keep the plain where-to-buy
+   * line rather than one that reads like a recommendation.
+   */
+  const verdict = getAllProducts()
+    .find((p) => p.slug === product.slug)
+    ?.note?.replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .match(/^.*?[.!?](\s|$)/)?.[0]
+    ?.trim();
+  const bestFor = getCuratedProduct(product.slug)?.bestFor || product.bestFor;
+  const description = indexable
+    ? [bestFor ? `${fullName}: ${bestFor.replace(/\.$/, '')}.` : fullName, verdict].filter(Boolean).join(' ')
+    : `Where to buy ${fullName} in Australia. Compare prices at Australian retailers.`;
 
   return {
     // "Review" dropped from the title: none of these pages is one.
     title: `${fullName} Price in Australia`,
     description,
     alternates: { canonical: `/products/${product.slug}/` },
-    // Price listings without our own editorial content stay out of the index
-    // (lib/products.ts productEditorial) but keep passing link equity.
-    ...(productEditorial(product.slug).indexable ? {} : { robots: { index: false, follow: true } }),
+    // Price listings stay out of the index but keep passing link equity
+    // (lib/products.ts isIndexableProduct).
+    ...(indexable ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
@@ -60,7 +73,8 @@ export default async function ProductDetailPage({
   // duplicates of the page you are already on, not alternatives to it.
   const baseSlug = (s: string) => s.replace(/-(pro|ultra|gen-\d+)$/, '');
   const thisBase = baseSlug(product.slug);
-  const pool = getAllTopProducts().filter((p) => baseSlug(p.slug) !== thisBase);
+  // Empty listings are never linked (lib/products.ts isEmptyListing).
+  const pool = getListableTopProducts().filter((p) => baseSlug(p.slug) !== thisBase);
   const sameSubCategory = product.subCategory
     ? pool.filter((p) => p.subCategory === product.subCategory)
     : [];
@@ -69,12 +83,20 @@ export default async function ProductDetailPage({
     ...pool.filter((p) => p.categorySlug === product.categorySlug && !sameSubCategory.includes(p)),
   ].slice(0, 6); // one row of six on desktop
 
-  const isListingOnly = !productEditorial(product.slug).indexable;
+  const isListingOnly = !isIndexableProduct(product);
   // What the client components receive, with reviews already cut down to the
   // named Australian retailers (lib/review-sources.ts). A client component's
   // props are serialised into the page, so filtering inside ProductReviews
   // alone still shipped every AliExpress and Shopee review in the HTML.
-  const forClient = { ...product, reviews: retailerReviews(product).reviews };
+  // The curated file's verdict line, when there is one, beats the catalogue's.
+  const curated = getCuratedProduct(product.slug);
+  const forClient = {
+    ...product,
+    bestFor: curated?.bestFor || product.bestFor,
+    reviews: retailerReviews(product).reviews,
+  };
+  // Curated editorial merged over the catalogue record (lib/products.ts).
+  const editorial = curated ? getProductBySlug(product.slug) : undefined;
   const retailers = product.retailers || [];
   const primaryRetailer = retailers.find((r) => r.primary) || retailers[0];
 
@@ -153,8 +175,14 @@ export default async function ProductDetailPage({
                       our verdict. Retailer customer scores are in the reviews
                       block, labelled as theirs. */}
                   {isListingOnly ? (
-                    <span className="rounded-sm border border-[#c5cbd5] px-2 py-0.5 font-semibold text-[#1d252c] dark:border-slate-600 dark:text-slate-200">
-                      Price listing — not a review
+                    <span className="rounded-sm border border-[#c5cbd5] px-2 py-0.5 text-[#1d252c] dark:border-slate-600 dark:text-slate-200">
+                      <span className="font-semibold">Price listing — not a review.</span>{' '}
+                      <Link
+                        href={`/categories/${product.categorySlug}/`}
+                        className="text-[#0046be] underline underline-offset-2 hover:no-underline dark:text-blue-400"
+                      >
+                        See our guides for recommendations.
+                      </Link>
                     </span>
                   ) : null}
                   {product.subCategory ? (
@@ -209,6 +237,9 @@ export default async function ProductDetailPage({
                 ) : null}
               </div>
             </div>
+
+            {/* Curated research notes (content/products/<slug>.md), when written. */}
+            {editorial ? <ProductEditorial product={editorial} /> : null}
 
             {/* Highlights sit above the Description panels */}
             <ProductHighlights product={forClient} />

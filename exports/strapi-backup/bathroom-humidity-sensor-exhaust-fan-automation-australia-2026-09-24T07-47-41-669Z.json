@@ -1,0 +1,334 @@
+{
+  "published": {
+    "id": 269,
+    "documentId": "nfsrvywhgwif36x2fb5nrpru",
+    "title": "Humidity Sensors and Exhaust Fan Automation for Australian Bathrooms",
+    "slug": "bathroom-humidity-sensor-exhaust-fan-automation-australia",
+    "excerpt": "Winter mould in Australian bathrooms is a moisture problem, not a cleaning problem. Here's how to use a humidity sensor and a smart exhaust fan automation to pull damp air out before it condenses on your grout, ceiling and window reveals.",
+    "content": "Every winter, the same thing happens in a lot of Australian bathrooms. Hot shower, cold tiles, one small window that nobody opens because it's 8 degrees outside, and by August there's black spotting along the grout and a grey bloom creeping across the ceiling. Wiping it off treats the symptom. Getting the moisture out of the room in the first 20 minutes treats the cause.\n\nA humidity sensor plus an automated exhaust fan is one of the highest-value, lowest-glamour smart home upgrades you can make. Here's how to do it properly.\n\n## Start Here: The Practical Version\n\nPut a battery humidity sensor in the bathroom, roughly 1.5m off the floor, away from the shower spray and away from the fan itself. Run the exhaust fan automatically when humidity climbs sharply, and — this is the bit most people skip — keep running it for 15 to 20 minutes after the shower stops. That post-run is where the actual drying happens.\n\nIf your fan is hardwired (almost all Australian bathroom fans are), switching it automatically means a licensed electrician installs a smart relay or a smart switch behind the wall plate. That is not a DIY job in Australia. Renters and anyone not ready for electrical work can still get most of the benefit from a sensor plus a plug-in dehumidifier and a phone alert.\n\n## Why Australian Bathrooms Grow Mould in Winter\n\nMould needs moisture, a surface and time. Winter delivers all three at once.\n\nWarm shower air holds a lot of water vapour. When that air touches a cold surface — a single-glazed window, an uninsulated external wall, a ceiling below an unheated roof space — it hits dew point and condenses. Melbourne, Hobart, Canberra and the Adelaide Hills see this badly because overnight surface temperatures drop low while indoor humidity stays high. Even in Brisbane and Perth, a closed-up bathroom in July holds moisture for hours.\n\nThe other factor is that a lot of older Australian housing stock has an exhaust fan that vents into the roof cavity rather than outside. That moves the problem rather than solving it, and it can cause insulation and framing issues over time. If you're unsure where yours discharges, that's worth checking before you automate anything — an electrician or handyperson can confirm whether the ducting terminates at an eave or roof vent [VERIFY: depends on your build and applicable AS/NZS ventilation requirements].\n\n## What Humidity Level Should You Actually Target?\n\nIndoor relative humidity between roughly 40% and 60% is the commonly cited comfort and health band, with mould risk rising as you sit above 60% for extended periods [VERIFY — guidance varies between health authorities and building sources]. But absolute thresholds make poor automation triggers in a bathroom, for two reasons.\n\nFirst, ambient humidity swings by season. A Sydney bathroom might sit at 68% on a humid February morning without anyone showering, and 45% in a dry winter westerly. A fixed \"run the fan above 65%\" rule will run the fan all summer and never trigger in winter.\n\nSecond, showers create a *spike*, and the spike is what you want to catch. The better approach is a rate-of-change or delta trigger: compare the bathroom sensor to a baseline (a hallway sensor, or the bathroom's own reading 15 minutes ago) and run the fan when the difference exceeds around 8 to 12 percentage points. Then stop when the reading returns to within about 3 points of baseline, or after a maximum runtime of 30 to 40 minutes so a stuck reading doesn't run the fan all day.\n\n## Choosing a Humidity Sensor for a Wet Room\n\nBathrooms are hostile to electronics. Look for a sensor with a sensible reporting interval, decent battery life, and a display if you want to eyeball the number while you tune the automation.\n\n::product:tp-link-tapo-smart-temperature-humidity-monitor::\n\nThe Tapo unit is an easy starting point if you're already in the Tapo/TP-Link app, and the E-ink style display makes it genuinely useful as a standalone hygrometer while you work out what your \"normal\" is. Specification-wise it's designed as an indoor monitor, not a wet-rated device — keep it off the shower wall.\n\nOn protocols: Wi-Fi humidity sensors are simple to set up but tend to report less often to save battery, and some are mains-powered, which is awkward in a bathroom. Zigbee sensors typically report faster and last longer on a coin cell, which matters when your trigger depends on catching a rise quickly.\n\n::product:tuya-wifi-temperature-humidity-sensor-indoor-hygrometer-thermometer-detector-sma::\n\nBudget Tuya/Smart Life sensors are cheap enough (often well under $30 [VERIFY]) that you can put one in the bathroom and one in the hallway for a baseline comparison. If you run Home Assistant, check before buying whether the model exposes local control or is cloud-only — that determines whether your automation still works when the NBN drops out.\n\n**Placement rules that actually matter:** mount roughly 1.5m high, at least 1m from the shower screen, not directly under the exhaust grille (it'll read dry air and cut the fan early), and not on the outside of the door. A sensor in the wrong spot produces an automation that feels random.\n\n## Switching the Fan: What Needs an Electrician\n\nIn Australia, fixed wiring work must be carried out by a licensed electrician, and that includes replacing a bathroom fan switch with a smart switch or installing an in-wall relay behind the existing plate [VERIFY — licensing requirements are set state by state; confirm with your state's electrical regulator]. Bathrooms also have zone restrictions around where switchgear and accessories can be located under AS/NZS 3000 [VERIFY]. Please don't take the plate off and have a go.\n\nWhat you can do: get a quote for a smart relay module fitted behind the existing fan switch, which keeps the manual switch working while adding automation. Ask the electrician to confirm the fan is rated for extended run times and that the duct discharges outside. If the fan is 20 years old and rattles, replacing it with a higher-flow model at the same time is usually cheaper than two separate call-outs.\n\nSome newer bathroom fans ship with built-in humidity sensing and a run-on timer. Those solve the basic problem without any smart home involvement, but they're a black box — you can't tune the threshold, and you get no history to look at.\n\n## Renting, or Not Ready to Rewire?\n\nYou can still cut mould risk substantially without touching the wiring.\n\nRun the existing fan manually but set a smart speaker or phone reminder tied to the sensor: when bathroom humidity crosses your threshold, get a notification saying \"turn the fan on\" — and a second one 20 minutes later saying \"you can turn it off\". Crude, but it changes behaviour.\n\nBetter, pair the sensor with a plug-in dehumidifier on a smart plug and let the humidity reading control the socket.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nA compact 240V smart plug like the Tapo P100 lets you run the dehumidifier only when the bathroom is genuinely damp, rather than leaving it running and paying for it. Check the plug's rated load against the appliance before you commit — dehumidifiers and heaters draw far more than a lamp, and small smart plugs have real limits [VERIFY the specific current rating on the model you buy].\n\nAlso worth doing, and free: leave the shower screen open after use, squeegee the walls, leave the bathroom door ajar so the room can equalise, and crack the window on dry winter days even for 10 minutes.\n\n## Tuning the Automation Over the First Fortnight\n\nDon't set thresholds on day one. Let the sensor log for a week and look at the graph. You're looking for the resting baseline, the peak during a shower, and how long the room takes to come back down on its own. Then set your delta and your run-on timer from real numbers.\n\nA few refinements worth adding once the basics work:\n\n- **Minimum run time.** Stops the fan short-cycling on a quick hand wash.\n- **Maximum run time.** A safety net if the sensor battery dies mid-reading.\n- **Night quietness.** Some households drop the run-on to 10 minutes after 10pm, or skip the automation entirely if the fan is loud enough to wake people.\n- **A manual override.** Make sure the wall switch still wins. Nobody wants to argue with their own house at 6am.\n\nIf you're running Home Assistant, log the sensor to a long-term database and check it again in September. The satisfying part is watching the winter peaks flatten out — and not finding anything new on the ceiling come spring.",
+    "keyTakeaways": "Put a humidity sensor about 1.5m high in the bathroom, away from shower spray and the fan grille, and trigger the exhaust fan on a sharp rise in humidity rather than a fixed percentage — then keep it running 15 to 20 minutes after the shower ends. Automating a hardwired fan means a licensed electrician fits a smart relay or switch; renters can pair the sensor with a plug-in dehumidifier on a smart plug instead.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "humidity sensors",
+      "exhaust fans",
+      "mould",
+      "bathrooms",
+      "home assistant",
+      "winter",
+      "automation"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Bathroom Humidity Sensors & Exhaust Fan Automation AU",
+    "seoDescription": "How to use a humidity sensor and automated exhaust fan to stop winter mould in Australian bathrooms — thresholds, sensor placement and what needs an electrician",
+    "seoKeywords": "bathroom humidity sensor, exhaust fan automation, winter mould Australia, smart home humidity, Home Assistant bathroom fan, condensation mould, smart exhaust fan",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:18:17.395Z",
+    "updatedAt": "2026-08-23T00:44:07.609Z",
+    "publishedAt": "2026-08-23T00:44:07.645Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3986,
+      "documentId": "txrhxvujtxlp8tv8jgjekudx",
+      "name": "humidity-sensors-and-exhaust-fan-automation-for-au-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707.jpg",
+          "hash": "large_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707",
+          "mime": "image/jpeg",
+          "name": "large_humidity-sensors-and-exhaust-fan-automation-for-au-cover.jpg",
+          "path": null,
+          "size": 49.77,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 49766
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707.jpg",
+          "hash": "small_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707",
+          "mime": "image/jpeg",
+          "name": "small_humidity-sensors-and-exhaust-fan-automation-for-au-cover.jpg",
+          "path": null,
+          "size": 13.2,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13203
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707.jpg",
+          "hash": "medium_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707",
+          "mime": "image/jpeg",
+          "name": "medium_humidity-sensors-and-exhaust-fan-automation-for-au-cover.jpg",
+          "path": null,
+          "size": 27.14,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 27135
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707.jpg",
+          "hash": "thumbnail_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707",
+          "mime": "image/jpeg",
+          "name": "thumbnail_humidity-sensors-and-exhaust-fan-automation-for-au-cover.jpg",
+          "path": null,
+          "size": 4.21,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4209
+        }
+      },
+      "hash": "humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 133.05,
+      "url": "/uploads/humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:18:17.379Z",
+      "updatedAt": "2026-08-23T00:18:17.379Z",
+      "publishedAt": "2026-08-23T00:18:17.379Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1677,
+        "question": "Where should I put a humidity sensor in a bathroom so the fan automation isn't erratic?",
+        "answer": "Mount it around 1.5m off the floor, at least a metre from the shower screen, and not directly under the exhaust grille — sitting in the fan's airstream makes it read dry air and cut the fan early. Don't put it on the outside of the door either. Poor placement is the usual reason a bathroom automation feels random."
+      },
+      {
+        "order": 2,
+        "id": 1678,
+        "question": "Can I install a smart switch behind my bathroom fan myself?",
+        "answer": "No — fixed wiring work in Australia must be done by a licensed electrician, and that includes swapping a fan switch for a smart switch or fitting an in-wall relay [VERIFY: licensing requirements are set state by state; confirm with your state's electrical regulator]. Bathrooms also have zone restrictions on where switchgear can sit under AS/NZS 3000 [VERIFY]. Get a quote for a relay module that keeps the manual switch working."
+      },
+      {
+        "order": 3,
+        "id": 1679,
+        "question": "Why does a fixed \"run the fan above 65% humidity\" rule not work?",
+        "answer": "Ambient humidity swings by season, so a Sydney bathroom might sit at 68% on a February morning with nobody showering, then 45% in a dry winter westerly — the fan runs all summer and never triggers in winter. A rate-of-change trigger works better: run the fan when the bathroom reading rises roughly 8–12 percentage points above a baseline, and stop within about 3 points of it."
+      },
+      {
+        "order": 4,
+        "id": 1680,
+        "question": "How long should the exhaust fan keep running after the shower stops?",
+        "answer": "Around 15 to 20 minutes of run-on is where the actual drying happens, and it's the step most people skip. Pair that with a maximum runtime of 30 to 40 minutes so a stuck sensor reading doesn't leave the fan running all day, and a minimum run time so a quick hand wash doesn't short-cycle it."
+      },
+      {
+        "order": 5,
+        "id": 1681,
+        "question": "I'm renting and can't rewire anything. What can I do about bathroom mould?",
+        "answer": "Use a battery humidity sensor to trigger phone notifications — one telling you to switch the fan on, another 20 minutes later saying you can switch it off. Better still, put a plug-in dehumidifier on a 240V smart plug controlled by the humidity reading, but check the plug's rated current against the appliance first [VERIFY the rating on the specific model]. Leaving the shower screen open, squeegeeing the walls and propping the door ajar all help and cost nothing."
+      }
+    ],
+    "categories": [
+      {
+        "id": 2,
+        "documentId": "kr7s0nrg74tdavub6vyhm1of",
+        "name": "Climate",
+        "slug": "climate",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.690Z",
+        "updatedAt": "2026-08-22T18:30:53.594Z",
+        "publishedAt": "2026-08-22T18:30:53.592Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 206,
+    "documentId": "nfsrvywhgwif36x2fb5nrpru",
+    "title": "Humidity Sensors and Exhaust Fan Automation for Australian Bathrooms",
+    "slug": "bathroom-humidity-sensor-exhaust-fan-automation-australia",
+    "excerpt": "Winter mould in Australian bathrooms is a moisture problem, not a cleaning problem. Here's how to use a humidity sensor and a smart exhaust fan automation to pull damp air out before it condenses on your grout, ceiling and window reveals.",
+    "content": "Every winter, the same thing happens in a lot of Australian bathrooms. Hot shower, cold tiles, one small window that nobody opens because it's 8 degrees outside, and by August there's black spotting along the grout and a grey bloom creeping across the ceiling. Wiping it off treats the symptom. Getting the moisture out of the room in the first 20 minutes treats the cause.\n\nA humidity sensor plus an automated exhaust fan is one of the highest-value, lowest-glamour smart home upgrades you can make. Here's how to do it properly.\n\n## Start Here: The Practical Version\n\nPut a battery humidity sensor in the bathroom, roughly 1.5m off the floor, away from the shower spray and away from the fan itself. Run the exhaust fan automatically when humidity climbs sharply, and — this is the bit most people skip — keep running it for 15 to 20 minutes after the shower stops. That post-run is where the actual drying happens.\n\nIf your fan is hardwired (almost all Australian bathroom fans are), switching it automatically means a licensed electrician installs a smart relay or a smart switch behind the wall plate. That is not a DIY job in Australia. Renters and anyone not ready for electrical work can still get most of the benefit from a sensor plus a plug-in dehumidifier and a phone alert.\n\n## Why Australian Bathrooms Grow Mould in Winter\n\nMould needs moisture, a surface and time. Winter delivers all three at once.\n\nWarm shower air holds a lot of water vapour. When that air touches a cold surface — a single-glazed window, an uninsulated external wall, a ceiling below an unheated roof space — it hits dew point and condenses. Melbourne, Hobart, Canberra and the Adelaide Hills see this badly because overnight surface temperatures drop low while indoor humidity stays high. Even in Brisbane and Perth, a closed-up bathroom in July holds moisture for hours.\n\nThe other factor is that a lot of older Australian housing stock has an exhaust fan that vents into the roof cavity rather than outside. That moves the problem rather than solving it, and it can cause insulation and framing issues over time. If you're unsure where yours discharges, that's worth checking before you automate anything — an electrician or handyperson can confirm whether the ducting terminates at an eave or roof vent [VERIFY: depends on your build and applicable AS/NZS ventilation requirements].\n\n## What Humidity Level Should You Actually Target?\n\nIndoor relative humidity between roughly 40% and 60% is the commonly cited comfort and health band, with mould risk rising as you sit above 60% for extended periods [VERIFY — guidance varies between health authorities and building sources]. But absolute thresholds make poor automation triggers in a bathroom, for two reasons.\n\nFirst, ambient humidity swings by season. A Sydney bathroom might sit at 68% on a humid February morning without anyone showering, and 45% in a dry winter westerly. A fixed \"run the fan above 65%\" rule will run the fan all summer and never trigger in winter.\n\nSecond, showers create a *spike*, and the spike is what you want to catch. The better approach is a rate-of-change or delta trigger: compare the bathroom sensor to a baseline (a hallway sensor, or the bathroom's own reading 15 minutes ago) and run the fan when the difference exceeds around 8 to 12 percentage points. Then stop when the reading returns to within about 3 points of baseline, or after a maximum runtime of 30 to 40 minutes so a stuck reading doesn't run the fan all day.\n\n## Choosing a Humidity Sensor for a Wet Room\n\nBathrooms are hostile to electronics. Look for a sensor with a sensible reporting interval, decent battery life, and a display if you want to eyeball the number while you tune the automation.\n\n::product:tp-link-tapo-smart-temperature-humidity-monitor::\n\nThe Tapo unit is an easy starting point if you're already in the Tapo/TP-Link app, and the E-ink style display makes it genuinely useful as a standalone hygrometer while you work out what your \"normal\" is. Specification-wise it's designed as an indoor monitor, not a wet-rated device — keep it off the shower wall.\n\nOn protocols: Wi-Fi humidity sensors are simple to set up but tend to report less often to save battery, and some are mains-powered, which is awkward in a bathroom. Zigbee sensors typically report faster and last longer on a coin cell, which matters when your trigger depends on catching a rise quickly.\n\n::product:tuya-wifi-temperature-humidity-sensor-indoor-hygrometer-thermometer-detector-sma::\n\nBudget Tuya/Smart Life sensors are cheap enough (often well under $30 [VERIFY]) that you can put one in the bathroom and one in the hallway for a baseline comparison. If you run Home Assistant, check before buying whether the model exposes local control or is cloud-only — that determines whether your automation still works when the NBN drops out.\n\n**Placement rules that actually matter:** mount roughly 1.5m high, at least 1m from the shower screen, not directly under the exhaust grille (it'll read dry air and cut the fan early), and not on the outside of the door. A sensor in the wrong spot produces an automation that feels random.\n\n## Switching the Fan: What Needs an Electrician\n\nIn Australia, fixed wiring work must be carried out by a licensed electrician, and that includes replacing a bathroom fan switch with a smart switch or installing an in-wall relay behind the existing plate [VERIFY — licensing requirements are set state by state; confirm with your state's electrical regulator]. Bathrooms also have zone restrictions around where switchgear and accessories can be located under AS/NZS 3000 [VERIFY]. Please don't take the plate off and have a go.\n\nWhat you can do: get a quote for a smart relay module fitted behind the existing fan switch, which keeps the manual switch working while adding automation. Ask the electrician to confirm the fan is rated for extended run times and that the duct discharges outside. If the fan is 20 years old and rattles, replacing it with a higher-flow model at the same time is usually cheaper than two separate call-outs.\n\nSome newer bathroom fans ship with built-in humidity sensing and a run-on timer. Those solve the basic problem without any smart home involvement, but they're a black box — you can't tune the threshold, and you get no history to look at.\n\n## Renting, or Not Ready to Rewire?\n\nYou can still cut mould risk substantially without touching the wiring.\n\nRun the existing fan manually but set a smart speaker or phone reminder tied to the sensor: when bathroom humidity crosses your threshold, get a notification saying \"turn the fan on\" — and a second one 20 minutes later saying \"you can turn it off\". Crude, but it changes behaviour.\n\nBetter, pair the sensor with a plug-in dehumidifier on a smart plug and let the humidity reading control the socket.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nA compact 240V smart plug like the Tapo P100 lets you run the dehumidifier only when the bathroom is genuinely damp, rather than leaving it running and paying for it. Check the plug's rated load against the appliance before you commit — dehumidifiers and heaters draw far more than a lamp, and small smart plugs have real limits [VERIFY the specific current rating on the model you buy].\n\nAlso worth doing, and free: leave the shower screen open after use, squeegee the walls, leave the bathroom door ajar so the room can equalise, and crack the window on dry winter days even for 10 minutes.\n\n## Tuning the Automation Over the First Fortnight\n\nDon't set thresholds on day one. Let the sensor log for a week and look at the graph. You're looking for the resting baseline, the peak during a shower, and how long the room takes to come back down on its own. Then set your delta and your run-on timer from real numbers.\n\nA few refinements worth adding once the basics work:\n\n- **Minimum run time.** Stops the fan short-cycling on a quick hand wash.\n- **Maximum run time.** A safety net if the sensor battery dies mid-reading.\n- **Night quietness.** Some households drop the run-on to 10 minutes after 10pm, or skip the automation entirely if the fan is loud enough to wake people.\n- **A manual override.** Make sure the wall switch still wins. Nobody wants to argue with their own house at 6am.\n\nIf you're running Home Assistant, log the sensor to a long-term database and check it again in September. The satisfying part is watching the winter peaks flatten out — and not finding anything new on the ceiling come spring.",
+    "keyTakeaways": "Put a humidity sensor about 1.5m high in the bathroom, away from shower spray and the fan grille, and trigger the exhaust fan on a sharp rise in humidity rather than a fixed percentage — then keep it running 15 to 20 minutes after the shower ends. Automating a hardwired fan means a licensed electrician fits a smart relay or switch; renters can pair the sensor with a plug-in dehumidifier on a smart plug instead.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "humidity sensors",
+      "exhaust fans",
+      "mould",
+      "bathrooms",
+      "home assistant",
+      "winter",
+      "automation"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Bathroom Humidity Sensors & Exhaust Fan Automation AU",
+    "seoDescription": "How to use a humidity sensor and automated exhaust fan to stop winter mould in Australian bathrooms — thresholds, sensor placement and what needs an electrician",
+    "seoKeywords": "bathroom humidity sensor, exhaust fan automation, winter mould Australia, smart home humidity, Home Assistant bathroom fan, condensation mould, smart exhaust fan",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:18:17.395Z",
+    "updatedAt": "2026-08-23T00:44:07.609Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3986,
+      "documentId": "txrhxvujtxlp8tv8jgjekudx",
+      "name": "humidity-sensors-and-exhaust-fan-automation-for-au-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707.jpg",
+          "hash": "large_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707",
+          "mime": "image/jpeg",
+          "name": "large_humidity-sensors-and-exhaust-fan-automation-for-au-cover.jpg",
+          "path": null,
+          "size": 49.77,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 49766
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707.jpg",
+          "hash": "small_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707",
+          "mime": "image/jpeg",
+          "name": "small_humidity-sensors-and-exhaust-fan-automation-for-au-cover.jpg",
+          "path": null,
+          "size": 13.2,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13203
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707.jpg",
+          "hash": "medium_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707",
+          "mime": "image/jpeg",
+          "name": "medium_humidity-sensors-and-exhaust-fan-automation-for-au-cover.jpg",
+          "path": null,
+          "size": 27.14,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 27135
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707.jpg",
+          "hash": "thumbnail_humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707",
+          "mime": "image/jpeg",
+          "name": "thumbnail_humidity-sensors-and-exhaust-fan-automation-for-au-cover.jpg",
+          "path": null,
+          "size": 4.21,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4209
+        }
+      },
+      "hash": "humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 133.05,
+      "url": "/uploads/humidity_sensors_and_exhaust_fan_automation_for_au_cover_dd68aa4707.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:18:17.379Z",
+      "updatedAt": "2026-08-23T00:18:17.379Z",
+      "publishedAt": "2026-08-23T00:18:17.379Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1672,
+        "question": "Where should I put a humidity sensor in a bathroom so the fan automation isn't erratic?",
+        "answer": "Mount it around 1.5m off the floor, at least a metre from the shower screen, and not directly under the exhaust grille — sitting in the fan's airstream makes it read dry air and cut the fan early. Don't put it on the outside of the door either. Poor placement is the usual reason a bathroom automation feels random."
+      },
+      {
+        "order": 2,
+        "id": 1673,
+        "question": "Can I install a smart switch behind my bathroom fan myself?",
+        "answer": "No — fixed wiring work in Australia must be done by a licensed electrician, and that includes swapping a fan switch for a smart switch or fitting an in-wall relay [VERIFY: licensing requirements are set state by state; confirm with your state's electrical regulator]. Bathrooms also have zone restrictions on where switchgear can sit under AS/NZS 3000 [VERIFY]. Get a quote for a relay module that keeps the manual switch working."
+      },
+      {
+        "order": 3,
+        "id": 1674,
+        "question": "Why does a fixed \"run the fan above 65% humidity\" rule not work?",
+        "answer": "Ambient humidity swings by season, so a Sydney bathroom might sit at 68% on a February morning with nobody showering, then 45% in a dry winter westerly — the fan runs all summer and never triggers in winter. A rate-of-change trigger works better: run the fan when the bathroom reading rises roughly 8–12 percentage points above a baseline, and stop within about 3 points of it."
+      },
+      {
+        "order": 4,
+        "id": 1675,
+        "question": "How long should the exhaust fan keep running after the shower stops?",
+        "answer": "Around 15 to 20 minutes of run-on is where the actual drying happens, and it's the step most people skip. Pair that with a maximum runtime of 30 to 40 minutes so a stuck sensor reading doesn't leave the fan running all day, and a minimum run time so a quick hand wash doesn't short-cycle it."
+      },
+      {
+        "order": 5,
+        "id": 1676,
+        "question": "I'm renting and can't rewire anything. What can I do about bathroom mould?",
+        "answer": "Use a battery humidity sensor to trigger phone notifications — one telling you to switch the fan on, another 20 minutes later saying you can switch it off. Better still, put a plug-in dehumidifier on a 240V smart plug controlled by the humidity reading, but check the plug's rated current against the appliance first [VERIFY the rating on the specific model]. Leaving the shower screen open, squeegeeing the walls and propping the door ajar all help and cost nothing."
+      }
+    ],
+    "categories": [
+      {
+        "id": 2,
+        "documentId": "kr7s0nrg74tdavub6vyhm1of",
+        "name": "Climate",
+        "slug": "climate",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.690Z",
+        "updatedAt": "2026-08-22T18:30:53.594Z",
+        "publishedAt": "2026-08-22T18:30:53.592Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}

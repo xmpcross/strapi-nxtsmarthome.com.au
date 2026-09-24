@@ -1,0 +1,334 @@
+{
+  "published": {
+    "id": 271,
+    "documentId": "z1thwq33bfbc743zp3yvbsw6",
+    "title": "Running a Robot Vacuum Locally in Home Assistant (No Cloud)",
+    "slug": "robot-vacuum-local-home-assistant-no-cloud",
+    "excerpt": "Some robot vacuums will talk to Home Assistant entirely over your own LAN, others refuse to move without a server overseas. Here's how local control actually works in 2024-25, which brands are realistic, what rooting involves, and how to automate cleaning even when the vacuum itself stays cloud-tethered.",
+    "content": "Most robot vacuums sold in Australia ship as cloud appliances. You press \"clean\" in the app, the command goes to a server (often in China, sometimes Singapore or the US), and the server tells the robot sitting six metres away to start. It works, right up until the internet drops out, the vendor changes the API, or you'd simply rather your floor plan wasn't sitting on someone else's hardware.\n\nThe good news: a meaningful subset of robots can be made to run entirely on your LAN with Home Assistant. The less good news is that it depends heavily on the model, and the best options involve rooting.\n\n## The short version: three tiers of \"local\"\n\nIt helps to be precise about what people mean by local control, because the marketing blurs it.\n\n**Tier 1 — Cloud only.** The Home Assistant integration logs into the vendor's account and relays commands via the internet. Nothing works offline. Most Ecovacs, Roborock (stock firmware), Eufy and Samsung robots sit here by default. It's still automatable — it's just not resilient.\n\n**Tier 2 — Local API, cloud-assisted setup.** The robot speaks a documented or reverse-engineered protocol on your LAN, and Home Assistant talks to it directly once you've extracted a token or key. Older Xiaomi/Roborock models are the classic example via the `xiaomi_miio` integration. Commands are local; maps and firmware updates may still involve the cloud.\n\n**Tier 3 — Fully local, cloud severed.** The vacuum runs replacement firmware or a patched interface — [Valetudo](https://valetudo.cloud) is the main project — that removes the vendor cloud entirely and exposes MQTT to Home Assistant. Live maps, zone cleaning, fan speed, consumable counters, all on your network. This is the real thing.\n\nIf resilience matters to you, aim for Tier 3 and treat Tier 1 as a fallback.\n\n## Valetudo: the genuinely local route\n\nValetudo is open-source firmware-side software that replaces the cloud connection on supported Dreame, Roborock, Viomi and a few other robots. It doesn't replace the robot's core navigation firmware — it hijacks the bit that phones home and gives you a local web UI plus MQTT with Home Assistant auto-discovery.\n\nWhat you get once it's running:\n\n- Start, stop, spot and zone cleaning as native HA entities\n- Live map with room segmentation (via the `valetudo-map-card` or the ICantBelieveItsNotValetudo camera add-on)\n- Fan speed, water flow, mop settings\n- Consumable life sensors — brush, filter, sensors — which are perfect for maintenance reminders\n- No internet dependency at all\n\nThe catch is installation. Rooting is model-and-firmware-specific. On many Dreame units it means opening the case, shorting test pads or connecting a USB cable to an internal port, and flashing a patched image. On some models the process is fully documented and takes half an hour; on others it requires soldering, or the current firmware has closed the hole.\n\nDreame's mid-to-upper range has historically been the most Valetudo-friendly family, and the L10s Ultra generation is well documented in the project's device list.\n\n::product:dreame-l10s-ultra-robot-vacuum-and-mop::\n\nBefore you buy anything specifically to root it, check three things: the exact model number (regional variants differ), the firmware version it ships with, and whether Valetudo's supported-devices page lists a working method for that combination [VERIFY — support status changes with each vendor firmware release]. Buying a unit and finding it shipped with patched firmware is the most common disappointment.\n\nAnd be clear-eyed: rooting almost certainly voids the manufacturer warranty. Your Australian Consumer Law rights for a major failure unrelated to the modification are a separate question and not one to assume either way [VERIFY — seek advice for your situation]. If the vacuum is a $1,500 appliance you can't afford to brick, this isn't the hobby for you.\n\n## When the robot stays cloud-tethered\n\nSome brands simply don't have a local path. Ecovacs is the clearest example — the Home Assistant integration authenticates to Ecovacs' servers and relays everything through them. It works well and exposes plenty of controls, but pull the WAN cable and your automations stop.\n\n::product:ecovacs-deebot-x2-omni-square-robot-vacuum::\n\nThat's not automatically a dealbreaker. A cloud-connected vacuum with a strong app, good edge-cleaning geometry and a reliable auto-empty dock may still be the better appliance for your house than a rootable one you fight with monthly. Just decide deliberately: are you buying a smart-home component or a floor cleaner that happens to have an app?\n\nIf you go cloud, mitigate it:\n\n- Put the vacuum on an IoT VLAN or guest network so it can reach the internet but not your NAS or cameras\n- Build automations that degrade gracefully — don't make your morning routine depend on a `vacuum.start` call succeeding\n- Keep a physical button or dock control in the loop for when the API has a bad day\n\n## Local triggers matter more than local commands\n\nHere's the part people miss. Even with a cloud vacuum, you can make the *decision-making* local, which is where most of the reliability lives.\n\nThe pattern that works best in Australian homes: a Zigbee sensor network feeding Home Assistant, with the vacuum as the actuator. Door sensors on the laundry so the robot doesn't run while the dog's food bowl is out. A presence sensor so it only cleans when the house is empty. A vibration sensor on the dryer. All of that runs on your own coordinator with zero internet.\n\nA USB Zigbee coordinator plugged into whatever runs Home Assistant is the cheapest way in, and it's the single highest-value $30-odd [VERIFY pricing] you'll spend on a local-first setup.\n\n::product:sonoff-zigbee-3-0-usb-dongle::\n\nUse a USB 2.0 extension lead to get the dongle away from USB 3 ports and SSDs — the 2.4 GHz interference is real and it's the number one cause of flaky Zigbee networks. Also pick a Zigbee channel that doesn't overlap your Wi-Fi; channels 15, 20 and 25 are the usual safe picks.\n\n## Matter won't rescue you yet\n\nMatter 1.2 added a robot vacuum device type, and Matter is local by design — commands travel over your LAN, not a vendor server. On paper that solves everything.\n\nIn practice, as of writing, Matter's vacuum support covers a fairly thin slice: start, stop, return to dock, basic run modes. No maps, no room selection, no zone cleaning, no mop pad state [VERIFY against current spec revision]. Vendors that support it typically keep the rich features in their own app. So Matter gets you a reliable local on/off switch, which is genuinely useful for automations, but it isn't a replacement for Valetudo or a full local integration today.\n\nIt's worth checking Matter support when buying, because it costs nothing and it's the most likely long-term path to local control without rooting.\n\n## A sensible plan\n\nIf you want local control and you're starting from scratch:\n\n1. Decide your tolerance for tinkering *before* you shop. Be honest.\n2. If it's high, cross-reference the Valetudo supported-devices list against what Australian retailers are actually stocking, and check the model suffix carefully — AU stock sometimes differs from EU listings.\n3. If it's low, buy the best appliance for your floors, accept the cloud integration, isolate it on an IoT network, and put your effort into local Zigbee triggers instead.\n4. Either way, build automations that fail quietly. A vacuum that doesn't start is an annoyance; a morning routine that hangs waiting for a cloud response is a support ticket from your household.\n\nNothing here involves mains wiring — robot vacuums and docks run from a standard Type I 240 V outlet — so there's no licensed electrician required. If you're adding a dedicated outlet in a cupboard for the dock, that's fixed wiring, and that's a licensed electrician's job under AS/NZS 3000.",
+    "keyTakeaways": "Only some robot vacuums can run fully locally in Home Assistant — the reliable route is rooting a supported Dreame or Roborock with Valetudo, which gives you MQTT control, live maps and zero internet dependency. If your robot is cloud-only, keep it on an isolated IoT network and make the triggers local with Zigbee sensors instead.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "Home Assistant",
+      "Robot Vacuums",
+      "Local Control",
+      "Valetudo",
+      "Zigbee",
+      "Matter",
+      "Privacy"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Robot Vacuum Local Control in Home Assistant",
+    "seoDescription": "How to run a robot vacuum locally in Home Assistant without the manufacturer's cloud: Valetudo rooting, local APIs, Matter limits and Zigbee triggers.",
+    "seoKeywords": "robot vacuum home assistant, local robot vacuum control, valetudo australia, dreame home assistant, ecovacs home assistant, matter robot vacuum, zigbee dongle home assistant",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:20:10.934Z",
+    "updatedAt": "2026-08-23T00:44:31.222Z",
+    "publishedAt": "2026-08-23T00:44:31.254Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3992,
+      "documentId": "vd8mrnspqnkwqme1nmak7inf",
+      "name": "running-a-robot-vacuum-locally-in-home-assistant-n-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda.jpg",
+          "hash": "large_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda",
+          "mime": "image/jpeg",
+          "name": "large_running-a-robot-vacuum-locally-in-home-assistant-n-cover.jpg",
+          "path": null,
+          "size": 49.7,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 49698
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda.jpg",
+          "hash": "small_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda",
+          "mime": "image/jpeg",
+          "name": "small_running-a-robot-vacuum-locally-in-home-assistant-n-cover.jpg",
+          "path": null,
+          "size": 17.47,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 17469
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda.jpg",
+          "hash": "medium_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda",
+          "mime": "image/jpeg",
+          "name": "medium_running-a-robot-vacuum-locally-in-home-assistant-n-cover.jpg",
+          "path": null,
+          "size": 31.85,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 31850
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda.jpg",
+          "hash": "thumbnail_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda",
+          "mime": "image/jpeg",
+          "name": "thumbnail_running-a-robot-vacuum-locally-in-home-assistant-n-cover.jpg",
+          "path": null,
+          "size": 6.43,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6425
+        }
+      },
+      "hash": "running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 103.25,
+      "url": "/uploads/running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:29:12.507Z",
+      "updatedAt": "2026-08-23T00:29:12.507Z",
+      "publishedAt": "2026-08-23T00:29:12.507Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1697,
+        "question": "Does rooting a robot vacuum for Valetudo void the warranty in Australia?",
+        "answer": "Rooting almost certainly voids the manufacturer's warranty. Whether your Australian Consumer Law rights still apply to a major failure unrelated to the modification is a separate question and not one to assume either way [VERIFY - seek advice for your situation]. If it's an expensive appliance you can't afford to brick, it's not worth the risk."
+      },
+      {
+        "order": 2,
+        "id": 1698,
+        "question": "Can I still automate an Ecovacs vacuum in Home Assistant if it only works through the cloud?",
+        "answer": "Yes. The Home Assistant integration authenticates to Ecovacs' servers and exposes plenty of controls, but everything relays through the internet, so automations stop if your WAN drops. Isolate it on an IoT VLAN or guest network and build automations that degrade gracefully rather than hanging on a vacuum.start call."
+      },
+      {
+        "order": 3,
+        "id": 1699,
+        "question": "Will a Matter robot vacuum give me full local control without rooting?",
+        "answer": "Not yet. Matter 1.2 added a robot vacuum device type and is local by design, but current support covers only a thin slice - start, stop, return to dock and basic run modes, with no maps, room selection, zone cleaning or mop pad state [VERIFY against current spec revision]. It's a reliable local on/off switch, not a Valetudo replacement."
+      },
+      {
+        "order": 4,
+        "id": 1700,
+        "question": "What should I check before buying a vacuum specifically to run Valetudo on it?",
+        "answer": "Check the exact model number (regional and AU variants differ from EU listings), the firmware version it ships with, and whether Valetudo's supported-devices page lists a working rooting method for that exact combination [VERIFY - support status changes with each vendor firmware release]. Units shipping with patched firmware are the most common disappointment."
+      },
+      {
+        "order": 5,
+        "id": 1701,
+        "question": "My Zigbee sensors keep dropping out near my Home Assistant box - what's causing it?",
+        "answer": "USB 3 ports and SSDs throw 2.4 GHz interference, and that's the single biggest cause of flaky Zigbee networks. Use a USB 2.0 extension lead to move the coordinator dongle well away from those ports, and pick a Zigbee channel that doesn't overlap your Wi-Fi - 15, 20 and 25 are the usual safe picks."
+      }
+    ],
+    "categories": [
+      {
+        "id": 7,
+        "documentId": "y70h3kes2ecvck8ez2an3qwp",
+        "name": "Robot Vacuums",
+        "slug": "robot-vacuums",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.976Z",
+        "updatedAt": "2026-08-22T18:30:53.780Z",
+        "publishedAt": "2026-08-22T18:30:53.778Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 208,
+    "documentId": "z1thwq33bfbc743zp3yvbsw6",
+    "title": "Running a Robot Vacuum Locally in Home Assistant (No Cloud)",
+    "slug": "robot-vacuum-local-home-assistant-no-cloud",
+    "excerpt": "Some robot vacuums will talk to Home Assistant entirely over your own LAN, others refuse to move without a server overseas. Here's how local control actually works in 2024-25, which brands are realistic, what rooting involves, and how to automate cleaning even when the vacuum itself stays cloud-tethered.",
+    "content": "Most robot vacuums sold in Australia ship as cloud appliances. You press \"clean\" in the app, the command goes to a server (often in China, sometimes Singapore or the US), and the server tells the robot sitting six metres away to start. It works, right up until the internet drops out, the vendor changes the API, or you'd simply rather your floor plan wasn't sitting on someone else's hardware.\n\nThe good news: a meaningful subset of robots can be made to run entirely on your LAN with Home Assistant. The less good news is that it depends heavily on the model, and the best options involve rooting.\n\n## The short version: three tiers of \"local\"\n\nIt helps to be precise about what people mean by local control, because the marketing blurs it.\n\n**Tier 1 — Cloud only.** The Home Assistant integration logs into the vendor's account and relays commands via the internet. Nothing works offline. Most Ecovacs, Roborock (stock firmware), Eufy and Samsung robots sit here by default. It's still automatable — it's just not resilient.\n\n**Tier 2 — Local API, cloud-assisted setup.** The robot speaks a documented or reverse-engineered protocol on your LAN, and Home Assistant talks to it directly once you've extracted a token or key. Older Xiaomi/Roborock models are the classic example via the `xiaomi_miio` integration. Commands are local; maps and firmware updates may still involve the cloud.\n\n**Tier 3 — Fully local, cloud severed.** The vacuum runs replacement firmware or a patched interface — [Valetudo](https://valetudo.cloud) is the main project — that removes the vendor cloud entirely and exposes MQTT to Home Assistant. Live maps, zone cleaning, fan speed, consumable counters, all on your network. This is the real thing.\n\nIf resilience matters to you, aim for Tier 3 and treat Tier 1 as a fallback.\n\n## Valetudo: the genuinely local route\n\nValetudo is open-source firmware-side software that replaces the cloud connection on supported Dreame, Roborock, Viomi and a few other robots. It doesn't replace the robot's core navigation firmware — it hijacks the bit that phones home and gives you a local web UI plus MQTT with Home Assistant auto-discovery.\n\nWhat you get once it's running:\n\n- Start, stop, spot and zone cleaning as native HA entities\n- Live map with room segmentation (via the `valetudo-map-card` or the ICantBelieveItsNotValetudo camera add-on)\n- Fan speed, water flow, mop settings\n- Consumable life sensors — brush, filter, sensors — which are perfect for maintenance reminders\n- No internet dependency at all\n\nThe catch is installation. Rooting is model-and-firmware-specific. On many Dreame units it means opening the case, shorting test pads or connecting a USB cable to an internal port, and flashing a patched image. On some models the process is fully documented and takes half an hour; on others it requires soldering, or the current firmware has closed the hole.\n\nDreame's mid-to-upper range has historically been the most Valetudo-friendly family, and the L10s Ultra generation is well documented in the project's device list.\n\n::product:dreame-l10s-ultra-robot-vacuum-and-mop::\n\nBefore you buy anything specifically to root it, check three things: the exact model number (regional variants differ), the firmware version it ships with, and whether Valetudo's supported-devices page lists a working method for that combination [VERIFY — support status changes with each vendor firmware release]. Buying a unit and finding it shipped with patched firmware is the most common disappointment.\n\nAnd be clear-eyed: rooting almost certainly voids the manufacturer warranty. Your Australian Consumer Law rights for a major failure unrelated to the modification are a separate question and not one to assume either way [VERIFY — seek advice for your situation]. If the vacuum is a $1,500 appliance you can't afford to brick, this isn't the hobby for you.\n\n## When the robot stays cloud-tethered\n\nSome brands simply don't have a local path. Ecovacs is the clearest example — the Home Assistant integration authenticates to Ecovacs' servers and relays everything through them. It works well and exposes plenty of controls, but pull the WAN cable and your automations stop.\n\n::product:ecovacs-deebot-x2-omni-square-robot-vacuum::\n\nThat's not automatically a dealbreaker. A cloud-connected vacuum with a strong app, good edge-cleaning geometry and a reliable auto-empty dock may still be the better appliance for your house than a rootable one you fight with monthly. Just decide deliberately: are you buying a smart-home component or a floor cleaner that happens to have an app?\n\nIf you go cloud, mitigate it:\n\n- Put the vacuum on an IoT VLAN or guest network so it can reach the internet but not your NAS or cameras\n- Build automations that degrade gracefully — don't make your morning routine depend on a `vacuum.start` call succeeding\n- Keep a physical button or dock control in the loop for when the API has a bad day\n\n## Local triggers matter more than local commands\n\nHere's the part people miss. Even with a cloud vacuum, you can make the *decision-making* local, which is where most of the reliability lives.\n\nThe pattern that works best in Australian homes: a Zigbee sensor network feeding Home Assistant, with the vacuum as the actuator. Door sensors on the laundry so the robot doesn't run while the dog's food bowl is out. A presence sensor so it only cleans when the house is empty. A vibration sensor on the dryer. All of that runs on your own coordinator with zero internet.\n\nA USB Zigbee coordinator plugged into whatever runs Home Assistant is the cheapest way in, and it's the single highest-value $30-odd [VERIFY pricing] you'll spend on a local-first setup.\n\n::product:sonoff-zigbee-3-0-usb-dongle::\n\nUse a USB 2.0 extension lead to get the dongle away from USB 3 ports and SSDs — the 2.4 GHz interference is real and it's the number one cause of flaky Zigbee networks. Also pick a Zigbee channel that doesn't overlap your Wi-Fi; channels 15, 20 and 25 are the usual safe picks.\n\n## Matter won't rescue you yet\n\nMatter 1.2 added a robot vacuum device type, and Matter is local by design — commands travel over your LAN, not a vendor server. On paper that solves everything.\n\nIn practice, as of writing, Matter's vacuum support covers a fairly thin slice: start, stop, return to dock, basic run modes. No maps, no room selection, no zone cleaning, no mop pad state [VERIFY against current spec revision]. Vendors that support it typically keep the rich features in their own app. So Matter gets you a reliable local on/off switch, which is genuinely useful for automations, but it isn't a replacement for Valetudo or a full local integration today.\n\nIt's worth checking Matter support when buying, because it costs nothing and it's the most likely long-term path to local control without rooting.\n\n## A sensible plan\n\nIf you want local control and you're starting from scratch:\n\n1. Decide your tolerance for tinkering *before* you shop. Be honest.\n2. If it's high, cross-reference the Valetudo supported-devices list against what Australian retailers are actually stocking, and check the model suffix carefully — AU stock sometimes differs from EU listings.\n3. If it's low, buy the best appliance for your floors, accept the cloud integration, isolate it on an IoT network, and put your effort into local Zigbee triggers instead.\n4. Either way, build automations that fail quietly. A vacuum that doesn't start is an annoyance; a morning routine that hangs waiting for a cloud response is a support ticket from your household.\n\nNothing here involves mains wiring — robot vacuums and docks run from a standard Type I 240 V outlet — so there's no licensed electrician required. If you're adding a dedicated outlet in a cupboard for the dock, that's fixed wiring, and that's a licensed electrician's job under AS/NZS 3000.",
+    "keyTakeaways": "Only some robot vacuums can run fully locally in Home Assistant — the reliable route is rooting a supported Dreame or Roborock with Valetudo, which gives you MQTT control, live maps and zero internet dependency. If your robot is cloud-only, keep it on an isolated IoT network and make the triggers local with Zigbee sensors instead.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "Home Assistant",
+      "Robot Vacuums",
+      "Local Control",
+      "Valetudo",
+      "Zigbee",
+      "Matter",
+      "Privacy"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Robot Vacuum Local Control in Home Assistant",
+    "seoDescription": "How to run a robot vacuum locally in Home Assistant without the manufacturer's cloud: Valetudo rooting, local APIs, Matter limits and Zigbee triggers.",
+    "seoKeywords": "robot vacuum home assistant, local robot vacuum control, valetudo australia, dreame home assistant, ecovacs home assistant, matter robot vacuum, zigbee dongle home assistant",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:20:10.934Z",
+    "updatedAt": "2026-08-23T00:44:31.222Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3992,
+      "documentId": "vd8mrnspqnkwqme1nmak7inf",
+      "name": "running-a-robot-vacuum-locally-in-home-assistant-n-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda.jpg",
+          "hash": "large_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda",
+          "mime": "image/jpeg",
+          "name": "large_running-a-robot-vacuum-locally-in-home-assistant-n-cover.jpg",
+          "path": null,
+          "size": 49.7,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 49698
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda.jpg",
+          "hash": "small_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda",
+          "mime": "image/jpeg",
+          "name": "small_running-a-robot-vacuum-locally-in-home-assistant-n-cover.jpg",
+          "path": null,
+          "size": 17.47,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 17469
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda.jpg",
+          "hash": "medium_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda",
+          "mime": "image/jpeg",
+          "name": "medium_running-a-robot-vacuum-locally-in-home-assistant-n-cover.jpg",
+          "path": null,
+          "size": 31.85,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 31850
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda.jpg",
+          "hash": "thumbnail_running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda",
+          "mime": "image/jpeg",
+          "name": "thumbnail_running-a-robot-vacuum-locally-in-home-assistant-n-cover.jpg",
+          "path": null,
+          "size": 6.43,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6425
+        }
+      },
+      "hash": "running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 103.25,
+      "url": "/uploads/running_a_robot_vacuum_locally_in_home_assistant_n_cover_0873acdcda.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:29:12.507Z",
+      "updatedAt": "2026-08-23T00:29:12.507Z",
+      "publishedAt": "2026-08-23T00:29:12.507Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1692,
+        "question": "Does rooting a robot vacuum for Valetudo void the warranty in Australia?",
+        "answer": "Rooting almost certainly voids the manufacturer's warranty. Whether your Australian Consumer Law rights still apply to a major failure unrelated to the modification is a separate question and not one to assume either way [VERIFY - seek advice for your situation]. If it's an expensive appliance you can't afford to brick, it's not worth the risk."
+      },
+      {
+        "order": 2,
+        "id": 1693,
+        "question": "Can I still automate an Ecovacs vacuum in Home Assistant if it only works through the cloud?",
+        "answer": "Yes. The Home Assistant integration authenticates to Ecovacs' servers and exposes plenty of controls, but everything relays through the internet, so automations stop if your WAN drops. Isolate it on an IoT VLAN or guest network and build automations that degrade gracefully rather than hanging on a vacuum.start call."
+      },
+      {
+        "order": 3,
+        "id": 1694,
+        "question": "Will a Matter robot vacuum give me full local control without rooting?",
+        "answer": "Not yet. Matter 1.2 added a robot vacuum device type and is local by design, but current support covers only a thin slice - start, stop, return to dock and basic run modes, with no maps, room selection, zone cleaning or mop pad state [VERIFY against current spec revision]. It's a reliable local on/off switch, not a Valetudo replacement."
+      },
+      {
+        "order": 4,
+        "id": 1695,
+        "question": "What should I check before buying a vacuum specifically to run Valetudo on it?",
+        "answer": "Check the exact model number (regional and AU variants differ from EU listings), the firmware version it ships with, and whether Valetudo's supported-devices page lists a working rooting method for that exact combination [VERIFY - support status changes with each vendor firmware release]. Units shipping with patched firmware are the most common disappointment."
+      },
+      {
+        "order": 5,
+        "id": 1696,
+        "question": "My Zigbee sensors keep dropping out near my Home Assistant box - what's causing it?",
+        "answer": "USB 3 ports and SSDs throw 2.4 GHz interference, and that's the single biggest cause of flaky Zigbee networks. Use a USB 2.0 extension lead to move the coordinator dongle well away from those ports, and pick a Zigbee channel that doesn't overlap your Wi-Fi - 15, 20 and 25 are the usual safe picks."
+      }
+    ],
+    "categories": [
+      {
+        "id": 7,
+        "documentId": "y70h3kes2ecvck8ez2an3qwp",
+        "name": "Robot Vacuums",
+        "slug": "robot-vacuums",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.976Z",
+        "updatedAt": "2026-08-22T18:30:53.780Z",
+        "publishedAt": "2026-08-22T18:30:53.778Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}

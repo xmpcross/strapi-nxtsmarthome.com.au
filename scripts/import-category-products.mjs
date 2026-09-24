@@ -29,6 +29,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { offTopicReason } from '../lib/catalogue-guard.mjs';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 for (const line of (existsSync(join(ROOT, '.env.local')) ? readFileSync(join(ROOT, '.env.local'), 'utf8') : '').split('\n')) {
@@ -294,6 +295,10 @@ async function main() {
       // Everything below must be real. A listing missing any of it is skipped
       // rather than padded out with placeholders.
       if (!title || !price || price <= 0 || !image || !retailer) continue;
+      // Not a smart home product (e.g. a woodworking router from the "Thread
+      // border router" query): lib/catalogue-guard.mjs.
+      const offTopic = offTopicReason(title, c.slug);
+      if (offTopic) { console.log(`   ✗ skipped (${offTopic}): ${title}`); continue; }
 
       const { brand, name } = splitBrand(title);
       const key = normalise(title);

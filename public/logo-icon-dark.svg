@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44" height="44" fill="none" role="img" aria-label="NXT Smart Home Icon (Dark)">
+  <defs>
+    <linearGradient id="nxt-roof-dark" x1="6" y1="6" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+    <linearGradient id="nxt-diag-dark" x1="11" y1="19" x2="33" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+  </defs>
+  <path d="M8 36V18L22 7L36 18V36" stroke="url(#nxt-roof-dark)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M11 19L33 34" stroke="url(#nxt-diag-dark)" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="22" cy="22" r="2.5" fill="#38BDF8"/>
+  <path d="M17 17.5C18.5 16 25.5 16 27 17.5" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M14.5 14.5C17 12.5 27 12.5 29.5 14.5" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-opacity="0.8"/>
+</svg>
