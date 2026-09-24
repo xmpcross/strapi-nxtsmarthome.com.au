@@ -13,12 +13,18 @@ export default function PageHeader({
   title,
   intro,
   meta,
+  titleClassName = 'text-3xl md:text-4xl xl:text-5xl',
+  introClassName = 'max-w-3xl',
 }: {
   eyebrow?: string;
   title: ReactNode;
   intro?: ReactNode;
   /** Small line under the intro — a page number, a count, a checked date. */
   meta?: ReactNode;
+  /** Size of the h1. Defaults to the shared hub scale. */
+  titleClassName?: string;
+  /** Width of the intro. Defaults to a readable measure. */
+  introClassName?: string;
 }) {
   // Ncmaz page heading: large semibold title, muted intro, badge eyebrow.
   return (
@@ -28,12 +34,12 @@ export default function PageHeader({
           {eyebrow}
         </span>
       ) : null}
-      <h1 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-900 md:text-4xl xl:text-5xl dark:text-white">
+      <h1 className={`mt-3 font-semibold tracking-tight text-neutral-900 dark:text-white ${titleClassName}`}>
         {title}
       </h1>
 
       {intro ? (
-        <p className="mt-4 max-w-3xl text-base leading-relaxed text-neutral-500 md:text-lg dark:text-neutral-400">
+        <p className={`mt-4 text-base leading-relaxed text-neutral-500 md:text-lg dark:text-neutral-400 ${introClassName}`}>
           {intro}
         </p>
       ) : null}

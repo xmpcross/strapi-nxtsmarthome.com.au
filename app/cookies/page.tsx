@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import LegalSidebarTOC from '@/components/LegalSidebarTOC';
 import { site } from '@/lib/site';
+import { ADS_ENABLED } from '@/lib/ads';
 
 export const metadata: Metadata = {
   title: 'Cookie Information',
   description:
-    'Which cookies NXT Smart Home actually uses, which come from our affiliate partners and CDN, and how to control them in your browser.',
+    'Which cookies NXT Smart Home actually uses, which come from Google advertising and analytics, our affiliate partners and CDN, and how to control them.',
   alternates: { canonical: '/cookies/' },
 };
 
@@ -20,11 +21,16 @@ export const metadata: Metadata = {
       - cdn.viglink.com (Sovrn Commerce), consent-gated: public/js/sovrn-init.js
         parks its loader on window.__nxtLoadSovrn until the banner is accepted
       - googletagmanager.com/gtag/js for Google Analytics
-      - no advertising scripts: AdSense and the SearchAtlas script were removed
-        on 24 Sep 2026
-      - Google Analytics loads with Consent Mode v2 defaults of denied
-        (components/HeadScripts.tsx). The choice is made in
-        components/CookieBanner.tsx and stored as nxt.consent.v1.
+      - pagead2.googlesyndication.com/pagead/js/adsbygoogle.js for Google
+        AdSense, only when NEXT_PUBLIC_ADSENSE_SHOW_ADS=1 as well as
+        NEXT_PUBLIC_ADSENSE_CLIENT (lib/ads.ts). Off until the site is
+        approved; before that only the verification meta tag renders. The
+        SearchAtlas script stays removed. For EEA/UK/CH visitors
+        Google's own consent message (AdSense Privacy & messaging) replaces
+        our banner.
+      - Google Analytics and AdSense load with Consent Mode v2 defaults of
+        denied (components/HeadScripts.tsx). The choice is made in
+        components/CookieBanner.tsx and stored as nxt.consent.v2.
       - no Facebook pixel — facebook.com appears only as a footer link
       - retailer domains appear only as outbound links, not scripts
       - Cloudflare fronts the site and may set its own security cookies
@@ -46,7 +52,7 @@ export default function CookiesPage() {
             Cookie information
           </h1>
           <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
-            Last updated: 5 September 2026
+            Last updated: 24 September 2026
           </p>
 
           <div className="prose prose-neutral mt-8 max-w-none dark:prose-invert prose-h2:mt-0 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0">
@@ -57,8 +63,9 @@ export default function CookiesPage() {
 
             <h2>What we set ourselves</h2>
             <p>
-              Nothing. {site.name} is a static website. There are no accounts, no logins and no
-              server-side sessions, so we do not set login or account cookies of our own.
+              No cookies. There are no accounts, logins or server-side sessions. Your cookie choice
+              and your light/dark theme are remembered in your browser&apos;s local storage, which
+              never leaves your device.
             </p>
 
             <h2>Cookies that can come from others</h2>
@@ -81,6 +88,36 @@ export default function CookiesPage() {
               <strong>It does not run unless you accept.</strong> The tag loads with its storage
               switched off and stays that way until you choose, so declining is a real decline rather
               than a preference recorded after the fact.
+            </p>
+
+            <h3>Advertising</h3>
+            <p>
+              {ADS_ENABLED
+                ? 'We show ads through Google AdSense.'
+                : 'No ads are shown and no advertising cookies are set yet. When we switch on Google AdSense, this applies:'}{' '}
+              Google and its partners use cookies to serve ads
+              based on your prior visits to this and other websites, to limit how often you see an
+              ad, and to measure ad performance. Ads are labelled and kept separate from our
+              editorial content.
+            </p>
+            <p>
+              <strong>Personalised ads wait for your consent.</strong> AdSense reads the same consent
+              signal as analytics: until you accept, any ads shown are non-personalised. In the EU,
+              the UK and Switzerland, Google&apos;s own consent message asks you instead of our
+              banner, and advertising cookies are set only if you agree there. You can opt out of
+              personalised advertising at{' '}
+              <a href="https://adssettings.google.com" rel="noopener noreferrer" target="_blank">
+                Google Ads Settings
+              </a>
+              , and read how Google uses data from partner sites at{' '}
+              <a
+                href="https://policies.google.com/technologies/partner-sites"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                policies.google.com/technologies/partner-sites
+              </a>
+              .
             </p>
 
             <h3>Affiliate tracking</h3>
@@ -113,15 +150,19 @@ export default function CookiesPage() {
 
             <h2>Controlling cookies</h2>
             <p>
-              The first time you visit, a banner asks whether to allow analytics storage. Nothing
-              beyond your answer is stored by us until you accept. To change your mind
-              later, use <strong>Cookie settings</strong> in the footer, which asks again.
+              {ADS_ENABLED
+                ? 'The first time you visit, a banner asks whether to allow analytics, personalised advertising and affiliate tracking (in the EU, UK and Switzerland, Google’s consent message asks instead).'
+                : 'The first time you visit, a banner asks whether to allow analytics and affiliate tracking.'}{' '}
+              Nothing beyond your answer is stored by us until you accept. To
+              change your mind later, use <strong>Cookie settings</strong> in the footer, which asks
+              again.
             </p>
             <p>
               You can block or delete cookies in your browser settings — every major browser allows
               this, usually under Privacy or Site settings. Blocking cookies will not stop you reading
-              anything here, because nothing on this site depends on them. It may mean a purchase is
-              not credited to us, which costs us a commission and costs you nothing.
+              anything here, because nothing on this site depends on them. It may mean ads are less
+              relevant, or that a purchase is not credited to us, which costs us a commission and
+              costs you nothing.
             </p>
             <p>
               Browser features such as tracking protection or Do Not Track, and most ad blockers,

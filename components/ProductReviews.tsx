@@ -3,16 +3,22 @@
 import { useMemo, useState } from 'react';
 import AffiliateLink from './AffiliateLink';
 import type { ProductReview, TopProduct } from '@/lib/products';
+import { joinNames, MIN_AGGREGATE_REVIEWS, retailerReviews } from '@/lib/review-sources';
 
 /**
  * Customer reviews, laid out like the reference PDP: aggregate score, star
  * histogram and review themes across the top, then a grid of review cards and
  * a call to action.
  *
- * Every figure is real or derived from real reviews:
- *   • the score and count come from the Google Shopping review catalogue
- *   • the histogram is counted from the imported reviews' own star ratings
- *   • the "4 stars or higher" figure is counted the same way
+ * Only reviews from named Australian retailers are shown (lib/review-sources.ts),
+ * and the block says whose they are and that we did not write them. There is
+ * no "Verified purchase" badge: these are syndicated, and we cannot verify that
+ * anyone bought anything.
+ *
+ * Every figure is counted from the reviews shown — the score, the histogram
+ * and the "4 stars or higher" share — and none of them appear below
+ * MIN_AGGREGATE_REVIEWS reviews. With no AU retailer reviews the block does
+ * not render at all.
  *
  * Blocks the data cannot support stay hidden rather than being invented. In
  * particular the reference's "Customers are saying" AI summary, its sentiment
@@ -36,7 +42,7 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-function ReviewCard({ review }: { review: ProductReview }) {
+function ReviewCard({ review }: { review: ProductReview & { retailer: string } }) {
   const [expanded, setExpanded] = useState(false);
   const isLong = review.body.length > REVIEW_CLAMP;
   const body = expanded || !isLong ? review.body : `${review.body.slice(0, REVIEW_CLAMP).trimEnd()}…`;
@@ -51,16 +57,11 @@ function ReviewCard({ review }: { review: ProductReview }) {
         </h3>
       ) : null}
 
-      {review.sourceLabel ? (
-        <ul className="mt-2 flex flex-wrap gap-1.5">
-          <li className="rounded-sm border border-[#c5cbd5] px-2 py-0.5 text-[0.6875rem] text-[#55555a] dark:border-slate-600 dark:text-slate-400">
-            Verified purchase
-          </li>
-          <li className="rounded-sm border border-[#c5cbd5] px-2 py-0.5 text-[0.6875rem] text-[#55555a] dark:border-slate-600 dark:text-slate-400">
-            via {review.sourceLabel}
-          </li>
-        </ul>
-      ) : null}
+      <ul className="mt-2 flex flex-wrap gap-1.5">
+        <li className="rounded-sm border border-[#c5cbd5] px-2 py-0.5 text-[0.6875rem] text-[#55555a] dark:border-slate-600 dark:text-slate-400">
+          via {review.retailer}
+        </li>
+      </ul>
 
       <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-[#55555a] dark:text-slate-300">
         {body}
@@ -88,7 +89,10 @@ function ReviewCard({ review }: { review: ProductReview }) {
 
 export default function ProductReviews({ product }: { product: TopProduct }) {
   const [showAll, setShowAll] = useState(false);
-  const reviews = useMemo(() => product.reviews || [], [product.reviews]);
+  const { reviews, retailers, aggregate } = useMemo(
+    () => retailerReviews(product),
+    [product],
+  );
 
   // Counted from the imported reviews themselves, so the bars always add up to
   // the reviews actually shown on the page.
@@ -110,10 +114,11 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
     };
   }, [reviews]);
 
-  const rating = product.rating;
-  const reviewCount = product.reviewCount;
+  if (!reviews.length) return null;
 
-  if (!rating && !reviews.length) return null;
+  const rating = aggregate?.rating;
+  const reviewCount = aggregate?.count;
+  const from = joinNames(retailers);
 
   const primaryRetailer = product.retailers?.find((r) => r.primary) || product.retailers?.[0];
   const readMoreHref = product.reviewsUrl || primaryRetailer?.url;
@@ -121,7 +126,12 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
 
   return (
     <section className="rounded-[8px] bg-white p-5 dark:bg-slate-800 sm:p-6">
-      <h2 className="text-2xl font-bold text-[#1d252c] dark:text-white">Reviews</h2>
+      <h2 className="text-2xl font-bold text-[#1d252c] dark:text-white">
+        Customer reviews from {from}
+      </h2>
+      <p className="mt-1 text-sm text-[#55555a] dark:text-slate-400">
+        Not written or tested by NXT Smart Home.
+      </p>
 
       <div className="mt-5 grid gap-6 sm:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1fr)_minmax(0,1.4fr)]">
         {/* Aggregate */}
@@ -138,7 +148,7 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
                 {reviewCount.toLocaleString('en-AU')} review{reviewCount === 1 ? '' : 's'}
               </p>
             ) : null}
-            {stats.positivePct !== null && stats.rated > 0 ? (
+            {stats.positivePct !== null && stats.rated >= MIN_AGGREGATE_REVIEWS ? (
               /* Deliberately not "would recommend to a friend" — that is a
                  survey question this data does not answer. This is simply the
                  share of imported reviews rated four stars or higher. */
@@ -153,8 +163,8 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
           </div>
         ) : null}
 
-        {/* Histogram */}
-        {stats.rated > 0 ? (
+        {/* Histogram — only alongside the score, under the same threshold. */}
+        {aggregate && stats.rated > 0 ? (
           <div className="space-y-1.5 self-start">
             {[5, 4, 3, 2, 1].map((star) => {
               const count = stats.counts[star];
@@ -188,9 +198,12 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
               About these reviews
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-[#55555a] dark:text-slate-300">
-              These are verified customer reviews syndicated from retailer product pages, shown
-              with the retailer each one came from. We do not edit them, and we do not write our
-              own reviews for this listing.
+              These are customer reviews syndicated from {from}&apos;s product pages, shown with
+              the retailer each one came from. We do not edit them, we cannot confirm the
+              reviewers bought the product, and we have not reviewed or tested it ourselves.
+              {aggregate
+                ? null
+                : ` No overall score is shown under ${MIN_AGGREGATE_REVIEWS} reviews.`}
             </p>
             <p className="mt-3 text-[0.6875rem] leading-relaxed text-[#55555a] dark:text-slate-400">
               Reviews may relate to a different variant, bundle or colour of this product. Check
@@ -233,24 +246,7 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
             ) : null}
           </div>
         </>
-      ) : (
-        <div className="mt-6 border-t border-[#e0e0e0] pt-5 dark:border-slate-700">
-          <p className="text-sm text-[#55555a] dark:text-slate-300">
-            {rating
-              ? 'The score above is the aggregate rating for this product. We have not published individual customer reviews for this listing yet.'
-              : 'No customer reviews have been published for this listing yet.'}
-          </p>
-          {readMoreHref && primaryRetailer ? (
-            <AffiliateLink
-              href={readMoreHref}
-              subId={`reviews-cta-${product.slug}`}
-              className="mt-4 inline-block rounded-sm bg-[#0c5adb] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#0949ad]"
-            >
-              Read customer reviews at {primaryRetailer.name}
-            </AffiliateLink>
-          ) : null}
-        </div>
-      )}
+      ) : null}
     </section>
   );
 }

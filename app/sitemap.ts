@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { articleHref, getAllArticles } from '@/lib/content';
 import { pageCount } from '@/components/Pagination';
-import { getAllTopProducts } from '@/lib/products';
+import { getAllTopProducts, getIndexableTopProducts } from '@/lib/products';
 import { categories, site } from '@/lib/site';
-import { getAllAuthors } from '@/lib/authors';
+import { getAllAuthors, resolveAuthor } from '@/lib/authors';
 
 // Regenerated hourly by the Node server, so new Strapi posts appear without a rebuild.
 export const revalidate = 3600;
@@ -22,8 +22,15 @@ export const revalidate = 3600;
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getAllArticles();
-  const products = getAllTopProducts();
-  const authors = getAllAuthors();
+  // Only products with our own editorial content; the rest are noindex price
+  // listings (lib/products.ts productEditorial). Product categories are still
+  // derived from the full catalogue, since those listing pages exist regardless.
+  const products = getIndexableTopProducts();
+  const catalogue = getAllTopProducts();
+  // Author pages with nothing published under them are noindex; leave them out.
+  const authors = getAllAuthors().filter((author) =>
+    articles.some((a) => resolveAuthor(a.author).slug === author.slug),
+  );
   const newest = articles[0]?.date ? new Date(articles[0].date) : new Date();
 
   // Page one lives at /articles/, already in staticPages; this adds 2..N.
@@ -33,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const productCategories = Array.from(
-    new Set(products.map((p) => p.categorySlug).filter(Boolean)),
+    new Set(catalogue.map((p) => p.categorySlug).filter(Boolean)),
   );
 
   const staticPages = [

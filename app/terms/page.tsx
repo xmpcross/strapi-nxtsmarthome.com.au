@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import LegalSidebarTOC from '@/components/LegalSidebarTOC';
 import { site } from '@/lib/site';
+import { ADS_ENABLED } from '@/lib/ads';
 
 export const metadata: Metadata = {
   title: 'Terms and Conditions',
@@ -35,7 +36,7 @@ export default function TermsPage() {
             Terms and conditions
           </h1>
           <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
-            Last updated: 3 August 2026
+            Last updated: 24 September 2026
           </p>
 
           <div className="prose prose-neutral mt-8 max-w-none dark:prose-invert prose-h2:mt-0 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0">
@@ -46,8 +47,9 @@ export default function TermsPage() {
 
             <h2>What this site is</h2>
             <p>
-              {site.name} publishes reviews, comparisons, buying guides and setup tutorials about
-              smart home technology, written for an Australian audience. Everything here is{' '}
+              {site.name}, operated by {site.organisation.operator}, publishes research-based buying
+              guides, comparisons, explainers and setup tutorials about smart home technology,
+              written for an Australian audience. Everything here is{' '}
               <strong>general information only</strong>. It is not professional advice and it is not
               tailored to your circumstances.
             </p>
@@ -62,7 +64,8 @@ export default function TermsPage() {
 
             <h2>Accuracy, prices and availability</h2>
             <p>
-              We try hard to be accurate and to say plainly what we have tested and what we have not.
+              We try hard to be accurate, and to say plainly that our guides are research-based rather
+              than hands-on tests.
               Even so, product specifications, prices, stock and retailer terms change constantly, and
               we do not display live pricing. Any price or availability mentioned was correct at the
               time of writing only. Always confirm current details on the retailer&apos;s own site
@@ -76,6 +79,12 @@ export default function TermsPage() {
               what we say about a product. Full detail is in our{' '}
               <Link href="/affiliate-disclosure/">affiliate disclosure</Link>.
             </p>
+            {ADS_ENABLED ? (
+              <p>
+                The site also displays advertising. Ads are labelled and kept separate from
+                editorial content, and advertisers have no say in what we publish.
+              </p>
+            ) : null}
 
             <h2>Third-party sites</h2>
             <p>

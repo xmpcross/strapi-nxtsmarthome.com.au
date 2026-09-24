@@ -33,6 +33,8 @@ export default function ArticlesList({
       <ArchiveHeader
         eyebrow="Archive"
         title="All articles"
+        // h1 at 2.5rem, matching the category pages (user request, 24 Sep 2026).
+        titleClassName="text-[2.5rem] leading-tight"
         intro={
           <p>
             {total} {total === 1 ? 'article' : 'articles'} on smart home gear, setup and buying decisions — newest
@@ -47,14 +49,33 @@ export default function ArticlesList({
           <p className="text-neutral-500">No articles published yet.</p>
         ) : (
           <>
-            {/* Counts describe the whole library, not this page of it. */}
-            <TopicChips categories={categories} total={total} />
-            <div className="mt-8 grid gap-[15px] sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
-              {shown.map((article) => (
-                <Card11 key={article.slug} post={toTPost(article)} />
-              ))}
+            {/* Counts describe the whole library, not this page of it.
+                Phones and tablets keep the chip row; from lg the topics move
+                to a left sidebar, the same layout as the category pages
+                (components/CategoryView.tsx). */}
+            <div className="lg:hidden">
+              <TopicChips categories={categories} total={total} />
             </div>
-            <Pagination base="/articles/" page={page} total={total} />
+
+            <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8">
+              <aside className="hidden lg:block lg:w-72 lg:shrink-0">
+                <div className="sticky top-20 rounded-[8px] border border-neutral-200 bg-white p-5 shadow-2xs dark:border-neutral-700/80 dark:bg-neutral-800/80">
+                  <h2 className="mb-3 border-b border-neutral-100 pb-3 text-sm font-bold tracking-wider text-neutral-900 uppercase dark:border-neutral-700 dark:text-white">
+                    Filter by topic
+                  </h2>
+                  <TopicChips categories={categories} total={total} layout="sidebar" />
+                </div>
+              </aside>
+
+              <div className="min-w-0 flex-1">
+                <div className="mt-8 grid gap-[15px] sm:grid-cols-2 lg:mt-0 xl:grid-cols-3">
+                  {shown.map((article) => (
+                    <Card11 key={article.slug} post={toTPost(article)} />
+                  ))}
+                </div>
+                <Pagination base="/articles/" page={page} total={total} />
+              </div>
+            </div>
           </>
         )}
       </div>

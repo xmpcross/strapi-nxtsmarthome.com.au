@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start -H 127.0.0.1 -p 3013",
     "lint": "next lint",
+    "audit:content": "node scripts/audit-content.mjs",
     "deploy": "bash deploy.sh",
     "seed:menu": "node --experimental-strip-types --env-file=.env.local scripts/seed-strapi-menu.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",

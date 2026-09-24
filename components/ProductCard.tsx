@@ -8,28 +8,18 @@ interface Props {
   rank?: number;
 }
 
-function Stars({ rating, count }: { rating?: number; count?: number }) {
-  if (!rating) return null;
-  const rounded = Math.round(rating * 2) / 2;
-  return (
-    <div className="inline-flex items-center gap-1.5" aria-label={`${rating} out of 5 stars`}>
-      <span className="text-amber-500 font-bold text-sm" aria-hidden="true">
-        {'★'.repeat(Math.floor(rounded))}
-        {rounded % 1 ? '½' : ''}
-      </span>
-      <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">
-        {rating.toFixed(1)}
-      </span>
-      {count ? (
-        <span className="text-xs text-slate-500 dark:text-slate-400">({count})</span>
-      ) : null}
-    </div>
-  );
+/** Cheapest verified retailer price; the seeded `priceAud` is not a real price. */
+function lowestPrice(product: TopProduct): number | undefined {
+  const prices = (product.retailers || [])
+    .map((r) => r.priceAud)
+    .filter((p): p is number => typeof p === 'number' && p > 0);
+  return prices.length ? Math.min(...prices) : undefined;
 }
 
 export default function ProductCard({ product, rank }: Props) {
   const topRetailers = (product.retailers || []).slice(0, 3);
   const primaryRetailer = product.retailers?.find((r) => r.primary) || product.retailers?.[0];
+  const lowest = lowestPrice(product);
 
   return (
     <div className="group relative flex flex-col justify-between overflow-hidden rounded-[8px] border border-slate-200 bg-white p-5 shadow-xs transition hover:border-slate-300 hover:shadow-md dark:border-slate-700/80 dark:bg-slate-800/80 dark:hover:border-slate-600">
@@ -52,9 +42,10 @@ export default function ProductCard({ product, rank }: Props) {
               </span>
             )}
           </div>
-          {product.priceAud ? (
+          {lowest ? (
             <span className="text-base font-bold text-slate-900 dark:text-white">
-              ${product.priceAud.toLocaleString('en-AU')} <span className="text-[10px] font-normal text-slate-500">AUD</span>
+              <span className="text-[10px] font-normal text-slate-500">from </span>${lowest.toLocaleString('en-AU')}{' '}
+              <span className="text-[10px] font-normal text-slate-500">AUD</span>
             </span>
           ) : null}
         </div>
@@ -80,36 +71,34 @@ export default function ProductCard({ product, rank }: Props) {
 
         {/* Best For — hidden on the card; the full verdict is on the product page. */}
 
-        {/* Rating Stars */}
-        <div className="mb-4">
-          <Stars rating={product.rating} count={product.reviewCount} />
-        </div>
+        {/*
+          No star rating on the card: beside a product name on this site it
+          reads as our score, and none of these products has been tested.
 
-        {/* PROMOTED Retailer Deal Row (Matched to uploaded screenshot) */}
+          Retailer row. This was headed "PROMOTED" and showed prices invented
+          from the seeded priceAud (x1.05, x1.12 per retailer). None of these is
+          a paid placement, so there is no Sponsored label either — just the
+          retailers, with a price only where one was verified.
+        */}
         {topRetailers.length > 0 && (
           <div className="mb-4 rounded-[8px] bg-slate-100/90 p-2.5 dark:bg-slate-700/60">
             <div className="mb-2 text-[10px] font-extrabold tracking-wider text-slate-500 uppercase dark:text-slate-400">
-              PROMOTED
+              Available at
             </div>
             <div className="grid grid-cols-3 gap-2">
-              {topRetailers.map((ret, i) => {
-                const estPrice = product.priceAud
-                  ? Math.round(product.priceAud * (i === 0 ? 1 : i === 1 ? 1.05 : 1.12))
-                  : undefined;
-                return (
-                  <AffiliateLink
-                    key={ret.name + i}
-                    href={ret.url}
-                    subId={`promoted-card-${product.slug}-${i}`}
-                    className="flex flex-col items-center justify-between rounded-lg border border-slate-200/80 bg-white p-2 shadow-2xs transition hover:border-slate-300 hover:shadow-md dark:border-slate-600 dark:bg-slate-800 dark:hover:border-slate-500 min-h-[58px]"
-                  >
-                    <span className="text-xs font-bold text-slate-900 dark:text-white">
-                      {estPrice ? `$${estPrice.toLocaleString('en-AU')}` : 'Check'}
-                    </span>
-                    <RetailerLogo name={ret.name} />
-                  </AffiliateLink>
-                );
-              })}
+              {topRetailers.map((ret, i) => (
+                <AffiliateLink
+                  key={ret.name + i}
+                  href={ret.url}
+                  subId={`retailer-card-${product.slug}-${i}`}
+                  className="flex flex-col items-center justify-between rounded-lg border border-slate-200/80 bg-white p-2 shadow-2xs transition hover:border-slate-300 hover:shadow-md dark:border-slate-600 dark:bg-slate-800 dark:hover:border-slate-500 min-h-[58px]"
+                >
+                  <span className="text-xs font-bold text-slate-900 dark:text-white">
+                    {ret.priceAud ? `$${ret.priceAud.toLocaleString('en-AU')}` : 'Check price'}
+                  </span>
+                  <RetailerLogo name={ret.name} />
+                </AffiliateLink>
+              ))}
             </div>
           </div>
         )}

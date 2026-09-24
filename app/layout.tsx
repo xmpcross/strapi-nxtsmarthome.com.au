@@ -25,6 +25,15 @@ const inter = localFont({
   variable: '--font-inter',
 });
 
+// Logo wordmark only: Outfit, self-hosted from app/fonts/outfit (Google Fonts,
+// SIL OFL 1.1 — licence alongside), used at weight 700 via the font-logo
+// utility (app/globals.css). Body and headings stay on Inter.
+const outfit = localFont({
+  src: [{ path: './fonts/outfit/Outfit-latin-variable.woff2', weight: '100 900', style: 'normal' }],
+  display: 'swap',
+  variable: '--font-outfit',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -87,7 +96,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={site.language} className={inter.variable} suppressHydrationWarning>
+    <html lang={site.language} className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
       <head>
         {/*
           Applies the theme before first paint. Without this a dark reader gets a

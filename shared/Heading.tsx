@@ -12,7 +12,8 @@ export function Heading({ className, level = 2, dimHeading, children, ...props }
       {...props}
       className={clsx(
         className,
-        'text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl dark:text-white'
+        // section-heading: hook for page-level size overrides (app/globals.css).
+        'section-heading text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl dark:text-white'
       )}
     >
       {children}

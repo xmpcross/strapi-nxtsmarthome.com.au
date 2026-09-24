@@ -3,6 +3,7 @@ import { DEFAULT_AUTHOR_SLUG, resolveAuthor } from './authors';
 import type { Article } from './content';
 import type { TopProduct } from './products';
 import { articleHref } from './urls';
+import { retailerReviews } from './review-sources';
 
 const abs = (pathname: string) => new URL(pathname, site.url).toString();
 
@@ -168,10 +169,10 @@ export { abs };
  *
  * Everything here is measured. Prices come from the verified retailer offers,
  * not the seeded `priceAud`, which the catalogue's own notes describe as never
- * having been a real RRP. The rating is only emitted when one exists: it is the
- * aggregate lib/products.ts resolves from ratingReal, and a product with no
- * measured reviews gets no aggregateRating rather than an invented one, which
- * is both a Google policy matter and this site's own rule.
+ * having been a real RRP. The rating is only emitted when the page shows one:
+ * counted from the Australian retailer reviews displayed, from 20 up. A product
+ * without that gets no aggregateRating rather than an invented one, which is
+ * both a Google policy matter and this site's own rule.
  */
 export function productJsonLd(product: TopProduct) {
   const priced = (product.retailers ?? []).filter(
@@ -211,11 +212,15 @@ export function productJsonLd(product: TopProduct) {
     };
   }
 
-  if (typeof product.rating === 'number' && (product.reviewCount ?? 0) > 0) {
+  // The same aggregate the page shows: counted from the named-AU-retailer
+  // reviews on it, and only from MIN_AGGREGATE_REVIEWS up (lib/review-sources.ts).
+  // Structured data must not claim a rating the page does not display.
+  const aggregate = retailerReviews(product).aggregate;
+  if (aggregate) {
     data.aggregateRating = {
       '@type': 'AggregateRating',
-      ratingValue: Number(product.rating.toFixed(2)),
-      reviewCount: product.reviewCount,
+      ratingValue: Number(aggregate.rating.toFixed(2)),
+      reviewCount: aggregate.count,
       bestRating: 5,
       worstRating: 1,
     };

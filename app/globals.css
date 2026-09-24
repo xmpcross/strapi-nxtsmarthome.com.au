@@ -18,6 +18,8 @@
   --radius-3xl: 8px;
   --radius-4xl: 8px;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Logo wordmark (shared/Logo.tsx): Outfit 700. */
+  --font-logo: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --color-primary-50: #f1f0ff;
   --color-primary-100: #deddff;
   --color-primary-200: #c6c4ff;
@@ -1582,9 +1584,29 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+/* Article body section headings on the single post template (user request,
+   24 Sep 2026): h2 26px and h3 20px, both 600. After the rule above so they
+   win over its 700; the title, sidebar and related sections keep 700. */
+.single-post-page .prose h2 {
+  font-size: 26px;
+  font-weight: 600;
+}
+.single-post-page .prose h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 /* "Where to buy" retailer list the AI writer appends to articles
    (<ul class="where-to-buy">): items and links at 1rem. */
 .where-to-buy li,
 .where-to-buy li a {
   font-size: 1rem;
+}
+
+/* /categories/: topic section headings at 2rem (user request, 24 Sep 2026).
+   Scoped to the section heading hook in shared/Heading.tsx, so card titles,
+   which are h2s too, keep their own size. */
+.page-categories-index h2.section-heading {
+  font-size: 2rem;
+  line-height: 1.2;
 }

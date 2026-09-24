@@ -5,7 +5,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import JsonLd from '@/components/JsonLd';
 import PageHeader from '@/components/PageHeader';
 import ProductGrid from '@/components/ProductGrid';
-import { getAllTopProducts } from '@/lib/products';
+import { getAllTopProducts, toListingCard } from '@/lib/products';
 import { faqJsonLd } from '@/lib/seo';
 import { categories, site } from '@/lib/site';
 import { getNav } from '@/lib/nav';
@@ -239,7 +239,7 @@ export default function ProductsPage() {
         </ul>
       </nav>
 
-      <ProductGrid products={products} categoriesList={categories} pageSize={6} />
+      <ProductGrid products={products.map(toListingCard)} categoriesList={categories} pageSize={6} />
 
       {/* What to check — the Australia-specific traps, ordered by cost of error. */}
       <section className="mt-16 border-t border-slate-200 pt-10 dark:border-slate-700">
@@ -323,14 +323,15 @@ export default function ProductsPage() {
             </p>
             <p>
               Some links earn us a commission at no extra cost to you. It doesn&apos;t affect which
-              products appear here or how they&apos;re ordered. If a product is a bad buy, we say so.
+              products appear here or how they&apos;re ordered. These are price listings, not
+              reviews: we have not tested these products.
             </p>
             <p className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1">
               <Link
                 href="/how-we-test/"
                 className="text-sm font-medium text-brand-700 hover:underline dark:text-brand-400"
               >
-                → How we test
+                → How we research
               </Link>
               <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">·</span>
               <Link

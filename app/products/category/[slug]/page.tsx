@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/PageHeader';
 import ProductGrid from '@/components/ProductGrid';
 import { categoryHeroFor } from '@/lib/content';
-import { getAllTopProducts } from '@/lib/products';
+import { getAllTopProducts, toListingCard } from '@/lib/products';
 import { categories, getCategory } from '@/lib/site';
 
 export async function generateStaticParams() {
@@ -62,7 +62,7 @@ export default async function CategoryProductsPage({
             height={600}
             className="w-full rounded-[8px]"
           />
-          <p className="mt-6 w-full text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:w-4/5 sm:text-base">
+          <p className="mt-6 w-full text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base">
             {category.intro}
           </p>
         </header>
@@ -71,12 +71,14 @@ export default async function CategoryProductsPage({
           eyebrow="Australian Buying Guide"
           title={heading}
           intro={category.intro}
+          titleClassName="text-[2.5rem] leading-tight"
+          introClassName="w-full max-w-none"
         />
       )}
 
       {/* Main Grid with Left Filter Sidebar */}
       <ProductGrid
-        products={allProducts}
+        products={allProducts.map(toListingCard)}
         categoriesList={categories}
         currentCategorySlug={category.slug}
       />

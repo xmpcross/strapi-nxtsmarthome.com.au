@@ -62,6 +62,28 @@ export default function ContactPage() {
         {/* Right-hand column, not a nav sidebar: context for the form rather
             than links away from it. Stacks under the form on narrow screens. */}
         <aside className="space-y-7">
+          <section className="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900/50">
+            <h2 className="text-base font-bold text-slate-900 dark:text-white">Who you are contacting</h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              {site.name} is published by {site.organisation.operator}.
+            </p>
+            {/*
+              TODO(owner): add the business postal address here, e.g.
+                <address className="mt-2 text-sm not-italic text-slate-600 dark:text-slate-400">
+                  Street, Suburb STATE Postcode, Country
+                </address>
+              A registered or mailing address is what AdSense reviewers and
+              readers look for on a contact page. The operator name comes from
+              site.organisation.operator in lib/site.ts (itself pending a
+              [VERIFY] on which entity to name).
+            */}
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+              Email:{' '}
+              <a href={`mailto:${site.organisation.email}`} className="font-semibold text-brand-600 dark:text-brand-400">
+                {site.organisation.email}
+              </a>
+            </p>
+          </section>
           {NOTES.map((note) => (
             <section key={note.title}>
               <h2 className="text-base font-bold text-slate-900 dark:text-white">{note.title}</h2>

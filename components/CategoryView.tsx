@@ -10,6 +10,8 @@ import { categoryHeroFor, coverFor } from '@/lib/content';
 import type { Article } from '@/lib/content';
 import type { Category } from '@/lib/site';
 
+const NO_BANNER = new Set(['security-and-cameras', 'lighting']);
+
 /**
  * The category listing, shared by /categories/[slug]/ and its /page/N/ routes so
  * the two cannot drift. Page 1 is the base URL; later pages are real static
@@ -34,6 +36,9 @@ export default function CategoryView({
 
   const hero = categoryHeroFor(category.slug, 'post');
   const thumb = articles[0] ? coverFor(articles[0]) : hero ?? undefined;
+  // Categories whose title section shows no background banner, even though
+  // one exists in public/heroes/post/ (user request, 24 Sep 2026).
+  const banner = NO_BANNER.has(category.slug) ? null : hero;
 
   return (
     <>
@@ -52,25 +57,51 @@ export default function CategoryView({
           intro={<p>{category.intro}</p>}
           meta={`${articles.length} ${articles.length === 1 ? 'article' : 'articles'}${page > 1 ? ` · Page ${page}` : ''}`}
           image={thumb}
-          banner={hero}
+          banner={banner}
+          fullWidth
+          introClassName="text-base/7"
+          // Category title at 2.5rem (user request, 24 Sep 2026).
+          titleClassName="text-[2.5rem] leading-tight"
         />
 
         <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">
-          <TopicChips categories={categoryCounts} activeSlug={category.slug} total={totalArticles} />
+          {/* Phones and tablets keep the chip row; from lg the topics move to
+              the left sidebar, the same layout as the product category page. */}
+          <div className="lg:hidden">
+            <TopicChips categories={categoryCounts} activeSlug={category.slug} total={totalArticles} />
+          </div>
 
-          {visible.length === 0 ? (
-            <p className="mt-10 rounded-2xl border border-dashed border-neutral-300 p-8 text-center text-neutral-500 dark:border-neutral-700">
-              Nothing published in this section yet — it&apos;s next on the list.
-            </p>
-          ) : (
-            <div className="mt-8 grid gap-[15px] sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
-              {visible.map((article) => (
-                <Card11 key={article.slug} post={toTPost(article)} />
-              ))}
+          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8">
+            <aside className="hidden lg:block lg:w-72 lg:shrink-0">
+              <div className="sticky top-20 rounded-[8px] border border-neutral-200 bg-white p-5 shadow-2xs dark:border-neutral-700/80 dark:bg-neutral-800/80">
+                <h2 className="mb-3 border-b border-neutral-100 pb-3 text-sm font-bold tracking-wider text-neutral-900 uppercase dark:border-neutral-700 dark:text-white">
+                  Filter by topic
+                </h2>
+                <TopicChips
+                  categories={categoryCounts}
+                  activeSlug={category.slug}
+                  total={totalArticles}
+                  layout="sidebar"
+                />
+              </div>
+            </aside>
+
+            <div className="min-w-0 flex-1">
+              {visible.length === 0 ? (
+                <p className="mt-10 rounded-2xl border border-dashed border-neutral-300 p-8 text-center text-neutral-500 lg:mt-0 dark:border-neutral-700">
+                  Nothing published in this section yet — it&apos;s next on the list.
+                </p>
+              ) : (
+                <div className="mt-8 grid gap-[15px] sm:grid-cols-2 lg:mt-0 xl:grid-cols-3">
+                  {visible.map((article) => (
+                    <Card11 key={article.slug} post={toTPost(article)} />
+                  ))}
+                </div>
+              )}
+
+              <Pagination base={base} page={page} total={articles.length} />
             </div>
-          )}
-
-          <Pagination base={base} page={page} total={articles.length} />
+          </div>
 
           {/* Long-form orientation, page 1 only (it would be duplicate content on /page/2/). */}
           {category.overview && page === 1 ? (

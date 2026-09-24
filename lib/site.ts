@@ -9,12 +9,14 @@ export const site = {
   shortName: 'NXT Smart Home',
   domain: 'nxtsmarthome.com.au',
   url: 'https://nxtsmarthome.com.au',
-  tagline: 'Smart home reviews, setup guides and buying advice — built for Australia',
-  shortTagline: 'Australian Smart Home Reviews and Guides',
+  tagline: 'Smart home buying guides, setup help and explainers — built for Australia',
+  shortTagline: 'Australian Smart Home Guides and Buying Advice',
+  // No "reviews" or "testing" here: every article is research-based (see
+  // /how-we-test/), and a site-wide claim of testing would be untrue.
   description:
-    'Independent smart home reviews, step-by-step setup guides and buying advice. Written for Australian homes — 240V wiring, AS/NZS standards, NBN quirks and local retailers — and useful anywhere in the world.',
+    'Independent smart home buying guides, step-by-step setup guides and explainers. Written for Australian homes — 240V wiring, AS/NZS standards, NBN quirks and local retailers — and useful anywhere in the world.',
   metaDescription:
-    'Independent Australian smart home reviews, setup guides and buying advice — local retailers, AS/NZS standards, renting rules and real-world testing.',
+    'Independent Australian smart home buying guides, setup guides and explainers — local retailers, AS/NZS standards and renting rules.',
   ogImage: '/og-default.png',
   locale: 'en_AU',
   language: 'en-AU',
@@ -23,6 +25,15 @@ export const site = {
   organisation: {
     name: 'NXT Smart Home',
     email: 'hello@nxtsmarthome.com.au',
+    /*
+     * The business that operates the site, named on /about/, /contact/,
+     * /privacy/ and in the footer.
+     * [VERIFY: FXN Holdings Limited, UK Co. No. 16134139 — confirm which entity
+     * to name before relying on this; change it here and every page follows.]
+     */
+    operator: 'FXN Holdings Limited',
+    /** Editor, named on /about/ as the person responsible for the content. */
+    editor: { name: 'Kritin Curtis', slug: 'kritin-curtis' },
   },
   social: {
     twitter: '',
@@ -199,7 +210,7 @@ export const topicNavLinks = topicCategories.map((category) => ({
 export const guideNavLinks = [
   { href: '/categories/buying-guides/', label: 'Buying Guides', emoji: '🛒' },
   { href: '/categories/setup-guides/', label: 'Setup Guides', emoji: '🛠️' },
-  { href: '/how-we-test/', label: 'How We Test', emoji: '🔬' },
+  { href: '/how-we-test/', label: 'How We Research', emoji: '🔬' },
 ];
 
 /** "Latest" — every article, newest first. A plain link, not a menu. */

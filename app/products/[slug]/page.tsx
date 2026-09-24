@@ -10,8 +10,9 @@ import RetailerPriceList from '@/components/RetailerPriceList';
 import RetailerPriceTable from '@/components/RetailerPriceTable';
 import JsonLd from '@/components/JsonLd';
 import { bulletsOf } from '@/lib/bullets';
-import { getAllTopProducts, getTopProductBySlug } from '@/lib/products';
+import { getAllTopProducts, getTopProductBySlug, productEditorial } from '@/lib/products';
 import { breadcrumbJsonLd, productJsonLd } from '@/lib/seo';
+import { retailerReviews } from '@/lib/review-sources';
 
 export async function generateStaticParams() {
   const products = getAllTopProducts();
@@ -27,10 +28,21 @@ export async function generateMetadata({
   const product = getTopProductBySlug(slug);
   if (!product) return {};
 
+  const fullName = `${product.brand ? product.brand + ' ' : ''}${product.name}`;
+  // Built from the product's own "best for" line when it has one, rather than
+  // one sentence templated across 200+ pages.
+  const description = product.bestFor
+    ? `${fullName}: best for ${product.bestFor.replace(/\.$/, '').replace(/^./, (c) => c.toLowerCase())}. Compare current prices at Australian retailers.`
+    : `${fullName} prices at Australian retailers, with specifications and where to buy.`;
+
   return {
-    title: `${product.brand ? product.brand + ' ' : ''}${product.name} Australia Price & Review`,
-    description: `Where to buy ${product.name} in Australia. Compare prices across JB Hi-Fi, Amazon AU, The Good Guys, and Harvey Norman.`,
+    // "Review" dropped from the title: none of these pages is one.
+    title: `${fullName} Price in Australia`,
+    description,
     alternates: { canonical: `/products/${product.slug}/` },
+    // Price listings without our own editorial content stay out of the index
+    // (lib/products.ts productEditorial) but keep passing link equity.
+    ...(productEditorial(product.slug).indexable ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
@@ -57,6 +69,12 @@ export default async function ProductDetailPage({
     ...pool.filter((p) => p.categorySlug === product.categorySlug && !sameSubCategory.includes(p)),
   ].slice(0, 6); // one row of six on desktop
 
+  const isListingOnly = !productEditorial(product.slug).indexable;
+  // What the client components receive, with reviews already cut down to the
+  // named Australian retailers (lib/review-sources.ts). A client component's
+  // props are serialised into the page, so filtering inside ProductReviews
+  // alone still shipped every AliExpress and Shopee review in the HTML.
+  const forClient = { ...product, reviews: retailerReviews(product).reviews };
   const retailers = product.retailers || [];
   const primaryRetailer = retailers.find((r) => r.primary) || retailers[0];
 
@@ -131,15 +149,12 @@ export default async function ProductDetailPage({
                 </h1>
 
                 <div className="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-[0.8125rem] text-[#55555a] dark:text-slate-400">
-                  {product.rating ? (
-                    <span className="flex items-center gap-1">
-                      <span className="text-amber-500" aria-hidden="true">★</span>
-                      <span className="font-semibold text-[#1d252c] dark:text-slate-200">
-                        {product.rating.toFixed(1)}
-                      </span>
-                      {product.reviewCount ? (
-                        <span>({product.reviewCount.toLocaleString('en-AU')} reviews)</span>
-                      ) : null}
+                  {/* No star score here: next to the product name it reads as
+                      our verdict. Retailer customer scores are in the reviews
+                      block, labelled as theirs. */}
+                  {isListingOnly ? (
+                    <span className="rounded-sm border border-[#c5cbd5] px-2 py-0.5 font-semibold text-[#1d252c] dark:border-slate-600 dark:text-slate-200">
+                      Price listing — not a review
                     </span>
                   ) : null}
                   {product.subCategory ? (
@@ -196,13 +211,13 @@ export default async function ProductDetailPage({
             </div>
 
             {/* Highlights sit above the Description panels */}
-            <ProductHighlights product={product} />
+            <ProductHighlights product={forClient} />
 
             {/* Description / Specifications / Additional Info */}
-            <ProductAccordion product={product} />
+            <ProductAccordion product={forClient} />
 
             {/* Reviews sit directly beneath the Additional Info panel */}
-            <ProductReviews product={product} />
+            <ProductReviews product={forClient} />
           </div>
 
           {/* ---------- Right column: purchase panel ---------- */}

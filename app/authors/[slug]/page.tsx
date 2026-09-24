@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import ArchiveHeader from '@/components/ArchiveHeader';
 import Card11 from '@/components/PostCards/Card11';
 import { toTPost } from '@/data/posts';
 import JsonLd from '@/components/JsonLd';
 import { getAllArticles } from '@/lib/content';
-import { getAllAuthors, getAuthorBySlug, resolveAuthor } from '@/lib/authors';
+import { AUTHOR_ALIASES, getAllAuthors, getAuthorBySlug, resolveAuthor } from '@/lib/authors';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { site } from '@/lib/site';
 
@@ -24,15 +24,21 @@ export async function generateMetadata({
   const { slug } = await params;
   const author = getAuthorBySlug(slug);
   if (!author) return {};
+  // An author page with nothing published under it is an empty page: out of
+  // the index (and the sitemap) until there is something to list.
+  const count = (await getAllArticles()).filter((a) => resolveAuthor(a.author).slug === author.slug).length;
   return {
     title: `${author.name} — Articles`,
     description: author.bio?.slice(0, 160),
     alternates: { canonical: `/authors/${author.slug}/` },
+    ...(count ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
 export default async function AuthorPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  // Merged profile (lib/authors.ts AUTHOR_ALIASES); nginx 301s it first.
+  if (AUTHOR_ALIASES[slug]) permanentRedirect(`/authors/${AUTHOR_ALIASES[slug]}/`);
   const author = getAuthorBySlug(slug);
   if (!author) notFound();
 
@@ -63,7 +69,7 @@ export default async function AuthorPage({ params }: { params: Promise<{ slug: s
       />
 
       <ArchiveHeader
-        eyebrow={author.role ?? 'Author'}
+        eyebrow={author.role}
         title={author.name}
         intro={
           <>

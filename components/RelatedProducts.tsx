@@ -42,21 +42,18 @@ export default function RelatedProducts({ products }: { products: TopProduct[] }
               </h3>
 
               <div className="mt-auto pt-2">
-                {product.rating ? (
-                  <div className="flex items-center gap-1 text-[0.6875rem] text-[#55555a] dark:text-slate-400">
-                    <span className="text-amber-500" aria-hidden="true">★</span>
-                    <span className="font-semibold text-[#1d252c] dark:text-slate-200">
-                      {product.rating.toFixed(1)}
-                    </span>
-                    {product.reviewCount ? <span>({product.reviewCount})</span> : null}
-                  </div>
-                ) : null}
-
-                {product.priceAud ? (
-                  <div className="mt-1 text-sm font-bold text-[#1d252c] dark:text-white">
-                    ${product.priceAud.toLocaleString('en-AU')}
-                  </div>
-                ) : null}
+                {/* No star rating (it reads as our score) and no seeded
+                    priceAud (never a real price): the lowest verified one. */}
+                {(() => {
+                  const prices = (product.retailers || [])
+                    .map((r) => r.priceAud)
+                    .filter((p): p is number => typeof p === 'number' && p > 0);
+                  return prices.length ? (
+                    <div className="mt-1 text-sm font-bold text-[#1d252c] dark:text-white">
+                      from ${Math.min(...prices).toLocaleString('en-AU')}
+                    </div>
+                  ) : null;
+                })()}
               </div>
             </Link>
           </li>

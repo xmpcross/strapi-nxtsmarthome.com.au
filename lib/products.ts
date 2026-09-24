@@ -264,3 +264,76 @@ export function getTopProductBySlug(slug: string): TopProduct | undefined {
   const all = getAllTopProducts();
   return all.find((p) => p.slug === slug);
 }
+
+/*
+ * Which product pages carry enough of our own writing to be worth indexing.
+ *
+ * A /products/<slug>/ page is otherwise a price listing: merchant copy, a
+ * catalogue spec table and retailer links, the same as every other price
+ * comparison site. Indexed at scale (200+), that reads to Google and to an
+ * AdSense reviewer as thin affiliate content, which CLAUDE.md rule 3 already
+ * forbids publishing as if it were editorial.
+ *
+ * A page stays indexable only with all three:
+ *   - a curated file in content/products/ with the same slug,
+ *   - bestFor, pros and cons filled in,
+ *   - at least EDITORIAL_MIN_WORDS words of our own text across the note
+ *     (HTML comments excluded), bestFor, pros and cons.
+ * Everything else is noindex, follow, kept out of the sitemap, and labelled
+ * "Price listing — not a review" on the page.
+ */
+export const EDITORIAL_MIN_WORDS = 150;
+
+export interface ProductEditorial {
+  indexable: boolean;
+  words: number;
+  /** Why it is not indexable; empty when it is. */
+  missing: string[];
+}
+
+function countWords(text: string): number {
+  return text.split(/\s+/).filter(Boolean).length;
+}
+
+export function productEditorial(slug: string): ProductEditorial {
+  const curated = getAllProducts().find((p) => p.slug === slug);
+  if (!curated) return { indexable: false, words: 0, missing: ['no curated file in content/products/'] };
+
+  const missing: string[] = [];
+  if (!curated.bestFor) missing.push('bestFor');
+  if (!curated.pros?.length) missing.push('pros');
+  if (!curated.cons?.length) missing.push('cons');
+
+  const note = (curated.note ?? '').replace(/<!--[\s\S]*?-->/g, ' ');
+  const words = countWords(
+    [note, curated.bestFor ?? '', ...(curated.pros ?? []), ...(curated.cons ?? [])].join(' '),
+  );
+  if (words < EDITORIAL_MIN_WORDS) missing.push(`editorial text ${words}/${EDITORIAL_MIN_WORDS} words`);
+
+  return { indexable: missing.length === 0, words, missing };
+}
+
+/** Catalogue products whose pages are indexable (see productEditorial). */
+export function getIndexableTopProducts(): TopProduct[] {
+  return getAllTopProducts().filter((p) => productEditorial(p.slug).indexable);
+}
+
+/**
+ * A catalogue product cut down to what a listing card needs.
+ *
+ * ProductGrid is a client component, so every field it receives is serialised
+ * into the page. Passed whole, the /products/ hub shipped all ~2,000 imported
+ * customer reviews (AliExpress and Shopee ones included), every spec table and
+ * every description: 2.4 MB of HTML for a grid of cards.
+ */
+export function toListingCard(p: TopProduct): TopProduct {
+  const {
+    reviews: _reviews,
+    specifications: _specifications,
+    description: _description,
+    shortDescription: _shortDescription,
+    cmsDescriptionHtml: _cmsDescriptionHtml,
+    ...card
+  } = p;
+  return card;
+}

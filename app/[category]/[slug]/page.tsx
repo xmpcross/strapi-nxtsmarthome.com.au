@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import ArticleBody from '@/components/ArticleBody';
 import CategoryBadgeList from '@/components/CategoryBadgeList';
 import Disclosure from '@/components/Disclosure';
@@ -30,6 +30,7 @@ import {
   getAllArticles,
   getArticle,
   getRelatedWithScores,
+  mergedInto,
   articleHref,
   typeLabels,
 } from '@/lib/content';
@@ -86,6 +87,10 @@ export async function generateMetadata({
 
 export default async function ArticlePage({ params }: { params: Promise<{ category: string; slug: string }> }) {
   const { slug } = await params;
+  // A near-duplicate folded into another article. nginx 301s these first; this
+  // covers any request that reaches the server directly.
+  const survivor = mergedInto(slug);
+  if (survivor) permanentRedirect(survivor);
   const article = await getArticle(slug);
   if (!article) notFound();
 

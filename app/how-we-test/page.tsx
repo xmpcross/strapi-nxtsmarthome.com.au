@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import LegalSidebarTOC from '@/components/LegalSidebarTOC';
+import { ADS_ENABLED } from '@/lib/ads';
 
 export const metadata: Metadata = {
-  title: 'How We Test and Review',
+  title: 'How We Research and Review',
   description:
-    'Our review methodology: what we test hands-on, what we research, how we score, and how we tell you the difference.',
+    'How NXT Smart Home guides are researched: what each article type means, where our information comes from, and why we do not score products we have not tested.',
   alternates: { canonical: '/how-we-test/' },
 };
 
@@ -16,106 +17,111 @@ export default function HowWeTestPage() {
         <LegalSidebarTOC />
         <main className="min-w-0">
           <h1 className="text-3xl font-semibold tracking-tight text-neutral-900 md:text-4xl xl:text-5xl dark:text-white">
-            How we test and review
+            How we research and review
           </h1>
 
+          {/*
+            Rewritten Sept 2026 to describe what the site actually does. The
+            previous version promised hands-on testing "for at least two weeks"
+            and 1–5 scores; no article on the site is a hands-on review, and
+            none carries a score. If a genuine hands-on review is ever
+            published, add the method used for it here — do not restore the old
+            claims wholesale.
+          */}
           <div className="prose prose-neutral mt-8 max-w-none dark:prose-invert prose-h2:mt-0 prose-h2:pt-0 prose-h3:mt-0 prose-h3:pt-0">
-            <h2>We tell you what kind of article you&apos;re reading</h2>
+            <h2>Our articles are research-based, not hands-on reviews</h2>
             <p>
-              The most dishonest thing a review site can do is present desk research as hands-on
-              testing. We label every article by type so you know what you are getting:
+              Everything currently published on NXT Smart Home is research-based: buying guides,
+              comparisons, explainers, how-to guides and roundups built from manufacturer
+              documentation, published specifications, Australian standards and regulator guidance,
+              and retailer information. We have not run hands-on tests of the products we write
+              about, and we do not present our guides as if we had.
             </p>
-            <ul>
-              <li>
-                <strong>Review</strong> — we have used the device in a real home, usually for at
-                least two weeks.
-              </li>
-              <li>
-                <strong>Comparison</strong> — a head-to-head between products, based on a mix of
-                hands-on use and documented specifications.
-              </li>
-              <li>
-                <strong>Buying guide</strong> — a decision framework. Focused on how to choose
-                rather than on a single verdict.
-              </li>
-              <li>
-                <strong>How-to</strong> — step-by-step instructions we have followed ourselves.
-              </li>
-              <li>
-                <strong>Explainer</strong> — how a technology or standard works, based on the
-                published specification.
-              </li>
-              <li>
-                <strong>Roundup</strong> — a curated shortlist for a category.
-              </li>
-            </ul>
             <p>
-              Where a roundup includes a product we have not personally used, we say so in the entry
-              rather than implying otherwise.
+              That is why you will not find star ratings or scores from us anywhere on this site. A
+              score implies testing, and we are not going to imply testing that did not happen.
             </p>
 
-            <h2>What we actually test</h2>
-            <p>When a device is in our hands, we look at the things that decide whether you keep using it:</p>
+            <h2>What each article type means</h2>
+            <p>Every article is labelled with its type, so you know what you are reading:</p>
             <ul>
               <li>
-                <strong>Setup friction.</strong> How long from box to working, how many apps and
-                accounts, and how often the pairing fails on the first attempt.
+                <strong>Buying guide</strong> — how to choose in a category: what matters, what is
+                marketing, and what to check before you buy in Australia.
               </li>
               <li>
-                <strong>Reliability over time.</strong> Anything can work on day one. We care about
-                whether it still responds on day 30, and how it recovers from a router reboot or a
-                power cut.
+                <strong>Comparison</strong> — two or more products or standards side by side, based
+                on their published specifications and documented behaviour.
               </li>
               <li>
-                <strong>Latency.</strong> The gap between the trigger and the action. A light that
-                takes two seconds feels broken even though it works.
+                <strong>How-to</strong> — step-by-step setup or troubleshooting, based on the
+                manufacturer&apos;s instructions and documentation.
               </li>
               <li>
-                <strong>Local vs cloud.</strong> Whether the device still functions when the
-                internet drops. This matters more in Australia than vendors admit.
+                <strong>Explainer</strong> — how a technology, standard or rule works, from the
+                published specification or official source.
               </li>
               <li>
-                <strong>Ecosystem behaviour.</strong> How it behaves in Apple Home, Google Home,
-                Alexa and Home Assistant — not just in the vendor&apos;s own app.
+                <strong>Roundup</strong> — a shortlist for a category, chosen on documented features,
+                Australian availability and fit for a stated need.
               </li>
               <li>
-                <strong>Australian fit.</strong> Plug type, 240V/50Hz compatibility, AU app store
-                availability, local warranty support, and whether the AU model differs from the US
-                one reviewed everywhere else.
+                <strong>Complete guide</strong> — a longer hub article that links to the related
+                guides on a topic.
+              </li>
+              <li>
+                <strong>Review</strong> — reserved for genuine hands-on reviews. We have not published
+                any yet. When we do, the review will say how the device was used, for how long, and
+                in what kind of home.
               </li>
             </ul>
-
-            <h2>How we score</h2>
-            <p>
-              Ratings run from 1 to 5. A 3 is genuinely fine — it means the product does its job
-              without excelling. We do not inflate everything to 4.5 to keep manufacturers happy. A
-              score reflects value at the price we saw it at; a great device at a bad price scores
-              lower than a good device at a fair one.
-            </p>
 
             <h2>Where our information comes from</h2>
             <p>
               For technical claims — protocol behaviour, power ratings, standards compliance — we
-              cite the published specification or the manufacturer&apos;s own documentation rather
-              than repeating what other blogs say. For electrical and regulatory matters we point to
-              the relevant Australian standard or regulator, and we tell you when a job legally
-              requires a licensed electrician instead of pretending it is a DIY task.
+              work from the published specification or the manufacturer&apos;s own documentation
+              rather than repeating what other sites say. For electrical, privacy and tenancy
+              matters we point to the relevant Australian standard, regulator or official guidance,
+              and we tell you when a job legally requires a licensed electrician rather than
+              presenting it as DIY.
+            </p>
+            <p>
+              Prices change daily, so our guides do not state them. Product pages show prices from
+              Australian retailers with the date they were last checked, and link to the retailer
+              so you can confirm the current price before buying.
+            </p>
+
+            <h2>Fact-checking before publication</h2>
+            <p>
+              Any figure or legal, electrical or safety claim that has not been confirmed against a
+              source is flagged for a fact-check while an article is being prepared. An article with
+              an open fact-check flag is not published.
+            </p>
+
+            <h2>Customer reviews on product pages</h2>
+            <p>
+              Some product pages show customer reviews from Australian retailers. They are the
+              retailer&apos;s customers&apos; words, clearly labelled as such, and are not written,
+              edited or verified by us. We show an overall score from them only when there are
+              enough of them to mean something.
             </p>
 
             <h2>Corrections</h2>
             <p>
-              We get things wrong sometimes. When we do, we fix the article and note the change
-              rather than quietly editing it. Articles carry an &quot;updated&quot; date so you can
-              see how current the advice is. If you spot an error,{' '}
+              We get things wrong sometimes. When we do, we fix the article and update its date so
+              you can see how current the advice is. If you spot an error,{' '}
               <Link href="/contact/">tell us</Link> — we would genuinely rather know.
             </p>
 
             <h2>Our commercial relationships</h2>
             <p>
-              We earn affiliate commission on some outbound links. It does not affect our verdicts.
-              The full detail is on our <Link href="/affiliate-disclosure/">affiliate disclosure</Link>{' '}
-              page. We do not accept payment for a positive review, and we do not let manufacturers
-              approve articles before publication.
+              {ADS_ENABLED
+                ? 'We earn affiliate commission on some outbound links, and the site displays advertising. Neither affects what we write.'
+                : 'We earn affiliate commission on some outbound links. It does not affect what we write.'}{' '}
+              The full detail is on our{' '}
+              <Link href="/affiliate-disclosure/">affiliate disclosure</Link> page. We do not accept
+              payment for coverage, and we do not let manufacturers approve articles before
+              publication.
             </p>
           </div>
         </main>
