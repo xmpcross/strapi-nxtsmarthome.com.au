@@ -6,6 +6,7 @@ import type { TCategory } from '@/data/categories'
 import type { TPost } from '@/data/posts'
 import type { TopProduct } from '@/lib/products'
 import { site } from '@/lib/site'
+import { AFFILIATE_ENABLED } from '@/lib/affiliate'
 
 /*
  * Home page sections added in the SEO redesign (24 Sep 2026). The page used to
@@ -309,7 +310,7 @@ export function HomeTrust({ editorName, editorSlug }: { editorName: string; edit
     <section>
       <HeadingWithSub
         className="mb-8!"
-        subHeading={`Edited by ${editorName}. Independent: affiliate links never decide what we recommend.`}
+        subHeading={`Edited by ${editorName}. Independent: ${AFFILIATE_ENABLED ? 'affiliate links never decide' : 'no brand or retailer decides'} what we recommend.`}
       >
         How we research
       </HeadingWithSub>

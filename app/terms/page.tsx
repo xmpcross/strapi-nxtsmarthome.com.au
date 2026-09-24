@@ -3,6 +3,7 @@ import Link from 'next/link';
 import LegalSidebarTOC from '@/components/LegalSidebarTOC';
 import { site } from '@/lib/site';
 import { ADS_ENABLED } from '@/lib/ads';
+import { AFFILIATE_ENABLED } from '@/lib/affiliate';
 
 export const metadata: Metadata = {
   title: 'Terms and Conditions',
@@ -74,10 +75,10 @@ export default function TermsPage() {
 
             <h2>Affiliate links</h2>
             <p>
-              Some outbound links to retailers are affiliate links. If you buy through one, we may
-              earn a commission at no additional cost to you. This never changes what we recommend or
-              what we say about a product. Full detail is in our{' '}
-              <Link href="/affiliate-disclosure/">affiliate disclosure</Link>.
+              {AFFILIATE_ENABLED
+                ? 'Some outbound links to retailers are affiliate links. If you buy through one, we may earn a commission at no additional cost to you. This never changes what we recommend or what we say about a product.'
+                : 'Outbound links to retailers are currently ordinary, untracked links: no affiliate programme is active on the site. If that changes, affiliate links will never change what we recommend or what we say about a product.'}{' '}
+              Full detail is in our <Link href="/affiliate-disclosure/">affiliate disclosure</Link>.
             </p>
             {ADS_ENABLED ? (
               <p>

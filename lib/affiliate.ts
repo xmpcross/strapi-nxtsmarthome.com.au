@@ -44,6 +44,17 @@ export function configuredNetworks(): string[] {
   return live;
 }
 
+/**
+ * Whether each script actually loads (components/HeadScripts.tsx uses the same
+ * tests). The cookie banner and /cookies/ describe only what is on, so the
+ * copy never claims tracking the site is not doing. No server-only imports:
+ * the cookie banner (a client component) reads these.
+ */
+export const GENIUSLINK_ENABLED = /^\d+$/.test(ids.geniuslinkTsid.trim());
+export const SOVRN_ENABLED = Boolean(ids.sovrnKey.trim());
+/** Any affiliate tracking at all. Off: every "we may earn a commission" notice is hidden. */
+export const AFFILIATE_ENABLED = GENIUSLINK_ENABLED || SOVRN_ENABLED;
+
 /** Attributes every outbound commercial link must carry. */
 export const affiliateLinkAttrs = {
   target: '_blank',

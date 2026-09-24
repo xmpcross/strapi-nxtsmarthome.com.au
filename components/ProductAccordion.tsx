@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState } from 'react';
 import Link from 'next/link';
+import { AFFILIATE_ENABLED } from '@/lib/affiliate';
 import { bulletsOf } from '@/lib/bullets';
 import { featureItems, isFeatureSpec } from '@/lib/feature-specs';
 import { splitDescriptionFaqs } from '@/lib/description-faq';
@@ -304,11 +305,15 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
 
           <p className="mt-4 text-xs text-[#55555a] dark:text-slate-400">
             Prices are indicative and in Australian dollars — confirm on the retailer&apos;s site.
-            We may earn a commission from links on this page, at no extra cost to you.{' '}
-            <Link href="/affiliate-disclosure/" className="text-[#0046be] underline dark:text-blue-400">
-              Read our full disclosure
-            </Link>
-            .
+            {AFFILIATE_ENABLED && (
+              <>
+                We may earn a commission from links on this page, at no extra cost to you.{' '}
+                <Link href="/affiliate-disclosure/" className="text-[#0046be] underline dark:text-blue-400">
+                  Read our full disclosure
+                </Link>
+                .
+              </>
+            )}
           </p>
         </>
       ),

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import LegalSidebarTOC from '@/components/LegalSidebarTOC';
 import { site } from '@/lib/site';
 import { ADS_ENABLED } from '@/lib/ads';
+import { GENIUSLINK_ENABLED, SOVRN_ENABLED } from '@/lib/affiliate';
 
 export const metadata: Metadata = {
   title: 'Cookie Information',
@@ -17,7 +18,8 @@ export const metadata: Metadata = {
 
     The factual content below should be checked against what the built site
     actually loads whenever scripts change:
-      - Geniuslink for affiliate link affiliation
+      - Geniuslink for affiliate link affiliation (only when NEXT_PUBLIC_GENIUSLINK_TSID
+        is set; the Sovrn line likewise needs NEXT_PUBLIC_SOVRN_KEY — lib/affiliate.ts)
       - cdn.viglink.com (Sovrn Commerce), consent-gated: public/js/sovrn-init.js
         parks its loader on window.__nxtLoadSovrn until the banner is accepted
       - googletagmanager.com/gtag/js for Google Analytics
@@ -129,31 +131,38 @@ export default function CookiesPage() {
 
             <h3>Affiliate tracking</h3>
             <p>
-              We take part in affiliate programmes, which is how the site is funded. Three things can
-              happen here:
+              {GENIUSLINK_ENABLED || SOVRN_ENABLED
+                ? 'We take part in affiliate programmes, which is how the site is funded. This is what can happen here:'
+                : 'No affiliate tracking scripts run on this site at the moment: outbound retailer links are plain links. This is what can still happen:'}
             </p>
             <ul>
-              <li>
-                Geniuslink may affiliate supported outbound merchant links and route clicks through
-                its tracking service.
-              </li>
-              <li>
-                A commerce script from Sovrn attributes outbound merchant links, and may set a
-                cookie to record which link you followed. Like the analytics tag, it is not loaded at
-                all until you accept.
-              </li>
+              {GENIUSLINK_ENABLED && (
+                <li>
+                  Geniuslink may affiliate supported outbound merchant links and route clicks through
+                  its tracking service.
+                </li>
+              )}
+              {SOVRN_ENABLED && (
+                <li>
+                  A commerce script from Sovrn attributes outbound merchant links, and may set a
+                  cookie to record which link you followed. Like the analytics tag, it is not loaded
+                  at all until you accept.
+                </li>
+              )}
               <li>
                 When you click through to a retailer such as Amazon AU, eBay AU, JB Hi-Fi, The Good
                 Guys, Officeworks, Bunnings or Harvey Norman,{' '}
-                <strong>that retailer sets its own cookies on its own site</strong> so a resulting
-                purchase can be credited to us. Those cookies are governed by the retailer&apos;s
-                policies, not ours.
+                <strong>that retailer sets its own cookies on its own site</strong>
+                {GENIUSLINK_ENABLED || SOVRN_ENABLED ? ' so a resulting purchase can be credited to us' : ''}.
+                Those cookies are governed by the retailer&apos;s policies, not ours.
               </li>
             </ul>
-            <p>
-              Affiliate cookies record that a referral happened. They do not tell us who you are, and
-              we never receive your name, address or payment details.
-            </p>
+            {(GENIUSLINK_ENABLED || SOVRN_ENABLED) && (
+              <p>
+                Affiliate cookies record that a referral happened. They do not tell us who you are,
+                and we never receive your name, address or payment details.
+              </p>
+            )}
 
             <h2>Controlling cookies</h2>
             <p>

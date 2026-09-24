@@ -10,6 +10,7 @@ import RetailerPriceList from '@/components/RetailerPriceList';
 import RetailerPriceTable from '@/components/RetailerPriceTable';
 import JsonLd from '@/components/JsonLd';
 import { bulletsOf } from '@/lib/bullets';
+import { AFFILIATE_ENABLED } from '@/lib/affiliate';
 import { getAllProducts, getAllTopProducts, getCuratedProduct, getListableTopProducts, getProductBySlug, getTopProductBySlug, isIndexableProduct } from '@/lib/products';
 import ProductEditorial from '@/components/ProductEditorial';
 import { breadcrumbJsonLd, productJsonLd } from '@/lib/seo';
@@ -297,9 +298,11 @@ export default async function ProductDetailPage({
                 </AffiliateLink>
               ) : null}
 
-              <p className="mt-3 text-center text-[0.6875rem] leading-relaxed text-[#55555a] dark:text-slate-400">
-                We may earn a commission from links on this page, at no extra cost to you.
-              </p>
+              {AFFILIATE_ENABLED && (
+                <p className="mt-3 text-center text-[0.6875rem] leading-relaxed text-[#55555a] dark:text-slate-400">
+                  We may earn a commission from links on this page, at no extra cost to you.
+                </p>
+              )}
             </div>
           </aside>
         </div>

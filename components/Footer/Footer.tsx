@@ -5,6 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 import CookieSettingsLink from '../CookieSettingsLink'
 import { ADS_ENABLED } from '@/lib/ads'
+import { AFFILIATE_ENABLED } from '@/lib/affiliate'
 
 export interface WidgetFooterMenu {
   id: string
@@ -129,9 +130,13 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="rounded-lg border border-neutral-200 bg-white px-5 py-4 text-xs leading-relaxed text-neutral-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400">
           <strong className="font-semibold text-neutral-800 dark:text-neutral-200">Independent and reader-supported.</strong>{' '}
-          {ADS_ENABLED
-            ? 'Some links to retailers are affiliate links, and the site shows advertising; both are labelled and neither decides what we write.'
-            : 'Some links to retailers are affiliate links; they are labelled and never decide what we write.'}{' '}
+          {AFFILIATE_ENABLED
+            ? ADS_ENABLED
+              ? 'Some links to retailers are affiliate links, and the site shows advertising; both are labelled and neither decides what we write.'
+              : 'Some links to retailers are affiliate links; they are labelled and never decide what we write.'
+            : ADS_ENABLED
+              ? 'The site shows advertising; it is labelled and never decides what we write.'
+              : 'No brand or retailer pays for coverage or decides what we write.'}{' '}
           See our{' '}
           <Link href="/affiliate-disclosure/" className="underline underline-offset-2 hover:text-primary-600">
             affiliate disclosure

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ADS_ENABLED } from '@/lib/ads';
+import { GENIUSLINK_ENABLED, SOVRN_ENABLED } from '@/lib/affiliate';
 
 /**
  * Cookie consent banner.
@@ -191,18 +192,22 @@ export default function CookieBanner() {
           <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
             {ADS_ENABLED ? (
               <>
-                Google Analytics tells us which guides get read, Google AdSense shows ads, and
-                Sovrn Commerce credits us when a link you follow leads to a purchase.{' '}
-                <strong>Analytics, personalised ads and Sovrn wait for your answer</strong>;
+                Google Analytics tells us which guides get read
+                {SOVRN_ENABLED ? ', Google AdSense shows ads, and Sovrn Commerce credits us when a link you follow leads to a purchase. ' : ' and Google AdSense shows ads. '}
+                <strong>{SOVRN_ENABLED ? 'Analytics, personalised ads and Sovrn wait for your answer' : 'Analytics and personalised ads wait for your answer'}</strong>;
                 decline and any ads shown are non-personalised.
               </>
-            ) : (
+            ) : SOVRN_ENABLED ? (
               <>
                 Google Analytics tells us which guides get read, and Sovrn Commerce credits us when
                 a link you follow leads to a purchase. <strong>Both wait for your answer.</strong>
               </>
+            ) : (
+              <>
+                Google Analytics tells us which guides get read. <strong>It waits for your answer.</strong>
+              </>
             )}{' '}
-            Geniuslink may also affiliate supported retailer links. Read our{' '}
+            {GENIUSLINK_ENABLED && 'Geniuslink may also affiliate supported retailer links. '}Read our{' '}
             <Link
               href="/cookies/"
               className="font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300"

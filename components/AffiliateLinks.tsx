@@ -1,4 +1,4 @@
-import { affiliateUrl } from '@/lib/affiliate';
+import { AFFILIATE_ENABLED, affiliateUrl } from '@/lib/affiliate';
 import type { RetailerLink } from '@/lib/content';
 
 /**
@@ -49,7 +49,8 @@ export default function AffiliateLinks({
     }
   }
 
-  if (!links.length) return null;
+  // No affiliate tracking running (lib/affiliate.ts): nothing to disclose.
+  if (!links.length || !AFFILIATE_ENABLED) return null;
 
   // Heading and disclosure only: the product links themselves were removed from
   // this block (24 Sep 2026). The article's buy boxes carry the links; this

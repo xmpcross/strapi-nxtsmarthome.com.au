@@ -1,10 +1,13 @@
 import Link from 'next/link';
+import { AFFILIATE_ENABLED } from '@/lib/affiliate';
 
 /**
  * Affiliate disclosure. The ACCC expects this to be clear and up-front rather than
  * buried in a footer, so it renders above the article body on every post.
  */
 export default function Disclosure({ compact = false }: { compact?: boolean }) {
+  // No affiliate tracking running: no commission to disclose (lib/affiliate.ts).
+  if (!AFFILIATE_ENABLED) return null;
   if (compact) {
     return (
       <p className="text-xs text-slate-500 dark:text-slate-400">
