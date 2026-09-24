@@ -256,7 +256,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
 
             {article.faq?.length ? <Faq items={article.faq} /> : null}
 
-            {/* Where to Buy: every retailer for this article's products, above the comments. */}
+            {/* Affiliate Link notice (products present only), above the comments. */}
             <AffiliateLinks products={allProducts} subId={article.slug} />
 
             <div id="comments" className="scroll-mt-24">

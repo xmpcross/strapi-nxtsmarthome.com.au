@@ -1,4 +1,4 @@
-import { affiliateUrl, affiliateLinkAttrs } from '@/lib/affiliate';
+import { affiliateUrl } from '@/lib/affiliate';
 import type { RetailerLink } from '@/lib/content';
 
 /**
@@ -12,7 +12,7 @@ interface Stocked {
 }
 
 /**
- * "Where to Buy" — every retailer this article's products are stocked at,
+ * "Affiliate Link" notice above the comments. It used to list every retailer the article's products are stocked at,
  * listed in full at the foot of the post.
  *
  * The inline buy boxes only surface the primary retailers. This block scans the
@@ -51,17 +51,21 @@ export default function AffiliateLinks({
 
   if (!links.length) return null;
 
+  // Heading and disclosure only: the product links themselves were removed from
+  // this block (24 Sep 2026). The article's buy boxes carry the links; this
+  // stays as the affiliate notice above the comments, shown only when the
+  // article has products.
   return (
-    <section className="not-prose mt-12" aria-labelledby="where-to-buy-heading">
+    <section className="not-prose mt-12" aria-labelledby="affiliate-link-heading">
       <h2
-        id="where-to-buy-heading"
+        id="affiliate-link-heading"
         className="text-base font-bold text-slate-900 dark:text-white"
       >
-        Where to Buy
+        Affiliate Link
       </h2>
 
       <p className="mt-2 text-slate-600 dark:text-slate-300">
-        Some of the links below are affiliate links. If you buy through one we may
+        Some of the links in this article are affiliate links. If you buy through one we may
         earn a commission, at no extra cost to you. It never changes what we
         recommend — see our{' '}
         <a
@@ -72,20 +76,6 @@ export default function AffiliateLinks({
         </a>
         .
       </p>
-
-      <ul className="mt-4 flex flex-col gap-2">
-        {links.map((link) => (
-          <li key={link.url}>
-            <a
-              href={link.url}
-              {...affiliateLinkAttrs}
-              className="font-bold text-brand-700 underline underline-offset-2 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
     </section>
   );
 }
