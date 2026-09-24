@@ -1582,6 +1582,18 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+/* Article body section headings on the single post template (user request,
+   24 Sep 2026): h2 26px and h3 20px, both 600. After the rule above so they
+   win over its 700; the title, sidebar and related sections keep 700. */
+.single-post-page .prose h2 {
+  font-size: 26px;
+  font-weight: 600;
+}
+.single-post-page .prose h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 /* "Where to buy" retailer list the AI writer appends to articles
    (<ul class="where-to-buy">): items and links at 1rem. */
 .where-to-buy li,
