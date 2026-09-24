@@ -113,10 +113,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
   const post = toTPost(article)
   const author = resolveAuthor(article.author)
   const relatedPosts = relatedPool.map((r) => toTPost(r.article))
-  const moreFromAuthor = all
-    .filter((a) => a.slug !== article.slug && resolveAuthor(a.author).slug === author.slug)
-    .slice(0, 8)
-    .map(toTPost)
   const [widgetCategories, widgetTags] = await Promise.all([getCategories(), getTags()])
 
   return (
@@ -182,7 +178,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
               alt={article.imageAlt || article.title}
               width={1240}
               height={700}
-              className="aspect-16/9 w-full rounded-2xl object-cover"
+              className="aspect-16/9 w-full rounded-2xl object-cover object-center md:aspect-auto md:h-[650px]"
             />
           </div>
         </header>
@@ -260,11 +256,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
 
             {article.faq?.length ? <Faq items={article.faq} /> : null}
 
+            {/* Affiliate Link notice (products present only), above the comments. */}
+            <AffiliateLinks products={allProducts} subId={article.slug} />
+
             <div id="comments" className="scroll-mt-24">
               <Comments slug={article.slug} />
             </div>
-
-            <AffiliateLinks products={allProducts} subId={article.slug} />
           </article>
 
           <aside className="mt-12 w-full lg:mt-0 lg:w-2/5 lg:ps-10 xl:w-1/3 xl:ps-0">
@@ -276,7 +273,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
           </aside>
         </div>
 
-        <SingleRelatedPosts relatedPosts={relatedPosts} moreFromAuthorPosts={moreFromAuthor} />
+        <SingleRelatedPosts relatedPosts={relatedPosts} />
       </div>
     </>
   );

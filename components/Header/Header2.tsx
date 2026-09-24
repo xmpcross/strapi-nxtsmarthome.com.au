@@ -26,21 +26,18 @@ const Header2: FC<Props> = async ({ bottomBorder, className }) => {
         className
       )}
     >
-      <div className="container flex h-20 justify-between">
-        <div className="flex flex-1 items-center gap-x-4 sm:gap-x-5 lg:gap-x-7">
+      <div className="container flex h-20 items-center justify-between gap-x-4">
+        <div className="flex shrink-0 items-center">
           <Logo />
-          <div className="hidden h-8 border-l sm:block"></div>
-          <div className="-ms-1.5">
-            <SiteSearchButton />
-          </div>
         </div>
 
-        <div className="mx-4 hidden flex-2 justify-center lg:flex">
-          <Navigation menu={navigationMenu} featuredPosts={featuredPosts} />
-        </div>
-
+        {/* Menu links, colour-mode switcher, then search, all on the right. */}
         <div className="flex flex-1 items-center justify-end gap-x-1">
+          <div className="me-3 hidden lg:flex">
+            <Navigation menu={navigationMenu} featuredPosts={featuredPosts} />
+          </div>
           <SwitchDarkMode />
+          <SiteSearchButton />
           <div className="ms-2 flex lg:hidden">
             <HamburgerBtnMenu />
           </div>

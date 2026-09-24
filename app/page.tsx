@@ -116,9 +116,16 @@ export default async function HomePage() {
   const [categories, authors, tags] = await Promise.all([getCategoriesWithPosts(), getAuthors(), getTags()])
   const topics = categories.filter((c) => c.count > 0).sort((a, b) => b.count - a.count)
 
-  // The last topic gets the posts-with-widgets layout; the rest rotate.
-  const sectionTopics = topics.slice(0, -1)
-  const lastTopic = topics[topics.length - 1]
+  // Pinned slots: Entertainment & Audio is the first section under Top topics,
+  // Buying Guides closes the page in the posts-with-widgets layout. The other
+  // topics rotate between them, biggest first. (A pinned topic with no posts
+  // falls back to the count order.)
+  const lastTopic = topics.find((c) => c.handle === 'buying-guides') ?? topics[topics.length - 1]
+  const firstTopic = topics.find((c) => c.handle === 'entertainment-and-audio' && c !== lastTopic)
+  const sectionTopics = [
+    ...(firstTopic ? [firstTopic] : []),
+    ...topics.filter((c) => c !== lastTopic && c !== firstTopic),
+  ]
   const inDepth = [...articles]
     .sort((a, b) => b.wordCount - a.wordCount)
     .slice(0, 4)

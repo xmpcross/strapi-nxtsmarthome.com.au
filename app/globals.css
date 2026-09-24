@@ -1567,6 +1567,12 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-body);
     font-weight: 400;
   }
+  /* Card titles wrap their text in a <p> inside the heading: keep the
+     heading's weight and font there, not body copy's. */
+  :is(h1, h2, h3, h4, h5, h6) p {
+    font-family: inherit;
+    font-weight: inherit;
+  }
 }
 
 /* Single post template: every heading (title, article body, sidebar and
@@ -1574,4 +1580,11 @@ h1, h2, h3, h4, h5, h6 {
    utilities and the prose heading scale. */
 .single-post-page :is(h1, h2, h3, h4, h5, h6) {
   font-weight: 700;
+}
+
+/* "Where to buy" retailer list the AI writer appends to articles
+   (<ul class="where-to-buy">): items and links at 1rem. */
+.where-to-buy li,
+.where-to-buy li a {
+  font-size: 1rem;
 }

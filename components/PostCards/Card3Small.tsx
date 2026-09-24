@@ -8,17 +8,21 @@ import { FC } from 'react'
 interface Props {
   className?: string
   post: TPost
+  /** Author and date line above the title. */
+  showMeta?: boolean
+  /** Lines of title before truncating. */
+  titleLines?: 1 | 2
 }
 
-const Card3Small: FC<Props> = ({ className, post }) => {
+const Card3Small: FC<Props> = ({ className, post, showMeta = true, titleLines = 1 }) => {
   const { title, handle, featuredImage } = post
 
   return (
     <div className={clsx('post-card-3-small group relative flex items-center justify-between gap-4', className)}>
       <div className="relative grow space-y-3">
-        <PostCardMeta meta={{ ...post }} />
+        {showMeta && <PostCardMeta meta={{ ...post }} />}
         <h2 className="nc-card-title block text-sm font-medium sm:text-base sm:font-semibold">
-          <p className="line-clamp-1" title={title}>
+          <p className={titleLines === 2 ? 'line-clamp-2' : 'line-clamp-1'} title={title}>
             {title}
           </p>
         </h2>
