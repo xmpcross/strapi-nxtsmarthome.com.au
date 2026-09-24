@@ -260,11 +260,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
 
             {article.faq?.length ? <Faq items={article.faq} /> : null}
 
+            {/* Where to Buy: every retailer for this article's products, above the comments. */}
+            <AffiliateLinks products={allProducts} subId={article.slug} />
+
             <div id="comments" className="scroll-mt-24">
               <Comments slug={article.slug} />
             </div>
-
-            <AffiliateLinks products={allProducts} subId={article.slug} />
           </article>
 
           <aside className="mt-12 w-full lg:mt-0 lg:w-2/5 lg:ps-10 xl:w-1/3 xl:ps-0">

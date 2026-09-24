@@ -12,7 +12,7 @@ interface Stocked {
 }
 
 /**
- * "Affiliate links" — every retailer this article's products are stocked at,
+ * "Where to Buy" — every retailer this article's products are stocked at,
  * listed in full at the foot of the post.
  *
  * The inline buy boxes only surface the primary retailers. This block scans the
@@ -52,12 +52,12 @@ export default function AffiliateLinks({
   if (!links.length) return null;
 
   return (
-    <section className="not-prose mt-12" aria-labelledby="affiliate-links-heading">
+    <section className="not-prose mt-12" aria-labelledby="where-to-buy-heading">
       <h2
-        id="affiliate-links-heading"
+        id="where-to-buy-heading"
         className="text-base font-bold text-slate-900 dark:text-white"
       >
-        Affiliate links
+        Where to Buy
       </h2>
 
       <p className="mt-2 text-slate-600 dark:text-slate-300">
