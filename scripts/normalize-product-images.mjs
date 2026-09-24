@@ -1,26 +1,34 @@
 #!/usr/bin/env node
-// Normalise product images to a square, evenly padded WebP.
+// Normalise product images to a square WebP: background removed (transparent),
+// product trimmed, scaled and centred with even margins.
 //
 //   node scripts/normalize-product-images.mjs                  # preview, writes nothing
-//   node scripts/normalize-product-images.mjs --cutout         # transparent cut-out instead of padding (see Modes)
+//   node scripts/normalize-product-images.mjs --pad            # keep the backdrop colour instead (see Modes)
 //   node scripts/normalize-product-images.mjs --out=/tmp/prev   # preview + save the results to look at
 //   node scripts/normalize-product-images.mjs --apply           # write the images and repoint the catalogue
 //   node scripts/normalize-product-images.mjs --apply --slug=<slug>
 //   node scripts/normalize-product-images.mjs --apply --slug=<slug> --image=<url or path>
 //
-// Options: --limit=N  --size=500  --margin=40  --tolerance=N (default 8 with --cutout, 20 for padding)
+// Options: --limit=N  --size=500  --margin=40  --tolerance=N (default 8, 20 with --pad)
+//          --min-edge=N  edge contrast below which an image is padded, not cut out (default 36)
+//          --min-solid=F share of the product's box that must stay solid after a cut-out (default 0.5)
 //
-// Modes. This catalogue is mostly WHITE devices photographed on WHITE, which is
-// where it differs from bestlooking.skin: a white camera's edge against a white
-// backdrop has no boundary for the flood-fill to stop at, so a cut-out eats into
-// the product at any tolerance (tested on the Ring range, 24 Sep 2026).
-//   - pad (default): the fill only MEASURES where the product is. The image is
-//     trimmed to that box, scaled and centred on a SIZE x SIZE canvas of its own
-//     backdrop colour, so the margins are equal and nothing is cut away. Safe on
-//     white-on-white.
-//   - --cutout: the bestlooking.skin behaviour, transparent background, for
-//     products that clearly contrast with their backdrop. Preview with --out
-//     and look at the results before --apply.
+// Modes.
+//   - cut-out (default since 24 Sep 2026, user request): the background is made
+//     transparent BEFORE the trim and resize, so the product sits on whatever the
+//     page shows behind it.
+//   - --pad: the fill only MEASURES where the product is; the image is centred
+//     on a canvas of its own backdrop colour and nothing is cut away.
+//
+// The white-on-white guard. Much of this catalogue is WHITE devices shot on
+// WHITE: a white camera's edge against a white backdrop gives the flood-fill
+// nothing to stop at, so a cut-out eats into the product (seen on the Ring range,
+// 24 Sep 2026). After the fill, the script measures the contrast along the
+// product's outline (median per-channel distance from the backdrop), and how much
+// of the product's bounding box is still solid. A faint edge (--min-edge) or a
+// box that is mostly holes (--min-solid, e.g. a white plug whose body the fill
+// ate) means the cut-out cannot be trusted, so THAT image is padded instead and
+// listed at the end. Preview with --out and look before --apply either way.
 //
 // Adapted from bestlooking.skin/scripts/normalize-product-images.mjs (itself from
 // nxt.deals). The image pipeline is unchanged; the source and destination differ.
@@ -34,11 +42,11 @@
 //      measures the product; with --cutout the filled area becomes transparent.
 //      Filling from the edges, rather than keying every pixel of a colour, keeps
 //      interior white opaque: the fill never reaches it.
-//   3. --cutout only: soften the alpha edge by one pixel, so the cut-out does
+//   3. Cut-out only: soften the alpha edge by one pixel, so the cut-out does
 //      not have the jagged rim that a hard threshold leaves.
 //   4. Trim to the product, scale the longest side to SIZE - 2*MARGIN, and
-//      centre it on a SIZE x SIZE canvas (the backdrop colour, or transparent
-//      with --cutout). Centring is what makes the spacing equal: left gap
+//      centre it on a SIZE x SIZE canvas (transparent, or the backdrop colour
+//      when padded). Centring is what makes the spacing equal: left gap
 //      matches right, top matches bottom.
 //   5. Encode as WebP and save as a NEW file,
 //      public/images/products/<slug>-sq<SIZE>.webp, then repoint the product's
@@ -83,10 +91,16 @@ const IMAGE = flag('image');
 const LIMIT = Number(flag('limit', Infinity));
 const SIZE = Number(flag('size', 500));
 const MARGIN = Number(flag('margin', 40));
-const CUTOUT = args.includes('--cutout');
+// Cut-out is the default; --pad keeps the backdrop. (--cutout is still accepted.)
+const CUTOUT = !args.includes('--pad');
 // Per-channel distance that still counts as background. Tighter for a cut-out,
 // where a loose fill bites into light products.
 const TOLERANCE = Number(flag('tolerance', CUTOUT ? 8 : 20));
+// Median contrast along the product's outline below which a cut-out is not trusted.
+const MIN_EDGE = Number(flag('min-edge', 36));
+// Share of the product's bounding box still solid after the cut, below which the
+// fill has eaten into the product (holes where a white body met a white backdrop).
+const MIN_SOLID = Number(flag('min-solid', 0.5));
 const OUT = flag('out');
 const MARKER = `-sq${SIZE}`;
 
@@ -166,7 +180,45 @@ function cutOutBackground(data, width, height) {
 
   let removed = 0;
   for (let p = 0; p < mask.length; p += 1) if (mask[p]) { data[p * 4 + 3] = 0; removed += 1; }
-  return { removed: removed / mask.length, preexisting: false };
+  return { removed: removed / mask.length, preexisting: false, mask, seed };
+}
+
+/**
+ * How clearly the product stands out from the backdrop along its outline. For
+ * every kept pixel touching a removed one, take the strongest per-channel
+ * distance from the backdrop colour within EDGE_REACH pixels further in; the
+ * score is the median of those. The first kept pixel alone is useless: by
+ * construction it sits just past the fill tolerance. A real edge reaches the
+ * product's own colour within a few pixels (high score); a white product on
+ * white stays near the backdrop (low score), which means the fill may have
+ * leaked into it.
+ */
+const EDGE_REACH = 3;
+function edgeContrast(data, width, height, mask, seed) {
+  const dist = (p) => {
+    const i = p * 4;
+    return Math.max(Math.abs(data[i] - seed[0]), Math.abs(data[i + 1] - seed[1]), Math.abs(data[i + 2] - seed[2]));
+  };
+  const d = [];
+  const r = EDGE_REACH;
+  for (let y = r; y < height - r; y += 1) {
+    for (let x = r; x < width - r; x += 1) {
+      const p = y * width + x;
+      if (mask[p]) continue;
+      if (!(mask[p - 1] || mask[p + 1] || mask[p - width] || mask[p + width])) continue;
+      let best = 0;
+      for (let dy = -r; dy <= r; dy += 1) {
+        for (let dx = -r; dx <= r; dx += 1) {
+          const q = p + dy * width + dx;
+          if (!mask[q]) { const v = dist(q); if (v > best) best = v; }
+        }
+      }
+      d.push(best);
+    }
+  }
+  if (!d.length) return 255;
+  d.sort((a, b) => a - b);
+  return d[d.length >> 1];
 }
 
 /**
@@ -191,6 +243,17 @@ function featherAlpha(data, width, height) {
   }
 }
 
+/** Share of the visible content's bounding box that is still opaque after the fill. */
+function solidity(data, width, height) {
+  const box = contentBox(data, width, height);
+  if (!box) return 0;
+  let kept = 0;
+  for (let y = box.top; y < box.top + box.height; y += 1) {
+    for (let x = box.left; x < box.left + box.width; x += 1) if (data[(y * width + x) * 4 + 3] > 12) kept += 1;
+  }
+  return kept / (box.width * box.height);
+}
+
 /** Bounding box of everything still visible, with a small alpha floor to ignore dust. */
 function contentBox(data, width, height) {
   let top = height; let left = width; let right = -1; let bottom = -1;
@@ -213,18 +276,30 @@ async function normalize(buf) {
   const { width, height } = flat.info;
   const data = flat.data;
 
-  // In pad mode the fill runs on a copy: it only measures the product's box.
-  const work = CUTOUT ? data : Buffer.from(data);
+  // The fill runs on a copy, so a padded image (by --pad, or by the white-on-white
+  // guard) is built from the untouched pixels; the copy still measures the box.
+  const work = Buffer.from(data);
   const cut = cutOutBackground(work, width, height);
   if (cut.removed > 0.97) return { skip: 'the fill would erase the whole picture' };
-  if (CUTOUT && cut.removed > 0) featherAlpha(data, width, height);
+
+  let cutout = CUTOUT && !cut.preexisting && cut.removed > 0;
+  let why = null;
+  if (cutout) {
+    const edge = edgeContrast(work, width, height, cut.mask, cut.seed);
+    const solid = solidity(work, width, height);
+    // Either test failing means the cut-out cannot be trusted: pad this one instead.
+    if (edge < MIN_EDGE) { cutout = false; why = `edge contrast ${edge} < ${MIN_EDGE}`; }
+    else if (solid < MIN_SOLID) { cutout = false; why = `only ${Math.round(solid * 100)}% of the product box left solid`; }
+  }
+  const pixels = cutout ? work : data;
+  if (cutout) featherAlpha(pixels, width, height);
 
   const box = contentBox(work, width, height);
   if (!box || box.width < 8 || box.height < 8) return { skip: 'nothing left after the cut-out' };
 
-  // Pad mode fills the canvas with the backdrop colour (top-left pixel of the
-  // source); an image that is already transparent stays transparent.
-  const backdrop = CUTOUT || cut.preexisting
+  // A padded image fills the canvas with the backdrop colour (top-left pixel of
+  // the source); an image that is already transparent stays transparent.
+  const backdrop = cutout || cut.preexisting
     ? null
     : { r: data[0], g: data[1], b: data[2], alpha: 1 };
 
@@ -238,14 +313,22 @@ async function normalize(buf) {
    */
   const fill = backdrop ?? { r: 0, g: 0, b: 0, alpha: 0 };
   const inner = SIZE - MARGIN * 2;
-  const out = await sharp(data, { raw: { width, height, channels: 4 } })
+  const out = await sharp(pixels, { raw: { width, height, channels: 4 } })
     .extract(box)
     .resize(inner, inner, { fit: 'contain', background: fill })
     .extend({ top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN, background: fill })
     .webp({ quality: 90, alphaQuality: 100, effort: 6 })
     .toBuffer();
 
-  return { buf: out, removed: cut.removed, preexisting: cut.preexisting, from: `${width}x${height}` };
+  return {
+    buf: out,
+    removed: cut.removed,
+    preexisting: cut.preexisting,
+    from: `${width}x${height}`,
+    mode: cut.preexisting ? 'transparent' : cutout ? 'cut-out' : 'padded',
+    // Why a wanted cut-out was not trusted (white on white), or null.
+    guarded: why,
+  };
 }
 
 /* ------------------------------------------------------------------ main -- */
@@ -262,10 +345,11 @@ async function main() {
   const products = listProducts(rows);
   console.log(`${products.length} product(s) in scope (public/data/products.json)`);
   if (SLUG && !products.length) console.log(`no active product "${SLUG}" in the catalogue`);
-  console.log(`target ${SIZE}x${SIZE} WebP, ${CUTOUT ? 'transparent cut-out' : 'padded on its own backdrop'}, ${MARGIN}px margin, tolerance ${TOLERANCE}${APPLY ? '' : ' — preview only, nothing will be written'}\n`);
+  console.log(`target ${SIZE}x${SIZE} WebP, ${CUTOUT ? `transparent cut-out (padded where the edge contrast is under ${MIN_EDGE})` : 'padded on its own backdrop'}, ${MARGIN}px margin, tolerance ${TOLERANCE}${APPLY ? '' : ' — preview only, nothing will be written'}\n`);
 
   let done = 0; let skipped = 0; let failed = 0;
   const noBackdrop = [];
+  const guarded = [];
 
   for (const p of products) {
     if (done >= LIMIT) break;
@@ -280,7 +364,8 @@ async function main() {
 
       const pct = out.preexisting
         ? 'already transparent'
-        : `${(out.removed * 100).toFixed(1)}% backdrop ${CUTOUT ? 'removed' : 'trimmed'}`;
+        : `${(out.removed * 100).toFixed(1)}% backdrop ${out.mode === 'cut-out' ? 'removed' : 'trimmed'}${out.guarded ? ` — padded, not cut out (${out.guarded})` : ''}`;
+      if (out.guarded) guarded.push(`${p.slug} (${out.guarded})`);
       if (!out.preexisting && out.removed < 0.02) noBackdrop.push(p.slug);
       const name = `${p.slug}${MARKER}.webp`;
 
@@ -306,6 +391,11 @@ async function main() {
     console.log(`\nNo plain backdrop on ${noBackdrop.length} image(s) — squared, but the photo fills the frame (full-bleed or a lifestyle shot).`);
     console.log('These need a better source image or a cut-out by hand:');
     for (const s of noBackdrop) console.log(`  ${s}`);
+  }
+  if (guarded.length) {
+    console.log(`\nPadded instead of cut out on ${guarded.length} image(s) — the product is too close to the backdrop colour (e.g. white on white), so a cut-out would eat into it:`);
+    for (const s of guarded) console.log(`  ${s}`);
+    console.log('Check these in the preview; lower --min-edge / --min-solid to force a cut-out, or supply a better photo with --image.');
   }
   if (!APPLY) console.log('\nNothing was written. Re-run with --apply to write the images and repoint the catalogue.');
 }
