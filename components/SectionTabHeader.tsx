@@ -29,6 +29,21 @@ const SectionTabHeader: FC<Props> = ({
     onChangeTab && onChangeTab(tab)
   }
 
+  // No tabs: title and description on the left, View all on the same row at the right.
+  if (!tabs.length) {
+    return (
+      <div className="section-tab-header relative mb-9 flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
+        <Heading className="mb-0! min-w-0 flex-1" subHeading={subHeading} dimHeading={dimHeading}>
+          {heading}
+        </Heading>
+        <Button outline className="shrink-0" href={rightButtonHref}>
+          <span>View all</span>
+          <ArrowRightIcon className="size-5 rtl:rotate-180" />
+        </Button>
+      </div>
+    )
+  }
+
   return (
     <div className="section-tab-header relative mb-9 flex flex-col">
       <Heading subHeading={subHeading} dimHeading={dimHeading}>
