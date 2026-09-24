@@ -1,28 +1,42 @@
 import type { Heading } from '@/lib/content';
 
+/**
+ * "Contents" box on the single post page: a bulleted list of the article's
+ * section (h2) headings, each an anchor to its heading.
+ *
+ * Same design as bestlooking.skin's ArticleContents (user request, 24 Sep
+ * 2026): a light blue panel (#eef2ff) with 12px corners, a 1.35rem bold title,
+ * disc bullets and semibold, underlined links in near-black. h3s are left out,
+ * as there, so the list stays a short outline. Fewer than three sections is not
+ * worth a contents list, so it renders nothing.
+ */
 export default function TableOfContents({ headings }: { headings: Heading[] }) {
-  if (headings.length < 3) return null;
+  const items = headings.filter((h) => h.level === 2);
+  if (items.length < 3) return null;
 
   return (
     <nav
-      aria-label="Table of contents"
-      className="not-prose mb-8 rounded-[8px] border border-slate-200 bg-slate-50 p-5 dark:border-slate-700 dark:bg-slate-800/50"
+      aria-labelledby="article-contents-title"
+      className="not-prose mb-8 rounded-[12px] bg-[#eef2ff] px-7 pt-6 pb-[22px] dark:bg-[#1c2540]"
     >
-      <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-900 dark:text-white">
-        In this guide
-      </h2>
-      <ol className="space-y-1.5 text-[14px]">
-        {headings.map((heading) => (
-          <li key={heading.id} className={heading.level === 3 ? 'ml-4' : ''}>
+      <p
+        id="article-contents-title"
+        className="mb-3.5 text-[1.35rem] leading-tight font-bold tracking-[-0.6px] text-[#0e0e0f] dark:text-white"
+      >
+        Contents
+      </p>
+      <ul className="list-disc space-y-2.5 pl-[1.4rem] marker:text-[#0e0e0f] dark:marker:text-slate-300">
+        {items.map((heading) => (
+          <li key={heading.id} className="text-[16px] leading-[1.45] text-[#0e0e0f] dark:text-slate-100">
             <a
               href={`#${heading.id}`}
-              className="text-slate-600 hover:text-brand-700 hover:underline dark:text-slate-300 dark:hover:text-brand-400"
+              className="font-semibold text-[#0e0e0f] underline decoration-1 underline-offset-[5px] hover:text-[#626568] dark:text-slate-100 dark:hover:text-slate-300"
             >
               {heading.text}
             </a>
           </li>
         ))}
-      </ol>
+      </ul>
     </nav>
   );
 }
