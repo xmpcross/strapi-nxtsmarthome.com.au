@@ -64,7 +64,7 @@ export default function AffiliateLinks({
         Affiliate Link
       </h2>
 
-      <p className="mt-2 text-slate-600 dark:text-slate-300">
+      <p className="mt-2 text-[14px] leading-relaxed text-slate-600 dark:text-slate-300">
         Some of the links in this article are affiliate links. If you buy through one we may
         earn a commission, at no extra cost to you. It never changes what we
         recommend — see our{' '}

@@ -178,7 +178,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
               alt={article.imageAlt || article.title}
               width={1240}
               height={700}
-              className="aspect-16/9 w-full rounded-2xl object-cover"
+              className="aspect-16/9 w-full rounded-2xl object-cover md:aspect-auto md:h-[550px]"
             />
           </div>
         </header>
