@@ -199,6 +199,75 @@ export function HomeBuyingGuides({
   )
 }
 
+/**
+ * The Setup Guides topic, redesigned (24 Sep 2026): a two-column list of
+ * how-to rows (thumbnail, title, one-line summary, reading time) on the page
+ * background, in place of the rotating magazine/grid layout on a grey panel.
+ */
+export function HomeSetupGuides({
+  heading,
+  subHeading,
+  posts,
+  moreHref,
+  moreLabel,
+}: {
+  heading: string
+  subHeading?: string
+  posts: TPost[]
+  moreHref: string
+  moreLabel: string
+}) {
+  if (!posts.length) return null
+  return (
+    <section>
+      <HeadingWithSub subHeading={subHeading}>{heading}</HeadingWithSub>
+      <ul className="grid gap-x-10 md:grid-cols-2">
+        {posts.map((post) => (
+          <li key={post.id} className="border-b border-neutral-200 dark:border-neutral-800">
+            <Link href={`/${post.handle}/`} className="group flex items-center gap-5 py-5">
+              <span className="relative size-20 shrink-0 overflow-hidden rounded-xl sm:size-24">
+                {post.featuredImage?.src ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={post.featuredImage.src}
+                    alt={post.featuredImage.alt || post.title}
+                    className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-50 dark:from-primary-950/60 dark:to-neutral-900" />
+                )}
+              </span>
+              <span className="flex min-w-0 flex-1 flex-col">
+                <span className="text-xs font-semibold tracking-wider text-primary-700 uppercase dark:text-primary-300">
+                  How-to · {post.readingTime} min read
+                </span>
+                <span className="mt-1 font-semibold leading-snug text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+                  {post.title}
+                </span>
+                {post.excerpt && (
+                  <span className="mt-1 line-clamp-1 text-sm text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
+                )}
+              </span>
+              <span
+                className="hidden shrink-0 text-xl text-neutral-400 transition group-hover:translate-x-1 group-hover:text-primary-600 sm:block dark:group-hover:text-primary-400"
+                aria-hidden="true"
+              >
+                →
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-8 flex justify-end">
+        <Link href={moreHref} className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-400">
+          {moreLabel} →
+        </Link>
+      </div>
+    </section>
+  )
+}
+
 /** Product pages with our own research notes (the indexable ones). */
 export function HomeProducts({ products }: { products: TopProduct[] }) {
   if (!products.length) return null
@@ -237,7 +306,7 @@ export function HomeTrust({ editorName, editorSlug }: { editorName: string; edit
     },
   ]
   return (
-    <section className="rounded-2xl bg-neutral-50 px-6 py-10 sm:px-10 dark:bg-neutral-800/50">
+    <section>
       <HeadingWithSub
         className="mb-8!"
         subHeading={`Edited by ${editorName}. Independent: affiliate links never decide what we recommend.`}

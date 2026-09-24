@@ -14,7 +14,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import JsonLd from '@/components/JsonLd'
-import { HomeBuyingGuides, HomeHero, HomeProducts, HomeStartHere, HomeTopics, HomeTrust } from '@/components/home/HomeSections'
+import { HomeBuyingGuides, HomeHero, HomeSetupGuides, HomeProducts, HomeStartHere, HomeTopics, HomeTrust } from '@/components/home/HomeSections'
 import { getIndexableTopProducts, toListingCard } from '@/lib/products'
 
 // Home page on the Ncmaz "Home Demo 5" layout, filled from Strapi and
@@ -165,12 +165,27 @@ export default async function HomePage() {
     .map(toTPost)
   // Product pages with our own research notes: the indexable ones.
   const researched = getIndexableTopProducts().slice(0, 8).map(toListingCard)
-  // Topic sections before and after the researched-products block.
-  const splitAt = Math.ceil(sectionTopics.length / 2)
+  // Topic sections before and after the researched-products block. The block
+  // sits just before Climate & Comfort, so Climate runs straight into Lighting
+  // (user request, 24 Sep 2026); without Climate it falls back to halfway.
+  const climateAt = sectionTopics.findIndex((c) => c.handle === 'climate-and-comfort')
+  const splitAt = climateAt >= 0 ? climateAt : Math.ceil(sectionTopics.length / 2)
   const editor = site.organisation.editor
 
   const renderTopic = (category: TCategory, i: number) => {
     const posts = category.posts ?? []
+    // Setup Guides has its own list design (components/home/HomeSections.tsx).
+    if (category.handle === 'setup-guides')
+      return (
+        <HomeSetupGuides
+          key={category.id}
+          heading={category.name}
+          subHeading={category.description}
+          posts={posts.slice(0, 8)}
+          moreHref={`/categories/${category.handle}/`}
+          moreLabel={`All ${category.name}`}
+        />
+      )
     const slot = ROTATION[i % ROTATION.length]
     const layout: Layout = posts.length >= slot.min ? slot.layout : 'grid'
     return <CategorySection key={category.id} category={category} posts={posts} layout={layout} />
