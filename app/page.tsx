@@ -1,5 +1,4 @@
 import SectionMagazine10 from '@/components/SectionMagazine10'
-import SectionMagazine11 from '@/components/SectionMagazine11'
 import SectionMagazine2 from '@/components/SectionMagazine2'
 import SectionMagazine8 from '@/components/SectionMagazine8'
 import SectionMagazine9 from '@/components/SectionMagazine9'
@@ -34,7 +33,6 @@ export default async function HomePage() {
   const [categories, authors, tags] = await Promise.all([getCategoriesWithPosts(), getAuthors(), getTags()])
   // The three biggest topics for the per-topic lists.
   const topics = categories.filter((c) => c.count > 0).sort((a, b) => b.count - a.count)
-  const topTopics = topics.slice(0, 3)
 
   return (
     <div className="relative container space-y-28 pt-10 pb-28 lg:space-y-32 lg:pt-16 lg:pb-32">
@@ -64,11 +62,6 @@ export default async function HomePage() {
         posts={buyingGuides.slice(0, 6)}
       />
 
-      <SectionMagazine11
-        categories={topTopics}
-        heading="Editor's picks by topic"
-        subHeading="The newest guides in our biggest topics"
-      />
 
 
       <SectionPostsWithWidgets
