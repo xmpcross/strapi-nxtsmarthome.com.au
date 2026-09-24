@@ -1031,3 +1031,459 @@ research could not confirm, and conflicts between sources. The main ones:
 10. eufy-eufycam-2c-pro-2k-wireless-security-system (2)
 
 **Not deployed.**
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 1)
+
+**Approved** by the user after reviewing `reports/task6-review-batch1.md`,
+which has the per-article diffs, the decision tables and every source URL.
+**Written to Strapi** with `PUT /api/nxtsmarthome-posts/<documentId>?status=published`.
+
+Each update set:
+- `content`, `excerpt`, `keyTakeaways` and `faq` to the approved versions;
+- `dateModified` to 2026-09-24;
+- `publishDate` to the post's original `publishedAt`. A REST update resets
+  `publishedAt`, and these posts had no `publishDate`, so without this the
+  site would have dated them today.
+
+**Checked:** both the published and draft copies were re-fetched after the
+write, and all four have zero `[VERIFY` and match the approved text.
+
+| Article | Tags | a / b / c | Backup |
+|---|---|---|---|
+| outdoor-tvs-projectors-speakers-australian-summer | 18 → 0 | 5 / 7 / 6 | exports/strapi-backup/outdoor-tvs-projectors-speakers-australian-summer-2026-09-24T06-56-38-734Z.json |
+| smart-zoning-ducted-air-conditioning-cost-australia | 17 → 0 | 5 / 11 / 1 | exports/strapi-backup/smart-zoning-ducted-air-conditioning-cost-australia-2026-09-24T06-56-38-734Z.json |
+| smart-thermostat-gas-ducted-hydronic-heating-australia | 16 → 0 | 9 / 5 / 2 | exports/strapi-backup/smart-thermostat-gas-ducted-hydronic-heating-australia-2026-09-24T06-56-38-734Z.json |
+| robot-vacuum-running-costs-australia | 16 → 0 | 3 / 10 / 3 | exports/strapi-backup/robot-vacuum-running-costs-australia-2026-09-24T06-56-38-734Z.json |
+
+Decisions: a = verified and linked to its source; b = rewritten as a range or
+as guidance; c = unverifiable or legal, so the claim was removed and readers
+are pointed to the authority. To restore an article, PUT the `published`
+record from its backup file.
+
+**Changes beyond the tags** (both approved):
+- **Outdoor TVs:** the unsourced "voids the warranty" line now points readers
+  to the manufacturer's warranty terms.
+- **Robot vacuum running costs:** the metering-plug product box is now the
+  Tapo P110. The P100 it showed has no energy monitoring.
+
+**For a human to check (legal).** These sentences were reworded to point to
+an authority, but they still touch regulated areas:
+- **Electrical work:**
+  - licensed electricians for new outdoor outlets and for 240V thermostat or
+    mains wiring;
+  - AS/NZS 3000 and RCD safety switches;
+  - zone damper motors and switched supplies;
+  - that extension leads are temporary only;
+  - smart-plug load and adaptor/extension-lead safety.
+
+  These cite Energy Safe Victoria and the NSW Government as examples.
+- **Gas work:** use a licensed gasfitter; DIY retrofits and safety
+  interlocks; the claim that DIY work voids warranties and insurance.
+- **Refrigerant:** licensing, per arctick.org.
+- **Tenancy:**
+  - landlord permission for outdoor wiring and for thermostat or controller
+    changes;
+  - reinstating the original controller at move-out.
+
+  These cite the NSW rules and Consumer Affairs Victoria as examples.
+- **Noise rules** for outdoor audio, with EPA Victoria's times as an example.
+- **Consumer law:**
+  - the consumer guarantee still applying after a warranty expires (ACCC
+    wording);
+  - warranty risk from non-genuine detergent, generic parts and DIY battery
+    replacement.
+
+**Effect on the site:** with no tags left, the editorial guard stops blocking
+these four. They come back to the live site within about 5 minutes (ISR); no
+deploy is needed.
+
+**Next 4 in the queue:**
+1. reverse-cycle-air-conditioner-rooftop-solar-australia (14)
+2. zigbee-mesh-garage-granny-flat-double-brick-home (13)
+3. robot-vacuum-dock-placement-rental-apartment-no-new-wiring (13)
+4. streaming-box-australia-free-to-air-catch-up-tv (12)
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 2)
+
+**Approved** by the user after reviewing `reports/task6-review-batch2.md`,
+which has the per-article diffs, the decision tables and every source URL.
+**Written to Strapi** with `PUT /api/nxtsmarthome-posts/<documentId>?status=published`,
+the same way as batch 1: `content`, `excerpt`, `keyTakeaways` and `faq` set
+to the approved versions, `dateModified` set to 2026-09-24, and
+`publishDate` set to the post's original `publishedAt`.
+
+**Checked:** before the write, the live records still matched the backups (no
+edits since). After the write, both the published and draft copies were
+re-fetched: all four have zero `[VERIFY`, match the approved text, and still
+have 5 FAQ entries.
+
+| Article | Tags | a / b / c | Backup |
+|---|---|---|---|
+| reverse-cycle-air-conditioner-rooftop-solar-australia | 14 → 0 | 6 / 5 / 3 | exports/strapi-backup/reverse-cycle-air-conditioner-rooftop-solar-australia-2026-09-24T07-08-26-197Z.json |
+| zigbee-mesh-garage-granny-flat-double-brick-home | 13 → 0 | 3 / 7 / 3 | exports/strapi-backup/zigbee-mesh-garage-granny-flat-double-brick-home-2026-09-24T07-08-26-197Z.json |
+| robot-vacuum-dock-placement-rental-apartment-no-new-wiring | 13 → 0 | 7 / 2 / 4 | exports/strapi-backup/robot-vacuum-dock-placement-rental-apartment-no-new-wiring-2026-09-24T07-08-26-197Z.json |
+| streaming-box-australia-free-to-air-catch-up-tv | 12 → 0 | 7 / 3 / 2 | exports/strapi-backup/streaming-box-australia-free-to-air-catch-up-tv-2026-09-24T07-08-26-197Z.json |
+
+To restore an article, PUT the `published` record from its backup file.
+
+**Changes beyond the tags** (all three approved):
+- **Robot vacuum dock:**
+  - "One approved extension lead is fine" now treats a lead as a temporary
+    stop-gap. This covers the body, the key takeaways, FAQ 2 and FAQ 3, and
+    cites Queensland's Electrical Safety Office
+    (https://www.electricalsafety.qld.gov.au/sites/default/files/2022-07/electricity-in-the-home.pdf).
+  - The invented "Ninety per cent of 'my robot won't dock' complaints"
+    statistic now reads "often a placement problem".
+- **Zigbee mesh:** "single-digit milliwatts" now says most devices transmit
+  at low power and that some amplified adapters reach about 100 mW, citing
+  Zigbee2MQTT. "Two-year lifespans" became "run for a long time".
+
+**Flagged but not changed:** some untagged sentences still have no source.
+Each is listed in the review file.
+- **Rooftop solar:**
+  - "three to seven times that rate";
+  - "4-6kWh";
+  - "dedicated 15A circuit";
+  - no caveat for households on gross metering.
+- **Zigbee:** "every 6–10 metres", "three to five routers" and
+  "10–15 minutes".
+- **Dock:** the power-board advice against Dreame's 1000 W emptying draw;
+  "2.4 GHz only".
+- **Streaming box:**
+  - "240V", where the nominal supply is 230V;
+  - "25/5 plan";
+  - "2GB RAM";
+  - "still running iview in five years".
+
+**For a human to check (legal).** These sentences were reworded to point to
+an authority, but they still touch regulated areas:
+- **Electrical work:**
+  - licensed electricians for hardwired circuits, CT clamps, new power
+    points, outdoor circuits and relays;
+  - AS/NZS 3000;
+  - ESV's warning that DIY electrical work is illegal (Victoria);
+  - extension leads, power boards and RCM approval;
+  - the 10A smart plug and 15A circuit claim;
+  - plug and supply ratings on grey imports.
+- **Tenancy and strata:**
+  - landlord permission for wiring;
+  - NSW strata "minor renovations";
+  - "completely bond-safe", an absolute claim;
+  - adhesive clips;
+  - permanent water connections;
+  - control of a granny-flat tenant's power, and recording devices.
+- **Regulatory:**
+  - Victoria's solar emergency backstop, sourced to AusNet only;
+  - network export limits;
+  - ACMA cabling rules for data points;
+  - Zigbee transmit power.
+- **Consumer law:** how the ACL applies to overseas and marketplace sellers.
+
+**Effect on the site:** with no tags left, the editorial guard stops blocking
+these four. They come back to the live site once the cached 404s expire (ISR,
+about 5 minutes); no deploy is needed.
+
+**Next 4 in the queue:**
+1. smart-downlights-australian-ceilings-insulation-clearance-rules (12)
+2. local-recording-vs-cloud-subscriptions-security-cameras-australia (12)
+3. home-assistant-energy-dashboard-solar-export-time-of-use-tariffs (11)
+4. wiring-video-doorbell-australian-chime-transformer (11)
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 3)
+
+**Approved** by the user after reviewing `reports/task6-review-batch3.md`,
+which has the per-article diffs, the decision tables and every source URL.
+**Written to Strapi** the same way as batches 1 and 2.
+
+**Checked:**
+- **Before the write:** each live record still matched its backup.
+- **After the write:** both the published and draft copies were re-fetched.
+  All four have zero `[VERIFY`, match the approved content, excerpt and key
+  takeaways, and still have 5 FAQ entries.
+
+| Article | Tags | a / b / c | Backup |
+|---|---|---|---|
+| smart-downlights-australian-ceilings-insulation-clearance-rules | 12 → 0 | 9 / 1 / 2 | exports/strapi-backup/smart-downlights-australian-ceilings-insulation-clearance-rules-2026-09-24T07-31-02-572Z.json |
+| local-recording-vs-cloud-subscriptions-security-cameras-australia | 12 → 0 | 5 / 2 / 5 | exports/strapi-backup/local-recording-vs-cloud-subscriptions-security-cameras-australia-2026-09-24T07-31-02-572Z.json |
+| home-assistant-energy-dashboard-solar-export-time-of-use-tariffs | 11 → 0 | 6 / 3 / 2 | exports/strapi-backup/home-assistant-energy-dashboard-solar-export-time-of-use-tariffs-2026-09-24T07-31-02-572Z.json |
+| wiring-video-doorbell-australian-chime-transformer | 11 → 0 | 6 / 2 / 3 | exports/strapi-backup/wiring-video-doorbell-australian-chime-transformer-2026-09-24T07-31-02-572Z.json |
+
+**Changes beyond the tags** (all four approved):
+- **Smart downlights, insulation classifications:** the body list, key
+  takeaways, excerpt and FAQ 1 were corrected against Table ZD1 of
+  AS/NZS 60598.2.2:2016.
+  - Non-IC fittings are for commercial and industrial use only, not homes.
+  - A Do-Not-Cover bullet was added; it carries the manufacturer-clearance
+    rule.
+  - IC fittings can be abutted as well as covered.
+  - The unlisted "CA80" became CA90, and CA135 is New Zealand only.
+- **Smart downlights, excerpt:** "legally required" now reads "where you need
+  a licensed electrician".
+- **Video doorbell, key takeaways:** "Plug-in transformers are DIY-friendly"
+  was removed. Ring AU says a licensed electrician must install its
+  doorbells, so the text now points to the state regulator.
+- **Video doorbell, key takeaways and excerpt:** "expect North American
+  16-24V AC" was removed, since Ring's wired doorbell takes 8-24V AC. Both
+  now tell readers to check their model's figures.
+
+**Prices with a date:**
+- **Security cameras:** Arlo AU plan prices, and Officeworks' $98 for
+  SanDisk's 128GB High Endurance microSD card, which replaces a wrong
+  $25-$40.
+- **Smart downlights:** Hue prices corrected to $59.95 and $104.95.
+
+Each is "at the time of writing", with a link.
+
+**Flagged but not changed** (listed in the review file):
+- **Downlights:** the 50°C roof-space figure, capacitor failure and Ta
+  ratings, and the neutral-wire claim.
+- **Cameras:** "2-4Mbps", and PoE cabling with no mention of a registered
+  cabler.
+- **Home Assistant energy:**
+  - "highest rooftop solar uptake in the world";
+  - "trapezoidal" advice that conflicts with the Home Assistant docs;
+  - percentage figures that look invented;
+  - the YAML example's 2pm-8pm peak, which is labelled illustrative.
+- **Doorbell:** DC plug packs, "15 metres", and "240V" (the nominal supply is
+  230V).
+
+**For a human to check (legal):**
+- **Electrical work:**
+  - dimmer modules, smart switches and full downlight replacement;
+  - CT clamps and switchboard work;
+  - mains versus low-voltage doorbell wiring;
+  - AS/NZS 3000;
+  - the CA135 status, where the 2017 and 2021 amendments were not checked.
+- **Privacy:**
+  - the OAIC position on household cameras;
+  - state listening-device laws for audio;
+  - eufy's overseas data transfers;
+  - smart-meter data.
+- **Tenancy:** Victorian removable versus hard-wired camera consent, and
+  Victorian and NSW renter consent for doorbells.
+- **Consumer law:** the RCM sale requirement.
+
+**Queue correction.** The earlier "next 4" lists left out two merge
+survivors: keep-security-cameras-running-blackout-nbn-outage (16) and
+smart-light-switches-neutral-wire-older-australian-homes (12). The five
+merged-away posts still carry tags (36 in total), but they only redirect
+(data/merged-articles.json), so they are not in the queue; unpublish them in
+Strapi once their unique sections have moved.
+
+**Remaining:** 17 live posts, 103 tags, which is about 5 more batches.
+
+**Next 4 in the queue:**
+1. keep-security-cameras-running-blackout-nbn-outage (16)
+2. smart-light-switches-neutral-wire-older-australian-homes (12)
+3. bathroom-humidity-sensor-exhaust-fan-automation-australia (9)
+4. movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard (8)
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 4)
+
+**Approved** by the user after reviewing `reports/task6-review-batch4.md`,
+which has the per-article diffs, the decision tables and every source URL.
+**Written to Strapi** the same way as batches 1-3.
+
+**Checked:**
+- **Before the write:** each live record still matched its backup.
+- **After the write:** both the published and draft copies were re-fetched.
+  All four have zero `[VERIFY`, match the approved content, excerpt and key
+  takeaways, and still have 5 FAQ entries.
+
+| Article | Tags | a / b / c | Backup |
+|---|---|---|---|
+| keep-security-cameras-running-blackout-nbn-outage | 16 → 0 | 8 / 7 / 1 | exports/strapi-backup/keep-security-cameras-running-blackout-nbn-outage-2026-09-24T07-47-41-669Z.json |
+| smart-light-switches-neutral-wire-older-australian-homes | 12 → 0 | 7 / 5 / 0 | exports/strapi-backup/smart-light-switches-neutral-wire-older-australian-homes-2026-09-24T07-47-41-669Z.json |
+| bathroom-humidity-sensor-exhaust-fan-automation-australia | 9 → 0 | 5 / 2 / 2 | exports/strapi-backup/bathroom-humidity-sensor-exhaust-fan-automation-australia-2026-09-24T07-47-41-669Z.json |
+| movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard | 8 → 0 | 2 / 3 / 3 | exports/strapi-backup/movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard-2026-09-24T07-47-41-669Z.json |
+
+**Errors corrected in the originals:**
+- **Blackout cameras:**
+  - On FTTC, the in-home box powers the service; the article said the
+    street equipment had its own power.
+  - 500Wh ÷ 25W is 20 hours, not 17, before losses.
+  - nbn stopped offering FTTP battery back-up units in June 2024.
+- **Bathroom humidity:** the unsupported 40-60% band became the National
+  Asthma Council's 30-50%.
+- **Smart light switches:** the unsourced depth and price figures were
+  removed, along with "future sale obligations".
+- **Movie-night lighting:** the budget figures were removed. The Hue Smart
+  Button price, dated "at the time of writing", is $54.95 at Hue AU and $49
+  at JB Hi-Fi.
+
+**Consistency edits:** the excerpts, key takeaways and FAQs were changed to
+match the body corrections. These are listed per article in the review
+file.
+
+**Changes beyond the tags** (both approved): in the smart light switches
+excerpt, "no neutral … which is exactly what a smart switch wants", which
+had the meaning backwards, was fixed. "Legally required" now reads "where you
+need a licensed electrician".
+
+**Flagged but not changed:** listed in the review file. They include
+"240V", the bathroom fan trigger numbers, and the missing pointer to a
+tenancy authority in the bathroom article.
+
+**For a human to check (legal):**
+- **Electrical work:**
+  - swapping a switch;
+  - bypass capacitors;
+  - relay modules;
+  - generator back-feeding;
+  - bathroom wiring and fan replacement;
+  - the NCC discharge rule;
+  - the state-by-state licensing line.
+- **Other areas:**
+  - DIY work voiding insurance, citing NSW;
+  - the RCM legal-sale wording;
+  - renter consent, with Victoria as the example;
+  - humidity and mould health claims.
+
+**Remaining:** 13 live posts, 58 tags.
+
+**Next 4 in the queue:**
+1. what-not-to-plug-into-a-smart-plug-australia (7)
+2. second-hand-smart-home-devices-australia (7)
+3. smart-lighting-rental-australia-no-wiring (7)
+4. robot-vacuum-local-home-assistant-no-cloud (7)
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 5)
+
+**Approved** by the user after reviewing `reports/task6-review-batch5.md`,
+which has the per-article diffs, the decision tables and every source URL.
+**Written to Strapi** the same way as batches 1-4.
+
+**Checked:**
+- **Before the write:** each live record still matched its backup.
+- **After the write:** both the published and draft copies were re-fetched.
+  All four have zero `[VERIFY` and match the approved content, excerpt and
+  key takeaways. Each kept its FAQ count (5, 4, 5, 5).
+
+| Article | Tags | Backup |
+|---|---|---|
+| what-not-to-plug-into-a-smart-plug-australia | 7 → 0 | exports/strapi-backup/what-not-to-plug-into-a-smart-plug-australia-2026-09-24T07-58-52-203Z.json |
+| second-hand-smart-home-devices-australia | 7 → 0 | exports/strapi-backup/second-hand-smart-home-devices-australia-2026-09-24T07-58-52-203Z.json |
+| smart-lighting-rental-australia-no-wiring | 7 → 0 | exports/strapi-backup/smart-lighting-rental-australia-no-wiring-2026-09-24T07-58-52-203Z.json |
+| robot-vacuum-local-home-assistant-no-cloud | 7 → 0 | exports/strapi-backup/robot-vacuum-local-home-assistant-no-cloud-2026-09-24T07-58-52-203Z.json |
+
+**Errors corrected in the originals:**
+- **Robot vacuum:** Matter room and zone cleaning (service areas) arrived
+  in Matter 1.4, and Home Assistant added initial support in 2026.3.
+- **Second-hand devices:** private sales still carry the guarantees of
+  title, undisturbed possession and no hidden debts.
+- **Rental lighting:** AS/NZS 3000 is the Wiring Rules, not the licensing
+  law.
+- **Smart plug:** ratings now come from the Tapo P110M AU spec and Kmart AU
+  heater manuals.
+
+**Changes beyond the tags** (all three approved):
+- **Robot vacuum, Ecovacs:** "no local path" now mentions the self-hosted
+  (Bumper) option that Home Assistant documents, in the body and FAQ 2.
+- **Robot vacuum, excerpt:** the dated "in 2024-25" was removed.
+- **Rental lighting:**
+  - "no landlord conversation, no risk" now reads "in most rentals",
+    noting the heritage-listed exception;
+  - "almost universally fine" now reads "generally the lowest-risk changes"
+    (body and FAQ 5).
+
+**Date fix (after the write):** two of these posts already had a
+`publishDate`, and the write had overwritten it with `publishedAt`:
+- second-hand-smart-home-devices-australia had 4 Aug 2026;
+- what-not-to-plug-into-a-smart-plug-australia had 5 Aug 2026.
+
+Both were restored from their backups on 24 Sep 2026 and checked on both the
+published and draft copies. Batches 1-4 were not affected: none of those
+posts had a `publishDate`. From batch 6 on, the write keeps an existing
+`publishDate` and only fills it when it is empty.
+
+**Open, not part of Task 6:** second-hand-smart-home-devices-australia has no
+`::product:` boxes (CLAUDE.md rule 8). Two catalogue products could be added
+as a separate change.
+
+**Flagged but not changed:** listed in the review file. They include the
+E26 bulb claim, the "stuck closed" relays and the L10s Ultra Gen2
+distinction.
+
+**Remaining:** 9 live posts, 30 tags.
+
+**Next 4 in the queue:**
+1. smart-plug-buying-guide-australia (6)
+2. smart-home-holiday-house-australia (6)
+3. smart-home-hub-buying-guide-australia (5)
+4. overseas-smart-home-devices-australia (4)
+
+After that: smart-home-devices-older-australians (4),
+smart-home-devices-without-internet (2), thread-vs-matter-difference (1),
+future-proof-smart-home-devices-australia (1) and
+where-to-buy-smart-home-australia (1).
+
+---
+
+## 24 September 2026: Task 6, [VERIFY] clean-up (batch 6)
+
+**Approved** by the user after reviewing `reports/task6-review-batch6.md`,
+which has the per-article diffs, the decision tables and every source URL.
+
+**Written to Strapi** the same way as before, with one change: an existing
+`publishDate` is now kept. The smart plug guide (5 Aug), holiday house
+(4 Aug) and overseas devices (4 Aug) kept theirs.
+
+**Checked:**
+- **Before the write:** each live record still matched its backup.
+- **After the write:** both the published and draft copies were re-fetched.
+  All four have zero `[VERIFY` and match the approved content, excerpt and
+  key takeaways, and each kept its FAQ count (5, 4, 10, 4).
+
+**Hub guide date:** the smart home hub guide had no `publishDate`. Its
+`publishedAt` had already been reset to 24 Sep 2026 02:14 UTC by the
+FAQ-to-field conversion earlier that day, so the write first gave it
+today's date. Its original publish time was not kept anywhere, so its
+`publishDate` is set to its `createdAt`, 13 Aug 2026. That is the best
+available estimate: 24 of the 69 posts were published within an hour of
+creation.
+
+| Article | Tags | a / b / c | Backup |
+|---|---|---|---|
+| smart-plug-buying-guide-australia | 6 → 0 | 5 / 0 / 1 | exports/strapi-backup/smart-plug-buying-guide-australia-2026-09-24T08-13-02-919Z.json |
+| smart-home-holiday-house-australia | 6 → 0 | 2 / 1 / 3 | exports/strapi-backup/smart-home-holiday-house-australia-2026-09-24T08-13-02-919Z.json |
+| smart-home-hub-buying-guide-australia | 5 → 0 | 1 / 3 / 1 | exports/strapi-backup/smart-home-hub-buying-guide-australia-2026-09-24T08-13-02-919Z.json |
+| overseas-smart-home-devices-australia | 4 → 0 | 3 / 0 / 1 | exports/strapi-backup/overseas-smart-home-devices-australia-2026-09-24T08-13-02-919Z.json |
+
+**Changes beyond the tags** (all five approved):
+- **Hub guide:**
+  - iPad was removed as an Apple home hub, per Apple's AU support page.
+  - The unsourced and wrong price ranges became a cheapest-to-dearest
+    ranking, with one dated example: the Aqara Hub M3 at $297, Officeworks.
+- **Holiday house:** the indoor-camera ban and outdoor-camera disclosure are
+  now attributed to Airbnb. "Not a judgement call" was softened.
+- **Overseas devices:** "will not carry" the RCM became "may not".
+  "Licensed work regardless" became "generally", with a pointer to the
+  state rules.
+- **Smart plug guide:** the Wikipedia citations were removed, and the 10A
+  figure now rests on the TP-Link Tapo P110 AU spec. The heading "Compliance
+  is not optional here" became "Check for compliance".
+
+**Error corrected in the original:** overseas devices called EESS
+"national". Only Qld, WA, Vic and Tas are signatories.
+
+**Open, not part of Task 6:**
+- **No `::product:` boxes (CLAUDE.md rule 8):** holiday house, hub guide and
+  overseas devices, plus second-hand devices from batch 5.
+- **Hub guide title:** it still says "2025".
+
+**Remaining:** 5 live posts, 9 tags:
+- smart-home-devices-older-australians (4)
+- smart-home-devices-without-internet (2)
+- thread-vs-matter-difference (1)
+- future-proof-smart-home-devices-australia (1)
+- where-to-buy-smart-home-australia (1)

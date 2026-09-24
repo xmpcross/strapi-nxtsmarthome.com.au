@@ -1,0 +1,318 @@
+{
+  "published": {
+    "id": 162,
+    "documentId": "gpimevin494vdqnaui4ayzv5",
+    "title": "Buying Smart Home Devices That Will Still Work in Five Years",
+    "slug": "future-proof-smart-home-devices-australia",
+    "excerpt": "Most smart devices fail because a company switches something off, not because the hardware breaks. How to buy gear in Australia that outlasts the seller.",
+    "content": "The smart plug you buy today will almost certainly still be electrically sound in 2031. Whether it still switches anything on is a different question entirely, and it has very little to do with the plug.\n\nConnected devices fail in a way ordinary appliances do not. A kettle stops working when the element goes. A smart device stops working when a company in another country decides a product line is no longer worth running servers for. That decision is made without you, is rarely announced far in advance, and turns working hardware into landfill.\n\nThis is how to buy so that fewer of your devices end up in that position.\n\n## The failure mode that actually matters\n\nAsk what happens to this device if the manufacturer disappears tomorrow.\n\nThere are three broad answers, and the difference between them is the whole subject:\n\n- **It keeps working.** Local control, no cloud dependency. You lose remote access and the app may stop updating, but the device continues doing its job on your own network.\n- **It works, but less.** Core function is local, extras are cloud. A camera that keeps recording to local storage but loses its phone notifications.\n- **It becomes an ornament.** Everything routes through the manufacturer's servers. When those go, the device does nothing at all.\n\nNothing on the packaging tells you which of the three you are buying. You have to work it out from how the device connects.\n\n## What a long life actually looks like\n\n### Local control over cloud control\n\nA device that does its work on your own network is not waiting on anyone. Zigbee, Z-Wave and Thread devices talk to a hub in your house rather than a server overseas, which is why they keep working during an outage — and why they keep working after a company loses interest.\n\nWi-Fi devices are not automatically cloud-dependent, but many are. If a device requires an account and an internet connection to complete setup, and cannot be controlled at all without one, that is your answer.\n\n### An open standard rather than a private one\n\nMatter and Thread matter here, though not for the reason they are usually sold. The pitch is convenience — one device, any ecosystem. The longevity benefit is different: an open standard means the device is not orphaned when you leave a platform, and can often be adopted by other software later.\n\nZigbee and Z-Wave have a longer track record still. Devices from a decade ago remain usable with current hubs, which is a stronger real-world guarantee than any promise about a newer standard.\n\n### A brand that publishes a support commitment\n\nSome manufacturers state, in writing, how long a product will receive security updates. Most do not. That silence is itself information.\n\nBefore buying, search for the manufacturer's support or end-of-life policy for that product line — not the marketing page. A company that publishes a minimum support period can be held to it. A company that publishes nothing has committed to nothing.\n\n### Community support as a backstop\n\nDevices with active third-party support outlive their manufacturers routinely. If a device works with Home Assistant or has an established open-source integration, it has a life after the official app is retired. This is not a fringe consideration — it is often the difference between a device lasting three years and lasting ten.\n\n## The subscription question\n\nThere is a reasonable version and an unreasonable one.\n\n**Reasonable:** the device does its job without paying anything, and the subscription buys optional extras — longer cloud video history, richer automations, professional monitoring.\n\n**Unreasonable:** the device cannot perform its basic function without an active subscription. A camera that will not record at all, a lock that will not unlock remotely, a sensor that will not report.\n\nWork out the five-year cost before buying. A modest monthly fee frequently exceeds the hardware price well inside that window, and unlike the hardware, the fee can be increased at any time.\n\n## Australian specifics\n\nThree things change the calculation here.\n\n**Support ends earlier in smaller markets.** Australia is a small market for most manufacturers. A product line withdrawn globally goes quickly, and a product line withdrawn only from Australia goes quicker — sometimes while the same device is still sold elsewhere. Buying stock sold into the Australian market matters for warranty; it does not protect you from a global end-of-life decision.\n\n**Australian Consumer Law is a genuine backstop.** Consumer guarantees require goods to be of acceptable quality and to last a reasonable time given the price and description — and that obligation is not limited to a manufacturer's stated warranty period. [VERIFY] A premium device that stops working after two years because a server was retired is at least arguable ground. It is worth knowing this exists before accepting a shrug.\n\n**Fittings and voltage will outlive the electronics.** Australian homes run 230 V nominal with AS/NZS 3112 plugs, and use both B22 bayonet and E27 screw fittings. Buying gear matched to those means a replacement in five years drops straight in, rather than requiring a rewire or an adaptor.\n\n## A quick test before you buy\n\n- Does it work with the internet disconnected? If not, what stops working?\n- Does it use Zigbee, Z-Wave, Thread or Matter, or a proprietary protocol?\n- Has the manufacturer published a support or end-of-life policy for this line?\n- Is there a third-party or open-source integration for it?\n- Can the device perform its main job without a subscription?\n- What is the total five-year cost, subscription included?\n- Is the device still sold and supported in Australia, not just overseas?\n\n## What this means in practice\n\nThe pattern that ages best is unglamorous: an open-standard device, talking to a hub you own, with local control, from a brand that has said out loud how long it will support it.\n\nThe pattern that ages worst is the one that demos best in a shop — a Wi-Fi device with a slick app, an account requirement, a subscription tier and no protocol you recognise.\n\nNeither is a rule. Plenty of cloud devices are worth buying for what they do today, provided you have priced them as a five-year rental rather than a purchase. The mistake is not buying cloud-dependent gear; it is buying it while believing you own it.",
+    "keyTakeaways": "Smart home devices rarely die of hardware failure — they die when a manufacturer retires a cloud service or stops issuing updates. Favour devices that keep working when the internet drops, that speak an open standard such as Zigbee, Z-Wave, Thread or Matter, and that come from a brand with a published support commitment. Anything that needs a subscription to perform its basic function is rented, not owned.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/future-proof-smart-home-devices-australia.webp",
+    "coverImageAlt": "Buying Smart Home Devices That Will Still Work in Five Years",
+    "postType": "buying-guide",
+    "publishDate": "2026-08-04T00:00:00.000Z",
+    "dateModified": "2026-08-04T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Buying advice",
+      "Matter",
+      "Longevity",
+      "Australia",
+      "Local control"
+    ],
+    "readingTimeMinutes": 5,
+    "seoTitle": "Buying Smart Home Devices That Will Still Work in Five Years",
+    "seoDescription": "Most smart devices fail because a company switches something off, not because the hardware breaks. How to buy gear in Australia that outlasts the seller.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/buying-guides/future-proof-smart-home-devices-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:43.365Z",
+    "updatedAt": "2026-08-22T22:09:32.913Z",
+    "publishedAt": "2026-08-22T22:09:32.936Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3954,
+      "documentId": "lpy3mreukzhmofpr9njbw590",
+      "name": "Buying Smart Home Devices That Will Still Work in Five Years.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765.jpg",
+          "hash": "large_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765",
+          "mime": "image/jpeg",
+          "name": "large_Buying Smart Home Devices That Will Still Work in Five Years.jpg",
+          "path": null,
+          "size": 48.66,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 48656
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765.jpg",
+          "hash": "small_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765",
+          "mime": "image/jpeg",
+          "name": "small_Buying Smart Home Devices That Will Still Work in Five Years.jpg",
+          "path": null,
+          "size": 17.9,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 17904
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765.jpg",
+          "hash": "medium_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765",
+          "mime": "image/jpeg",
+          "name": "medium_Buying Smart Home Devices That Will Still Work in Five Years.jpg",
+          "path": null,
+          "size": 32.57,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 32570
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765.jpg",
+          "hash": "thumbnail_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Buying Smart Home Devices That Will Still Work in Five Years.jpg",
+          "path": null,
+          "size": 6.59,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6587
+        }
+      },
+      "hash": "Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 93.77,
+      "url": "/uploads/Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T22:09:29.017Z",
+      "updatedAt": "2026-08-22T22:09:29.017Z",
+      "publishedAt": "2026-08-22T22:09:29.017Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1454,
+        "question": "How long do smart home devices actually last?",
+        "answer": "The hardware often lasts a decade. The service behind it frequently does not. Cloud-dependent devices stop working when the manufacturer retires the service, which has happened repeatedly across the industry with no obligation to warn buyers in advance. Support windows matter more than build quality."
+      },
+      {
+        "order": 1,
+        "id": 1455,
+        "question": "Does Matter make a device future-proof?",
+        "answer": "It helps but does not guarantee it. Matter means a device can be controlled by more than one ecosystem, so it survives you switching from one platform to another. It does not stop a manufacturer retiring the companion app, ending firmware updates, or removing features you relied on."
+      },
+      {
+        "order": 2,
+        "id": 1456,
+        "question": "Is local control better than cloud control?",
+        "answer": "For longevity, yes. A device that runs locally keeps working when the internet drops, when the manufacturer's servers go down, and after the company stops supporting it. Cloud control adds convenience and remote access, but it makes the device dependent on a business decision you have no influence over."
+      },
+      {
+        "order": 3,
+        "id": 1457,
+        "question": "Should I avoid devices that need a subscription?",
+        "answer": "Not always, but understand what you are buying. A subscription for optional extras such as cloud video storage is reasonable. A subscription required for the device to perform its basic function means you are renting it, and the monthly cost over five years often exceeds the purchase price."
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "documentId": "fznrs0xa43imqgijen01hgus",
+        "name": "Buying Guides",
+        "slug": "buying-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.609Z",
+        "updatedAt": "2026-08-22T18:30:53.551Z",
+        "publishedAt": "2026-08-22T18:30:53.546Z"
+      }
+    ],
+    "author": {
+      "id": 12,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": "2026-08-22T21:55:03.953Z"
+    }
+  },
+  "draft": {
+    "id": 8,
+    "documentId": "gpimevin494vdqnaui4ayzv5",
+    "title": "Buying Smart Home Devices That Will Still Work in Five Years",
+    "slug": "future-proof-smart-home-devices-australia",
+    "excerpt": "Most smart devices fail because a company switches something off, not because the hardware breaks. How to buy gear in Australia that outlasts the seller.",
+    "content": "The smart plug you buy today will almost certainly still be electrically sound in 2031. Whether it still switches anything on is a different question entirely, and it has very little to do with the plug.\n\nConnected devices fail in a way ordinary appliances do not. A kettle stops working when the element goes. A smart device stops working when a company in another country decides a product line is no longer worth running servers for. That decision is made without you, is rarely announced far in advance, and turns working hardware into landfill.\n\nThis is how to buy so that fewer of your devices end up in that position.\n\n## The failure mode that actually matters\n\nAsk what happens to this device if the manufacturer disappears tomorrow.\n\nThere are three broad answers, and the difference between them is the whole subject:\n\n- **It keeps working.** Local control, no cloud dependency. You lose remote access and the app may stop updating, but the device continues doing its job on your own network.\n- **It works, but less.** Core function is local, extras are cloud. A camera that keeps recording to local storage but loses its phone notifications.\n- **It becomes an ornament.** Everything routes through the manufacturer's servers. When those go, the device does nothing at all.\n\nNothing on the packaging tells you which of the three you are buying. You have to work it out from how the device connects.\n\n## What a long life actually looks like\n\n### Local control over cloud control\n\nA device that does its work on your own network is not waiting on anyone. Zigbee, Z-Wave and Thread devices talk to a hub in your house rather than a server overseas, which is why they keep working during an outage — and why they keep working after a company loses interest.\n\nWi-Fi devices are not automatically cloud-dependent, but many are. If a device requires an account and an internet connection to complete setup, and cannot be controlled at all without one, that is your answer.\n\n### An open standard rather than a private one\n\nMatter and Thread matter here, though not for the reason they are usually sold. The pitch is convenience — one device, any ecosystem. The longevity benefit is different: an open standard means the device is not orphaned when you leave a platform, and can often be adopted by other software later.\n\nZigbee and Z-Wave have a longer track record still. Devices from a decade ago remain usable with current hubs, which is a stronger real-world guarantee than any promise about a newer standard.\n\n### A brand that publishes a support commitment\n\nSome manufacturers state, in writing, how long a product will receive security updates. Most do not. That silence is itself information.\n\nBefore buying, search for the manufacturer's support or end-of-life policy for that product line — not the marketing page. A company that publishes a minimum support period can be held to it. A company that publishes nothing has committed to nothing.\n\n### Community support as a backstop\n\nDevices with active third-party support outlive their manufacturers routinely. If a device works with Home Assistant or has an established open-source integration, it has a life after the official app is retired. This is not a fringe consideration — it is often the difference between a device lasting three years and lasting ten.\n\n## The subscription question\n\nThere is a reasonable version and an unreasonable one.\n\n**Reasonable:** the device does its job without paying anything, and the subscription buys optional extras — longer cloud video history, richer automations, professional monitoring.\n\n**Unreasonable:** the device cannot perform its basic function without an active subscription. A camera that will not record at all, a lock that will not unlock remotely, a sensor that will not report.\n\nWork out the five-year cost before buying. A modest monthly fee frequently exceeds the hardware price well inside that window, and unlike the hardware, the fee can be increased at any time.\n\n## Australian specifics\n\nThree things change the calculation here.\n\n**Support ends earlier in smaller markets.** Australia is a small market for most manufacturers. A product line withdrawn globally goes quickly, and a product line withdrawn only from Australia goes quicker — sometimes while the same device is still sold elsewhere. Buying stock sold into the Australian market matters for warranty; it does not protect you from a global end-of-life decision.\n\n**Australian Consumer Law is a genuine backstop.** Consumer guarantees require goods to be of acceptable quality and to last a reasonable time given the price and description — and that obligation is not limited to a manufacturer's stated warranty period. [VERIFY] A premium device that stops working after two years because a server was retired is at least arguable ground. It is worth knowing this exists before accepting a shrug.\n\n**Fittings and voltage will outlive the electronics.** Australian homes run 230 V nominal with AS/NZS 3112 plugs, and use both B22 bayonet and E27 screw fittings. Buying gear matched to those means a replacement in five years drops straight in, rather than requiring a rewire or an adaptor.\n\n## A quick test before you buy\n\n- Does it work with the internet disconnected? If not, what stops working?\n- Does it use Zigbee, Z-Wave, Thread or Matter, or a proprietary protocol?\n- Has the manufacturer published a support or end-of-life policy for this line?\n- Is there a third-party or open-source integration for it?\n- Can the device perform its main job without a subscription?\n- What is the total five-year cost, subscription included?\n- Is the device still sold and supported in Australia, not just overseas?\n\n## What this means in practice\n\nThe pattern that ages best is unglamorous: an open-standard device, talking to a hub you own, with local control, from a brand that has said out loud how long it will support it.\n\nThe pattern that ages worst is the one that demos best in a shop — a Wi-Fi device with a slick app, an account requirement, a subscription tier and no protocol you recognise.\n\nNeither is a rule. Plenty of cloud devices are worth buying for what they do today, provided you have priced them as a five-year rental rather than a purchase. The mistake is not buying cloud-dependent gear; it is buying it while believing you own it.",
+    "keyTakeaways": "Smart home devices rarely die of hardware failure — they die when a manufacturer retires a cloud service or stops issuing updates. Favour devices that keep working when the internet drops, that speak an open standard such as Zigbee, Z-Wave, Thread or Matter, and that come from a brand with a published support commitment. Anything that needs a subscription to perform its basic function is rented, not owned.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/future-proof-smart-home-devices-australia.webp",
+    "coverImageAlt": "Buying Smart Home Devices That Will Still Work in Five Years",
+    "postType": "buying-guide",
+    "publishDate": "2026-08-04T00:00:00.000Z",
+    "dateModified": "2026-08-04T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Buying advice",
+      "Matter",
+      "Longevity",
+      "Australia",
+      "Local control"
+    ],
+    "readingTimeMinutes": 5,
+    "seoTitle": "Buying Smart Home Devices That Will Still Work in Five Years",
+    "seoDescription": "Most smart devices fail because a company switches something off, not because the hardware breaks. How to buy gear in Australia that outlasts the seller.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/buying-guides/future-proof-smart-home-devices-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:43.365Z",
+    "updatedAt": "2026-08-22T22:09:32.913Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3954,
+      "documentId": "lpy3mreukzhmofpr9njbw590",
+      "name": "Buying Smart Home Devices That Will Still Work in Five Years.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765.jpg",
+          "hash": "large_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765",
+          "mime": "image/jpeg",
+          "name": "large_Buying Smart Home Devices That Will Still Work in Five Years.jpg",
+          "path": null,
+          "size": 48.66,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 48656
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765.jpg",
+          "hash": "small_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765",
+          "mime": "image/jpeg",
+          "name": "small_Buying Smart Home Devices That Will Still Work in Five Years.jpg",
+          "path": null,
+          "size": 17.9,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 17904
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765.jpg",
+          "hash": "medium_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765",
+          "mime": "image/jpeg",
+          "name": "medium_Buying Smart Home Devices That Will Still Work in Five Years.jpg",
+          "path": null,
+          "size": 32.57,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 32570
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765.jpg",
+          "hash": "thumbnail_Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Buying Smart Home Devices That Will Still Work in Five Years.jpg",
+          "path": null,
+          "size": 6.59,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6587
+        }
+      },
+      "hash": "Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 93.77,
+      "url": "/uploads/Buying_Smart_Home_Devices_That_Will_Still_Work_in_Five_Years_bf9f16d765.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T22:09:29.017Z",
+      "updatedAt": "2026-08-22T22:09:29.017Z",
+      "publishedAt": "2026-08-22T22:09:29.017Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1110,
+        "question": "How long do smart home devices actually last?",
+        "answer": "The hardware often lasts a decade. The service behind it frequently does not. Cloud-dependent devices stop working when the manufacturer retires the service, which has happened repeatedly across the industry with no obligation to warn buyers in advance. Support windows matter more than build quality."
+      },
+      {
+        "order": 1,
+        "id": 1111,
+        "question": "Does Matter make a device future-proof?",
+        "answer": "It helps but does not guarantee it. Matter means a device can be controlled by more than one ecosystem, so it survives you switching from one platform to another. It does not stop a manufacturer retiring the companion app, ending firmware updates, or removing features you relied on."
+      },
+      {
+        "order": 2,
+        "id": 1112,
+        "question": "Is local control better than cloud control?",
+        "answer": "For longevity, yes. A device that runs locally keeps working when the internet drops, when the manufacturer's servers go down, and after the company stops supporting it. Cloud control adds convenience and remote access, but it makes the device dependent on a business decision you have no influence over."
+      },
+      {
+        "order": 3,
+        "id": 1113,
+        "question": "Should I avoid devices that need a subscription?",
+        "answer": "Not always, but understand what you are buying. A subscription for optional extras such as cloud video storage is reasonable. A subscription required for the device to perform its basic function means you are renting it, and the monthly cost over five years often exceeds the purchase price."
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "documentId": "fznrs0xa43imqgijen01hgus",
+        "name": "Buying Guides",
+        "slug": "buying-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.609Z",
+        "updatedAt": "2026-08-22T18:30:53.551Z",
+        "publishedAt": "2026-08-22T18:30:53.546Z"
+      }
+    ],
+    "author": {
+      "id": 3,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": null
+    }
+  }
+}

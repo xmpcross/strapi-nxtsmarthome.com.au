@@ -1,0 +1,332 @@
+{
+  "published": {
+    "id": 265,
+    "documentId": "tvds5vp231r5n9983ut51rak",
+    "title": "Movie Night Lighting Scenes You Can Build Without Touching the Switchboard",
+    "slug": "movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard",
+    "excerpt": "Plug-in lamps, a couple of smart bulbs and a backlight strip are enough to build a proper cinema scene in an Australian lounge room - no wiring, no electrician, and nothing your landlord can object to. Here's how to lay it out, dim it and trigger it.",
+    "content": "A good movie night scene is not one dramatic colour-changing light show. It's three or four ordinary lights doing quieter things at the same time: the ceiling light off, a lamp behind the couch at around 5-10%, and a strip of white light behind the TV so your eyes stop fighting the contrast. All of that can be done with plug-in gear on standard Australian 240V Type I sockets.\n\n**Practical takeaway:** build the scene around lamps you already own. Swap the bulbs for smart ones (or put a dumb lamp on a smart plug), add a USB-powered backlight behind the screen, then group the whole lot into one scene in your app. Budget roughly $120-$250 for a small lounge room [VERIFY], and you can take every piece of it with you when you move.\n\n## Plug-in only: what you can do without an electrician\n\nThe line is simple. Anything that plugs into a socket or screws into an existing lamp holder is yours to play with. Anything behind a wall plate is not.\n\nSafe to DIY:\n\n- Smart bulbs in table lamps, floor lamps and existing batten fittings (B22 bayonet or E27 Edison screw are the common Australian bases)\n- Smart plugs and smart powerboards on lamps and TV gear\n- Low-voltage USB or 12V/24V LED strips powered from a plugpack or the TV's USB port\n- Battery or USB-powered motion and light sensors\n\nRequires a licensed electrician in Australia: replacing a wall switch with a smart dimmer, installing an in-ceiling relay module, changing hardwired downlights, or anything at the switchboard. Under AS/NZS wiring rules, fixed electrical work is licensed work in every state and territory - don't treat a smart dimmer module as a weekend job [VERIFY]. If you rent, plug-in gear also avoids the whole \"do I need written permission to alter the premises\" conversation, though tenancy rules differ by state [VERIFY].\n\n## Scene one: the ten-minute dim-down\n\nThis is the scene most people actually use, and it needs two or three lights, not ten.\n\n1. **Kill the overhead.** A smart bulb in the main fitting set to off, or the fitting simply left off at the wall.\n2. **One warm lamp behind the seating.** Set it to roughly 2200-2700K and 5-10% brightness. Behind the couch, not beside the screen - light that lands on the wall behind you stays out of the picture.\n3. **A low floor lamp for the walkway.** Warm, dim, aimed at the floor so nobody trips over the dog on a popcorn run.\n\nIf your lamps have shades you like and bulbs that are already warm, a smart plug is the cheaper path than replacing bulbs. You lose dimming - a plug is on or off - so pair it with a low-wattage warm globe (a 4-5W LED reading around 400 lumens is plenty for ambience). Mini plugs matter here because Australian double sockets are tight; a wide plug body blocks the second outlet.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nOn spec, a Wi-Fi plug like this handles scheduling and scene membership through its own app plus Google Home and Alexa, which is all a lamp needs. Check the stated resistive load rating against what you're plugging in - lamps are trivial, heaters are not.\n\n## Scene two: bias lighting behind the TV\n\nBias lighting is the highest-value change in this whole article. A strip of neutral white light on the wall behind the screen lifts the black level your eyes perceive, cuts the harsh contrast in a dark room, and makes long sessions less tiring. Aim for around 6500K white at low output, mounted on the back edges of the panel so it washes the wall rather than shining at you.\n\nTwo ways to power it without new wiring: run it off the TV's USB port so it follows the TV on and off automatically, or run it from a plugpack into a smart plug so it joins your scene.\n\nThe bigger issue behind most Australian TVs is socket count. Between the TV, soundbar, streaming box, console and now a light strip, a single double outlet runs out fast. An individually switched smart powerboard solves the sockets and the automation in one object.\n\n::product:smart-mirabella-genio-wi-fi-powerboard::\n\nA board with independently controlled outlets lets your scene switch the backlight and, say, a side lamp while leaving the TV and modem untouched. Two cautions: never daisy-chain powerboards, and keep total load well under the board's rating [VERIFY].\n\n## Scene three: the credits-roll wake-up\n\nThe scene nobody builds and everybody wants. When playback stops, bring the room back up gently over 20-30 seconds rather than blasting 100% white at eyes that have been in the dark for two hours. Most bulb apps support a transition or fade time - set it to the maximum and target about 40-50% brightness at 2700K, not full output.\n\nIf your ecosystem doesn't do fades, fake it with two steps: 15% immediately, 45% ninety seconds later.\n\n## Triggering scenes without touching your phone\n\nDigging out a phone in a dark room defeats the point. Options, roughly in order of how well they work:\n\n- **Voice.** \"Hey Google, movie night.\" Free, instant, works with any assistant-linked bulb.\n- **A physical button.** A battery-powered Zigbee or Bluetooth button stuck to the coffee table costs around $25-$40 [VERIFY] and is the most spouse-friendly option in the house.\n- **Media state.** If your speaker or streamer reports playback status to your platform, \"when playback starts, dim the room\" becomes automatic.\n\nThat last one is where a networked soundbar earns its keep, because its play/pause state is visible to Home Assistant and to some assistant routines.\n\n::product:sonos-ray-soundbar::\n\nIn Home Assistant, a Sonos media player entity changing to `playing` is a perfectly good automation trigger - add a condition for after sunset so an afternoon podcast doesn't black out the lounge room. Confirm current app and platform support before buying on that basis [VERIFY].\n\n## Getting the numbers right\n\n- **Colour temperature:** 2200-2700K for room ambience, ~6500K for TV bias lighting. Mixing them deliberately is fine; mixing them accidentally looks like a sports bar.\n- **Brightness:** 5-10% for ambience. Anything more and you'll see reflections in the panel.\n- **Flicker:** cheap bulbs often use PWM dimming that becomes visible at very low levels, particularly in peripheral vision. If a bulb shimmers at 5%, run it at 15% instead or replace it.\n- **Placement:** no light source should be visible in the screen's reflection from the main seat. Sit down and check before you mount anything.\n- **Wi-Fi load:** a dozen Wi-Fi bulbs on a budget router will feel sluggish. Zigbee or Thread bulbs with a hub scale better and generally switch in unison rather than popcorning one by one.\n\n## Mistakes worth avoiding\n\nDon't put a smart bulb in a lamp that's switched at the wall by someone who will inevitably switch it off - the bulb drops off the network and the scene half-fires. Don't buy colour bulbs if you only ever use warm white; tunable-white versions are cheaper and often dim more smoothly. And don't over-engineer it: a scene with three lights that fires reliably beats an eight-light sequence you stop trusting after a fortnight.\n\nStart with the dim-down and the bias light this weekend. Everything else is refinement.",
+    "keyTakeaways": "You can build a proper movie night scene with plug-in gear only: smart bulbs or smart plugs on existing lamps at 5-10% brightness, a 6500K bias light behind the TV, and a voice command or button to fire it all at once. Only hardwired dimmers, ceiling modules and switchboard work require a licensed electrician.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "Smart Lighting",
+      "Home Theatre",
+      "Renters",
+      "Automation",
+      "Scenes",
+      "Bias Lighting"
+    ],
+    "readingTimeMinutes": 6,
+    "seoTitle": "Movie Night Lighting Scenes: No Switchboard Needed",
+    "seoDescription": "Build cinema-style lighting scenes in an Australian lounge room using plug-in smart bulbs, plugs and TV bias lighting - no wiring or electrician required.",
+    "seoKeywords": "movie night lighting, smart lighting scenes, bias lighting TV, home theatre lighting Australia, smart plug lamp, renter smart home, Home Assistant lighting automation",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:07:42.218Z",
+    "updatedAt": "2026-08-23T00:43:16.534Z",
+    "publishedAt": "2026-08-23T00:43:16.569Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3982,
+      "documentId": "gc22zi4i0oejmj493438jhy3",
+      "name": "movie-night-lighting-scenes-you-can-build-without--cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6.jpg",
+          "hash": "large_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6",
+          "mime": "image/jpeg",
+          "name": "large_movie-night-lighting-scenes-you-can-build-without--cover.jpg",
+          "path": null,
+          "size": 54.68,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 54680
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6.jpg",
+          "hash": "small_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6",
+          "mime": "image/jpeg",
+          "name": "small_movie-night-lighting-scenes-you-can-build-without--cover.jpg",
+          "path": null,
+          "size": 18.25,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 18246
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6.jpg",
+          "hash": "medium_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6",
+          "mime": "image/jpeg",
+          "name": "medium_movie-night-lighting-scenes-you-can-build-without--cover.jpg",
+          "path": null,
+          "size": 34.23,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 34231
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6.jpg",
+          "hash": "thumbnail_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6",
+          "mime": "image/jpeg",
+          "name": "thumbnail_movie-night-lighting-scenes-you-can-build-without--cover.jpg",
+          "path": null,
+          "size": 6.15,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6151
+        }
+      },
+      "hash": "movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 113.52,
+      "url": "/uploads/movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:07:42.190Z",
+      "updatedAt": "2026-08-23T00:07:42.190Z",
+      "publishedAt": "2026-08-23T00:07:42.191Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1637,
+        "question": "Do I need an electrician for smart movie lighting in a rental?",
+        "answer": "Not for plug-in gear. Smart bulbs in existing lamps or batten fittings, smart plugs and powerboards, and USB or low-voltage LED strips are all yours to install and take with you. A licensed electrician is required for anything fixed - replacing a wall switch with a smart dimmer, in-ceiling relay modules, hardwired downlights or switchboard work - and tenancy rules on alterations differ by state [VERIFY]."
+      },
+      {
+        "order": 2,
+        "id": 1638,
+        "question": "What colour temperature should I use behind the TV versus for room lighting?",
+        "answer": "Aim for around 6500K neutral white at low output for bias lighting behind the screen, mounted on the back edges so it washes the wall. For general room ambience use 2200-2700K at 5-10% brightness. Deliberate mixing is fine, but accidental mixing tends to look like a sports bar."
+      },
+      {
+        "order": 3,
+        "id": 1639,
+        "question": "Why does my smart bulb flicker when I dim it right down?",
+        "answer": "Cheap bulbs often use PWM dimming that becomes visible at very low levels, especially in peripheral vision. If a bulb shimmers at 5%, run it at about 15% instead, or replace it with a better bulb. Tunable-white bulbs frequently dim more smoothly than colour versions."
+      },
+      {
+        "order": 4,
+        "id": 1640,
+        "question": "Is a smart plug good enough, or do I need to buy smart bulbs?",
+        "answer": "A smart plug is the cheaper path if your lamps already have shades and warm globes you like, but you lose dimming - a plug is only on or off. Pair it with a low-wattage warm globe, such as a 4-5W LED around 400 lumens, for ambience. Choose a mini plug body, since Australian double sockets are tight and a wide plug blocks the second outlet."
+      },
+      {
+        "order": 5,
+        "id": 1641,
+        "question": "How can I trigger a movie scene without picking up my phone in the dark?",
+        "answer": "Voice is the free option - \"Hey Google, movie night\" works with any assistant-linked bulb. A battery-powered Zigbee or Bluetooth button on the coffee table costs roughly $25-$40 [VERIFY] and is the most household-friendly. If your streamer or soundbar reports playback state, playback starting can trigger the dim automatically - add an after-sunset condition so an afternoon podcast doesn't black out the room."
+      }
+    ],
+    "categories": [
+      {
+        "id": 4,
+        "documentId": "c5hknftxl6l8oaumjew123m5",
+        "name": "Entertainment",
+        "slug": "entertainment",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.808Z",
+        "updatedAt": "2026-08-22T18:30:53.672Z",
+        "publishedAt": "2026-08-22T18:30:53.669Z"
+      }
+    ],
+    "author": {
+      "id": 13,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": "2026-08-22T21:55:22.398Z"
+    }
+  },
+  "draft": {
+    "id": 199,
+    "documentId": "tvds5vp231r5n9983ut51rak",
+    "title": "Movie Night Lighting Scenes You Can Build Without Touching the Switchboard",
+    "slug": "movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard",
+    "excerpt": "Plug-in lamps, a couple of smart bulbs and a backlight strip are enough to build a proper cinema scene in an Australian lounge room - no wiring, no electrician, and nothing your landlord can object to. Here's how to lay it out, dim it and trigger it.",
+    "content": "A good movie night scene is not one dramatic colour-changing light show. It's three or four ordinary lights doing quieter things at the same time: the ceiling light off, a lamp behind the couch at around 5-10%, and a strip of white light behind the TV so your eyes stop fighting the contrast. All of that can be done with plug-in gear on standard Australian 240V Type I sockets.\n\n**Practical takeaway:** build the scene around lamps you already own. Swap the bulbs for smart ones (or put a dumb lamp on a smart plug), add a USB-powered backlight behind the screen, then group the whole lot into one scene in your app. Budget roughly $120-$250 for a small lounge room [VERIFY], and you can take every piece of it with you when you move.\n\n## Plug-in only: what you can do without an electrician\n\nThe line is simple. Anything that plugs into a socket or screws into an existing lamp holder is yours to play with. Anything behind a wall plate is not.\n\nSafe to DIY:\n\n- Smart bulbs in table lamps, floor lamps and existing batten fittings (B22 bayonet or E27 Edison screw are the common Australian bases)\n- Smart plugs and smart powerboards on lamps and TV gear\n- Low-voltage USB or 12V/24V LED strips powered from a plugpack or the TV's USB port\n- Battery or USB-powered motion and light sensors\n\nRequires a licensed electrician in Australia: replacing a wall switch with a smart dimmer, installing an in-ceiling relay module, changing hardwired downlights, or anything at the switchboard. Under AS/NZS wiring rules, fixed electrical work is licensed work in every state and territory - don't treat a smart dimmer module as a weekend job [VERIFY]. If you rent, plug-in gear also avoids the whole \"do I need written permission to alter the premises\" conversation, though tenancy rules differ by state [VERIFY].\n\n## Scene one: the ten-minute dim-down\n\nThis is the scene most people actually use, and it needs two or three lights, not ten.\n\n1. **Kill the overhead.** A smart bulb in the main fitting set to off, or the fitting simply left off at the wall.\n2. **One warm lamp behind the seating.** Set it to roughly 2200-2700K and 5-10% brightness. Behind the couch, not beside the screen - light that lands on the wall behind you stays out of the picture.\n3. **A low floor lamp for the walkway.** Warm, dim, aimed at the floor so nobody trips over the dog on a popcorn run.\n\nIf your lamps have shades you like and bulbs that are already warm, a smart plug is the cheaper path than replacing bulbs. You lose dimming - a plug is on or off - so pair it with a low-wattage warm globe (a 4-5W LED reading around 400 lumens is plenty for ambience). Mini plugs matter here because Australian double sockets are tight; a wide plug body blocks the second outlet.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nOn spec, a Wi-Fi plug like this handles scheduling and scene membership through its own app plus Google Home and Alexa, which is all a lamp needs. Check the stated resistive load rating against what you're plugging in - lamps are trivial, heaters are not.\n\n## Scene two: bias lighting behind the TV\n\nBias lighting is the highest-value change in this whole article. A strip of neutral white light on the wall behind the screen lifts the black level your eyes perceive, cuts the harsh contrast in a dark room, and makes long sessions less tiring. Aim for around 6500K white at low output, mounted on the back edges of the panel so it washes the wall rather than shining at you.\n\nTwo ways to power it without new wiring: run it off the TV's USB port so it follows the TV on and off automatically, or run it from a plugpack into a smart plug so it joins your scene.\n\nThe bigger issue behind most Australian TVs is socket count. Between the TV, soundbar, streaming box, console and now a light strip, a single double outlet runs out fast. An individually switched smart powerboard solves the sockets and the automation in one object.\n\n::product:smart-mirabella-genio-wi-fi-powerboard::\n\nA board with independently controlled outlets lets your scene switch the backlight and, say, a side lamp while leaving the TV and modem untouched. Two cautions: never daisy-chain powerboards, and keep total load well under the board's rating [VERIFY].\n\n## Scene three: the credits-roll wake-up\n\nThe scene nobody builds and everybody wants. When playback stops, bring the room back up gently over 20-30 seconds rather than blasting 100% white at eyes that have been in the dark for two hours. Most bulb apps support a transition or fade time - set it to the maximum and target about 40-50% brightness at 2700K, not full output.\n\nIf your ecosystem doesn't do fades, fake it with two steps: 15% immediately, 45% ninety seconds later.\n\n## Triggering scenes without touching your phone\n\nDigging out a phone in a dark room defeats the point. Options, roughly in order of how well they work:\n\n- **Voice.** \"Hey Google, movie night.\" Free, instant, works with any assistant-linked bulb.\n- **A physical button.** A battery-powered Zigbee or Bluetooth button stuck to the coffee table costs around $25-$40 [VERIFY] and is the most spouse-friendly option in the house.\n- **Media state.** If your speaker or streamer reports playback status to your platform, \"when playback starts, dim the room\" becomes automatic.\n\nThat last one is where a networked soundbar earns its keep, because its play/pause state is visible to Home Assistant and to some assistant routines.\n\n::product:sonos-ray-soundbar::\n\nIn Home Assistant, a Sonos media player entity changing to `playing` is a perfectly good automation trigger - add a condition for after sunset so an afternoon podcast doesn't black out the lounge room. Confirm current app and platform support before buying on that basis [VERIFY].\n\n## Getting the numbers right\n\n- **Colour temperature:** 2200-2700K for room ambience, ~6500K for TV bias lighting. Mixing them deliberately is fine; mixing them accidentally looks like a sports bar.\n- **Brightness:** 5-10% for ambience. Anything more and you'll see reflections in the panel.\n- **Flicker:** cheap bulbs often use PWM dimming that becomes visible at very low levels, particularly in peripheral vision. If a bulb shimmers at 5%, run it at 15% instead or replace it.\n- **Placement:** no light source should be visible in the screen's reflection from the main seat. Sit down and check before you mount anything.\n- **Wi-Fi load:** a dozen Wi-Fi bulbs on a budget router will feel sluggish. Zigbee or Thread bulbs with a hub scale better and generally switch in unison rather than popcorning one by one.\n\n## Mistakes worth avoiding\n\nDon't put a smart bulb in a lamp that's switched at the wall by someone who will inevitably switch it off - the bulb drops off the network and the scene half-fires. Don't buy colour bulbs if you only ever use warm white; tunable-white versions are cheaper and often dim more smoothly. And don't over-engineer it: a scene with three lights that fires reliably beats an eight-light sequence you stop trusting after a fortnight.\n\nStart with the dim-down and the bias light this weekend. Everything else is refinement.",
+    "keyTakeaways": "You can build a proper movie night scene with plug-in gear only: smart bulbs or smart plugs on existing lamps at 5-10% brightness, a 6500K bias light behind the TV, and a voice command or button to fire it all at once. Only hardwired dimmers, ceiling modules and switchboard work require a licensed electrician.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "Smart Lighting",
+      "Home Theatre",
+      "Renters",
+      "Automation",
+      "Scenes",
+      "Bias Lighting"
+    ],
+    "readingTimeMinutes": 6,
+    "seoTitle": "Movie Night Lighting Scenes: No Switchboard Needed",
+    "seoDescription": "Build cinema-style lighting scenes in an Australian lounge room using plug-in smart bulbs, plugs and TV bias lighting - no wiring or electrician required.",
+    "seoKeywords": "movie night lighting, smart lighting scenes, bias lighting TV, home theatre lighting Australia, smart plug lamp, renter smart home, Home Assistant lighting automation",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:07:42.218Z",
+    "updatedAt": "2026-08-23T00:43:16.534Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3982,
+      "documentId": "gc22zi4i0oejmj493438jhy3",
+      "name": "movie-night-lighting-scenes-you-can-build-without--cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6.jpg",
+          "hash": "large_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6",
+          "mime": "image/jpeg",
+          "name": "large_movie-night-lighting-scenes-you-can-build-without--cover.jpg",
+          "path": null,
+          "size": 54.68,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 54680
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6.jpg",
+          "hash": "small_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6",
+          "mime": "image/jpeg",
+          "name": "small_movie-night-lighting-scenes-you-can-build-without--cover.jpg",
+          "path": null,
+          "size": 18.25,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 18246
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6.jpg",
+          "hash": "medium_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6",
+          "mime": "image/jpeg",
+          "name": "medium_movie-night-lighting-scenes-you-can-build-without--cover.jpg",
+          "path": null,
+          "size": 34.23,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 34231
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6.jpg",
+          "hash": "thumbnail_movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6",
+          "mime": "image/jpeg",
+          "name": "thumbnail_movie-night-lighting-scenes-you-can-build-without--cover.jpg",
+          "path": null,
+          "size": 6.15,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6151
+        }
+      },
+      "hash": "movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 113.52,
+      "url": "/uploads/movie_night_lighting_scenes_you_can_build_without_cover_0f5b43e4e6.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:07:42.190Z",
+      "updatedAt": "2026-08-23T00:07:42.190Z",
+      "publishedAt": "2026-08-23T00:07:42.191Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1632,
+        "question": "Do I need an electrician for smart movie lighting in a rental?",
+        "answer": "Not for plug-in gear. Smart bulbs in existing lamps or batten fittings, smart plugs and powerboards, and USB or low-voltage LED strips are all yours to install and take with you. A licensed electrician is required for anything fixed - replacing a wall switch with a smart dimmer, in-ceiling relay modules, hardwired downlights or switchboard work - and tenancy rules on alterations differ by state [VERIFY]."
+      },
+      {
+        "order": 2,
+        "id": 1633,
+        "question": "What colour temperature should I use behind the TV versus for room lighting?",
+        "answer": "Aim for around 6500K neutral white at low output for bias lighting behind the screen, mounted on the back edges so it washes the wall. For general room ambience use 2200-2700K at 5-10% brightness. Deliberate mixing is fine, but accidental mixing tends to look like a sports bar."
+      },
+      {
+        "order": 3,
+        "id": 1634,
+        "question": "Why does my smart bulb flicker when I dim it right down?",
+        "answer": "Cheap bulbs often use PWM dimming that becomes visible at very low levels, especially in peripheral vision. If a bulb shimmers at 5%, run it at about 15% instead, or replace it with a better bulb. Tunable-white bulbs frequently dim more smoothly than colour versions."
+      },
+      {
+        "order": 4,
+        "id": 1635,
+        "question": "Is a smart plug good enough, or do I need to buy smart bulbs?",
+        "answer": "A smart plug is the cheaper path if your lamps already have shades and warm globes you like, but you lose dimming - a plug is only on or off. Pair it with a low-wattage warm globe, such as a 4-5W LED around 400 lumens, for ambience. Choose a mini plug body, since Australian double sockets are tight and a wide plug blocks the second outlet."
+      },
+      {
+        "order": 5,
+        "id": 1636,
+        "question": "How can I trigger a movie scene without picking up my phone in the dark?",
+        "answer": "Voice is the free option - \"Hey Google, movie night\" works with any assistant-linked bulb. A battery-powered Zigbee or Bluetooth button on the coffee table costs roughly $25-$40 [VERIFY] and is the most household-friendly. If your streamer or soundbar reports playback state, playback starting can trigger the dim automatically - add an after-sunset condition so an afternoon podcast doesn't black out the room."
+      }
+    ],
+    "categories": [
+      {
+        "id": 4,
+        "documentId": "c5hknftxl6l8oaumjew123m5",
+        "name": "Entertainment",
+        "slug": "entertainment",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.808Z",
+        "updatedAt": "2026-08-22T18:30:53.672Z",
+        "publishedAt": "2026-08-22T18:30:53.669Z"
+      }
+    ],
+    "author": {
+      "id": 4,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": null
+    }
+  }
+}

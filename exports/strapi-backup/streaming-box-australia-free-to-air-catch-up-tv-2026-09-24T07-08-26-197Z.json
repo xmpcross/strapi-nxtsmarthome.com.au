@@ -1,0 +1,332 @@
+{
+  "published": {
+    "id": 264,
+    "documentId": "fzvorf5wxwwmgn40r3jvdm3s",
+    "title": "Choosing a Streaming Box in Australia When You Still Watch Free-to-Air and Catch-Up TV",
+    "slug": "streaming-box-australia-free-to-air-catch-up-tv",
+    "excerpt": "Most streaming boxes have no TV tuner, so free-to-air still comes from your antenna. Here's how to pick a box that runs the Australian catch-up apps you actually use, keeps live TV one button away, and doesn't leave you juggling three remotes.",
+    "content": "If you're the kind of household that watches the 6pm news on the antenna, then a documentary on iview, then whatever's queued in Netflix, a streaming box is a slightly different purchase to what the overseas reviews describe. The deciding factor usually isn't 4K or Dolby Vision. It's whether the platform runs 7plus, 9Now, 10 play, ABC iview and SBS On Demand properly, and whether getting back to live TV takes one button or five.\n\n**Practical takeaway:** keep your antenna plugged into the TV's own tuner, buy a streaming box for the apps, and choose the platform based on catch-up app support and how well it handles HDMI-CEC input switching. That combination costs less and annoys you less than trying to replace the tuner entirely.\n\n## Free-to-air doesn't come from the streaming box — check the tuner first\n\nVirtually every streaming box sold in Australia — Apple TV, Google TV/Chromecast, Fire TV, Android TV boxes — has no digital TV tuner inside. Plug an antenna cable into one and nothing happens. Free-to-air comes from the tuner already built into your television, and any TV sold here in the last decade has a DVB-T tuner that covers the standard Australian broadcast channels [VERIFY].\n\nSo the realistic setup is:\n\n- Antenna into the TV's aerial socket, as it is now.\n- Streaming box into an HDMI port.\n- One remote that can flip between them without a hunt through the input menu.\n\nThat last point is where cheap boxes fall down. Look for HDMI-CEC support (Samsung calls it Anynet+, LG calls it SIMPLINK, Sony calls it BRAVIA Sync). With CEC working, pressing a button on the streaming remote wakes the TV and jumps to the right input. Going back to live TV is then just the TV remote's channel button.\n\nIf your TV is old enough that its tuner has died or its apps have been abandoned, a separate set-top box with a tuner is a different product category again — and a Freeview-certified STB, not a streaming box, is what you want.\n\n## Which platforms actually carry the Australian catch-up apps\n\nThis is the single biggest sorting question, and it changes over time, so check the app store on the specific model before you buy rather than trusting a list from last year.\n\nBroadly, as of writing [VERIFY]:\n\n- **Apple TV (tvOS)** — the major Australian catch-up apps are all present, and the platform is well maintained here.\n- **Google TV / Android TV** — also well covered, and it's the platform most Australian TV brands use, so app parity is generally good.\n- **Amazon Fire TV** — coverage has improved but has historically had gaps in Australian broadcaster apps [VERIFY]. Worth checking each app individually.\n- **Roku** — a smaller presence in Australia and the local app catalogue reflects that [VERIFY].\n\nA second thing to test in-store or in the first fortnight: how the apps *behave*. Broadcaster catch-up apps are free and ad-supported, and on underpowered hardware they can be slow to launch, slow to resume, and prone to buffering during ad breaks. A box with a modern chipset and at least 2GB RAM handles them far better than a $50 dongle.\n\nAlso set expectations on quality. Most Australian catch-up content streams at 720p or 1080p, not 4K [VERIFY]. A 4K box won't make iview look sharper. Where 4K matters is Netflix, Disney+, Prime Video, Stan and Kayo.\n\n## Matching the box to how you watch\n\n**The budget Android TV route.** If you mainly want the catch-up apps plus a couple of subscription services on an older 1080p or entry-level 4K TV, an Android TV box does the job for well under the price of a premium player. You get the Google Play store, so app availability tracks the mainstream Android TV catalogue, and Chromecast built-in means you can push video from a phone — handy when someone's app login lives on their handset.\n\n::product:blaupunkt-bptv10-android-tv-streaming-device::\n\n**The enthusiast route.** If you run Plex or Jellyfin, keep a local media library on a NAS, or want the box to double as a Home Assistant media endpoint, the NVIDIA Shield remains the reference Android TV device. On paper its strengths are the ones that matter for a mixed household: gigabit Ethernet, wide codec support so it can direct-play files other boxes transcode, and Plex Media Server functionality on the Pro model. It's the expensive option, and specification alone can't tell you it'll be worth the gap for a purely app-based viewer — but for anyone with a library, it's the one that stops the compromises.\n\n::product:nvidia-shield-tv-pro-4k-hdr-streaming-media-player::\n\n**The local-files route.** Some households don't need apps at all — they need something to play a hard drive full of home videos, ripped DVDs or downloaded recordings on the lounge room TV, alongside the antenna. A simple media player with USB input is cheaper, has no account to log into, and no software that will stop being updated in three years.\n\n::product:laser-digital-full-hd-media-player::\n\n## Network and power details specific to Australian homes\n\n**Wire it if you can.** Broadcaster catch-up apps are more sensitive to jitter than Netflix is, because they're stitching in ad breaks. If the box sits near the router or you have a data point behind the TV, use Ethernet. Otherwise put it on the 5GHz band and check the signal before mounting anything.\n\n**Check your NBN plan.** A 4K stream typically wants around 15–25Mbps sustained [VERIFY]. On a 25/5 plan with two people streaming, catch-up apps are usually the first to degrade. A faster tier fixes more streaming complaints than a new box does.\n\n**Power and plugs.** Anything sold locally should ship with a Type I plug and a 240V-rated supply. Grey-import boxes from overseas marketplaces often arrive with a two-pin adapter or a supply that isn't approved for sale here — that's a real consideration, not a formality, and non-approved supplies can be a safety and warranty issue [VERIFY]. Buy from Amazon AU, eBay AU sellers shipping domestically, JB Hi-Fi, The Good Guys or Harvey Norman if you want local warranty and Australian Consumer Law cover [VERIFY].\n\n**No electrical work needed.** A streaming box is a plug-in appliance. If you're adding a new power point or data point behind a wall-mounted TV, that's a licensed electrician's job under AS/NZS wiring rules — running cables inside a wall cavity is not a DIY task in Australia.\n\n## A quick buying checklist\n\nBefore you pay, run through these:\n\n1. Does the platform's app store list all five broadcasters you actually watch?\n2. Does it do HDMI-CEC, so returning to live TV is one button?\n3. Is there an Ethernet port, or will it be on Wi-Fi forever?\n4. Does the remote have a mute and volume that control your TV or soundbar?\n5. If you have a Dolby Atmos soundbar, does the box pass through the formats you want?\n6. Is the manufacturer still shipping software updates for that model?\n\nQuestion six matters more than the spec sheet. Streaming boxes die by app deprecation, not hardware failure. A box on a well-supported platform will still be running iview in five years; a no-name Android device with a forked launcher probably won't.\n\nAnd one honest note: if your TV is recent and its own smart platform already runs the catch-up apps smoothly, you may not need a box at all. The upgrade case is strongest for older TVs, sluggish built-in platforms, or households with a media library the TV can't play.",
+    "keyTakeaways": "Streaming boxes have no TV tuner, so keep your antenna plugged into the TV and buy the box purely for apps — then choose the platform based on whether it carries 7plus, 9Now, 10 play, iview and SBS On Demand, and whether HDMI-CEC lets you jump back to live TV with one button.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "streaming",
+      "free-to-air TV",
+      "catch-up TV",
+      "Android TV",
+      "home entertainment",
+      "buying advice"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Best Streaming Box for Free-to-Air & Catch-Up TV in AU",
+    "seoDescription": "How to choose a streaming box in Australia when you still watch free-to-air: tuners, catch-up app support, HDMI-CEC, NBN speeds and local warranty.",
+    "seoKeywords": "streaming box Australia, catch-up TV apps, free-to-air streaming, Android TV box Australia, NVIDIA Shield TV Pro, 7plus 9Now iview apps, HDMI-CEC streaming",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:06:26.868Z",
+    "updatedAt": "2026-08-23T00:43:05.791Z",
+    "publishedAt": "2026-08-23T00:43:05.827Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3981,
+      "documentId": "qmen440im50yxz5g3526fpup",
+      "name": "choosing-a-streaming-box-in-australia-when-you-sti-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92.jpg",
+          "hash": "large_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92",
+          "mime": "image/jpeg",
+          "name": "large_choosing-a-streaming-box-in-australia-when-you-sti-cover.jpg",
+          "path": null,
+          "size": 50.17,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 50170
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92.jpg",
+          "hash": "small_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92",
+          "mime": "image/jpeg",
+          "name": "small_choosing-a-streaming-box-in-australia-when-you-sti-cover.jpg",
+          "path": null,
+          "size": 16.85,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 16852
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92.jpg",
+          "hash": "medium_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92",
+          "mime": "image/jpeg",
+          "name": "medium_choosing-a-streaming-box-in-australia-when-you-sti-cover.jpg",
+          "path": null,
+          "size": 31.18,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 31177
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92.jpg",
+          "hash": "thumbnail_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92",
+          "mime": "image/jpeg",
+          "name": "thumbnail_choosing-a-streaming-box-in-australia-when-you-sti-cover.jpg",
+          "path": null,
+          "size": 5.94,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5944
+        }
+      },
+      "hash": "choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 113.57,
+      "url": "/uploads/choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:06:26.842Z",
+      "updatedAt": "2026-08-23T00:06:26.842Z",
+      "publishedAt": "2026-08-23T00:06:26.842Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1627,
+        "question": "Can I plug my antenna into a streaming box like an Apple TV or Chromecast?",
+        "answer": "No — virtually every streaming box sold in Australia ships without a digital TV tuner, so an antenna cable plugged into one does nothing. Free-to-air keeps coming from the tuner built into your television, with the streaming box sitting on an HDMI input alongside it. If your TV's tuner has failed, a Freeview-certified set-top box is the right product, not a streaming box."
+      },
+      {
+        "order": 2,
+        "id": 1628,
+        "question": "Will a 4K streaming box make ABC iview and 7plus look better?",
+        "answer": "Not really. Most Australian catch-up content streams at roughly 720p or 1080p rather than 4K [VERIFY], so a 4K box won't add detail that was never in the stream. Where 4K does pay off is on Netflix, Disney+, Prime Video, Stan and Kayo."
+      },
+      {
+        "order": 3,
+        "id": 1629,
+        "question": "How do I avoid juggling multiple remotes when switching between live TV and apps?",
+        "answer": "Look for HDMI-CEC support, branded as Anynet+ on Samsung, SIMPLINK on LG and BRAVIA Sync on Sony. With CEC working, a button on the streaming remote wakes the TV and jumps to the correct input, and the TV remote's channel button takes you straight back to live broadcast. It's also worth checking the streaming remote can control volume and mute on your TV or soundbar."
+      },
+      {
+        "order": 4,
+        "id": 1630,
+        "question": "Is it safe to buy a cheap streaming box from an overseas seller?",
+        "answer": "Grey imports often arrive with a two-pin adapter or a power supply that isn't approved for sale here, which can be a safety and warranty issue [VERIFY]. Anything sold locally should include a Type I plug and a 240V-rated supply. Buying from Amazon AU, eBay AU sellers shipping domestically, JB Hi-Fi, The Good Guys or Harvey Norman keeps you covered by local warranty and Australian Consumer Law [VERIFY]."
+      },
+      {
+        "order": 5,
+        "id": 1631,
+        "question": "My catch-up apps buffer during ad breaks — is a new box the fix?",
+        "answer": "Often it's the connection rather than the hardware. Broadcaster apps are more sensitive to jitter than Netflix because they stitch in ad breaks, so use Ethernet if there's a data point behind the TV, or the 5GHz band otherwise. Also check your NBN tier — a 4K stream typically wants around 15–25Mbps sustained [VERIFY], and on a 25/5 plan with two people streaming, catch-up apps degrade first."
+      }
+    ],
+    "categories": [
+      {
+        "id": 4,
+        "documentId": "c5hknftxl6l8oaumjew123m5",
+        "name": "Entertainment",
+        "slug": "entertainment",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.808Z",
+        "updatedAt": "2026-08-22T18:30:53.672Z",
+        "publishedAt": "2026-08-22T18:30:53.669Z"
+      }
+    ],
+    "author": {
+      "id": 12,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": "2026-08-22T21:55:03.953Z"
+    }
+  },
+  "draft": {
+    "id": 197,
+    "documentId": "fzvorf5wxwwmgn40r3jvdm3s",
+    "title": "Choosing a Streaming Box in Australia When You Still Watch Free-to-Air and Catch-Up TV",
+    "slug": "streaming-box-australia-free-to-air-catch-up-tv",
+    "excerpt": "Most streaming boxes have no TV tuner, so free-to-air still comes from your antenna. Here's how to pick a box that runs the Australian catch-up apps you actually use, keeps live TV one button away, and doesn't leave you juggling three remotes.",
+    "content": "If you're the kind of household that watches the 6pm news on the antenna, then a documentary on iview, then whatever's queued in Netflix, a streaming box is a slightly different purchase to what the overseas reviews describe. The deciding factor usually isn't 4K or Dolby Vision. It's whether the platform runs 7plus, 9Now, 10 play, ABC iview and SBS On Demand properly, and whether getting back to live TV takes one button or five.\n\n**Practical takeaway:** keep your antenna plugged into the TV's own tuner, buy a streaming box for the apps, and choose the platform based on catch-up app support and how well it handles HDMI-CEC input switching. That combination costs less and annoys you less than trying to replace the tuner entirely.\n\n## Free-to-air doesn't come from the streaming box — check the tuner first\n\nVirtually every streaming box sold in Australia — Apple TV, Google TV/Chromecast, Fire TV, Android TV boxes — has no digital TV tuner inside. Plug an antenna cable into one and nothing happens. Free-to-air comes from the tuner already built into your television, and any TV sold here in the last decade has a DVB-T tuner that covers the standard Australian broadcast channels [VERIFY].\n\nSo the realistic setup is:\n\n- Antenna into the TV's aerial socket, as it is now.\n- Streaming box into an HDMI port.\n- One remote that can flip between them without a hunt through the input menu.\n\nThat last point is where cheap boxes fall down. Look for HDMI-CEC support (Samsung calls it Anynet+, LG calls it SIMPLINK, Sony calls it BRAVIA Sync). With CEC working, pressing a button on the streaming remote wakes the TV and jumps to the right input. Going back to live TV is then just the TV remote's channel button.\n\nIf your TV is old enough that its tuner has died or its apps have been abandoned, a separate set-top box with a tuner is a different product category again — and a Freeview-certified STB, not a streaming box, is what you want.\n\n## Which platforms actually carry the Australian catch-up apps\n\nThis is the single biggest sorting question, and it changes over time, so check the app store on the specific model before you buy rather than trusting a list from last year.\n\nBroadly, as of writing [VERIFY]:\n\n- **Apple TV (tvOS)** — the major Australian catch-up apps are all present, and the platform is well maintained here.\n- **Google TV / Android TV** — also well covered, and it's the platform most Australian TV brands use, so app parity is generally good.\n- **Amazon Fire TV** — coverage has improved but has historically had gaps in Australian broadcaster apps [VERIFY]. Worth checking each app individually.\n- **Roku** — a smaller presence in Australia and the local app catalogue reflects that [VERIFY].\n\nA second thing to test in-store or in the first fortnight: how the apps *behave*. Broadcaster catch-up apps are free and ad-supported, and on underpowered hardware they can be slow to launch, slow to resume, and prone to buffering during ad breaks. A box with a modern chipset and at least 2GB RAM handles them far better than a $50 dongle.\n\nAlso set expectations on quality. Most Australian catch-up content streams at 720p or 1080p, not 4K [VERIFY]. A 4K box won't make iview look sharper. Where 4K matters is Netflix, Disney+, Prime Video, Stan and Kayo.\n\n## Matching the box to how you watch\n\n**The budget Android TV route.** If you mainly want the catch-up apps plus a couple of subscription services on an older 1080p or entry-level 4K TV, an Android TV box does the job for well under the price of a premium player. You get the Google Play store, so app availability tracks the mainstream Android TV catalogue, and Chromecast built-in means you can push video from a phone — handy when someone's app login lives on their handset.\n\n::product:blaupunkt-bptv10-android-tv-streaming-device::\n\n**The enthusiast route.** If you run Plex or Jellyfin, keep a local media library on a NAS, or want the box to double as a Home Assistant media endpoint, the NVIDIA Shield remains the reference Android TV device. On paper its strengths are the ones that matter for a mixed household: gigabit Ethernet, wide codec support so it can direct-play files other boxes transcode, and Plex Media Server functionality on the Pro model. It's the expensive option, and specification alone can't tell you it'll be worth the gap for a purely app-based viewer — but for anyone with a library, it's the one that stops the compromises.\n\n::product:nvidia-shield-tv-pro-4k-hdr-streaming-media-player::\n\n**The local-files route.** Some households don't need apps at all — they need something to play a hard drive full of home videos, ripped DVDs or downloaded recordings on the lounge room TV, alongside the antenna. A simple media player with USB input is cheaper, has no account to log into, and no software that will stop being updated in three years.\n\n::product:laser-digital-full-hd-media-player::\n\n## Network and power details specific to Australian homes\n\n**Wire it if you can.** Broadcaster catch-up apps are more sensitive to jitter than Netflix is, because they're stitching in ad breaks. If the box sits near the router or you have a data point behind the TV, use Ethernet. Otherwise put it on the 5GHz band and check the signal before mounting anything.\n\n**Check your NBN plan.** A 4K stream typically wants around 15–25Mbps sustained [VERIFY]. On a 25/5 plan with two people streaming, catch-up apps are usually the first to degrade. A faster tier fixes more streaming complaints than a new box does.\n\n**Power and plugs.** Anything sold locally should ship with a Type I plug and a 240V-rated supply. Grey-import boxes from overseas marketplaces often arrive with a two-pin adapter or a supply that isn't approved for sale here — that's a real consideration, not a formality, and non-approved supplies can be a safety and warranty issue [VERIFY]. Buy from Amazon AU, eBay AU sellers shipping domestically, JB Hi-Fi, The Good Guys or Harvey Norman if you want local warranty and Australian Consumer Law cover [VERIFY].\n\n**No electrical work needed.** A streaming box is a plug-in appliance. If you're adding a new power point or data point behind a wall-mounted TV, that's a licensed electrician's job under AS/NZS wiring rules — running cables inside a wall cavity is not a DIY task in Australia.\n\n## A quick buying checklist\n\nBefore you pay, run through these:\n\n1. Does the platform's app store list all five broadcasters you actually watch?\n2. Does it do HDMI-CEC, so returning to live TV is one button?\n3. Is there an Ethernet port, or will it be on Wi-Fi forever?\n4. Does the remote have a mute and volume that control your TV or soundbar?\n5. If you have a Dolby Atmos soundbar, does the box pass through the formats you want?\n6. Is the manufacturer still shipping software updates for that model?\n\nQuestion six matters more than the spec sheet. Streaming boxes die by app deprecation, not hardware failure. A box on a well-supported platform will still be running iview in five years; a no-name Android device with a forked launcher probably won't.\n\nAnd one honest note: if your TV is recent and its own smart platform already runs the catch-up apps smoothly, you may not need a box at all. The upgrade case is strongest for older TVs, sluggish built-in platforms, or households with a media library the TV can't play.",
+    "keyTakeaways": "Streaming boxes have no TV tuner, so keep your antenna plugged into the TV and buy the box purely for apps — then choose the platform based on whether it carries 7plus, 9Now, 10 play, iview and SBS On Demand, and whether HDMI-CEC lets you jump back to live TV with one button.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "streaming",
+      "free-to-air TV",
+      "catch-up TV",
+      "Android TV",
+      "home entertainment",
+      "buying advice"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Best Streaming Box for Free-to-Air & Catch-Up TV in AU",
+    "seoDescription": "How to choose a streaming box in Australia when you still watch free-to-air: tuners, catch-up app support, HDMI-CEC, NBN speeds and local warranty.",
+    "seoKeywords": "streaming box Australia, catch-up TV apps, free-to-air streaming, Android TV box Australia, NVIDIA Shield TV Pro, 7plus 9Now iview apps, HDMI-CEC streaming",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:06:26.868Z",
+    "updatedAt": "2026-08-23T00:43:05.791Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3981,
+      "documentId": "qmen440im50yxz5g3526fpup",
+      "name": "choosing-a-streaming-box-in-australia-when-you-sti-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92.jpg",
+          "hash": "large_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92",
+          "mime": "image/jpeg",
+          "name": "large_choosing-a-streaming-box-in-australia-when-you-sti-cover.jpg",
+          "path": null,
+          "size": 50.17,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 50170
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92.jpg",
+          "hash": "small_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92",
+          "mime": "image/jpeg",
+          "name": "small_choosing-a-streaming-box-in-australia-when-you-sti-cover.jpg",
+          "path": null,
+          "size": 16.85,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 16852
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92.jpg",
+          "hash": "medium_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92",
+          "mime": "image/jpeg",
+          "name": "medium_choosing-a-streaming-box-in-australia-when-you-sti-cover.jpg",
+          "path": null,
+          "size": 31.18,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 31177
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92.jpg",
+          "hash": "thumbnail_choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92",
+          "mime": "image/jpeg",
+          "name": "thumbnail_choosing-a-streaming-box-in-australia-when-you-sti-cover.jpg",
+          "path": null,
+          "size": 5.94,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5944
+        }
+      },
+      "hash": "choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 113.57,
+      "url": "/uploads/choosing_a_streaming_box_in_australia_when_you_sti_cover_bf91357b92.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:06:26.842Z",
+      "updatedAt": "2026-08-23T00:06:26.842Z",
+      "publishedAt": "2026-08-23T00:06:26.842Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1622,
+        "question": "Can I plug my antenna into a streaming box like an Apple TV or Chromecast?",
+        "answer": "No — virtually every streaming box sold in Australia ships without a digital TV tuner, so an antenna cable plugged into one does nothing. Free-to-air keeps coming from the tuner built into your television, with the streaming box sitting on an HDMI input alongside it. If your TV's tuner has failed, a Freeview-certified set-top box is the right product, not a streaming box."
+      },
+      {
+        "order": 2,
+        "id": 1623,
+        "question": "Will a 4K streaming box make ABC iview and 7plus look better?",
+        "answer": "Not really. Most Australian catch-up content streams at roughly 720p or 1080p rather than 4K [VERIFY], so a 4K box won't add detail that was never in the stream. Where 4K does pay off is on Netflix, Disney+, Prime Video, Stan and Kayo."
+      },
+      {
+        "order": 3,
+        "id": 1624,
+        "question": "How do I avoid juggling multiple remotes when switching between live TV and apps?",
+        "answer": "Look for HDMI-CEC support, branded as Anynet+ on Samsung, SIMPLINK on LG and BRAVIA Sync on Sony. With CEC working, a button on the streaming remote wakes the TV and jumps to the correct input, and the TV remote's channel button takes you straight back to live broadcast. It's also worth checking the streaming remote can control volume and mute on your TV or soundbar."
+      },
+      {
+        "order": 4,
+        "id": 1625,
+        "question": "Is it safe to buy a cheap streaming box from an overseas seller?",
+        "answer": "Grey imports often arrive with a two-pin adapter or a power supply that isn't approved for sale here, which can be a safety and warranty issue [VERIFY]. Anything sold locally should include a Type I plug and a 240V-rated supply. Buying from Amazon AU, eBay AU sellers shipping domestically, JB Hi-Fi, The Good Guys or Harvey Norman keeps you covered by local warranty and Australian Consumer Law [VERIFY]."
+      },
+      {
+        "order": 5,
+        "id": 1626,
+        "question": "My catch-up apps buffer during ad breaks — is a new box the fix?",
+        "answer": "Often it's the connection rather than the hardware. Broadcaster apps are more sensitive to jitter than Netflix because they stitch in ad breaks, so use Ethernet if there's a data point behind the TV, or the 5GHz band otherwise. Also check your NBN tier — a 4K stream typically wants around 15–25Mbps sustained [VERIFY], and on a 25/5 plan with two people streaming, catch-up apps degrade first."
+      }
+    ],
+    "categories": [
+      {
+        "id": 4,
+        "documentId": "c5hknftxl6l8oaumjew123m5",
+        "name": "Entertainment",
+        "slug": "entertainment",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.808Z",
+        "updatedAt": "2026-08-22T18:30:53.672Z",
+        "publishedAt": "2026-08-22T18:30:53.669Z"
+      }
+    ],
+    "author": {
+      "id": 3,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": null
+    }
+  }
+}

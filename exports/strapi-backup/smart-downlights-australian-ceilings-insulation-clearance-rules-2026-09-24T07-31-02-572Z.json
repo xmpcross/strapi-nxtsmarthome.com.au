@@ -1,0 +1,334 @@
+{
+  "published": {
+    "id": 261,
+    "documentId": "vo86z9ud3bdozr1iexu55ofh",
+    "title": "Smart Downlights in Australian Ceilings: Insulation Clearance Rules, Explained",
+    "slug": "smart-downlights-australian-ceilings-insulation-clearance-rules",
+    "excerpt": "Retrofit globe, smart dimmer module, smart switch or full replacement downlight? Here is how each option works in a typical Australian ceiling, what the AS/NZS abutment and coverage markings (IC, IC-4, CA135, non-IC) actually mean, and where a licensed electrician is legally required.",
+    "content": "Smart downlights look like a simple upgrade. In practice, the ceiling is the complicated part. Most Australian homes built or renovated in the last twenty years have fixed, integrated LED downlights wired into a lighting circuit, sitting in a roof space that is increasingly full of bulk insulation. Get the combination wrong and you either void the fitting's warranty, cook the driver, or create a genuine fire risk.\n\nHere is the practical version: work out which of the four upgrade paths suits your ceiling, then read the classification marking stamped on the luminaire before anyone touches the insulation around it.\n\n## The four ways to make downlights smart\n\n**1. Swap the globe.** Only works if your downlights take a replaceable lamp — usually a GU10 or MR16 fitting, or an E27 in a decorative recessed can. Smart GU10 globes from Philips Hue, Nanoleaf, Arlec Grid Connect and Mirabella Genio are all sold locally, roughly $15–$25 for budget Wi-Fi and $50–$70 each for Hue [VERIFY]. No electrician needed for the globe change itself, but note MR16 fittings run on 12V through a transformer and many smart lamps will not work with an old halogen transformer. Check compatibility before you buy six.\n\n**2. Smart dimmer module behind the wall switch.** A Zigbee or Wi-Fi dimmer module (Shelly, Aqara, Zemismart, Sonoff) fits into the switch mechanism or the ceiling rose and dims the whole circuit. This keeps your existing downlights and gives you one point of control per circuit rather than per light. Most modules need a neutral at the switch, which older Australian homes frequently do not have. This is hardwired work — a licensed electrician is required [VERIFY].\n\n**3. Smart wall switch.** Replaces the mech entirely. Good for whole-of-room control, and the physical switch keeps working for guests. Again, licensed electrician, and again, neutral required for most models.\n\n**4. Full replacement smart downlights.** Integrated smart LED downlights — Hue, Brilliant Smart, Deta Grid Connect, Arlec — swap out the entire fitting. Best colour and tunable-white performance, most expensive, and every fitting has to be individually installed and paired.\n\nIf your existing downlights are fixed integrated LEDs and you only want scheduling and dimming, option 2 or 3 is usually far cheaper than option 4.\n\n## What the AS/NZS clearance markings actually mean\n\nSince AS/NZS 60598.2.2:2016, recessed luminaires sold here carry a classification marking that tells you how insulation may sit around them [VERIFY]. In plain terms:\n\n- **Non-IC** — insulation must be kept clear of the fitting. There is a required separation distance, and the fitting cannot be covered or abutted.\n- **CA80 / CA135** — insulation may be *abutted* (butted up against the side) but not laid over the top. The number relates to a temperature rating in degrees Celsius [VERIFY].\n- **IC** — insulation may be *covered* over the fitting.\n- **IC-4** — may be both covered and abutted, and is generally the marking you want if your roof space is fully batted.\n\nThe marking belongs to the luminaire, not to the globe inside it. Putting a smart GU10 into a non-IC housing does not change the housing's rating. Equally, buying an IC-4 rated smart downlight does not retroactively make the insulation arrangement around your *other* fittings compliant.\n\nOlder halogen installations were typically installed with generous clearances and sometimes physical barriers or covers. If your home still has halogens and the insulation has since been topped up, that is worth a professional look regardless of whether you go smart. Installation requirements for recessed luminaires are covered by AS/NZS 3000 and related standards, and compliance is the installing electrician's call, not a retailer's [VERIFY].\n\n## Heat is why cheap smart downlights die early\n\nA smart downlight contains a radio, a microcontroller and a driver, all sitting in a plasterboard hole in an Australian roof space that can exceed 50°C in a Perth or Brisbane summer. Electrolytic capacitors in the driver are the usual failure point, and their life roughly halves for every 10°C rise [VERIFY — general electronics rule of thumb, not a manufacturer figure].\n\nThat is the specification-level argument for paying more: better-known brands publish an L70 lifetime figure and an ambient temperature rating (often Ta 40°C or Ta 45°C). Cheap unbranded fittings often publish neither. It also argues for keeping the smarts *out* of the ceiling where you can — a dimmer module in a wall cavity or a smart switch on the wall lives in a much friendlier thermal environment than a driver above the insulation line.\n\n## Choosing the control layer: Wi-Fi, Zigbee, Thread or Matter\n\nTwenty Wi-Fi downlights on a single home router is a genuinely bad idea — each one holds a connection, and cheap chipsets handle roaming and reconnection poorly. For anything past about six lights, a low-power mesh (Zigbee or Thread) is the better architecture, because lights are mains-powered and become mesh repeaters themselves.\n\nIf you want everything under one roof without being locked to a single brand's app, a multiprotocol hub is the sensible centre of the system.\n\n::product:zemismart-matter-zigbee-thread-smart-home-hub::\n\nFor Home Assistant users, you do not need a vendor hub at all. A USB Zigbee coordinator plugged into your HA machine, running Zigbee2MQTT or ZHA, gives you local control of Zigbee downlights, dimmer modules and switches with no cloud dependency and no monthly anything.\n\n::product:sonoff-zigbee-3-0-usb-dongle::\n\nOne planning tip: decide on your protocol *before* you buy fittings. Mixing Wi-Fi downlights in the kitchen with Zigbee in the lounge works, but you will end up with two apps and inconsistent scene behaviour.\n\n## Renting? Do not touch the ceiling\n\nIf you rent, hardwired changes are out — that includes dimmer modules and switch replacements. Tenancy rules on fixtures vary by state and you would generally need written landlord consent even for reversible work [VERIFY — check your state's residential tenancies authority].\n\nThe workable path is: replaceable smart globes if your downlights take them, plus lamps on smart plugs to fill in the light you cannot control. A couple of well-placed floor lamps on plugs often gives better evening light than downlights do anyway.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nEverything comes with you when you move, and there is no make-good at the end of the lease.\n\n## What to ask your electrician before they start\n\nBring this list to the quote:\n\n1. What classification marking do my existing downlights carry, and how is the insulation currently sitting around them?\n2. Is there a neutral at the wall switch — and if not, what would it cost to run one?\n3. How many fittings are on each circuit, and does the dimmer module's load rating cover them?\n4. If replacing fittings, are the new ones IC-4 rated, and what is the cut-out diameter compared with my existing holes?\n5. Can I get a Certificate of Electrical Safety or the equivalent for my state?\n\nQuestion 4 catches people out constantly. Australian downlight cut-outs are commonly 90mm, but 70mm, 100mm and 120mm all exist [VERIFY]. A 10mm mismatch means patching plasterboard across every room.\n\nAll hardwired lighting work in Australia must be carried out by a licensed electrician. Changing a globe is DIY; anything upstream of the lampholder is not.",
+    "keyTakeaways": "Before buying smart downlights, check the classification marking on the fitting: non-IC must be kept clear of insulation, CA80/CA135 may be abutted but not covered, and IC-4 may be both covered and abutted. Globe swaps are DIY, but any hardwired dimmer module, smart switch or full downlight replacement must be done by a licensed electrician.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "smart lighting",
+      "downlights",
+      "AS/NZS standards",
+      "zigbee",
+      "home assistant",
+      "renters",
+      "electrical safety"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Downlights AU: Insulation Clearance Rules",
+    "seoDescription": "Smart downlight options for Australian ceilings, what IC, IC-4, CA135 and non-IC markings mean for insulation clearance, and when a licensed electrician is requ",
+    "seoKeywords": "smart downlights australia, IC-4 rated downlights, AS/NZS insulation clearance, smart dimmer module australia, zigbee downlights, GU10 smart globes, downlight installation rules",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:04:19.659Z",
+    "updatedAt": "2026-08-23T00:42:31.005Z",
+    "publishedAt": "2026-08-23T00:42:31.055Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3979,
+      "documentId": "scg54ghgz6q36cosdiiu6trd",
+      "name": "smart-downlights-in-australian-ceilings-insulation-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff.jpg",
+          "hash": "large_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff",
+          "mime": "image/jpeg",
+          "name": "large_smart-downlights-in-australian-ceilings-insulation-cover.jpg",
+          "path": null,
+          "size": 70.07,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 70068
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff.jpg",
+          "hash": "small_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff",
+          "mime": "image/jpeg",
+          "name": "small_smart-downlights-in-australian-ceilings-insulation-cover.jpg",
+          "path": null,
+          "size": 22.49,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 22491
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff.jpg",
+          "hash": "medium_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff",
+          "mime": "image/jpeg",
+          "name": "medium_smart-downlights-in-australian-ceilings-insulation-cover.jpg",
+          "path": null,
+          "size": 43.11,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 43114
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff.jpg",
+          "hash": "thumbnail_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff",
+          "mime": "image/jpeg",
+          "name": "thumbnail_smart-downlights-in-australian-ceilings-insulation-cover.jpg",
+          "path": null,
+          "size": 7.46,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 7462
+        }
+      },
+      "hash": "smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 153.57,
+      "url": "/uploads/smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:04:19.640Z",
+      "updatedAt": "2026-08-23T00:04:19.640Z",
+      "publishedAt": "2026-08-23T00:04:19.640Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1597,
+        "question": "Can I put a smart GU10 globe into my existing downlight if the roof space is fully insulated?",
+        "answer": "Only if the housing itself is rated for that insulation arrangement — the classification marking (non-IC, CA80/CA135, IC or IC-4) belongs to the luminaire, not the lamp inside it. Swapping in a smart globe does not change what the fitting is rated for. If insulation has been topped up since the fittings went in, get an electrician to look at the clearances [VERIFY]."
+      },
+      {
+        "order": 2,
+        "id": 1598,
+        "question": "What's the cheapest way to add dimming and schedules to fixed integrated LED downlights?",
+        "answer": "If the downlights can't take a replaceable globe, a smart dimmer module behind the switch or a smart wall switch is usually far cheaper than replacing every fitting. Both give you one control point per circuit rather than per light. Both are hardwired work, so a licensed electrician is required [VERIFY]."
+      },
+      {
+        "order": 3,
+        "id": 1599,
+        "question": "Why do budget smart downlights seem to fail after a couple of years?",
+        "answer": "The driver, radio and microcontroller all sit in a plasterboard hole in a roof space that can exceed 50°C in a Perth or Brisbane summer, and electrolytic capacitors in the driver are the usual failure point [VERIFY — general electronics rule of thumb]. Brands that publish an L70 figure and an ambient rating such as Ta 40°C or Ta 45°C at least tell you what the fitting is specified for. Keeping the smarts in a wall cavity instead of the ceiling avoids the problem entirely."
+      },
+      {
+        "order": 4,
+        "id": 1600,
+        "question": "I'm renting — what can I actually do without the landlord getting involved?",
+        "answer": "Stick to replaceable smart globes if your downlights take them, plus floor and table lamps on smart plugs. Hardwired changes, including dimmer modules and switch replacements, are out. Tenancy rules on fixtures vary by state and written landlord consent is generally needed even for reversible work [VERIFY — check your state's residential tenancies authority]."
+      },
+      {
+        "order": 5,
+        "id": 1601,
+        "question": "How many Wi-Fi smart lights is too many before I should switch to Zigbee or Thread?",
+        "answer": "Past about six lights, a low-power mesh is the better architecture — mains-powered lights act as repeaters, and cheap Wi-Fi chipsets handle roaming and reconnection poorly. Decide on your protocol before buying fittings, because mixing Wi-Fi in one room with Zigbee in another leaves you with two apps and inconsistent scenes."
+      }
+    ],
+    "categories": [
+      {
+        "id": 6,
+        "documentId": "lbjx41g8uqij9ktmnodxn4x2",
+        "name": "Lighting",
+        "slug": "lighting",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.919Z",
+        "updatedAt": "2026-08-22T18:30:53.746Z",
+        "publishedAt": "2026-08-22T18:30:53.744Z"
+      }
+    ],
+    "author": {
+      "id": 12,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": "2026-08-22T21:55:03.953Z"
+    }
+  },
+  "draft": {
+    "id": 189,
+    "documentId": "vo86z9ud3bdozr1iexu55ofh",
+    "title": "Smart Downlights in Australian Ceilings: Insulation Clearance Rules, Explained",
+    "slug": "smart-downlights-australian-ceilings-insulation-clearance-rules",
+    "excerpt": "Retrofit globe, smart dimmer module, smart switch or full replacement downlight? Here is how each option works in a typical Australian ceiling, what the AS/NZS abutment and coverage markings (IC, IC-4, CA135, non-IC) actually mean, and where a licensed electrician is legally required.",
+    "content": "Smart downlights look like a simple upgrade. In practice, the ceiling is the complicated part. Most Australian homes built or renovated in the last twenty years have fixed, integrated LED downlights wired into a lighting circuit, sitting in a roof space that is increasingly full of bulk insulation. Get the combination wrong and you either void the fitting's warranty, cook the driver, or create a genuine fire risk.\n\nHere is the practical version: work out which of the four upgrade paths suits your ceiling, then read the classification marking stamped on the luminaire before anyone touches the insulation around it.\n\n## The four ways to make downlights smart\n\n**1. Swap the globe.** Only works if your downlights take a replaceable lamp — usually a GU10 or MR16 fitting, or an E27 in a decorative recessed can. Smart GU10 globes from Philips Hue, Nanoleaf, Arlec Grid Connect and Mirabella Genio are all sold locally, roughly $15–$25 for budget Wi-Fi and $50–$70 each for Hue [VERIFY]. No electrician needed for the globe change itself, but note MR16 fittings run on 12V through a transformer and many smart lamps will not work with an old halogen transformer. Check compatibility before you buy six.\n\n**2. Smart dimmer module behind the wall switch.** A Zigbee or Wi-Fi dimmer module (Shelly, Aqara, Zemismart, Sonoff) fits into the switch mechanism or the ceiling rose and dims the whole circuit. This keeps your existing downlights and gives you one point of control per circuit rather than per light. Most modules need a neutral at the switch, which older Australian homes frequently do not have. This is hardwired work — a licensed electrician is required [VERIFY].\n\n**3. Smart wall switch.** Replaces the mech entirely. Good for whole-of-room control, and the physical switch keeps working for guests. Again, licensed electrician, and again, neutral required for most models.\n\n**4. Full replacement smart downlights.** Integrated smart LED downlights — Hue, Brilliant Smart, Deta Grid Connect, Arlec — swap out the entire fitting. Best colour and tunable-white performance, most expensive, and every fitting has to be individually installed and paired.\n\nIf your existing downlights are fixed integrated LEDs and you only want scheduling and dimming, option 2 or 3 is usually far cheaper than option 4.\n\n## What the AS/NZS clearance markings actually mean\n\nSince AS/NZS 60598.2.2:2016, recessed luminaires sold here carry a classification marking that tells you how insulation may sit around them [VERIFY]. In plain terms:\n\n- **Non-IC** — insulation must be kept clear of the fitting. There is a required separation distance, and the fitting cannot be covered or abutted.\n- **CA80 / CA135** — insulation may be *abutted* (butted up against the side) but not laid over the top. The number relates to a temperature rating in degrees Celsius [VERIFY].\n- **IC** — insulation may be *covered* over the fitting.\n- **IC-4** — may be both covered and abutted, and is generally the marking you want if your roof space is fully batted.\n\nThe marking belongs to the luminaire, not to the globe inside it. Putting a smart GU10 into a non-IC housing does not change the housing's rating. Equally, buying an IC-4 rated smart downlight does not retroactively make the insulation arrangement around your *other* fittings compliant.\n\nOlder halogen installations were typically installed with generous clearances and sometimes physical barriers or covers. If your home still has halogens and the insulation has since been topped up, that is worth a professional look regardless of whether you go smart. Installation requirements for recessed luminaires are covered by AS/NZS 3000 and related standards, and compliance is the installing electrician's call, not a retailer's [VERIFY].\n\n## Heat is why cheap smart downlights die early\n\nA smart downlight contains a radio, a microcontroller and a driver, all sitting in a plasterboard hole in an Australian roof space that can exceed 50°C in a Perth or Brisbane summer. Electrolytic capacitors in the driver are the usual failure point, and their life roughly halves for every 10°C rise [VERIFY — general electronics rule of thumb, not a manufacturer figure].\n\nThat is the specification-level argument for paying more: better-known brands publish an L70 lifetime figure and an ambient temperature rating (often Ta 40°C or Ta 45°C). Cheap unbranded fittings often publish neither. It also argues for keeping the smarts *out* of the ceiling where you can — a dimmer module in a wall cavity or a smart switch on the wall lives in a much friendlier thermal environment than a driver above the insulation line.\n\n## Choosing the control layer: Wi-Fi, Zigbee, Thread or Matter\n\nTwenty Wi-Fi downlights on a single home router is a genuinely bad idea — each one holds a connection, and cheap chipsets handle roaming and reconnection poorly. For anything past about six lights, a low-power mesh (Zigbee or Thread) is the better architecture, because lights are mains-powered and become mesh repeaters themselves.\n\nIf you want everything under one roof without being locked to a single brand's app, a multiprotocol hub is the sensible centre of the system.\n\n::product:zemismart-matter-zigbee-thread-smart-home-hub::\n\nFor Home Assistant users, you do not need a vendor hub at all. A USB Zigbee coordinator plugged into your HA machine, running Zigbee2MQTT or ZHA, gives you local control of Zigbee downlights, dimmer modules and switches with no cloud dependency and no monthly anything.\n\n::product:sonoff-zigbee-3-0-usb-dongle::\n\nOne planning tip: decide on your protocol *before* you buy fittings. Mixing Wi-Fi downlights in the kitchen with Zigbee in the lounge works, but you will end up with two apps and inconsistent scene behaviour.\n\n## Renting? Do not touch the ceiling\n\nIf you rent, hardwired changes are out — that includes dimmer modules and switch replacements. Tenancy rules on fixtures vary by state and you would generally need written landlord consent even for reversible work [VERIFY — check your state's residential tenancies authority].\n\nThe workable path is: replaceable smart globes if your downlights take them, plus lamps on smart plugs to fill in the light you cannot control. A couple of well-placed floor lamps on plugs often gives better evening light than downlights do anyway.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nEverything comes with you when you move, and there is no make-good at the end of the lease.\n\n## What to ask your electrician before they start\n\nBring this list to the quote:\n\n1. What classification marking do my existing downlights carry, and how is the insulation currently sitting around them?\n2. Is there a neutral at the wall switch — and if not, what would it cost to run one?\n3. How many fittings are on each circuit, and does the dimmer module's load rating cover them?\n4. If replacing fittings, are the new ones IC-4 rated, and what is the cut-out diameter compared with my existing holes?\n5. Can I get a Certificate of Electrical Safety or the equivalent for my state?\n\nQuestion 4 catches people out constantly. Australian downlight cut-outs are commonly 90mm, but 70mm, 100mm and 120mm all exist [VERIFY]. A 10mm mismatch means patching plasterboard across every room.\n\nAll hardwired lighting work in Australia must be carried out by a licensed electrician. Changing a globe is DIY; anything upstream of the lampholder is not.",
+    "keyTakeaways": "Before buying smart downlights, check the classification marking on the fitting: non-IC must be kept clear of insulation, CA80/CA135 may be abutted but not covered, and IC-4 may be both covered and abutted. Globe swaps are DIY, but any hardwired dimmer module, smart switch or full downlight replacement must be done by a licensed electrician.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "smart lighting",
+      "downlights",
+      "AS/NZS standards",
+      "zigbee",
+      "home assistant",
+      "renters",
+      "electrical safety"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Downlights AU: Insulation Clearance Rules",
+    "seoDescription": "Smart downlight options for Australian ceilings, what IC, IC-4, CA135 and non-IC markings mean for insulation clearance, and when a licensed electrician is requ",
+    "seoKeywords": "smart downlights australia, IC-4 rated downlights, AS/NZS insulation clearance, smart dimmer module australia, zigbee downlights, GU10 smart globes, downlight installation rules",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:04:19.659Z",
+    "updatedAt": "2026-08-23T00:42:31.005Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3979,
+      "documentId": "scg54ghgz6q36cosdiiu6trd",
+      "name": "smart-downlights-in-australian-ceilings-insulation-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff.jpg",
+          "hash": "large_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff",
+          "mime": "image/jpeg",
+          "name": "large_smart-downlights-in-australian-ceilings-insulation-cover.jpg",
+          "path": null,
+          "size": 70.07,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 70068
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff.jpg",
+          "hash": "small_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff",
+          "mime": "image/jpeg",
+          "name": "small_smart-downlights-in-australian-ceilings-insulation-cover.jpg",
+          "path": null,
+          "size": 22.49,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 22491
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff.jpg",
+          "hash": "medium_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff",
+          "mime": "image/jpeg",
+          "name": "medium_smart-downlights-in-australian-ceilings-insulation-cover.jpg",
+          "path": null,
+          "size": 43.11,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 43114
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff.jpg",
+          "hash": "thumbnail_smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff",
+          "mime": "image/jpeg",
+          "name": "thumbnail_smart-downlights-in-australian-ceilings-insulation-cover.jpg",
+          "path": null,
+          "size": 7.46,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 7462
+        }
+      },
+      "hash": "smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 153.57,
+      "url": "/uploads/smart_downlights_in_australian_ceilings_insulation_cover_e28c077eff.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:04:19.640Z",
+      "updatedAt": "2026-08-23T00:04:19.640Z",
+      "publishedAt": "2026-08-23T00:04:19.640Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1592,
+        "question": "Can I put a smart GU10 globe into my existing downlight if the roof space is fully insulated?",
+        "answer": "Only if the housing itself is rated for that insulation arrangement — the classification marking (non-IC, CA80/CA135, IC or IC-4) belongs to the luminaire, not the lamp inside it. Swapping in a smart globe does not change what the fitting is rated for. If insulation has been topped up since the fittings went in, get an electrician to look at the clearances [VERIFY]."
+      },
+      {
+        "order": 2,
+        "id": 1593,
+        "question": "What's the cheapest way to add dimming and schedules to fixed integrated LED downlights?",
+        "answer": "If the downlights can't take a replaceable globe, a smart dimmer module behind the switch or a smart wall switch is usually far cheaper than replacing every fitting. Both give you one control point per circuit rather than per light. Both are hardwired work, so a licensed electrician is required [VERIFY]."
+      },
+      {
+        "order": 3,
+        "id": 1594,
+        "question": "Why do budget smart downlights seem to fail after a couple of years?",
+        "answer": "The driver, radio and microcontroller all sit in a plasterboard hole in a roof space that can exceed 50°C in a Perth or Brisbane summer, and electrolytic capacitors in the driver are the usual failure point [VERIFY — general electronics rule of thumb]. Brands that publish an L70 figure and an ambient rating such as Ta 40°C or Ta 45°C at least tell you what the fitting is specified for. Keeping the smarts in a wall cavity instead of the ceiling avoids the problem entirely."
+      },
+      {
+        "order": 4,
+        "id": 1595,
+        "question": "I'm renting — what can I actually do without the landlord getting involved?",
+        "answer": "Stick to replaceable smart globes if your downlights take them, plus floor and table lamps on smart plugs. Hardwired changes, including dimmer modules and switch replacements, are out. Tenancy rules on fixtures vary by state and written landlord consent is generally needed even for reversible work [VERIFY — check your state's residential tenancies authority]."
+      },
+      {
+        "order": 5,
+        "id": 1596,
+        "question": "How many Wi-Fi smart lights is too many before I should switch to Zigbee or Thread?",
+        "answer": "Past about six lights, a low-power mesh is the better architecture — mains-powered lights act as repeaters, and cheap Wi-Fi chipsets handle roaming and reconnection poorly. Decide on your protocol before buying fittings, because mixing Wi-Fi in one room with Zigbee in another leaves you with two apps and inconsistent scenes."
+      }
+    ],
+    "categories": [
+      {
+        "id": 6,
+        "documentId": "lbjx41g8uqij9ktmnodxn4x2",
+        "name": "Lighting",
+        "slug": "lighting",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.919Z",
+        "updatedAt": "2026-08-22T18:30:53.746Z",
+        "publishedAt": "2026-08-22T18:30:53.744Z"
+      }
+    ],
+    "author": {
+      "id": 3,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": null
+    }
+  }
+}

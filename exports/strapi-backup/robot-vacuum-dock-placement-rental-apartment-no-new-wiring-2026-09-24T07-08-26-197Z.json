@@ -1,0 +1,332 @@
+{
+  "published": {
+    "id": 275,
+    "documentId": "z8z2vraibdt0lnrffjj7751s",
+    "title": "Where to Put a Robot Vacuum Dock in a Rental or Apartment Without New Wiring",
+    "slug": "robot-vacuum-dock-placement-rental-apartment-no-new-wiring",
+    "excerpt": "Renting or in an apartment and stuck for somewhere to park the dock? Here's how to choose a spot that works with the power points you already have — clearances, self-empty and mop-wash docks, extension lead safety, and the places that quietly cause trouble.",
+    "content": "Robot vacuum makers photograph their docks in enormous open-plan homes with a conveniently placed power point on a bare white wall. Australian rentals and apartments are rarely that generous. You get one power point behind the couch, another shared with the fridge, and a landlord who is not thrilled about new outlets.\n\nThe good news: you almost never need new wiring. You need to be a bit smarter about which existing 240V outlet you use, and how much clear floor you can give the dock.\n\n## What the Dock Actually Needs\n\nBefore you hunt for a spot, know the non-negotiables. Most manufacturers ask for something close to this, though you should check the manual for your specific model [VERIFY — clearances vary by brand]:\n\n- **A flat, hard, level floor.** Tiles, timber, vinyl and laminate are all fine. Thick carpet or a rug under the dock is the single most common cause of docking failures, because the robot's wheels sink and the charging contacts miss.\n- **A solid wall behind it.** Skirting boards are usually fine; deep skirting or a rounded architrave can push the dock forward enough to matter.\n- **Roughly 0.5 m clear either side and 1.5 m clear in front.** The robot needs a run-up to line up its infrared or laser docking signal.\n- **Mains power within the cord length.** Dock cords are commonly 1.5–1.8 m [VERIFY per model].\n- **Decent 2.4 GHz Wi-Fi.** Nearly all robot vacuums join 2.4 GHz networks only. Apartment concrete and steel-framed walls chew through that band, so a dock buried in a linen cupboard on the far side of the flat will drop out.\n- **Permanent power.** Leave it switched on. Docks trickle-charge, run drying cycles and download firmware overnight.\n\n## Rental-Friendly Spots That Genuinely Work\n\nIn order of how often they work out in Australian apartments and townhouses:\n\n**The hallway.** Usually hard floor, usually has a power point near a doorway for the vacuum cleaner, and it is the most central point in the home. Downside: the dock is on show. A slim console table above it hides most of the visual clutter as long as you keep the front clear.\n\n**The laundry or laundry nook.** Hard floor, a spare outlet for the dryer or iron, and a tap nearby if you have a mop dock that needs refilling. Keep it well away from the tub and any splash zone — outlets and appliances in wet areas are governed by AS/NZS 3000 clearance rules and this is not a place to improvise [VERIFY with a licensed electrician if you are unsure].\n\n**The end of a kitchen bench or against a kickboard.** Kitchens are tiled, have plenty of outlets and are usually adjacent to the living area. Watch that the dock isn't in the swing of the oven or dishwasher door.\n\n**Under a floating vanity or an open-bottom wardrobe.** Only if there is genuine airflow and mains power nearby. Enclosed cupboards trap heat and moisture, and self-emptying docks are loud enough that a cupboard door will rattle rather than muffle.\n\n**Against the wall beside the fridge.** Often overlooked, usually hard floor, and there is generally a dedicated outlet in the cavity. Do not share the fridge's outlet if it is a single point.\n\nSpots that look tempting and usually disappoint: behind a door that gets left open, on a rug, in a bathroom, on a landing at the top of stairs, or tucked in a corner where the robot can only approach from one narrow angle.\n\n## Big Docks: Self-Empty and Mop-Washing Stations\n\nAll-in-one docks change the maths. They are tall, deep and heavy, they need clear air above for the dust bag compartment, and the mop-washing ones want a spot you're happy to carry two water tanks to and from.\n\nSquare-based docks sit flush into a corner more neatly than rounded ones, which matters when you're working with a 900 mm hallway.\n\n::product:ecovacs-deebot-x2-omni-square-robot-vacuum::\n\nIf the dock also washes and hot-air-dries mop pads, plan for a slightly longer running time in place and a bit more noise. On paper these stations are designed to be plumbing-free — you fill a clean tank and empty a dirty one — which is exactly what you want in a rental, because permanent water connections are a landlord conversation you'd rather skip.\n\n::product:dreame-l10s-ultra-robot-vacuum-and-mop::\n\nPractical tip: put a thin, hard mat or a cut-to-size sheet of clear PVC under a mopping dock. It catches drips, protects the floorboards you'd like your bond back on, and lifts out for cleaning. Bunnings and Officeworks both stock suitable sheeting [VERIFY current stock and pricing].\n\n## Power Without an Electrician\n\nYou cannot add a new power point yourself. In every Australian state and territory, fixed wiring work must be done by a licensed electrician, and in a rental it needs the owner's agreement as well [VERIFY current rules in your state]. What you can legally do is use the outlets you already have, sensibly.\n\n- **One approved extension lead is fine.** Use a lead marked to AS/NZS 3112/3199 [VERIFY marking on the product], rated well above the dock's draw, and run it along a wall — not under a rug, where it can overheat and where it also blocks the robot.\n- **Do not daisy-chain powerboards** or plug a powerboard into an extension lead into another board. This is a genuine fire risk, not a technicality.\n- **Use adhesive cable clips, not screws.** Command-style clips and stick-on cable raceway keep the lead tidy and come off at the end of the lease.\n- **Think twice about a smart plug.** Cutting power to a dock breaks charging, drying and self-empty cycles, and several manufacturers advise against it [VERIFY your model's manual]. Where a smart plug does earn its keep is energy monitoring on a nearby appliance, or switching a lamp so the robot has light for its camera-based navigation.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\n## Apartment-Specific Headaches\n\n**Noise and neighbours.** Self-empty cycles are brief but genuinely loud, often quoted in the 75–85 dB range [VERIFY per model]. In a unit with shared walls, schedule cleaning for mid-morning rather than 6 am or after 10 pm.\n\n**Strata and common property.** You are only ever placing a dock inside your own lot, so this is usually a non-issue — but anything involving drilling into a shared wall or drawing water from a common line is not [VERIFY with your strata manager].\n\n**Small floorplans.** In a one-bedroom flat, the dock's 1.5 m approach zone can be a real chunk of your living room. Docking against a hallway wall and letting the robot travel to the rooms is almost always better than parking it in the middle of the action.\n\n## A Five-Minute Placement Test\n\nBefore you commit to a spot, run this: set the dock down, send the robot out, then send it home three times from three different rooms. If it finds the dock every time and seats properly, you've found the place. If it hunts, nudges the dock out of position, or parks crooked, move it 300 mm along the wall and try again. Ninety per cent of \"my robot won't dock\" complaints are geometry, not hardware.\n\nMark the dock's outline on the floor with a couple of small strips of removable tape so it goes back to the same spot after you sweep behind it. Boring, effective, and completely bond-safe.",
+    "keyTakeaways": "Put the dock against a flat wall on hard floor within reach of an existing power point, with roughly half a metre clear each side and 1.5 m in front — a hallway, laundry nook or the end of a kitchen bench usually works best. Use one approved extension lead if you must, never daisy-chained powerboards, and leave the dock permanently switched on.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "robot vacuums",
+      "renting",
+      "apartments",
+      "setup",
+      "power points",
+      "Australia"
+    ],
+    "readingTimeMinutes": 6,
+    "seoTitle": "Robot Vacuum Dock Placement in a Rental: No New Wiring",
+    "seoDescription": "How to choose a robot vacuum dock spot in an Australian rental or apartment using existing power points — clearances, mop docks, extension lead safety.",
+    "seoKeywords": "robot vacuum dock placement, robot vacuum rental apartment, where to put robot vacuum dock, robot vacuum dock clearance, self-empty dock apartment, robot vacuum extension lead Australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:22:23.449Z",
+    "updatedAt": "2026-08-23T00:45:16.840Z",
+    "publishedAt": "2026-08-23T00:45:16.876Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3991,
+      "documentId": "sn2t0we7f75uc6amhn0raow5",
+      "name": "where-to-put-a-robot-vacuum-dock-in-a-rental-or-ap-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34.jpg",
+          "hash": "large_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34",
+          "mime": "image/jpeg",
+          "name": "large_where-to-put-a-robot-vacuum-dock-in-a-rental-or-ap-cover.jpg",
+          "path": null,
+          "size": 39.78,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 39777
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34.jpg",
+          "hash": "small_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34",
+          "mime": "image/jpeg",
+          "name": "small_where-to-put-a-robot-vacuum-dock-in-a-rental-or-ap-cover.jpg",
+          "path": null,
+          "size": 13.65,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13647
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34.jpg",
+          "hash": "medium_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34",
+          "mime": "image/jpeg",
+          "name": "medium_where-to-put-a-robot-vacuum-dock-in-a-rental-or-ap-cover.jpg",
+          "path": null,
+          "size": 24.47,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 24473
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34.jpg",
+          "hash": "thumbnail_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34",
+          "mime": "image/jpeg",
+          "name": "thumbnail_where-to-put-a-robot-vacuum-dock-in-a-rental-or-ap-cover.jpg",
+          "path": null,
+          "size": 4.77,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4774
+        }
+      },
+      "hash": "where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 88.35,
+      "url": "/uploads/where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:28:46.017Z",
+      "updatedAt": "2026-08-23T00:28:46.017Z",
+      "publishedAt": "2026-08-23T00:28:46.018Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1737,
+        "question": "Can I put the robot vacuum dock on a rug or carpet?",
+        "answer": "Best not to — a rug or thick carpet under the dock is the most common cause of docking failures, because the wheels sink and the charging contacts miss. Aim for a flat, hard, level surface such as tiles, timber, vinyl or laminate. If your only powered spot is carpeted, try moving 300 mm along the wall to the nearest hard floor."
+      },
+      {
+        "order": 2,
+        "id": 1738,
+        "question": "Am I allowed to add a new power point for the dock in a rental?",
+        "answer": "No. Fixed wiring work must be carried out by a licensed electrician in every Australian state and territory, and in a rental you'd also need the owner's agreement [VERIFY current rules in your state]. The workaround is to use an existing 240V outlet, with one properly rated extension lead if you need the extra reach."
+      },
+      {
+        "order": 3,
+        "id": 1739,
+        "question": "Is it safe to run the dock off an extension lead or powerboard?",
+        "answer": "One approved extension lead is generally fine — look for AS/NZS 3112/3199 marking [VERIFY marking on the product], choose a rating well above the dock's draw, and run it along a wall rather than under a rug where it can overheat and block the robot. Don't daisy-chain powerboards or plug a board into a lead into another board; that's a real fire risk, not a technicality."
+      },
+      {
+        "order": 4,
+        "id": 1740,
+        "question": "Should I put the dock on a smart plug to save standby power?",
+        "answer": "Probably not. Cutting power interrupts charging, mop-pad drying and self-empty cycles, and several manufacturers advise against it [VERIFY your model's manual]. A smart plug is better used elsewhere — for energy monitoring on another appliance, or switching on a lamp so a camera-navigating robot has light."
+      },
+      {
+        "order": 5,
+        "id": 1741,
+        "question": "My robot keeps missing the dock or parking crooked — what should I try first?",
+        "answer": "Most of these problems are geometry rather than a faulty unit. Check you have roughly 0.5 m clear either side and 1.5 m clear in front, a solid wall behind, and hard floor underneath [VERIFY clearances in your model's manual]. Then send it home three times from three different rooms; if it still hunts, shift the dock 300 mm along the wall and repeat."
+      }
+    ],
+    "categories": [
+      {
+        "id": 7,
+        "documentId": "y70h3kes2ecvck8ez2an3qwp",
+        "name": "Robot Vacuums",
+        "slug": "robot-vacuums",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.976Z",
+        "updatedAt": "2026-08-22T18:30:53.780Z",
+        "publishedAt": "2026-08-22T18:30:53.778Z"
+      }
+    ],
+    "author": {
+      "id": 13,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": "2026-08-22T21:55:22.398Z"
+    }
+  },
+  "draft": {
+    "id": 221,
+    "documentId": "z8z2vraibdt0lnrffjj7751s",
+    "title": "Where to Put a Robot Vacuum Dock in a Rental or Apartment Without New Wiring",
+    "slug": "robot-vacuum-dock-placement-rental-apartment-no-new-wiring",
+    "excerpt": "Renting or in an apartment and stuck for somewhere to park the dock? Here's how to choose a spot that works with the power points you already have — clearances, self-empty and mop-wash docks, extension lead safety, and the places that quietly cause trouble.",
+    "content": "Robot vacuum makers photograph their docks in enormous open-plan homes with a conveniently placed power point on a bare white wall. Australian rentals and apartments are rarely that generous. You get one power point behind the couch, another shared with the fridge, and a landlord who is not thrilled about new outlets.\n\nThe good news: you almost never need new wiring. You need to be a bit smarter about which existing 240V outlet you use, and how much clear floor you can give the dock.\n\n## What the Dock Actually Needs\n\nBefore you hunt for a spot, know the non-negotiables. Most manufacturers ask for something close to this, though you should check the manual for your specific model [VERIFY — clearances vary by brand]:\n\n- **A flat, hard, level floor.** Tiles, timber, vinyl and laminate are all fine. Thick carpet or a rug under the dock is the single most common cause of docking failures, because the robot's wheels sink and the charging contacts miss.\n- **A solid wall behind it.** Skirting boards are usually fine; deep skirting or a rounded architrave can push the dock forward enough to matter.\n- **Roughly 0.5 m clear either side and 1.5 m clear in front.** The robot needs a run-up to line up its infrared or laser docking signal.\n- **Mains power within the cord length.** Dock cords are commonly 1.5–1.8 m [VERIFY per model].\n- **Decent 2.4 GHz Wi-Fi.** Nearly all robot vacuums join 2.4 GHz networks only. Apartment concrete and steel-framed walls chew through that band, so a dock buried in a linen cupboard on the far side of the flat will drop out.\n- **Permanent power.** Leave it switched on. Docks trickle-charge, run drying cycles and download firmware overnight.\n\n## Rental-Friendly Spots That Genuinely Work\n\nIn order of how often they work out in Australian apartments and townhouses:\n\n**The hallway.** Usually hard floor, usually has a power point near a doorway for the vacuum cleaner, and it is the most central point in the home. Downside: the dock is on show. A slim console table above it hides most of the visual clutter as long as you keep the front clear.\n\n**The laundry or laundry nook.** Hard floor, a spare outlet for the dryer or iron, and a tap nearby if you have a mop dock that needs refilling. Keep it well away from the tub and any splash zone — outlets and appliances in wet areas are governed by AS/NZS 3000 clearance rules and this is not a place to improvise [VERIFY with a licensed electrician if you are unsure].\n\n**The end of a kitchen bench or against a kickboard.** Kitchens are tiled, have plenty of outlets and are usually adjacent to the living area. Watch that the dock isn't in the swing of the oven or dishwasher door.\n\n**Under a floating vanity or an open-bottom wardrobe.** Only if there is genuine airflow and mains power nearby. Enclosed cupboards trap heat and moisture, and self-emptying docks are loud enough that a cupboard door will rattle rather than muffle.\n\n**Against the wall beside the fridge.** Often overlooked, usually hard floor, and there is generally a dedicated outlet in the cavity. Do not share the fridge's outlet if it is a single point.\n\nSpots that look tempting and usually disappoint: behind a door that gets left open, on a rug, in a bathroom, on a landing at the top of stairs, or tucked in a corner where the robot can only approach from one narrow angle.\n\n## Big Docks: Self-Empty and Mop-Washing Stations\n\nAll-in-one docks change the maths. They are tall, deep and heavy, they need clear air above for the dust bag compartment, and the mop-washing ones want a spot you're happy to carry two water tanks to and from.\n\nSquare-based docks sit flush into a corner more neatly than rounded ones, which matters when you're working with a 900 mm hallway.\n\n::product:ecovacs-deebot-x2-omni-square-robot-vacuum::\n\nIf the dock also washes and hot-air-dries mop pads, plan for a slightly longer running time in place and a bit more noise. On paper these stations are designed to be plumbing-free — you fill a clean tank and empty a dirty one — which is exactly what you want in a rental, because permanent water connections are a landlord conversation you'd rather skip.\n\n::product:dreame-l10s-ultra-robot-vacuum-and-mop::\n\nPractical tip: put a thin, hard mat or a cut-to-size sheet of clear PVC under a mopping dock. It catches drips, protects the floorboards you'd like your bond back on, and lifts out for cleaning. Bunnings and Officeworks both stock suitable sheeting [VERIFY current stock and pricing].\n\n## Power Without an Electrician\n\nYou cannot add a new power point yourself. In every Australian state and territory, fixed wiring work must be done by a licensed electrician, and in a rental it needs the owner's agreement as well [VERIFY current rules in your state]. What you can legally do is use the outlets you already have, sensibly.\n\n- **One approved extension lead is fine.** Use a lead marked to AS/NZS 3112/3199 [VERIFY marking on the product], rated well above the dock's draw, and run it along a wall — not under a rug, where it can overheat and where it also blocks the robot.\n- **Do not daisy-chain powerboards** or plug a powerboard into an extension lead into another board. This is a genuine fire risk, not a technicality.\n- **Use adhesive cable clips, not screws.** Command-style clips and stick-on cable raceway keep the lead tidy and come off at the end of the lease.\n- **Think twice about a smart plug.** Cutting power to a dock breaks charging, drying and self-empty cycles, and several manufacturers advise against it [VERIFY your model's manual]. Where a smart plug does earn its keep is energy monitoring on a nearby appliance, or switching a lamp so the robot has light for its camera-based navigation.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\n## Apartment-Specific Headaches\n\n**Noise and neighbours.** Self-empty cycles are brief but genuinely loud, often quoted in the 75–85 dB range [VERIFY per model]. In a unit with shared walls, schedule cleaning for mid-morning rather than 6 am or after 10 pm.\n\n**Strata and common property.** You are only ever placing a dock inside your own lot, so this is usually a non-issue — but anything involving drilling into a shared wall or drawing water from a common line is not [VERIFY with your strata manager].\n\n**Small floorplans.** In a one-bedroom flat, the dock's 1.5 m approach zone can be a real chunk of your living room. Docking against a hallway wall and letting the robot travel to the rooms is almost always better than parking it in the middle of the action.\n\n## A Five-Minute Placement Test\n\nBefore you commit to a spot, run this: set the dock down, send the robot out, then send it home three times from three different rooms. If it finds the dock every time and seats properly, you've found the place. If it hunts, nudges the dock out of position, or parks crooked, move it 300 mm along the wall and try again. Ninety per cent of \"my robot won't dock\" complaints are geometry, not hardware.\n\nMark the dock's outline on the floor with a couple of small strips of removable tape so it goes back to the same spot after you sweep behind it. Boring, effective, and completely bond-safe.",
+    "keyTakeaways": "Put the dock against a flat wall on hard floor within reach of an existing power point, with roughly half a metre clear each side and 1.5 m in front — a hallway, laundry nook or the end of a kitchen bench usually works best. Use one approved extension lead if you must, never daisy-chained powerboards, and leave the dock permanently switched on.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "robot vacuums",
+      "renting",
+      "apartments",
+      "setup",
+      "power points",
+      "Australia"
+    ],
+    "readingTimeMinutes": 6,
+    "seoTitle": "Robot Vacuum Dock Placement in a Rental: No New Wiring",
+    "seoDescription": "How to choose a robot vacuum dock spot in an Australian rental or apartment using existing power points — clearances, mop docks, extension lead safety.",
+    "seoKeywords": "robot vacuum dock placement, robot vacuum rental apartment, where to put robot vacuum dock, robot vacuum dock clearance, self-empty dock apartment, robot vacuum extension lead Australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:22:23.449Z",
+    "updatedAt": "2026-08-23T00:45:16.840Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3991,
+      "documentId": "sn2t0we7f75uc6amhn0raow5",
+      "name": "where-to-put-a-robot-vacuum-dock-in-a-rental-or-ap-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34.jpg",
+          "hash": "large_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34",
+          "mime": "image/jpeg",
+          "name": "large_where-to-put-a-robot-vacuum-dock-in-a-rental-or-ap-cover.jpg",
+          "path": null,
+          "size": 39.78,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 39777
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34.jpg",
+          "hash": "small_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34",
+          "mime": "image/jpeg",
+          "name": "small_where-to-put-a-robot-vacuum-dock-in-a-rental-or-ap-cover.jpg",
+          "path": null,
+          "size": 13.65,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13647
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34.jpg",
+          "hash": "medium_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34",
+          "mime": "image/jpeg",
+          "name": "medium_where-to-put-a-robot-vacuum-dock-in-a-rental-or-ap-cover.jpg",
+          "path": null,
+          "size": 24.47,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 24473
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34.jpg",
+          "hash": "thumbnail_where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34",
+          "mime": "image/jpeg",
+          "name": "thumbnail_where-to-put-a-robot-vacuum-dock-in-a-rental-or-ap-cover.jpg",
+          "path": null,
+          "size": 4.77,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4774
+        }
+      },
+      "hash": "where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 88.35,
+      "url": "/uploads/where_to_put_a_robot_vacuum_dock_in_a_rental_or_ap_cover_941953ff34.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:28:46.017Z",
+      "updatedAt": "2026-08-23T00:28:46.017Z",
+      "publishedAt": "2026-08-23T00:28:46.018Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1732,
+        "question": "Can I put the robot vacuum dock on a rug or carpet?",
+        "answer": "Best not to — a rug or thick carpet under the dock is the most common cause of docking failures, because the wheels sink and the charging contacts miss. Aim for a flat, hard, level surface such as tiles, timber, vinyl or laminate. If your only powered spot is carpeted, try moving 300 mm along the wall to the nearest hard floor."
+      },
+      {
+        "order": 2,
+        "id": 1733,
+        "question": "Am I allowed to add a new power point for the dock in a rental?",
+        "answer": "No. Fixed wiring work must be carried out by a licensed electrician in every Australian state and territory, and in a rental you'd also need the owner's agreement [VERIFY current rules in your state]. The workaround is to use an existing 240V outlet, with one properly rated extension lead if you need the extra reach."
+      },
+      {
+        "order": 3,
+        "id": 1734,
+        "question": "Is it safe to run the dock off an extension lead or powerboard?",
+        "answer": "One approved extension lead is generally fine — look for AS/NZS 3112/3199 marking [VERIFY marking on the product], choose a rating well above the dock's draw, and run it along a wall rather than under a rug where it can overheat and block the robot. Don't daisy-chain powerboards or plug a board into a lead into another board; that's a real fire risk, not a technicality."
+      },
+      {
+        "order": 4,
+        "id": 1735,
+        "question": "Should I put the dock on a smart plug to save standby power?",
+        "answer": "Probably not. Cutting power interrupts charging, mop-pad drying and self-empty cycles, and several manufacturers advise against it [VERIFY your model's manual]. A smart plug is better used elsewhere — for energy monitoring on another appliance, or switching on a lamp so a camera-navigating robot has light."
+      },
+      {
+        "order": 5,
+        "id": 1736,
+        "question": "My robot keeps missing the dock or parking crooked — what should I try first?",
+        "answer": "Most of these problems are geometry rather than a faulty unit. Check you have roughly 0.5 m clear either side and 1.5 m clear in front, a solid wall behind, and hard floor underneath [VERIFY clearances in your model's manual]. Then send it home three times from three different rooms; if it still hunts, shift the dock 300 mm along the wall and repeat."
+      }
+    ],
+    "categories": [
+      {
+        "id": 7,
+        "documentId": "y70h3kes2ecvck8ez2an3qwp",
+        "name": "Robot Vacuums",
+        "slug": "robot-vacuums",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.976Z",
+        "updatedAt": "2026-08-22T18:30:53.780Z",
+        "publishedAt": "2026-08-22T18:30:53.778Z"
+      }
+    ],
+    "author": {
+      "id": 4,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": null
+    }
+  }
+}

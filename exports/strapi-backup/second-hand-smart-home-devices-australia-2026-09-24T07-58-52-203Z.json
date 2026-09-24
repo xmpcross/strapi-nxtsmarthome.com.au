@@ -1,0 +1,318 @@
+{
+  "published": {
+    "id": 179,
+    "documentId": "n7tjmlkpchm0rheyxc39d6ml",
+    "title": "Buying Second-Hand Smart Home Devices in Australia",
+    "slug": "second-hand-smart-home-devices-australia",
+    "excerpt": "Used smart home gear can be a bargain or a brick. What to check before you buy in Australia — account locks, compliance marks, support dates and your rights.",
+    "content": "A second-hand smart plug and a second-hand smart lock are completely different purchases. One is a twelve-dollar gamble on a piece of plastic that either works or does not. The other can arrive still registered to a stranger, still holding their access codes, and still sending them notifications. The category matters far more than the price.\n\nThis is what to check before handing over money, and which devices are worth buying used at all.\n\n\n<img src=\"/covers/second-hand-smart-home-devices-australia-inline.webp\" alt=\"Second hand smart home devices inspection\" class=\"w-full rounded-2xl object-cover my-6\" style=\"height: 450px; max-height: 450px; object-fit: cover;\" />\n\n\n## What is worth buying used, and what is not\n\nThe dividing line is whether the device holds an identity. A bulb does not care who owns it. A camera does.\n\n| Usually fine | Buy with care | Avoid |\n|---|---|---|\n| Hubs and bridges | Robot vacuums | Smoke alarms |\n| Smart bulbs | Video doorbells | Smart locks from private sellers |\n| Smart plugs | Indoor and outdoor cameras | Anything with a swollen battery |\n| Door, motion and temperature sensors | Thermostats | Devices with no model number visible |\n| Switches and dimmers (unwired) | Speakers with assistants built in | Mains-powered gear with no compliance mark |\n\nSensors and bulbs are the genuine bargains. They fail rarely, they hold nothing personal, and a factory reset genuinely returns them to new. If you are building out a Zigbee or Thread network, buying sensors used is one of the few places the savings come with almost no catch.\n\n## The account lock is the biggest trap\n\nMost connected devices are bound to the account that first set them up. Cameras, doorbells, locks, robot vacuums and many speakers register to the seller's account on a manufacturer's server, and that binding does not live on the device.\n\nThis is why a factory reset is not enough on its own. Resetting the hardware clears local settings, but the manufacturer's records may still show the device as belonging to the previous owner. Depending on the brand, you will either be unable to add it to your own account at all, or you will add it and find the original owner retains some access.\n\n**Ask the seller to remove the device from their account while you are watching, before you pay.** In most apps this is a \"remove device\", \"delete from account\" or \"transfer ownership\" option, and it takes under a minute. A seller who will not do it either no longer has access to the account — which means the device may be unusable — or has not understood the question. Either way the answer is the same.\n\nFor anything with a camera or a lock, treat this as non-negotiable rather than a preference.\n\n## Check it can legally and safely run here\n\nUsed gear is where imported and grey-market stock quietly ends up. Four checks:\n\n- **Plug and voltage.** Australia runs 230 V nominal with the AS/NZS 3112 Type I plug. A device with a flat two-pin or round-pin plug was not sold into this market, and a travel adaptor does not make it compliant.\n- **The compliance mark.** Mains-powered electrical equipment sold in Australia is expected to carry the Regulatory Compliance Mark. [VERIFY] Its absence on a mains-powered device is a genuine reason to decline, not a formality.\n- **Bulb fittings.** Australian homes use both B22 bayonet and E27 screw. Plenty of imported smart bulbs are E26, which is close enough to look right and wrong enough to matter.\n- **Wi-Fi band.** Most smart home devices connect only on 2.4 GHz. Not a second-hand problem specifically, but the most common reason a working used device appears dead on arrival.\n\nAnything electrical that will be wired into the house rather than plugged in is a separate matter. Fixed wiring is licensed work in every state and territory. [VERIFY] A second-hand smart switch is fine to own; installing it yourself is not a decision to make on the basis of a buying guide.\n\n## Where you buy changes what you are owed\n\nThis is the part most people get wrong, and it has nothing to do with the device.\n\n**Buying from a business** — a retailer's refurbished stock, a registered eBay business seller, a manufacturer's own renewed programme — generally brings consumer guarantees with it, including on used and refurbished goods. What counts as acceptable quality is assessed against the age, price and description of the item, so a five-year-old hub is not held to the standard of a new one. [VERIFY]\n\n**Buying privately** — most Gumtree and Facebook Marketplace listings, and individual sellers on eBay — generally does not carry those guarantees. [VERIFY] If it stops working the following week, you have very little recourse.\n\nThat difference is usually worth more than the price gap. For a twenty-dollar sensor, a private sale is a reasonable risk. For a camera you intend to rely on, paying more to a business that has to stand behind it is the better trade.\n\nConfirm the current position with the ACCC rather than relying on this summary — consumer law is exactly the sort of thing that changes without anyone announcing it to buyers.\n\n## The invisible expiry date\n\nEvery connected device has a date after which the manufacturer stops issuing firmware updates. It is rarely advertised, it is almost never on the listing, and it is the most important thing about a used device that still looks perfect.\n\nA camera or lock that no longer receives security updates is a liability on your network no matter how well it functions. Worse, some devices lose their cloud service entirely when a manufacturer retires a product line, at which point working hardware becomes inert.\n\nBefore buying, search the manufacturer's support or end-of-life page for the **exact model number** — not the product family. A seller cannot fix this one for you, and no discount compensates for a device that stops receiving patches next year.\n\n## Batteries and physical wear\n\nBattery-powered sensors and cameras are the most common used listings, and battery condition is the least visible thing about them.\n\nLook for swelling — a battery door that no longer sits flush, or a case with a slight curve to it. That is a reason to walk away immediately, not to negotiate. Rechargeable cells in doorbells and cameras also lose capacity with age, so a device that once lasted three months may now last three weeks. Replaceable batteries are a much safer proposition than sealed ones.\n\nFor robot vacuums, the battery and the brushes are consumables and the listing price rarely reflects that. Check whether replacement parts for that model are still sold in Australia before committing.\n\n## Before you hand over money\n\n- Seller has removed the device from their account, while you watch\n- Exact model number confirmed, and still receiving firmware updates\n- Compliance mark present on anything mains-powered\n- Australian plug, or a bulb fitting that matches your sockets\n- Battery not swollen, and replacements still available\n- Original power supply included — third-party replacements are a common cause of failure\n- You know whether the seller is a business or a private individual\n- The app it needs is still published and still supported\n\n## What is not worth the saving\n\n**Smoke alarms.** These have a limited service life and are subject to specific requirements in Australian homes, including in rental properties. [VERIFY] A used one with an unknown history is a bad trade at any price.\n\n**Smart locks from private sellers.** The account binding problem applies with the highest possible stakes, and you cannot inspect the internal mechanism. From a business with a returns policy, a refurbished lock is defensible. From a stranger, it is not.\n\n**Anything you would be annoyed to replace twice.** Second-hand economics only work if the saving exceeds the risk of buying again. For low-cost sensors that is nearly always true. For the device holding your front door shut, it rarely is.\n\nUsed smart home gear is genuinely worth buying — just not uniformly. Buy the boring things used and the sensitive things new, and the savings arrive without the problems.",
+    "keyTakeaways": "Hubs, bulbs, plugs and sensors are usually safe buys second-hand. Cameras, doorbells, locks and robot vacuums are not, because they stay tied to the previous owner's account unless that person removes them before you pay. Buy from a business rather than a private seller wherever the device matters, because consumer guarantees generally follow the business sale and generally do not follow the private one.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/second-hand-smart-home-devices-australia.webp",
+    "coverImageAlt": "Buying Second-Hand Smart Home Devices in Australia",
+    "postType": "buying-guide",
+    "publishDate": "2026-08-04T00:00:00.000Z",
+    "dateModified": "2026-08-04T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Buying advice",
+      "Second-hand",
+      "Consumer rights",
+      "Australia",
+      "Warranty"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Buying Second-Hand Smart Home Devices in Australia",
+    "seoDescription": "Used smart home gear can be a bargain or a brick. What to check before you buy in Australia — account locks, compliance marks, support dates and your rights.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/buying-guides/second-hand-smart-home-devices-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:44.449Z",
+    "updatedAt": "2026-08-22T23:45:13.683Z",
+    "publishedAt": "2026-08-22T23:45:13.720Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3971,
+      "documentId": "p9n2wbf1s4e34j34m0ai5b0z",
+      "name": "Buying Second-Hand Smart Home Devices in Australia.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123.jpg",
+          "hash": "large_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123",
+          "mime": "image/jpeg",
+          "name": "large_Buying Second-Hand Smart Home Devices in Australia.jpg",
+          "path": null,
+          "size": 39.29,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 39291
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123.jpg",
+          "hash": "small_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123",
+          "mime": "image/jpeg",
+          "name": "small_Buying Second-Hand Smart Home Devices in Australia.jpg",
+          "path": null,
+          "size": 13.1,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13095
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123.jpg",
+          "hash": "medium_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123",
+          "mime": "image/jpeg",
+          "name": "medium_Buying Second-Hand Smart Home Devices in Australia.jpg",
+          "path": null,
+          "size": 24.66,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 24663
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123.jpg",
+          "hash": "thumbnail_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Buying Second-Hand Smart Home Devices in Australia.jpg",
+          "path": null,
+          "size": 4.6,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4604
+        }
+      },
+      "hash": "Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 82.6,
+      "url": "/uploads/Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T23:45:10.472Z",
+      "updatedAt": "2026-08-22T23:45:10.472Z",
+      "publishedAt": "2026-08-22T23:45:10.472Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1506,
+        "question": "Can you buy smart home devices second-hand safely?",
+        "answer": "Some categories, yes. Hubs, bridges, smart bulbs, plugs and sensors carry little risk because they hold no personal data and are simple to reset. Cameras, video doorbells, smart locks and robot vacuums are far riskier, because they remain registered to the previous owner's account until that person removes them, and a factory reset alone does not always release them."
+      },
+      {
+        "order": 1,
+        "id": 1507,
+        "question": "Does Australian Consumer Law cover second-hand goods?",
+        "answer": "Consumer guarantees generally apply when you buy from a business, including when the goods are used or refurbished, though what counts as acceptable quality is judged against the age and price of the item. Private sales between individuals — most Gumtree and Facebook Marketplace listings — are generally not covered. [VERIFY] Confirm the current position with the ACCC before relying on it."
+      },
+      {
+        "order": 2,
+        "id": 1508,
+        "question": "What is the RCM mark and why does it matter on used gear?",
+        "answer": "The Regulatory Compliance Mark indicates electrical equipment meets Australian electrical safety and electromagnetic requirements. Second-hand devices bought privately or imported may never have carried one. [VERIFY] Treat an unmarked mains-powered device as a reason to walk away rather than a detail to overlook."
+      },
+      {
+        "order": 3,
+        "id": 1509,
+        "question": "How do I know if a used device still gets security updates?",
+        "answer": "Check the manufacturer's support or end-of-life page for that exact model before you buy, not the product page. A camera or lock that no longer receives firmware updates is a security liability regardless of how well it works, and support windows are the one thing a seller cannot fix for you."
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "documentId": "fznrs0xa43imqgijen01hgus",
+        "name": "Buying Guides",
+        "slug": "buying-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.609Z",
+        "updatedAt": "2026-08-22T18:30:53.551Z",
+        "publishedAt": "2026-08-22T18:30:53.546Z"
+      }
+    ],
+    "author": {
+      "id": 12,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": "2026-08-22T21:55:03.953Z"
+    }
+  },
+  "draft": {
+    "id": 26,
+    "documentId": "n7tjmlkpchm0rheyxc39d6ml",
+    "title": "Buying Second-Hand Smart Home Devices in Australia",
+    "slug": "second-hand-smart-home-devices-australia",
+    "excerpt": "Used smart home gear can be a bargain or a brick. What to check before you buy in Australia — account locks, compliance marks, support dates and your rights.",
+    "content": "A second-hand smart plug and a second-hand smart lock are completely different purchases. One is a twelve-dollar gamble on a piece of plastic that either works or does not. The other can arrive still registered to a stranger, still holding their access codes, and still sending them notifications. The category matters far more than the price.\n\nThis is what to check before handing over money, and which devices are worth buying used at all.\n\n\n<img src=\"/covers/second-hand-smart-home-devices-australia-inline.webp\" alt=\"Second hand smart home devices inspection\" class=\"w-full rounded-2xl object-cover my-6\" style=\"height: 450px; max-height: 450px; object-fit: cover;\" />\n\n\n## What is worth buying used, and what is not\n\nThe dividing line is whether the device holds an identity. A bulb does not care who owns it. A camera does.\n\n| Usually fine | Buy with care | Avoid |\n|---|---|---|\n| Hubs and bridges | Robot vacuums | Smoke alarms |\n| Smart bulbs | Video doorbells | Smart locks from private sellers |\n| Smart plugs | Indoor and outdoor cameras | Anything with a swollen battery |\n| Door, motion and temperature sensors | Thermostats | Devices with no model number visible |\n| Switches and dimmers (unwired) | Speakers with assistants built in | Mains-powered gear with no compliance mark |\n\nSensors and bulbs are the genuine bargains. They fail rarely, they hold nothing personal, and a factory reset genuinely returns them to new. If you are building out a Zigbee or Thread network, buying sensors used is one of the few places the savings come with almost no catch.\n\n## The account lock is the biggest trap\n\nMost connected devices are bound to the account that first set them up. Cameras, doorbells, locks, robot vacuums and many speakers register to the seller's account on a manufacturer's server, and that binding does not live on the device.\n\nThis is why a factory reset is not enough on its own. Resetting the hardware clears local settings, but the manufacturer's records may still show the device as belonging to the previous owner. Depending on the brand, you will either be unable to add it to your own account at all, or you will add it and find the original owner retains some access.\n\n**Ask the seller to remove the device from their account while you are watching, before you pay.** In most apps this is a \"remove device\", \"delete from account\" or \"transfer ownership\" option, and it takes under a minute. A seller who will not do it either no longer has access to the account — which means the device may be unusable — or has not understood the question. Either way the answer is the same.\n\nFor anything with a camera or a lock, treat this as non-negotiable rather than a preference.\n\n## Check it can legally and safely run here\n\nUsed gear is where imported and grey-market stock quietly ends up. Four checks:\n\n- **Plug and voltage.** Australia runs 230 V nominal with the AS/NZS 3112 Type I plug. A device with a flat two-pin or round-pin plug was not sold into this market, and a travel adaptor does not make it compliant.\n- **The compliance mark.** Mains-powered electrical equipment sold in Australia is expected to carry the Regulatory Compliance Mark. [VERIFY] Its absence on a mains-powered device is a genuine reason to decline, not a formality.\n- **Bulb fittings.** Australian homes use both B22 bayonet and E27 screw. Plenty of imported smart bulbs are E26, which is close enough to look right and wrong enough to matter.\n- **Wi-Fi band.** Most smart home devices connect only on 2.4 GHz. Not a second-hand problem specifically, but the most common reason a working used device appears dead on arrival.\n\nAnything electrical that will be wired into the house rather than plugged in is a separate matter. Fixed wiring is licensed work in every state and territory. [VERIFY] A second-hand smart switch is fine to own; installing it yourself is not a decision to make on the basis of a buying guide.\n\n## Where you buy changes what you are owed\n\nThis is the part most people get wrong, and it has nothing to do with the device.\n\n**Buying from a business** — a retailer's refurbished stock, a registered eBay business seller, a manufacturer's own renewed programme — generally brings consumer guarantees with it, including on used and refurbished goods. What counts as acceptable quality is assessed against the age, price and description of the item, so a five-year-old hub is not held to the standard of a new one. [VERIFY]\n\n**Buying privately** — most Gumtree and Facebook Marketplace listings, and individual sellers on eBay — generally does not carry those guarantees. [VERIFY] If it stops working the following week, you have very little recourse.\n\nThat difference is usually worth more than the price gap. For a twenty-dollar sensor, a private sale is a reasonable risk. For a camera you intend to rely on, paying more to a business that has to stand behind it is the better trade.\n\nConfirm the current position with the ACCC rather than relying on this summary — consumer law is exactly the sort of thing that changes without anyone announcing it to buyers.\n\n## The invisible expiry date\n\nEvery connected device has a date after which the manufacturer stops issuing firmware updates. It is rarely advertised, it is almost never on the listing, and it is the most important thing about a used device that still looks perfect.\n\nA camera or lock that no longer receives security updates is a liability on your network no matter how well it functions. Worse, some devices lose their cloud service entirely when a manufacturer retires a product line, at which point working hardware becomes inert.\n\nBefore buying, search the manufacturer's support or end-of-life page for the **exact model number** — not the product family. A seller cannot fix this one for you, and no discount compensates for a device that stops receiving patches next year.\n\n## Batteries and physical wear\n\nBattery-powered sensors and cameras are the most common used listings, and battery condition is the least visible thing about them.\n\nLook for swelling — a battery door that no longer sits flush, or a case with a slight curve to it. That is a reason to walk away immediately, not to negotiate. Rechargeable cells in doorbells and cameras also lose capacity with age, so a device that once lasted three months may now last three weeks. Replaceable batteries are a much safer proposition than sealed ones.\n\nFor robot vacuums, the battery and the brushes are consumables and the listing price rarely reflects that. Check whether replacement parts for that model are still sold in Australia before committing.\n\n## Before you hand over money\n\n- Seller has removed the device from their account, while you watch\n- Exact model number confirmed, and still receiving firmware updates\n- Compliance mark present on anything mains-powered\n- Australian plug, or a bulb fitting that matches your sockets\n- Battery not swollen, and replacements still available\n- Original power supply included — third-party replacements are a common cause of failure\n- You know whether the seller is a business or a private individual\n- The app it needs is still published and still supported\n\n## What is not worth the saving\n\n**Smoke alarms.** These have a limited service life and are subject to specific requirements in Australian homes, including in rental properties. [VERIFY] A used one with an unknown history is a bad trade at any price.\n\n**Smart locks from private sellers.** The account binding problem applies with the highest possible stakes, and you cannot inspect the internal mechanism. From a business with a returns policy, a refurbished lock is defensible. From a stranger, it is not.\n\n**Anything you would be annoyed to replace twice.** Second-hand economics only work if the saving exceeds the risk of buying again. For low-cost sensors that is nearly always true. For the device holding your front door shut, it rarely is.\n\nUsed smart home gear is genuinely worth buying — just not uniformly. Buy the boring things used and the sensitive things new, and the savings arrive without the problems.",
+    "keyTakeaways": "Hubs, bulbs, plugs and sensors are usually safe buys second-hand. Cameras, doorbells, locks and robot vacuums are not, because they stay tied to the previous owner's account unless that person removes them before you pay. Buy from a business rather than a private seller wherever the device matters, because consumer guarantees generally follow the business sale and generally do not follow the private one.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/second-hand-smart-home-devices-australia.webp",
+    "coverImageAlt": "Buying Second-Hand Smart Home Devices in Australia",
+    "postType": "buying-guide",
+    "publishDate": "2026-08-04T00:00:00.000Z",
+    "dateModified": "2026-08-04T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Buying advice",
+      "Second-hand",
+      "Consumer rights",
+      "Australia",
+      "Warranty"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Buying Second-Hand Smart Home Devices in Australia",
+    "seoDescription": "Used smart home gear can be a bargain or a brick. What to check before you buy in Australia — account locks, compliance marks, support dates and your rights.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/buying-guides/second-hand-smart-home-devices-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:44.449Z",
+    "updatedAt": "2026-08-22T23:45:13.683Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3971,
+      "documentId": "p9n2wbf1s4e34j34m0ai5b0z",
+      "name": "Buying Second-Hand Smart Home Devices in Australia.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123.jpg",
+          "hash": "large_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123",
+          "mime": "image/jpeg",
+          "name": "large_Buying Second-Hand Smart Home Devices in Australia.jpg",
+          "path": null,
+          "size": 39.29,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 39291
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123.jpg",
+          "hash": "small_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123",
+          "mime": "image/jpeg",
+          "name": "small_Buying Second-Hand Smart Home Devices in Australia.jpg",
+          "path": null,
+          "size": 13.1,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13095
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123.jpg",
+          "hash": "medium_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123",
+          "mime": "image/jpeg",
+          "name": "medium_Buying Second-Hand Smart Home Devices in Australia.jpg",
+          "path": null,
+          "size": 24.66,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 24663
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123.jpg",
+          "hash": "thumbnail_Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Buying Second-Hand Smart Home Devices in Australia.jpg",
+          "path": null,
+          "size": 4.6,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4604
+        }
+      },
+      "hash": "Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 82.6,
+      "url": "/uploads/Buying_Second_Hand_Smart_Home_Devices_in_Australia_9d95a2a123.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T23:45:10.472Z",
+      "updatedAt": "2026-08-22T23:45:10.472Z",
+      "publishedAt": "2026-08-22T23:45:10.472Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1158,
+        "question": "Can you buy smart home devices second-hand safely?",
+        "answer": "Some categories, yes. Hubs, bridges, smart bulbs, plugs and sensors carry little risk because they hold no personal data and are simple to reset. Cameras, video doorbells, smart locks and robot vacuums are far riskier, because they remain registered to the previous owner's account until that person removes them, and a factory reset alone does not always release them."
+      },
+      {
+        "order": 1,
+        "id": 1159,
+        "question": "Does Australian Consumer Law cover second-hand goods?",
+        "answer": "Consumer guarantees generally apply when you buy from a business, including when the goods are used or refurbished, though what counts as acceptable quality is judged against the age and price of the item. Private sales between individuals — most Gumtree and Facebook Marketplace listings — are generally not covered. [VERIFY] Confirm the current position with the ACCC before relying on it."
+      },
+      {
+        "order": 2,
+        "id": 1160,
+        "question": "What is the RCM mark and why does it matter on used gear?",
+        "answer": "The Regulatory Compliance Mark indicates electrical equipment meets Australian electrical safety and electromagnetic requirements. Second-hand devices bought privately or imported may never have carried one. [VERIFY] Treat an unmarked mains-powered device as a reason to walk away rather than a detail to overlook."
+      },
+      {
+        "order": 3,
+        "id": 1161,
+        "question": "How do I know if a used device still gets security updates?",
+        "answer": "Check the manufacturer's support or end-of-life page for that exact model before you buy, not the product page. A camera or lock that no longer receives firmware updates is a security liability regardless of how well it works, and support windows are the one thing a seller cannot fix for you."
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "documentId": "fznrs0xa43imqgijen01hgus",
+        "name": "Buying Guides",
+        "slug": "buying-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.609Z",
+        "updatedAt": "2026-08-22T18:30:53.551Z",
+        "publishedAt": "2026-08-22T18:30:53.546Z"
+      }
+    ],
+    "author": {
+      "id": 3,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": null
+    }
+  }
+}

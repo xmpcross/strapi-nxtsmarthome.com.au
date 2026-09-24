@@ -1,0 +1,334 @@
+{
+  "published": {
+    "id": 263,
+    "documentId": "g0gioimoybhil61s7ihgqmpq",
+    "title": "Getting Smart Lighting Into a Rental Without Touching the Wiring or Losing Your Bond",
+    "slug": "smart-lighting-rental-australia-no-wiring",
+    "excerpt": "You don't need to touch a single wire to get automated, colour-changing, voice-controlled lighting into a rental. Here's how to build a system out of bulbs, plugs and battery-powered switches — and pack the whole lot into a box on moving day without leaving a mark.",
+    "content": "Renting shouldn't mean living with a bare 60-watt equivalent globe on a builder-grade batten holder. The good news is that almost everything interesting in smart lighting now happens *above* the wiring — in the globe, in the plug, or on a stick-on switch that never touches your walls' internals.\n\n**The practical takeaway:** build your rental lighting around three things you own and can unscrew — smart globes, smart plugs for lamps, and battery-powered wall controllers. Leave the fixed wiring exactly as you found it, keep every original globe and switch plate in a labelled box, and your move-out reset is a half-hour job.\n\n## Start With What Screws Out: Globes\n\nThe single highest-impact change in a rental is swapping the globe. No tools, no landlord conversation, no risk.\n\nBefore you buy anything, work out which fitting you have. Australian homes are a mixed bag:\n\n- **B22 bayonet** — the classic two-pin push-and-twist. Still very common in older rentals and pendant fittings.\n- **E27 Edison screw** — increasingly the default on newer lamps and fittings.\n- **E14 small Edison screw / B15 small bayonet** — bedside lamps, some wall sconces.\n- **GU10** — twist-lock downlights. Replaceable, and smart GU10s exist.\n- **Integrated LED downlights** — the round sealed units in most homes built or renovated in the last decade. These are *not* replaceable by you. The LED, driver and housing are one unit hardwired into the ceiling. Changing them is electrical work.\n\nThat last point matters. In Australia, altering fixed wiring — including swapping a hardwired downlight or replacing a wall switch — is work for a licensed electrician under AS/NZS 3000 wiring rules, and DIY mains work is illegal for unlicensed people in every state and territory [VERIFY]. Screwing in a globe is not electrical work. Rewiring a fitting is.\n\nBudget roughly $15–$35 AUD for a decent colour smart globe and $10–$20 for a warm-white-only one at Bunnings, Officeworks, JB Hi-Fi or Amazon AU [VERIFY]. Buy one, live with it for a week, then scale up. Colour is fun for about a fortnight; **tunable white** — cool and energising in the morning, warm at night — is the feature you'll still be using in a year.\n\n## Lamps, Plugs and Powerboards\n\nHere's the trick most renters miss: you don't have to light a room from the ceiling at all. A couple of floor and table lamps on smart plugs will out-perform a single harsh ceiling globe in every way, and lamps come with you.\n\nA smart plug turns any dumb lamp into a scheduled, voice-controlled one. Australian smart plugs are Type I (our angled-pin plug) and rated for 240V — never buy an imported unit with a US or EU pin pattern and run it on an adaptor.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nOne caution on physical fit: Australian double GPOs are close together, and chunky smart plugs can block the socket next to them. \"Mini\" models are worth the search. Check the switched-load rating too — a plug rated for a 10A general outlet is fine for lamps, but don't run a heater or a dryer through one.\n\nIf a whole corner of the room needs controlling — lamp, TV, a strip light behind the shelf — a smart powerboard gives you individually switched outlets from one wall socket, which is tidier than three plugs fighting over two GPOs.\n\n::product:smart-mirabella-genio-wi-fi-powerboard::\n\nWhile you're at it: measure your standby draw. Lighting is a small slice of an Australian power bill, but the entertainment corner is often not.\n\n## Switches That Don't Touch the Wall\n\nThe classic smart-lighting failure is the flatmate who flicks the wall switch off, cutting power to your smart globes and breaking every automation until someone flicks it back.\n\nThree renter-safe fixes:\n\n1. **Battery-powered wireless wall buttons.** Zigbee or Thread scene switches that mount with 3M adhesive strips or a single small screw. They don't switch mains at all — they send a radio command to the globe. Stick one beside the real switch and train the household to use it. Around $25–$50 AUD each [VERIFY].\n2. **Switch guards.** A cheap plastic cover or even a strip of gaffer tape over the existing switch. Ugly, free, effective.\n3. **Remotes on the coffee table.** No mounting at all.\n\nAdhesive is the thing to be careful with. Removable command-style strips are far kinder to rental paint than permanent VHB tape — and on freshly painted or low-quality plasterboard, even the removable ones can lift colour. Test on an inconspicuous patch first, remove by stretching the tab slowly downward rather than pulling outward, and warm the adhesive with a hairdryer if it resists.\n\nLED strip lighting deserves the same warning. Stick strips to the *underside* of shelves, the back of a bedhead, or inside an aluminium channel you own — not directly to a painted wall. Powered from a plugpack into a normal GPO, a strip is just an appliance.\n\n## Wi-Fi or Zigbee: Choosing a System That Moves House With You\n\nFor five or fewer lights, plain Wi-Fi globes are the least hassle. No hub, no extra box, works on the router the landlord's NBN connection feeds.\n\nPast about ten devices, Wi-Fi starts to grate. Cheap routers choke on the device count, and every globe is another thing to re-onboard when you move and the network name changes. **Zigbee** or **Thread** globes talk to a hub instead, forming a mesh that gets stronger as you add mains-powered devices. When you move, you take the hub, plug it into the new router, and the globes reconnect to the hub — not to the internet — so the re-setup is one device, not twenty.\n\n::product:tuya-zigbee-matter-thread-gateway-smart-home-bridge-matter-hub::\n\nIf you're heading towards Home Assistant, a USB Zigbee coordinator plugged into a mini PC or Raspberry Pi gives you local control with no cloud dependency — useful in a rental where the internet connection may be shared, metered or temporary.\n\nWhichever you pick, favour **Matter** support where you can get it. It's the closest thing to insurance that your globes will still pair with whatever ecosystem you're using in the next place.\n\n## The Move-Out Reset\n\nDo this on day one, not moving day.\n\n- **Keep every original globe.** Label a box \"HOUSE GLOBES – kitchen x4, hall x1\" and put it on the top shelf of the linen cupboard. Landlords notice a warm-white kitchen that's suddenly daylight-white.\n- **Photograph fittings before you change anything.** Timestamped photos of the original state are the cheapest bond insurance going.\n- **Never remove or reposition a hardwired fixture.** If a fitting is dead or a switch is faulty, that's a repair request to the agent, not a weekend project.\n- **Factory-reset and unpair everything before you unplug it.** Especially if you're leaving a device behind or selling it.\n- **Remove adhesive slowly and check the wall** while you still have time to touch it up.\n\nOne more thing worth raising with your agent in writing: some leases include clauses about \"alterations or additions\", and whether a stuck-on switch counts is genuinely arguable. Tenancy law differs by state and territory and is not settled on smart-home fittings [VERIFY]. A short email asking permission for anything adhesive costs nothing and gives you a paper trail. Screw-in globes and plug-in devices are almost universally fine.\n\nBuild it right and the whole system is a cardboard box and an afternoon at the other end — which is exactly how rental tech should work.",
+    "keyTakeaways": "You can get full smart lighting into a rental using only smart globes, smart plugs for lamps and battery-powered stick-on switches — none of which touch the fixed wiring. Keep the original globes in a labelled box and the move-out reset takes about half an hour.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "smart lighting",
+      "renters",
+      "smart bulbs",
+      "smart plugs",
+      "Zigbee",
+      "Matter",
+      "Australia"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Lighting for Renters in Australia: No Wiring Needed",
+    "seoDescription": "Add smart lighting to an Australian rental without touching wiring. Smart globes, plugs, stick-on switches and a clean move-out plan that protects your bond.",
+    "seoKeywords": "smart lighting rental Australia, renter smart home, smart globes Australia, B22 smart bulb, smart plug lamp, no wiring smart lighting, bond safe smart home, Zigbee Matter renters",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:05:17.178Z",
+    "updatedAt": "2026-08-23T00:42:53.811Z",
+    "publishedAt": "2026-08-23T00:42:53.865Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3980,
+      "documentId": "v95xtlg4hqf9c0siw5n0a1k2",
+      "name": "getting-smart-lighting-into-a-rental-without-touch-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66.jpg",
+          "hash": "large_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66",
+          "mime": "image/jpeg",
+          "name": "large_getting-smart-lighting-into-a-rental-without-touch-cover.jpg",
+          "path": null,
+          "size": 29.42,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 29419
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66.jpg",
+          "hash": "small_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66",
+          "mime": "image/jpeg",
+          "name": "small_getting-smart-lighting-into-a-rental-without-touch-cover.jpg",
+          "path": null,
+          "size": 9.54,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 9538
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66.jpg",
+          "hash": "medium_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66",
+          "mime": "image/jpeg",
+          "name": "medium_getting-smart-lighting-into-a-rental-without-touch-cover.jpg",
+          "path": null,
+          "size": 17.92,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 17922
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66.jpg",
+          "hash": "thumbnail_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66",
+          "mime": "image/jpeg",
+          "name": "thumbnail_getting-smart-lighting-into-a-rental-without-touch-cover.jpg",
+          "path": null,
+          "size": 3.4,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 3402
+        }
+      },
+      "hash": "getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 66.17,
+      "url": "/uploads/getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:05:17.154Z",
+      "updatedAt": "2026-08-23T00:05:17.154Z",
+      "publishedAt": "2026-08-23T00:05:17.154Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1617,
+        "question": "Can I replace the round sealed downlights in my rental with smart ones?",
+        "answer": "No — integrated LED downlights combine the LED, driver and housing into one hardwired unit, so swapping them means altering fixed wiring. That's licensed electrician work under AS/NZS 3000, and unlicensed DIY mains work is illegal across Australia [VERIFY]. Screwing in a globe is fine; rewiring a fitting is not."
+      },
+      {
+        "order": 2,
+        "id": 1618,
+        "question": "How do I stop a housemate flicking the wall switch and killing my smart globes?",
+        "answer": "Stick a battery-powered Zigbee or Thread wireless button beside the existing switch so people press that instead — it sends a radio command rather than cutting mains, and costs roughly $25–$50 AUD each [VERIFY]. Cheaper options are a plastic switch guard or gaffer tape over the switch, or just a remote on the coffee table."
+      },
+      {
+        "order": 3,
+        "id": 1619,
+        "question": "Will smart plugs fit an Australian double power point?",
+        "answer": "Not always — our double GPOs sit close together and a bulky plug can block the socket beside it, so look for \"mini\" models. Buy units with Type I angled pins rated for 240V rather than imported US or EU plugs on an adaptor, and check the load rating: a 10A outlet plug is fine for lamps but not heaters or dryers."
+      },
+      {
+        "order": 4,
+        "id": 1620,
+        "question": "Is Wi-Fi or Zigbee better if I move house every year or two?",
+        "answer": "Under about five lights, Wi-Fi globes are simplest — no hub required. Beyond roughly ten devices, Zigbee or Thread wins for movers, because the globes pair to the hub rather than the network, so a move means re-onboarding one device instead of twenty."
+      },
+      {
+        "order": 5,
+        "id": 1621,
+        "question": "Do I need my landlord's permission to put up stick-on smart switches or LED strips?",
+        "answer": "Adhesive mounting sits in a grey area — some leases have \"alterations or additions\" clauses, and tenancy law varies by state and territory and isn't settled on smart-home fittings [VERIFY]. A short email to the agent asking permission costs nothing and creates a paper trail; screw-in globes and plug-in devices are almost universally fine."
+      }
+    ],
+    "categories": [
+      {
+        "id": 6,
+        "documentId": "lbjx41g8uqij9ktmnodxn4x2",
+        "name": "Lighting",
+        "slug": "lighting",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.919Z",
+        "updatedAt": "2026-08-22T18:30:53.746Z",
+        "publishedAt": "2026-08-22T18:30:53.744Z"
+      }
+    ],
+    "author": {
+      "id": 13,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": "2026-08-22T21:55:22.398Z"
+    }
+  },
+  "draft": {
+    "id": 191,
+    "documentId": "g0gioimoybhil61s7ihgqmpq",
+    "title": "Getting Smart Lighting Into a Rental Without Touching the Wiring or Losing Your Bond",
+    "slug": "smart-lighting-rental-australia-no-wiring",
+    "excerpt": "You don't need to touch a single wire to get automated, colour-changing, voice-controlled lighting into a rental. Here's how to build a system out of bulbs, plugs and battery-powered switches — and pack the whole lot into a box on moving day without leaving a mark.",
+    "content": "Renting shouldn't mean living with a bare 60-watt equivalent globe on a builder-grade batten holder. The good news is that almost everything interesting in smart lighting now happens *above* the wiring — in the globe, in the plug, or on a stick-on switch that never touches your walls' internals.\n\n**The practical takeaway:** build your rental lighting around three things you own and can unscrew — smart globes, smart plugs for lamps, and battery-powered wall controllers. Leave the fixed wiring exactly as you found it, keep every original globe and switch plate in a labelled box, and your move-out reset is a half-hour job.\n\n## Start With What Screws Out: Globes\n\nThe single highest-impact change in a rental is swapping the globe. No tools, no landlord conversation, no risk.\n\nBefore you buy anything, work out which fitting you have. Australian homes are a mixed bag:\n\n- **B22 bayonet** — the classic two-pin push-and-twist. Still very common in older rentals and pendant fittings.\n- **E27 Edison screw** — increasingly the default on newer lamps and fittings.\n- **E14 small Edison screw / B15 small bayonet** — bedside lamps, some wall sconces.\n- **GU10** — twist-lock downlights. Replaceable, and smart GU10s exist.\n- **Integrated LED downlights** — the round sealed units in most homes built or renovated in the last decade. These are *not* replaceable by you. The LED, driver and housing are one unit hardwired into the ceiling. Changing them is electrical work.\n\nThat last point matters. In Australia, altering fixed wiring — including swapping a hardwired downlight or replacing a wall switch — is work for a licensed electrician under AS/NZS 3000 wiring rules, and DIY mains work is illegal for unlicensed people in every state and territory [VERIFY]. Screwing in a globe is not electrical work. Rewiring a fitting is.\n\nBudget roughly $15–$35 AUD for a decent colour smart globe and $10–$20 for a warm-white-only one at Bunnings, Officeworks, JB Hi-Fi or Amazon AU [VERIFY]. Buy one, live with it for a week, then scale up. Colour is fun for about a fortnight; **tunable white** — cool and energising in the morning, warm at night — is the feature you'll still be using in a year.\n\n## Lamps, Plugs and Powerboards\n\nHere's the trick most renters miss: you don't have to light a room from the ceiling at all. A couple of floor and table lamps on smart plugs will out-perform a single harsh ceiling globe in every way, and lamps come with you.\n\nA smart plug turns any dumb lamp into a scheduled, voice-controlled one. Australian smart plugs are Type I (our angled-pin plug) and rated for 240V — never buy an imported unit with a US or EU pin pattern and run it on an adaptor.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nOne caution on physical fit: Australian double GPOs are close together, and chunky smart plugs can block the socket next to them. \"Mini\" models are worth the search. Check the switched-load rating too — a plug rated for a 10A general outlet is fine for lamps, but don't run a heater or a dryer through one.\n\nIf a whole corner of the room needs controlling — lamp, TV, a strip light behind the shelf — a smart powerboard gives you individually switched outlets from one wall socket, which is tidier than three plugs fighting over two GPOs.\n\n::product:smart-mirabella-genio-wi-fi-powerboard::\n\nWhile you're at it: measure your standby draw. Lighting is a small slice of an Australian power bill, but the entertainment corner is often not.\n\n## Switches That Don't Touch the Wall\n\nThe classic smart-lighting failure is the flatmate who flicks the wall switch off, cutting power to your smart globes and breaking every automation until someone flicks it back.\n\nThree renter-safe fixes:\n\n1. **Battery-powered wireless wall buttons.** Zigbee or Thread scene switches that mount with 3M adhesive strips or a single small screw. They don't switch mains at all — they send a radio command to the globe. Stick one beside the real switch and train the household to use it. Around $25–$50 AUD each [VERIFY].\n2. **Switch guards.** A cheap plastic cover or even a strip of gaffer tape over the existing switch. Ugly, free, effective.\n3. **Remotes on the coffee table.** No mounting at all.\n\nAdhesive is the thing to be careful with. Removable command-style strips are far kinder to rental paint than permanent VHB tape — and on freshly painted or low-quality plasterboard, even the removable ones can lift colour. Test on an inconspicuous patch first, remove by stretching the tab slowly downward rather than pulling outward, and warm the adhesive with a hairdryer if it resists.\n\nLED strip lighting deserves the same warning. Stick strips to the *underside* of shelves, the back of a bedhead, or inside an aluminium channel you own — not directly to a painted wall. Powered from a plugpack into a normal GPO, a strip is just an appliance.\n\n## Wi-Fi or Zigbee: Choosing a System That Moves House With You\n\nFor five or fewer lights, plain Wi-Fi globes are the least hassle. No hub, no extra box, works on the router the landlord's NBN connection feeds.\n\nPast about ten devices, Wi-Fi starts to grate. Cheap routers choke on the device count, and every globe is another thing to re-onboard when you move and the network name changes. **Zigbee** or **Thread** globes talk to a hub instead, forming a mesh that gets stronger as you add mains-powered devices. When you move, you take the hub, plug it into the new router, and the globes reconnect to the hub — not to the internet — so the re-setup is one device, not twenty.\n\n::product:tuya-zigbee-matter-thread-gateway-smart-home-bridge-matter-hub::\n\nIf you're heading towards Home Assistant, a USB Zigbee coordinator plugged into a mini PC or Raspberry Pi gives you local control with no cloud dependency — useful in a rental where the internet connection may be shared, metered or temporary.\n\nWhichever you pick, favour **Matter** support where you can get it. It's the closest thing to insurance that your globes will still pair with whatever ecosystem you're using in the next place.\n\n## The Move-Out Reset\n\nDo this on day one, not moving day.\n\n- **Keep every original globe.** Label a box \"HOUSE GLOBES – kitchen x4, hall x1\" and put it on the top shelf of the linen cupboard. Landlords notice a warm-white kitchen that's suddenly daylight-white.\n- **Photograph fittings before you change anything.** Timestamped photos of the original state are the cheapest bond insurance going.\n- **Never remove or reposition a hardwired fixture.** If a fitting is dead or a switch is faulty, that's a repair request to the agent, not a weekend project.\n- **Factory-reset and unpair everything before you unplug it.** Especially if you're leaving a device behind or selling it.\n- **Remove adhesive slowly and check the wall** while you still have time to touch it up.\n\nOne more thing worth raising with your agent in writing: some leases include clauses about \"alterations or additions\", and whether a stuck-on switch counts is genuinely arguable. Tenancy law differs by state and territory and is not settled on smart-home fittings [VERIFY]. A short email asking permission for anything adhesive costs nothing and gives you a paper trail. Screw-in globes and plug-in devices are almost universally fine.\n\nBuild it right and the whole system is a cardboard box and an afternoon at the other end — which is exactly how rental tech should work.",
+    "keyTakeaways": "You can get full smart lighting into a rental using only smart globes, smart plugs for lamps and battery-powered stick-on switches — none of which touch the fixed wiring. Keep the original globes in a labelled box and the move-out reset takes about half an hour.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "smart lighting",
+      "renters",
+      "smart bulbs",
+      "smart plugs",
+      "Zigbee",
+      "Matter",
+      "Australia"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Lighting for Renters in Australia: No Wiring Needed",
+    "seoDescription": "Add smart lighting to an Australian rental without touching wiring. Smart globes, plugs, stick-on switches and a clean move-out plan that protects your bond.",
+    "seoKeywords": "smart lighting rental Australia, renter smart home, smart globes Australia, B22 smart bulb, smart plug lamp, no wiring smart lighting, bond safe smart home, Zigbee Matter renters",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:05:17.178Z",
+    "updatedAt": "2026-08-23T00:42:53.811Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3980,
+      "documentId": "v95xtlg4hqf9c0siw5n0a1k2",
+      "name": "getting-smart-lighting-into-a-rental-without-touch-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66.jpg",
+          "hash": "large_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66",
+          "mime": "image/jpeg",
+          "name": "large_getting-smart-lighting-into-a-rental-without-touch-cover.jpg",
+          "path": null,
+          "size": 29.42,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 29419
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66.jpg",
+          "hash": "small_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66",
+          "mime": "image/jpeg",
+          "name": "small_getting-smart-lighting-into-a-rental-without-touch-cover.jpg",
+          "path": null,
+          "size": 9.54,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 9538
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66.jpg",
+          "hash": "medium_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66",
+          "mime": "image/jpeg",
+          "name": "medium_getting-smart-lighting-into-a-rental-without-touch-cover.jpg",
+          "path": null,
+          "size": 17.92,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 17922
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66.jpg",
+          "hash": "thumbnail_getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66",
+          "mime": "image/jpeg",
+          "name": "thumbnail_getting-smart-lighting-into-a-rental-without-touch-cover.jpg",
+          "path": null,
+          "size": 3.4,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 3402
+        }
+      },
+      "hash": "getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 66.17,
+      "url": "/uploads/getting_smart_lighting_into_a_rental_without_touch_cover_0985ef8e66.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:05:17.154Z",
+      "updatedAt": "2026-08-23T00:05:17.154Z",
+      "publishedAt": "2026-08-23T00:05:17.154Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1612,
+        "question": "Can I replace the round sealed downlights in my rental with smart ones?",
+        "answer": "No — integrated LED downlights combine the LED, driver and housing into one hardwired unit, so swapping them means altering fixed wiring. That's licensed electrician work under AS/NZS 3000, and unlicensed DIY mains work is illegal across Australia [VERIFY]. Screwing in a globe is fine; rewiring a fitting is not."
+      },
+      {
+        "order": 2,
+        "id": 1613,
+        "question": "How do I stop a housemate flicking the wall switch and killing my smart globes?",
+        "answer": "Stick a battery-powered Zigbee or Thread wireless button beside the existing switch so people press that instead — it sends a radio command rather than cutting mains, and costs roughly $25–$50 AUD each [VERIFY]. Cheaper options are a plastic switch guard or gaffer tape over the switch, or just a remote on the coffee table."
+      },
+      {
+        "order": 3,
+        "id": 1614,
+        "question": "Will smart plugs fit an Australian double power point?",
+        "answer": "Not always — our double GPOs sit close together and a bulky plug can block the socket beside it, so look for \"mini\" models. Buy units with Type I angled pins rated for 240V rather than imported US or EU plugs on an adaptor, and check the load rating: a 10A outlet plug is fine for lamps but not heaters or dryers."
+      },
+      {
+        "order": 4,
+        "id": 1615,
+        "question": "Is Wi-Fi or Zigbee better if I move house every year or two?",
+        "answer": "Under about five lights, Wi-Fi globes are simplest — no hub required. Beyond roughly ten devices, Zigbee or Thread wins for movers, because the globes pair to the hub rather than the network, so a move means re-onboarding one device instead of twenty."
+      },
+      {
+        "order": 5,
+        "id": 1616,
+        "question": "Do I need my landlord's permission to put up stick-on smart switches or LED strips?",
+        "answer": "Adhesive mounting sits in a grey area — some leases have \"alterations or additions\" clauses, and tenancy law varies by state and territory and isn't settled on smart-home fittings [VERIFY]. A short email to the agent asking permission costs nothing and creates a paper trail; screw-in globes and plug-in devices are almost universally fine."
+      }
+    ],
+    "categories": [
+      {
+        "id": 6,
+        "documentId": "lbjx41g8uqij9ktmnodxn4x2",
+        "name": "Lighting",
+        "slug": "lighting",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.919Z",
+        "updatedAt": "2026-08-22T18:30:53.746Z",
+        "publishedAt": "2026-08-22T18:30:53.744Z"
+      }
+    ],
+    "author": {
+      "id": 4,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": null
+    }
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "published": {
+    "id": 272,
+    "documentId": "v8de8ky7nmskx4ndyoo7zczj",
+    "title": "How to Set Up a Zigbee Mesh That Reaches the Garage and Granny Flat in a Double Brick Home",
+    "slug": "zigbee-mesh-garage-granny-flat-double-brick-home",
+    "excerpt": "Double brick, foil sarking and a Colorbond garage will stop a Zigbee mesh dead. Here's how to place your coordinator, chain mains-powered repeaters through the right windows and doorways, pick a channel that dodges your Wi-Fi, and decide when the granny flat needs its own hub instead.",
+    "content": "Double brick homes are brilliant for thermal mass and terrible for 2.4 GHz radio. Add foil-faced sarking, a rendered wall or two, a Colorbond garage and a granny flat 15 metres down the driveway, and a Zigbee network that works perfectly inside the house can fall apart the moment you try to add a door sensor to the shed.\n\nThe good news: Zigbee is a mesh, and meshes are fixed with placement and mains power, not with money. Here's how to plan one for a typical Aussie double brick block.\n\n## The Practical Takeaway\n\nStop thinking about \"range\" and start thinking about **hops**. Every mains-powered Zigbee device (plug, downlight driver, relay, some sensors' bases) is a router that repeats the signal. Your job is to build a chain of those routers roughly every 6–10 metres, going *around* brick rather than through it — out a window, along an eave, through a doorway — until you land inside the garage or granny flat. Battery devices never repeat, so a mesh made only of sensors will never extend anywhere.\n\nIf the final gap is still too far, don't fight it. Run a second Zigbee coordinator in the granny flat over your existing network cable or Wi-Fi and treat it as a separate mesh joined at the software layer.\n\n## Why Double Brick and Colorbond Are So Brutal\n\nZigbee runs at 2.4 GHz with a transmit power measured in single-digit milliwatts — far lower than your Wi-Fi router. That's deliberate; it's what gives battery sensors two-year lifespans. It also means it has very little in reserve.\n\nWhat eats the signal in an Australian double brick home:\n\n- **Two skins of brick plus a cavity.** Each masonry wall can cost you an order of magnitude more attenuation than plasterboard — commonly quoted around 10–15 dB per wall, more if it's rendered or damp [VERIFY].\n- **Foil-faced sarking and insulation.** Reflective foil behind brick veneer or under a metal roof acts like a partial Faraday shield.\n- **Colorbond garages and metal roller doors.** A steel-clad garage is essentially an RF box. Signal usually gets in through the door opening, a window, or the gap under the roller — not through the wall.\n- **Masonry fences and rendered blockwork** between the house and a granny flat.\n\nThe practical consequence: line of sight through glass beats a shorter path through brick almost every time.\n\n## Get the Coordinator Out of the Comms Cupboard\n\nMost weak Zigbee networks in Australia have the same root cause — the coordinator is a USB stick jammed into the back of a mini PC or NAS, sitting in a metal-doored comms cabinet in the laundry, next to a USB 3.0 SSD that's blasting broadband noise across the 2.4 GHz band.\n\nFix that first, before you buy anything:\n\n1. Put the coordinator on a **USB 2.0 extension lead** (1–2 m) so it hangs clear of the computer chassis and any USB 3 devices. This single change frequently transforms a network.\n2. Mount it **high and central** — ideally in a hallway ceiling space or on top of a bookshelf near the middle of the house, not in a corner room.\n3. Choose a stick with an **external antenna** if you have a choice. The variants with an SMA antenna consistently outperform the PCB-antenna versions in reviews and community reports [VERIFY].\n\n::product:sonoff-zigbee-3-0-usb-dongle::\n\nThis class of dongle is the standard choice for Home Assistant users running Zigbee2MQTT or ZHA. Specifications suggest a Zigbee 3.0 coordinator with an external antenna will comfortably out-reach an all-in-one hub with a hidden internal antenna [VERIFY], mostly because you can put it where you want it rather than where the power point and Ethernet port happen to be.\n\n## Build the Chain: Repeaters That Actually Repeat\n\nRouters are the whole game. Plan the path on a rough site sketch before you buy.\n\nA typical double brick layout works like this:\n\n- **Hop 1:** a mains-powered plug or downlight in the room closest to the back of the house.\n- **Hop 2:** a plug on the alfresco/patio power point, or a Zigbee relay behind an outdoor light, so the signal is now *outside* the brick envelope.\n- **Hop 3:** a plug inside the garage near the personnel door or window — the opening the signal will travel through.\n- **Hop 4:** the granny flat, if it's within sight of hop 2 or 3.\n\nThings that ruin this:\n\n- **Cheap no-name plugs with tiny routing tables.** Some budget routers only hold a handful of child devices and drop them under load. Stick to one or two known-good models and repeat them.\n- **Mixing generations badly.** Older Xiaomi/Aqara sensors are famously fussy about which routers they'll stay bound to, and are known to fall off certain mains-powered devices [VERIFY].\n- **Outdoor gear that isn't rated for it.** An indoor smart plug in a carport is not weatherproof. Use IP-rated outdoor gear, and remember any **hardwired** relay, downlight driver or new outdoor circuit must be installed by a licensed electrician under AS/NZS 3000 — DIY mains work is illegal in every Australian state and territory [VERIFY current rules in your state].\n\nGive each new router 10–15 minutes of settle time and check the mesh map before adding the next one. Devices don't always re-route instantly; some sensors need a re-pair *while standing in their final position* to bind to the nearest router.\n\n## Pick a Channel That Isn't Fighting Your Wi-Fi\n\nZigbee and 2.4 GHz Wi-Fi share the same band, and in a double brick home your Wi-Fi is probably running at high power to punch through the same walls. That's a rough neighbour.\n\n- Set your 2.4 GHz Wi-Fi to a fixed channel — 1, 6 or 11.\n- Then set Zigbee to a channel that sits in the gaps: **15, 20 or 25** are the usual safe picks (25 is the quietest but a handful of older devices don't support it) [VERIFY device support].\n- Check the neighbours. In a townhouse or duplex, scan with a Wi-Fi analyser app before choosing.\n\nChanging Zigbee channels after devices are paired can force a re-pair of some battery sensors, so do this early.\n\n## When the Granny Flat Needs Its Own Hub\n\nIf the granny flat is a separate building with its own meter box, a masonry wall between it and the house, and no line of sight, stop trying to bridge it wirelessly. Two smaller, healthy meshes beat one long, marginal chain.\n\nThe approach: run a second gateway in the flat, connected back to the house over Ethernet (best), a Wi-Fi mesh node, or even a powerline adapter if the flat is on the same switchboard. Each mesh gets its own coordinator and its own channel, and the two are joined in your hub software — Home Assistant, Matter, or the vendor app.\n\n::product:tuya-zigbee-matter-thread-gateway-smart-home-bridge-matter-hub::\n\nA Matter-capable Zigbee/Thread gateway is a sensible pick for a second building because it can expose its local devices to your main system over the network rather than over the air. Specifications indicate these multiprotocol gateways handle Zigbee and Thread simultaneously [VERIFY the exact model's supported protocols before buying, as marketing on these listings is inconsistent].\n\nIf the flat is tenanted, be careful about what you install. Anything hardwired, anything that records, and anything that controls the tenant's power needs a conversation first — tenancy and privacy obligations differ by state and change regularly [VERIFY with your state tenancy authority].\n\n## When Zigbee Just Isn't the Right Tool\n\nFor one or two devices at the far end of the block — a pump, a garage freezer alarm, a driveway light — extending a mesh four hops is a lot of effort for a small payoff. If Wi-Fi already covers the spot via a mesh node, a Wi-Fi plug is the pragmatic answer.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nIt won't help your Zigbee mesh at all — Wi-Fi plugs don't repeat Zigbee — but for a single load in a shed with decent Wi-Fi, it's the shorter path. Just check the plug's rated load against what you're switching, and never run a heater or a workshop machine through a plug that isn't rated for it.\n\n## Verify Before You Add More Gear\n\nBefore buying another repeater, look at the data you already have:\n\n- **Zigbee2MQTT / ZHA network map:** check LQI (link quality) values. Anything consistently under ~50 is a marginal link, and devices routing back to the coordinator over three or more weak hops will be unreliable [VERIFY thresholds vary by stack].\n- **Watch for route flapping** — a sensor that changes parent every few hours is telling you it's on the edge of two routers.\n- **Test at the worst time**, not the best: microwave running, everyone streaming, aircon on.\n\nMost double brick homes end up needing three to five well-placed mains-powered routers to reach a detached garage, and a separate coordinator for anything past it. Plan the path first, buy second.",
+    "keyTakeaways": "Zigbee reaches a detached garage or granny flat through hops, not power: chain mains-powered routers (plugs, relays, downlights) every 6–10 metres along a path that goes around brick — out a window or doorway — rather than through it. If the last gap is still too far, run a second coordinator in the granny flat over Ethernet or Wi-Fi and join the two meshes in software.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "Zigbee",
+      "Home Assistant",
+      "Smart Home Setup",
+      "Mesh Networks",
+      "Australian Homes",
+      "Troubleshooting"
+    ],
+    "readingTimeMinutes": 8,
+    "seoTitle": "Zigbee Mesh for Garage & Granny Flat: Double Brick",
+    "seoDescription": "Extend a Zigbee mesh through double brick to a detached garage or granny flat: coordinator placement, repeater chains, channel choice and second hubs.",
+    "seoKeywords": "zigbee mesh double brick, zigbee range garage, zigbee repeater australia, zigbee coordinator placement, granny flat smart home, zigbee channel wifi interference, home assistant zigbee australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:20:31.214Z",
+    "updatedAt": "2026-08-23T00:44:43.141Z",
+    "publishedAt": "2026-08-23T00:44:43.174Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3994,
+      "documentId": "wf562ehzqrdw6ra2eegfxdgb",
+      "name": "how-to-set-up-a-zigbee-mesh-that-reaches-the-garag-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25.jpg",
+          "hash": "large_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25",
+          "mime": "image/jpeg",
+          "name": "large_how-to-set-up-a-zigbee-mesh-that-reaches-the-garag-cover.jpg",
+          "path": null,
+          "size": 91.4,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 91395
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25.jpg",
+          "hash": "small_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25",
+          "mime": "image/jpeg",
+          "name": "small_how-to-set-up-a-zigbee-mesh-that-reaches-the-garag-cover.jpg",
+          "path": null,
+          "size": 28.38,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 28380
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25.jpg",
+          "hash": "medium_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25",
+          "mime": "image/jpeg",
+          "name": "medium_how-to-set-up-a-zigbee-mesh-that-reaches-the-garag-cover.jpg",
+          "path": null,
+          "size": 54.92,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 54924
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25.jpg",
+          "hash": "thumbnail_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25",
+          "mime": "image/jpeg",
+          "name": "thumbnail_how-to-set-up-a-zigbee-mesh-that-reaches-the-garag-cover.jpg",
+          "path": null,
+          "size": 8.85,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 8853
+        }
+      },
+      "hash": "how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 204.79,
+      "url": "/uploads/how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:29:59.874Z",
+      "updatedAt": "2026-08-23T00:29:59.874Z",
+      "publishedAt": "2026-08-23T00:29:59.874Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1707,
+        "question": "Will adding more battery-powered door and motion sensors help extend my Zigbee network?",
+        "answer": "No. Battery devices never repeat a signal — only mains-powered gear like smart plugs, downlight drivers and relays act as routers. A mesh built solely from sensors won't extend anywhere, so plan a chain of mains-powered routers roughly every 6–10 metres instead."
+      },
+      {
+        "order": 2,
+        "id": 1708,
+        "question": "My Zigbee coordinator is a USB stick in my NAS cupboard and range is terrible. What should I change first?",
+        "answer": "Move it before you buy anything: put the dongle on a 1–2 m USB 2.0 extension lead so it hangs clear of the chassis and any noisy USB 3.0 drives. Then mount it high and central, out of the metal comms cabinet. An external SMA antenna variant generally outperforms PCB-antenna sticks [VERIFY]."
+      },
+      {
+        "order": 3,
+        "id": 1709,
+        "question": "Which Zigbee channel should I use so it doesn't clash with my 2.4 GHz Wi-Fi?",
+        "answer": "Lock your 2.4 GHz Wi-Fi to channel 1, 6 or 11, then put Zigbee on 15, 20 or 25, which sit in the gaps. Channel 25 is usually quietest but some older devices don't support it [VERIFY device support]. Do this early — changing channels later can force a re-pair of some battery sensors."
+      },
+      {
+        "order": 4,
+        "id": 1710,
+        "question": "Can I install a Zigbee relay behind my outdoor light myself?",
+        "answer": "No. Any hardwired relay, downlight driver or new outdoor circuit must be installed by a licensed electrician under AS/NZS 3000, and DIY mains work is illegal across Australia [VERIFY current rules in your state]. Plug-in devices are fine, but use IP-rated gear outdoors — an indoor plug isn't weatherproof."
+      },
+      {
+        "order": 5,
+        "id": 1711,
+        "question": "How do I tell if a link in my mesh is too weak before I buy another repeater?",
+        "answer": "Check the LQI values on your Zigbee2MQTT or ZHA network map — links consistently under about 50 are marginal, and three or more weak hops back to the coordinator will be unreliable [VERIFY thresholds vary by stack]. Also watch for sensors that change parent every few hours, and test with the microwave and aircon running."
+      }
+    ],
+    "categories": [
+      {
+        "id": 9,
+        "documentId": "k7tw9kzpxlnx8qy1mi6fz8fk",
+        "name": "Setup Guides",
+        "slug": "setup-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:42.102Z",
+        "updatedAt": "2026-08-22T18:30:53.850Z",
+        "publishedAt": "2026-08-22T18:30:53.847Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 209,
+    "documentId": "v8de8ky7nmskx4ndyoo7zczj",
+    "title": "How to Set Up a Zigbee Mesh That Reaches the Garage and Granny Flat in a Double Brick Home",
+    "slug": "zigbee-mesh-garage-granny-flat-double-brick-home",
+    "excerpt": "Double brick, foil sarking and a Colorbond garage will stop a Zigbee mesh dead. Here's how to place your coordinator, chain mains-powered repeaters through the right windows and doorways, pick a channel that dodges your Wi-Fi, and decide when the granny flat needs its own hub instead.",
+    "content": "Double brick homes are brilliant for thermal mass and terrible for 2.4 GHz radio. Add foil-faced sarking, a rendered wall or two, a Colorbond garage and a granny flat 15 metres down the driveway, and a Zigbee network that works perfectly inside the house can fall apart the moment you try to add a door sensor to the shed.\n\nThe good news: Zigbee is a mesh, and meshes are fixed with placement and mains power, not with money. Here's how to plan one for a typical Aussie double brick block.\n\n## The Practical Takeaway\n\nStop thinking about \"range\" and start thinking about **hops**. Every mains-powered Zigbee device (plug, downlight driver, relay, some sensors' bases) is a router that repeats the signal. Your job is to build a chain of those routers roughly every 6–10 metres, going *around* brick rather than through it — out a window, along an eave, through a doorway — until you land inside the garage or granny flat. Battery devices never repeat, so a mesh made only of sensors will never extend anywhere.\n\nIf the final gap is still too far, don't fight it. Run a second Zigbee coordinator in the granny flat over your existing network cable or Wi-Fi and treat it as a separate mesh joined at the software layer.\n\n## Why Double Brick and Colorbond Are So Brutal\n\nZigbee runs at 2.4 GHz with a transmit power measured in single-digit milliwatts — far lower than your Wi-Fi router. That's deliberate; it's what gives battery sensors two-year lifespans. It also means it has very little in reserve.\n\nWhat eats the signal in an Australian double brick home:\n\n- **Two skins of brick plus a cavity.** Each masonry wall can cost you an order of magnitude more attenuation than plasterboard — commonly quoted around 10–15 dB per wall, more if it's rendered or damp [VERIFY].\n- **Foil-faced sarking and insulation.** Reflective foil behind brick veneer or under a metal roof acts like a partial Faraday shield.\n- **Colorbond garages and metal roller doors.** A steel-clad garage is essentially an RF box. Signal usually gets in through the door opening, a window, or the gap under the roller — not through the wall.\n- **Masonry fences and rendered blockwork** between the house and a granny flat.\n\nThe practical consequence: line of sight through glass beats a shorter path through brick almost every time.\n\n## Get the Coordinator Out of the Comms Cupboard\n\nMost weak Zigbee networks in Australia have the same root cause — the coordinator is a USB stick jammed into the back of a mini PC or NAS, sitting in a metal-doored comms cabinet in the laundry, next to a USB 3.0 SSD that's blasting broadband noise across the 2.4 GHz band.\n\nFix that first, before you buy anything:\n\n1. Put the coordinator on a **USB 2.0 extension lead** (1–2 m) so it hangs clear of the computer chassis and any USB 3 devices. This single change frequently transforms a network.\n2. Mount it **high and central** — ideally in a hallway ceiling space or on top of a bookshelf near the middle of the house, not in a corner room.\n3. Choose a stick with an **external antenna** if you have a choice. The variants with an SMA antenna consistently outperform the PCB-antenna versions in reviews and community reports [VERIFY].\n\n::product:sonoff-zigbee-3-0-usb-dongle::\n\nThis class of dongle is the standard choice for Home Assistant users running Zigbee2MQTT or ZHA. Specifications suggest a Zigbee 3.0 coordinator with an external antenna will comfortably out-reach an all-in-one hub with a hidden internal antenna [VERIFY], mostly because you can put it where you want it rather than where the power point and Ethernet port happen to be.\n\n## Build the Chain: Repeaters That Actually Repeat\n\nRouters are the whole game. Plan the path on a rough site sketch before you buy.\n\nA typical double brick layout works like this:\n\n- **Hop 1:** a mains-powered plug or downlight in the room closest to the back of the house.\n- **Hop 2:** a plug on the alfresco/patio power point, or a Zigbee relay behind an outdoor light, so the signal is now *outside* the brick envelope.\n- **Hop 3:** a plug inside the garage near the personnel door or window — the opening the signal will travel through.\n- **Hop 4:** the granny flat, if it's within sight of hop 2 or 3.\n\nThings that ruin this:\n\n- **Cheap no-name plugs with tiny routing tables.** Some budget routers only hold a handful of child devices and drop them under load. Stick to one or two known-good models and repeat them.\n- **Mixing generations badly.** Older Xiaomi/Aqara sensors are famously fussy about which routers they'll stay bound to, and are known to fall off certain mains-powered devices [VERIFY].\n- **Outdoor gear that isn't rated for it.** An indoor smart plug in a carport is not weatherproof. Use IP-rated outdoor gear, and remember any **hardwired** relay, downlight driver or new outdoor circuit must be installed by a licensed electrician under AS/NZS 3000 — DIY mains work is illegal in every Australian state and territory [VERIFY current rules in your state].\n\nGive each new router 10–15 minutes of settle time and check the mesh map before adding the next one. Devices don't always re-route instantly; some sensors need a re-pair *while standing in their final position* to bind to the nearest router.\n\n## Pick a Channel That Isn't Fighting Your Wi-Fi\n\nZigbee and 2.4 GHz Wi-Fi share the same band, and in a double brick home your Wi-Fi is probably running at high power to punch through the same walls. That's a rough neighbour.\n\n- Set your 2.4 GHz Wi-Fi to a fixed channel — 1, 6 or 11.\n- Then set Zigbee to a channel that sits in the gaps: **15, 20 or 25** are the usual safe picks (25 is the quietest but a handful of older devices don't support it) [VERIFY device support].\n- Check the neighbours. In a townhouse or duplex, scan with a Wi-Fi analyser app before choosing.\n\nChanging Zigbee channels after devices are paired can force a re-pair of some battery sensors, so do this early.\n\n## When the Granny Flat Needs Its Own Hub\n\nIf the granny flat is a separate building with its own meter box, a masonry wall between it and the house, and no line of sight, stop trying to bridge it wirelessly. Two smaller, healthy meshes beat one long, marginal chain.\n\nThe approach: run a second gateway in the flat, connected back to the house over Ethernet (best), a Wi-Fi mesh node, or even a powerline adapter if the flat is on the same switchboard. Each mesh gets its own coordinator and its own channel, and the two are joined in your hub software — Home Assistant, Matter, or the vendor app.\n\n::product:tuya-zigbee-matter-thread-gateway-smart-home-bridge-matter-hub::\n\nA Matter-capable Zigbee/Thread gateway is a sensible pick for a second building because it can expose its local devices to your main system over the network rather than over the air. Specifications indicate these multiprotocol gateways handle Zigbee and Thread simultaneously [VERIFY the exact model's supported protocols before buying, as marketing on these listings is inconsistent].\n\nIf the flat is tenanted, be careful about what you install. Anything hardwired, anything that records, and anything that controls the tenant's power needs a conversation first — tenancy and privacy obligations differ by state and change regularly [VERIFY with your state tenancy authority].\n\n## When Zigbee Just Isn't the Right Tool\n\nFor one or two devices at the far end of the block — a pump, a garage freezer alarm, a driveway light — extending a mesh four hops is a lot of effort for a small payoff. If Wi-Fi already covers the spot via a mesh node, a Wi-Fi plug is the pragmatic answer.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nIt won't help your Zigbee mesh at all — Wi-Fi plugs don't repeat Zigbee — but for a single load in a shed with decent Wi-Fi, it's the shorter path. Just check the plug's rated load against what you're switching, and never run a heater or a workshop machine through a plug that isn't rated for it.\n\n## Verify Before You Add More Gear\n\nBefore buying another repeater, look at the data you already have:\n\n- **Zigbee2MQTT / ZHA network map:** check LQI (link quality) values. Anything consistently under ~50 is a marginal link, and devices routing back to the coordinator over three or more weak hops will be unreliable [VERIFY thresholds vary by stack].\n- **Watch for route flapping** — a sensor that changes parent every few hours is telling you it's on the edge of two routers.\n- **Test at the worst time**, not the best: microwave running, everyone streaming, aircon on.\n\nMost double brick homes end up needing three to five well-placed mains-powered routers to reach a detached garage, and a separate coordinator for anything past it. Plan the path first, buy second.",
+    "keyTakeaways": "Zigbee reaches a detached garage or granny flat through hops, not power: chain mains-powered routers (plugs, relays, downlights) every 6–10 metres along a path that goes around brick — out a window or doorway — rather than through it. If the last gap is still too far, run a second coordinator in the granny flat over Ethernet or Wi-Fi and join the two meshes in software.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "Zigbee",
+      "Home Assistant",
+      "Smart Home Setup",
+      "Mesh Networks",
+      "Australian Homes",
+      "Troubleshooting"
+    ],
+    "readingTimeMinutes": 8,
+    "seoTitle": "Zigbee Mesh for Garage & Granny Flat: Double Brick",
+    "seoDescription": "Extend a Zigbee mesh through double brick to a detached garage or granny flat: coordinator placement, repeater chains, channel choice and second hubs.",
+    "seoKeywords": "zigbee mesh double brick, zigbee range garage, zigbee repeater australia, zigbee coordinator placement, granny flat smart home, zigbee channel wifi interference, home assistant zigbee australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:20:31.214Z",
+    "updatedAt": "2026-08-23T00:44:43.141Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3994,
+      "documentId": "wf562ehzqrdw6ra2eegfxdgb",
+      "name": "how-to-set-up-a-zigbee-mesh-that-reaches-the-garag-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25.jpg",
+          "hash": "large_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25",
+          "mime": "image/jpeg",
+          "name": "large_how-to-set-up-a-zigbee-mesh-that-reaches-the-garag-cover.jpg",
+          "path": null,
+          "size": 91.4,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 91395
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25.jpg",
+          "hash": "small_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25",
+          "mime": "image/jpeg",
+          "name": "small_how-to-set-up-a-zigbee-mesh-that-reaches-the-garag-cover.jpg",
+          "path": null,
+          "size": 28.38,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 28380
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25.jpg",
+          "hash": "medium_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25",
+          "mime": "image/jpeg",
+          "name": "medium_how-to-set-up-a-zigbee-mesh-that-reaches-the-garag-cover.jpg",
+          "path": null,
+          "size": 54.92,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 54924
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25.jpg",
+          "hash": "thumbnail_how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25",
+          "mime": "image/jpeg",
+          "name": "thumbnail_how-to-set-up-a-zigbee-mesh-that-reaches-the-garag-cover.jpg",
+          "path": null,
+          "size": 8.85,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 8853
+        }
+      },
+      "hash": "how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 204.79,
+      "url": "/uploads/how_to_set_up_a_zigbee_mesh_that_reaches_the_garag_cover_880b541a25.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:29:59.874Z",
+      "updatedAt": "2026-08-23T00:29:59.874Z",
+      "publishedAt": "2026-08-23T00:29:59.874Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1702,
+        "question": "Will adding more battery-powered door and motion sensors help extend my Zigbee network?",
+        "answer": "No. Battery devices never repeat a signal — only mains-powered gear like smart plugs, downlight drivers and relays act as routers. A mesh built solely from sensors won't extend anywhere, so plan a chain of mains-powered routers roughly every 6–10 metres instead."
+      },
+      {
+        "order": 2,
+        "id": 1703,
+        "question": "My Zigbee coordinator is a USB stick in my NAS cupboard and range is terrible. What should I change first?",
+        "answer": "Move it before you buy anything: put the dongle on a 1–2 m USB 2.0 extension lead so it hangs clear of the chassis and any noisy USB 3.0 drives. Then mount it high and central, out of the metal comms cabinet. An external SMA antenna variant generally outperforms PCB-antenna sticks [VERIFY]."
+      },
+      {
+        "order": 3,
+        "id": 1704,
+        "question": "Which Zigbee channel should I use so it doesn't clash with my 2.4 GHz Wi-Fi?",
+        "answer": "Lock your 2.4 GHz Wi-Fi to channel 1, 6 or 11, then put Zigbee on 15, 20 or 25, which sit in the gaps. Channel 25 is usually quietest but some older devices don't support it [VERIFY device support]. Do this early — changing channels later can force a re-pair of some battery sensors."
+      },
+      {
+        "order": 4,
+        "id": 1705,
+        "question": "Can I install a Zigbee relay behind my outdoor light myself?",
+        "answer": "No. Any hardwired relay, downlight driver or new outdoor circuit must be installed by a licensed electrician under AS/NZS 3000, and DIY mains work is illegal across Australia [VERIFY current rules in your state]. Plug-in devices are fine, but use IP-rated gear outdoors — an indoor plug isn't weatherproof."
+      },
+      {
+        "order": 5,
+        "id": 1706,
+        "question": "How do I tell if a link in my mesh is too weak before I buy another repeater?",
+        "answer": "Check the LQI values on your Zigbee2MQTT or ZHA network map — links consistently under about 50 are marginal, and three or more weak hops back to the coordinator will be unreliable [VERIFY thresholds vary by stack]. Also watch for sensors that change parent every few hours, and test with the microwave and aircon running."
+      }
+    ],
+    "categories": [
+      {
+        "id": 9,
+        "documentId": "k7tw9kzpxlnx8qy1mi6fz8fk",
+        "name": "Setup Guides",
+        "slug": "setup-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:42.102Z",
+        "updatedAt": "2026-08-22T18:30:53.850Z",
+        "publishedAt": "2026-08-22T18:30:53.847Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}

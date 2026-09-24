@@ -1,0 +1,334 @@
+{
+  "published": {
+    "id": 260,
+    "documentId": "h9z8y7mj0v347hn1oynie3sb",
+    "title": "Local Recording vs Cloud Subscriptions for Home Security Cameras in Australia",
+    "slug": "local-recording-vs-cloud-subscriptions-security-cameras-australia",
+    "excerpt": "Cloud plans buy convenience and off-site backup; microSD cards and NVRs buy ownership and no ongoing fees. Here is how the two approaches compare for Australian homes, including NBN upload limits, subscription costs in AUD, and the privacy questions worth asking before you commit.",
+    "content": "Every security camera sold in Australia eventually asks you the same question: where does the footage live? On a microSD card in the camera, on a hard drive in the cupboard, or on a server somewhere paid for monthly.\n\nThe answer changes what you pay over five years, what happens when your NBN connection drops out, and who else can potentially access video of your front door. It is worth ten minutes of thought before you buy, because most camera brands make the decision hard to reverse.\n\n**Practical takeaway:** if you only need to check who knocked while you were out, local storage on a decent camera is enough. If the footage would need to survive a break-in, a fire or a stolen camera, you want a copy off-site — either a paid cloud plan or your own backup arrangement.\n\n## How local recording and cloud storage actually differ\n\nLocal recording means video is written to hardware you own. In practice that is one of three things:\n\n- **microSD card in the camera** — cheapest, most common on Tapo, Reolink, Eufy and Aqara models. Typically 32GB to 256GB depending on what the camera supports.\n- **A base station or hub with internal storage** — Eufy HomeBase, Arlo's SmartHub with USB storage, UniFi Protect consoles.\n- **A network video recorder (NVR) or NAS** — a dedicated box recording multiple cameras continuously, often via PoE cabling. This is the approach Home Assistant and Frigate users tend to land on.\n\nCloud storage means the camera uploads clips (or a continuous stream) to the vendor's servers, and you pay monthly or annually for retention — usually 30 days on consumer plans.\n\nThe important distinction is not just where the file sits. It is what features the vendor ties to the subscription. Several brands gate person detection, vehicle detection, package alerts, activity zones and even rich notifications behind a paid plan, regardless of whether you also have a card in the camera. Check that before you buy, not after.\n\n## What subscriptions cost over five years\n\nA single-camera cloud plan in Australia generally sits somewhere around $5–$15 per month, with multi-camera household plans in the $15–$30 range [VERIFY — check current AUD pricing directly with Arlo, Ring, Google and Eufy, as these change regularly].\n\nRun that out. A $12/month plan is roughly $144 a year, or over $700 across five years — frequently more than the cameras themselves cost. A 128GB microSD card from Officeworks or Amazon AU is a one-off spend of roughly $25–$40 [VERIFY].\n\nThat maths does not automatically favour local storage, though. Cloud plans usually bundle:\n\n- Off-site retention, so a stolen camera does not take the evidence with it\n- Longer history than a small card can hold\n- Smarter detection running on the vendor's servers\n- Extended warranty or theft replacement on some plans [VERIFY per brand]\n\nArlo is the clearest example of a system built around the subscription model. The hardware is genuinely capable — 4K capture, integrated spotlight, colour night video on paper — but a meaningful share of the experience assumes an active Arlo Secure plan. The specification implies excellent image detail; the ongoing cost is the trade-off you are accepting.\n\n::product:arlo-ultra-2-4k-spotlight-camera::\n\n## Your upload speed is part of this decision\n\nThis is the Australian-specific catch that overseas reviews skip. Cloud cameras upload, and most NBN plans are heavily asymmetric — a common 50/20 plan gives 20Mbps up, and entry-level 25/5 or 12/1 connections give far less [VERIFY current plan tiers with your RSP].\n\nA single 2K camera streaming events may use 2–4Mbps while uploading. Four cameras all triggering at once on a 5Mbps upload will drop frames, delay notifications, and make video calls in the house stutter. Fixed wireless and Starlink users should be especially cautious, and anyone on a metered mobile broadband connection should treat continuous cloud recording as off the table.\n\nLocal recording sidesteps this entirely. Footage is written locally at full bitrate and only travels across your network when you open the app. If you are on a slow or capped connection, that alone can settle the argument.\n\n## Where local storage quietly fails\n\nLocal is not free of downsides, and the failure modes are ones people discover at the worst moment.\n\n**Card death.** MicroSD cards in cameras are written to constantly in heat. Standard consumer cards fail. Buy high-endurance surveillance-rated cards and replace them every couple of years.\n\n**Theft.** A camera taken off the wall takes its card with it. Base stations hidden inside the house solve this; cameras storing footage on-device do not.\n\n**Silent failure.** A full or corrupted card often stops recording without an obvious alert. Check your footage monthly. Genuinely — put a reminder in your calendar.\n\n**Power cuts.** An NVR with no power records nothing, and a blackout is exactly when you might want the cameras running. A small UPS or portable power station keeping the modem, router and recorder alive for a few hours removes that gap.\n\n::product:voltx-e600-portable-power-station::\n\n**Remote access.** Viewing local footage away from home still requires some path in — the vendor's relay servers, a VPN back to your house, or a service like Tailscale. Do not open ports directly to the internet.\n\n## Privacy, data and Australian law\n\nCloud storage means a third party holds video of your household. Where those servers are located, how long deleted footage is retained, and who can be compelled to hand it over are all worth reading the privacy policy for. Some brands store Australian customer data offshore [VERIFY per vendor].\n\nAustralian privacy and surveillance rules are not a single national rulebook. The Privacy Act's household exemption, state and territory Surveillance Devices and listening-device legislation, and body corporate rules can all apply differently depending on where you live and what your camera can see or hear [VERIFY — laws differ by state and change; seek legal advice for anything contentious].\n\nPractical guidance that holds up regardless: point cameras at your own property, avoid capturing a neighbour's windows or a shared internal corridor, be careful with audio recording (it is treated more strictly than video in several jurisdictions [VERIFY]), and talk to neighbours before installing anything that overlooks their yard. Renters should get written landlord permission before drilling, and note that any camera requiring hard-wiring to 240V mains must be installed by a licensed electrician under AS/NZS wiring rules — a plug-in Type I unit is fine to install yourself, a hard-wired one is not.\n\n## The hybrid approach most homes end up with\n\nYou rarely have to pick one. A sensible middle path:\n\n1. **Local as the primary record.** High-endurance card or a base station with storage, so you always have full-quality footage without paying for it.\n2. **Cloud for the one or two cameras that matter most.** Front door and main entry. If those units are stolen, the clips still exist elsewhere.\n3. **Or roll your own off-site copy.** A NAS running Frigate or Scrypted, syncing important events to cloud object storage you control. More effort, no monthly vendor fee, and it works well alongside Home Assistant.\n\n**Choose local** if you have slow upload, want no ongoing costs, run Home Assistant, or are uncomfortable with third-party video storage.\n\n**Choose cloud** if you want it working in ten minutes, value theft-proof off-site copies, and would rather pay monthly than manage hardware.\n\nWhichever way you go, verify the recordings are actually there before you need them. Storage that silently stopped working three months ago is worse than no camera at all, because you thought you were covered.",
+    "keyTakeaways": "Local recording on a microSD card or NVR costs nothing ongoing and works fine on slow NBN uploads, but a stolen camera takes the footage with it. Pay for cloud storage only on the one or two cameras where an off-site copy genuinely matters - a hybrid of both is what most Australian homes should run.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "security cameras",
+      "cloud storage",
+      "local storage",
+      "privacy",
+      "NVR",
+      "Australia",
+      "subscriptions"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Local vs Cloud Camera Storage: An Australian Guide",
+    "seoDescription": "Compare microSD and NVR recording against paid cloud plans for home security cameras in Australia - costs in AUD, NBN upload limits and privacy issues.",
+    "seoKeywords": "local recording vs cloud security cameras, security camera cloud subscription Australia, microSD security camera storage, NVR home security Australia, Arlo Secure subscription cost, home security camera privacy Australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:03:01.966Z",
+    "updatedAt": "2026-08-23T00:42:16.708Z",
+    "publishedAt": "2026-08-23T00:42:16.749Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3978,
+      "documentId": "rvlisv5u26h3hvepqrzo4bhm",
+      "name": "local-recording-vs-cloud-subscriptions-for-home-se-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace.jpg",
+          "hash": "large_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace",
+          "mime": "image/jpeg",
+          "name": "large_local-recording-vs-cloud-subscriptions-for-home-se-cover.jpg",
+          "path": null,
+          "size": 41.06,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 41061
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace.jpg",
+          "hash": "small_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace",
+          "mime": "image/jpeg",
+          "name": "small_local-recording-vs-cloud-subscriptions-for-home-se-cover.jpg",
+          "path": null,
+          "size": 13.36,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13355
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace.jpg",
+          "hash": "medium_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace",
+          "mime": "image/jpeg",
+          "name": "medium_local-recording-vs-cloud-subscriptions-for-home-se-cover.jpg",
+          "path": null,
+          "size": 25.01,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 25005
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace.jpg",
+          "hash": "thumbnail_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace",
+          "mime": "image/jpeg",
+          "name": "thumbnail_local-recording-vs-cloud-subscriptions-for-home-se-cover.jpg",
+          "path": null,
+          "size": 4.69,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4692
+        }
+      },
+      "hash": "local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 98.32,
+      "url": "/uploads/local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:03:01.949Z",
+      "updatedAt": "2026-08-23T00:03:01.949Z",
+      "publishedAt": "2026-08-23T00:03:01.950Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1587,
+        "question": "Is a cloud camera subscription actually cheaper than buying a microSD card?",
+        "answer": "Over five years, usually not on price alone — a $12/month plan works out to roughly $700, while a 128GB high-endurance card is a one-off $25–$40 [VERIFY]. What the subscription buys is off-site retention, longer history and server-side detection, so the comparison is about what you get, not just dollars. Check current AUD pricing directly with the brand, as plans change regularly."
+      },
+      {
+        "order": 2,
+        "id": 1588,
+        "question": "Will four security cameras slow down my NBN connection?",
+        "answer": "They can, if they upload to the cloud. A single 2K camera streaming events may use 2–4Mbps, so four triggering at once on a 5Mbps upload will drop frames, delay notifications and make video calls stutter [VERIFY your plan tier with your RSP]. Local recording avoids this because footage only crosses the network when you open the app."
+      },
+      {
+        "order": 3,
+        "id": 1589,
+        "question": "What happens to my footage if someone steals the camera off the wall?",
+        "answer": "If the video lives on a microSD card inside that camera, it goes with the thief. A base station or NVR hidden inside the house solves this, as does a cloud plan holding an off-site copy. That single scenario is the strongest argument for keeping at least your front-door camera backed up somewhere else."
+      },
+      {
+        "order": 4,
+        "id": 1590,
+        "question": "Can I install a security camera myself or do I need an electrician?",
+        "answer": "A plug-in camera using a standard Type I outlet is fine to install yourself. Anything hard-wired to 240V mains must be installed by a licensed electrician under AS/NZS wiring rules. Renters should also get written landlord permission before drilling [VERIFY — tenancy rules differ by state]."
+      },
+      {
+        "order": 5,
+        "id": 1591,
+        "question": "Am I allowed to record audio and point a camera near my neighbour's place?",
+        "answer": "Australian rules are not one national rulebook — the Privacy Act's household exemption, state and territory Surveillance Devices legislation and body corporate rules can all apply differently [VERIFY; seek legal advice for anything contentious]. Audio is treated more strictly than video in several jurisdictions [VERIFY]. Practically, point cameras at your own property, avoid neighbours' windows and shared corridors, and talk to neighbours first."
+      }
+    ],
+    "categories": [
+      {
+        "id": 8,
+        "documentId": "a1agni04sox35zmd5s78oa85",
+        "name": "Security & Cameras",
+        "slug": "security",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:42.038Z",
+        "updatedAt": "2026-08-22T18:30:53.812Z",
+        "publishedAt": "2026-08-22T18:30:53.810Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 188,
+    "documentId": "h9z8y7mj0v347hn1oynie3sb",
+    "title": "Local Recording vs Cloud Subscriptions for Home Security Cameras in Australia",
+    "slug": "local-recording-vs-cloud-subscriptions-security-cameras-australia",
+    "excerpt": "Cloud plans buy convenience and off-site backup; microSD cards and NVRs buy ownership and no ongoing fees. Here is how the two approaches compare for Australian homes, including NBN upload limits, subscription costs in AUD, and the privacy questions worth asking before you commit.",
+    "content": "Every security camera sold in Australia eventually asks you the same question: where does the footage live? On a microSD card in the camera, on a hard drive in the cupboard, or on a server somewhere paid for monthly.\n\nThe answer changes what you pay over five years, what happens when your NBN connection drops out, and who else can potentially access video of your front door. It is worth ten minutes of thought before you buy, because most camera brands make the decision hard to reverse.\n\n**Practical takeaway:** if you only need to check who knocked while you were out, local storage on a decent camera is enough. If the footage would need to survive a break-in, a fire or a stolen camera, you want a copy off-site — either a paid cloud plan or your own backup arrangement.\n\n## How local recording and cloud storage actually differ\n\nLocal recording means video is written to hardware you own. In practice that is one of three things:\n\n- **microSD card in the camera** — cheapest, most common on Tapo, Reolink, Eufy and Aqara models. Typically 32GB to 256GB depending on what the camera supports.\n- **A base station or hub with internal storage** — Eufy HomeBase, Arlo's SmartHub with USB storage, UniFi Protect consoles.\n- **A network video recorder (NVR) or NAS** — a dedicated box recording multiple cameras continuously, often via PoE cabling. This is the approach Home Assistant and Frigate users tend to land on.\n\nCloud storage means the camera uploads clips (or a continuous stream) to the vendor's servers, and you pay monthly or annually for retention — usually 30 days on consumer plans.\n\nThe important distinction is not just where the file sits. It is what features the vendor ties to the subscription. Several brands gate person detection, vehicle detection, package alerts, activity zones and even rich notifications behind a paid plan, regardless of whether you also have a card in the camera. Check that before you buy, not after.\n\n## What subscriptions cost over five years\n\nA single-camera cloud plan in Australia generally sits somewhere around $5–$15 per month, with multi-camera household plans in the $15–$30 range [VERIFY — check current AUD pricing directly with Arlo, Ring, Google and Eufy, as these change regularly].\n\nRun that out. A $12/month plan is roughly $144 a year, or over $700 across five years — frequently more than the cameras themselves cost. A 128GB microSD card from Officeworks or Amazon AU is a one-off spend of roughly $25–$40 [VERIFY].\n\nThat maths does not automatically favour local storage, though. Cloud plans usually bundle:\n\n- Off-site retention, so a stolen camera does not take the evidence with it\n- Longer history than a small card can hold\n- Smarter detection running on the vendor's servers\n- Extended warranty or theft replacement on some plans [VERIFY per brand]\n\nArlo is the clearest example of a system built around the subscription model. The hardware is genuinely capable — 4K capture, integrated spotlight, colour night video on paper — but a meaningful share of the experience assumes an active Arlo Secure plan. The specification implies excellent image detail; the ongoing cost is the trade-off you are accepting.\n\n::product:arlo-ultra-2-4k-spotlight-camera::\n\n## Your upload speed is part of this decision\n\nThis is the Australian-specific catch that overseas reviews skip. Cloud cameras upload, and most NBN plans are heavily asymmetric — a common 50/20 plan gives 20Mbps up, and entry-level 25/5 or 12/1 connections give far less [VERIFY current plan tiers with your RSP].\n\nA single 2K camera streaming events may use 2–4Mbps while uploading. Four cameras all triggering at once on a 5Mbps upload will drop frames, delay notifications, and make video calls in the house stutter. Fixed wireless and Starlink users should be especially cautious, and anyone on a metered mobile broadband connection should treat continuous cloud recording as off the table.\n\nLocal recording sidesteps this entirely. Footage is written locally at full bitrate and only travels across your network when you open the app. If you are on a slow or capped connection, that alone can settle the argument.\n\n## Where local storage quietly fails\n\nLocal is not free of downsides, and the failure modes are ones people discover at the worst moment.\n\n**Card death.** MicroSD cards in cameras are written to constantly in heat. Standard consumer cards fail. Buy high-endurance surveillance-rated cards and replace them every couple of years.\n\n**Theft.** A camera taken off the wall takes its card with it. Base stations hidden inside the house solve this; cameras storing footage on-device do not.\n\n**Silent failure.** A full or corrupted card often stops recording without an obvious alert. Check your footage monthly. Genuinely — put a reminder in your calendar.\n\n**Power cuts.** An NVR with no power records nothing, and a blackout is exactly when you might want the cameras running. A small UPS or portable power station keeping the modem, router and recorder alive for a few hours removes that gap.\n\n::product:voltx-e600-portable-power-station::\n\n**Remote access.** Viewing local footage away from home still requires some path in — the vendor's relay servers, a VPN back to your house, or a service like Tailscale. Do not open ports directly to the internet.\n\n## Privacy, data and Australian law\n\nCloud storage means a third party holds video of your household. Where those servers are located, how long deleted footage is retained, and who can be compelled to hand it over are all worth reading the privacy policy for. Some brands store Australian customer data offshore [VERIFY per vendor].\n\nAustralian privacy and surveillance rules are not a single national rulebook. The Privacy Act's household exemption, state and territory Surveillance Devices and listening-device legislation, and body corporate rules can all apply differently depending on where you live and what your camera can see or hear [VERIFY — laws differ by state and change; seek legal advice for anything contentious].\n\nPractical guidance that holds up regardless: point cameras at your own property, avoid capturing a neighbour's windows or a shared internal corridor, be careful with audio recording (it is treated more strictly than video in several jurisdictions [VERIFY]), and talk to neighbours before installing anything that overlooks their yard. Renters should get written landlord permission before drilling, and note that any camera requiring hard-wiring to 240V mains must be installed by a licensed electrician under AS/NZS wiring rules — a plug-in Type I unit is fine to install yourself, a hard-wired one is not.\n\n## The hybrid approach most homes end up with\n\nYou rarely have to pick one. A sensible middle path:\n\n1. **Local as the primary record.** High-endurance card or a base station with storage, so you always have full-quality footage without paying for it.\n2. **Cloud for the one or two cameras that matter most.** Front door and main entry. If those units are stolen, the clips still exist elsewhere.\n3. **Or roll your own off-site copy.** A NAS running Frigate or Scrypted, syncing important events to cloud object storage you control. More effort, no monthly vendor fee, and it works well alongside Home Assistant.\n\n**Choose local** if you have slow upload, want no ongoing costs, run Home Assistant, or are uncomfortable with third-party video storage.\n\n**Choose cloud** if you want it working in ten minutes, value theft-proof off-site copies, and would rather pay monthly than manage hardware.\n\nWhichever way you go, verify the recordings are actually there before you need them. Storage that silently stopped working three months ago is worse than no camera at all, because you thought you were covered.",
+    "keyTakeaways": "Local recording on a microSD card or NVR costs nothing ongoing and works fine on slow NBN uploads, but a stolen camera takes the footage with it. Pay for cloud storage only on the one or two cameras where an off-site copy genuinely matters - a hybrid of both is what most Australian homes should run.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "security cameras",
+      "cloud storage",
+      "local storage",
+      "privacy",
+      "NVR",
+      "Australia",
+      "subscriptions"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Local vs Cloud Camera Storage: An Australian Guide",
+    "seoDescription": "Compare microSD and NVR recording against paid cloud plans for home security cameras in Australia - costs in AUD, NBN upload limits and privacy issues.",
+    "seoKeywords": "local recording vs cloud security cameras, security camera cloud subscription Australia, microSD security camera storage, NVR home security Australia, Arlo Secure subscription cost, home security camera privacy Australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:03:01.966Z",
+    "updatedAt": "2026-08-23T00:42:16.708Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3978,
+      "documentId": "rvlisv5u26h3hvepqrzo4bhm",
+      "name": "local-recording-vs-cloud-subscriptions-for-home-se-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace.jpg",
+          "hash": "large_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace",
+          "mime": "image/jpeg",
+          "name": "large_local-recording-vs-cloud-subscriptions-for-home-se-cover.jpg",
+          "path": null,
+          "size": 41.06,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 41061
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace.jpg",
+          "hash": "small_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace",
+          "mime": "image/jpeg",
+          "name": "small_local-recording-vs-cloud-subscriptions-for-home-se-cover.jpg",
+          "path": null,
+          "size": 13.36,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13355
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace.jpg",
+          "hash": "medium_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace",
+          "mime": "image/jpeg",
+          "name": "medium_local-recording-vs-cloud-subscriptions-for-home-se-cover.jpg",
+          "path": null,
+          "size": 25.01,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 25005
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace.jpg",
+          "hash": "thumbnail_local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace",
+          "mime": "image/jpeg",
+          "name": "thumbnail_local-recording-vs-cloud-subscriptions-for-home-se-cover.jpg",
+          "path": null,
+          "size": 4.69,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4692
+        }
+      },
+      "hash": "local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 98.32,
+      "url": "/uploads/local_recording_vs_cloud_subscriptions_for_home_se_cover_9becbbaace.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:03:01.949Z",
+      "updatedAt": "2026-08-23T00:03:01.949Z",
+      "publishedAt": "2026-08-23T00:03:01.950Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1582,
+        "question": "Is a cloud camera subscription actually cheaper than buying a microSD card?",
+        "answer": "Over five years, usually not on price alone — a $12/month plan works out to roughly $700, while a 128GB high-endurance card is a one-off $25–$40 [VERIFY]. What the subscription buys is off-site retention, longer history and server-side detection, so the comparison is about what you get, not just dollars. Check current AUD pricing directly with the brand, as plans change regularly."
+      },
+      {
+        "order": 2,
+        "id": 1583,
+        "question": "Will four security cameras slow down my NBN connection?",
+        "answer": "They can, if they upload to the cloud. A single 2K camera streaming events may use 2–4Mbps, so four triggering at once on a 5Mbps upload will drop frames, delay notifications and make video calls stutter [VERIFY your plan tier with your RSP]. Local recording avoids this because footage only crosses the network when you open the app."
+      },
+      {
+        "order": 3,
+        "id": 1584,
+        "question": "What happens to my footage if someone steals the camera off the wall?",
+        "answer": "If the video lives on a microSD card inside that camera, it goes with the thief. A base station or NVR hidden inside the house solves this, as does a cloud plan holding an off-site copy. That single scenario is the strongest argument for keeping at least your front-door camera backed up somewhere else."
+      },
+      {
+        "order": 4,
+        "id": 1585,
+        "question": "Can I install a security camera myself or do I need an electrician?",
+        "answer": "A plug-in camera using a standard Type I outlet is fine to install yourself. Anything hard-wired to 240V mains must be installed by a licensed electrician under AS/NZS wiring rules. Renters should also get written landlord permission before drilling [VERIFY — tenancy rules differ by state]."
+      },
+      {
+        "order": 5,
+        "id": 1586,
+        "question": "Am I allowed to record audio and point a camera near my neighbour's place?",
+        "answer": "Australian rules are not one national rulebook — the Privacy Act's household exemption, state and territory Surveillance Devices legislation and body corporate rules can all apply differently [VERIFY; seek legal advice for anything contentious]. Audio is treated more strictly than video in several jurisdictions [VERIFY]. Practically, point cameras at your own property, avoid neighbours' windows and shared corridors, and talk to neighbours first."
+      }
+    ],
+    "categories": [
+      {
+        "id": 8,
+        "documentId": "a1agni04sox35zmd5s78oa85",
+        "name": "Security & Cameras",
+        "slug": "security",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:42.038Z",
+        "updatedAt": "2026-08-22T18:30:53.812Z",
+        "publishedAt": "2026-08-22T18:30:53.810Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}
