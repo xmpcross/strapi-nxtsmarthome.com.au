@@ -3,22 +3,29 @@ import type { Category } from '@/lib/site'
 import clsx from 'clsx'
 import Link from 'next/link'
 
-/** Row of topic pills linking to each category; the active one is filled. */
+/**
+ * Topic links for each category; the active one is filled. `row` is a wrap of
+ * pills; `sidebar` stacks them full width for a left filter column.
+ */
 export default function TopicChips({
   categories,
   activeSlug,
   allHref = '/articles/',
   total,
+  layout = 'row',
 }: {
   categories: (Category & { count: number })[]
   activeSlug?: string
   allHref?: string
   total?: number
+  layout?: 'row' | 'sidebar'
 }) {
   const pill =
-    'inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium transition-colors'
+    layout === 'sidebar'
+      ? 'flex w-full items-center justify-between gap-2 rounded-[8px] border px-3 py-2 text-sm font-medium transition-colors'
+      : 'inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium transition-colors'
   return (
-    <nav aria-label="Topics" className="flex flex-wrap gap-2">
+    <nav aria-label="Topics" className={layout === 'sidebar' ? 'flex flex-col gap-1.5' : 'flex flex-wrap gap-2'}>
       <Link
         href={allHref}
         className={clsx(
