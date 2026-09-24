@@ -331,7 +331,7 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
   ];
 
   return (
-    <div className="rounded-[4px] bg-white px-5 pb-4 pt-2 dark:bg-slate-800">
+    <div className="rounded-[8px] bg-white px-5 pb-4 pt-2 dark:bg-slate-800">
       {/* A panel with nothing in it is worse than no panel — Features is
           dropped entirely for products the catalogue gave no feature data for. */}
       {sections

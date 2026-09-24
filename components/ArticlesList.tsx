@@ -49,7 +49,7 @@ export default function ArticlesList({
           <>
             {/* Counts describe the whole library, not this page of it. */}
             <TopicChips categories={categories} total={total} />
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 md:gap-7 lg:mt-10 lg:grid-cols-3">
+            <div className="mt-8 grid gap-[15px] sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
               {shown.map((article) => (
                 <Card11 key={article.slug} post={toTPost(article)} />
               ))}

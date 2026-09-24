@@ -19,12 +19,12 @@ const SectionHero3: FC<Props> = ({ posts, className }) => {
       <div className="aspect-w-8 aspect-h-8 sm:aspect-w-10 lg:aspect-w-16">
         <NcImage
           alt={title}
-          containerClassName="absolute inset-0 z-0 overflow-hidden rounded-[40px]"
+          containerClassName="absolute inset-0 z-0 overflow-hidden rounded-[8px]"
           src={featuredImage}
           fill
           sizes="(max-width: 1024px) 100vw, 90vw"
         />
-        <span className="absolute inset-0 rounded-[40px] bg-black/50"></span>
+        <span className="absolute inset-0 rounded-[8px] bg-black/50"></span>
         <div className="absolute inset-0 p-5 md:p-14 xl:p-20 2xl:p-28">
           <div className="max-w-2xl">
             <h2 className="text-xl font-semibold text-white sm:text-3xl lg:text-4xl">

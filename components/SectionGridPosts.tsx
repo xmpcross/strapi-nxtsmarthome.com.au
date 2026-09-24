@@ -73,7 +73,7 @@ const SectionGridPosts: FC<Props> = ({
       <HeadingWithSub subHeading={subHeading as string} isCenter={headingIsCenter}>
         {heading}
       </HeadingWithSub>
-      <div className={clsx('mt-16 grid gap-x-6 gap-y-8 md:gap-x-7 md:gap-y-10 lg:mt-20', gridClass)}>
+      <div className={clsx('mt-16 grid gap-[15px] lg:mt-20', gridClass)}>
         {posts?.map((post) => renderCard(post))}
       </div>
       {moreHref && (

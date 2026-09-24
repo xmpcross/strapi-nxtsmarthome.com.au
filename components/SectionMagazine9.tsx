@@ -19,12 +19,12 @@ const SectionMagazine9: FC<Props> = ({ posts, className, heading, subHeading, di
           {heading}
         </HeadingWithSub>
       )}
-      <div className={clsx('grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3')}>
+      <div className={clsx('grid grid-cols-1 gap-[15px] sm:grid-cols-2 lg:grid-cols-3')}>
         {posts[0] && <Card9 ratio="aspect-4/3" post={posts[0]} />}
         {posts[1] && <Card9 ratio="aspect-4/3" post={posts[1]} />}
         {posts[2] && <Card9 ratio="aspect-4/3" post={posts[2]} />}
       </div>
-      <div className={clsx('mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3')}>
+      <div className={clsx('mt-8 grid grid-cols-1 gap-[15px] sm:grid-cols-2 lg:grid-cols-3')}>
         {posts.slice(3).map((p) => (
           <Card17Podcast key={p.id} post={p} />
         ))}

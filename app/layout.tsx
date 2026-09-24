@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Be_Vietnam_Pro } from 'next/font/google';
+import localFont from 'next/font/local';
 import { AudioProvider } from '@/components/AudioProvider';
 import Aside from '@/components/aside';
 import AsideSidebarNavigation from '@/components/aside-sidebar-navigation';
@@ -19,6 +20,17 @@ const beVietnamPro = Be_Vietnam_Pro({
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-be-vietnam-pro',
+});
+
+// Headings (h1–h6): Urbanist, self-hosted from app/fonts/urbanist (Google Fonts,
+// SIL OFL 1.1 — licence alongside). One variable file covers every weight.
+const urbanist = localFont({
+  src: [
+    { path: './fonts/urbanist/Urbanist-latin-variable.woff2', weight: '100 900', style: 'normal' },
+    { path: './fonts/urbanist/Urbanist-latin-italic-variable.woff2', weight: '100 900', style: 'italic' },
+  ],
+  display: 'swap',
+  variable: '--font-urbanist',
 });
 
 export const metadata: Metadata = {
@@ -83,7 +95,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={site.language} className={beVietnamPro.variable} suppressHydrationWarning>
+    <html lang={site.language} className={`${beVietnamPro.variable} ${urbanist.variable}`} suppressHydrationWarning>
       <head>
         {/*
           Applies the theme before first paint. Without this a dark reader gets a

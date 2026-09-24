@@ -11,7 +11,7 @@ interface Props {
   limit?: number
 }
 
-const WidgetCategories: FC<Props> = ({ className = 'bg-neutral-100 dark:bg-neutral-800', categories, limit = 5 }) => {
+const WidgetCategories: FC<Props> = ({ className = 'bg-neutral-100 dark:bg-neutral-800', categories, limit = 6 }) => {
   return (
     <div className={clsx('widget-categories overflow-hidden rounded-3xl', className)}>
       <WidgetHeading title="Suggested categories" viewAll={{ label: 'View all', href: '/categories/' }} />

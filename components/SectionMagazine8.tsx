@@ -21,10 +21,10 @@ const SectionMagazine8: FC<Props> = ({ posts, className, heading, subHeading, di
       >
         {heading}
       </HeadingWithSub>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-6 md:gap-7">
+      <div className="grid grid-cols-1 gap-[15px] sm:grid-cols-6">
         <Card16Podcast className="sm:col-span-3 lg:col-span-2" post={posts[0]} />
         <Card16Podcast className="sm:col-span-3 lg:col-span-2" post={posts[1]} />
-        <div className="flex flex-col gap-y-6 sm:col-span-6 md:gap-y-7 lg:col-span-2">
+        <div className="flex flex-col gap-y-[15px] sm:col-span-6 lg:col-span-2">
           {posts.slice(2, 6).map((p) => (
             <Card17Podcast key={p.id} post={p} />
           ))}

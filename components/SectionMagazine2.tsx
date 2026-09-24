@@ -25,14 +25,14 @@ const SectionMagazine2: FC<Props> = ({ posts, heading, className, viewAllHref = 
         rightButtonHref={viewAllHref}
       />
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <div className="grid gap-6">
+      <div className="grid grid-cols-1 gap-[15px] md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-[15px]">
           {posts.slice(1, 3).map((post) => {
             return <Card11 ratio="aspect-5/3" key={post.id} post={post} />
           })}
         </div>
         <div className="lg:col-span-2">{posts[0] && <Card2 className="h-full" size="large" post={posts[0]} />}</div>
-        <div className="grid grid-cols-1 gap-6 md:col-span-3 md:grid-cols-2 xl:col-span-1 xl:grid-cols-1">
+        <div className="grid grid-cols-1 gap-[15px] md:col-span-3 md:grid-cols-2 xl:col-span-1 xl:grid-cols-1">
           {posts.slice(3, 5).map((post) => {
             return <Card11 className="bg-neutral-50" ratio="aspect-5/3" key={post.id} post={post} />
           })}

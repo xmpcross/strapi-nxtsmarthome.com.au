@@ -57,7 +57,7 @@ const SectionMagazine11: FC<Props> = ({ className, categories, subHeading, dimHe
       <HeadingWithSub subHeading={subHeading} dimHeading={dimHeading}>
         {heading}
       </HeadingWithSub>
-      <div className="grid grid-cols-1 gap-7 sm:gap-4 md:grid-cols-2 md:gap-7 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-[15px] md:grid-cols-2 lg:grid-cols-3">
         {categories.map(renderListByCat)}
       </div>
     </div>

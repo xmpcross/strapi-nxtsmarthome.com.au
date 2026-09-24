@@ -24,9 +24,9 @@ const SectionMagazine3: FC<Props> = ({ posts, heading, className, subHeading, di
       />
 
       {!posts.length && <span>Nothing we found!</span>}
-      <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-[15px] lg:grid-cols-2">
         {posts[0] && <Card2 size="large" post={posts[0]} />}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8">
+        <div className="grid grid-cols-1 gap-[15px] sm:grid-cols-2">
           {posts
             .filter((_, i) => i < 5 && i >= 1)
             .map((item, index) => (

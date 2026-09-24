@@ -91,7 +91,7 @@ export default async function AuthorPage({ params }: { params: Promise<{ slug: s
         ) : null}
 
         {articles.length ? (
-          <div className="grid gap-6 sm:grid-cols-2 md:gap-7 lg:grid-cols-3">
+          <div className="grid gap-[15px] sm:grid-cols-2 lg:grid-cols-3">
             {articles.map((article) => (
               <Card11 key={article.slug} post={toTPost(article)} />
             ))}

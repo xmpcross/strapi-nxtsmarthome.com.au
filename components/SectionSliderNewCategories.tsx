@@ -71,11 +71,11 @@ const SectionSliderNewCategories: FC<Props> = ({
       </HeadingWithArrowBtns>
 
       <div className="embla" ref={emblaRef}>
-        <div className="-ms-5 embla__container sm:-ms-7">
+        <div className="-ms-[15px] embla__container">
           {categories.map((category, index) => (
             <div
               key={category.id}
-              className="embla__slide basis-[86%] ps-5 sm:basis-1/2 sm:ps-7 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+              className="embla__slide basis-[86%] ps-[15px] sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
             >
               {renderCard(category, index)}
             </div>

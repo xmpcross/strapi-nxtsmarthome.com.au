@@ -25,9 +25,9 @@ const SectionMagazine5: FC<Props> = ({ posts, heading, className, subHeading, di
         tabs={['Development', 'Design', 'Illustration', 'Photography']}
       />
       {!posts.length && <span>Nothing we found!</span>}
-      <div className="grid grid-cols-1 gap-5 md:gap-7 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-[15px] lg:grid-cols-2">
         {posts[0] && <Card12 post={posts[0]} />}
-        <div className="flex flex-col gap-5 md:gap-7">
+        <div className="flex flex-col gap-[15px]">
           {posts.slice(1, 5).map((item, index) => (
             <Card13 className="flex-1" key={index} post={item} />
           ))}

@@ -18,6 +18,8 @@ import WidgetPosts from './WidgetPosts'
 import WidgetTags from './WidgetTags'
 
 interface Props extends Pick<HeadingWithSubProps, 'subHeading' | 'dimHeading'> {
+  moreHref?: string
+  moreLabel?: string
   posts: TPost[]
   gridClass?: string
   className?: string
@@ -30,6 +32,8 @@ interface Props extends Pick<HeadingWithSubProps, 'subHeading' | 'dimHeading'> {
 }
 
 const SectionPostsWithWidgets: FC<Props> = ({
+  moreHref = '/articles/',
+  moreLabel = 'All articles',
   posts,
   postCardName = 'card3',
   heading,
@@ -70,9 +74,9 @@ const SectionPostsWithWidgets: FC<Props> = ({
           <HeadingWithSub subHeading={subHeading} dimHeading={dimHeading}>
             {heading}
           </HeadingWithSub>
-          <div className={clsx('grid gap-6 md:gap-7', gridClass)}>{posts.map(renderCard)}</div>
+          <div className={clsx('grid gap-[15px]', gridClass)}>{posts.map(renderCard)}</div>
           <div className="mt-16">
-            <ButtonPrimary href="/articles/">All articles</ButtonPrimary>
+            <ButtonPrimary href={moreHref}>{moreLabel}</ButtonPrimary>
           </div>
         </div>
         <div className="mt-24 w-full space-y-7 lg:mt-0 lg:w-2/5 lg:ps-10 xl:w-1/3 xl:ps-0">

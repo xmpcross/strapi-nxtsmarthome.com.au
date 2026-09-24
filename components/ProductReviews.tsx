@@ -42,7 +42,7 @@ function ReviewCard({ review }: { review: ProductReview }) {
   const body = expanded || !isLong ? review.body : `${review.body.slice(0, REVIEW_CLAMP).trimEnd()}…`;
 
   return (
-    <article className="flex flex-col rounded-[4px] border border-[#e0e0e0] p-4 dark:border-slate-700">
+    <article className="flex flex-col rounded-[8px] border border-[#e0e0e0] p-4 dark:border-slate-700">
       <Stars rating={review.rating} />
 
       {review.title ? (
@@ -120,7 +120,7 @@ export default function ProductReviews({ product }: { product: TopProduct }) {
   const visible = showAll ? reviews : reviews.slice(0, INITIAL_CARDS);
 
   return (
-    <section className="rounded-[4px] bg-white p-5 dark:bg-slate-800 sm:p-6">
+    <section className="rounded-[8px] bg-white p-5 dark:bg-slate-800 sm:p-6">
       <h2 className="text-2xl font-bold text-[#1d252c] dark:text-white">Reviews</h2>
 
       <div className="mt-5 grid gap-6 sm:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1fr)_minmax(0,1.4fr)]">

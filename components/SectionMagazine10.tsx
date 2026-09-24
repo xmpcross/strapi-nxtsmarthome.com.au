@@ -13,8 +13,8 @@ const SectionMagazine10: FC<Props> = ({ posts, className }) => {
   return (
     <div className={clsx('section-magazine-10 relative', className)}>
       {!posts.length && <span>Nothing we found!</span>}
-      <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:grid-rows-5">
+      <div className="grid grid-cols-1 gap-[15px] xl:grid-cols-2">
+        <div className="grid grid-cols-1 gap-[15px] sm:grid-cols-2 sm:grid-rows-5">
           {posts
             .filter((_, i) => i < 3 && i >= 1)
             .map((item, index) => (

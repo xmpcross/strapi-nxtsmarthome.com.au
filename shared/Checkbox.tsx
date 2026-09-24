@@ -45,7 +45,7 @@ export function CheckboxField({
 
 const base = [
   // Basic layout
-  'relative isolate flex size-5 items-center justify-center rounded-[0.3125rem] sm:size-6',
+  'relative isolate flex size-5 items-center justify-center rounded-[8px] sm:size-6',
   // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
   'before:absolute before:inset-0 before:-z-10 before:rounded-[calc(0.3125rem-1px)] before:bg-white before:shadow-sm',
   // Background color when checked
@@ -59,7 +59,7 @@ const base = [
   'dark:border-white/15 dark:group-data-checked:border-white/5 dark:group-data-hover:group-data-checked:border-white/5 dark:group-data-hover:border-white/30',
   // Inner highlight shadow
   'after:absolute after:inset-0 after:rounded-[calc(0.3125rem-1px)] after:shadow-[inset_0_1px_--theme(--color-white/15%)]',
-  'dark:after:-inset-px dark:after:hidden dark:after:rounded-[0.3125rem] dark:group-data-checked:after:block',
+  'dark:after:-inset-px dark:after:hidden dark:after:rounded-[8px] dark:group-data-checked:after:block',
   // Focus ring
   'group-data-focus:outline-2 group-data-focus:outline-offset-2 group-data-focus:outline-blue-500',
   // Disabled state

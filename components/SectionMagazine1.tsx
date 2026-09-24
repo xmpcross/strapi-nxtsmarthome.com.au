@@ -26,9 +26,9 @@ const SectionMagazine1: FC<Props> = ({ posts, heading, className, viewAllHref = 
         rightButtonHref={viewAllHref}
       />
       {!posts.length && <span>Nothing we found!</span>}
-      <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-[15px] lg:grid-cols-2">
         {posts[0] && <Card2 size="large" post={posts[0]} />}
-        <div className="grid gap-6 md:gap-8">
+        <div className="grid gap-[15px]">
           {posts
             .filter((_, i) => i < 4 && i > 0)
             .map((item, index) => (

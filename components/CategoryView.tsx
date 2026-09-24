@@ -63,7 +63,7 @@ export default function CategoryView({
               Nothing published in this section yet — it&apos;s next on the list.
             </p>
           ) : (
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 md:gap-7 lg:mt-10 lg:grid-cols-3">
+            <div className="mt-8 grid gap-[15px] sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
               {visible.map((article) => (
                 <Card11 key={article.slug} post={toTPost(article)} />
               ))}

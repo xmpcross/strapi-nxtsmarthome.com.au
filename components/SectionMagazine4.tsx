@@ -26,7 +26,7 @@ const SectionMagazine4: FC<Props> = ({ posts, heading, className, subHeading, di
       />
 
       {!posts?.length && <span>Nothing we found!</span>}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-[15px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {posts[0] && <Card8 className="sm:col-span-2" post={posts[0]} />}
         {posts.slice(1, 3).map((item, index) => (
           <Card9 key={index} post={item} />

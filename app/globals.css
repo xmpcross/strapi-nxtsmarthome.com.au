@@ -7,6 +7,16 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  /* Site-wide 8px corner radius (user request, 24 Sep 2026). Every rounded-*
+     utility reads one of these; rounded-full (circles, pills) is separate. */
+  --radius-xs: 8px;
+  --radius-sm: 8px;
+  --radius-md: 8px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --radius-2xl: 8px;
+  --radius-3xl: 8px;
+  --radius-4xl: 8px;
   --font-sans: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
   --color-primary-50: #f1f0ff;
   --color-primary-100: #deddff;
@@ -199,7 +209,7 @@
     display: inline-block;
     padding: 0 5px;
     line-height: 15px;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: #f35656;
     color: #fff;
     font-size: 10px;
@@ -212,7 +222,7 @@
     display: inline-block;
     padding: 0 5px;
     line-height: 15px;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: #f35656;
     color: #fff;
     font-size: 10px;
@@ -333,7 +343,7 @@
   --color-accent-600: #e97c06;
 
   --font-body: var(--font-sans);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
 
   --container-prose: 46rem;
   --container-site: 81rem;
@@ -438,7 +448,7 @@
   place-items: center;
   width: var(--arrow-size);
   height: var(--arrow-size);
-  border-radius: 9999px;
+  border-radius: 8px;
   transition:
     transform 200ms ease,
     background-color 200ms ease,
@@ -494,7 +504,7 @@
   place-items: center;
   width: var(--arrow-size);
   height: var(--arrow-size);
-  border-radius: 9999px;
+  border-radius: 8px;
   transition:
     transform 200ms ease,
     background-color 200ms ease,
@@ -546,7 +556,7 @@
   place-items: center;
   width: var(--arrow-size);
   height: var(--arrow-size);
-  border-radius: 9999px;
+  border-radius: 8px;
   transition:
     transform 200ms ease,
     background-color 200ms ease,
@@ -711,7 +721,7 @@
 @utility post-badge {
   display: inline-block;
   padding: 0.5rem 0.75rem;
-  border-radius: 9999px;
+  border-radius: 8px;
   background: var(--post-badge-bg);
   color: var(--post-badge-fg);
   font-size: 0.6875rem;
@@ -736,7 +746,7 @@
   width: 1.625rem;
   height: 1.625rem;
   border: 1px solid var(--post-card-border);
-  border-radius: 0.3125rem;
+  border-radius: 8px;
   background: transparent;
   color: var(--post-muted);
   transition:
@@ -880,7 +890,7 @@
   height: var(--compact-thumb);
   object-fit: cover;
   object-position: left center;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   display: block;
 }
 
@@ -1303,7 +1313,7 @@
   bottom: 0;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   display: flex;
@@ -1388,7 +1398,7 @@
   bottom: 0;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   display: flex;
@@ -1448,7 +1458,7 @@
   bottom: 0;
   width: var(--action-size);
   height: var(--action-size);
-  border-radius: 50%;
+  border-radius: 8px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   display: flex;
@@ -1524,7 +1534,7 @@
   bottom: 0;
   width: var(--action-size);
   height: var(--action-size);
-  border-radius: 50%;
+  border-radius: 8px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   display: flex;
@@ -1605,7 +1615,7 @@
   bottom: 0;
   width: var(--action-size);
   height: var(--action-size);
-  border-radius: 50%;
+  border-radius: 8px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   display: flex;
@@ -1729,4 +1739,25 @@
   color: inherit;
   font-weight: inherit;
   text-decoration: none;
+}
+
+/* Headings and titles on every page use Urbanist (loaded in app/layout.tsx);
+   body copy stays Be Vietnam Pro. Unlayered so it applies to headings inside
+   components and article prose alike. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* `rounded` (no size) is hard-coded to 0.25rem in Tailwind 4, not a token. */
+.rounded {
+  border-radius: 8px;
+}
+
+/* "Force all corners to 8px" (user request, 24 Sep 2026): fully-round utilities
+   (avatars, pills, circular buttons) are included, so nothing on the site is
+   rounder than 8px. !important because rounded-full is not a theme token. */
+.rounded-full,
+[class*='rounded-full'],
+[class*='*:rounded-full'] > * {
+  border-radius: 8px !important;
 }

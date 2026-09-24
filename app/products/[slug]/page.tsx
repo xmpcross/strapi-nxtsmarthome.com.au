@@ -106,7 +106,7 @@ export default async function ProductDetailPage({
           {/* ---------- Left column ---------- */}
           <div className="flex min-w-0 flex-col gap-5">
             {/* Hero card: gallery beside summary */}
-            <div className="grid items-start gap-6 rounded-[4px] bg-white p-5 dark:bg-slate-800 sm:p-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(260px,0.85fr)]">
+            <div className="grid items-start gap-6 rounded-[8px] bg-white p-5 dark:bg-slate-800 sm:p-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(260px,0.85fr)]">
               {/* Gallery. One image per product in this dataset, so the
                   reference's thumbnail rail has nothing to show and is omitted
                   rather than faked with duplicates. */}
@@ -207,7 +207,7 @@ export default async function ProductDetailPage({
 
           {/* ---------- Right column: purchase panel ---------- */}
           <aside className="lg:sticky lg:top-20">
-            <div className="rounded-[4px] border border-[#e0e0e0] bg-white p-5 dark:border-slate-700 dark:bg-slate-800">
+            <div className="rounded-[8px] border border-[#e0e0e0] bg-white p-5 dark:border-slate-700 dark:bg-slate-800">
               {cheapest ? (
                 <>
                   <p className="text-xs font-semibold uppercase tracking-wider text-[#55555a] dark:text-slate-400">
