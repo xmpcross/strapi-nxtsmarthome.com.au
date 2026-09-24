@@ -1,9 +1,10 @@
-import SectionBecomeAnAuthor from '@/components/SectionBecomeAnAuthor'
 import SectionMagazine10 from '@/components/SectionMagazine10'
 import SectionMagazine11 from '@/components/SectionMagazine11'
 import SectionMagazine2 from '@/components/SectionMagazine2'
+import SectionMagazine8 from '@/components/SectionMagazine8'
 import SectionMagazine9 from '@/components/SectionMagazine9'
 import SectionPostsWithWidgets from '@/components/SectionPostsWithWidgets'
+import SectionSliderNewCategories from '@/components/SectionSliderNewCategories'
 import { getAuthors } from '@/data/authors'
 import { getCategoriesWithPosts, getTags } from '@/data/categories'
 import { toTPost } from '@/data/posts'
@@ -28,9 +29,12 @@ export default async function HomePage() {
     .slice(0, 7)
     .map(toTPost)
 
+  const buyingGuides = articles.filter((a) => a.category === 'buying-guides').map(toTPost)
+
   const [categories, authors, tags] = await Promise.all([getCategoriesWithPosts(), getAuthors(), getTags()])
   // The three biggest topics for the per-topic lists.
-  const topTopics = [...categories].sort((a, b) => b.count - a.count).slice(0, 3)
+  const topics = categories.filter((c) => c.count > 0).sort((a, b) => b.count - a.count)
+  const topTopics = topics.slice(0, 3)
 
   return (
     <div className="relative container space-y-28 pt-10 pb-28 lg:space-y-32 lg:pt-16 lg:pb-32">
@@ -39,11 +43,26 @@ export default async function HomePage() {
 
       <SectionMagazine10 posts={lead.map(toTPost)} />
 
+      {/* Topic slider (Ncmaz card5), biggest topics first. */}
+      <SectionSliderNewCategories
+        heading="Top topics"
+        subHeading={`Discover all ${topics.length} topics`}
+        categories={topics}
+        categoryCardType="card5"
+      />
+
       <SectionMagazine9 heading="Latest guides" subHeading="Fresh from the NXT Smart Home desk" posts={rest.slice(0, 18)} />
 
       <SectionMagazine2 heading="Most in-depth" subHeading="Our longest, most thorough guides" posts={inDepth} />
 
       <Divider />
+
+      {/* Ncmaz Magazine8 (two large cards + list), used for buying guides. */}
+      <SectionMagazine8
+        heading="Buying guides"
+        subHeading="What to buy, and what to skip, in Australia"
+        posts={buyingGuides.slice(0, 6)}
+      />
 
       <SectionMagazine11
         categories={topTopics}
@@ -51,7 +70,6 @@ export default async function HomePage() {
         subHeading="The newest guides in our biggest topics"
       />
 
-      <SectionBecomeAnAuthor />
 
       <SectionPostsWithWidgets
         heading="More to read"
