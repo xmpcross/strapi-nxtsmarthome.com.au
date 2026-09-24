@@ -1,0 +1,616 @@
+{
+  "published": {
+    "id": 290,
+    "documentId": "f9c3gz32vdkwix96sizab13u",
+    "title": "How Smart Plugs and Energy Monitors Can Cut Your Australian Power Bill",
+    "slug": "smart-plugs-energy-monitors-lower-power-bill-australia",
+    "excerpt": "Smart plugs and energy monitors won't rewire your home, but they can show you exactly where your electricity is going and help you cut waste from standby power, old appliances and forgotten heaters.",
+    "content": "Smart plugs and energy monitors cut your power bill by revealing which appliances actually cost the most to run, then letting you schedule, automate or switch them off remotely. The savings come from eliminating standby power, avoiding peak-tariff usage and catching faulty or forgotten devices before they quietly rack up charges.\n\n## Why Energy Monitoring Actually Saves Money\n\nMost Australian households have a rough idea of their biggest power users, but rough ideas rarely translate into behaviour change. A smart plug with built-in energy monitoring shows real kilowatt-hour (kWh) figures for a single appliance, so you can see whether that old bar fridge in the garage, the pool pump, or the kids' gaming console is actually worth what it's costing.\n\n### The Standby Power Problem\n\nMany appliances draw power even when \"off\" — set-top boxes, game consoles, chargers left plugged in, and older televisions all sip electricity around the clock. Individually these draws seem trivial, but across a household running multiple devices 24/7, standby power can add up over a billing cycle. A monitoring smart plug lets you quantify this rather than guess, and then decide whether a scheduled cutoff makes sense.\n\n### Time-of-Use Tariffs and Peak Avoidance\n\nIf your retailer has you on a time-of-use or demand tariff, running heavy appliances like pool pumps, pool heaters or electric water heaters during peak pricing windows can be expensive. Energy monitors help you confirm when these loads actually run and shift them to off-peak periods using scheduling, without having to manually flick switches at odd hours.\n\n## Smart Plugs Worth Considering for Monitoring\n\nNot every smart plug reports power usage — some only offer remote on/off switching. If cutting your bill is the goal, you need a model that specifically measures consumption.\n\nThe [TP-Link Tapo P110 Smart Plug with Energy Monitoring](https://nxtsmarthome.com.au) is built for exactly this job: it tracks power consumption in kWh so you can see the real running cost of an appliance against your electricity tariff. It suits single-appliance monitoring — a fridge, a heater, or an entertainment unit — where you want a straightforward reading without extra hub hardware. The trade-off is that, like most Wi-Fi plugs, it depends on your home network and the associated app for historical data.\n\n::product:tp-link-tapo-p110-smart-plug-with-energy-monitoring::\n\nFor households wanting more control over privacy and local operation, the Eve Energy Smart Plug (Matter over Thread) is worth a look. It tracks energy locally rather than routing everything through a cloud service, and it also acts as a Thread Router, which can strengthen your home's Thread mesh for other Matter devices. This suits people already building a Matter/Thread smart home ecosystem, though it's a slightly different setup path than a plain Wi-Fi plug and works best alongside a Thread-compatible hub such as an Apple TV or HomePod mini.\n\n::product:eve-energy-smart-plug-matter-over-thread::\n\nIf you're monitoring several devices in one spot — say a media unit, router and games console — a monitored power board can be more practical than juggling several individual plugs. The Eve Energy Strip 3-Outlet Smart Power Board offers surge protection alongside total energy consumption graphs across all three outlets, which is handy for tracking a cluster of devices as one load rather than checking three separate apps.\n\n::product:eve-energy-strip-3-outlet-smart-power-board::\n\n## When a Plug Isn't Enough: In-Wall and Switchboard Options\n\nSmart plugs are ideal for anything with a standard 240V plug, but some loads — pool pumps, heat pumps, or hardwired appliances — sit behind a wall switch or connect directly at the switchboard. These need a different category of device, and any work involving fixed household wiring should be carried out by a licensed electrician in line with AS/NZS wiring rules.\n\n### In-Wall Relays\n\nThe Shelly 1PM Gen3 Wi-Fi Power Relay fits behind an existing switch plate and includes power measurement, making it suited to monitoring a hardwired circuit such as a pump or heater without a visible plug device. It's also used by some households for solar diversion, directing excess solar generation towards a suitable load. Because it sits behind the switch plate, installation should be handled by a licensed electrician rather than as a DIY job.\n\n::product:shelly-1pm-gen3-wi-fi-power-relay::\n\n### Renters and Strata Considerations\n\nIf you're renting or living in a strata scheme, anything that requires opening a switch plate or altering fixed wiring will likely need permission and a qualified electrician regardless of the device itself. Plug-in monitors remain the easiest option for renters because they don't touch the building's electrical infrastructure and can be taken with you when you move. Our [smart plug buying guide for Australian homes](https://nxtsmarthome.com.au/energy/smart-plug-buying-guide-australia) covers what to check before buying, including plug type, load rating and app requirements.\n\n## Turning Data Into Savings\n\nBuying a monitoring plug is only step one — the savings come from acting on what it shows you.\n\n### Set Realistic Schedules\n\nOnce you know when an appliance genuinely needs to run, use scheduling rather than manual switching. A pool pump timed to run during cheaper off-peak windows, or a heater set to turn off overnight, removes the need to remember to do it yourself. This is also a good moment to check [whether smart plugs actually save money on Australian electricity](https://nxtsmarthome.com.au/energy/smart-plugs-energy-monitoring-australia), since the answer depends heavily on which appliances you monitor.\n\n### Watch for Appliances That Shouldn't Be Automated\n\nNot everything is suitable for a smart plug, particularly high-draw or safety-sensitive devices. It's worth reading up on [what you should never plug into a smart plug](https://nxtsmarthome.com.au/energy/what-not-to-plug-into-a-smart-plug-australia) before assuming every appliance in the house is a candidate for automation.\n\n## Backup Power as Part of the Picture\n\nEnergy monitoring isn't only about trimming bills — it can also inform how you plan for outages or off-grid periods. The EcoFlow Delta 2 Portable Power Station 1024Wh uses a LiFePO4 battery and suits households wanting backup for outages or portable storage alongside solar panels. Pairing a monitored plug with a power station lets you see roughly how long stored energy might run a specific appliance, which is useful when planning for storms or bushfire-season blackouts common in parts of regional Australia.\n\n::product:ecoflow-delta-2-portable-power-station-1024wh::\n\n## Getting Started Without Overspending\n\nYou don't need to monitor every powerpoint in the house at once. Start with the two or three appliances you suspect are the biggest contributors — an old fridge, an electric heater, a pool pump — and monitor those first. Once you have a few weeks of data, you'll have a much clearer picture of whether the appliance is worth keeping, replacing, or simply scheduling more sensibly.\n",
+    "keyTakeaways": null,
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "product-review",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": null,
+    "readingTimeMinutes": 7,
+    "seoTitle": "How Smart Plugs and Energy Monitors Cut Your Australian Power Bill",
+    "seoDescription": "Learn how smart plugs and energy monitors help Australian households find wasted power, avoid peak tariffs and cut electricity bills without solar.",
+    "seoKeywords": "smart plugs Australia, energy monitor smart plug, cut power bill Australia, smart plug energy monitoring, reduce electricity bill Australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-09-24T01:48:32.525Z",
+    "updatedAt": "2026-09-24T02:00:37.422Z",
+    "publishedAt": "2026-09-24T02:00:37.440Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 7371,
+      "documentId": "pn174duh9u6qfjscie2yxk2c",
+      "name": "how-smart-plugs-and-energy-monitors-can-cut-your-a-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1024,
+      "height": 576,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606.jpg",
+          "hash": "large_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606",
+          "mime": "image/jpeg",
+          "name": "large_how-smart-plugs-and-energy-monitors-can-cut-your-a-cover.jpg",
+          "path": null,
+          "size": 34.09,
+          "width": 1000,
+          "height": 563,
+          "sizeInBytes": 34089
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606.jpg",
+          "hash": "small_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606",
+          "mime": "image/jpeg",
+          "name": "small_how-smart-plugs-and-energy-monitors-can-cut-your-a-cover.jpg",
+          "path": null,
+          "size": 12.38,
+          "width": 500,
+          "height": 281,
+          "sizeInBytes": 12375
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606.jpg",
+          "hash": "medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606",
+          "mime": "image/jpeg",
+          "name": "medium_how-smart-plugs-and-energy-monitors-can-cut-your-a-cover.jpg",
+          "path": null,
+          "size": 22.23,
+          "width": 750,
+          "height": 422,
+          "sizeInBytes": 22234
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606.jpg",
+          "hash": "thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606",
+          "mime": "image/jpeg",
+          "name": "thumbnail_how-smart-plugs-and-energy-monitors-can-cut-your-a-cover.jpg",
+          "path": null,
+          "size": 4.8,
+          "width": 245,
+          "height": 138,
+          "sizeInBytes": 4798
+        }
+      },
+      "hash": "how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 34.33,
+      "url": "/uploads/how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-09-24T01:48:31.646Z",
+      "updatedAt": "2026-09-24T01:48:31.646Z",
+      "publishedAt": "2026-09-24T01:48:31.647Z"
+    },
+    "gallery": [
+      {
+        "id": 7373,
+        "documentId": "isayzdvabl3v4jxwjzle9n2v",
+        "name": "how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-1.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "focalPoint": null,
+        "width": 1024,
+        "height": 768,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "/uploads/large_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd.jpg",
+            "hash": "large_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd",
+            "mime": "image/jpeg",
+            "name": "large_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-1.jpg",
+            "path": null,
+            "size": 65.58,
+            "width": 1000,
+            "height": 750,
+            "sizeInBytes": 65579
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "/uploads/small_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd.jpg",
+            "hash": "small_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd",
+            "mime": "image/jpeg",
+            "name": "small_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-1.jpg",
+            "path": null,
+            "size": 23.97,
+            "width": 500,
+            "height": 375,
+            "sizeInBytes": 23974
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "/uploads/medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd.jpg",
+            "hash": "medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd",
+            "mime": "image/jpeg",
+            "name": "medium_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-1.jpg",
+            "path": null,
+            "size": 42.96,
+            "width": 750,
+            "height": 563,
+            "sizeInBytes": 42956
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "/uploads/thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd.jpg",
+            "hash": "thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd",
+            "mime": "image/jpeg",
+            "name": "thumbnail_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-1.jpg",
+            "path": null,
+            "size": 6.85,
+            "width": 208,
+            "height": 156,
+            "sizeInBytes": 6846
+          }
+        },
+        "hash": "how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 67.33,
+        "url": "/uploads/how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2026-09-24T01:48:32.505Z",
+        "updatedAt": "2026-09-24T01:48:32.505Z",
+        "publishedAt": "2026-09-24T01:48:32.505Z"
+      },
+      {
+        "id": 7372,
+        "documentId": "oa91glmjeo88tx18qjvj2tfi",
+        "name": "how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "focalPoint": null,
+        "width": 1024,
+        "height": 768,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "/uploads/large_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a.jpg",
+            "hash": "large_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a",
+            "mime": "image/jpeg",
+            "name": "large_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-2.jpg",
+            "path": null,
+            "size": 42.75,
+            "width": 1000,
+            "height": 750,
+            "sizeInBytes": 42749
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "/uploads/small_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a.jpg",
+            "hash": "small_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a",
+            "mime": "image/jpeg",
+            "name": "small_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-2.jpg",
+            "path": null,
+            "size": 16.4,
+            "width": 500,
+            "height": 375,
+            "sizeInBytes": 16397
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "/uploads/medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a.jpg",
+            "hash": "medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a",
+            "mime": "image/jpeg",
+            "name": "medium_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-2.jpg",
+            "path": null,
+            "size": 28.37,
+            "width": 750,
+            "height": 563,
+            "sizeInBytes": 28374
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "/uploads/thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a.jpg",
+            "hash": "thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a",
+            "mime": "image/jpeg",
+            "name": "thumbnail_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-2.jpg",
+            "path": null,
+            "size": 5.15,
+            "width": 208,
+            "height": 156,
+            "sizeInBytes": 5152
+          }
+        },
+        "hash": "how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 43.47,
+        "url": "/uploads/how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2026-09-24T01:48:32.298Z",
+        "updatedAt": "2026-09-24T01:48:32.298Z",
+        "publishedAt": "2026-09-24T01:48:32.298Z"
+      }
+    ],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 3026,
+        "question": "Do smart plugs really reduce electricity bills in Australia?",
+        "answer": "They can help, but the plug itself doesn't save energy — it shows you where energy is being used so you can change habits or scheduling. Savings depend on what you plug in; monitoring a low-draw device won't move the needle much, while catching a forgotten heater or old fridge running constantly can make a noticeable difference over a billing cycle."
+      },
+      {
+        "order": 1,
+        "id": 3027,
+        "question": "What's the difference between a smart plug and an energy monitor?",
+        "answer": "A basic smart plug only offers remote or scheduled on/off switching. An energy monitor, whether built into a plug or a separate device, additionally measures how much power (in kWh) an appliance uses over time. For bill-reduction purposes, you specifically want a plug or relay with energy monitoring built in."
+      },
+      {
+        "order": 2,
+        "id": 3028,
+        "question": "Can renters use smart plugs without landlord permission?",
+        "answer": "Generally, plug-in smart plugs don't alter the property's fixed wiring and can be moved when you leave, which makes them a common choice for renters. However, tenancy rules and strata by-laws vary, so it's worth checking your lease or body corporate rules if you're uncertain, particularly for anything beyond a simple plug-in device."
+      },
+      {
+        "order": 3,
+        "id": 3029,
+        "question": "Are smart power boards worth it compared to individual smart plugs?",
+        "answer": "A monitored power board suits clusters of devices in one location, like a media unit, since it reports combined usage without needing several separate apps or plugs. Individual smart plugs suit single high-draw appliances you want to track in isolation, such as a fridge or heater, where mixing it with other loads would blur the reading."
+      },
+      {
+        "order": 4,
+        "id": 3030,
+        "question": "Do I need an electrician to install a smart plug or energy monitor?",
+        "answer": "Standard plug-in smart plugs and monitors don't require an electrician since they connect to an existing 240V powerpoint. However, in-wall relays or anything connecting at the switchboard involves fixed wiring, and that work should be done by a licensed electrician in line with AS/NZS wiring rules."
+      },
+      {
+        "order": 5,
+        "id": 3031,
+        "question": "Which appliances are worth monitoring first for savings?",
+        "answer": "Start with continuously running or high-draw appliances such as old fridges, freezers, pool pumps, electric heaters or air conditioners. These tend to represent the biggest share of household electricity use, so monitoring them first gives you the clearest and quickest picture of where potential savings might be found."
+      }
+    ],
+    "categories": [
+      {
+        "id": 3,
+        "documentId": "x4x6ijm6yyzgidc7zrbnx1m2",
+        "name": "Energy",
+        "slug": "energy",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.748Z",
+        "updatedAt": "2026-08-22T18:30:53.633Z",
+        "publishedAt": "2026-08-22T18:30:53.631Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 283,
+    "documentId": "f9c3gz32vdkwix96sizab13u",
+    "title": "How Smart Plugs and Energy Monitors Can Cut Your Australian Power Bill",
+    "slug": "smart-plugs-energy-monitors-lower-power-bill-australia",
+    "excerpt": "Smart plugs and energy monitors won't rewire your home, but they can show you exactly where your electricity is going and help you cut waste from standby power, old appliances and forgotten heaters.",
+    "content": "Smart plugs and energy monitors cut your power bill by revealing which appliances actually cost the most to run, then letting you schedule, automate or switch them off remotely. The savings come from eliminating standby power, avoiding peak-tariff usage and catching faulty or forgotten devices before they quietly rack up charges.\n\n## Why Energy Monitoring Actually Saves Money\n\nMost Australian households have a rough idea of their biggest power users, but rough ideas rarely translate into behaviour change. A smart plug with built-in energy monitoring shows real kilowatt-hour (kWh) figures for a single appliance, so you can see whether that old bar fridge in the garage, the pool pump, or the kids' gaming console is actually worth what it's costing.\n\n### The Standby Power Problem\n\nMany appliances draw power even when \"off\" — set-top boxes, game consoles, chargers left plugged in, and older televisions all sip electricity around the clock. Individually these draws seem trivial, but across a household running multiple devices 24/7, standby power can add up over a billing cycle. A monitoring smart plug lets you quantify this rather than guess, and then decide whether a scheduled cutoff makes sense.\n\n### Time-of-Use Tariffs and Peak Avoidance\n\nIf your retailer has you on a time-of-use or demand tariff, running heavy appliances like pool pumps, pool heaters or electric water heaters during peak pricing windows can be expensive. Energy monitors help you confirm when these loads actually run and shift them to off-peak periods using scheduling, without having to manually flick switches at odd hours.\n\n## Smart Plugs Worth Considering for Monitoring\n\nNot every smart plug reports power usage — some only offer remote on/off switching. If cutting your bill is the goal, you need a model that specifically measures consumption.\n\nThe [TP-Link Tapo P110 Smart Plug with Energy Monitoring](https://nxtsmarthome.com.au) is built for exactly this job: it tracks power consumption in kWh so you can see the real running cost of an appliance against your electricity tariff. It suits single-appliance monitoring — a fridge, a heater, or an entertainment unit — where you want a straightforward reading without extra hub hardware. The trade-off is that, like most Wi-Fi plugs, it depends on your home network and the associated app for historical data.\n\n::product:tp-link-tapo-p110-smart-plug-with-energy-monitoring::\n\nFor households wanting more control over privacy and local operation, the Eve Energy Smart Plug (Matter over Thread) is worth a look. It tracks energy locally rather than routing everything through a cloud service, and it also acts as a Thread Router, which can strengthen your home's Thread mesh for other Matter devices. This suits people already building a Matter/Thread smart home ecosystem, though it's a slightly different setup path than a plain Wi-Fi plug and works best alongside a Thread-compatible hub such as an Apple TV or HomePod mini.\n\n::product:eve-energy-smart-plug-matter-over-thread::\n\nIf you're monitoring several devices in one spot — say a media unit, router and games console — a monitored power board can be more practical than juggling several individual plugs. The Eve Energy Strip 3-Outlet Smart Power Board offers surge protection alongside total energy consumption graphs across all three outlets, which is handy for tracking a cluster of devices as one load rather than checking three separate apps.\n\n::product:eve-energy-strip-3-outlet-smart-power-board::\n\n## When a Plug Isn't Enough: In-Wall and Switchboard Options\n\nSmart plugs are ideal for anything with a standard 240V plug, but some loads — pool pumps, heat pumps, or hardwired appliances — sit behind a wall switch or connect directly at the switchboard. These need a different category of device, and any work involving fixed household wiring should be carried out by a licensed electrician in line with AS/NZS wiring rules.\n\n### In-Wall Relays\n\nThe Shelly 1PM Gen3 Wi-Fi Power Relay fits behind an existing switch plate and includes power measurement, making it suited to monitoring a hardwired circuit such as a pump or heater without a visible plug device. It's also used by some households for solar diversion, directing excess solar generation towards a suitable load. Because it sits behind the switch plate, installation should be handled by a licensed electrician rather than as a DIY job.\n\n::product:shelly-1pm-gen3-wi-fi-power-relay::\n\n### Renters and Strata Considerations\n\nIf you're renting or living in a strata scheme, anything that requires opening a switch plate or altering fixed wiring will likely need permission and a qualified electrician regardless of the device itself. Plug-in monitors remain the easiest option for renters because they don't touch the building's electrical infrastructure and can be taken with you when you move. Our [smart plug buying guide for Australian homes](https://nxtsmarthome.com.au/energy/smart-plug-buying-guide-australia) covers what to check before buying, including plug type, load rating and app requirements.\n\n## Turning Data Into Savings\n\nBuying a monitoring plug is only step one — the savings come from acting on what it shows you.\n\n### Set Realistic Schedules\n\nOnce you know when an appliance genuinely needs to run, use scheduling rather than manual switching. A pool pump timed to run during cheaper off-peak windows, or a heater set to turn off overnight, removes the need to remember to do it yourself. This is also a good moment to check [whether smart plugs actually save money on Australian electricity](https://nxtsmarthome.com.au/energy/smart-plugs-energy-monitoring-australia), since the answer depends heavily on which appliances you monitor.\n\n### Watch for Appliances That Shouldn't Be Automated\n\nNot everything is suitable for a smart plug, particularly high-draw or safety-sensitive devices. It's worth reading up on [what you should never plug into a smart plug](https://nxtsmarthome.com.au/energy/what-not-to-plug-into-a-smart-plug-australia) before assuming every appliance in the house is a candidate for automation.\n\n## Backup Power as Part of the Picture\n\nEnergy monitoring isn't only about trimming bills — it can also inform how you plan for outages or off-grid periods. The EcoFlow Delta 2 Portable Power Station 1024Wh uses a LiFePO4 battery and suits households wanting backup for outages or portable storage alongside solar panels. Pairing a monitored plug with a power station lets you see roughly how long stored energy might run a specific appliance, which is useful when planning for storms or bushfire-season blackouts common in parts of regional Australia.\n\n::product:ecoflow-delta-2-portable-power-station-1024wh::\n\n## Getting Started Without Overspending\n\nYou don't need to monitor every powerpoint in the house at once. Start with the two or three appliances you suspect are the biggest contributors — an old fridge, an electric heater, a pool pump — and monitor those first. Once you have a few weeks of data, you'll have a much clearer picture of whether the appliance is worth keeping, replacing, or simply scheduling more sensibly.\n",
+    "keyTakeaways": null,
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "product-review",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": null,
+    "readingTimeMinutes": 7,
+    "seoTitle": "How Smart Plugs and Energy Monitors Cut Your Australian Power Bill",
+    "seoDescription": "Learn how smart plugs and energy monitors help Australian households find wasted power, avoid peak tariffs and cut electricity bills without solar.",
+    "seoKeywords": "smart plugs Australia, energy monitor smart plug, cut power bill Australia, smart plug energy monitoring, reduce electricity bill Australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-09-24T01:48:32.525Z",
+    "updatedAt": "2026-09-24T02:00:37.422Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 7371,
+      "documentId": "pn174duh9u6qfjscie2yxk2c",
+      "name": "how-smart-plugs-and-energy-monitors-can-cut-your-a-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1024,
+      "height": 576,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606.jpg",
+          "hash": "large_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606",
+          "mime": "image/jpeg",
+          "name": "large_how-smart-plugs-and-energy-monitors-can-cut-your-a-cover.jpg",
+          "path": null,
+          "size": 34.09,
+          "width": 1000,
+          "height": 563,
+          "sizeInBytes": 34089
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606.jpg",
+          "hash": "small_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606",
+          "mime": "image/jpeg",
+          "name": "small_how-smart-plugs-and-energy-monitors-can-cut-your-a-cover.jpg",
+          "path": null,
+          "size": 12.38,
+          "width": 500,
+          "height": 281,
+          "sizeInBytes": 12375
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606.jpg",
+          "hash": "medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606",
+          "mime": "image/jpeg",
+          "name": "medium_how-smart-plugs-and-energy-monitors-can-cut-your-a-cover.jpg",
+          "path": null,
+          "size": 22.23,
+          "width": 750,
+          "height": 422,
+          "sizeInBytes": 22234
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606.jpg",
+          "hash": "thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606",
+          "mime": "image/jpeg",
+          "name": "thumbnail_how-smart-plugs-and-energy-monitors-can-cut-your-a-cover.jpg",
+          "path": null,
+          "size": 4.8,
+          "width": 245,
+          "height": 138,
+          "sizeInBytes": 4798
+        }
+      },
+      "hash": "how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 34.33,
+      "url": "/uploads/how_smart_plugs_and_energy_monitors_can_cut_your_a_cover_3114b96606.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-09-24T01:48:31.646Z",
+      "updatedAt": "2026-09-24T01:48:31.646Z",
+      "publishedAt": "2026-09-24T01:48:31.647Z"
+    },
+    "gallery": [
+      {
+        "id": 7373,
+        "documentId": "isayzdvabl3v4jxwjzle9n2v",
+        "name": "how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-1.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "focalPoint": null,
+        "width": 1024,
+        "height": 768,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "/uploads/large_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd.jpg",
+            "hash": "large_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd",
+            "mime": "image/jpeg",
+            "name": "large_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-1.jpg",
+            "path": null,
+            "size": 65.58,
+            "width": 1000,
+            "height": 750,
+            "sizeInBytes": 65579
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "/uploads/small_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd.jpg",
+            "hash": "small_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd",
+            "mime": "image/jpeg",
+            "name": "small_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-1.jpg",
+            "path": null,
+            "size": 23.97,
+            "width": 500,
+            "height": 375,
+            "sizeInBytes": 23974
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "/uploads/medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd.jpg",
+            "hash": "medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd",
+            "mime": "image/jpeg",
+            "name": "medium_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-1.jpg",
+            "path": null,
+            "size": 42.96,
+            "width": 750,
+            "height": 563,
+            "sizeInBytes": 42956
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "/uploads/thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd.jpg",
+            "hash": "thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd",
+            "mime": "image/jpeg",
+            "name": "thumbnail_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-1.jpg",
+            "path": null,
+            "size": 6.85,
+            "width": 208,
+            "height": 156,
+            "sizeInBytes": 6846
+          }
+        },
+        "hash": "how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 67.33,
+        "url": "/uploads/how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_1_0b4ec112bd.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2026-09-24T01:48:32.505Z",
+        "updatedAt": "2026-09-24T01:48:32.505Z",
+        "publishedAt": "2026-09-24T01:48:32.505Z"
+      },
+      {
+        "id": 7372,
+        "documentId": "oa91glmjeo88tx18qjvj2tfi",
+        "name": "how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "focalPoint": null,
+        "width": 1024,
+        "height": 768,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "/uploads/large_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a.jpg",
+            "hash": "large_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a",
+            "mime": "image/jpeg",
+            "name": "large_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-2.jpg",
+            "path": null,
+            "size": 42.75,
+            "width": 1000,
+            "height": 750,
+            "sizeInBytes": 42749
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "/uploads/small_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a.jpg",
+            "hash": "small_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a",
+            "mime": "image/jpeg",
+            "name": "small_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-2.jpg",
+            "path": null,
+            "size": 16.4,
+            "width": 500,
+            "height": 375,
+            "sizeInBytes": 16397
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "/uploads/medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a.jpg",
+            "hash": "medium_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a",
+            "mime": "image/jpeg",
+            "name": "medium_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-2.jpg",
+            "path": null,
+            "size": 28.37,
+            "width": 750,
+            "height": 563,
+            "sizeInBytes": 28374
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "/uploads/thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a.jpg",
+            "hash": "thumbnail_how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a",
+            "mime": "image/jpeg",
+            "name": "thumbnail_how-smart-plugs-and-energy-monitors-can-cut-your-a-gallery-2.jpg",
+            "path": null,
+            "size": 5.15,
+            "width": 208,
+            "height": 156,
+            "sizeInBytes": 5152
+          }
+        },
+        "hash": "how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 43.47,
+        "url": "/uploads/how_smart_plugs_and_energy_monitors_can_cut_your_a_gallery_2_b328bd470a.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2026-09-24T01:48:32.298Z",
+        "updatedAt": "2026-09-24T01:48:32.298Z",
+        "publishedAt": "2026-09-24T01:48:32.298Z"
+      }
+    ],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 3020,
+        "question": "Do smart plugs really reduce electricity bills in Australia?",
+        "answer": "They can help, but the plug itself doesn't save energy — it shows you where energy is being used so you can change habits or scheduling. Savings depend on what you plug in; monitoring a low-draw device won't move the needle much, while catching a forgotten heater or old fridge running constantly can make a noticeable difference over a billing cycle."
+      },
+      {
+        "order": 1,
+        "id": 3021,
+        "question": "What's the difference between a smart plug and an energy monitor?",
+        "answer": "A basic smart plug only offers remote or scheduled on/off switching. An energy monitor, whether built into a plug or a separate device, additionally measures how much power (in kWh) an appliance uses over time. For bill-reduction purposes, you specifically want a plug or relay with energy monitoring built in."
+      },
+      {
+        "order": 2,
+        "id": 3022,
+        "question": "Can renters use smart plugs without landlord permission?",
+        "answer": "Generally, plug-in smart plugs don't alter the property's fixed wiring and can be moved when you leave, which makes them a common choice for renters. However, tenancy rules and strata by-laws vary, so it's worth checking your lease or body corporate rules if you're uncertain, particularly for anything beyond a simple plug-in device."
+      },
+      {
+        "order": 3,
+        "id": 3023,
+        "question": "Are smart power boards worth it compared to individual smart plugs?",
+        "answer": "A monitored power board suits clusters of devices in one location, like a media unit, since it reports combined usage without needing several separate apps or plugs. Individual smart plugs suit single high-draw appliances you want to track in isolation, such as a fridge or heater, where mixing it with other loads would blur the reading."
+      },
+      {
+        "order": 4,
+        "id": 3024,
+        "question": "Do I need an electrician to install a smart plug or energy monitor?",
+        "answer": "Standard plug-in smart plugs and monitors don't require an electrician since they connect to an existing 240V powerpoint. However, in-wall relays or anything connecting at the switchboard involves fixed wiring, and that work should be done by a licensed electrician in line with AS/NZS wiring rules."
+      },
+      {
+        "order": 5,
+        "id": 3025,
+        "question": "Which appliances are worth monitoring first for savings?",
+        "answer": "Start with continuously running or high-draw appliances such as old fridges, freezers, pool pumps, electric heaters or air conditioners. These tend to represent the biggest share of household electricity use, so monitoring them first gives you the clearest and quickest picture of where potential savings might be found."
+      }
+    ],
+    "categories": [
+      {
+        "id": 3,
+        "documentId": "x4x6ijm6yyzgidc7zrbnx1m2",
+        "name": "Energy",
+        "slug": "energy",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.748Z",
+        "updatedAt": "2026-08-22T18:30:53.633Z",
+        "publishedAt": "2026-08-22T18:30:53.631Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}

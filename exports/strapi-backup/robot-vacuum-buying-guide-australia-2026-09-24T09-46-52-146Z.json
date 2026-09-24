@@ -1,0 +1,314 @@
+{
+  "published": {
+    "id": 164,
+    "documentId": "x2tyvtzv3ayodmqrussnwh29",
+    "title": "Robot Vacuum Buying Guide: What Actually Matters (and What Does Not)",
+    "slug": "robot-vacuum-buying-guide-australia",
+    "excerpt": "Navigation, suction, self-emptying docks and mopping — which robot vacuum features are worth paying for in an Australian home with pets and hard floors.",
+    "content": "Robot vacuums are one of the few smart home categories where the expensive models are genuinely, obviously better than the cheap ones. But the price differences do not map onto the features manufacturers advertise most loudly.\n\nHere is what actually determines whether you keep using one.\n\n## Navigation is the whole ballgame\n\nIf you take one thing from this guide: **buy the best navigation you can afford, and treat everything else as secondary.**\n\nThere are broadly three tiers.\n\n**Random bounce.** The cheapest robots move in semi-random patterns until the battery runs down. They eventually cover most of a simple room. They also miss areas entirely, cannot be told where to clean, and cannot return to where they left off. In anything more complex than a single open room, they are frustrating.\n\n**Camera-based mapping.** A step up. The robot builds a map using a camera and visual landmarks. It cleans in orderly rows and can navigate back to the dock. Performance degrades in low light, since it needs to see to navigate — which rules out running it at night in a dark house.\n\n**LiDAR mapping.** A spinning laser rangefinder builds an accurate map regardless of lighting. This is the big jump. LiDAR robots clean methodically, know where they have been, resume properly after recharging, and let you define no-go zones and clean specific rooms on command.\n\nThe practical difference is enormous. A LiDAR robot is a device you schedule and forget. A random-bounce robot is a device you supervise. Most people who abandon robot vacuums bought the second kind.\n\n**Obstacle avoidance** is the newer differentiator on top of mapping. Better models use additional sensors to identify and avoid cables, socks, shoes and — the reason this feature exists at all — pet accidents. If you have a dog and hard floors, this feature justifies its cost the first time it works.\n\n## Suction: mostly marketing\n\nManufacturers advertise suction in pascals, and the numbers have inflated steadily to the point of meaninglessness.\n\nBeyond a reasonable baseline, suction is not what limits real-world performance. Brush design, brush contact with the floor, airflow path and bin capacity matter more. A well-designed robot with modest suction outperforms a badly designed one with a bigger number.\n\nWhere suction genuinely matters is deep carpet. If your home is mostly carpet, weight the suction figures and look for carpet boost. If it is mostly hard floors — very common in Australian homes — you are comfortably into diminishing returns.\n\n## Brushes, and why they matter more than suction\n\n**Rubber or silicone brushes** resist tangling dramatically better than bristle brushes. If anyone in the house has long hair, or you have a shedding pet, this is the single most important hardware detail after navigation. Bristle brushes wrap hair around the roller and require regular scissor work.\n\n**Anti-tangle designs** — combs, tapered brushes, dual counter-rotating rollers — build on this and genuinely reduce maintenance.\n\n**Side brushes** sweep debris from edges into the path. They also fling debris around on hard floors sometimes. Most robots let you reduce this behaviour.\n\n## Self-emptying docks\n\nA self-emptying dock sucks the robot's onboard bin into a much larger container in the base, typically holding several weeks of debris.\n\n**Worth it if:** you want to genuinely forget about the robot. Emptying a small bin after every run is the main reason people stop scheduling their vacuum. It is also a real benefit for allergy sufferers, since you handle the dust far less often.\n\n**Consider before buying:**\n\n- **Size.** These docks are large. Measure where it will live before ordering.\n- **Noise.** The emptying cycle is loud, briefly. If the dock is near a bedroom, schedule accordingly.\n- **Consumables.** Bagged docks need replacement bags — an ongoing cost. Bagless docks avoid this but you handle the dust directly.\n\n## Mopping\n\nMopping capability ranges from token to genuinely useful.\n\n**Basic:** a water tank and a cloth dragged behind the robot. On sealed hard floors this picks up light dust. It does not clean anything that is actually dirty, and the cloth needs washing after every run.\n\n**Mid-range:** larger tanks, controllable water flow, and mop pads that lift or detach so the robot does not drag a wet cloth over your rugs.\n\n**High end:** vibrating or spinning mop pads with downward pressure, automatic pad washing at the dock, and hot-water washing with drying to stop the pad going mouldy between runs.\n\nThe honest position: even the best robot mop does not replace mopping a properly dirty floor. What it does well is maintain an already-clean floor so it needs proper mopping far less often. Judged on that basis it is worth having; judged as a replacement for a mop it will disappoint.\n\nIf most of your home is carpet, skip mopping entirely and put the money into navigation.\n\n## Australian considerations\n\n**Hard floors are common here**, which favours good brush design and mopping over deep-carpet suction.\n\n**Pets are common here too** — Australia has one of the highest rates of pet ownership in the world. That makes anti-tangle brushes and obstacle avoidance more valuable than the spec sheet implies.\n\n**Check local support before buying an unfamiliar brand.** Robot vacuums are mechanical devices with consumable parts — brushes, filters, mop pads, sometimes batteries. A brand with no Australian distribution can leave you unable to source a two-dollar filter. Buying locally also means Australian Consumer Law guarantees apply, which matters for a device with this many moving parts.\n\n**Multi-storey homes** need consideration. A robot maps per floor, and better models store multiple floor maps. If you plan to carry it upstairs, confirm multi-floor mapping is supported — otherwise it re-maps every time, badly.\n\n## Privacy, briefly\n\nA mapping robot builds a detailed floor plan of your home. Camera-equipped models capture images from inside it. That data generally goes to the manufacturer's servers.\n\nThis is not a reason to avoid the category, but it is worth a moment's thought. If it concerns you, look for models that keep processing local, or check whether the manufacturer offers a cloud-free mode. LiDAR-only models without cameras are also a middle ground — they map your layout but do not photograph your living room.\n\n## What to buy\n\n**Tight budget:** get the cheapest model that has real mapping. Do not buy a random-bounce robot to save money — you will use it twice.\n\n**Most households:** LiDAR navigation, rubber anti-tangle brushes, self-emptying dock. Skip advanced mopping unless you have a lot of hard floor. This combination is where the value sits.\n\n**Pets and hard floors:** add obstacle avoidance. It is the difference between a helpful appliance and a catastrophe you have to clean up.\n\n**Large or multi-storey homes:** confirm multi-floor mapping and check the battery runtime against your floor area.\n\nPrioritise navigation, brushes and the dock. Ignore the pascal figures.",
+    "keyTakeaways": "Navigation quality matters more than suction. LiDAR mapping is the single biggest jump in usefulness, and it is the feature that separates a robot you actually run from one that gets stuck under the couch and stays there.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/robot-vacuum-buying-guide-australia.webp",
+    "coverImageAlt": "Robot Vacuum Buying Guide: What Actually Matters (and What Does Not)",
+    "postType": "buying-guide",
+    "publishDate": "2026-06-11T00:00:00.000Z",
+    "dateModified": "2026-08-01T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Robot vacuums",
+      "Pets",
+      "Buying advice"
+    ],
+    "readingTimeMinutes": 6,
+    "seoTitle": "Robot Vacuum Buying Guide: What Actually Matters (and What Does Not)",
+    "seoDescription": "Navigation, suction, self-emptying docks and mopping — which robot vacuum features are worth paying for in an Australian home with pets and hard floors.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/robot-vacuums/robot-vacuum-buying-guide-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:44.367Z",
+    "updatedAt": "2026-08-22T22:17:05.458Z",
+    "publishedAt": "2026-08-22T22:17:05.482Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3956,
+      "documentId": "kzotk5t3d1p6sjrununq3yqb",
+      "name": "Robot Vacuum Buying Guide What Actually Matters (and What Does Not).jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c.jpg",
+          "hash": "large_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c",
+          "mime": "image/jpeg",
+          "name": "large_Robot Vacuum Buying Guide What Actually Matters (and What Does Not).jpg",
+          "path": null,
+          "size": 71.32,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 71321
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c.jpg",
+          "hash": "small_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c",
+          "mime": "image/jpeg",
+          "name": "small_Robot Vacuum Buying Guide What Actually Matters (and What Does Not).jpg",
+          "path": null,
+          "size": 20.76,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 20761
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c.jpg",
+          "hash": "medium_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c",
+          "mime": "image/jpeg",
+          "name": "medium_Robot Vacuum Buying Guide What Actually Matters (and What Does Not).jpg",
+          "path": null,
+          "size": 41.95,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 41947
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c.jpg",
+          "hash": "thumbnail_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Robot Vacuum Buying Guide What Actually Matters (and What Does Not).jpg",
+          "path": null,
+          "size": 6.85,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6848
+        }
+      },
+      "hash": "Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 154.46,
+      "url": "/uploads/Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T22:17:01.577Z",
+      "updatedAt": "2026-08-22T22:17:01.577Z",
+      "publishedAt": "2026-08-22T22:17:01.577Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1462,
+        "question": "Is a self-emptying dock worth the extra money?",
+        "answer": "For most households, yes — it is the feature that changes a robot vacuum from a device you maintain into one you forget about. Emptying a small onboard bin every one or two runs gets old quickly. The trade-offs are dock size, noise during emptying, and the ongoing cost of replacement bags on models that use them."
+      },
+      {
+        "order": 1,
+        "id": 1463,
+        "question": "Do robot vacuums handle pet hair?",
+        "answer": "Good ones do. What matters is brush design rather than raw suction — rubber or silicone brushes tangle far less than bristle brushes, and anti-tangle designs genuinely work. Long-haired pets will still require occasional manual clearing of the brush and wheels regardless of price."
+      },
+      {
+        "order": 2,
+        "id": 1464,
+        "question": "Are the mopping functions any good?",
+        "answer": "They vary enormously. Basic models drag a damp cloth, which is fine for light dust on sealed floors and useless on anything real. Models that lift the mop on carpet, wash the pad automatically and apply downward pressure do a genuinely useful job. Neither replaces a proper mop for a dirty floor."
+      },
+      {
+        "order": 3,
+        "id": 1465,
+        "question": "Should I worry about robot vacuums mapping my house?",
+        "answer": "A mapping robot builds a floor plan of your home, and camera-equipped models capture images inside it. That data usually goes to the manufacturer's cloud. If that concerns you, look for models with local processing, or check whether the brand supports operation without cloud dependency. It is a reasonable thing to think about before buying."
+      }
+    ],
+    "categories": [
+      {
+        "id": 7,
+        "documentId": "y70h3kes2ecvck8ez2an3qwp",
+        "name": "Robot Vacuums",
+        "slug": "robot-vacuums",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.976Z",
+        "updatedAt": "2026-08-22T18:30:53.780Z",
+        "publishedAt": "2026-08-22T18:30:53.778Z"
+      }
+    ],
+    "author": {
+      "id": 13,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": "2026-08-22T21:55:22.398Z"
+    }
+  },
+  "draft": {
+    "id": 24,
+    "documentId": "x2tyvtzv3ayodmqrussnwh29",
+    "title": "Robot Vacuum Buying Guide: What Actually Matters (and What Does Not)",
+    "slug": "robot-vacuum-buying-guide-australia",
+    "excerpt": "Navigation, suction, self-emptying docks and mopping — which robot vacuum features are worth paying for in an Australian home with pets and hard floors.",
+    "content": "Robot vacuums are one of the few smart home categories where the expensive models are genuinely, obviously better than the cheap ones. But the price differences do not map onto the features manufacturers advertise most loudly.\n\nHere is what actually determines whether you keep using one.\n\n## Navigation is the whole ballgame\n\nIf you take one thing from this guide: **buy the best navigation you can afford, and treat everything else as secondary.**\n\nThere are broadly three tiers.\n\n**Random bounce.** The cheapest robots move in semi-random patterns until the battery runs down. They eventually cover most of a simple room. They also miss areas entirely, cannot be told where to clean, and cannot return to where they left off. In anything more complex than a single open room, they are frustrating.\n\n**Camera-based mapping.** A step up. The robot builds a map using a camera and visual landmarks. It cleans in orderly rows and can navigate back to the dock. Performance degrades in low light, since it needs to see to navigate — which rules out running it at night in a dark house.\n\n**LiDAR mapping.** A spinning laser rangefinder builds an accurate map regardless of lighting. This is the big jump. LiDAR robots clean methodically, know where they have been, resume properly after recharging, and let you define no-go zones and clean specific rooms on command.\n\nThe practical difference is enormous. A LiDAR robot is a device you schedule and forget. A random-bounce robot is a device you supervise. Most people who abandon robot vacuums bought the second kind.\n\n**Obstacle avoidance** is the newer differentiator on top of mapping. Better models use additional sensors to identify and avoid cables, socks, shoes and — the reason this feature exists at all — pet accidents. If you have a dog and hard floors, this feature justifies its cost the first time it works.\n\n## Suction: mostly marketing\n\nManufacturers advertise suction in pascals, and the numbers have inflated steadily to the point of meaninglessness.\n\nBeyond a reasonable baseline, suction is not what limits real-world performance. Brush design, brush contact with the floor, airflow path and bin capacity matter more. A well-designed robot with modest suction outperforms a badly designed one with a bigger number.\n\nWhere suction genuinely matters is deep carpet. If your home is mostly carpet, weight the suction figures and look for carpet boost. If it is mostly hard floors — very common in Australian homes — you are comfortably into diminishing returns.\n\n## Brushes, and why they matter more than suction\n\n**Rubber or silicone brushes** resist tangling dramatically better than bristle brushes. If anyone in the house has long hair, or you have a shedding pet, this is the single most important hardware detail after navigation. Bristle brushes wrap hair around the roller and require regular scissor work.\n\n**Anti-tangle designs** — combs, tapered brushes, dual counter-rotating rollers — build on this and genuinely reduce maintenance.\n\n**Side brushes** sweep debris from edges into the path. They also fling debris around on hard floors sometimes. Most robots let you reduce this behaviour.\n\n## Self-emptying docks\n\nA self-emptying dock sucks the robot's onboard bin into a much larger container in the base, typically holding several weeks of debris.\n\n**Worth it if:** you want to genuinely forget about the robot. Emptying a small bin after every run is the main reason people stop scheduling their vacuum. It is also a real benefit for allergy sufferers, since you handle the dust far less often.\n\n**Consider before buying:**\n\n- **Size.** These docks are large. Measure where it will live before ordering.\n- **Noise.** The emptying cycle is loud, briefly. If the dock is near a bedroom, schedule accordingly.\n- **Consumables.** Bagged docks need replacement bags — an ongoing cost. Bagless docks avoid this but you handle the dust directly.\n\n## Mopping\n\nMopping capability ranges from token to genuinely useful.\n\n**Basic:** a water tank and a cloth dragged behind the robot. On sealed hard floors this picks up light dust. It does not clean anything that is actually dirty, and the cloth needs washing after every run.\n\n**Mid-range:** larger tanks, controllable water flow, and mop pads that lift or detach so the robot does not drag a wet cloth over your rugs.\n\n**High end:** vibrating or spinning mop pads with downward pressure, automatic pad washing at the dock, and hot-water washing with drying to stop the pad going mouldy between runs.\n\nThe honest position: even the best robot mop does not replace mopping a properly dirty floor. What it does well is maintain an already-clean floor so it needs proper mopping far less often. Judged on that basis it is worth having; judged as a replacement for a mop it will disappoint.\n\nIf most of your home is carpet, skip mopping entirely and put the money into navigation.\n\n## Australian considerations\n\n**Hard floors are common here**, which favours good brush design and mopping over deep-carpet suction.\n\n**Pets are common here too** — Australia has one of the highest rates of pet ownership in the world. That makes anti-tangle brushes and obstacle avoidance more valuable than the spec sheet implies.\n\n**Check local support before buying an unfamiliar brand.** Robot vacuums are mechanical devices with consumable parts — brushes, filters, mop pads, sometimes batteries. A brand with no Australian distribution can leave you unable to source a two-dollar filter. Buying locally also means Australian Consumer Law guarantees apply, which matters for a device with this many moving parts.\n\n**Multi-storey homes** need consideration. A robot maps per floor, and better models store multiple floor maps. If you plan to carry it upstairs, confirm multi-floor mapping is supported — otherwise it re-maps every time, badly.\n\n## Privacy, briefly\n\nA mapping robot builds a detailed floor plan of your home. Camera-equipped models capture images from inside it. That data generally goes to the manufacturer's servers.\n\nThis is not a reason to avoid the category, but it is worth a moment's thought. If it concerns you, look for models that keep processing local, or check whether the manufacturer offers a cloud-free mode. LiDAR-only models without cameras are also a middle ground — they map your layout but do not photograph your living room.\n\n## What to buy\n\n**Tight budget:** get the cheapest model that has real mapping. Do not buy a random-bounce robot to save money — you will use it twice.\n\n**Most households:** LiDAR navigation, rubber anti-tangle brushes, self-emptying dock. Skip advanced mopping unless you have a lot of hard floor. This combination is where the value sits.\n\n**Pets and hard floors:** add obstacle avoidance. It is the difference between a helpful appliance and a catastrophe you have to clean up.\n\n**Large or multi-storey homes:** confirm multi-floor mapping and check the battery runtime against your floor area.\n\nPrioritise navigation, brushes and the dock. Ignore the pascal figures.",
+    "keyTakeaways": "Navigation quality matters more than suction. LiDAR mapping is the single biggest jump in usefulness, and it is the feature that separates a robot you actually run from one that gets stuck under the couch and stays there.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/robot-vacuum-buying-guide-australia.webp",
+    "coverImageAlt": "Robot Vacuum Buying Guide: What Actually Matters (and What Does Not)",
+    "postType": "buying-guide",
+    "publishDate": "2026-06-11T00:00:00.000Z",
+    "dateModified": "2026-08-01T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Robot vacuums",
+      "Pets",
+      "Buying advice"
+    ],
+    "readingTimeMinutes": 6,
+    "seoTitle": "Robot Vacuum Buying Guide: What Actually Matters (and What Does Not)",
+    "seoDescription": "Navigation, suction, self-emptying docks and mopping — which robot vacuum features are worth paying for in an Australian home with pets and hard floors.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/robot-vacuums/robot-vacuum-buying-guide-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:44.367Z",
+    "updatedAt": "2026-08-22T22:17:05.458Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3956,
+      "documentId": "kzotk5t3d1p6sjrununq3yqb",
+      "name": "Robot Vacuum Buying Guide What Actually Matters (and What Does Not).jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c.jpg",
+          "hash": "large_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c",
+          "mime": "image/jpeg",
+          "name": "large_Robot Vacuum Buying Guide What Actually Matters (and What Does Not).jpg",
+          "path": null,
+          "size": 71.32,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 71321
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c.jpg",
+          "hash": "small_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c",
+          "mime": "image/jpeg",
+          "name": "small_Robot Vacuum Buying Guide What Actually Matters (and What Does Not).jpg",
+          "path": null,
+          "size": 20.76,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 20761
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c.jpg",
+          "hash": "medium_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c",
+          "mime": "image/jpeg",
+          "name": "medium_Robot Vacuum Buying Guide What Actually Matters (and What Does Not).jpg",
+          "path": null,
+          "size": 41.95,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 41947
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c.jpg",
+          "hash": "thumbnail_Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Robot Vacuum Buying Guide What Actually Matters (and What Does Not).jpg",
+          "path": null,
+          "size": 6.85,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6848
+        }
+      },
+      "hash": "Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 154.46,
+      "url": "/uploads/Robot_Vacuum_Buying_Guide_What_Actually_Matters_and_What_Does_Not_23c851fe8c.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T22:17:01.577Z",
+      "updatedAt": "2026-08-22T22:17:01.577Z",
+      "publishedAt": "2026-08-22T22:17:01.577Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1150,
+        "question": "Is a self-emptying dock worth the extra money?",
+        "answer": "For most households, yes — it is the feature that changes a robot vacuum from a device you maintain into one you forget about. Emptying a small onboard bin every one or two runs gets old quickly. The trade-offs are dock size, noise during emptying, and the ongoing cost of replacement bags on models that use them."
+      },
+      {
+        "order": 1,
+        "id": 1151,
+        "question": "Do robot vacuums handle pet hair?",
+        "answer": "Good ones do. What matters is brush design rather than raw suction — rubber or silicone brushes tangle far less than bristle brushes, and anti-tangle designs genuinely work. Long-haired pets will still require occasional manual clearing of the brush and wheels regardless of price."
+      },
+      {
+        "order": 2,
+        "id": 1152,
+        "question": "Are the mopping functions any good?",
+        "answer": "They vary enormously. Basic models drag a damp cloth, which is fine for light dust on sealed floors and useless on anything real. Models that lift the mop on carpet, wash the pad automatically and apply downward pressure do a genuinely useful job. Neither replaces a proper mop for a dirty floor."
+      },
+      {
+        "order": 3,
+        "id": 1153,
+        "question": "Should I worry about robot vacuums mapping my house?",
+        "answer": "A mapping robot builds a floor plan of your home, and camera-equipped models capture images inside it. That data usually goes to the manufacturer's cloud. If that concerns you, look for models with local processing, or check whether the brand supports operation without cloud dependency. It is a reasonable thing to think about before buying."
+      }
+    ],
+    "categories": [
+      {
+        "id": 7,
+        "documentId": "y70h3kes2ecvck8ez2an3qwp",
+        "name": "Robot Vacuums",
+        "slug": "robot-vacuums",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.976Z",
+        "updatedAt": "2026-08-22T18:30:53.780Z",
+        "publishedAt": "2026-08-22T18:30:53.778Z"
+      }
+    ],
+    "author": {
+      "id": 4,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": null
+    }
+  }
+}

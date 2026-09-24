@@ -28,5 +28,35 @@
     "from": "/products/electric-wood-trimmer-hand-router-trimmer/",
     "to": "/products/category/hubs-and-platforms/",
     "reason": "Off-topic woodworking tool removed from the catalogue (AdSense Task 1, 24 Sep 2026)"
+  },
+  {
+    "from": "/security-and-cameras/how-to-keep-security-cameras-running-through-a-blackout-or-nbn-outage/",
+    "to": "/security-and-cameras/keep-security-cameras-running-blackout-nbn-outage/",
+    "reason": "Duplicate article merged into the survivor (AdSense Task 7, cluster 1, 24 Sep 2026)"
+  },
+  {
+    "from": "/lighting/smart-light-switches-no-neutral-wire-australia/",
+    "to": "/lighting/smart-light-switches-neutral-wire-older-australian-homes/",
+    "reason": "Duplicate article merged into the survivor (AdSense Task 7, cluster 3, 24 Sep 2026)"
+  },
+  {
+    "from": "/robot-vacuums/robot-vacuum-buying-guide-australian-homes-pets/",
+    "to": "/robot-vacuums/robot-vacuum-buying-guide-australia/",
+    "reason": "Duplicate article merged into the survivor as a Homes with pets section (AdSense Task 7, cluster 4, 24 Sep 2026)"
+  },
+  {
+    "from": "/buying-guides/renter-smart-home-devices-no-drilling/",
+    "to": "/buying-guides/smart-home-for-renters-australia/",
+    "reason": "Duplicate article merged into the survivor (AdSense Task 7, cluster 5, 24 Sep 2026)"
+  },
+  {
+    "from": "/setup-guides/reverse-cycle-split-system-voice-app-control-without-replacing/",
+    "to": "/climate-and-comfort/make-split-system-aircon-smart-australia/",
+    "reason": "Duplicate article merged into the survivor (AdSense Task 7, cluster 6, 24 Sep 2026)"
+  },
+  {
+    "from": "/energy-and-solar/smart-plugs-energy-monitors-cut-power-bill-australia/",
+    "to": "/energy-and-solar/smart-plugs-energy-monitors-lower-power-bill-australia/",
+    "reason": "Duplicate article merged into the survivor (AdSense Task 7, cluster 2, 24 Sep 2026)"
   }
 ]

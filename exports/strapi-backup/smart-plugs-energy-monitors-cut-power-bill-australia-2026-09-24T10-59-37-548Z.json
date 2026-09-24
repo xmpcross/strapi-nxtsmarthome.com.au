@@ -1,0 +1,330 @@
+{
+  "published": {
+    "id": 289,
+    "documentId": "o23yzg6f3y0iha8iio27h1kj",
+    "title": "How Smart Plugs and Energy Monitors Can Cut Your Aussie Power Bill Without Solar",
+    "slug": "smart-plugs-energy-monitors-cut-power-bill-australia",
+    "excerpt": "No solar panels? You can still trim your electricity bill using smart plugs and energy monitors. Here's how these affordable, plug-in devices help Aussie households find and fix wasted power.",
+    "content": "Smart plugs and energy monitors can lower your power bill by revealing which appliances quietly drain electricity and by letting you automatically switch them off. Used together on a handful of common household devices, they help you cut standby power waste and build better habits, without spending a cent on solar panels or battery storage.\n\n## Where Your Power Bill Actually Goes\n\nMost Australian households assume big-ticket appliances like the air conditioner or hot water system are the main culprits behind a high bill. That's often true, but a surprising chunk of usage also comes from smaller devices left running around the clock.\n\n### Standby Power and Phantom Loads\n\nGaming consoles, set-top boxes, phone chargers, and even some kitchen appliances draw power while switched \"off\" but still plugged in. This is often called standby or phantom load. On its own, one device might only cost a few dollars a year, but multiply that across ten or fifteen items left plugged in permanently, and it adds up over a quarterly bill.\n\n### The Appliances Worth Watching\n\nGood candidates for monitoring include entertainment systems, second fridges or bar fridges, pool pumps, space heaters, and countertop appliances like air fryers or slow cookers. These tend to either run longer than needed or get left on by accident. Devices with a heating element, like heaters and electric blankets, are worth watching closely, though some should never be left on a timer-controlled smart plug unattended. If you're unsure what's safe to automate, this guide on [what you should never plug into a smart plug](https://nxtsmarthome.com.au/energy/what-not-to-plug-into-a-smart-plug-australia) is a useful starting point before you set anything up.\n\n## How Smart Plugs Help You Cut Costs\n\nA smart plug sits between the wall outlet and your appliance, letting you control it from an app, voice assistant, or schedule. On its own it doesn't measure energy use, though many models sold in Australia now include basic monitoring features as well.\n\n### Scheduling and Automation\n\nInstead of relying on memory, you can schedule devices to turn off overnight or during peak tariff periods. This is particularly useful for things like pool pumps, outdoor lighting, or a second fridge in the garage that doesn't need to run at full capacity all day.\n\n### Remote Switch-Off When You Forget\n\nIf you've ever left the house wondering whether you switched off the heater or hair straightener, a smart plug with remote app control solves that anxiety and can prevent hours of unnecessary running time. This is one of the more practical, everyday savings smart plugs offer, separate from any energy-monitoring features.\n\n## How Energy Monitors Add Visibility\n\nWhile a smart plug controls a device, an energy monitor tells you how much power it's actually using. This visibility is often what turns vague intentions into real savings, because you can see, in kilowatt-hours or estimated dollars, which appliances are costing you the most.\n\n### Whole-Home Monitors vs Plug-Level Monitors\n\nWhole-home energy monitors typically connect at the switchboard and give you a household-wide view of consumption. Because they involve fixed wiring, installation should be carried out by a licensed electrician and should meet relevant AS/NZS wiring standards. Plug-level monitors, on the other hand, are far simpler: you plug the monitor into a 240V wall socket, then plug your appliance into the monitor, no rewiring required. For most renters and apartment dwellers, plug-level monitoring is the more accessible option. If you're still deciding whether the investment is worthwhile, this breakdown of [whether smart plugs actually save money on Australian electricity](https://nxtsmarthome.com.au/energy/smart-plugs-energy-monitoring-australia) walks through realistic expectations.\n\n## Setting Up a Smart Plug and Monitor Routine\n\nGetting value from these devices isn't just about buying them, it's about how you use the data.\n\n### Start With Your Biggest Suspects\n\nBegin with two or three appliances you suspect are heavy users: a bar fridge, an old entertainment unit, or a pool pump are common starting points. Monitor them for a week or two before making changes, so you're working from real numbers rather than guesswork.\n\n### Review, Adjust, Repeat\n\nMost apps let you view daily or weekly usage trends. Once you've identified a pattern, like a heater running longer than expected, adjust your schedule or automation rules and keep monitoring to confirm the change actually reduced usage. Small, iterative adjustments tend to be more sustainable than trying to automate your entire home in one go.\n\n## What to Check Before You Buy\n\nNot all smart plugs and monitors are created equal, and getting the wrong one can mean compatibility headaches or safety concerns.\n\n### Compatibility and Load Ratings\n\nCheck that any smart plug is rated for the appliance's power draw. High-draw devices like heaters or kettles need a plug rated to handle that load safely; plugging in something beyond its rating isn't just ineffective, it can be a fire risk. Always check the plug's specifications against the appliance you intend to use it with.\n\n### App Ecosystem and Local Support\n\nConsider whether the smart plug works with the voice assistant or smart home app you already use, and whether it's sold through retailers with accessible local support, such as Bunnings, JB Hi-Fi, Officeworks, or Kmart. Buying through an Australian retailer can also make warranty claims more straightforward. For a fuller checklist, see this [smart plug buying guide for Australian homes](https://nxtsmarthome.com.au/energy/smart-plug-buying-guide-australia) before you commit to a brand.\n\n## Renters and Strata Considerations\n\nOne of the appeals of smart plugs and plug-level monitors is that they require no permanent changes to your property. They simply plug into an existing 240V outlet, which makes them a practical option for renters and apartment residents who can't alter fixed wiring or install whole-home systems without owner or strata approval. If you're considering anything involving fixed wiring, such as a switchboard-level monitor or hardwired smart switch, check with your landlord, body corporate, or strata manager first, and always use a licensed electrician for installation.\n",
+    "keyTakeaways": null,
+    "coverImageUrl": "https://cms.fxnstudio.com/uploads/smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": null,
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Plugs & Energy Monitors: Cut Your Aussie Power Bill Without",
+    "seoDescription": "Learn how smart plugs and energy monitors help Australian households reduce standby power waste and lower electricity bills, no solar required.",
+    "seoKeywords": "smart plugs Australia, energy monitor Australia, reduce power bill without solar, standby power waste, smart home energy saving Australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-09-24T01:00:15.822Z",
+    "updatedAt": "2026-09-24T02:00:37.287Z",
+    "publishedAt": "2026-09-24T02:00:37.308Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 7377,
+      "documentId": "uly1ozs2q61rqprnc47h16af",
+      "name": "smart-plugs-energy-monitors-cut-power-bill-australia.webp",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1200,
+      "height": 675,
+      "formats": {
+        "large": {
+          "ext": ".webp",
+          "url": "/uploads/large_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+          "hash": "large_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874",
+          "mime": "image/webp",
+          "name": "large_smart-plugs-energy-monitors-cut-power-bill-australia.webp",
+          "path": null,
+          "size": 33.41,
+          "width": 1000,
+          "height": 562,
+          "sizeInBytes": 33414
+        },
+        "small": {
+          "ext": ".webp",
+          "url": "/uploads/small_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+          "hash": "small_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874",
+          "mime": "image/webp",
+          "name": "small_smart-plugs-energy-monitors-cut-power-bill-australia.webp",
+          "path": null,
+          "size": 14.85,
+          "width": 500,
+          "height": 281,
+          "sizeInBytes": 14852
+        },
+        "medium": {
+          "ext": ".webp",
+          "url": "/uploads/medium_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+          "hash": "medium_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874",
+          "mime": "image/webp",
+          "name": "medium_smart-plugs-energy-monitors-cut-power-bill-australia.webp",
+          "path": null,
+          "size": 24.24,
+          "width": 750,
+          "height": 422,
+          "sizeInBytes": 24238
+        },
+        "thumbnail": {
+          "ext": ".webp",
+          "url": "/uploads/thumbnail_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+          "hash": "thumbnail_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874",
+          "mime": "image/webp",
+          "name": "thumbnail_smart-plugs-energy-monitors-cut-power-bill-australia.webp",
+          "path": null,
+          "size": 6.06,
+          "width": 245,
+          "height": 138,
+          "sizeInBytes": 6058
+        }
+      },
+      "hash": "smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874",
+      "ext": ".webp",
+      "mime": "image/webp",
+      "size": 48.07,
+      "url": "/uploads/smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-09-24T01:56:47.167Z",
+      "updatedAt": "2026-09-24T01:56:47.167Z",
+      "publishedAt": "2026-09-24T01:56:47.167Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 3014,
+        "question": "Do smart plugs really lower your electricity bill?",
+        "answer": "They can help, mainly by letting you automatically switch off devices left running unnecessarily and by revealing which appliances use more power than expected. The savings depend on your habits and appliances; a smart plug on a rarely-used device won't do much, but one on a forgotten heater or bar fridge can make a noticeable difference over a billing cycle."
+      },
+      {
+        "order": 1,
+        "id": 3015,
+        "question": "What's the difference between a smart plug and an energy monitor?",
+        "answer": "A smart plug lets you remotely switch an appliance on or off and often schedule it. An energy monitor measures how much electricity a device or your whole home is using. Some products combine both features in one plug, giving you control and consumption data together."
+      },
+      {
+        "order": 2,
+        "id": 3016,
+        "question": "Can I install a whole-home energy monitor myself?",
+        "answer": "Whole-home monitors usually connect at the switchboard, which involves fixed wiring. This work should be done by a licensed electrician to meet relevant AS/NZS electrical standards and to keep your home safe and insured. Plug-level monitors, by contrast, don't require an electrician."
+      },
+      {
+        "order": 3,
+        "id": 3017,
+        "question": "Are smart plugs safe to use with heaters in Australian homes?",
+        "answer": "Some smart plugs aren't rated for high-draw heating appliances, so it's important to check the plug's load rating against the heater's power draw before use. Never leave unattended heating appliances on an automated schedule without confirming the manufacturer's guidance allows it."
+      },
+      {
+        "order": 4,
+        "id": 3018,
+        "question": "Will a smart plug work in a rental or apartment?",
+        "answer": "Yes, generally. Smart plugs and plug-level monitors simply plug into an existing 240V outlet and don't require altering fixed wiring, making them a practical choice for renters and strata properties. Always check your tenancy agreement or strata rules if you're unsure about any device involving permanent changes."
+      },
+      {
+        "order": 5,
+        "id": 3019,
+        "question": "How many smart plugs do I actually need to see a difference?",
+        "answer": "There's no fixed number, it depends on how many devices in your home are left running unnecessarily. Many households start with two or three plugs on likely culprits, such as a bar fridge, entertainment system, or pool pump, then expand once they've reviewed the usage data."
+      }
+    ],
+    "categories": [
+      {
+        "id": 3,
+        "documentId": "x4x6ijm6yyzgidc7zrbnx1m2",
+        "name": "Energy",
+        "slug": "energy",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.748Z",
+        "updatedAt": "2026-08-22T18:30:53.633Z",
+        "publishedAt": "2026-08-22T18:30:53.631Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 279,
+    "documentId": "o23yzg6f3y0iha8iio27h1kj",
+    "title": "How Smart Plugs and Energy Monitors Can Cut Your Aussie Power Bill Without Solar",
+    "slug": "smart-plugs-energy-monitors-cut-power-bill-australia",
+    "excerpt": "No solar panels? You can still trim your electricity bill using smart plugs and energy monitors. Here's how these affordable, plug-in devices help Aussie households find and fix wasted power.",
+    "content": "Smart plugs and energy monitors can lower your power bill by revealing which appliances quietly drain electricity and by letting you automatically switch them off. Used together on a handful of common household devices, they help you cut standby power waste and build better habits, without spending a cent on solar panels or battery storage.\n\n## Where Your Power Bill Actually Goes\n\nMost Australian households assume big-ticket appliances like the air conditioner or hot water system are the main culprits behind a high bill. That's often true, but a surprising chunk of usage also comes from smaller devices left running around the clock.\n\n### Standby Power and Phantom Loads\n\nGaming consoles, set-top boxes, phone chargers, and even some kitchen appliances draw power while switched \"off\" but still plugged in. This is often called standby or phantom load. On its own, one device might only cost a few dollars a year, but multiply that across ten or fifteen items left plugged in permanently, and it adds up over a quarterly bill.\n\n### The Appliances Worth Watching\n\nGood candidates for monitoring include entertainment systems, second fridges or bar fridges, pool pumps, space heaters, and countertop appliances like air fryers or slow cookers. These tend to either run longer than needed or get left on by accident. Devices with a heating element, like heaters and electric blankets, are worth watching closely, though some should never be left on a timer-controlled smart plug unattended. If you're unsure what's safe to automate, this guide on [what you should never plug into a smart plug](https://nxtsmarthome.com.au/energy/what-not-to-plug-into-a-smart-plug-australia) is a useful starting point before you set anything up.\n\n## How Smart Plugs Help You Cut Costs\n\nA smart plug sits between the wall outlet and your appliance, letting you control it from an app, voice assistant, or schedule. On its own it doesn't measure energy use, though many models sold in Australia now include basic monitoring features as well.\n\n### Scheduling and Automation\n\nInstead of relying on memory, you can schedule devices to turn off overnight or during peak tariff periods. This is particularly useful for things like pool pumps, outdoor lighting, or a second fridge in the garage that doesn't need to run at full capacity all day.\n\n### Remote Switch-Off When You Forget\n\nIf you've ever left the house wondering whether you switched off the heater or hair straightener, a smart plug with remote app control solves that anxiety and can prevent hours of unnecessary running time. This is one of the more practical, everyday savings smart plugs offer, separate from any energy-monitoring features.\n\n## How Energy Monitors Add Visibility\n\nWhile a smart plug controls a device, an energy monitor tells you how much power it's actually using. This visibility is often what turns vague intentions into real savings, because you can see, in kilowatt-hours or estimated dollars, which appliances are costing you the most.\n\n### Whole-Home Monitors vs Plug-Level Monitors\n\nWhole-home energy monitors typically connect at the switchboard and give you a household-wide view of consumption. Because they involve fixed wiring, installation should be carried out by a licensed electrician and should meet relevant AS/NZS wiring standards. Plug-level monitors, on the other hand, are far simpler: you plug the monitor into a 240V wall socket, then plug your appliance into the monitor, no rewiring required. For most renters and apartment dwellers, plug-level monitoring is the more accessible option. If you're still deciding whether the investment is worthwhile, this breakdown of [whether smart plugs actually save money on Australian electricity](https://nxtsmarthome.com.au/energy/smart-plugs-energy-monitoring-australia) walks through realistic expectations.\n\n## Setting Up a Smart Plug and Monitor Routine\n\nGetting value from these devices isn't just about buying them, it's about how you use the data.\n\n### Start With Your Biggest Suspects\n\nBegin with two or three appliances you suspect are heavy users: a bar fridge, an old entertainment unit, or a pool pump are common starting points. Monitor them for a week or two before making changes, so you're working from real numbers rather than guesswork.\n\n### Review, Adjust, Repeat\n\nMost apps let you view daily or weekly usage trends. Once you've identified a pattern, like a heater running longer than expected, adjust your schedule or automation rules and keep monitoring to confirm the change actually reduced usage. Small, iterative adjustments tend to be more sustainable than trying to automate your entire home in one go.\n\n## What to Check Before You Buy\n\nNot all smart plugs and monitors are created equal, and getting the wrong one can mean compatibility headaches or safety concerns.\n\n### Compatibility and Load Ratings\n\nCheck that any smart plug is rated for the appliance's power draw. High-draw devices like heaters or kettles need a plug rated to handle that load safely; plugging in something beyond its rating isn't just ineffective, it can be a fire risk. Always check the plug's specifications against the appliance you intend to use it with.\n\n### App Ecosystem and Local Support\n\nConsider whether the smart plug works with the voice assistant or smart home app you already use, and whether it's sold through retailers with accessible local support, such as Bunnings, JB Hi-Fi, Officeworks, or Kmart. Buying through an Australian retailer can also make warranty claims more straightforward. For a fuller checklist, see this [smart plug buying guide for Australian homes](https://nxtsmarthome.com.au/energy/smart-plug-buying-guide-australia) before you commit to a brand.\n\n## Renters and Strata Considerations\n\nOne of the appeals of smart plugs and plug-level monitors is that they require no permanent changes to your property. They simply plug into an existing 240V outlet, which makes them a practical option for renters and apartment residents who can't alter fixed wiring or install whole-home systems without owner or strata approval. If you're considering anything involving fixed wiring, such as a switchboard-level monitor or hardwired smart switch, check with your landlord, body corporate, or strata manager first, and always use a licensed electrician for installation.\n",
+    "keyTakeaways": null,
+    "coverImageUrl": "https://cms.fxnstudio.com/uploads/smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": null,
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Plugs & Energy Monitors: Cut Your Aussie Power Bill Without",
+    "seoDescription": "Learn how smart plugs and energy monitors help Australian households reduce standby power waste and lower electricity bills, no solar required.",
+    "seoKeywords": "smart plugs Australia, energy monitor Australia, reduce power bill without solar, standby power waste, smart home energy saving Australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-09-24T01:00:15.822Z",
+    "updatedAt": "2026-09-24T02:00:37.287Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 7377,
+      "documentId": "uly1ozs2q61rqprnc47h16af",
+      "name": "smart-plugs-energy-monitors-cut-power-bill-australia.webp",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1200,
+      "height": 675,
+      "formats": {
+        "large": {
+          "ext": ".webp",
+          "url": "/uploads/large_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+          "hash": "large_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874",
+          "mime": "image/webp",
+          "name": "large_smart-plugs-energy-monitors-cut-power-bill-australia.webp",
+          "path": null,
+          "size": 33.41,
+          "width": 1000,
+          "height": 562,
+          "sizeInBytes": 33414
+        },
+        "small": {
+          "ext": ".webp",
+          "url": "/uploads/small_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+          "hash": "small_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874",
+          "mime": "image/webp",
+          "name": "small_smart-plugs-energy-monitors-cut-power-bill-australia.webp",
+          "path": null,
+          "size": 14.85,
+          "width": 500,
+          "height": 281,
+          "sizeInBytes": 14852
+        },
+        "medium": {
+          "ext": ".webp",
+          "url": "/uploads/medium_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+          "hash": "medium_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874",
+          "mime": "image/webp",
+          "name": "medium_smart-plugs-energy-monitors-cut-power-bill-australia.webp",
+          "path": null,
+          "size": 24.24,
+          "width": 750,
+          "height": 422,
+          "sizeInBytes": 24238
+        },
+        "thumbnail": {
+          "ext": ".webp",
+          "url": "/uploads/thumbnail_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+          "hash": "thumbnail_smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874",
+          "mime": "image/webp",
+          "name": "thumbnail_smart-plugs-energy-monitors-cut-power-bill-australia.webp",
+          "path": null,
+          "size": 6.06,
+          "width": 245,
+          "height": 138,
+          "sizeInBytes": 6058
+        }
+      },
+      "hash": "smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874",
+      "ext": ".webp",
+      "mime": "image/webp",
+      "size": 48.07,
+      "url": "/uploads/smart_plugs_energy_monitors_cut_power_bill_australia_59c6524874.webp",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-09-24T01:56:47.167Z",
+      "updatedAt": "2026-09-24T01:56:47.167Z",
+      "publishedAt": "2026-09-24T01:56:47.167Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 3008,
+        "question": "Do smart plugs really lower your electricity bill?",
+        "answer": "They can help, mainly by letting you automatically switch off devices left running unnecessarily and by revealing which appliances use more power than expected. The savings depend on your habits and appliances; a smart plug on a rarely-used device won't do much, but one on a forgotten heater or bar fridge can make a noticeable difference over a billing cycle."
+      },
+      {
+        "order": 1,
+        "id": 3009,
+        "question": "What's the difference between a smart plug and an energy monitor?",
+        "answer": "A smart plug lets you remotely switch an appliance on or off and often schedule it. An energy monitor measures how much electricity a device or your whole home is using. Some products combine both features in one plug, giving you control and consumption data together."
+      },
+      {
+        "order": 2,
+        "id": 3010,
+        "question": "Can I install a whole-home energy monitor myself?",
+        "answer": "Whole-home monitors usually connect at the switchboard, which involves fixed wiring. This work should be done by a licensed electrician to meet relevant AS/NZS electrical standards and to keep your home safe and insured. Plug-level monitors, by contrast, don't require an electrician."
+      },
+      {
+        "order": 3,
+        "id": 3011,
+        "question": "Are smart plugs safe to use with heaters in Australian homes?",
+        "answer": "Some smart plugs aren't rated for high-draw heating appliances, so it's important to check the plug's load rating against the heater's power draw before use. Never leave unattended heating appliances on an automated schedule without confirming the manufacturer's guidance allows it."
+      },
+      {
+        "order": 4,
+        "id": 3012,
+        "question": "Will a smart plug work in a rental or apartment?",
+        "answer": "Yes, generally. Smart plugs and plug-level monitors simply plug into an existing 240V outlet and don't require altering fixed wiring, making them a practical choice for renters and strata properties. Always check your tenancy agreement or strata rules if you're unsure about any device involving permanent changes."
+      },
+      {
+        "order": 5,
+        "id": 3013,
+        "question": "How many smart plugs do I actually need to see a difference?",
+        "answer": "There's no fixed number, it depends on how many devices in your home are left running unnecessarily. Many households start with two or three plugs on likely culprits, such as a bar fridge, entertainment system, or pool pump, then expand once they've reviewed the usage data."
+      }
+    ],
+    "categories": [
+      {
+        "id": 3,
+        "documentId": "x4x6ijm6yyzgidc7zrbnx1m2",
+        "name": "Energy",
+        "slug": "energy",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.748Z",
+        "updatedAt": "2026-08-22T18:30:53.633Z",
+        "publishedAt": "2026-08-22T18:30:53.631Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}

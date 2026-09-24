@@ -1,0 +1,616 @@
+{
+  "published": {
+    "id": 324,
+    "documentId": "kzntmr7kt5n24ff73gn28thf",
+    "title": "Smart Lighting for Kids' Rooms: Night Lights and Wake-Up Routines",
+    "slug": "smart-lighting-kids-rooms",
+    "excerpt": "A practical guide to setting up smart night lights and gentle wake-up lighting in Australian kids' rooms, covering bulb choice, colour, automations, and safe wall control for parents and children.",
+    "content": "The best smart lighting setup for a kids' room usually pairs a dimmable, warm-toned smart bulb for a night light with a scheduled \"wake-up\" routine that slowly brightens before morning. Add a wireless wall switch so parents (and eventually kids) can control it without a phone, and keep automations simple enough that a babysitter can follow them.\n\n## Why Kids' Rooms Need a Different Lighting Approach\n\nLiving room lighting is about mood and colour. Kids' room lighting is about routine, safety, and not fully waking a child at 2am. That means dimming range matters more than flashy colour changes, and predictability matters more than novelty. A light that can be dimmed right down to a faint amber glow is more useful here than one with hundreds of colour presets nobody uses.\n\nIf you're new to smart lighting generally and want a broader sense of what's worth automating room by room, our [smart lighting scene ideas for every room in the house](https://nxtsmarthome.com.au/lighting/smart-lighting-scene-ideas) is a good companion read before you commit to a kids' room setup.\n\n## Choosing a Night Light That Won't Disrupt Sleep\n\n### Warm, Dim, and Away From Direct Eye Line\n\nFor a genuine night light, you want a bulb or lamp that can sit at a low, warm brightness all night without waking a child who glances at it. A colour-changing smart bulb like the **TP-Link Tapo L530E Smart Wi-Fi Light Bulb E27** is a reasonably affordable option for this job. It's a multicolour bulb with energy usage tracking, so parents who want to keep an eye on running costs for an all-night light can check consumption in the app rather than guessing. The trade-off with any budget smart bulb is that ecosystem features and long-term app support can vary, so it's worth treating it as a standalone night-light solution rather than the backbone of a whole-home automation system.\n\n::product:tp-link-tapo-l530e-smart-wi-fi-light-bulb-e27::\n\nPosition the lamp or bulb where it casts light onto a wall or ceiling rather than directly at the bed, and dim it as low as the bulb allows. Most parents find a very dim amber or warm white far less disruptive than a brighter white or blue-toned glow, which is closer to daylight and can make it harder for some children to settle back to sleep.\n\n### Colour Options for Toddlers vs Older Kids\n\nToddlers often respond well to a single, consistent warm glow they associate with bedtime — consistency matters more than colour choice at this age. Older kids sometimes like the novelty of choosing their own colour, which is where a fuller-featured system helps. The **Philips Hue White & Color Ambiance Starter Kit E27** gives access to 16 million colours through the Hue Bridge, so an older child could genuinely pick their own \"night light colour\" within a scene you've pre-set to a safe, dim brightness. The catch is the added cost and setup complexity of running a bridge-based system just for one room, so this suits families who are likely to expand Hue lighting to other rooms too.\n\n::product:philips-hue-white-color-ambiance-starter-kit-e27::\n\nIf you want to understand how tunable, warmer light in the evening compares with cooler light for winding down, our piece on [whether circadian smart lights improve sleep](https://nxtsmarthome.com.au/lighting/circadian-smart-lighting-sleep) goes into the tunable-white side of this in more detail.\n\n## Building a Gentle Wake-Up Routine With Smart Lighting\n\n### Simulating a Slow Sunrise\n\nRather than a light switching on abruptly at a set time, a gentler approach is a scheduled dim-to-bright transition over 15–30 minutes before the usual wake time, using whichever app your chosen bulb or system supports. This mimics a slow sunrise rather than an alarm-like jolt, which many families find easier on kids who wake grumpy. Whether this genuinely changes how easily a child wakes will vary child to child — it's worth treating it as one tool among several (routine, room darkness at night, consistent bedtimes) rather than a guaranteed fix.\n\n### Automations vs Manual Control\n\nKeep the automation itself simple: one scheduled \"wind down\" moment at bedtime, and one scheduled \"wake up\" ramp in the morning. Overcomplicating it with multiple scenes increases the chance something breaks or confuses whoever is putting the kids to bed that night. If you already run other smart lighting in the house and are deciding between bulbs and switches for consistency across rooms, our comparison of [smart bulbs versus smart switches for Australian homes](https://nxtsmarthome.com.au/lighting/smart-bulbs-vs-smart-switches-australia) can help you decide which approach to standardise on.\n\n## Wall Control for Parents (and Little Hands)\n\nA phone app is fine for setting up schedules, but at 2am nobody wants to unlock a phone to dim a light. A battery-powered wireless switch mounted near the door or cot solves this. The **Philips Hue Smart Dimmer Switch V2** is designed to control Hue lights without opening the app, and because it's wireless and battery-powered, it can be mounted with adhesive rather than wired into the wall — useful for parents who want quick, tactile control and, later, for a child old enough to press a button themselves rather than ask for the light.\n\n::product:philips-hue-smart-dimmer-switch-v2::\n\nBecause this switch doesn't need mains wiring, it's also a sensible option for renters or anyone in a strata property who doesn't want to alter fixed electrical work. If you're setting up smart lighting in a rental more broadly, our guide to [getting smart lighting into a rental without touching the wiring](https://nxtsmarthome.com.au/lighting/smart-lighting-rental-australia-no-wiring) covers other no-wiring options worth knowing about.\n\n## Safety, Renters, and Strata Considerations\n\nStick to plug-in lamps, battery-powered switches, and standard 240V bulbs in existing fittings rather than altering fixed wiring yourself. Any changes to hardwired switches, downlights, or circuits should go through a licensed electrician, particularly in older Australian homes or rental properties where altering fixed electrical work may affect your lease or bond, and where AS/NZS wiring rules apply. If you're ever tempted to hardwire a smart switch into a child's room, our articles on the [neutral wire problem in older Australian homes](https://nxtsmarthome.com.au/lighting/smart-light-switches-neutral-wire-older-australian-homes) and [retrofitting smart switches without a neutral wire](https://nxtsmarthome.com.au/lighting/smart-light-switches-no-neutral-wire-australia) are useful background before you call an electrician.\n\nKeep smart plugs and bulbs away from where a child could pull a cord, and choose lamps with a stable base over anything easily knocked from a bedside table. Wi-Fi connected night lights also mean the light depends on your home network staying up — worth remembering if you're relying on it every single night, and a reason some families keep a simple battery night light as backup.\n\n<h2 id=\"where-to-buy\">Where to buy</h2>\n\n<p>Retailers stocking the products in this guide. Prices and stock change often, so check the retailer before you buy. We may earn a commission from these links at no extra cost to you.</p>\n\n<ul class=\"where-to-buy\">\n<li><strong>TP-Link Tapo L530E Smart Wi-Fi Light Bulb E27</strong>: <a href=\"https://www.amazon.com.au/TP-Link-Multicolour-equivalent-Schedule-Tapo/dp/B08GDC99PX?source=ps-sl-shoppingads-lpcontext&amp;ref_=fplfs&amp;psc=1&amp;smid=ANEGB3WVEVKZB\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at Amazon AU</a> · <a href=\"https://www.bigw.com.au/product/tp-link-tapo-l530e-smart-wi-fi-light-bulb-edison-fitting-multicolour-b22-e27-no-hub-required-voice-control-schedule-timer-60w/p/9901828931?srsltid=AU7gw4Vgt9ivL5e-FYOchknRUwyGoSht6vskUVw9RIGFQgHSBLjv9Z_xpUo\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at Big W</a> · <a href=\"https://www.kogan.com/au/buy/tp-link-tapo-l530e-smart-wi-fi-light-bulb-multicolour-e27-tl-tapol530e-06935364030988/\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at Kogan</a></li>\n<li><strong>Philips Hue White &amp; Color Ambiance Starter Kit E27</strong>: <a href=\"https://www.ebay.com.au/itm/175848509377?chn=ps&amp;_ul=AU&amp;mkevt=1&amp;mkcid=28&amp;google_free_listing_action=view_item&amp;srsltid=AU7gw4UOOPac1WuI-s1gsNc_k2oWlVmV7stQLGlWmaaNOsblXYsRS04Wx1U\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at eBay AU</a> · <a href=\"https://www.domotic.com.au/product-page/philips-hue-starter-kit-e27-white-and-colour-ambiance?utm_source=google&amp;utm_medium=wix_google_feed&amp;utm_campaign=freelistings&amp;srsltid=AU7gw4W45TsW-9aO6jBIwFYCHCxFvLmdflKRLG7_XeFct6kNZDnQjgmAdp0\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at Domotic</a> · <a href=\"https://www.mobileciti.com.au/philips-hue-white-and-colour-ambiance-9w-a60-e27-starter-kit-with-bluetooth?srsltid=AU7gw4WVjrj965eA8U3CLUfu3rWGfhIjo2IRIKjnsY5hVlLwhtqFCwQr2rs\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at Mobileciti</a></li>\n<li><strong>Philips Hue Smart Dimmer Switch V2</strong>: <a href=\"https://www.ebay.com.au/itm/226227793922?chn=ps&amp;_ul=AU&amp;mkevt=1&amp;mkcid=28&amp;google_free_listing_action=view_item&amp;srsltid=AU7gw4WAbNMZczhjs4RFnGBmrghsAVWHi-HrmzpKlzwEWLRfUFQGc_JhAk0\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at eBay AU</a></li>\n</ul>\n",
+    "keyTakeaways": null,
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "how-to-guide",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": null,
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Lighting for Kids' Rooms: Night Lights & Wake-Up Routines",
+    "seoDescription": "How to set up smart night lights and gentle wake-up lighting routines in Australian kids' rooms, including bulb choice, wall switches, and rental-friendly",
+    "seoKeywords": "smart night light for kids, kids room smart lighting Australia, smart wake up light, smart bulb night light, gentle wake up routine lighting",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-09-24T04:08:13.643Z",
+    "updatedAt": "2026-09-24T04:08:13.643Z",
+    "publishedAt": "2026-09-24T04:08:13.661Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 7435,
+      "documentId": "eyl21wh8058ladk9u66332f1",
+      "name": "smart-lighting-for-kids-rooms-night-lights-and-wak-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1024,
+      "height": 576,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2.jpg",
+          "hash": "large_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2",
+          "mime": "image/jpeg",
+          "name": "large_smart-lighting-for-kids-rooms-night-lights-and-wak-cover.jpg",
+          "path": null,
+          "size": 51.26,
+          "width": 1000,
+          "height": 563,
+          "sizeInBytes": 51260
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2.jpg",
+          "hash": "small_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2",
+          "mime": "image/jpeg",
+          "name": "small_smart-lighting-for-kids-rooms-night-lights-and-wak-cover.jpg",
+          "path": null,
+          "size": 19.18,
+          "width": 500,
+          "height": 281,
+          "sizeInBytes": 19176
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2.jpg",
+          "hash": "medium_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2",
+          "mime": "image/jpeg",
+          "name": "medium_smart-lighting-for-kids-rooms-night-lights-and-wak-cover.jpg",
+          "path": null,
+          "size": 33.7,
+          "width": 750,
+          "height": 422,
+          "sizeInBytes": 33704
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2.jpg",
+          "hash": "thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2",
+          "mime": "image/jpeg",
+          "name": "thumbnail_smart-lighting-for-kids-rooms-night-lights-and-wak-cover.jpg",
+          "path": null,
+          "size": 7.49,
+          "width": 245,
+          "height": 138,
+          "sizeInBytes": 7490
+        }
+      },
+      "hash": "smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 51.74,
+      "url": "/uploads/smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-09-24T04:08:13.582Z",
+      "updatedAt": "2026-09-24T04:08:13.582Z",
+      "publishedAt": "2026-09-24T04:08:13.583Z"
+    },
+    "gallery": [
+      {
+        "id": 7434,
+        "documentId": "gf3ba8whyeaqd79nv7ziohq8",
+        "name": "smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-1.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "focalPoint": null,
+        "width": 1024,
+        "height": 768,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "/uploads/large_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d.jpg",
+            "hash": "large_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d",
+            "mime": "image/jpeg",
+            "name": "large_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-1.jpg",
+            "path": null,
+            "size": 47.54,
+            "width": 1000,
+            "height": 750,
+            "sizeInBytes": 47542
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "/uploads/small_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d.jpg",
+            "hash": "small_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d",
+            "mime": "image/jpeg",
+            "name": "small_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-1.jpg",
+            "path": null,
+            "size": 17.53,
+            "width": 500,
+            "height": 375,
+            "sizeInBytes": 17531
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "/uploads/medium_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d.jpg",
+            "hash": "medium_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d",
+            "mime": "image/jpeg",
+            "name": "medium_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-1.jpg",
+            "path": null,
+            "size": 31.26,
+            "width": 750,
+            "height": 563,
+            "sizeInBytes": 31257
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "/uploads/thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d.jpg",
+            "hash": "thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d",
+            "mime": "image/jpeg",
+            "name": "thumbnail_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-1.jpg",
+            "path": null,
+            "size": 5.16,
+            "width": 208,
+            "height": 156,
+            "sizeInBytes": 5158
+          }
+        },
+        "hash": "smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 48.72,
+        "url": "/uploads/smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2026-09-24T04:08:11.762Z",
+        "updatedAt": "2026-09-24T04:08:11.762Z",
+        "publishedAt": "2026-09-24T04:08:11.762Z"
+      },
+      {
+        "id": 7433,
+        "documentId": "kud6tk38k92r939613yqkazl",
+        "name": "smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "focalPoint": null,
+        "width": 1024,
+        "height": 768,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "/uploads/large_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1.jpg",
+            "hash": "large_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1",
+            "mime": "image/jpeg",
+            "name": "large_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-2.jpg",
+            "path": null,
+            "size": 81.46,
+            "width": 1000,
+            "height": 750,
+            "sizeInBytes": 81459
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "/uploads/small_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1.jpg",
+            "hash": "small_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1",
+            "mime": "image/jpeg",
+            "name": "small_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-2.jpg",
+            "path": null,
+            "size": 25.92,
+            "width": 500,
+            "height": 375,
+            "sizeInBytes": 25924
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "/uploads/medium_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1.jpg",
+            "hash": "medium_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1",
+            "mime": "image/jpeg",
+            "name": "medium_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-2.jpg",
+            "path": null,
+            "size": 50.65,
+            "width": 750,
+            "height": 563,
+            "sizeInBytes": 50647
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "/uploads/thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1.jpg",
+            "hash": "thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1",
+            "mime": "image/jpeg",
+            "name": "thumbnail_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-2.jpg",
+            "path": null,
+            "size": 6.15,
+            "width": 208,
+            "height": 156,
+            "sizeInBytes": 6148
+          }
+        },
+        "hash": "smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 84.9,
+        "url": "/uploads/smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2026-09-24T04:08:11.345Z",
+        "updatedAt": "2026-09-24T04:08:11.345Z",
+        "publishedAt": "2026-09-24T04:08:11.346Z"
+      }
+    ],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 3232,
+        "question": "What's the best colour for a kids' night light?",
+        "answer": "A warm amber or warm white tone is generally considered gentler than cool white or blue light for winding down and staying settled overnight. Many parents dim it as low as the bulb allows and position it away from direct eye contact with the bed, rather than relying on colour alone to make it \"sleep friendly.\""
+      },
+      {
+        "order": 1,
+        "id": 3233,
+        "question": "Can I set a smart light to gradually turn on in the morning?",
+        "answer": "Yes, most smart bulb apps let you schedule a gradual brightness increase over a set period, effectively simulating a slow sunrise before a fixed wake time. Results vary by child, so treat it as one part of a wind-down and wake-up routine rather than a guaranteed way to improve waking behaviour."
+      },
+      {
+        "order": 2,
+        "id": 3234,
+        "question": "Do I need a hub or bridge for kids' room smart lighting?",
+        "answer": "Not necessarily. Standalone Wi-Fi bulbs can run schedules independently through their own app. A bridge-based system adds more colour options and can integrate with wider home automations, but it's an extra cost and setup step that's only worth it if you're planning to expand smart lighting to other rooms too."
+      },
+      {
+        "order": 3,
+        "id": 3235,
+        "question": "Is it safe to leave a smart bulb on dim all night?",
+        "answer": "Standard 240V smart bulbs used within their intended fittings are designed for continuous use, similar to a regular night light. As with any electrical fitting, use bulbs and fixtures as intended and have any wiring concerns checked by a licensed electrician rather than relying on general advice online."
+      },
+      {
+        "order": 4,
+        "id": 3236,
+        "question": "Can renters install smart lighting in a kids' room without breaching their lease?",
+        "answer": "Often yes, using screw-in smart bulbs in existing light fittings or battery-powered wireless switches that don't require altering fixed wiring. Always check your specific lease terms and strata rules first, since requirements can differ between properties, and avoid any changes to hardwired switches without landlord approval and a licensed electrician."
+      },
+      {
+        "order": 5,
+        "id": 3237,
+        "question": "Will a smart night light work during a Wi-Fi or power outage?",
+        "answer": "Most Wi-Fi connected bulbs need a working internet connection for app control and scheduled automations, though many will still turn on and off via a normal wall switch if the network is down. During a power outage, none of them will operate, so a simple battery-powered backup light is worth having in a kids' room."
+      }
+    ],
+    "categories": [
+      {
+        "id": 6,
+        "documentId": "lbjx41g8uqij9ktmnodxn4x2",
+        "name": "Lighting",
+        "slug": "lighting",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.919Z",
+        "updatedAt": "2026-08-22T18:30:53.746Z",
+        "publishedAt": "2026-08-22T18:30:53.744Z"
+      }
+    ],
+    "author": {
+      "id": 13,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": "2026-08-22T21:55:22.398Z"
+    }
+  },
+  "draft": {
+    "id": 323,
+    "documentId": "kzntmr7kt5n24ff73gn28thf",
+    "title": "Smart Lighting for Kids' Rooms: Night Lights and Wake-Up Routines",
+    "slug": "smart-lighting-kids-rooms",
+    "excerpt": "A practical guide to setting up smart night lights and gentle wake-up lighting in Australian kids' rooms, covering bulb choice, colour, automations, and safe wall control for parents and children.",
+    "content": "The best smart lighting setup for a kids' room usually pairs a dimmable, warm-toned smart bulb for a night light with a scheduled \"wake-up\" routine that slowly brightens before morning. Add a wireless wall switch so parents (and eventually kids) can control it without a phone, and keep automations simple enough that a babysitter can follow them.\n\n## Why Kids' Rooms Need a Different Lighting Approach\n\nLiving room lighting is about mood and colour. Kids' room lighting is about routine, safety, and not fully waking a child at 2am. That means dimming range matters more than flashy colour changes, and predictability matters more than novelty. A light that can be dimmed right down to a faint amber glow is more useful here than one with hundreds of colour presets nobody uses.\n\nIf you're new to smart lighting generally and want a broader sense of what's worth automating room by room, our [smart lighting scene ideas for every room in the house](https://nxtsmarthome.com.au/lighting/smart-lighting-scene-ideas) is a good companion read before you commit to a kids' room setup.\n\n## Choosing a Night Light That Won't Disrupt Sleep\n\n### Warm, Dim, and Away From Direct Eye Line\n\nFor a genuine night light, you want a bulb or lamp that can sit at a low, warm brightness all night without waking a child who glances at it. A colour-changing smart bulb like the **TP-Link Tapo L530E Smart Wi-Fi Light Bulb E27** is a reasonably affordable option for this job. It's a multicolour bulb with energy usage tracking, so parents who want to keep an eye on running costs for an all-night light can check consumption in the app rather than guessing. The trade-off with any budget smart bulb is that ecosystem features and long-term app support can vary, so it's worth treating it as a standalone night-light solution rather than the backbone of a whole-home automation system.\n\n::product:tp-link-tapo-l530e-smart-wi-fi-light-bulb-e27::\n\nPosition the lamp or bulb where it casts light onto a wall or ceiling rather than directly at the bed, and dim it as low as the bulb allows. Most parents find a very dim amber or warm white far less disruptive than a brighter white or blue-toned glow, which is closer to daylight and can make it harder for some children to settle back to sleep.\n\n### Colour Options for Toddlers vs Older Kids\n\nToddlers often respond well to a single, consistent warm glow they associate with bedtime — consistency matters more than colour choice at this age. Older kids sometimes like the novelty of choosing their own colour, which is where a fuller-featured system helps. The **Philips Hue White & Color Ambiance Starter Kit E27** gives access to 16 million colours through the Hue Bridge, so an older child could genuinely pick their own \"night light colour\" within a scene you've pre-set to a safe, dim brightness. The catch is the added cost and setup complexity of running a bridge-based system just for one room, so this suits families who are likely to expand Hue lighting to other rooms too.\n\n::product:philips-hue-white-color-ambiance-starter-kit-e27::\n\nIf you want to understand how tunable, warmer light in the evening compares with cooler light for winding down, our piece on [whether circadian smart lights improve sleep](https://nxtsmarthome.com.au/lighting/circadian-smart-lighting-sleep) goes into the tunable-white side of this in more detail.\n\n## Building a Gentle Wake-Up Routine With Smart Lighting\n\n### Simulating a Slow Sunrise\n\nRather than a light switching on abruptly at a set time, a gentler approach is a scheduled dim-to-bright transition over 15–30 minutes before the usual wake time, using whichever app your chosen bulb or system supports. This mimics a slow sunrise rather than an alarm-like jolt, which many families find easier on kids who wake grumpy. Whether this genuinely changes how easily a child wakes will vary child to child — it's worth treating it as one tool among several (routine, room darkness at night, consistent bedtimes) rather than a guaranteed fix.\n\n### Automations vs Manual Control\n\nKeep the automation itself simple: one scheduled \"wind down\" moment at bedtime, and one scheduled \"wake up\" ramp in the morning. Overcomplicating it with multiple scenes increases the chance something breaks or confuses whoever is putting the kids to bed that night. If you already run other smart lighting in the house and are deciding between bulbs and switches for consistency across rooms, our comparison of [smart bulbs versus smart switches for Australian homes](https://nxtsmarthome.com.au/lighting/smart-bulbs-vs-smart-switches-australia) can help you decide which approach to standardise on.\n\n## Wall Control for Parents (and Little Hands)\n\nA phone app is fine for setting up schedules, but at 2am nobody wants to unlock a phone to dim a light. A battery-powered wireless switch mounted near the door or cot solves this. The **Philips Hue Smart Dimmer Switch V2** is designed to control Hue lights without opening the app, and because it's wireless and battery-powered, it can be mounted with adhesive rather than wired into the wall — useful for parents who want quick, tactile control and, later, for a child old enough to press a button themselves rather than ask for the light.\n\n::product:philips-hue-smart-dimmer-switch-v2::\n\nBecause this switch doesn't need mains wiring, it's also a sensible option for renters or anyone in a strata property who doesn't want to alter fixed electrical work. If you're setting up smart lighting in a rental more broadly, our guide to [getting smart lighting into a rental without touching the wiring](https://nxtsmarthome.com.au/lighting/smart-lighting-rental-australia-no-wiring) covers other no-wiring options worth knowing about.\n\n## Safety, Renters, and Strata Considerations\n\nStick to plug-in lamps, battery-powered switches, and standard 240V bulbs in existing fittings rather than altering fixed wiring yourself. Any changes to hardwired switches, downlights, or circuits should go through a licensed electrician, particularly in older Australian homes or rental properties where altering fixed electrical work may affect your lease or bond, and where AS/NZS wiring rules apply. If you're ever tempted to hardwire a smart switch into a child's room, our articles on the [neutral wire problem in older Australian homes](https://nxtsmarthome.com.au/lighting/smart-light-switches-neutral-wire-older-australian-homes) and [retrofitting smart switches without a neutral wire](https://nxtsmarthome.com.au/lighting/smart-light-switches-no-neutral-wire-australia) are useful background before you call an electrician.\n\nKeep smart plugs and bulbs away from where a child could pull a cord, and choose lamps with a stable base over anything easily knocked from a bedside table. Wi-Fi connected night lights also mean the light depends on your home network staying up — worth remembering if you're relying on it every single night, and a reason some families keep a simple battery night light as backup.\n\n<h2 id=\"where-to-buy\">Where to buy</h2>\n\n<p>Retailers stocking the products in this guide. Prices and stock change often, so check the retailer before you buy. We may earn a commission from these links at no extra cost to you.</p>\n\n<ul class=\"where-to-buy\">\n<li><strong>TP-Link Tapo L530E Smart Wi-Fi Light Bulb E27</strong>: <a href=\"https://www.amazon.com.au/TP-Link-Multicolour-equivalent-Schedule-Tapo/dp/B08GDC99PX?source=ps-sl-shoppingads-lpcontext&amp;ref_=fplfs&amp;psc=1&amp;smid=ANEGB3WVEVKZB\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at Amazon AU</a> · <a href=\"https://www.bigw.com.au/product/tp-link-tapo-l530e-smart-wi-fi-light-bulb-edison-fitting-multicolour-b22-e27-no-hub-required-voice-control-schedule-timer-60w/p/9901828931?srsltid=AU7gw4Vgt9ivL5e-FYOchknRUwyGoSht6vskUVw9RIGFQgHSBLjv9Z_xpUo\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at Big W</a> · <a href=\"https://www.kogan.com/au/buy/tp-link-tapo-l530e-smart-wi-fi-light-bulb-multicolour-e27-tl-tapol530e-06935364030988/\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at Kogan</a></li>\n<li><strong>Philips Hue White &amp; Color Ambiance Starter Kit E27</strong>: <a href=\"https://www.ebay.com.au/itm/175848509377?chn=ps&amp;_ul=AU&amp;mkevt=1&amp;mkcid=28&amp;google_free_listing_action=view_item&amp;srsltid=AU7gw4UOOPac1WuI-s1gsNc_k2oWlVmV7stQLGlWmaaNOsblXYsRS04Wx1U\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at eBay AU</a> · <a href=\"https://www.domotic.com.au/product-page/philips-hue-starter-kit-e27-white-and-colour-ambiance?utm_source=google&amp;utm_medium=wix_google_feed&amp;utm_campaign=freelistings&amp;srsltid=AU7gw4W45TsW-9aO6jBIwFYCHCxFvLmdflKRLG7_XeFct6kNZDnQjgmAdp0\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at Domotic</a> · <a href=\"https://www.mobileciti.com.au/philips-hue-white-and-colour-ambiance-9w-a60-e27-starter-kit-with-bluetooth?srsltid=AU7gw4WVjrj965eA8U3CLUfu3rWGfhIjo2IRIKjnsY5hVlLwhtqFCwQr2rs\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at Mobileciti</a></li>\n<li><strong>Philips Hue Smart Dimmer Switch V2</strong>: <a href=\"https://www.ebay.com.au/itm/226227793922?chn=ps&amp;_ul=AU&amp;mkevt=1&amp;mkcid=28&amp;google_free_listing_action=view_item&amp;srsltid=AU7gw4WAbNMZczhjs4RFnGBmrghsAVWHi-HrmzpKlzwEWLRfUFQGc_JhAk0\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Check price at eBay AU</a></li>\n</ul>\n",
+    "keyTakeaways": null,
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "how-to-guide",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": null,
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Lighting for Kids' Rooms: Night Lights & Wake-Up Routines",
+    "seoDescription": "How to set up smart night lights and gentle wake-up lighting routines in Australian kids' rooms, including bulb choice, wall switches, and rental-friendly",
+    "seoKeywords": "smart night light for kids, kids room smart lighting Australia, smart wake up light, smart bulb night light, gentle wake up routine lighting",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-09-24T04:08:13.643Z",
+    "updatedAt": "2026-09-24T04:08:13.643Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 7435,
+      "documentId": "eyl21wh8058ladk9u66332f1",
+      "name": "smart-lighting-for-kids-rooms-night-lights-and-wak-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1024,
+      "height": 576,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2.jpg",
+          "hash": "large_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2",
+          "mime": "image/jpeg",
+          "name": "large_smart-lighting-for-kids-rooms-night-lights-and-wak-cover.jpg",
+          "path": null,
+          "size": 51.26,
+          "width": 1000,
+          "height": 563,
+          "sizeInBytes": 51260
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2.jpg",
+          "hash": "small_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2",
+          "mime": "image/jpeg",
+          "name": "small_smart-lighting-for-kids-rooms-night-lights-and-wak-cover.jpg",
+          "path": null,
+          "size": 19.18,
+          "width": 500,
+          "height": 281,
+          "sizeInBytes": 19176
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2.jpg",
+          "hash": "medium_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2",
+          "mime": "image/jpeg",
+          "name": "medium_smart-lighting-for-kids-rooms-night-lights-and-wak-cover.jpg",
+          "path": null,
+          "size": 33.7,
+          "width": 750,
+          "height": 422,
+          "sizeInBytes": 33704
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2.jpg",
+          "hash": "thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2",
+          "mime": "image/jpeg",
+          "name": "thumbnail_smart-lighting-for-kids-rooms-night-lights-and-wak-cover.jpg",
+          "path": null,
+          "size": 7.49,
+          "width": 245,
+          "height": 138,
+          "sizeInBytes": 7490
+        }
+      },
+      "hash": "smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 51.74,
+      "url": "/uploads/smart_lighting_for_kids_rooms_night_lights_and_wak_cover_aa155070f2.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-09-24T04:08:13.582Z",
+      "updatedAt": "2026-09-24T04:08:13.582Z",
+      "publishedAt": "2026-09-24T04:08:13.583Z"
+    },
+    "gallery": [
+      {
+        "id": 7434,
+        "documentId": "gf3ba8whyeaqd79nv7ziohq8",
+        "name": "smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-1.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "focalPoint": null,
+        "width": 1024,
+        "height": 768,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "/uploads/large_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d.jpg",
+            "hash": "large_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d",
+            "mime": "image/jpeg",
+            "name": "large_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-1.jpg",
+            "path": null,
+            "size": 47.54,
+            "width": 1000,
+            "height": 750,
+            "sizeInBytes": 47542
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "/uploads/small_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d.jpg",
+            "hash": "small_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d",
+            "mime": "image/jpeg",
+            "name": "small_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-1.jpg",
+            "path": null,
+            "size": 17.53,
+            "width": 500,
+            "height": 375,
+            "sizeInBytes": 17531
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "/uploads/medium_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d.jpg",
+            "hash": "medium_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d",
+            "mime": "image/jpeg",
+            "name": "medium_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-1.jpg",
+            "path": null,
+            "size": 31.26,
+            "width": 750,
+            "height": 563,
+            "sizeInBytes": 31257
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "/uploads/thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d.jpg",
+            "hash": "thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d",
+            "mime": "image/jpeg",
+            "name": "thumbnail_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-1.jpg",
+            "path": null,
+            "size": 5.16,
+            "width": 208,
+            "height": 156,
+            "sizeInBytes": 5158
+          }
+        },
+        "hash": "smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 48.72,
+        "url": "/uploads/smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_1_da7f7eff7d.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2026-09-24T04:08:11.762Z",
+        "updatedAt": "2026-09-24T04:08:11.762Z",
+        "publishedAt": "2026-09-24T04:08:11.762Z"
+      },
+      {
+        "id": 7433,
+        "documentId": "kud6tk38k92r939613yqkazl",
+        "name": "smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "focalPoint": null,
+        "width": 1024,
+        "height": 768,
+        "formats": {
+          "large": {
+            "ext": ".jpg",
+            "url": "/uploads/large_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1.jpg",
+            "hash": "large_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1",
+            "mime": "image/jpeg",
+            "name": "large_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-2.jpg",
+            "path": null,
+            "size": 81.46,
+            "width": 1000,
+            "height": 750,
+            "sizeInBytes": 81459
+          },
+          "small": {
+            "ext": ".jpg",
+            "url": "/uploads/small_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1.jpg",
+            "hash": "small_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1",
+            "mime": "image/jpeg",
+            "name": "small_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-2.jpg",
+            "path": null,
+            "size": 25.92,
+            "width": 500,
+            "height": 375,
+            "sizeInBytes": 25924
+          },
+          "medium": {
+            "ext": ".jpg",
+            "url": "/uploads/medium_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1.jpg",
+            "hash": "medium_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1",
+            "mime": "image/jpeg",
+            "name": "medium_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-2.jpg",
+            "path": null,
+            "size": 50.65,
+            "width": 750,
+            "height": 563,
+            "sizeInBytes": 50647
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "/uploads/thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1.jpg",
+            "hash": "thumbnail_smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1",
+            "mime": "image/jpeg",
+            "name": "thumbnail_smart-lighting-for-kids-rooms-night-lights-and-wak-gallery-2.jpg",
+            "path": null,
+            "size": 6.15,
+            "width": 208,
+            "height": 156,
+            "sizeInBytes": 6148
+          }
+        },
+        "hash": "smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 84.9,
+        "url": "/uploads/smart_lighting_for_kids_rooms_night_lights_and_wak_gallery_2_7b355856b1.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2026-09-24T04:08:11.345Z",
+        "updatedAt": "2026-09-24T04:08:11.345Z",
+        "publishedAt": "2026-09-24T04:08:11.346Z"
+      }
+    ],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 3226,
+        "question": "What's the best colour for a kids' night light?",
+        "answer": "A warm amber or warm white tone is generally considered gentler than cool white or blue light for winding down and staying settled overnight. Many parents dim it as low as the bulb allows and position it away from direct eye contact with the bed, rather than relying on colour alone to make it \"sleep friendly.\""
+      },
+      {
+        "order": 1,
+        "id": 3227,
+        "question": "Can I set a smart light to gradually turn on in the morning?",
+        "answer": "Yes, most smart bulb apps let you schedule a gradual brightness increase over a set period, effectively simulating a slow sunrise before a fixed wake time. Results vary by child, so treat it as one part of a wind-down and wake-up routine rather than a guaranteed way to improve waking behaviour."
+      },
+      {
+        "order": 2,
+        "id": 3228,
+        "question": "Do I need a hub or bridge for kids' room smart lighting?",
+        "answer": "Not necessarily. Standalone Wi-Fi bulbs can run schedules independently through their own app. A bridge-based system adds more colour options and can integrate with wider home automations, but it's an extra cost and setup step that's only worth it if you're planning to expand smart lighting to other rooms too."
+      },
+      {
+        "order": 3,
+        "id": 3229,
+        "question": "Is it safe to leave a smart bulb on dim all night?",
+        "answer": "Standard 240V smart bulbs used within their intended fittings are designed for continuous use, similar to a regular night light. As with any electrical fitting, use bulbs and fixtures as intended and have any wiring concerns checked by a licensed electrician rather than relying on general advice online."
+      },
+      {
+        "order": 4,
+        "id": 3230,
+        "question": "Can renters install smart lighting in a kids' room without breaching their lease?",
+        "answer": "Often yes, using screw-in smart bulbs in existing light fittings or battery-powered wireless switches that don't require altering fixed wiring. Always check your specific lease terms and strata rules first, since requirements can differ between properties, and avoid any changes to hardwired switches without landlord approval and a licensed electrician."
+      },
+      {
+        "order": 5,
+        "id": 3231,
+        "question": "Will a smart night light work during a Wi-Fi or power outage?",
+        "answer": "Most Wi-Fi connected bulbs need a working internet connection for app control and scheduled automations, though many will still turn on and off via a normal wall switch if the network is down. During a power outage, none of them will operate, so a simple battery-powered backup light is worth having in a kids' room."
+      }
+    ],
+    "categories": [
+      {
+        "id": 6,
+        "documentId": "lbjx41g8uqij9ktmnodxn4x2",
+        "name": "Lighting",
+        "slug": "lighting",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.919Z",
+        "updatedAt": "2026-08-22T18:30:53.746Z",
+        "publishedAt": "2026-08-22T18:30:53.744Z"
+      }
+    ],
+    "author": {
+      "id": 4,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": null
+    }
+  }
+}

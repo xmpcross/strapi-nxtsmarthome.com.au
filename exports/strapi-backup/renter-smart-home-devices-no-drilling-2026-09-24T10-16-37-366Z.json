@@ -1,0 +1,318 @@
+{
+  "published": {
+    "id": 167,
+    "documentId": "czszxz8briiza1t01qh6nibq",
+    "title": "Smart Home Devices Renters Can Install Without Drilling",
+    "slug": "renter-smart-home-devices-no-drilling",
+    "excerpt": "Everything here mounts with adhesive, sits on a shelf or plugs into a socket. No holes, no wiring, and nothing that has to be explained at the final inspection.",
+    "content": "Renting rules out a surprising amount of smart home advice. Most guides assume you can run a cable, swap a wall switch, or put four screws into a door frame.\n\nYou can build most of a smart home without any of that. Here is what works when the walls are not yours — grouped by how it attaches, because that is the constraint that actually matters.\n\nOur broader guide on [what renters can install without losing a bond](/buying-guides/smart-home-for-renters-australia/) covers the permission side. This one is about the hardware.\n\n<img src=\"/covers/renter-smart-home-devices-no-drilling-inline.webp\" alt=\"Renter-friendly smart home setup showing devices installed cleanly without drilling\" class=\"w-full rounded-2xl object-cover my-6\" style=\"height: 450px; max-height: 450px; object-fit: cover;\" />\n\n## Plugs into a socket, mounts to nothing\n\n**Smart plugs.** The single most useful thing on this list. A lamp, a fan, a heater, a Christmas tree, a phone charger — anything with a switch on the appliance becomes schedulable. Nothing is attached to the building at all.\n\nAustralian smart plugs are physically chunky because of the AS/NZS 3112 plug and the socket spacing here, so check whether yours will block the second socket on a double outlet. Some are angled specifically to avoid that.\n\n**Smart speakers and displays.** They sit on a shelf. That is the whole installation.\n\n**Plug-in sensors and repeaters.** Anything that draws power from a socket rather than a wall.\n\n## Sticks on with adhesive\n\nThis is where most of the \"no drilling\" range lives, and where a little care pays off at the end of the lease.\n\n**Door and window sensors.** Two small blocks — one on the frame, one on the door — held on with adhesive strips. Battery-powered, and small enough that most people never notice them.\n\n**Motion sensors.** Corner-mounted or shelf-standing. The mount matters more than the sensor: a sensor pointed at a hallway from a bookshelf works as well as one screwed into a cornice.\n\n**Leak sensors.** Under the sink, behind the washing machine, next to the hot water unit. These do not mount at all — you put them on the floor. For a renter they are arguably the highest-value device here, because a leak you catch early is a leak that does not become an argument about who pays.\n\n**Smart buttons and scene controllers.** A wireless button stuck beside a doorway does what a wall switch does, without touching the wall switch.\n\nOn adhesive: use **removable stretch-release strips** rather than permanent foam tape wherever the device is light enough. They cost slightly more and come off cleanly. Permanent tape on a rental wall is how a $30 sensor turns into a paint repair.\n\n## Sits on a surface\n\n**Indoor cameras.** Free-standing models with a weighted base need no mounting. Bear in mind that cameras carry privacy obligations that go beyond your lease — see [what Australian privacy law says about home cameras](/security-and-cameras/smart-home-privacy-cameras-australia-law/) before pointing one anywhere shared.\n\n**Air quality and climate sensors.** Shelf or bench.\n\n**Hubs and border routers.** Beside the router.\n\n## Screws into what is already there\n\nA narrow but useful category: devices that reuse an existing fixing point, so you are not making a new hole.\n\n**Retrofit smart locks** that fit over the inside of an existing deadbolt, reusing the original screw holes and leaving the exterior and the key untouched.\n\n**Smart blinds retrofits** that clip onto an existing roller mechanism rather than replacing the blind.\n\nBoth reuse existing hardware, but both are still alterations in the eyes of most leases. Get permission in writing before fitting either. [VERIFY] your own tenancy agreement — residential tenancy rules differ by state and territory, and nothing on this page is a substitute for what your agreement actually says.\n\n## What to leave alone\n\nThree things are worth naming as off the list, because they come up constantly:\n\n- **Hardwired wall switches.** Fixed wiring is licensed work in Australia — see [what you can legally do yourself](/setup-guides/smart-home-electrical-work-australia-legal/). This is not a lease question, it is an electrical one.\n- **Outdoor cameras and doorbells.** Almost always drilling, usually into brick or render, and often into wiring for a wired doorbell.\n- **Full smart lock replacements.** Replacing the whole lock changes the door hardware and the keying.\n\n## The practical order\n\nIf you are starting from nothing, this order gets you the most useful smart home for the least commitment:\n\n1. **One smart plug**, on whatever you switch on and off most.\n2. **Leak sensors**, under the sink and behind the washing machine.\n3. **A door sensor** on the entry door.\n4. **A speaker or display**, once you have enough devices to be worth voice control.\n\nEverything on that list moves house with you in a shoebox, which is the real advantage of building this way. The screwed-in version is not much better while you are there, and it is considerably worse when you leave.\n\n<!--\n  Editorial maintenance notes (not reader-facing):\n  - No specific products or brands are named. This is deliberate: nothing here has\n    been hands-on tested, and a roundup that names models implies it has.\n  - No prices. They move, and the article is about form factor, not cost.\n  - Tenancy claims are kept general and flagged. Residential tenancy law differs by\n    state and territory. [VERIFY] before making any specific legal statement.\n  - Adhesive-removal advice is general technique, not a product endorsement.\n-->",
+    "keyTakeaways": "Plug-in, adhesive-mounted and free-standing devices cover most of what a smart home actually does. The things that genuinely need a drill — hardwired switches, fixed cameras, deadbolt replacements — are also the things most likely to cost you at the end of the lease.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/renter-smart-home-devices-no-drilling.webp",
+    "coverImageAlt": "Smart Home Devices Renters Can Install Without Drilling",
+    "postType": "product-roundup",
+    "publishDate": "2026-08-04T00:00:00.000Z",
+    "dateModified": "2026-08-04T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Renting",
+      "Buying advice",
+      "Australia",
+      "Setup",
+      "No drilling"
+    ],
+    "readingTimeMinutes": 4,
+    "seoTitle": "Smart Home Devices Renters Can Install Without Drilling",
+    "seoDescription": "Everything here mounts with adhesive, sits on a shelf or plugs into a socket. No holes, no wiring, and nothing that has to be explained at the final inspection.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/buying-guides/renter-smart-home-devices-no-drilling/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:44.133Z",
+    "updatedAt": "2026-08-22T22:21:24.962Z",
+    "publishedAt": "2026-08-22T22:21:24.985Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3959,
+      "documentId": "egx1jckq7t7exzpmckliwsxz",
+      "name": "Smart Home Devices Renters Can Install Without Drilling.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7.jpg",
+          "hash": "large_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7",
+          "mime": "image/jpeg",
+          "name": "large_Smart Home Devices Renters Can Install Without Drilling.jpg",
+          "path": null,
+          "size": 42.7,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 42697
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7.jpg",
+          "hash": "small_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7",
+          "mime": "image/jpeg",
+          "name": "small_Smart Home Devices Renters Can Install Without Drilling.jpg",
+          "path": null,
+          "size": 13.94,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13944
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7.jpg",
+          "hash": "medium_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7",
+          "mime": "image/jpeg",
+          "name": "medium_Smart Home Devices Renters Can Install Without Drilling.jpg",
+          "path": null,
+          "size": 25.93,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 25929
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7.jpg",
+          "hash": "thumbnail_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Smart Home Devices Renters Can Install Without Drilling.jpg",
+          "path": null,
+          "size": 5.27,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5274
+        }
+      },
+      "hash": "Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 111.79,
+      "url": "/uploads/Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T22:21:22.449Z",
+      "updatedAt": "2026-08-22T22:21:22.449Z",
+      "publishedAt": "2026-08-22T22:21:22.449Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1474,
+        "question": "Will adhesive mounts damage the paint when I take them down?",
+        "answer": "They can, particularly on older or poorly prepared paint. Removable stretch-release strips are far safer than permanent foam tape, and warming the adhesive gently before removal helps. Test on an inconspicuous spot first, and take devices down before they have been up for years rather than after."
+      },
+      {
+        "order": 1,
+        "id": 1475,
+        "question": "Can I put a smart lock on a rental door without drilling?",
+        "answer": "Some retrofit models fit over the inside of an existing deadbolt and reuse the original hardware, leaving the outside of the door and the key untouched. Whether that counts as an alteration is a question for your lease and your landlord, not for a product page. [VERIFY] your tenancy agreement and get permission in writing."
+      },
+      {
+        "order": 2,
+        "id": 1476,
+        "question": "What is the single most useful no-drill device?",
+        "answer": "A smart plug, comfortably. It needs no mounting at all, works with lamps, fans, heaters and chargers, and moves to the next place in your pocket. It is also the cheapest way to find out whether you actually want a smart home before committing to anything larger."
+      },
+      {
+        "order": 3,
+        "id": 1477,
+        "question": "Do I need a hub for any of this?",
+        "answer": "Not for Wi-Fi devices, which connect straight to your router. Battery-powered sensors on Zigbee or Thread do need a hub or border router. If you want to avoid another box, staying on Wi-Fi and Matter keeps the setup smaller, at the cost of some battery life on sensors."
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "documentId": "fznrs0xa43imqgijen01hgus",
+        "name": "Buying Guides",
+        "slug": "buying-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.609Z",
+        "updatedAt": "2026-08-22T18:30:53.551Z",
+        "publishedAt": "2026-08-22T18:30:53.546Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 20,
+    "documentId": "czszxz8briiza1t01qh6nibq",
+    "title": "Smart Home Devices Renters Can Install Without Drilling",
+    "slug": "renter-smart-home-devices-no-drilling",
+    "excerpt": "Everything here mounts with adhesive, sits on a shelf or plugs into a socket. No holes, no wiring, and nothing that has to be explained at the final inspection.",
+    "content": "Renting rules out a surprising amount of smart home advice. Most guides assume you can run a cable, swap a wall switch, or put four screws into a door frame.\n\nYou can build most of a smart home without any of that. Here is what works when the walls are not yours — grouped by how it attaches, because that is the constraint that actually matters.\n\nOur broader guide on [what renters can install without losing a bond](/buying-guides/smart-home-for-renters-australia/) covers the permission side. This one is about the hardware.\n\n<img src=\"/covers/renter-smart-home-devices-no-drilling-inline.webp\" alt=\"Renter-friendly smart home setup showing devices installed cleanly without drilling\" class=\"w-full rounded-2xl object-cover my-6\" style=\"height: 450px; max-height: 450px; object-fit: cover;\" />\n\n## Plugs into a socket, mounts to nothing\n\n**Smart plugs.** The single most useful thing on this list. A lamp, a fan, a heater, a Christmas tree, a phone charger — anything with a switch on the appliance becomes schedulable. Nothing is attached to the building at all.\n\nAustralian smart plugs are physically chunky because of the AS/NZS 3112 plug and the socket spacing here, so check whether yours will block the second socket on a double outlet. Some are angled specifically to avoid that.\n\n**Smart speakers and displays.** They sit on a shelf. That is the whole installation.\n\n**Plug-in sensors and repeaters.** Anything that draws power from a socket rather than a wall.\n\n## Sticks on with adhesive\n\nThis is where most of the \"no drilling\" range lives, and where a little care pays off at the end of the lease.\n\n**Door and window sensors.** Two small blocks — one on the frame, one on the door — held on with adhesive strips. Battery-powered, and small enough that most people never notice them.\n\n**Motion sensors.** Corner-mounted or shelf-standing. The mount matters more than the sensor: a sensor pointed at a hallway from a bookshelf works as well as one screwed into a cornice.\n\n**Leak sensors.** Under the sink, behind the washing machine, next to the hot water unit. These do not mount at all — you put them on the floor. For a renter they are arguably the highest-value device here, because a leak you catch early is a leak that does not become an argument about who pays.\n\n**Smart buttons and scene controllers.** A wireless button stuck beside a doorway does what a wall switch does, without touching the wall switch.\n\nOn adhesive: use **removable stretch-release strips** rather than permanent foam tape wherever the device is light enough. They cost slightly more and come off cleanly. Permanent tape on a rental wall is how a $30 sensor turns into a paint repair.\n\n## Sits on a surface\n\n**Indoor cameras.** Free-standing models with a weighted base need no mounting. Bear in mind that cameras carry privacy obligations that go beyond your lease — see [what Australian privacy law says about home cameras](/security-and-cameras/smart-home-privacy-cameras-australia-law/) before pointing one anywhere shared.\n\n**Air quality and climate sensors.** Shelf or bench.\n\n**Hubs and border routers.** Beside the router.\n\n## Screws into what is already there\n\nA narrow but useful category: devices that reuse an existing fixing point, so you are not making a new hole.\n\n**Retrofit smart locks** that fit over the inside of an existing deadbolt, reusing the original screw holes and leaving the exterior and the key untouched.\n\n**Smart blinds retrofits** that clip onto an existing roller mechanism rather than replacing the blind.\n\nBoth reuse existing hardware, but both are still alterations in the eyes of most leases. Get permission in writing before fitting either. [VERIFY] your own tenancy agreement — residential tenancy rules differ by state and territory, and nothing on this page is a substitute for what your agreement actually says.\n\n## What to leave alone\n\nThree things are worth naming as off the list, because they come up constantly:\n\n- **Hardwired wall switches.** Fixed wiring is licensed work in Australia — see [what you can legally do yourself](/setup-guides/smart-home-electrical-work-australia-legal/). This is not a lease question, it is an electrical one.\n- **Outdoor cameras and doorbells.** Almost always drilling, usually into brick or render, and often into wiring for a wired doorbell.\n- **Full smart lock replacements.** Replacing the whole lock changes the door hardware and the keying.\n\n## The practical order\n\nIf you are starting from nothing, this order gets you the most useful smart home for the least commitment:\n\n1. **One smart plug**, on whatever you switch on and off most.\n2. **Leak sensors**, under the sink and behind the washing machine.\n3. **A door sensor** on the entry door.\n4. **A speaker or display**, once you have enough devices to be worth voice control.\n\nEverything on that list moves house with you in a shoebox, which is the real advantage of building this way. The screwed-in version is not much better while you are there, and it is considerably worse when you leave.\n\n<!--\n  Editorial maintenance notes (not reader-facing):\n  - No specific products or brands are named. This is deliberate: nothing here has\n    been hands-on tested, and a roundup that names models implies it has.\n  - No prices. They move, and the article is about form factor, not cost.\n  - Tenancy claims are kept general and flagged. Residential tenancy law differs by\n    state and territory. [VERIFY] before making any specific legal statement.\n  - Adhesive-removal advice is general technique, not a product endorsement.\n-->",
+    "keyTakeaways": "Plug-in, adhesive-mounted and free-standing devices cover most of what a smart home actually does. The things that genuinely need a drill — hardwired switches, fixed cameras, deadbolt replacements — are also the things most likely to cost you at the end of the lease.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/renter-smart-home-devices-no-drilling.webp",
+    "coverImageAlt": "Smart Home Devices Renters Can Install Without Drilling",
+    "postType": "product-roundup",
+    "publishDate": "2026-08-04T00:00:00.000Z",
+    "dateModified": "2026-08-04T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Renting",
+      "Buying advice",
+      "Australia",
+      "Setup",
+      "No drilling"
+    ],
+    "readingTimeMinutes": 4,
+    "seoTitle": "Smart Home Devices Renters Can Install Without Drilling",
+    "seoDescription": "Everything here mounts with adhesive, sits on a shelf or plugs into a socket. No holes, no wiring, and nothing that has to be explained at the final inspection.",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/buying-guides/renter-smart-home-devices-no-drilling/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:44.133Z",
+    "updatedAt": "2026-08-22T22:21:24.962Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3959,
+      "documentId": "egx1jckq7t7exzpmckliwsxz",
+      "name": "Smart Home Devices Renters Can Install Without Drilling.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7.jpg",
+          "hash": "large_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7",
+          "mime": "image/jpeg",
+          "name": "large_Smart Home Devices Renters Can Install Without Drilling.jpg",
+          "path": null,
+          "size": 42.7,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 42697
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7.jpg",
+          "hash": "small_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7",
+          "mime": "image/jpeg",
+          "name": "small_Smart Home Devices Renters Can Install Without Drilling.jpg",
+          "path": null,
+          "size": 13.94,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 13944
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7.jpg",
+          "hash": "medium_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7",
+          "mime": "image/jpeg",
+          "name": "medium_Smart Home Devices Renters Can Install Without Drilling.jpg",
+          "path": null,
+          "size": 25.93,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 25929
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7.jpg",
+          "hash": "thumbnail_Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Smart Home Devices Renters Can Install Without Drilling.jpg",
+          "path": null,
+          "size": 5.27,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5274
+        }
+      },
+      "hash": "Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 111.79,
+      "url": "/uploads/Smart_Home_Devices_Renters_Can_Install_Without_Drilling_bb3cb264b7.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T22:21:22.449Z",
+      "updatedAt": "2026-08-22T22:21:22.449Z",
+      "publishedAt": "2026-08-22T22:21:22.449Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1140,
+        "question": "Will adhesive mounts damage the paint when I take them down?",
+        "answer": "They can, particularly on older or poorly prepared paint. Removable stretch-release strips are far safer than permanent foam tape, and warming the adhesive gently before removal helps. Test on an inconspicuous spot first, and take devices down before they have been up for years rather than after."
+      },
+      {
+        "order": 1,
+        "id": 1141,
+        "question": "Can I put a smart lock on a rental door without drilling?",
+        "answer": "Some retrofit models fit over the inside of an existing deadbolt and reuse the original hardware, leaving the outside of the door and the key untouched. Whether that counts as an alteration is a question for your lease and your landlord, not for a product page. [VERIFY] your tenancy agreement and get permission in writing."
+      },
+      {
+        "order": 2,
+        "id": 1142,
+        "question": "What is the single most useful no-drill device?",
+        "answer": "A smart plug, comfortably. It needs no mounting at all, works with lamps, fans, heaters and chargers, and moves to the next place in your pocket. It is also the cheapest way to find out whether you actually want a smart home before committing to anything larger."
+      },
+      {
+        "order": 3,
+        "id": 1143,
+        "question": "Do I need a hub for any of this?",
+        "answer": "Not for Wi-Fi devices, which connect straight to your router. Battery-powered sensors on Zigbee or Thread do need a hub or border router. If you want to avoid another box, staying on Wi-Fi and Matter keeps the setup smaller, at the cost of some battery life on sensors."
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "documentId": "fznrs0xa43imqgijen01hgus",
+        "name": "Buying Guides",
+        "slug": "buying-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.609Z",
+        "updatedAt": "2026-08-22T18:30:53.551Z",
+        "publishedAt": "2026-08-22T18:30:53.546Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}

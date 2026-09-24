@@ -1,0 +1,334 @@
+{
+  "published": {
+    "id": 274,
+    "documentId": "a7g5oejdx62wj2mi4evjdn9c",
+    "title": "Setting Up Your Reverse-Cycle Split System for Voice and App Control Without Replacing the Unit",
+    "slug": "reverse-cycle-split-system-voice-app-control-without-replacing",
+    "excerpt": "Your existing split system almost certainly speaks infrared, and that's all a smart IR controller needs. Here's how to add app scheduling, voice commands and geofencing to a reverse-cycle head unit you already own, what the cheap controllers get wrong, and when you genuinely need an electrician.",
+    "content": "Most Australian homes have at least one reverse-cycle split system, and most of them are controlled by a plastic remote that lives somewhere between the couch cushions. The good news: you almost never need to replace the unit to get app control, scheduling and voice commands. The head unit already listens for infrared, and a smart IR controller sitting on a nearby shelf can imitate your remote perfectly.\n\nThis guide covers the practical bits — which type of controller to buy, where to physically put it, how to get it talking to Google Home or Alexa, and the limits you should know about before you spend money.\n\n## How a smart IR controller actually works\n\nYour remote isn't a thermostat. When you press \"22 degrees, cool, fan auto\", the remote transmits the entire state of the settings as one infrared burst. The head unit receives it, acts on it, and beeps. It has no way to report back what it's doing.\n\nA smart IR controller replicates that burst over Wi-Fi. You tell the app \"22, cool, auto\", the controller fires the matching IR code across the room, and the split system obeys — exactly as if you'd used the remote.\n\nThe consequence of this one-way relationship matters. Because the aircon can't talk back, the app is guessing at the current state. If someone picks up the physical remote and turns the unit off, a basic controller will still show it as running. Better controllers work around this in two ways: an onboard temperature sensor so the app knows the actual room conditions, and an IR *receiver* that watches for remote presses and updates its own state accordingly. That second feature is the single biggest difference between a $30 puck and a $170 device, and it's worth paying for in a busy household.\n\nA further consequence: mounting position is not optional decoration. More on that shortly.\n\n## Choosing a controller: budget puck, mid-range, or sensor-led\n\nThere are three broad tiers on the Australian market.\n\n**Budget Tuya/Smart Life IR blasters** (roughly $20–$45 [VERIFY] on Amazon AU, eBay AU, or Kogan) do the core job. You pick your aircon brand from a code library, test a few code sets until the unit responds, and you're done. They work with Google Home and Alexa through the Tuya or Smart Life app. Expect no feedback, basic scheduling, and cloud dependence.\n\n::product:tuya-smart-wifi-ir-air-conditioner-controller-thermostat::\n\n**Mid-range dedicated aircon controllers** add a temperature and humidity sensor, proper climate scheduling, and often a follow-me style mode where the controller uses its own reading rather than the head unit's internal sensor — which is usually mounted up near the ceiling where the air is warmest.\n\n::product:aircon-off-universal-air-conditioner-smart-remote::\n\n**Sensor-led controllers** are the ones that behave like a genuine thermostat. Sensibo's Air is the best known here: it reads room temperature and humidity, detects remote presses so state stays accurate, supports geofencing, and exposes a proper climate entity to Google Home, Alexa, Apple Home and Home Assistant. Expect somewhere in the $150–$220 [VERIFY] range depending on the retailer and model variant.\n\n::product:sensibo-air-smart-air-conditioner-controller::\n\nOn specification, the sensor-led option is the one that turns a dumb split system into something that behaves like a connected climate device. The budget blaster turns it into a remote you can shout at. Both are legitimate outcomes — just buy the one that matches what you actually want.\n\n## Where to mount it, and why that decides whether this works\n\nIR is line of sight. Not \"roughly in the direction of\". The controller needs a clear, unobstructed path to the receiver window on the head unit, usually on the lower right of the front fascia.\n\nPractical placement rules:\n\n- **Direct line of sight, within about 6–8 metres.** Beyond that, reliability falls away, especially in bright rooms.\n- **Bounce is real but unreliable.** Signals do reflect off white walls and ceilings, so an angled position often works. Test it before you commit to double-sided tape.\n- **Avoid direct sunlight and downlights.** Strong infrared from sunlight or halogens can swamp the receiver.\n- **Keep it near a power point.** These devices run on 5V USB, so a nearby Type I outlet with a USB adaptor, or a spare port on a powerboard, is all you need. No electrical work, no licensed trade.\n- **Mind the Wi-Fi band.** Almost all of these controllers are 2.4GHz only. If your router uses a single merged SSID for both bands, you may need to temporarily split them or use the router's band-steering exception during pairing.\n\nIf the split system is above a doorway on the opposite side of an L-shaped room, accept that you may need a second controller rather than fighting the physics.\n\n## Step-by-step setup\n\n1. **Note your aircon brand and remote model.** The model number on the back of the remote matters more than the brand on the wall unit — it's how code libraries are organised.\n2. **Power the controller and pair it to 2.4GHz Wi-Fi** using the vendor app. Have your Wi-Fi password handy; most of these use a SoftAP or Bluetooth-assisted pairing flow.\n3. **Point the controller at the head unit** and run the code-matching wizard. You'll be asked to try a code set, then confirm whether the unit responded. Some brands match first try; obscure or older units may take a dozen attempts.\n4. **Verify every function you care about** — cool, heat, dry, fan speed, swing, and the exact temperature. Some code sets get power and temperature right but map swing incorrectly.\n5. **Link to your voice assistant.** In the Google Home app, add the manufacturer's service under \"Works with Google\"; in Alexa, enable the matching skill. Assign the device to a room so \"turn on the aircon in the lounge\" resolves correctly.\n6. **Set the display name to something you'd actually say.** \"Lounge aircon\" beats \"Sensibo Pod 4A2B\" every time.\n\n## Getting more than a voice remote out of it\n\nOnce it's connected, the automations are where the value sits:\n\n- **Geofenced off** — turn heating off when the last phone leaves home. This alone often pays for the device over a winter of forgotten mornings.\n- **Pre-conditioning** — start heating 20 minutes before your usual arrival, based on location rather than a fixed clock.\n- **Open-window shutoff** — pair with a contact sensor so the unit stops when a door is left open.\n- **Overnight comfort profiles** — step the setpoint down through the night rather than running one temperature.\n- **Solar-aware cooling** — if you have a monitored solar system, trigger cooling during peak export instead of during evening peak tariff.\n\nIn Home Assistant, Sensibo has a first-party integration exposing a full climate entity. Tuya-based blasters can be brought in via the Tuya integration or LocalTuya, though the latter can be fiddly and IR devices don't always expose clean climate entities locally [VERIFY]. If local-only control is a hard requirement, check current community reports for your specific model before buying.\n\n## What this approach won't do — and when to call a professional\n\nAn IR controller can't read the compressor, error codes, filter status or power consumption. It also can't control ducted systems that use a wall controller rather than an infrared remote, or systems where the remote is hard-wired.\n\nFor those, manufacturers sell proprietary Wi-Fi interface kits — Mitsubishi Electric, Daikin, Fujitsu and Panasonic all offer them. These typically connect to the indoor unit's internal control board and, in Australia, installation is generally treated as work for a licensed electrician or refrigeration technician. Opening the head unit yourself risks your warranty and is not a DIY job under AS/NZS wiring rules [VERIFY — confirm requirements with your installer and the manufacturer]. Get a quote before assuming the IR route is the cheaper option; on some brands the factory module isn't far off the price of a good IR controller.\n\nOne last thing worth saying plainly: energy savings from smart control come from *not running the aircon when nobody's home*, not from the device itself. Set up the geofence and the schedule properly and the payback is real. Install it, use it as a voice remote and change nothing else, and you've bought convenience — which is fine, just go in with clear eyes.",
+    "keyTakeaways": "You don't need a new air conditioner — a smart infrared controller placed in line of sight of the head unit copies your existing remote and adds app scheduling, geofencing and voice control. Budget Tuya blasters start around $30 [VERIFY], while sensor-led units like the Sensibo Air also track room temperature and detect manual remote presses.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "climate control",
+      "split system",
+      "smart IR controller",
+      "Sensibo",
+      "voice control",
+      "Home Assistant",
+      "setup guide"
+    ],
+    "readingTimeMinutes": 8,
+    "seoTitle": "Add Voice & App Control to Your Split System",
+    "seoDescription": "How to add app scheduling, voice control and geofencing to an existing reverse-cycle split system in Australia using a smart IR controller — no new aircon neede",
+    "seoKeywords": "smart air conditioner controller australia, sensibo air australia, split system voice control, infrared aircon controller, reverse cycle smart control, tuya ir blaster aircon, google home air conditioner",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:21:36.331Z",
+    "updatedAt": "2026-08-23T00:45:06.462Z",
+    "publishedAt": "2026-08-23T00:45:06.497Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3990,
+      "documentId": "wwlxsmdxfwp2n5f9lqllm4v8",
+      "name": "setting-up-your-reverse-cycle-split-system-for-voi-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927.jpg",
+          "hash": "large_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927",
+          "mime": "image/jpeg",
+          "name": "large_setting-up-your-reverse-cycle-split-system-for-voi-cover.jpg",
+          "path": null,
+          "size": 55.7,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 55697
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927.jpg",
+          "hash": "small_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927",
+          "mime": "image/jpeg",
+          "name": "small_setting-up-your-reverse-cycle-split-system-for-voi-cover.jpg",
+          "path": null,
+          "size": 19.31,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 19310
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927.jpg",
+          "hash": "medium_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927",
+          "mime": "image/jpeg",
+          "name": "medium_setting-up-your-reverse-cycle-split-system-for-voi-cover.jpg",
+          "path": null,
+          "size": 35.33,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 35330
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927.jpg",
+          "hash": "thumbnail_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927",
+          "mime": "image/jpeg",
+          "name": "thumbnail_setting-up-your-reverse-cycle-split-system-for-voi-cover.jpg",
+          "path": null,
+          "size": 6.66,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6663
+        }
+      },
+      "hash": "setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 117.51,
+      "url": "/uploads/setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:28:23.300Z",
+      "updatedAt": "2026-08-23T00:28:23.300Z",
+      "publishedAt": "2026-08-23T00:28:23.301Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1727,
+        "question": "If someone turns the aircon off with the physical remote, will my app still show it as running?",
+        "answer": "With a basic IR blaster, yes — infrared is one-way, so the app is only guessing at the current state. Controllers with an IR receiver watch for remote presses and update their own state accordingly, which is the main thing separating a cheap puck from a sensor-led device like Sensibo's Air."
+      },
+      {
+        "order": 2,
+        "id": 1728,
+        "question": "Do I need an electrician to add app control to my existing split system?",
+        "answer": "Not for an infrared controller — these run on 5V USB from a standard Type I outlet, so there's no wiring work involved. Proprietary Wi-Fi interface kits that connect to the indoor unit's control board are a different matter and are generally treated as work for a licensed electrician or refrigeration technician [VERIFY — confirm with your installer and the manufacturer]."
+      },
+      {
+        "order": 3,
+        "id": 1729,
+        "question": "How far away can the IR controller sit from the head unit?",
+        "answer": "Aim for a clear line of sight within roughly 6–8 metres; beyond that reliability drops off, particularly in bright rooms. Signals do bounce off white walls and ceilings, so an angled spot can work, but test it before committing to double-sided tape."
+      },
+      {
+        "order": 4,
+        "id": 1730,
+        "question": "Why won't my IR controller connect to my home Wi-Fi?",
+        "answer": "Almost all of these devices are 2.4GHz only, so a merged 2.4/5GHz SSID can break pairing. Temporarily split the bands or use your router's band-steering exception during setup, and have the Wi-Fi password ready for the SoftAP or Bluetooth-assisted pairing flow."
+      },
+      {
+        "order": 5,
+        "id": 1731,
+        "question": "Will this work on my ducted system with a wall controller?",
+        "answer": "No — an IR controller only works where the system accepts an infrared remote, so ducted setups with a wall controller or a hard-wired remote are out. For those, Mitsubishi Electric, Daikin, Fujitsu and Panasonic sell proprietary Wi-Fi interface kits, which need professional installation."
+      }
+    ],
+    "categories": [
+      {
+        "id": 9,
+        "documentId": "k7tw9kzpxlnx8qy1mi6fz8fk",
+        "name": "Setup Guides",
+        "slug": "setup-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:42.102Z",
+        "updatedAt": "2026-08-22T18:30:53.850Z",
+        "publishedAt": "2026-08-22T18:30:53.847Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 211,
+    "documentId": "a7g5oejdx62wj2mi4evjdn9c",
+    "title": "Setting Up Your Reverse-Cycle Split System for Voice and App Control Without Replacing the Unit",
+    "slug": "reverse-cycle-split-system-voice-app-control-without-replacing",
+    "excerpt": "Your existing split system almost certainly speaks infrared, and that's all a smart IR controller needs. Here's how to add app scheduling, voice commands and geofencing to a reverse-cycle head unit you already own, what the cheap controllers get wrong, and when you genuinely need an electrician.",
+    "content": "Most Australian homes have at least one reverse-cycle split system, and most of them are controlled by a plastic remote that lives somewhere between the couch cushions. The good news: you almost never need to replace the unit to get app control, scheduling and voice commands. The head unit already listens for infrared, and a smart IR controller sitting on a nearby shelf can imitate your remote perfectly.\n\nThis guide covers the practical bits — which type of controller to buy, where to physically put it, how to get it talking to Google Home or Alexa, and the limits you should know about before you spend money.\n\n## How a smart IR controller actually works\n\nYour remote isn't a thermostat. When you press \"22 degrees, cool, fan auto\", the remote transmits the entire state of the settings as one infrared burst. The head unit receives it, acts on it, and beeps. It has no way to report back what it's doing.\n\nA smart IR controller replicates that burst over Wi-Fi. You tell the app \"22, cool, auto\", the controller fires the matching IR code across the room, and the split system obeys — exactly as if you'd used the remote.\n\nThe consequence of this one-way relationship matters. Because the aircon can't talk back, the app is guessing at the current state. If someone picks up the physical remote and turns the unit off, a basic controller will still show it as running. Better controllers work around this in two ways: an onboard temperature sensor so the app knows the actual room conditions, and an IR *receiver* that watches for remote presses and updates its own state accordingly. That second feature is the single biggest difference between a $30 puck and a $170 device, and it's worth paying for in a busy household.\n\nA further consequence: mounting position is not optional decoration. More on that shortly.\n\n## Choosing a controller: budget puck, mid-range, or sensor-led\n\nThere are three broad tiers on the Australian market.\n\n**Budget Tuya/Smart Life IR blasters** (roughly $20–$45 [VERIFY] on Amazon AU, eBay AU, or Kogan) do the core job. You pick your aircon brand from a code library, test a few code sets until the unit responds, and you're done. They work with Google Home and Alexa through the Tuya or Smart Life app. Expect no feedback, basic scheduling, and cloud dependence.\n\n::product:tuya-smart-wifi-ir-air-conditioner-controller-thermostat::\n\n**Mid-range dedicated aircon controllers** add a temperature and humidity sensor, proper climate scheduling, and often a follow-me style mode where the controller uses its own reading rather than the head unit's internal sensor — which is usually mounted up near the ceiling where the air is warmest.\n\n::product:aircon-off-universal-air-conditioner-smart-remote::\n\n**Sensor-led controllers** are the ones that behave like a genuine thermostat. Sensibo's Air is the best known here: it reads room temperature and humidity, detects remote presses so state stays accurate, supports geofencing, and exposes a proper climate entity to Google Home, Alexa, Apple Home and Home Assistant. Expect somewhere in the $150–$220 [VERIFY] range depending on the retailer and model variant.\n\n::product:sensibo-air-smart-air-conditioner-controller::\n\nOn specification, the sensor-led option is the one that turns a dumb split system into something that behaves like a connected climate device. The budget blaster turns it into a remote you can shout at. Both are legitimate outcomes — just buy the one that matches what you actually want.\n\n## Where to mount it, and why that decides whether this works\n\nIR is line of sight. Not \"roughly in the direction of\". The controller needs a clear, unobstructed path to the receiver window on the head unit, usually on the lower right of the front fascia.\n\nPractical placement rules:\n\n- **Direct line of sight, within about 6–8 metres.** Beyond that, reliability falls away, especially in bright rooms.\n- **Bounce is real but unreliable.** Signals do reflect off white walls and ceilings, so an angled position often works. Test it before you commit to double-sided tape.\n- **Avoid direct sunlight and downlights.** Strong infrared from sunlight or halogens can swamp the receiver.\n- **Keep it near a power point.** These devices run on 5V USB, so a nearby Type I outlet with a USB adaptor, or a spare port on a powerboard, is all you need. No electrical work, no licensed trade.\n- **Mind the Wi-Fi band.** Almost all of these controllers are 2.4GHz only. If your router uses a single merged SSID for both bands, you may need to temporarily split them or use the router's band-steering exception during pairing.\n\nIf the split system is above a doorway on the opposite side of an L-shaped room, accept that you may need a second controller rather than fighting the physics.\n\n## Step-by-step setup\n\n1. **Note your aircon brand and remote model.** The model number on the back of the remote matters more than the brand on the wall unit — it's how code libraries are organised.\n2. **Power the controller and pair it to 2.4GHz Wi-Fi** using the vendor app. Have your Wi-Fi password handy; most of these use a SoftAP or Bluetooth-assisted pairing flow.\n3. **Point the controller at the head unit** and run the code-matching wizard. You'll be asked to try a code set, then confirm whether the unit responded. Some brands match first try; obscure or older units may take a dozen attempts.\n4. **Verify every function you care about** — cool, heat, dry, fan speed, swing, and the exact temperature. Some code sets get power and temperature right but map swing incorrectly.\n5. **Link to your voice assistant.** In the Google Home app, add the manufacturer's service under \"Works with Google\"; in Alexa, enable the matching skill. Assign the device to a room so \"turn on the aircon in the lounge\" resolves correctly.\n6. **Set the display name to something you'd actually say.** \"Lounge aircon\" beats \"Sensibo Pod 4A2B\" every time.\n\n## Getting more than a voice remote out of it\n\nOnce it's connected, the automations are where the value sits:\n\n- **Geofenced off** — turn heating off when the last phone leaves home. This alone often pays for the device over a winter of forgotten mornings.\n- **Pre-conditioning** — start heating 20 minutes before your usual arrival, based on location rather than a fixed clock.\n- **Open-window shutoff** — pair with a contact sensor so the unit stops when a door is left open.\n- **Overnight comfort profiles** — step the setpoint down through the night rather than running one temperature.\n- **Solar-aware cooling** — if you have a monitored solar system, trigger cooling during peak export instead of during evening peak tariff.\n\nIn Home Assistant, Sensibo has a first-party integration exposing a full climate entity. Tuya-based blasters can be brought in via the Tuya integration or LocalTuya, though the latter can be fiddly and IR devices don't always expose clean climate entities locally [VERIFY]. If local-only control is a hard requirement, check current community reports for your specific model before buying.\n\n## What this approach won't do — and when to call a professional\n\nAn IR controller can't read the compressor, error codes, filter status or power consumption. It also can't control ducted systems that use a wall controller rather than an infrared remote, or systems where the remote is hard-wired.\n\nFor those, manufacturers sell proprietary Wi-Fi interface kits — Mitsubishi Electric, Daikin, Fujitsu and Panasonic all offer them. These typically connect to the indoor unit's internal control board and, in Australia, installation is generally treated as work for a licensed electrician or refrigeration technician. Opening the head unit yourself risks your warranty and is not a DIY job under AS/NZS wiring rules [VERIFY — confirm requirements with your installer and the manufacturer]. Get a quote before assuming the IR route is the cheaper option; on some brands the factory module isn't far off the price of a good IR controller.\n\nOne last thing worth saying plainly: energy savings from smart control come from *not running the aircon when nobody's home*, not from the device itself. Set up the geofence and the schedule properly and the payback is real. Install it, use it as a voice remote and change nothing else, and you've bought convenience — which is fine, just go in with clear eyes.",
+    "keyTakeaways": "You don't need a new air conditioner — a smart infrared controller placed in line of sight of the head unit copies your existing remote and adds app scheduling, geofencing and voice control. Budget Tuya blasters start around $30 [VERIFY], while sensor-led units like the Sensibo Air also track room temperature and detect manual remote presses.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "climate control",
+      "split system",
+      "smart IR controller",
+      "Sensibo",
+      "voice control",
+      "Home Assistant",
+      "setup guide"
+    ],
+    "readingTimeMinutes": 8,
+    "seoTitle": "Add Voice & App Control to Your Split System",
+    "seoDescription": "How to add app scheduling, voice control and geofencing to an existing reverse-cycle split system in Australia using a smart IR controller — no new aircon neede",
+    "seoKeywords": "smart air conditioner controller australia, sensibo air australia, split system voice control, infrared aircon controller, reverse cycle smart control, tuya ir blaster aircon, google home air conditioner",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:21:36.331Z",
+    "updatedAt": "2026-08-23T00:45:06.462Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3990,
+      "documentId": "wwlxsmdxfwp2n5f9lqllm4v8",
+      "name": "setting-up-your-reverse-cycle-split-system-for-voi-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927.jpg",
+          "hash": "large_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927",
+          "mime": "image/jpeg",
+          "name": "large_setting-up-your-reverse-cycle-split-system-for-voi-cover.jpg",
+          "path": null,
+          "size": 55.7,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 55697
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927.jpg",
+          "hash": "small_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927",
+          "mime": "image/jpeg",
+          "name": "small_setting-up-your-reverse-cycle-split-system-for-voi-cover.jpg",
+          "path": null,
+          "size": 19.31,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 19310
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927.jpg",
+          "hash": "medium_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927",
+          "mime": "image/jpeg",
+          "name": "medium_setting-up-your-reverse-cycle-split-system-for-voi-cover.jpg",
+          "path": null,
+          "size": 35.33,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 35330
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927.jpg",
+          "hash": "thumbnail_setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927",
+          "mime": "image/jpeg",
+          "name": "thumbnail_setting-up-your-reverse-cycle-split-system-for-voi-cover.jpg",
+          "path": null,
+          "size": 6.66,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6663
+        }
+      },
+      "hash": "setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 117.51,
+      "url": "/uploads/setting_up_your_reverse_cycle_split_system_for_voi_cover_aae1074927.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:28:23.300Z",
+      "updatedAt": "2026-08-23T00:28:23.300Z",
+      "publishedAt": "2026-08-23T00:28:23.301Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1722,
+        "question": "If someone turns the aircon off with the physical remote, will my app still show it as running?",
+        "answer": "With a basic IR blaster, yes — infrared is one-way, so the app is only guessing at the current state. Controllers with an IR receiver watch for remote presses and update their own state accordingly, which is the main thing separating a cheap puck from a sensor-led device like Sensibo's Air."
+      },
+      {
+        "order": 2,
+        "id": 1723,
+        "question": "Do I need an electrician to add app control to my existing split system?",
+        "answer": "Not for an infrared controller — these run on 5V USB from a standard Type I outlet, so there's no wiring work involved. Proprietary Wi-Fi interface kits that connect to the indoor unit's control board are a different matter and are generally treated as work for a licensed electrician or refrigeration technician [VERIFY — confirm with your installer and the manufacturer]."
+      },
+      {
+        "order": 3,
+        "id": 1724,
+        "question": "How far away can the IR controller sit from the head unit?",
+        "answer": "Aim for a clear line of sight within roughly 6–8 metres; beyond that reliability drops off, particularly in bright rooms. Signals do bounce off white walls and ceilings, so an angled spot can work, but test it before committing to double-sided tape."
+      },
+      {
+        "order": 4,
+        "id": 1725,
+        "question": "Why won't my IR controller connect to my home Wi-Fi?",
+        "answer": "Almost all of these devices are 2.4GHz only, so a merged 2.4/5GHz SSID can break pairing. Temporarily split the bands or use your router's band-steering exception during setup, and have the Wi-Fi password ready for the SoftAP or Bluetooth-assisted pairing flow."
+      },
+      {
+        "order": 5,
+        "id": 1726,
+        "question": "Will this work on my ducted system with a wall controller?",
+        "answer": "No — an IR controller only works where the system accepts an infrared remote, so ducted setups with a wall controller or a hard-wired remote are out. For those, Mitsubishi Electric, Daikin, Fujitsu and Panasonic sell proprietary Wi-Fi interface kits, which need professional installation."
+      }
+    ],
+    "categories": [
+      {
+        "id": 9,
+        "documentId": "k7tw9kzpxlnx8qy1mi6fz8fk",
+        "name": "Setup Guides",
+        "slug": "setup-guides",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:42.102Z",
+        "updatedAt": "2026-08-22T18:30:53.850Z",
+        "publishedAt": "2026-08-22T18:30:53.847Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}

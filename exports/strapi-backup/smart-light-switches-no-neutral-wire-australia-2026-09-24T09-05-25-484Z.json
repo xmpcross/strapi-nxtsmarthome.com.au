@@ -1,0 +1,332 @@
+{
+  "published": {
+    "id": 256,
+    "documentId": "wbshrldqlmcjmof0d2f2ob6g",
+    "title": "Retrofitting Smart Light Switches in Australian Homes Without a Neutral Wire",
+    "slug": "smart-light-switches-no-neutral-wire-australia",
+    "excerpt": "Most Australian switch boxes have no neutral, which rules out a lot of smart switches. Here's how no-neutral switches actually work, why the ceiling rose is often a better place to install a module, and the renter-friendly options that need no wiring at all.",
+    "content": "Walk into almost any Australian home built before the 2000s, pull off a light switch plate, and you'll likely find the same thing: a couple of red or brown actives, maybe a loop, and no neutral in sight. That single detail rules out a large slice of the smart switch market and sends plenty of people down a frustrating rabbit hole.\n\nHere's how to work out what you've actually got behind the plate, what a \"no-neutral\" switch does to make itself work, and the alternatives that often turn out to be cheaper and more reliable.\n\n## Why Australian switch boxes usually lack a neutral\n\nAustralian domestic lighting has traditionally been wired **loop-at-the-light**. The active and neutral run to the ceiling rose or batten holder, and only a switch wire drops down the wall to the switch mech. The switch is just interrupting the active — the neutral never comes near it.\n\nA mains-powered smart switch needs a permanent circuit to run its radio, processor and relay. With active and switch-wire only, there's no return path unless the device borrows one.\n\nTwo more Australian-specific constraints matter:\n\n- **Wall box depth.** Many older homes use shallow plaster brackets or a mech clipped straight into a grid plate with very little void behind. Smart mechs are physically deeper than a standard Clipsal rocker, and a bulging plate is a real outcome. [VERIFY depth against the specific product's dimensions]\n- **Plate compatibility.** US-style Decora switches don't fit Australian mounting blocks or the 84mm plate standard, and anything wired into fixed installation should carry RCM marking and comply with AS/NZS 3000 requirements. Grey-import switches bought from overseas sellers may not. [VERIFY certification status of any specific product]\n\n**Replacing a hard-wired light switch is electrical work. In every Australian state and territory that means a licensed electrician — it is not a legal DIY job, regardless of what an overseas YouTube video shows.** [VERIFY current requirements with your state regulator]\n\n## How no-neutral smart switches work — and where they go wrong\n\nA no-neutral switch keeps itself alive by trickling a tiny current *through the light fitting* even when the light is \"off\". With old 60W incandescent globes that current was invisible. With a 5W LED downlight, it can be enough to make the lamp glow faintly, flicker, or strobe at night.\n\nThe usual fixes:\n\n- **A bypass capacitor** wired across the active and neutral at the light fitting. It gives the leakage current somewhere to go. Most no-neutral switch brands ship one in the box, and your electrician installs it at the ceiling — which means going into the roof space anyway.\n- **Minimum load ratings.** Many no-neutral switches specify a minimum connected load, often in the 3–20W region depending on the model. A single LED downlight on its own circuit can fall below it. [VERIFY the exact figure on the model you're buying]\n- **Dimming compatibility.** Even where a switch claims trailing-edge dimming, plenty of cheap LED downlights and integrated LED drivers simply won't dim smoothly. If your downlights aren't marked dimmable, no smart switch will fix that.\n\nThe honest summary from the specifications: no-neutral switches are a workaround, not a clean solution. They work well in a lot of homes and are maddening in others, and you generally can't tell which one you're in until it's installed.\n\n## Check the ceiling first — that's where your neutral lives\n\nThis is the tip that saves the most money. If your home is wired loop-at-the-light, there **is** a neutral — it's sitting at the ceiling rose above the light.\n\nThat opens up **in-ceiling relay modules**: small Wi-Fi or Zigbee devices that mount inside the ceiling cavity or a deep fitting, take a proper active and neutral, and switch the light. Your existing mechanical wall switch stays in place and is re-wired as a low-signal input, so it still works normally — and the family can't tell the difference when the internet drops out.\n\nWhy this is often the better retrofit in Australia:\n\n- No leakage current, so no LED glow or flicker.\n- No shallow-wall-box problem.\n- You keep your existing Clipsal, HPM or Iconic plates and the room looks untouched.\n- One module can cover a whole lighting circuit rather than one switch per room.\n\nThe catch: ceiling access. If you've got a flat concrete slab, a cathedral ceiling or a heavily insulated roof space, it's a harder job and the labour cost climbs. Ask your electrician for a quote both ways.\n\n## Zigbee versus Wi-Fi, and what you'll need to run it\n\nMost no-neutral switches sold here are either Wi-Fi (usually Tuya/Smart Life based) or Zigbee. For lighting specifically, Zigbee tends to be the better technical fit: lower power draw suits the tight energy budget of a no-neutral device, response is fast and local, and a dozen switches won't clog your router's client list.\n\nZigbee needs a coordinator. If you want something that sits alongside Google Home or Apple Home without a lot of tinkering, a Matter-capable hub is the simpler path.\n\n::product:zemismart-matter-zigbee-thread-smart-home-hub::\n\nIf you're already running Home Assistant on a mini PC or Raspberry Pi, a USB coordinator with Zigbee2MQTT or ZHA gives you the widest device support and full local control — useful when a switch brand's cloud has a bad week.\n\n::product:sonoff-zigbee-3-0-usb-dongle::\n\nA practical note either way: mount the coordinator away from your Wi-Fi router and USB 3.0 ports, and use the supplied extension lead. Zigbee sits in the same 2.4GHz band and interference is the most common cause of \"my switches are slow\".\n\n## Renting, or not ready to call an electrician\n\nIf you can't modify fixed wiring — which covers most renters — you still have decent options that involve no wiring at all:\n\n- **Smart globes** in existing fittings. B22 bayonet and E27 Edison screw are both widely available here. The trade-off is that the wall switch must stay on, so label it or fit a childproof switch guard.\n- **Battery-powered wall remotes** stuck to the wall next to (or over) the existing switch. Zigbee remotes from brands like Aqara or Philips Hue send commands directly to smart globes with no wiring involved, and lift off when you move out.\n- **Smart plugs** for lamps, LED strips and floor lighting. This is the fastest win in a rental — a bedside lamp on a schedule does most of what a smart switch does for a fraction of the cost and zero risk to your bond.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nOne tenancy caution: even reversible changes can be worth a written note to your agent, and anything involving fixed wiring almost certainly needs the owner's consent. Rules differ by state. [VERIFY with your state tenancy authority]\n\n## The questions to ask before you buy\n\nBefore you spend anything, get these five answers:\n\n1. **Do I have a neutral at the switch?** Have the electrician confirm during the quote — don't guess from photos.\n2. **Is my lighting loop-at-the-light?** If yes, seriously price up ceiling modules against no-neutral switches.\n3. **Are my downlights dimmable, and what's the total wattage per circuit?** Compare that to the switch's minimum load.\n4. **Is the device RCM-marked and rated for 240V/50Hz Australian installation?** [VERIFY per product]\n5. **What happens when the internet is down?** Any switch you install should still work as a plain switch.\n\nBudget-wise, expect roughly $40–$120 per smart mech or module, plus an electrician's call-out and time — often $150–$300 for the first hour in metro areas, with additional points cheaper if they're done in the same visit. [VERIFY current pricing]\n\nDone thoughtfully, a no-neutral retrofit works fine. But in a lot of Australian homes, the neutral you need is already sitting three metres above your head — and that's the cheaper, tidier place to put the smarts.",
+    "keyTakeaways": "Most Australian homes are wired loop-at-the-light, so there's no neutral at the switch — but there usually is one at the ceiling rose, which makes an in-ceiling smart relay module a cleaner fix than a no-neutral switch. Either way, replacing hard-wired switches is licensed electrical work; renters should stick to smart globes, battery wall remotes and smart plugs.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "smart lighting",
+      "light switches",
+      "wiring",
+      "zigbee",
+      "renters",
+      "home assistant"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Switches With No Neutral Wire: Australian Guide",
+    "seoDescription": "Most Australian switch boxes have no neutral. How no-neutral smart switches work, why ceiling modules are often better, and renter-friendly alternatives.",
+    "seoKeywords": "no neutral smart switch australia, smart light switch retrofit, loop at the light wiring, zigbee light switch australia, smart switch no neutral wire, smart lighting renters australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-22T23:41:07.504Z",
+    "updatedAt": "2026-08-23T00:41:20.677Z",
+    "publishedAt": "2026-08-23T00:41:20.728Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3969,
+      "documentId": "s5i51b7qtzga16kdxwq1x67b",
+      "name": "retrofitting-smart-light-switches-in-australian-ho-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee.jpg",
+          "hash": "large_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee",
+          "mime": "image/jpeg",
+          "name": "large_retrofitting-smart-light-switches-in-australian-ho-cover.jpg",
+          "path": null,
+          "size": 42.82,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 42815
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee.jpg",
+          "hash": "small_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee",
+          "mime": "image/jpeg",
+          "name": "small_retrofitting-smart-light-switches-in-australian-ho-cover.jpg",
+          "path": null,
+          "size": 15.3,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 15297
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee.jpg",
+          "hash": "medium_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee",
+          "mime": "image/jpeg",
+          "name": "medium_retrofitting-smart-light-switches-in-australian-ho-cover.jpg",
+          "path": null,
+          "size": 27.17,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 27166
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee.jpg",
+          "hash": "thumbnail_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee",
+          "mime": "image/jpeg",
+          "name": "thumbnail_retrofitting-smart-light-switches-in-australian-ho-cover.jpg",
+          "path": null,
+          "size": 5.54,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5537
+        }
+      },
+      "hash": "retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 89.46,
+      "url": "/uploads/retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T23:41:07.465Z",
+      "updatedAt": "2026-08-22T23:41:07.465Z",
+      "publishedAt": "2026-08-22T23:41:07.466Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1547,
+        "question": "Why does my LED downlight glow faintly after installing a no-neutral smart switch?",
+        "answer": "No-neutral switches stay powered by trickling a small current through the light fitting even when it's switched off, and a low-wattage LED can glow, flicker or strobe on that leakage. The usual fix is a bypass capacitor wired across active and neutral at the light fitting, which most brands include in the box. Because it's installed at the ceiling, your electrician will generally need roof space access anyway."
+      },
+      {
+        "order": 2,
+        "id": 1548,
+        "question": "Can I swap a light switch for a smart one myself in Australia?",
+        "answer": "No. Replacing a hard-wired light switch is electrical work, and in every Australian state and territory that means a licensed electrician rather than a DIY job, whatever overseas videos suggest. [VERIFY current requirements with your state regulator]"
+      },
+      {
+        "order": 3,
+        "id": 1549,
+        "question": "What can a renter do if they can't touch the fixed wiring?",
+        "answer": "Smart globes in existing B22 bayonet or E27 screw fittings, battery-powered Zigbee wall remotes stuck beside the existing switch, and smart plugs for lamps and LED strips all need no wiring at all. A bedside lamp on a smart plug is usually the fastest win and lifts out cleanly when you move. Even reversible changes can be worth noting to your agent in writing, and rules differ by state. [VERIFY with your state tenancy authority]"
+      },
+      {
+        "order": 4,
+        "id": 1550,
+        "question": "Is a ceiling relay module actually better than a no-neutral switch?",
+        "answer": "In loop-at-the-light homes it often is: the module gets a proper active and neutral at the ceiling rose, so there's no leakage current, no LED glow and no shallow wall box problem, and your existing Clipsal or HPM plates stay put. One module can also cover a whole lighting circuit. The catch is ceiling access — concrete slabs, cathedral ceilings or dense insulation push labour costs up, so ask for a quote both ways."
+      },
+      {
+        "order": 5,
+        "id": 1551,
+        "question": "Should I choose Zigbee or Wi-Fi for smart lighting, and what hardware do I need?",
+        "answer": "For lighting, Zigbee tends to suit no-neutral devices better because of its lower power draw, fast local response, and because a dozen switches won't fill up your router's client list. Zigbee needs a coordinator: a Matter-capable hub is simpler if you just want Google Home or Apple Home, while a USB dongle with Zigbee2MQTT or ZHA suits Home Assistant users. Mount the coordinator away from the router and USB 3.0 ports using the supplied extension lead, as 2.4GHz interference is the usual cause of sluggish switches."
+      }
+    ],
+    "categories": [
+      {
+        "id": 6,
+        "documentId": "lbjx41g8uqij9ktmnodxn4x2",
+        "name": "Lighting",
+        "slug": "lighting",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.919Z",
+        "updatedAt": "2026-08-22T18:30:53.746Z",
+        "publishedAt": "2026-08-22T18:30:53.744Z"
+      }
+    ],
+    "author": {
+      "id": 12,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": "2026-08-22T21:55:03.953Z"
+    }
+  },
+  "draft": {
+    "id": 177,
+    "documentId": "wbshrldqlmcjmof0d2f2ob6g",
+    "title": "Retrofitting Smart Light Switches in Australian Homes Without a Neutral Wire",
+    "slug": "smart-light-switches-no-neutral-wire-australia",
+    "excerpt": "Most Australian switch boxes have no neutral, which rules out a lot of smart switches. Here's how no-neutral switches actually work, why the ceiling rose is often a better place to install a module, and the renter-friendly options that need no wiring at all.",
+    "content": "Walk into almost any Australian home built before the 2000s, pull off a light switch plate, and you'll likely find the same thing: a couple of red or brown actives, maybe a loop, and no neutral in sight. That single detail rules out a large slice of the smart switch market and sends plenty of people down a frustrating rabbit hole.\n\nHere's how to work out what you've actually got behind the plate, what a \"no-neutral\" switch does to make itself work, and the alternatives that often turn out to be cheaper and more reliable.\n\n## Why Australian switch boxes usually lack a neutral\n\nAustralian domestic lighting has traditionally been wired **loop-at-the-light**. The active and neutral run to the ceiling rose or batten holder, and only a switch wire drops down the wall to the switch mech. The switch is just interrupting the active — the neutral never comes near it.\n\nA mains-powered smart switch needs a permanent circuit to run its radio, processor and relay. With active and switch-wire only, there's no return path unless the device borrows one.\n\nTwo more Australian-specific constraints matter:\n\n- **Wall box depth.** Many older homes use shallow plaster brackets or a mech clipped straight into a grid plate with very little void behind. Smart mechs are physically deeper than a standard Clipsal rocker, and a bulging plate is a real outcome. [VERIFY depth against the specific product's dimensions]\n- **Plate compatibility.** US-style Decora switches don't fit Australian mounting blocks or the 84mm plate standard, and anything wired into fixed installation should carry RCM marking and comply with AS/NZS 3000 requirements. Grey-import switches bought from overseas sellers may not. [VERIFY certification status of any specific product]\n\n**Replacing a hard-wired light switch is electrical work. In every Australian state and territory that means a licensed electrician — it is not a legal DIY job, regardless of what an overseas YouTube video shows.** [VERIFY current requirements with your state regulator]\n\n## How no-neutral smart switches work — and where they go wrong\n\nA no-neutral switch keeps itself alive by trickling a tiny current *through the light fitting* even when the light is \"off\". With old 60W incandescent globes that current was invisible. With a 5W LED downlight, it can be enough to make the lamp glow faintly, flicker, or strobe at night.\n\nThe usual fixes:\n\n- **A bypass capacitor** wired across the active and neutral at the light fitting. It gives the leakage current somewhere to go. Most no-neutral switch brands ship one in the box, and your electrician installs it at the ceiling — which means going into the roof space anyway.\n- **Minimum load ratings.** Many no-neutral switches specify a minimum connected load, often in the 3–20W region depending on the model. A single LED downlight on its own circuit can fall below it. [VERIFY the exact figure on the model you're buying]\n- **Dimming compatibility.** Even where a switch claims trailing-edge dimming, plenty of cheap LED downlights and integrated LED drivers simply won't dim smoothly. If your downlights aren't marked dimmable, no smart switch will fix that.\n\nThe honest summary from the specifications: no-neutral switches are a workaround, not a clean solution. They work well in a lot of homes and are maddening in others, and you generally can't tell which one you're in until it's installed.\n\n## Check the ceiling first — that's where your neutral lives\n\nThis is the tip that saves the most money. If your home is wired loop-at-the-light, there **is** a neutral — it's sitting at the ceiling rose above the light.\n\nThat opens up **in-ceiling relay modules**: small Wi-Fi or Zigbee devices that mount inside the ceiling cavity or a deep fitting, take a proper active and neutral, and switch the light. Your existing mechanical wall switch stays in place and is re-wired as a low-signal input, so it still works normally — and the family can't tell the difference when the internet drops out.\n\nWhy this is often the better retrofit in Australia:\n\n- No leakage current, so no LED glow or flicker.\n- No shallow-wall-box problem.\n- You keep your existing Clipsal, HPM or Iconic plates and the room looks untouched.\n- One module can cover a whole lighting circuit rather than one switch per room.\n\nThe catch: ceiling access. If you've got a flat concrete slab, a cathedral ceiling or a heavily insulated roof space, it's a harder job and the labour cost climbs. Ask your electrician for a quote both ways.\n\n## Zigbee versus Wi-Fi, and what you'll need to run it\n\nMost no-neutral switches sold here are either Wi-Fi (usually Tuya/Smart Life based) or Zigbee. For lighting specifically, Zigbee tends to be the better technical fit: lower power draw suits the tight energy budget of a no-neutral device, response is fast and local, and a dozen switches won't clog your router's client list.\n\nZigbee needs a coordinator. If you want something that sits alongside Google Home or Apple Home without a lot of tinkering, a Matter-capable hub is the simpler path.\n\n::product:zemismart-matter-zigbee-thread-smart-home-hub::\n\nIf you're already running Home Assistant on a mini PC or Raspberry Pi, a USB coordinator with Zigbee2MQTT or ZHA gives you the widest device support and full local control — useful when a switch brand's cloud has a bad week.\n\n::product:sonoff-zigbee-3-0-usb-dongle::\n\nA practical note either way: mount the coordinator away from your Wi-Fi router and USB 3.0 ports, and use the supplied extension lead. Zigbee sits in the same 2.4GHz band and interference is the most common cause of \"my switches are slow\".\n\n## Renting, or not ready to call an electrician\n\nIf you can't modify fixed wiring — which covers most renters — you still have decent options that involve no wiring at all:\n\n- **Smart globes** in existing fittings. B22 bayonet and E27 Edison screw are both widely available here. The trade-off is that the wall switch must stay on, so label it or fit a childproof switch guard.\n- **Battery-powered wall remotes** stuck to the wall next to (or over) the existing switch. Zigbee remotes from brands like Aqara or Philips Hue send commands directly to smart globes with no wiring involved, and lift off when you move out.\n- **Smart plugs** for lamps, LED strips and floor lighting. This is the fastest win in a rental — a bedside lamp on a schedule does most of what a smart switch does for a fraction of the cost and zero risk to your bond.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nOne tenancy caution: even reversible changes can be worth a written note to your agent, and anything involving fixed wiring almost certainly needs the owner's consent. Rules differ by state. [VERIFY with your state tenancy authority]\n\n## The questions to ask before you buy\n\nBefore you spend anything, get these five answers:\n\n1. **Do I have a neutral at the switch?** Have the electrician confirm during the quote — don't guess from photos.\n2. **Is my lighting loop-at-the-light?** If yes, seriously price up ceiling modules against no-neutral switches.\n3. **Are my downlights dimmable, and what's the total wattage per circuit?** Compare that to the switch's minimum load.\n4. **Is the device RCM-marked and rated for 240V/50Hz Australian installation?** [VERIFY per product]\n5. **What happens when the internet is down?** Any switch you install should still work as a plain switch.\n\nBudget-wise, expect roughly $40–$120 per smart mech or module, plus an electrician's call-out and time — often $150–$300 for the first hour in metro areas, with additional points cheaper if they're done in the same visit. [VERIFY current pricing]\n\nDone thoughtfully, a no-neutral retrofit works fine. But in a lot of Australian homes, the neutral you need is already sitting three metres above your head — and that's the cheaper, tidier place to put the smarts.",
+    "keyTakeaways": "Most Australian homes are wired loop-at-the-light, so there's no neutral at the switch — but there usually is one at the ceiling rose, which makes an in-ceiling smart relay module a cleaner fix than a no-neutral switch. Either way, replacing hard-wired switches is licensed electrical work; renters should stick to smart globes, battery wall remotes and smart plugs.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "smart lighting",
+      "light switches",
+      "wiring",
+      "zigbee",
+      "renters",
+      "home assistant"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Switches With No Neutral Wire: Australian Guide",
+    "seoDescription": "Most Australian switch boxes have no neutral. How no-neutral smart switches work, why ceiling modules are often better, and renter-friendly alternatives.",
+    "seoKeywords": "no neutral smart switch australia, smart light switch retrofit, loop at the light wiring, zigbee light switch australia, smart switch no neutral wire, smart lighting renters australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-22T23:41:07.504Z",
+    "updatedAt": "2026-08-23T00:41:20.677Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3969,
+      "documentId": "s5i51b7qtzga16kdxwq1x67b",
+      "name": "retrofitting-smart-light-switches-in-australian-ho-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee.jpg",
+          "hash": "large_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee",
+          "mime": "image/jpeg",
+          "name": "large_retrofitting-smart-light-switches-in-australian-ho-cover.jpg",
+          "path": null,
+          "size": 42.82,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 42815
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee.jpg",
+          "hash": "small_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee",
+          "mime": "image/jpeg",
+          "name": "small_retrofitting-smart-light-switches-in-australian-ho-cover.jpg",
+          "path": null,
+          "size": 15.3,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 15297
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee.jpg",
+          "hash": "medium_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee",
+          "mime": "image/jpeg",
+          "name": "medium_retrofitting-smart-light-switches-in-australian-ho-cover.jpg",
+          "path": null,
+          "size": 27.17,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 27166
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee.jpg",
+          "hash": "thumbnail_retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee",
+          "mime": "image/jpeg",
+          "name": "thumbnail_retrofitting-smart-light-switches-in-australian-ho-cover.jpg",
+          "path": null,
+          "size": 5.54,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5537
+        }
+      },
+      "hash": "retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 89.46,
+      "url": "/uploads/retrofitting_smart_light_switches_in_australian_ho_cover_5a65e54cee.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T23:41:07.465Z",
+      "updatedAt": "2026-08-22T23:41:07.465Z",
+      "publishedAt": "2026-08-22T23:41:07.466Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1542,
+        "question": "Why does my LED downlight glow faintly after installing a no-neutral smart switch?",
+        "answer": "No-neutral switches stay powered by trickling a small current through the light fitting even when it's switched off, and a low-wattage LED can glow, flicker or strobe on that leakage. The usual fix is a bypass capacitor wired across active and neutral at the light fitting, which most brands include in the box. Because it's installed at the ceiling, your electrician will generally need roof space access anyway."
+      },
+      {
+        "order": 2,
+        "id": 1543,
+        "question": "Can I swap a light switch for a smart one myself in Australia?",
+        "answer": "No. Replacing a hard-wired light switch is electrical work, and in every Australian state and territory that means a licensed electrician rather than a DIY job, whatever overseas videos suggest. [VERIFY current requirements with your state regulator]"
+      },
+      {
+        "order": 3,
+        "id": 1544,
+        "question": "What can a renter do if they can't touch the fixed wiring?",
+        "answer": "Smart globes in existing B22 bayonet or E27 screw fittings, battery-powered Zigbee wall remotes stuck beside the existing switch, and smart plugs for lamps and LED strips all need no wiring at all. A bedside lamp on a smart plug is usually the fastest win and lifts out cleanly when you move. Even reversible changes can be worth noting to your agent in writing, and rules differ by state. [VERIFY with your state tenancy authority]"
+      },
+      {
+        "order": 4,
+        "id": 1545,
+        "question": "Is a ceiling relay module actually better than a no-neutral switch?",
+        "answer": "In loop-at-the-light homes it often is: the module gets a proper active and neutral at the ceiling rose, so there's no leakage current, no LED glow and no shallow wall box problem, and your existing Clipsal or HPM plates stay put. One module can also cover a whole lighting circuit. The catch is ceiling access — concrete slabs, cathedral ceilings or dense insulation push labour costs up, so ask for a quote both ways."
+      },
+      {
+        "order": 5,
+        "id": 1546,
+        "question": "Should I choose Zigbee or Wi-Fi for smart lighting, and what hardware do I need?",
+        "answer": "For lighting, Zigbee tends to suit no-neutral devices better because of its lower power draw, fast local response, and because a dozen switches won't fill up your router's client list. Zigbee needs a coordinator: a Matter-capable hub is simpler if you just want Google Home or Apple Home, while a USB dongle with Zigbee2MQTT or ZHA suits Home Assistant users. Mount the coordinator away from the router and USB 3.0 ports using the supplied extension lead, as 2.4GHz interference is the usual cause of sluggish switches."
+      }
+    ],
+    "categories": [
+      {
+        "id": 6,
+        "documentId": "lbjx41g8uqij9ktmnodxn4x2",
+        "name": "Lighting",
+        "slug": "lighting",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.919Z",
+        "updatedAt": "2026-08-22T18:30:53.746Z",
+        "publishedAt": "2026-08-22T18:30:53.744Z"
+      }
+    ],
+    "author": {
+      "id": 3,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": null
+    }
+  }
+}

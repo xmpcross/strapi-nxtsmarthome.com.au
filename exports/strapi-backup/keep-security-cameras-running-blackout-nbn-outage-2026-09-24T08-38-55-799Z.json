@@ -1,0 +1,334 @@
+{
+  "published": {
+    "id": 347,
+    "documentId": "m8yqpuuiveah2ei555dqbvzb",
+    "title": "How to Keep Security Cameras Running Through a Blackout or NBN Outage",
+    "slug": "keep-security-cameras-running-blackout-nbn-outage",
+    "excerpt": "A blackout or an NBN dropout can blind your cameras exactly when you want them watching. Here's how Australian homes can keep footage recording and alerts flowing, using UPS units, portable power stations, battery cameras, local storage and 4G failover.",
+    "content": "When the power drops or the NBN falls over, most home camera systems quietly stop doing their job. The cameras lose power, the router loses power, and even if the cameras have their own batteries, the cloud upload has nowhere to go. Storms are exactly when you'd want the footage.\n\nThe good news is that a camera setup only draws a handful of watts. Keeping it alive through a typical outage is one of the cheaper resilience projects in a smart home — if you back up the right things in the right order.\n\n## First, work out which failure you're solving\n\nBlackouts and internet outages look similar from the app, but they need different fixes.\n\n**Mains power loss.** Everything goes: cameras, PoE switch, NVR, modem, router, Wi-Fi mesh nodes. Even battery cameras go dark in practice, because the Wi-Fi they talk to is gone.\n\n**Internet loss with power intact.** Cameras and local recording keep working. What you lose is remote viewing and push notifications — and, on cloud-only cameras, the recordings themselves.\n\n**Partial NBN failures.** On FTTP, the nbn connection box in your house [needs mains power to work](https://www.nbnco.com.au/learn/what-happens-in-a-power-blackout). Some older installations have a battery back-up unit, but nbn [stopped offering new ones from June 2024](https://www.nbnco.com.au/learn/network-technology/fibre-to-the-premises-explained-fttp/battery-back-up-information), and the feature was designed around keeping [voice services running in a power outage](https://www.nbnco.com.au/content/dam/nbn/documents/sell/wba/2023/notification-of-product-feature-withdrawal-uni-v-and-battery-backup-for-ethernet-fibre-20230526.pdf.coredownload.pdf) rather than your home network. On FTTC, the connection box inside your home [powers the service](https://www.nbnco.com.au/learn/network-technology/fibre-to-the-curb-explained-fttc), so it drops out with your power. On FTTN, FTTB, HFC and fixed wireless, nbn says services [won't work during a power outage in its network or at your premises](https://www.nbnco.com.au/learn/what-happens-in-a-power-blackout), so a street-level or tower outage you can't control can take you offline too. Either way, assume your connection is down the moment your house is.\n\nWork out which of these worries you most, because the answer changes what you buy.\n\n## Back up the network before you back up the cameras\n\nThis is the step people skip. A camera with a charged battery and no working Wi-Fi is a camera that records nothing you can see.\n\nThe priority order for backup power is:\n\n1. **NBN NTD / modem** — the box the line terminates in\n2. **Router and any mesh node the cameras associate with**\n3. **PoE switch and NVR**, if you run wired cameras\n4. **The cameras themselves**, if they're mains or PoE powered\n\nHow much a modem-plus-router pair draws depends entirely on the models, so measure it rather than guess: a plug-in energy meter or the UPS's own load display will show the real figure, and the rating printed on each power adapter is a maximum, not typical draw. Do the same with a PoE switch and its cameras, since the total climbs with every camera and any infrared or spotlight in use at night. Network gear is usually a modest load, which is why a small UPS can go a surprisingly long way.\n\nConsumer UPS units in the 650–1000VA class are widely stocked in Australia; at the time of writing, for example, JB Hi-Fi listed a [CyberPower 650VA line-interactive unit at $129](https://www.jbhifi.com.au/products/cyberpower-ut-series-650va-360w-backup-ups-system) and a [CyberPower 1000VA line-interactive unit at $259](https://www.jbhifi.com.au/products/cyberpower-vp1000elcd-1000va-550w-backup-ups-systems), and Officeworks listed a [CyberPower 650VA unit at $129](https://www.officeworks.com.au/shop/officeworks/p/cyberpower-650va-backup-utility-powerboard-ups-in3229148). Prices change, so check before you buy. Runtime depends on your measured load, the battery's size and its age: find your load on the manufacturer's runtime chart rather than relying on the VA number on the box — VA is a headline figure, not a promise of hours. CyberPower itself notes its published runtimes are [approximate and vary with battery age, charge level and environment](https://www.cyberpower.com/au/en/blog/how-much-runtime-do-i-really-need), so test yours (see the checklist below).\n\nOne caveat worth knowing: many cheaper UPS units output a stepped (simulated) sine wave on battery — the [CyberPower 1000VA model above](https://www.jbhifi.com.au/products/cyberpower-vp1000elcd-1000va-550w-backup-ups-systems) is one. CyberPower says equipment with an [active power factor correction (PFC) power supply requires a pure sine wave source](https://www.cyberpower.com/global/en/product/series/pfc_sinewave_gen._1), so check the power supply specs of anything you plan to connect, or choose a pure sine wave UPS if you're unsure.\n\n## Portable power stations: longer runtime, more flexibility\n\nIf your area cops multi-hour outages — bushfire season, storm season, rural feeders — a lithium power station gives far more headroom than a UPS, and you can use it for the fridge or phone charging once the cameras are sorted.\n\nThe practical maths is simple. Divide the unit's usable watt-hours by your measured load in watts, then allow for inverter losses and the unit's own consumption, which vary by model — check the manufacturer's stated efficiency or runtime estimate. As a worked example, a 500Wh unit running a 25W load gives 20 hours on paper (500 ÷ 25), and real-world runtime will be shorter once those losses are counted. That covers almost any suburban outage.\n\n::product:voltx-e600-portable-power-station::\n\nTwo things to check before you rely on one as backup: whether it supports pass-through charging so it can sit permanently plugged in with the router connected, and whether it has a UPS-style automatic switchover fast enough that your gear doesn't reboot. Check the spec sheet for the exact model: EcoFlow, for example, lists a [switchover of under 10 ms for its RIVER 3 (UPS)](https://www.ecoflow.com/au/river-3-ups-portable-power-station), but the same company notes that [many power stations advertised for UPS use switch over in 30 ms or more](https://www.ecoflow.com/us/blog/use-portable-power-station-as-ups-power-supply), and some don't offer the feature at all. If it can't switch automatically, you'll be plugging things in by torchlight.\n\nAll of this runs on standard 240V Type I outlets. Anything involving new circuits, hardwired camera power, or a permanently installed backup supply means changes to your household wiring, and that is work for a licensed electrician — don't improvise it. Energy Safe Victoria, for example, says [any changes to household wiring must be carried out by a licensed electrician](https://www.energysafe.vic.gov.au/community-safety/emergencies/using-generator-safely) and warns against connecting a generator into a wall socket or switchboard because of the back-feed risk. Rules differ between states, so check with your electrician and your state's electrical safety regulator.\n\n## Battery cameras and local recording keep working when the cloud doesn't\n\nBattery-powered cameras solve the power half of the problem by design. They're also the only realistic option for renters, since there's no cabling and no drilling into someone else's walls.\n\n::product:arlo-ultra-2-4k-spotlight-camera::\n\nThe specification implies a camera like this will keep detecting and recording locally to its hub for as long as the battery lasts, but the value of that depends entirely on where footage is stored. If your system is cloud-only, an internet outage means events are detected, uploaded to nothing, and in some cases discarded. Check whether your cameras or hub support local storage — microSD, USB drive or an internal disk — and turn it on. That single setting is often the difference between \"we lost the night of the break-in\" and a usable file.\n\nHome Assistant users have an advantage here: an RTSP-capable camera recording to a local NVR (Frigate, Scrypted, Blue Iris or similar) on a UPS keeps recording regardless of what the NBN is doing. The internet only affects your ability to watch it from the pub.\n\n## Add a mobile failover path for alerts\n\nBackup power keeps the gear alive; it doesn't restore your internet connection. For alerts to reach your phone during an NBN outage you need a second path.\n\n- **Router with 4G/5G failover.** Many mid-range routers accept a SIM or a USB modem and switch automatically. A cheap prepaid data SIM costs very little to keep active, and camera alerts use minimal data — full-quality video streaming does not, so cap the quality while on mobile.\n- **A phone hotspot.** Free, manual, and requires you to be home and awake. Better than nothing.\n- **Mobile-connected cameras.** Some models take their own SIM. Useful at sheds and rural properties with no fixed line.\n\nAlso confirm your mobile coverage indoors. If the same storm has knocked out the local mobile tower's backhaul, no amount of failover helps.\n\n## Know when the power comes back\n\nA small but genuinely useful addition: a smart plug on a non-critical circuit acts as a power sentinel. When mains returns, it reconnects and reports online, and you can automate a notification from that event in the vendor app or Home Assistant.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nSome smart plugs also have a configurable power-on state, which matters if you want a device to come back up automatically rather than staying off after an outage. Worth checking that setting on anything you rely on.\n\n## A practical setup checklist\n\n- Put the NTD, modem and router on the UPS or power station first, before the cameras.\n- Measure the actual load with an energy meter or the UPS display, then calculate runtime honestly.\n- Enable local recording on every camera or hub that supports it.\n- Configure 4G/5G failover and test it by unplugging the WAN cable, not by assuming.\n- Twice a year, pull the plug on the UPS and time how long the network stays up. Schneider Electric (APC) puts the typical life of sealed lead-acid (VRLA) UPS batteries at [three to five years, and lithium-ion at eight to ten](https://www.se.com/us/en/faqs/FAQ000265093/), with heat and power quality shortening it — check your model's documentation.\n- Note which cameras are cloud-dependent, and treat those as bonus coverage rather than your primary record.\n\nDo those six things and a blackout becomes an inconvenience rather than a blind spot.",
+    "keyTakeaways": "Put your NBN box, modem and router on a UPS or power station first — cameras are useless if the network is dead — then enable local recording and add 4G/5G failover so alerts still reach your phone. Measure your network gear's actual load and check it against the UPS maker's runtime chart, rather than relying on the VA rating, to see how long it will last.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": "2026-08-23T00:42:42.098Z",
+    "dateModified": "2026-09-24T07:57:52.484Z",
+    "featured": false,
+    "tags": [
+      "security cameras",
+      "backup power",
+      "UPS",
+      "NBN",
+      "home security",
+      "power outage",
+      "Australia"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Keep Security Cameras Running in a Blackout or NBN Outage",
+    "seoDescription": "How Australian homes can keep cameras recording during a blackout or NBN dropout: UPS sizing, power stations, local storage, battery cameras and 4G failover.",
+    "seoKeywords": "security camera backup power, UPS for NBN modem, blackout security cameras Australia, NBN outage cameras, 4G failover router, portable power station router, local camera recording",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:04:25.305Z",
+    "updatedAt": "2026-09-24T07:57:52.615Z",
+    "publishedAt": "2026-09-24T07:57:52.649Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3989,
+      "documentId": "egckzgnknml9lxualwto068o",
+      "name": "how-to-keep-security-cameras-running-through-a-bla-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295.jpg",
+          "hash": "large_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295",
+          "mime": "image/jpeg",
+          "name": "large_how-to-keep-security-cameras-running-through-a-bla-cover.jpg",
+          "path": null,
+          "size": 42.68,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 42679
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295.jpg",
+          "hash": "small_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295",
+          "mime": "image/jpeg",
+          "name": "small_how-to-keep-security-cameras-running-through-a-bla-cover.jpg",
+          "path": null,
+          "size": 14.88,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 14882
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295.jpg",
+          "hash": "medium_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295",
+          "mime": "image/jpeg",
+          "name": "medium_how-to-keep-security-cameras-running-through-a-bla-cover.jpg",
+          "path": null,
+          "size": 26.96,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 26962
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295.jpg",
+          "hash": "thumbnail_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295",
+          "mime": "image/jpeg",
+          "name": "thumbnail_how-to-keep-security-cameras-running-through-a-bla-cover.jpg",
+          "path": null,
+          "size": 5.23,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5231
+        }
+      },
+      "hash": "how_to_keep_security_cameras_running_through_a_bla_cover_422535e295",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 89.28,
+      "url": "/uploads/how_to_keep_security_cameras_running_through_a_bla_cover_422535e295.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:27:58.438Z",
+      "updatedAt": "2026-08-23T00:27:58.438Z",
+      "publishedAt": "2026-08-23T00:27:58.439Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 3423,
+        "question": "How long will a small UPS keep my modem and router running during a blackout?",
+        "answer": "It depends on your gear and the UPS. Measure what your modem and router actually draw with a plug-in energy meter or the UPS's load display, then look that load up on the manufacturer's runtime chart for your model rather than trusting the VA number printed on the box, since VA is a headline figure, not a guarantee of hours. Published runtimes are approximate and fall as the battery ages, so time a real test by unplugging the UPS."
+      },
+      {
+        "order": 2,
+        "id": 3424,
+        "question": "My cameras have their own batteries, so why do they stop working in a blackout?",
+        "answer": "Battery cameras keep power, but the Wi-Fi they talk to does not. Once the router, mesh node and NBN termination device lose mains power, there's nothing to upload to and no way to view footage, which is why network gear should go on backup power before the cameras themselves."
+      },
+      {
+        "order": 3,
+        "id": 3425,
+        "question": "How much does a UPS for home network and camera gear cost in Australia?",
+        "answer": "At the time of writing, 650-1000VA line-interactive units from CyberPower were listed from $129 (650VA, at JB Hi-Fi and Officeworks) to $259 (1000VA, at JB Hi-Fi); prices change, so check before you buy. Budget for battery replacement too: Schneider Electric (APC) puts typical sealed lead-acid UPS battery life at three to five years, less in hot conditions, so check your model's documentation."
+      },
+      {
+        "order": 4,
+        "id": 3426,
+        "question": "Can I use a portable power station instead of a UPS to keep cameras online?",
+        "answer": "Yes, and it gives far more headroom for multi-hour outages. Check two things first: whether the unit supports pass-through charging so it can stay permanently plugged in, and whether it has a UPS-style automatic switchover fast enough that your gear doesn't reboot. Switchover times differ between models and some don't offer the feature, so check the spec sheet for the exact model."
+      },
+      {
+        "order": 5,
+        "id": 3427,
+        "question": "Will I still get alerts on my phone if the NBN drops out but the power is on?",
+        "answer": "Not unless you have a second path to the internet. A router with automatic 4G/5G failover using a cheap prepaid data SIM is the most reliable option, with a phone hotspot as a manual fallback. Confirm your indoor mobile coverage too, since a storm that takes out the fixed line can also affect the local tower."
+      }
+    ],
+    "categories": [
+      {
+        "id": 8,
+        "documentId": "a1agni04sox35zmd5s78oa85",
+        "name": "Security & Cameras",
+        "slug": "security",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:42.038Z",
+        "updatedAt": "2026-08-22T18:30:53.812Z",
+        "publishedAt": "2026-08-22T18:30:53.810Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 190,
+    "documentId": "m8yqpuuiveah2ei555dqbvzb",
+    "title": "How to Keep Security Cameras Running Through a Blackout or NBN Outage",
+    "slug": "keep-security-cameras-running-blackout-nbn-outage",
+    "excerpt": "A blackout or an NBN dropout can blind your cameras exactly when you want them watching. Here's how Australian homes can keep footage recording and alerts flowing, using UPS units, portable power stations, battery cameras, local storage and 4G failover.",
+    "content": "When the power drops or the NBN falls over, most home camera systems quietly stop doing their job. The cameras lose power, the router loses power, and even if the cameras have their own batteries, the cloud upload has nowhere to go. Storms are exactly when you'd want the footage.\n\nThe good news is that a camera setup only draws a handful of watts. Keeping it alive through a typical outage is one of the cheaper resilience projects in a smart home — if you back up the right things in the right order.\n\n## First, work out which failure you're solving\n\nBlackouts and internet outages look similar from the app, but they need different fixes.\n\n**Mains power loss.** Everything goes: cameras, PoE switch, NVR, modem, router, Wi-Fi mesh nodes. Even battery cameras go dark in practice, because the Wi-Fi they talk to is gone.\n\n**Internet loss with power intact.** Cameras and local recording keep working. What you lose is remote viewing and push notifications — and, on cloud-only cameras, the recordings themselves.\n\n**Partial NBN failures.** On FTTP, the nbn connection box in your house [needs mains power to work](https://www.nbnco.com.au/learn/what-happens-in-a-power-blackout). Some older installations have a battery back-up unit, but nbn [stopped offering new ones from June 2024](https://www.nbnco.com.au/learn/network-technology/fibre-to-the-premises-explained-fttp/battery-back-up-information), and the feature was designed around keeping [voice services running in a power outage](https://www.nbnco.com.au/content/dam/nbn/documents/sell/wba/2023/notification-of-product-feature-withdrawal-uni-v-and-battery-backup-for-ethernet-fibre-20230526.pdf.coredownload.pdf) rather than your home network. On FTTC, the connection box inside your home [powers the service](https://www.nbnco.com.au/learn/network-technology/fibre-to-the-curb-explained-fttc), so it drops out with your power. On FTTN, FTTB, HFC and fixed wireless, nbn says services [won't work during a power outage in its network or at your premises](https://www.nbnco.com.au/learn/what-happens-in-a-power-blackout), so a street-level or tower outage you can't control can take you offline too. Either way, assume your connection is down the moment your house is.\n\nWork out which of these worries you most, because the answer changes what you buy.\n\n## Back up the network before you back up the cameras\n\nThis is the step people skip. A camera with a charged battery and no working Wi-Fi is a camera that records nothing you can see.\n\nThe priority order for backup power is:\n\n1. **NBN NTD / modem** — the box the line terminates in\n2. **Router and any mesh node the cameras associate with**\n3. **PoE switch and NVR**, if you run wired cameras\n4. **The cameras themselves**, if they're mains or PoE powered\n\nHow much a modem-plus-router pair draws depends entirely on the models, so measure it rather than guess: a plug-in energy meter or the UPS's own load display will show the real figure, and the rating printed on each power adapter is a maximum, not typical draw. Do the same with a PoE switch and its cameras, since the total climbs with every camera and any infrared or spotlight in use at night. Network gear is usually a modest load, which is why a small UPS can go a surprisingly long way.\n\nConsumer UPS units in the 650–1000VA class are widely stocked in Australia; at the time of writing, for example, JB Hi-Fi listed a [CyberPower 650VA line-interactive unit at $129](https://www.jbhifi.com.au/products/cyberpower-ut-series-650va-360w-backup-ups-system) and a [CyberPower 1000VA line-interactive unit at $259](https://www.jbhifi.com.au/products/cyberpower-vp1000elcd-1000va-550w-backup-ups-systems), and Officeworks listed a [CyberPower 650VA unit at $129](https://www.officeworks.com.au/shop/officeworks/p/cyberpower-650va-backup-utility-powerboard-ups-in3229148). Prices change, so check before you buy. Runtime depends on your measured load, the battery's size and its age: find your load on the manufacturer's runtime chart rather than relying on the VA number on the box — VA is a headline figure, not a promise of hours. CyberPower itself notes its published runtimes are [approximate and vary with battery age, charge level and environment](https://www.cyberpower.com/au/en/blog/how-much-runtime-do-i-really-need), so test yours (see the checklist below).\n\nOne caveat worth knowing: many cheaper UPS units output a stepped (simulated) sine wave on battery — the [CyberPower 1000VA model above](https://www.jbhifi.com.au/products/cyberpower-vp1000elcd-1000va-550w-backup-ups-systems) is one. CyberPower says equipment with an [active power factor correction (PFC) power supply requires a pure sine wave source](https://www.cyberpower.com/global/en/product/series/pfc_sinewave_gen._1), so check the power supply specs of anything you plan to connect, or choose a pure sine wave UPS if you're unsure.\n\n## Portable power stations: longer runtime, more flexibility\n\nIf your area cops multi-hour outages — bushfire season, storm season, rural feeders — a lithium power station gives far more headroom than a UPS, and you can use it for the fridge or phone charging once the cameras are sorted.\n\nThe practical maths is simple. Divide the unit's usable watt-hours by your measured load in watts, then allow for inverter losses and the unit's own consumption, which vary by model — check the manufacturer's stated efficiency or runtime estimate. As a worked example, a 500Wh unit running a 25W load gives 20 hours on paper (500 ÷ 25), and real-world runtime will be shorter once those losses are counted. That covers almost any suburban outage.\n\n::product:voltx-e600-portable-power-station::\n\nTwo things to check before you rely on one as backup: whether it supports pass-through charging so it can sit permanently plugged in with the router connected, and whether it has a UPS-style automatic switchover fast enough that your gear doesn't reboot. Check the spec sheet for the exact model: EcoFlow, for example, lists a [switchover of under 10 ms for its RIVER 3 (UPS)](https://www.ecoflow.com/au/river-3-ups-portable-power-station), but the same company notes that [many power stations advertised for UPS use switch over in 30 ms or more](https://www.ecoflow.com/us/blog/use-portable-power-station-as-ups-power-supply), and some don't offer the feature at all. If it can't switch automatically, you'll be plugging things in by torchlight.\n\nAll of this runs on standard 240V Type I outlets. Anything involving new circuits, hardwired camera power, or a permanently installed backup supply means changes to your household wiring, and that is work for a licensed electrician — don't improvise it. Energy Safe Victoria, for example, says [any changes to household wiring must be carried out by a licensed electrician](https://www.energysafe.vic.gov.au/community-safety/emergencies/using-generator-safely) and warns against connecting a generator into a wall socket or switchboard because of the back-feed risk. Rules differ between states, so check with your electrician and your state's electrical safety regulator.\n\n## Battery cameras and local recording keep working when the cloud doesn't\n\nBattery-powered cameras solve the power half of the problem by design. They're also the only realistic option for renters, since there's no cabling and no drilling into someone else's walls.\n\n::product:arlo-ultra-2-4k-spotlight-camera::\n\nThe specification implies a camera like this will keep detecting and recording locally to its hub for as long as the battery lasts, but the value of that depends entirely on where footage is stored. If your system is cloud-only, an internet outage means events are detected, uploaded to nothing, and in some cases discarded. Check whether your cameras or hub support local storage — microSD, USB drive or an internal disk — and turn it on. That single setting is often the difference between \"we lost the night of the break-in\" and a usable file.\n\nHome Assistant users have an advantage here: an RTSP-capable camera recording to a local NVR (Frigate, Scrypted, Blue Iris or similar) on a UPS keeps recording regardless of what the NBN is doing. The internet only affects your ability to watch it from the pub.\n\n## Add a mobile failover path for alerts\n\nBackup power keeps the gear alive; it doesn't restore your internet connection. For alerts to reach your phone during an NBN outage you need a second path.\n\n- **Router with 4G/5G failover.** Many mid-range routers accept a SIM or a USB modem and switch automatically. A cheap prepaid data SIM costs very little to keep active, and camera alerts use minimal data — full-quality video streaming does not, so cap the quality while on mobile.\n- **A phone hotspot.** Free, manual, and requires you to be home and awake. Better than nothing.\n- **Mobile-connected cameras.** Some models take their own SIM. Useful at sheds and rural properties with no fixed line.\n\nAlso confirm your mobile coverage indoors. If the same storm has knocked out the local mobile tower's backhaul, no amount of failover helps.\n\n## Know when the power comes back\n\nA small but genuinely useful addition: a smart plug on a non-critical circuit acts as a power sentinel. When mains returns, it reconnects and reports online, and you can automate a notification from that event in the vendor app or Home Assistant.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nSome smart plugs also have a configurable power-on state, which matters if you want a device to come back up automatically rather than staying off after an outage. Worth checking that setting on anything you rely on.\n\n## A practical setup checklist\n\n- Put the NTD, modem and router on the UPS or power station first, before the cameras.\n- Measure the actual load with an energy meter or the UPS display, then calculate runtime honestly.\n- Enable local recording on every camera or hub that supports it.\n- Configure 4G/5G failover and test it by unplugging the WAN cable, not by assuming.\n- Twice a year, pull the plug on the UPS and time how long the network stays up. Schneider Electric (APC) puts the typical life of sealed lead-acid (VRLA) UPS batteries at [three to five years, and lithium-ion at eight to ten](https://www.se.com/us/en/faqs/FAQ000265093/), with heat and power quality shortening it — check your model's documentation.\n- Note which cameras are cloud-dependent, and treat those as bonus coverage rather than your primary record.\n\nDo those six things and a blackout becomes an inconvenience rather than a blind spot.",
+    "keyTakeaways": "Put your NBN box, modem and router on a UPS or power station first — cameras are useless if the network is dead — then enable local recording and add 4G/5G failover so alerts still reach your phone. Measure your network gear's actual load and check it against the UPS maker's runtime chart, rather than relying on the VA rating, to see how long it will last.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": "2026-08-23T00:42:42.098Z",
+    "dateModified": "2026-09-24T07:57:52.484Z",
+    "featured": false,
+    "tags": [
+      "security cameras",
+      "backup power",
+      "UPS",
+      "NBN",
+      "home security",
+      "power outage",
+      "Australia"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Keep Security Cameras Running in a Blackout or NBN Outage",
+    "seoDescription": "How Australian homes can keep cameras recording during a blackout or NBN dropout: UPS sizing, power stations, local storage, battery cameras and 4G failover.",
+    "seoKeywords": "security camera backup power, UPS for NBN modem, blackout security cameras Australia, NBN outage cameras, 4G failover router, portable power station router, local camera recording",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:04:25.305Z",
+    "updatedAt": "2026-09-24T07:57:52.615Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3989,
+      "documentId": "egckzgnknml9lxualwto068o",
+      "name": "how-to-keep-security-cameras-running-through-a-bla-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295.jpg",
+          "hash": "large_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295",
+          "mime": "image/jpeg",
+          "name": "large_how-to-keep-security-cameras-running-through-a-bla-cover.jpg",
+          "path": null,
+          "size": 42.68,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 42679
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295.jpg",
+          "hash": "small_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295",
+          "mime": "image/jpeg",
+          "name": "small_how-to-keep-security-cameras-running-through-a-bla-cover.jpg",
+          "path": null,
+          "size": 14.88,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 14882
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295.jpg",
+          "hash": "medium_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295",
+          "mime": "image/jpeg",
+          "name": "medium_how-to-keep-security-cameras-running-through-a-bla-cover.jpg",
+          "path": null,
+          "size": 26.96,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 26962
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295.jpg",
+          "hash": "thumbnail_how_to_keep_security_cameras_running_through_a_bla_cover_422535e295",
+          "mime": "image/jpeg",
+          "name": "thumbnail_how-to-keep-security-cameras-running-through-a-bla-cover.jpg",
+          "path": null,
+          "size": 5.23,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5231
+        }
+      },
+      "hash": "how_to_keep_security_cameras_running_through_a_bla_cover_422535e295",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 89.28,
+      "url": "/uploads/how_to_keep_security_cameras_running_through_a_bla_cover_422535e295.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:27:58.438Z",
+      "updatedAt": "2026-08-23T00:27:58.438Z",
+      "publishedAt": "2026-08-23T00:27:58.439Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 3418,
+        "question": "How long will a small UPS keep my modem and router running during a blackout?",
+        "answer": "It depends on your gear and the UPS. Measure what your modem and router actually draw with a plug-in energy meter or the UPS's load display, then look that load up on the manufacturer's runtime chart for your model rather than trusting the VA number printed on the box, since VA is a headline figure, not a guarantee of hours. Published runtimes are approximate and fall as the battery ages, so time a real test by unplugging the UPS."
+      },
+      {
+        "order": 2,
+        "id": 3419,
+        "question": "My cameras have their own batteries, so why do they stop working in a blackout?",
+        "answer": "Battery cameras keep power, but the Wi-Fi they talk to does not. Once the router, mesh node and NBN termination device lose mains power, there's nothing to upload to and no way to view footage, which is why network gear should go on backup power before the cameras themselves."
+      },
+      {
+        "order": 3,
+        "id": 3420,
+        "question": "How much does a UPS for home network and camera gear cost in Australia?",
+        "answer": "At the time of writing, 650-1000VA line-interactive units from CyberPower were listed from $129 (650VA, at JB Hi-Fi and Officeworks) to $259 (1000VA, at JB Hi-Fi); prices change, so check before you buy. Budget for battery replacement too: Schneider Electric (APC) puts typical sealed lead-acid UPS battery life at three to five years, less in hot conditions, so check your model's documentation."
+      },
+      {
+        "order": 4,
+        "id": 3421,
+        "question": "Can I use a portable power station instead of a UPS to keep cameras online?",
+        "answer": "Yes, and it gives far more headroom for multi-hour outages. Check two things first: whether the unit supports pass-through charging so it can stay permanently plugged in, and whether it has a UPS-style automatic switchover fast enough that your gear doesn't reboot. Switchover times differ between models and some don't offer the feature, so check the spec sheet for the exact model."
+      },
+      {
+        "order": 5,
+        "id": 3422,
+        "question": "Will I still get alerts on my phone if the NBN drops out but the power is on?",
+        "answer": "Not unless you have a second path to the internet. A router with automatic 4G/5G failover using a cheap prepaid data SIM is the most reliable option, with a phone hotspot as a manual fallback. Confirm your indoor mobile coverage too, since a storm that takes out the fixed line can also affect the local tower."
+      }
+    ],
+    "categories": [
+      {
+        "id": 8,
+        "documentId": "a1agni04sox35zmd5s78oa85",
+        "name": "Security & Cameras",
+        "slug": "security",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:42.038Z",
+        "updatedAt": "2026-08-22T18:30:53.812Z",
+        "publishedAt": "2026-08-22T18:30:53.810Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}

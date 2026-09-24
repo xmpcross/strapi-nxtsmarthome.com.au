@@ -1,0 +1,318 @@
+{
+  "published": {
+    "id": 156,
+    "documentId": "olv05acceg838rvjo92v00ih",
+    "title": "Do Smart Plugs Actually Save You Money on Australian Electricity?",
+    "slug": "smart-plugs-energy-monitoring-australia",
+    "excerpt": "Smart plugs are sold as an energy-saving device. Here is what they genuinely save, what they cost you in standby power, and where the real savings are in an Australian home.",
+    "content": "Smart plugs are marketed as an energy-saving product. The reality is more specific: they can save meaningful money in a few situations, and they lose money in others.\n\nUnderstanding which is which is the difference between a genuinely useful purchase and a drawer full of gadgets.\n\n## Where the marketing goes wrong\n\nThe pitch is usually about standby power — the electricity appliances consume while switched off but plugged in. Kill the standby draw, save on your bill.\n\nStandby power is real, but it is a much smaller number than it used to be. Efficiency standards have squeezed it hard over the past decade, and a modern television or appliance in standby often draws well under a watt.\n\nMeanwhile, the smart plug itself draws power continuously — typically between half a watt and two watts, since it must keep its Wi-Fi radio alive to listen for commands.\n\nThat produces an uncomfortable conclusion: **a smart plug placed on a modern low-standby device can consume more electricity than it saves.** Putting smart plugs on phone chargers to \"save standby power\" is a net loss.\n\n## Where smart plugs genuinely save money\n\nThree situations, in descending order of value.\n\n### 1. Shifting large loads to cheaper tariff periods\n\nThis is where the real money is, and it dwarfs everything else.\n\nMany Australian households are on time-of-use tariffs, where electricity costs substantially more during peak periods than off-peak. The precise windows and rates vary by distributor, retailer and state, so check your own plan rather than assuming.\n\nIf you can move a large, time-insensitive load out of the peak window, you save on every kilowatt-hour it consumes. Good candidates:\n\n- **Pool pumps.** Often the largest discretionary load in a house with a pool, and it genuinely does not matter when it runs.\n- **Dishwashers and washing machines.** Delay-start does this too, but a smart plug plus automation makes it consistent.\n- **EV charging.** The largest single load most households will ever add. Worth doing properly rather than through a plug.\n- **Hot water.** Frequently already on a controlled-load circuit, in which case leave it alone.\n\nNote the pattern: these are all high-consumption devices where the timing is flexible. That is the profile worth automating.\n\n### 2. Soaking up your own solar\n\nAustralia has the highest rate of rooftop solar per capita in the world, and the economics have shifted considerably. Feed-in tariffs have fallen a long way from their early levels, while retail electricity prices have not. In many cases exported solar earns you far less per kilowatt-hour than you pay to import.\n\nThat inverts the optimisation. **Every kilowatt-hour of your own solar you consume yourself is worth more than one you export.**\n\nSo the goal becomes running discretionary loads during the middle of the day when your panels are producing. Pool pump at midday instead of overnight. Dishwasher after lunch. Hot water boosted in the afternoon rather than early morning.\n\nSome newer tariffs actively encourage this, with very cheap daytime rates designed to soak up excess grid solar. If you are on one of those, daytime shifting is doubly worthwhile.\n\nA smart plug on a timer achieves a basic version of this. A more capable setup reads actual solar production and only runs the load when there is genuine surplus — that requires energy monitoring and a platform like Home Assistant, but the savings are larger and more reliable.\n\n### 3. Finding the appliances that are actually costing you\n\nThis is the underrated use, and often the most valuable.\n\nMost people have no idea which appliances dominate their bill. An energy-monitoring smart plug tells you directly.\n\nThe results are frequently surprising. A second fridge in the garage — often an old one, running inefficiently in an uninsulated space through a hot Australian summer — can be one of the largest single loads in a home. Old chest freezers, pool equipment, aquarium heaters and towel rails are all common culprits.\n\nOnce you know, the fix is usually not automation. It is replacing or removing the appliance. The smart plug's value was in the diagnosis, not the control. That is a perfectly good return on a modest purchase.\n\n## Safety: the part worth taking seriously\n\n**Check the load rating.** Australian smart plugs are typically rated to 10 amps, matching a standard power point. Appliances that approach that — portable air conditioners, oil column heaters, some kettles and high-draw heaters — should not be run through a plug that is not clearly rated for it. This is not a theoretical concern; undersized switching devices running near their limit are a genuine fire risk.\n\n**Buy Australian-approved hardware.** Any device that plugs into a wall socket must be approved for sale in Australia. Cheap smart plugs from overseas marketplaces may lack local approval, may have the wrong pin configuration, and may not meet insulation requirements for our supply voltage. This is the category where importing to save a few dollars is least sensible.\n\n**Do not daisy-chain.** A smart plug into a power board into another smart plug is a bad idea for the same reason any daisy chain is.\n\n## What to do instead of buying plugs\n\nIf your goal is genuinely to reduce your electricity bill, the order of impact is roughly:\n\n1. **Get on the right tariff and retailer.** Comparing plans is free and frequently saves more than any device will. The government comparison services exist for this.\n2. **Address the big loads.** Hot water, heating and cooling, pool equipment. These are most of your bill.\n3. **Shift what you can into cheap periods or solar surplus.** This is where automation earns its place.\n4. **Find and fix the hidden consumers.** The garage fridge problem.\n5. **Then, maybe, worry about standby power.**\n\nSmart plugs are useful in steps 3 and 4. They are close to irrelevant in steps 1, 2 and 5.\n\n## The honest summary\n\nBuy one or two energy-monitoring smart plugs to find out where your electricity is actually going. That is money well spent.\n\nThen buy plugs specifically for the large, flexible loads you have identified — the pool pump, the second fridge, the appliances you can move to off-peak or midday solar.\n\nDo not buy a ten-pack and put them on everything. You will spend more on plugs, and on the standby power to run them, than you will ever recover.",
+    "keyTakeaways": "Smart plugs do not save money by themselves — they save money when they shift a large load to a cheaper tariff period, or kill standby power on genuinely wasteful appliances. Putting one on a phone charger costs you more than it saves.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/smart-plugs-energy-monitoring-australia.webp",
+    "coverImageAlt": "Do Smart Plugs Actually Save You Money on Australian Electricity?",
+    "postType": "informative",
+    "publishDate": "2026-05-14T00:00:00.000Z",
+    "dateModified": "2026-08-01T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Energy",
+      "Smart plugs",
+      "Solar",
+      "Tariffs",
+      "Cost saving"
+    ],
+    "readingTimeMinutes": 5,
+    "seoTitle": "Do Smart Plugs Actually Save You Money on Australian Electricity?",
+    "seoDescription": "Smart plugs are sold as an energy-saving device. Here is what they genuinely save, what they cost you in standby power, and where the real savings are in an",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/energy/smart-plugs-energy-monitoring-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:46.119Z",
+    "updatedAt": "2026-08-22T21:31:30.570Z",
+    "publishedAt": "2026-08-22T21:31:30.594Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3945,
+      "documentId": "yzxeiil7ibjqqubddq9rhs8a",
+      "name": "Do Smart Plugs Actually Save You Money on Australian Electricity.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678.jpg",
+          "hash": "large_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678",
+          "mime": "image/jpeg",
+          "name": "large_Do Smart Plugs Actually Save You Money on Australian Electricity.jpg",
+          "path": null,
+          "size": 66.34,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 66344
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678.jpg",
+          "hash": "small_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678",
+          "mime": "image/jpeg",
+          "name": "small_Do Smart Plugs Actually Save You Money on Australian Electricity.jpg",
+          "path": null,
+          "size": 14.67,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 14672
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678.jpg",
+          "hash": "medium_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678",
+          "mime": "image/jpeg",
+          "name": "medium_Do Smart Plugs Actually Save You Money on Australian Electricity.jpg",
+          "path": null,
+          "size": 35.47,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 35471
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678.jpg",
+          "hash": "thumbnail_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Do Smart Plugs Actually Save You Money on Australian Electricity.jpg",
+          "path": null,
+          "size": 4.73,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4734
+        }
+      },
+      "hash": "Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 151.18,
+      "url": "/uploads/Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T21:31:26.867Z",
+      "updatedAt": "2026-08-22T21:31:26.867Z",
+      "publishedAt": "2026-08-22T21:31:26.867Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1428,
+        "question": "How much power does a smart plug itself use?",
+        "answer": "Typically somewhere between half a watt and two watts continuously, depending on the model and whether it has energy monitoring. Running continuously, that adds up to a few kilowatt-hours a year per plug. It is small, but it means a smart plug on a device that draws almost nothing is a net loss."
+      },
+      {
+        "order": 1,
+        "id": 1429,
+        "question": "Are smart plug energy readings accurate?",
+        "answer": "Reasonably accurate for larger loads, less so for very small ones. Most consumer plugs are not revenue-grade metering. They are excellent for identifying which appliances are the big consumers, and for tracking relative change over time. Do not treat them as a substitute for your meter."
+      },
+      {
+        "order": 2,
+        "id": 1430,
+        "question": "Can a smart plug run my air conditioner or heater?",
+        "answer": "Check the plug's rated load against the appliance. Most Australian smart plugs are rated to 10 amps, matching a standard power point. High-draw appliances such as portable air conditioners, oil heaters and some kettles approach that limit, and running a marginal load through an undersized plug is a genuine fire risk. Never use a plug beyond its rating."
+      },
+      {
+        "order": 3,
+        "id": 1431,
+        "question": "What is the single biggest energy saving in a smart home?",
+        "answer": "Shifting a large, time-flexible load — hot water, pool pump, EV charging, dishwasher — into an off-peak or solar-surplus window. That moves real kilowatt-hours to a cheaper rate. Everything else is rounding error by comparison."
+      }
+    ],
+    "categories": [
+      {
+        "id": 3,
+        "documentId": "x4x6ijm6yyzgidc7zrbnx1m2",
+        "name": "Energy",
+        "slug": "energy",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.748Z",
+        "updatedAt": "2026-08-22T18:30:53.633Z",
+        "publishedAt": "2026-08-22T18:30:53.631Z"
+      }
+    ],
+    "author": {
+      "id": 12,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": "2026-08-22T21:55:03.953Z"
+    }
+  },
+  "draft": {
+    "id": 54,
+    "documentId": "olv05acceg838rvjo92v00ih",
+    "title": "Do Smart Plugs Actually Save You Money on Australian Electricity?",
+    "slug": "smart-plugs-energy-monitoring-australia",
+    "excerpt": "Smart plugs are sold as an energy-saving device. Here is what they genuinely save, what they cost you in standby power, and where the real savings are in an Australian home.",
+    "content": "Smart plugs are marketed as an energy-saving product. The reality is more specific: they can save meaningful money in a few situations, and they lose money in others.\n\nUnderstanding which is which is the difference between a genuinely useful purchase and a drawer full of gadgets.\n\n## Where the marketing goes wrong\n\nThe pitch is usually about standby power — the electricity appliances consume while switched off but plugged in. Kill the standby draw, save on your bill.\n\nStandby power is real, but it is a much smaller number than it used to be. Efficiency standards have squeezed it hard over the past decade, and a modern television or appliance in standby often draws well under a watt.\n\nMeanwhile, the smart plug itself draws power continuously — typically between half a watt and two watts, since it must keep its Wi-Fi radio alive to listen for commands.\n\nThat produces an uncomfortable conclusion: **a smart plug placed on a modern low-standby device can consume more electricity than it saves.** Putting smart plugs on phone chargers to \"save standby power\" is a net loss.\n\n## Where smart plugs genuinely save money\n\nThree situations, in descending order of value.\n\n### 1. Shifting large loads to cheaper tariff periods\n\nThis is where the real money is, and it dwarfs everything else.\n\nMany Australian households are on time-of-use tariffs, where electricity costs substantially more during peak periods than off-peak. The precise windows and rates vary by distributor, retailer and state, so check your own plan rather than assuming.\n\nIf you can move a large, time-insensitive load out of the peak window, you save on every kilowatt-hour it consumes. Good candidates:\n\n- **Pool pumps.** Often the largest discretionary load in a house with a pool, and it genuinely does not matter when it runs.\n- **Dishwashers and washing machines.** Delay-start does this too, but a smart plug plus automation makes it consistent.\n- **EV charging.** The largest single load most households will ever add. Worth doing properly rather than through a plug.\n- **Hot water.** Frequently already on a controlled-load circuit, in which case leave it alone.\n\nNote the pattern: these are all high-consumption devices where the timing is flexible. That is the profile worth automating.\n\n### 2. Soaking up your own solar\n\nAustralia has the highest rate of rooftop solar per capita in the world, and the economics have shifted considerably. Feed-in tariffs have fallen a long way from their early levels, while retail electricity prices have not. In many cases exported solar earns you far less per kilowatt-hour than you pay to import.\n\nThat inverts the optimisation. **Every kilowatt-hour of your own solar you consume yourself is worth more than one you export.**\n\nSo the goal becomes running discretionary loads during the middle of the day when your panels are producing. Pool pump at midday instead of overnight. Dishwasher after lunch. Hot water boosted in the afternoon rather than early morning.\n\nSome newer tariffs actively encourage this, with very cheap daytime rates designed to soak up excess grid solar. If you are on one of those, daytime shifting is doubly worthwhile.\n\nA smart plug on a timer achieves a basic version of this. A more capable setup reads actual solar production and only runs the load when there is genuine surplus — that requires energy monitoring and a platform like Home Assistant, but the savings are larger and more reliable.\n\n### 3. Finding the appliances that are actually costing you\n\nThis is the underrated use, and often the most valuable.\n\nMost people have no idea which appliances dominate their bill. An energy-monitoring smart plug tells you directly.\n\nThe results are frequently surprising. A second fridge in the garage — often an old one, running inefficiently in an uninsulated space through a hot Australian summer — can be one of the largest single loads in a home. Old chest freezers, pool equipment, aquarium heaters and towel rails are all common culprits.\n\nOnce you know, the fix is usually not automation. It is replacing or removing the appliance. The smart plug's value was in the diagnosis, not the control. That is a perfectly good return on a modest purchase.\n\n## Safety: the part worth taking seriously\n\n**Check the load rating.** Australian smart plugs are typically rated to 10 amps, matching a standard power point. Appliances that approach that — portable air conditioners, oil column heaters, some kettles and high-draw heaters — should not be run through a plug that is not clearly rated for it. This is not a theoretical concern; undersized switching devices running near their limit are a genuine fire risk.\n\n**Buy Australian-approved hardware.** Any device that plugs into a wall socket must be approved for sale in Australia. Cheap smart plugs from overseas marketplaces may lack local approval, may have the wrong pin configuration, and may not meet insulation requirements for our supply voltage. This is the category where importing to save a few dollars is least sensible.\n\n**Do not daisy-chain.** A smart plug into a power board into another smart plug is a bad idea for the same reason any daisy chain is.\n\n## What to do instead of buying plugs\n\nIf your goal is genuinely to reduce your electricity bill, the order of impact is roughly:\n\n1. **Get on the right tariff and retailer.** Comparing plans is free and frequently saves more than any device will. The government comparison services exist for this.\n2. **Address the big loads.** Hot water, heating and cooling, pool equipment. These are most of your bill.\n3. **Shift what you can into cheap periods or solar surplus.** This is where automation earns its place.\n4. **Find and fix the hidden consumers.** The garage fridge problem.\n5. **Then, maybe, worry about standby power.**\n\nSmart plugs are useful in steps 3 and 4. They are close to irrelevant in steps 1, 2 and 5.\n\n## The honest summary\n\nBuy one or two energy-monitoring smart plugs to find out where your electricity is actually going. That is money well spent.\n\nThen buy plugs specifically for the large, flexible loads you have identified — the pool pump, the second fridge, the appliances you can move to off-peak or midday solar.\n\nDo not buy a ten-pack and put them on everything. You will spend more on plugs, and on the standby power to run them, than you will ever recover.",
+    "keyTakeaways": "Smart plugs do not save money by themselves — they save money when they shift a large load to a cheaper tariff period, or kill standby power on genuinely wasteful appliances. Putting one on a phone charger costs you more than it saves.",
+    "coverImageUrl": "https://nxtsmarthome.com.au/covers/smart-plugs-energy-monitoring-australia.webp",
+    "coverImageAlt": "Do Smart Plugs Actually Save You Money on Australian Electricity?",
+    "postType": "informative",
+    "publishDate": "2026-05-14T00:00:00.000Z",
+    "dateModified": "2026-08-01T00:00:00.000Z",
+    "featured": false,
+    "tags": [
+      "Energy",
+      "Smart plugs",
+      "Solar",
+      "Tariffs",
+      "Cost saving"
+    ],
+    "readingTimeMinutes": 5,
+    "seoTitle": "Do Smart Plugs Actually Save You Money on Australian Electricity?",
+    "seoDescription": "Smart plugs are sold as an energy-saving device. Here is what they genuinely save, what they cost you in standby power, and where the real savings are in an",
+    "seoKeywords": null,
+    "sourceUrl": "https://nxtsmarthome.com.au/energy/smart-plugs-energy-monitoring-australia/",
+    "amazonAffiliateTag": null,
+    "source": "manual",
+    "createdAt": "2026-08-13T00:43:46.119Z",
+    "updatedAt": "2026-08-22T21:31:30.570Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3945,
+      "documentId": "yzxeiil7ibjqqubddq9rhs8a",
+      "name": "Do Smart Plugs Actually Save You Money on Australian Electricity.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678.jpg",
+          "hash": "large_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678",
+          "mime": "image/jpeg",
+          "name": "large_Do Smart Plugs Actually Save You Money on Australian Electricity.jpg",
+          "path": null,
+          "size": 66.34,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 66344
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678.jpg",
+          "hash": "small_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678",
+          "mime": "image/jpeg",
+          "name": "small_Do Smart Plugs Actually Save You Money on Australian Electricity.jpg",
+          "path": null,
+          "size": 14.67,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 14672
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678.jpg",
+          "hash": "medium_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678",
+          "mime": "image/jpeg",
+          "name": "medium_Do Smart Plugs Actually Save You Money on Australian Electricity.jpg",
+          "path": null,
+          "size": 35.47,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 35471
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678.jpg",
+          "hash": "thumbnail_Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Do Smart Plugs Actually Save You Money on Australian Electricity.jpg",
+          "path": null,
+          "size": 4.73,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 4734
+        }
+      },
+      "hash": "Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 151.18,
+      "url": "/uploads/Do_Smart_Plugs_Actually_Save_You_Money_on_Australian_Electricity_bf86126678.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-22T21:31:26.867Z",
+      "updatedAt": "2026-08-22T21:31:26.867Z",
+      "publishedAt": "2026-08-22T21:31:26.867Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 0,
+        "id": 1248,
+        "question": "How much power does a smart plug itself use?",
+        "answer": "Typically somewhere between half a watt and two watts continuously, depending on the model and whether it has energy monitoring. Running continuously, that adds up to a few kilowatt-hours a year per plug. It is small, but it means a smart plug on a device that draws almost nothing is a net loss."
+      },
+      {
+        "order": 1,
+        "id": 1249,
+        "question": "Are smart plug energy readings accurate?",
+        "answer": "Reasonably accurate for larger loads, less so for very small ones. Most consumer plugs are not revenue-grade metering. They are excellent for identifying which appliances are the big consumers, and for tracking relative change over time. Do not treat them as a substitute for your meter."
+      },
+      {
+        "order": 2,
+        "id": 1250,
+        "question": "Can a smart plug run my air conditioner or heater?",
+        "answer": "Check the plug's rated load against the appliance. Most Australian smart plugs are rated to 10 amps, matching a standard power point. High-draw appliances such as portable air conditioners, oil heaters and some kettles approach that limit, and running a marginal load through an undersized plug is a genuine fire risk. Never use a plug beyond its rating."
+      },
+      {
+        "order": 3,
+        "id": 1251,
+        "question": "What is the single biggest energy saving in a smart home?",
+        "answer": "Shifting a large, time-flexible load — hot water, pool pump, EV charging, dishwasher — into an off-peak or solar-surplus window. That moves real kilowatt-hours to a cheaper rate. Everything else is rounding error by comparison."
+      }
+    ],
+    "categories": [
+      {
+        "id": 3,
+        "documentId": "x4x6ijm6yyzgidc7zrbnx1m2",
+        "name": "Energy",
+        "slug": "energy",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.748Z",
+        "updatedAt": "2026-08-22T18:30:53.633Z",
+        "publishedAt": "2026-08-22T18:30:53.631Z"
+      }
+    ],
+    "author": {
+      "id": 3,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": null
+    }
+  }
+}

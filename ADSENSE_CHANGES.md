@@ -1563,3 +1563,538 @@ boxes, which breaks CLAUDE.md rule 8:
 - where-to-buy-smart-home-australia
 
 The hub guide's title still says "2025".
+
+---
+
+## 24 September 2026: Task 7, merge duplicate article clusters (cluster 1 of 6)
+
+**Cluster 1: security cameras through a blackout or NBN outage.** The two
+posts had identical titles.
+
+| Role | Slug | Before | After |
+|---|---|---|---|
+| KEEP | keep-security-cameras-running-blackout-nbn-outage | 1,553 words, 5 FAQ | 2,114 words, 6 FAQ, new title |
+| MERGE | how-to-keep-security-cameras-running-through-a-blackout-or-nbn-outage | 1,155 words, 10 [VERIFY] | unpublished (draft kept), 301 → KEEP |
+
+**Approved** by the user after reviewing `reports/task7-cluster1-review.md`.
+The review holds the 38-row section map, the researched decisions, the FAQ
+and the full diff.
+
+**Strapi (KEEP):** the post was updated with `PUT ?status=published`, and
+both the published and draft copies were checked.
+- **Title:** "Keep Your Security Cameras Recording When the Power or NBN Goes
+  Down".
+- **seoTitle and seoDescription:** new.
+- **Body, excerpt, key takeaways and FAQ:** from the approved draft.
+- **Unchanged or refreshed:** the slug and `publishDate` (23 Aug 2026) are
+  unchanged, and `dateModified` is today.
+
+**Strapi (MERGE):** unpublished by the user in the Strapi admin. The draft is
+kept, not deleted.
+
+**Unique MERGE material folded in:**
+- UPS runtime once an NVR is added;
+- modem reboots on a slow switchover;
+- warranty terms for power station pass-through;
+- power station outlets and leads;
+- PoE cabling as registered-cabler work (ACMA);
+- a microSD card is stolen with the camera;
+- local storage by subscription tier;
+- a standalone 4G modem needs dual WAN;
+- tower batteries last 3-12 hours (Telstra, checked on the page);
+- a smart-plug power-out alert;
+- test that recording continued;
+- the OAIC privacy note.
+
+**Dropped:**
+- unsourced per-device wattages;
+- the muddled carrier-diversity advice;
+- a FTTC description that contradicted nbn co.
+
+**Backups:**
+- exports/strapi-backup/keep-security-cameras-running-blackout-nbn-outage-2026-09-24T08-38-55-799Z.json
+- exports/strapi-backup/how-to-keep-security-cameras-running-through-a-blackout-or-nbn-outage-2026-09-24T08-38-55-799Z.json
+
+**Redirects:**
+
+| From | To | Where |
+|---|---|---|
+| /security-and-cameras/how-to-keep-security-cameras-running-through-a-blackout-or-nbn-outage/ | /security-and-cameras/keep-security-cameras-running-blackout-nbn-outage/ | data/redirects-adsense.json (new); already in data/merged-articles.json since PR #12 |
+
+Live check: the MERGE URL returns 301 to KEEP, and the KEEP page shows the
+new title.
+
+`scripts/gen-redirects.mjs` now keeps only the first rule for each source
+path. With a merge listed in both files, the nginx map would otherwise
+contain a duplicate key, and `nginx -t` rejects that.
+
+**Internal links to the MERGE URL:** none in any published post.
+
+**Files changed:**
+- data/redirects-adsense.json
+- scripts/gen-redirects.mjs
+- reports/task7-cluster1-review.md
+- reports/thin-content-audit.csv
+
+**Build and audit:**
+- `NEXT_DIST_DIR=.next-build npm run build` passes, with no Strapi
+  fallback.
+- `npm run lint` is not configured: it opens Next's interactive ESLint
+  set-up.
+- `npm run audit:thin`: cluster 1 no longer appears. There is no duplicate
+  pair and no merged-away-but-published row, so DUPLICATE is 0 for this
+  cluster.
+
+**For legal review:**
+- whether registered-cabler rules cover a camera-only PoE network;
+- the OAIC privacy note;
+- extension-lead guidance applied to power stations.
+
+**Next: cluster 2, smart plugs and energy monitors.** Waiting on the user's
+choice of survivor. The same question applies to cluster 3.
+
+---
+
+## 24 September 2026: Task 7, cluster 3 of 6 (smart light switches without a neutral)
+
+**Survivor.** The user chose the current survivor over the prompt's
+suggestion, since the live 301 already pointed to it.
+
+| Role | Slug | Before | After |
+|---|---|---|---|
+| KEEP | smart-light-switches-neutral-wire-older-australian-homes | 1,502 words, 5 FAQ, 4 markers | 2,030 words, 6 FAQ, 2 markers, new title |
+| MERGE | smart-light-switches-no-neutral-wire-australia | 1,295 words, 9 [VERIFY] | unpublished by the user in the Strapi admin (draft kept), 301 → KEEP |
+
+**Approved** by the user after reviewing `reports/task7-cluster3-review.md`.
+
+**Strapi (KEEP):** both the published and draft copies were checked.
+- **Title:** "Smart Light Switches Without a Neutral Wire: Options for Older
+  Australian Homes".
+- **seoDescription:** new. The seoTitle is unchanged.
+- **Body, excerpt, key takeaways and FAQ:** from the approved draft.
+- **Unchanged or refreshed:** `publishDate` (23 Aug 2026) is unchanged, and
+  `dateModified` is today.
+
+**Unique MERGE material folded in:**
+- AS/NZS 3000 as the rules the electrician works to;
+- the Shelly 1L Gen3 bypass for LED loads;
+- minimum load against total wattage;
+- dimming compatibility;
+- the switch must work with the internet down;
+- the ceiling-module option and its ceiling-access catch;
+- grouping jobs into one visit;
+- B22/E27 bases;
+- the Hue dimmer pairs up to 10 globes without a Bridge;
+- Wi-Fi client load, Zigbee2MQTT/ZHA and coordinator placement.
+
+**Removed as unsourced:**
+- the $40-$120 and $150-$300 price ranges;
+- an Aqara claim;
+- a Zigbee power-draw claim.
+
+"240 V" is now "a nominal 230 V", with no link: the researcher's source was
+a supplier page.
+
+**Product markers:**
+- Removed: the Mirabella Genio powerboard and the Zemismart hub. Neither
+  has a verdict (bestFor or pros), and the site already hid them.
+- Kept: the Tapo P100 and the Sonoff dongle, which meets the rule 8 minimum
+  of 2.
+
+**Internal link updated in Strapi:** `smart-lighting-kids-rooms` linked to
+both posts in one sentence. It now has one link, to KEEP. Its
+`publishDate` is 24 Sep 2026, which is correct: the post was created that
+day.
+
+**Backups:**
+- exports/strapi-backup/smart-light-switches-neutral-wire-older-australian-homes-2026-09-24T09-05-25-484Z.json
+- exports/strapi-backup/smart-light-switches-no-neutral-wire-australia-2026-09-24T09-05-25-484Z.json
+- exports/strapi-backup/smart-lighting-kids-rooms-2026-09-24T09-05-25-484Z.json
+
+**Redirects:**
+
+| From | To | Where |
+|---|---|---|
+| /lighting/smart-light-switches-no-neutral-wire-australia/ | /lighting/smart-light-switches-neutral-wire-older-australian-homes/ | data/redirects-adsense.json (new); already in data/merged-articles.json |
+
+Live check: 301 to KEEP. The nginx map has no duplicate keys.
+
+**Build and audit:**
+- `NEXT_DIST_DIR=.next-build npm run build` passes, with no Strapi
+  fallback.
+- `npm run audit:thin`: cluster 3 no longer appears. There is no duplicate
+  pair and no merged-away-but-published row, so DUPLICATE is 0 for this
+  cluster.
+
+**For legal review:**
+- FAQ "Can I swap a light switch myself?": it opens with a flat "No",
+  sourced to ESV and NSW, with a pointer to the reader's state regulator;
+- the AS/NZS 3000 wording;
+- the tenancy line, which is sourced for Victoria only.
+
+**Remaining clusters:**
+- 2 (smart plugs): survivor choice pending;
+- 4 (robot vacuum + pets);
+- 5 (renters);
+- 6 (split system).
+
+---
+
+## 24 September 2026: Task 7, cluster 4 of 6 (robot vacuum buying guide + homes with pets)
+
+| Role | Slug | Before | After |
+|---|---|---|---|
+| KEEP | robot-vacuum-buying-guide-australia | 1,135 words, 4 FAQ, 0 markers | 2,129 words, 6 FAQ, 2 markers, "Homes with pets" section |
+| MERGE | robot-vacuum-buying-guide-australian-homes-pets | 625 words, 8 [VERIFY], 2 markers | unpublished by the user in the Strapi admin (draft kept), 301 → KEEP |
+
+**Approved** by the user after reviewing `reports/task7-cluster4-review.md`.
+
+**Strapi (KEEP):** both the published and draft copies were checked.
+- **Title:** kept.
+- **seoTitle and seoDescription:** new.
+- **Body, excerpt, key takeaways and FAQ:** from the approved draft.
+- **Unchanged or refreshed:** `publishDate` (11 Jun 2026) is unchanged, and
+  `dateModified` is today.
+
+**The pet material is one "Homes with pets" section:**
+- the priority order (brush, dock, obstacle avoidance);
+- onboard bin sizes (Dreame 350mL, Ecovacs 420mL, both manufacturer-
+  sourced);
+- filtration, pointing to Asthma Australia;
+- corners.
+
+**Folded into the existing sections:**
+- dock power points (ESV);
+- grey imports and consumer guarantees (ACCC);
+- fine dust and bushfire smoke;
+- "a maintenance tool, not a deep clean".
+
+**Fact-check:** the KEEP post had not been fact-checked before, so its kept
+figures were checked too: a 7 / b 10 / c 2. Both prices were removed.
+
+**Rule 8:** KEEP had no product markers. It now carries both of the MERGE
+post's markers: the Dreame L10s Ultra and the Ecovacs Deebot X2 Omni, each
+with curated notes.
+
+**Internal links updated in Strapi:** these now point to
+`/robot-vacuums/robot-vacuum-buying-guide-australia/#homes-with-pets`:
+- self-emptying-robot-vacuum-worth-it
+- roborock-vs-ecovacs-vs-dreame-australia
+
+Both posts were created on 24 Sep 2026, so their `publishDate` of today is
+correct.
+
+**Backups:** `exports/strapi-backup/<slug>-2026-09-24T09-46-52-146Z.json`
+for all four posts.
+
+**Redirects:**
+
+| From | To | Where |
+|---|---|---|
+| /robot-vacuums/robot-vacuum-buying-guide-australian-homes-pets/ | /robot-vacuums/robot-vacuum-buying-guide-australia/ | data/redirects-adsense.json (new); already in data/merged-articles.json |
+
+**Checked:**
+- The redirect is live as a 301.
+- The live page shows the "Homes with pets" anchor and both product boxes.
+- The build passes with no Strapi fallback, and the nginx map has no
+  duplicate keys.
+- `npm run audit:thin`: cluster 4 no longer appears, so DUPLICATE is 0 for
+  this cluster.
+
+**For legal review:**
+- the new-power-point rule (ESV, with a pointer to each state);
+- the wording on consumer guarantees and grey imports;
+- the privacy section;
+- the Dreame warranty sentence.
+
+**For later:** both featured products are hard to buy now. Dreame Australia
+no longer lists the L10s Ultra, and Ecovacs AU showed the X2 Omni sold out
+on 24 Sep.
+
+---
+
+## 24 September 2026: Task 7, cluster 5 of 6 (smart home for renters)
+
+| Role | Slug | Before | After |
+|---|---|---|---|
+| KEEP | smart-home-for-renters-australia | 1,020 words, 4 FAQ, 0 markers | 2,180 words, 6 FAQ, 3 markers, new title |
+| MERGE | renter-smart-home-devices-no-drilling | 885 words, 3 [VERIFY] | unpublished by the user in the Strapi admin (draft kept), 301 → KEEP |
+
+**Approved** by the user after reviewing `reports/task7-cluster5-review.md`.
+
+**Strapi (KEEP):** both the published and draft copies were checked.
+- **Title:** "Smart Home for Renters: What You Can Install Without Drilling or
+  Rewiring". It no longer promises "without losing your bond".
+- **seoTitle and seoDescription:** new.
+- **Body, excerpt, key takeaways and FAQ:** from the approved draft.
+- **Unchanged or refreshed:** `publishDate` (9 Jul 2026) is unchanged, and
+  `dateModified` is today.
+
+**Structure:** the article is grouped by how a device attaches: plugs in,
+swaps into a fitting, sticks on, or sits on a surface.
+
+**MERGE material folded in:**
+- smart plugs blocking the second socket;
+- motion sensor aim;
+- leak sensor placement;
+- wireless buttons;
+- stretch-release strips versus foam tape;
+- retrofit locks that reuse the screw holes;
+- blind retrofits;
+- outdoor cameras;
+- a link to the privacy article;
+- FAQs on adhesive and paint, and on whether you need a hub.
+
+**Fact-check:** 22 claims were checked, including in KEEP: a 10 / b 8 / c 4.
+- **Tenancy examples:** sourced to Vic, NSW, WA and Qld tenancy authorities,
+  with a pointer to the reader's own state.
+- **Removed:** the coin-cell battery life, a plug standard number and a
+  "$30" price.
+
+**Rule 8:** KEEP had no product markers. It now has:
+- the Tapo P100;
+- the Tapo T315, with a note that it needs a Tapo hub;
+- the Hue Dimmer V2, with a note that it controls Hue lights only.
+
+All three are curated, and each is discussed where it appears.
+
+**Internal links to the MERGE URL:** none.
+
+**Backups:**
+- exports/strapi-backup/smart-home-for-renters-australia-2026-09-24T10-16-37-366Z.json
+- exports/strapi-backup/renter-smart-home-devices-no-drilling-2026-09-24T10-16-37-366Z.json
+
+**Redirects:**
+
+| From | To | Where |
+|---|---|---|
+| /buying-guides/renter-smart-home-devices-no-drilling/ | /buying-guides/smart-home-for-renters-australia/ | data/redirects-adsense.json (new); already in data/merged-articles.json |
+
+**Checked:**
+- The redirect is live as a 301, and the new title is live.
+- The build passes with no Strapi fallback, and the nginx map has no
+  duplicate keys.
+- `npm run audit:thin`: cluster 5 no longer appears, so DUPLICATE is 0 for
+  this cluster.
+
+**For legal review:**
+- the state tenancy examples, especially Qld, whose rules are changing;
+- the camera and surveillance statements;
+- doorbell transformer as licensed work (the source does not name
+  transformers);
+- smoke alarms, where NSW is the only example;
+- the strata camera-approval wording.
+
+---
+
+## 24 September 2026: Task 7, cluster 6 of 6 (making a split system air conditioner smart)
+
+| Role | Slug | Before | After |
+|---|---|---|---|
+| KEEP | climate-and-comfort/make-split-system-aircon-smart-australia | 1,032 words, 4 FAQ, 0 markers | 2,134 words, 6 FAQ, 2 markers |
+| MERGE | setup-guides/reverse-cycle-split-system-voice-app-control-without-replacing | 1,368 words, 6 [VERIFY], 3 markers | unpublished by the user in the Strapi admin (draft kept), 301 → KEEP |
+
+**Approved** by the user after reviewing `reports/task7-cluster6-review.md`.
+
+**Strapi (KEEP):** both the published and draft copies were checked.
+- **Title:** kept.
+- **seoTitle and seoDescription:** new.
+- **Body, excerpt, key takeaways and FAQ:** from the approved draft.
+- **Unchanged or refreshed:** `publishDate` (28 May 2026) is unchanged, and
+  `dateModified` is today.
+
+**MERGE material folded in:**
+- how IR control works, and the receiver that catches remote presses;
+- budget versus sensor-led controllers;
+- Sensibo features and placement;
+- 2.4GHz pairing;
+- the setup steps;
+- contact-sensor and overnight automations;
+- the Home Assistant Sensibo and Tuya integrations;
+- what IR can't read;
+- the Daikin, GENERAL and Mitsubishi Wi-Fi adaptors;
+- the electrician and installer FAQ.
+
+**Fact-check:** 23 decisions: a 10 / b 8 / c 5. Removed:
+- all prices;
+- "pays for itself";
+- the energy reporting claim;
+- bushfire recirculation;
+- an AS/NZS reference.
+
+**Correction:** the MERGE post called Aircon Off a sensor-led smart
+controller. Per airconoff.com.au, it is a tamper-resistant universal remote
+with preset limits and no Wi-Fi, app or voice control, and the article now
+says so.
+
+**Rule 8:** the product markers are now the Sensibo Air and Aircon Off,
+both with a catalogue verdict. The MERGE post's Tuya IR controller marker was
+not carried over (no verdict).
+
+**Internal link updated in Strapi:** smart-home-automation-routines-beginners
+now links to KEEP. Its `publishDate` is 24 Sep 2026, which is correct: it
+was created that day.
+
+**Backups:** `exports/strapi-backup/<slug>-2026-09-24T10-40-12-894Z.json`
+for all three posts.
+
+**Redirects:**
+
+| From | To | Where |
+|---|---|---|
+| /setup-guides/reverse-cycle-split-system-voice-app-control-without-replacing/ | /climate-and-comfort/make-split-system-aircon-smart-australia/ | data/redirects-adsense.json (new); already in data/merged-articles.json |
+
+**Checked:**
+- The redirect is live as a 301, and the merged version is live.
+- The build passes with no Strapi fallback, and the nginx map has no
+  duplicate keys.
+- `npm run audit:thin`: cluster 6 no longer appears, so DUPLICATE is 0 for
+  this cluster.
+
+**For legal review:**
+- the state electrical regulation line and the Qld regulator quote;
+- the warranty wording;
+- the renters, adhesive and tenancy-authority line;
+- the electrician FAQ.
+
+**Task 7 status:** clusters 1, 3, 4, 5 and 6 are done.
+
+Cluster 2 (smart plugs and energy monitors) waits on the user's choice of
+survivor. It is the only duplicate pair left in the audit:
+- smart-plugs-energy-monitors-cut-power-bill-australia is merged away but
+  still published;
+- the merged cluster 6 article links to
+  smart-plugs-energy-monitoring-australia, one of the two survivor
+  candidates.
+
+---
+
+## 24 September 2026: Task 7, cluster 2 of 6 (smart plugs and energy monitors), and Task 7 summary
+
+**Survivor.** The user chose the current survivor, `…lower-power-bill-australia`,
+over the prompt's `smart-plugs-energy-monitoring-australia`. These three
+stay separate, as the prompt asks, and now cross-link:
+- smart-plugs-energy-monitoring-australia;
+- smart-plug-buying-guide-australia;
+- what-not-to-plug-into-a-smart-plug-australia.
+
+| Role | Slug | Before | After |
+|---|---|---|---|
+| KEEP | smart-plugs-energy-monitors-lower-power-bill-australia | 1,078 words, 5 markers (3 rendering) | 1,942 words, 6 FAQ, 3 markers (all rendering) |
+| MERGE | smart-plugs-energy-monitors-cut-power-bill-australia | 978 words | unpublished by the user in the Strapi admin (draft kept), 301 → KEEP |
+
+**Approved** by the user after reviewing `reports/task7-cluster2-review.md`.
+
+**Strapi (KEEP):** both the published and draft copies were checked.
+- **Title:** kept.
+- **seoTitle and seoDescription:** new.
+- **Body, excerpt, key takeaways and FAQ:** from the approved draft.
+- **Key takeaways:** the draft held them as a list, which the field rejects
+  (it takes a string), so they were joined into one paragraph, wording
+  unchanged.
+- **Dates:** `publishDate` was empty, so it was set to `createdAt`
+  (24 Sep 2026), which is correct: the post was created that day.
+  `dateModified` is today.
+
+**MERGE material folded in:**
+- phantom load;
+- the appliances worth watching;
+- remote switch-off, with safer examples;
+- outdoor-lighting schedules;
+- whole-home versus plug-level monitoring, plus retailer smart-meter apps;
+- review, adjust, repeat;
+- buying locally for warranty;
+- no solar needed.
+
+**Fact-check:** the KEEP post had not been fact-checked, so its claims were
+checked too.
+- **Verified:** energy.gov.au standby (up to 3%, up to $100 a year),
+  tariffs, Energy Made Easy, and the product specs.
+- **Removed:**
+  - "240V";
+  - "a few dollars a year";
+  - solar diversion;
+  - a bushfire claim;
+  - Eve Strip claims;
+  - pool pumps as a plug load (the P110 has a 1/10 HP motor limit).
+- **Link fix:** KEEP's `/energy/…` links were fixed to `/energy-and-solar/…`.
+
+**Product markers:**
+- Kept: the Tapo P110, Eve Energy and EcoFlow Delta 2.
+- Dropped: the Eve Energy Strip, which has no AU version and no image.
+- Dropped: the Shelly 1PM Gen3, which the site hid as an empty listing. The
+  prose about it stays.
+
+**Cross-links:** six sentences were added by exact string replacement, two
+per post. Their `publishDate` values are unchanged: 14 May, 5 Aug and
+5 Aug 2026.
+- smart-plugs-energy-monitoring-australia → KEEP and the safety post;
+- smart-plug-buying-guide-australia → KEEP and the safety post;
+- what-not-to-plug-into-a-smart-plug-australia → KEEP and the buying guide.
+
+**Backups:** `exports/strapi-backup/<slug>-2026-09-24T10-59-37-548Z.json`
+for all five posts.
+
+**Redirects:**
+
+| From | To | Where |
+|---|---|---|
+| /energy-and-solar/smart-plugs-energy-monitors-cut-power-bill-australia/ | /energy-and-solar/smart-plugs-energy-monitors-lower-power-bill-australia/ | data/redirects-adsense.json (new); already in data/merged-articles.json |
+
+**Follow-ups, not changed:**
+- **smart-plugs-energy-monitoring-australia:**
+  - its Safety section repeats the safety post: cut it to a summary plus
+    links;
+  - it was never fact-checked;
+  - it has no product markers;
+  - it suggests pool pumps on a plug.
+- **smart-plug-buying-guide-australia:** it implies the Tapo P300 monitors
+  energy, which TP-Link AU does not list.
+
+**For legal review:**
+- the renter and strata approval wording;
+- the electrician/DIY rule (ESV only);
+- the consumer-guarantee sentence.
+
+### Task 7 summary: all six clusters merged
+
+| # | KEEP (survivor) | MERGE (unpublished, draft kept, 301) | Review |
+|---|---|---|---|
+| 1 | security-and-cameras/keep-security-cameras-running-blackout-nbn-outage | security-and-cameras/how-to-keep-security-cameras-running-through-a-blackout-or-nbn-outage | reports/task7-cluster1-review.md |
+| 2 | energy-and-solar/smart-plugs-energy-monitors-lower-power-bill-australia | energy-and-solar/smart-plugs-energy-monitors-cut-power-bill-australia | reports/task7-cluster2-review.md |
+| 3 | lighting/smart-light-switches-neutral-wire-older-australian-homes | lighting/smart-light-switches-no-neutral-wire-australia | reports/task7-cluster3-review.md |
+| 4 | robot-vacuums/robot-vacuum-buying-guide-australia | robot-vacuums/robot-vacuum-buying-guide-australian-homes-pets | reports/task7-cluster4-review.md |
+| 5 | buying-guides/smart-home-for-renters-australia | buying-guides/renter-smart-home-devices-no-drilling | reports/task7-cluster5-review.md |
+| 6 | climate-and-comfort/make-split-system-aircon-smart-australia | setup-guides/reverse-cycle-split-system-voice-app-control-without-replacing | reports/task7-cluster6-review.md |
+
+**Deviations from the prompt's suggested survivors:** clusters 2 and 3 kept
+the current survivor, as the user chose, because no Search Console export
+was available. The live 301s already pointed to them.
+
+**All 6 redirects** are in `data/redirects-adsense.json`. They were already
+live via `data/merged-articles.json` (PR #12), and
+`scripts/gen-redirects.mjs` now de-duplicates source paths for the nginx
+map. **All six are verified live as 301.**
+
+**Internal links repointed:** 6 posts:
+- smart-lighting-kids-rooms
+- self-emptying-robot-vacuum-worth-it
+- roborock-vs-ecovacs-vs-dreame-australia
+- smart-home-automation-routines-beginners
+- plus the 3 smart-plug cross-link posts (six new links)
+
+**Final audit** (`npm run audit:thin`):
+- 0 duplicate pairs;
+- 0 merged-away slugs still published;
+- articles: 61 OK and 2 BORDERLINE (where-to-buy and thread-vs-matter, both
+  under 800 words).
+
+**Product boxes:** all six survivors now carry at least 2 rendering product
+boxes, where four had none before.
+
+**Files changed in Task 7:**
+- data/redirects-adsense.json
+- scripts/gen-redirects.mjs
+- reports/task7-cluster1..6-review.md
+- reports/thin-content-audit.csv
+- this file
