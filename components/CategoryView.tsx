@@ -10,6 +10,8 @@ import { categoryHeroFor, coverFor } from '@/lib/content';
 import type { Article } from '@/lib/content';
 import type { Category } from '@/lib/site';
 
+const NO_BANNER = new Set(['security-and-cameras']);
+
 /**
  * The category listing, shared by /categories/[slug]/ and its /page/N/ routes so
  * the two cannot drift. Page 1 is the base URL; later pages are real static
@@ -34,6 +36,9 @@ export default function CategoryView({
 
   const hero = categoryHeroFor(category.slug, 'post');
   const thumb = articles[0] ? coverFor(articles[0]) : hero ?? undefined;
+  // Categories whose title section shows no background banner, even though
+  // one exists in public/heroes/post/ (user request, 24 Sep 2026).
+  const banner = NO_BANNER.has(category.slug) ? null : hero;
 
   return (
     <>
@@ -52,7 +57,7 @@ export default function CategoryView({
           intro={<p>{category.intro}</p>}
           meta={`${articles.length} ${articles.length === 1 ? 'article' : 'articles'}${page > 1 ? ` · Page ${page}` : ''}`}
           image={thumb}
-          banner={hero}
+          banner={banner}
         />
 
         <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">
