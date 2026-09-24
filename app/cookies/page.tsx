@@ -21,6 +21,9 @@ export const metadata: Metadata = {
       - cdn.viglink.com (Sovrn Commerce), consent-gated: public/js/sovrn-init.js
         parks its loader on window.__nxtLoadSovrn until the banner is accepted
       - googletagmanager.com/gtag/js for Google Analytics
+      - analytics.ahrefs.com/analytics.js for Ahrefs Web Analytics, loaded on
+        every page, not consent-gated: Ahrefs says it uses zero cookies and
+        collects no personal data (ahrefs.com/web-analytics, checked 24 Sep 2026)
       - pagead2.googlesyndication.com/pagead/js/adsbygoogle.js for Google
         AdSense, only when NEXT_PUBLIC_ADSENSE_SHOW_ADS=1 as well as
         NEXT_PUBLIC_ADSENSE_CLIENT (lib/ads.ts). Off until the site is
@@ -88,6 +91,10 @@ export default function CookiesPage() {
               <strong>It does not run unless you accept.</strong> The tag loads with its storage
               switched off and stays that way until you choose, so declining is a real decline rather
               than a preference recorded after the fact.
+            </p>
+            <p>
+              We also use Ahrefs Web Analytics for page-view counts. Ahrefs describes it as using no
+              cookies and collecting no personal data, so it runs on every page without asking.
             </p>
 
             <h3>Advertising</h3>

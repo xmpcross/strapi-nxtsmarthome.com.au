@@ -12,7 +12,8 @@
  * once.
  *
  * GA runs with Consent Mode v2 defaults denied until the cookie banner grants
- * them. Geniuslink converts Amazon links on page load; no TSID, no script.
+ * them. Ahrefs Web Analytics loads on every page: Ahrefs describes it as
+ * using zero cookies and collecting no personal data, so it is not gated. Geniuslink converts Amazon links on page load; no TSID, no script.
  * Sovrn affiliates other merchant links and loads only after consent
  * (public/js/sovrn-init.js, released by the cookie banner); no key, no script.
  *
@@ -34,6 +35,7 @@ const GENIUSLINK_TSID = (process.env.NEXT_PUBLIC_GENIUSLINK_TSID || '').trim();
 const GENIUSLINK_BASE = process.env.NEXT_PUBLIC_GENIUSLINK_BASE_URL || 'https://buy.geni.us';
 const GENIUSLINK_PRESERVE = process.env.NEXT_PUBLIC_GENIUSLINK_PRESERVE_EXISTING === 'true';
 const SOVRN_KEY = (process.env.NEXT_PUBLIC_SOVRN_KEY || '').trim();
+const AHREFS_KEY = 'PWhqv6+CSsiInhS/JMQ2SA';
 
 export default function HeadScripts() {
   const geniuslink = /^\d+$/.test(GENIUSLINK_TSID);
@@ -51,6 +53,8 @@ export default function HeadScripts() {
       {/* Consent defaults must be queued before gtag.js loads, so this one is not async. */}
       <script src="/js/ga-init.js" data-ga-id={GA_ID} />
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+      {/* Ahrefs Web Analytics: cookieless by Ahrefs' account, so not consent-gated. */}
+      <script src="https://analytics.ahrefs.com/analytics.js" data-key={AHREFS_KEY} async />
       {geniuslink && (
         <>
           <script src="https://geniuslinkcdn.com/snippet.min.js" defer />
