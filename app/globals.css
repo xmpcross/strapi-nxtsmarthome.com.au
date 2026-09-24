@@ -1772,3 +1772,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
   }
 }
+
+/* Single post template: every heading (title, article body, sidebar and
+   related sections) at weight 700. Unlayered, so it wins over font-semibold
+   utilities and the prose heading scale. */
+.single-post-page :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 700;
+}
