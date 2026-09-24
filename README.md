@@ -35,6 +35,8 @@ npm run build              # prebuild + next build (production server build)
 npm run deploy:preview     # build/publish preview target
 npm run seed:menu          # seed/update Strapi navigation menu
 npm run new:article -- "Title" <category> <type> [--author=slug]
+npm run audit:thin         # thin-content audit -> reports/thin-content-audit.csv
+npm run audit:content      # per-post [VERIFY]/placeholder/duplicate report
 ```
 
 Node 22 is required (`.nvmrc` pins it). The system Node on the server is v26, so
@@ -131,6 +133,47 @@ node scripts/link-products.mjs <slug> --write    # apply them to markdown drafts
 
 The placement script is useful for markdown drafts and migration work. Live CMS
 articles must still be updated in Strapi.
+
+## Content audits
+
+Two read-only audits, both built from source data (Strapi plus the repo), not
+the live site, so they can be re-run after every fix. Neither writes to Strapi.
+
+```bash
+npm run audit:thin         # every article, product and author page with a verdict
+npm run audit:content      # per-post report; add -- --json for machine output
+```
+
+`npm run audit:thin` runs `scripts/audit-thin-content.mjs` (with `.env.local`
+loaded if present) and writes **`reports/thin-content-audit.csv`**, one row per
+page:
+
+- **Columns:** `type`, `url`, `slug`, `title`, `category`, `verdict`, `action`,
+  `indexable`, `body_words`, `faq_words`, `original_words`, `h2_count`,
+  `visible_verify`, `verify_total`, `placeholders`, `posts`, `duplicate_of`
+  and `flags`.
+- **It prints** a summary by type and verdict, near-duplicate article pairs,
+  merged-away slugs still published in Strapi, and `INDEXABLE THIN PAGES: n`.
+- **Exit code 1** when any *indexable* page is DUPLICATE, FIX, OFF-TOPIC or
+  THIN - EMPTY, so it can gate a deploy.
+
+| Type | Verdicts |
+|---|---|
+| Article | DUPLICATE (merged away but still published, or a near-duplicate pair where both halves are live: title-token Jaccard ≥ 0.5 or 5-word-shingle body Jaccard ≥ 0.30) · FIX (visible `[VERIFY]` notes or template placeholders) · BORDERLINE (under 800 body words) · OK |
+| Product | OFF-TOPIC (not smart home, e.g. woodworking routers) · THIN - EMPTY (under 50 original words) · THIN (under 300, or missing bestFor/pros/cons) · OK |
+| Author | THIN (no live posts, or a profile under 150 words) · OK |
+
+"Indexable" mirrors the site's own rules, so the gate checks what Google can
+see:
+- **Articles:** `lib/editorial-guard.mjs` and `data/merged-articles.json`.
+- **Products:** `productEditorial()` in `lib/products.ts`, replicated in the
+  script because that file is TypeScript. Change both together.
+- **Authors:** at least one live post.
+
+`npm run audit:content` (`scripts/audit-content.mjs`) is the narrower per-post
+report used for the AdSense work: word count, `[VERIFY]` and placeholder hits,
+publishDate against createdAt (backdated posts) and duplicate clusters. The
+background and the latest counts are in `ADSENSE_CHANGES.md`.
 
 ## Product catalogue
 

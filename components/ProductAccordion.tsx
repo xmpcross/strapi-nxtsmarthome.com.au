@@ -3,6 +3,9 @@
 import { useEffect, useId, useState } from 'react';
 import Link from 'next/link';
 import { bulletsOf } from '@/lib/bullets';
+import { isFeatureSpec } from '@/lib/feature-specs';
+import { splitDescriptionFaqs } from '@/lib/description-faq';
+import DescriptionFaqs from '@/components/DescriptionFaqs';
 import type { TopProduct } from '@/lib/products';
 
 /**
@@ -23,18 +26,10 @@ import type { TopProduct } from '@/lib/products';
  * the very thing this is avoiding.
  */
 
-type SectionKey = 'description' | 'features' | 'specifications' | 'additional';
+type SectionKey = 'description' | 'specifications' | 'additional';
 
 /** The two the reference puts off-canvas. The rest stay in the page. */
 const PEEK: ReadonlySet<SectionKey> = new Set(['specifications', 'additional']);
-
-/**
- * Specification names that describe what a product *does* rather than what it
- * measures. These get promoted out of the Specifications sheet into Features,
- * where a comma-separated value reads far better as a bullet list.
- */
-const FEATURE_SPEC_PATTERN =
-  /feature|highlight|function|capabilit|support|included|control method|assistant|automation/i;
 
 function Chevron({ open }: { open: boolean }) {
   return (
@@ -98,6 +93,9 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
   const baseId = useId();
 
   const retailerNames = (product.retailers || []).map((r) => r.name);
+  // The description's FAQ section is lifted out of the Description panel and
+  // shown under the last row (Additional Info) instead (user request, 24 Sep 2026).
+  const descriptionFaqs = product.cmsDescriptionHtml ? splitDescriptionFaqs(product.cmsDescriptionHtml).faqs : [];
 
   /*
    * Manufacturer specs carry the page. Only two derived rows are worth keeping
@@ -123,9 +121,9 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
     : null;
 
   const allSpecs = product.specifications || [];
-  const featureSpecs = allSpecs.filter((s) => FEATURE_SPEC_PATTERN.test(s.name));
-  // Anything promoted into Features is not repeated in Specifications.
-  const detailSpecs = allSpecs.filter((s) => !FEATURE_SPEC_PATTERN.test(s.name));
+  // Feature-type specs are shown under Highlights (components/ProductHighlights.tsx),
+  // so they are not repeated in Specifications.
+  const detailSpecs = allSpecs.filter((s) => !isFeatureSpec(s.name));
 
   /* Escape closes an open peek. A slide-over covering the page with no keyboard
      way out is a trap for anyone not using a mouse. */
@@ -163,9 +161,9 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
               prose-sm gives the headings and paragraphs inside it spacing —
               the markup arrives as real HTML, not text.
             */
-            <div
-              className="prose prose-sm max-w-none leading-relaxed text-[#55555a] dark:prose-invert dark:text-slate-300"
-              dangerouslySetInnerHTML={{ __html: product.cmsDescriptionHtml }}
+            <DescriptionWithFaqs
+              html={product.cmsDescriptionHtml}
+              verdict={product.bestFor ? <Verdict text={product.bestFor} /> : null}
             />
           ) : product.shortDescription && bulletsOf(product.shortDescription).length > 1 ? (
             /* Bulleted copy becomes a real list — as a paragraph the "•"
@@ -199,52 +197,14 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
             </p>
           )}
 
-          {product.bestFor ? (
-            <p className="mt-4 border-t border-[#e8e8e8] pt-4 leading-relaxed text-[#55555a] dark:border-slate-700/70 dark:text-slate-300">
-              <span className="font-bold text-[#1d252c] dark:text-white">Our verdict:</span>{' '}
-              {product.bestFor}
-            </p>
-          ) : null}
+          {/* With a CMS description the verdict closes it (DescriptionWithFaqs);
+              without one it closes the panel here. */}
+          {product.bestFor && !product.cmsDescriptionHtml ? <Verdict text={product.bestFor} /> : null}
         </>
       ),
     },
-    {
-      key: 'features',
-      title: 'Features',
-      body: (
-        <ul className="space-y-4">
-          {featureSpecs.map((spec) => {
-            /* Values arrive as "Voice Control, Display Screen" — split so each
-               capability is its own bullet rather than one run-on line. */
-            const items = spec.value
-              .split(/,(?![^(]*\))/)
-              .map((v) => v.trim())
-              .filter(Boolean);
-
-            return (
-              <li key={spec.name}>
-                <h3 className="text-sm font-bold text-[#1d252c] dark:text-white">{spec.name}</h3>
-                {items.length > 1 ? (
-                  <ul className="mt-1.5 space-y-1">
-                    {items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex gap-2 text-sm text-[#55555a] dark:text-slate-300"
-                      >
-                        <span className="text-primary-600" aria-hidden="true">✓</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="mt-1 text-sm text-[#55555a] dark:text-slate-300">{spec.value}</p>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      ),
-    },
+    // No Features section: its content is shown under Highlights instead
+    // (user request, 24 Sep 2026).
     {
       key: 'specifications',
       title: 'Specifications',
@@ -327,11 +287,7 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
 
   return (
     <div className="rounded-[8px] bg-white px-5 pb-4 pt-2 dark:bg-slate-800">
-      {/* A panel with nothing in it is worse than no panel — Features is
-          dropped entirely for products the catalogue gave no feature data for. */}
-      {sections
-        .filter((section) => !(section.key === 'features' && featureSpecs.length === 0))
-        .map((section, i) => {
+      {sections.map((section, i) => {
         const isOpen = open === section.key;
         const peeks = PEEK.has(section.key);
         return (
@@ -410,6 +366,54 @@ export default function ProductAccordion({ product }: { product: TopProduct }) {
           </div>
         );
       })}
+
+      <DescriptionFaqs items={descriptionFaqs} />
     </div>
+  );
+}
+
+/**
+ * The CMS description without its "FAQs" section, which ProductAccordion shows
+ * under the Additional Info row as an accordion (components/DescriptionFaqs.tsx).
+ * Text before and after the FAQ section renders as before, then the verdict.
+ */
+const proseClass =
+  'prose prose-sm max-w-none leading-relaxed text-[#55555a] dark:prose-invert dark:text-slate-300';
+
+function DescriptionWithFaqs({ html, verdict }: { html: string; verdict?: React.ReactNode }) {
+  const { before, after } = splitDescriptionFaqs(html);
+  return (
+    <>
+      <div className={proseClass} dangerouslySetInnerHTML={{ __html: before }} />
+      {/* Verdict closes the description; the FAQs render under Additional Info. */}
+      {verdict}
+      {after ? <div className={`${proseClass} mt-6`} dangerouslySetInnerHTML={{ __html: after }} /> : null}
+    </>
+  );
+}
+
+/**
+ * "Our verdict": the product's bestFor line as a card, brand accent on the
+ * left, a small label over the line itself.
+ */
+function Verdict({ text }: { text: string }) {
+  return (
+    <aside
+      aria-label="Our verdict"
+      className="mt-6 flex gap-3.5 rounded-lg border border-primary-200 border-l-4 border-l-primary-600 bg-primary-50/70 p-4 dark:border-primary-500/30 dark:border-l-primary-400 dark:bg-primary-500/10"
+    >
+      <span
+        aria-hidden="true"
+        className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-white dark:bg-primary-500"
+      >
+        <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M5 12.5 10 17 19 7.5" />
+        </svg>
+      </span>
+      <div className="min-w-0">
+        <p className="text-[11px] font-bold tracking-wider text-primary-700 uppercase dark:text-primary-300">Our verdict</p>
+        <p className="mt-1 text-[15px] leading-relaxed font-semibold text-[#1d252c] dark:text-white">{text}</p>
+      </div>
+    </aside>
   );
 }

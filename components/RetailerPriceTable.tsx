@@ -1,5 +1,6 @@
 import AffiliateLink from './AffiliateLink';
 import type { TopProductRetailer } from '@/lib/products';
+import { retailerLogoIsDark, retailerLogoSrc } from '@/lib/retailer-logos';
 
 interface Props {
   productName: string;
@@ -26,32 +27,13 @@ const retailerLogoPresets: Array<{
   { match: 'kogan', label: 'Kogan', subLabel: 'Online', background: '#111827', accent: '#34d399', initial: 'K' },
 ];
 
-/**
- * Real brand marks supplied in public/images/retailers. Anything without a file
- * here falls back to the generated tile further down. Amazon and eBay are
- * public-domain SVGs from Wikimedia Commons; the rest are supplied brand assets.
- */
-const retailerSvgLogos: Array<{ match: string; src: string }> = [
-  { match: 'jb hi-fi', src: '/images/retailers/jbhifi.png' },
-  { match: 'jbhifi', src: '/images/retailers/jbhifi.png' },
-  { match: 'good guys', src: '/images/retailers/thegoodguys.png' },
-  { match: 'harvey norman', src: '/images/retailers/HarveyNorman.svg' },
-  { match: 'officeworks', src: '/images/retailers/officeworks.png' },
-  { match: 'bunnings', src: '/images/retailers/bunnings.png' },
-  { match: 'kogan', src: '/images/retailers/kogan.png' },
-  { match: 'scorptec', src: '/images/retailers/scorptec.png' },
-  { match: 'mwave', src: '/images/retailers/mwave-logo.png' },
-  { match: 'amazon', src: '/images/retailers/amazon-au.svg' },
-  { match: 'ebay', src: '/images/retailers/ebay-au.svg' },
-];
-
 function getRetailerLogo(retailer: TopProductRetailer): string | null {
   if (retailer.logo) return retailer.logo;
 
   const normalized = retailer.name.toLowerCase();
 
-  const realLogo = retailerSvgLogos.find((item) => normalized.includes(item.match));
-  if (realLogo) return realLogo.src;
+  const realLogo = retailerLogoSrc(retailer.name);
+  if (realLogo) return realLogo;
 
   const preset = retailerLogoPresets.find((item) => normalized.includes(item.match));
   if (!preset) return null;
@@ -111,7 +93,9 @@ export default function RetailerPriceTable({
                   <img
                     src={logoUrl}
                     alt={`${retailer.name} logo`}
-                    className="h-10 w-24 rounded-lg border border-slate-200 bg-white object-contain p-2 shadow-xs"
+                    className={`h-10 w-24 rounded-lg border border-slate-200 object-contain p-2 shadow-xs ${
+                      retailerLogoIsDark(retailer.name) ? 'bg-[#111]' : 'bg-white'
+                    }`}
                     loading="lazy"
                   />
                 ) : (

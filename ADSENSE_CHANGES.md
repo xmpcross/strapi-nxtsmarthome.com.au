@@ -563,3 +563,75 @@ These now appear on the site. Please confirm each one, or tell me to change it:
     draft of a post filter);
   - `AI_FIX_PROMPTS.md` (untracked);
   - the deletion of `CLAUDE copy.md`.
+
+---
+
+## 24 September 2026: Task 0, thin-content audit script
+
+**Files changed:** `scripts/audit-thin-content.mjs` (new) and `package.json`
+(`npm run audit:thin`). **Output:** `reports/thin-content-audit.csv`. **Strapi
+entries changed:** none; the script is read-only. No content was changed.
+
+`npm run audit:thin` rebuilds the audit from Strapi and the repo, prints a
+summary by type and verdict, and exits 1 if any *indexable* page is DUPLICATE,
+FIX, OFF-TOPIC or THIN - EMPTY. "Indexable" mirrors the live site's own rules:
+the editorial guard, the merge map, `productEditorial()` and author post
+counts.
+
+**The root `thin-content-audit.csv` isn't on this host,** so the columns are
+based on the names the prompts use: `visible_verify`, `original_words`,
+verdict, action and word counts. There's one extra column, `verify_total`,
+which also counts `[VERIFY]` tags hidden in HTML comments.
+
+### Run on 24 Sep 2026, compared with the reference CSV
+
+| Type | Verdict | Expected | Now | Indexable now |
+|---|---|---|---|---|
+| article | FIX | 24 | 26 | 0 |
+| article | DUPLICATE | 9 | 6 | 0 |
+| article | BORDERLINE | 2 | 2 | 0 |
+| article | OK | — | 30 | 29 |
+| product | OFF-TOPIC | 6 | 6 | 0 |
+| product | THIN - EMPTY | 37 | 37 | 0 |
+| product | THIN | 162 | 162 | 0 |
+| author | THIN | 2 | 4 | 3 |
+
+**INDEXABLE THIN PAGES: 3** (the three author profiles). **Exit code: 0**,
+because none of the three has a blocking verdict.
+
+The differences:
+
+- **DUPLICATE is 9 − 3.** The reference flagged both halves of the 3
+  text-similar pairs (6) plus the losers of the 3 topic merges (3). Since PR
+  #12, all 6 losers are merged away and 301'd on the site, so the survivors
+  `keep-security-cameras-running-blackout-nbn-outage`,
+  `smart-light-switches-neutral-wire-older-australian-homes` and
+  `smart-plugs-energy-monitors-lower-power-bill-australia` have no live
+  duplicate. The script no longer flags them, but it still lists the 6 losers
+  as DUPLICATE and as "still published in Strapi" until they're unpublished.
+- **FIX is 24 + 2.** The blackout and neutral-wire survivors carry visible
+  `[VERIFY]` notes, so they moved from DUPLICATE to FIX.
+- **BORDERLINE matches.** Three posts have `[VERIFY]` only inside HTML
+  comments, so none is visible: `thread-vs-matter-difference` (748 words) and
+  `where-to-buy-smart-home-australia` (720 words) are BORDERLINE, and
+  `smart-home-devices-without-internet` (881 words) is OK. The site still holds
+  all three back, because its guard counts hidden tags too.
+- **Author THIN is 4, not 2.** The script counts profile words (bio plus
+  profile note). Every bio is under 150 words: Adrian Thompson 46, Harry Cheng
+  60, Kritin Curtis 58, and the editorial profile 95 with 0 posts. The
+  reference probably counted the whole author page, where the listed article
+  titles push authors with posts over 150, leaving only the two post-less
+  profiles (then `k-curtis` and the editorial byline). The K Curtis / Kritin
+  Curtis name clash is still reported in `flags`; the site already aliases
+  `k-curtis` to `kritin-curtis`.
+- **Products match exactly.** The 6 off-topic items are woodworking routers
+  and trimmers filed under Hubs & Platforms. None of the 205 products is
+  indexable under the current rule.
+
+**Left for a human:**
+- Expand the three contributor bios in Strapi to 150+ words, or confirm that a
+  profile-word bar isn't wanted.
+- **Rule mismatch for Task 2:** it specifies a stricter product rule (pros ≥ 3,
+  cons ≥ 2, 300+ words including shortDescription) than the live
+  `productEditorial()` (150+ words). The script mirrors the live rule; if Task 2
+  changes it, update the replica in the script too.
