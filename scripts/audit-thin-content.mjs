@@ -28,9 +28,10 @@
  * can actually see:
  *   article  not held back by lib/editorial-guard.mjs and not merged away in
  *            data/merged-articles.json (same modules lib/content.ts uses)
- *   product  lib/products.ts productEditorial(): a curated content/products/
- *            file with the same slug, bestFor + pros + cons, 150+ editorial
- *            words. Replicated below, because lib/products.ts is TypeScript.
+ *   product  lib/products.ts isIndexableProduct(): a curated content/products/
+ *            file with the same slug, bestFor, 3+ pros, 2+ cons and 300+
+ *            original words (originalWordCount). Replicated below, because
+ *            lib/products.ts is TypeScript; change both together.
  *   author   at least one live post (app/authors/[slug] noindexes the rest)
  */
 import fs from 'node:fs';
@@ -38,6 +39,9 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import { editorialHits, postTexts } from '../lib/editorial-guard.mjs';
 import { loadMerges } from '../lib/merged-articles.mjs';
+import { offTopicReason } from '../lib/catalogue-guard.mjs';
+// The review allow-list lives in one place; Node 22.18+ runs the .ts directly (types only).
+import { retailerReviews } from '../lib/review-sources.ts';
 
 const ROOT = process.cwd();
 const SITE = 'https://nxtsmarthome.com.au';
@@ -50,7 +54,7 @@ const THRESHOLDS = {
   bodyJaccard: 0.3,
   productEmpty: 50,
   productOk: 300,
-  productIndexable: 150,
+  productIndexable: 300,
   authorWords: 150,
 };
 
@@ -67,12 +71,7 @@ const CATEGORY_SLUG = {
   'buying-guides': 'buying-guides',
 };
 
-// Same list as lib/review-sources.ts (TypeScript, so not importable here).
-const AU_REVIEW_RETAILERS = new Set([
-  'jbhifi.com.au', 'thegoodguys.com.au', 'harveynorman.com.au', 'bunnings.com.au',
-  'officeworks.com.au', 'myer.com.au', 'binglee.com.au', 'appliancesonline.com.au',
-  'betta.com.au', 'costco.com.au', 'mitre10.com.au', 'mwave.com.au', 'mightyape.com.au',
-]);
+
 
 // --- text helpers -----------------------------------------------------------
 
@@ -163,7 +162,8 @@ function mergedFroms() {
     const list = Array.isArray(raw) ? raw : raw.redirects ?? raw.merges ?? [];
     for (const r of list) {
       const slug = (p) => String(p ?? '').replace(/\/+$/, '').split('/').pop();
-      if (r?.from) map.set(slug(r.from), slug(r.to));
+      // Product removals live in the same file; only article paths are merges.
+      if (r?.from && !String(r.from).startsWith('/products/')) map.set(slug(r.from), slug(r.to));
     }
   }
   return map;
@@ -320,18 +320,9 @@ const catalogue = JSON.parse(fs.readFileSync(path.join(ROOT, 'public', 'data', '
 );
 const curated = new Map(readFrontMatterDir('content/products').map((c) => [c.slug, c]));
 
-// Not smart home: woodworking routers and trimmers that a keyword import filed
-// under Hubs & Platforms, plus power tools anywhere. A network router would say wifi/mesh/modem.
-function offTopic(p) {
-  const s = `${p.slug} ${p.name}`.toLowerCase();
-  if (/\b(drill|saw|sander|grinder|nail gun|jigsaw)\b/.test(s)) return 'power tool';
-  if (/\b(router|trimmer)\b/.test(s) && !/wi-?fi|mesh|modem|network|nbn|4g|5g/.test(s)) return 'woodworking router/trimmer';
-  return '';
-}
+// Not smart home: the same guard the importers use (lib/catalogue-guard.mjs).
+const offTopic = (p) => offTopicReason(`${p.brand ?? ''} ${p.name ?? ''} ${p.slug}`, p.categorySlug);
 
-function reviewSource(label) {
-  return String(label ?? '').toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/.*$/, '');
-}
 
 for (const p of catalogue) {
   const c = curated.get(p.slug);
@@ -339,24 +330,30 @@ for (const p of catalogue) {
   const bestFor = c?.data.bestFor || p.bestFor || '';
   const pros = c?.data.pros ?? p.pros ?? [];
   const cons = c?.data.cons ?? p.cons ?? [];
+  // lib/products.ts originalWordCount(), replicated: the long description only
+  // counts when it is our rewrite, never the old generated template.
   const original = words(
-    [bestFor, p.shortDescription, stripHtml(p.cmsDescriptionHtml), stripMarkdown(note), ...pros, ...cons].join(' '),
+    [
+      stripMarkdown(note), bestFor, ...pros, ...cons, p.shortDescription ?? '',
+      p.descriptionRewrite?.model ? stripHtml(p.cmsDescriptionHtml) : '',
+    ].join(' '),
   );
 
-  // lib/products.ts productEditorial(), replicated.
-  const editorialWords = words([note, c?.data.bestFor, ...(c?.data.pros ?? []), ...(c?.data.cons ?? [])].join(' '));
+  // lib/products.ts isIndexableProduct(), replicated.
   const indexable = Boolean(
-    c && c.data.bestFor && c.data.pros?.length && c.data.cons?.length && editorialWords >= THRESHOLDS.productIndexable,
+    c && bestFor && pros.length >= 3 && cons.length >= 2 && original >= THRESHOLDS.productIndexable,
   );
 
   const reviews = p.reviews ?? [];
-  const nonAu = reviews.filter((r) => !AU_REVIEW_RETAILERS.has(reviewSource(r.sourceLabel))).length;
+  const allowedReviews = retailerReviews(p);
+  const nonAu = reviews.length - allowedReviews.allowedCount;
   const off = offTopic(p);
   const flags = [
-    off ? `off-topic: ${off} in ${p.categorySlug}` : '',
+    off ? `off-topic: ${off}` : '',
     bestFor ? '' : 'no bestFor',
     pros.length && cons.length ? '' : 'no pros/cons',
-    nonAu ? `${nonAu}/${reviews.length} reviews not from an AU retailer` : '',
+    nonAu ? `${nonAu}/${reviews.length} reviews from sources not allowed` : '',
+    allowedReviews.reviews.length ? `reviews block shown (${allowedReviews.reviews.length}${allowedReviews.aggregate ? ', with score' : ''})` : '',
     c ? 'curated' : '',
   ].filter(Boolean);
 

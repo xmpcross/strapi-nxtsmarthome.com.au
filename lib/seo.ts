@@ -212,9 +212,10 @@ export function productJsonLd(product: TopProduct) {
     };
   }
 
-  // The same aggregate the page shows: counted from the named-AU-retailer
-  // reviews on it, and only from MIN_AGGREGATE_REVIEWS up (lib/review-sources.ts).
-  // Structured data must not claim a rating the page does not display.
+  // The same aggregate the page shows: counted from the allowed reviews on it,
+  // only from MIN_AGGREGATE_REVIEWS up, and never when the reviews block is
+  // hidden (lib/review-sources.ts). Structured data must not claim a rating the
+  // page does not display. No Review items are emitted either.
   const aggregate = retailerReviews(product).aggregate;
   if (aggregate) {
     data.aggregateRating = {

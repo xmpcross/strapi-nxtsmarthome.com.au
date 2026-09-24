@@ -1,0 +1,332 @@
+{
+  "published": {
+    "id": 267,
+    "documentId": "beuk4htvavjrohgqjvfn8enk",
+    "title": "What Smart Zoning Actually Costs on Ducted Air Conditioning in Australia",
+    "slug": "smart-zoning-ducted-air-conditioning-cost-australia",
+    "excerpt": "Zoning a ducted reverse-cycle system is the single biggest add-on cost most Australian homeowners face at quote time. Here is how the price bands break down for new installs and retrofits, where the cheap workarounds actually work, and what to check before you spend.",
+    "content": "Ducted reverse-cycle air conditioning is still the default in a lot of Australian new builds and renovations, and \"smart zoning\" is the upsell that appears on almost every quote. Sometimes it is genuinely the best money in the whole job. Sometimes it is $3,000 of tablet on a wall doing what four manual dampers would have done.\n\nHere is how the costs actually stack up, and how to work out which side of that line you are on.\n\n## The practical takeaway\n\nOn a new ducted install, expect zoning to add roughly $1,200 to $3,500 to the job depending on the number of zones and whether you want per-room temperature sensors rather than simple on/off dampers [VERIFY]. Retrofitting zoning into an existing ducted system usually lands higher per zone, because someone has to get into the roof space and cut into ductwork that is already installed.\n\nIf your ducted system already has motorised zones and you just want app and voice control, that is a much smaller job — often a few hundred dollars for a manufacturer Wi-Fi module [VERIFY]. Do not let the two be quoted as the same thing.\n\n## What \"smart zoning\" actually means (there are three tiers)\n\nThe term gets used loosely, which is exactly why quotes are hard to compare.\n\n**Tier 1 — basic zoning.** Motorised dampers in the ducts, opened and closed from a wall controller. Zones are on or off. No temperature sensing per room. This is the cheapest genuine zoning.\n\n**Tier 2 — temperature-controlled zoning.** Each zone gets a temperature sensor, and the damper modulates to hit a set point for that room. This is what systems like Advantage Air MyAir, Polyaire ZoneTouch, iZone and Airtouch offer, plus manufacturer systems such as ActronAir's controllers and Daikin's zone kits [VERIFY]. It is the tier most people mean when they say \"smart zoning\".\n\n**Tier 3 — smart control layered on top.** App access, schedules, voice assistants, sometimes energy reporting and Home Assistant integration. Increasingly this is included, but on some brands it is still a separate Wi-Fi module or subscription-free cloud add-on. Ask specifically.\n\nThe jump in price from Tier 1 to Tier 2 is mostly sensors, a smarter controller board and commissioning time. The jump from Tier 2 to Tier 3 should be small.\n\n## The price bands, roughly\n\nAll figures below are indicative ranges based on typical Australian quotes and should be treated as a starting point for your own comparisons, not a fixed price [VERIFY]. Ducted pricing varies enormously with roof access, house layout and state.\n\n- **Zoning added to a new ducted install, 4–6 zones, on/off dampers:** around $1,200–$2,200 on top of the base system [VERIFY].\n- **Same install with per-zone temperature sensors and a touchscreen controller:** around $2,000–$3,500 [VERIFY].\n- **Extra zones beyond the standard package:** commonly $250–$500 per zone at install time [VERIFY].\n- **Retrofit zoning into an existing ducted system:** frequently $2,500–$5,000-plus for a whole-house job, because it is roof work, new dampers, new cabling and a new controller [VERIFY].\n- **Wi-Fi/app module for an existing zoned system:** roughly $200–$500 supplied and fitted [VERIFY].\n\nTwo cost drivers people miss. First, **the constant zone**. Most ducted systems need a permanently open zone (usually a hallway) or a bypass so the unit is not choked when only one small room is calling for air. That is a design requirement, not an upsell, and it slightly reduces how much you can actually shut off. Second, **commissioning**. A zoned system that has not had its airflow balanced properly will underperform no matter how good the app is.\n\n## Measure before you spend\n\nBefore committing thousands to zoning, it is worth putting numbers on the problem. Cheap Wi-Fi temperature sensors in three or four rooms for a fortnight will tell you whether your issue is genuinely zoning, or whether it is a west-facing window, an undersized duct run or roof insulation.\n\n::product:tp-link-tapo-smart-temperature-humidity-monitor::\n\nWhat you are looking for is spread. If the master bedroom sits three or four degrees above the living room every afternoon while the system runs flat out, zoning with per-room sensors will help. If every room tracks within a degree and the whole house is just slow to cool, you have a capacity, duct sizing or insulation issue, and dampers will not fix it.\n\nCheaper Tuya and Zigbee sensors do the same job if you already run a hub, and logging the data for a week costs you nothing but the hardware.\n\n## Where the cheap workarounds actually work — and where they don't\n\nThere is a well-known category of retrofit smart controllers that learn your air conditioner's infrared remote and add app control, scheduling and geofencing.\n\n::product:sensibo-air-smart-air-conditioner-controller::\n\nThese are excellent value on **split systems**, and on the minority of ducted units that are still driven by an IR handheld remote. The catch for ducted owners is that most Australian ducted systems use a hard-wired wall controller with a proprietary data bus, not infrared. An IR bridge cannot talk to that, and it certainly cannot open and close motorised dampers. Check what your existing controller is before buying anything on this basis [VERIFY].\n\n::product:tuya-smart-wifi-ir-air-conditioner-controller-thermostat::\n\nBudget Tuya-based IR controllers cover the same ground for less money, with a rougher app experience and more variable Home Assistant support. For a bedroom split or a garage unit, they are a sensible $40–$80 purchase [VERIFY]. For a ducted system, they are not a substitute for zoning.\n\nA note on wall thermostats generally: North American-style 24V thermostats, including several Google Nest models, are frequently **not** compatible with Australian ducted reverse-cycle systems that use proprietary controllers. Verify compatibility with your specific model before ordering [VERIFY].\n\n## What to ask before you sign the quote\n\nRun these past your installer in writing:\n\n1. **Is this on/off zoning or temperature-sensed zoning?** The price difference is real and the comfort difference is bigger.\n2. **Which zone is the constant zone, and can it be changed later?**\n3. **Does the controller include Wi-Fi and app control at no extra cost, and is there any ongoing fee?**\n4. **Is there a documented local API or Home Assistant integration?** Several Australian zone controllers have community integrations; some brands are cloud-only. If local control matters to you, ask now, not after handover.\n5. **How many zones can the system be expanded to?** Adding a zone later to a controller that supports eight is easy. Replacing a four-zone board is not.\n6. **Who does the airflow balancing, and is it in the price?**\n\n## The regulated bits you cannot DIY\n\nThis is not a weekend project. Installing or modifying a ducted air conditioning system involves refrigerant work, which in Australia requires an ARCtick-licensed technician, and 240V fixed wiring, which requires a licensed electrician under AS/NZS wiring rules [VERIFY]. Zone damper motors and controller wiring are typically low voltage, but they are still part of a fixed installation and get connected back to a switched supply.\n\nPlug-in sensors, IR bridges and app modules that connect via a standard Type I socket are fair game for anyone. Anything in the roof space that terminates in the switchboard or the indoor unit is not.\n\n## So is it worth it?\n\nIf you have a two-storey home, a large single-level house with bedrooms and living zones used at different times, or rooms with very different solar exposure, temperature-sensed zoning usually pays for itself in comfort long before it pays for itself in kilowatt-hours. Running a 14kW unit to cool one bedroom overnight is the expensive scenario zoning is designed to avoid.\n\nIf you live in a compact home where the whole floor plan is in use at the same time, basic on/off zoning at the lower price band is often plenty, and the money is better spent on ceiling insulation and external shading.",
+    "keyTakeaways": "On a new ducted install, smart zoning typically adds around $1,200–$3,500 depending on zone count and whether each zone gets its own temperature sensor; retrofitting zoning into an existing system often runs $2,500–$5,000-plus because of roof access and ductwork [VERIFY]. If your system is already zoned, adding app control is usually just a few hundred dollars for a Wi-Fi module.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "ducted air conditioning",
+      "zoning",
+      "climate control",
+      "cost guide",
+      "Australia",
+      "smart thermostat"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Zoning Costs on Ducted Aircon in Australia",
+    "seoDescription": "What smart zoning really adds to a ducted air conditioning quote in Australia: new install vs retrofit price bands, cheap workarounds, and what to ask first.",
+    "seoKeywords": "ducted air conditioning zoning cost, smart zoning Australia, ducted aircon zones price, retrofit zoning ducted, MyAir cost, zone dampers Australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:15:23.829Z",
+    "updatedAt": "2026-08-23T00:43:43.359Z",
+    "publishedAt": "2026-08-23T00:43:43.401Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3984,
+      "documentId": "ja4o2wqwalt0wa39n623xmy0",
+      "name": "what-smart-zoning-actually-costs-on-ducted-air-con-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5.jpg",
+          "hash": "large_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5",
+          "mime": "image/jpeg",
+          "name": "large_what-smart-zoning-actually-costs-on-ducted-air-con-cover.jpg",
+          "path": null,
+          "size": 53.18,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 53183
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5.jpg",
+          "hash": "small_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5",
+          "mime": "image/jpeg",
+          "name": "small_what-smart-zoning-actually-costs-on-ducted-air-con-cover.jpg",
+          "path": null,
+          "size": 16.99,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 16985
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5.jpg",
+          "hash": "medium_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5",
+          "mime": "image/jpeg",
+          "name": "medium_what-smart-zoning-actually-costs-on-ducted-air-con-cover.jpg",
+          "path": null,
+          "size": 32.76,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 32761
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5.jpg",
+          "hash": "thumbnail_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5",
+          "mime": "image/jpeg",
+          "name": "thumbnail_what-smart-zoning-actually-costs-on-ducted-air-con-cover.jpg",
+          "path": null,
+          "size": 5.59,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5591
+        }
+      },
+      "hash": "what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 111.62,
+      "url": "/uploads/what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:15:23.799Z",
+      "updatedAt": "2026-08-23T00:15:23.799Z",
+      "publishedAt": "2026-08-23T00:15:23.799Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1657,
+        "question": "Can I just use a Sensibo or Tuya IR controller instead of paying for ducted zoning?",
+        "answer": "Generally no. Most Australian ducted systems use a hard-wired wall controller on a proprietary data bus rather than infrared, so an IR bridge cannot talk to them and definitely cannot drive motorised dampers [VERIFY]. IR controllers are great value on split systems and the few ducted units still run by a handheld remote, but they are not a substitute for zoning — check what controller you have before buying."
+      },
+      {
+        "order": 2,
+        "id": 1658,
+        "question": "Why does my quote say one zone has to stay open all the time?",
+        "answer": "Most ducted systems need a permanently open constant zone, usually a hallway, or a bypass so the unit is not choked when only one small room is calling for air. It is a design requirement rather than an upsell, and it slightly reduces how much of the house you can actually shut off. Ask your installer which zone it is and whether it can be changed later."
+      },
+      {
+        "order": 3,
+        "id": 1659,
+        "question": "How do I know if zoning will fix my hot bedroom, or if it's something else?",
+        "answer": "Put cheap Wi-Fi, Zigbee or Tuya temperature sensors in three or four rooms for a fortnight and look at the spread. If the master sits three or four degrees above the living room every afternoon while the system runs flat out, per-room sensed zoning should help. If every room tracks within a degree and the whole house is just slow to cool, it is a capacity, duct sizing or insulation problem and dampers will not fix it."
+      },
+      {
+        "order": 4,
+        "id": 1660,
+        "question": "Will a Google Nest thermostat work with my Australian ducted reverse-cycle system?",
+        "answer": "Often not. North American-style 24V thermostats, including several Nest models, are frequently incompatible with Australian ducted reverse-cycle systems that use proprietary wall controllers [VERIFY]. Confirm compatibility against your specific indoor unit and controller model before ordering anything."
+      },
+      {
+        "order": 5,
+        "id": 1661,
+        "question": "My ducted system already has motorised zones — how much to add app control?",
+        "answer": "That is a much smaller job than installing zoning from scratch, often a manufacturer Wi-Fi module at roughly $200–$500 supplied and fitted [VERIFY]. Do not let an installer quote it as the same line item as full zoning. Also ask whether app control is included at no extra cost, whether there is any ongoing fee, and whether there is a documented local API or Home Assistant integration."
+      }
+    ],
+    "categories": [
+      {
+        "id": 2,
+        "documentId": "kr7s0nrg74tdavub6vyhm1of",
+        "name": "Climate",
+        "slug": "climate",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.690Z",
+        "updatedAt": "2026-08-22T18:30:53.594Z",
+        "publishedAt": "2026-08-22T18:30:53.592Z"
+      }
+    ],
+    "author": {
+      "id": 14,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": "2026-09-24T02:15:29.628Z"
+    }
+  },
+  "draft": {
+    "id": 204,
+    "documentId": "beuk4htvavjrohgqjvfn8enk",
+    "title": "What Smart Zoning Actually Costs on Ducted Air Conditioning in Australia",
+    "slug": "smart-zoning-ducted-air-conditioning-cost-australia",
+    "excerpt": "Zoning a ducted reverse-cycle system is the single biggest add-on cost most Australian homeowners face at quote time. Here is how the price bands break down for new installs and retrofits, where the cheap workarounds actually work, and what to check before you spend.",
+    "content": "Ducted reverse-cycle air conditioning is still the default in a lot of Australian new builds and renovations, and \"smart zoning\" is the upsell that appears on almost every quote. Sometimes it is genuinely the best money in the whole job. Sometimes it is $3,000 of tablet on a wall doing what four manual dampers would have done.\n\nHere is how the costs actually stack up, and how to work out which side of that line you are on.\n\n## The practical takeaway\n\nOn a new ducted install, expect zoning to add roughly $1,200 to $3,500 to the job depending on the number of zones and whether you want per-room temperature sensors rather than simple on/off dampers [VERIFY]. Retrofitting zoning into an existing ducted system usually lands higher per zone, because someone has to get into the roof space and cut into ductwork that is already installed.\n\nIf your ducted system already has motorised zones and you just want app and voice control, that is a much smaller job — often a few hundred dollars for a manufacturer Wi-Fi module [VERIFY]. Do not let the two be quoted as the same thing.\n\n## What \"smart zoning\" actually means (there are three tiers)\n\nThe term gets used loosely, which is exactly why quotes are hard to compare.\n\n**Tier 1 — basic zoning.** Motorised dampers in the ducts, opened and closed from a wall controller. Zones are on or off. No temperature sensing per room. This is the cheapest genuine zoning.\n\n**Tier 2 — temperature-controlled zoning.** Each zone gets a temperature sensor, and the damper modulates to hit a set point for that room. This is what systems like Advantage Air MyAir, Polyaire ZoneTouch, iZone and Airtouch offer, plus manufacturer systems such as ActronAir's controllers and Daikin's zone kits [VERIFY]. It is the tier most people mean when they say \"smart zoning\".\n\n**Tier 3 — smart control layered on top.** App access, schedules, voice assistants, sometimes energy reporting and Home Assistant integration. Increasingly this is included, but on some brands it is still a separate Wi-Fi module or subscription-free cloud add-on. Ask specifically.\n\nThe jump in price from Tier 1 to Tier 2 is mostly sensors, a smarter controller board and commissioning time. The jump from Tier 2 to Tier 3 should be small.\n\n## The price bands, roughly\n\nAll figures below are indicative ranges based on typical Australian quotes and should be treated as a starting point for your own comparisons, not a fixed price [VERIFY]. Ducted pricing varies enormously with roof access, house layout and state.\n\n- **Zoning added to a new ducted install, 4–6 zones, on/off dampers:** around $1,200–$2,200 on top of the base system [VERIFY].\n- **Same install with per-zone temperature sensors and a touchscreen controller:** around $2,000–$3,500 [VERIFY].\n- **Extra zones beyond the standard package:** commonly $250–$500 per zone at install time [VERIFY].\n- **Retrofit zoning into an existing ducted system:** frequently $2,500–$5,000-plus for a whole-house job, because it is roof work, new dampers, new cabling and a new controller [VERIFY].\n- **Wi-Fi/app module for an existing zoned system:** roughly $200–$500 supplied and fitted [VERIFY].\n\nTwo cost drivers people miss. First, **the constant zone**. Most ducted systems need a permanently open zone (usually a hallway) or a bypass so the unit is not choked when only one small room is calling for air. That is a design requirement, not an upsell, and it slightly reduces how much you can actually shut off. Second, **commissioning**. A zoned system that has not had its airflow balanced properly will underperform no matter how good the app is.\n\n## Measure before you spend\n\nBefore committing thousands to zoning, it is worth putting numbers on the problem. Cheap Wi-Fi temperature sensors in three or four rooms for a fortnight will tell you whether your issue is genuinely zoning, or whether it is a west-facing window, an undersized duct run or roof insulation.\n\n::product:tp-link-tapo-smart-temperature-humidity-monitor::\n\nWhat you are looking for is spread. If the master bedroom sits three or four degrees above the living room every afternoon while the system runs flat out, zoning with per-room sensors will help. If every room tracks within a degree and the whole house is just slow to cool, you have a capacity, duct sizing or insulation issue, and dampers will not fix it.\n\nCheaper Tuya and Zigbee sensors do the same job if you already run a hub, and logging the data for a week costs you nothing but the hardware.\n\n## Where the cheap workarounds actually work — and where they don't\n\nThere is a well-known category of retrofit smart controllers that learn your air conditioner's infrared remote and add app control, scheduling and geofencing.\n\n::product:sensibo-air-smart-air-conditioner-controller::\n\nThese are excellent value on **split systems**, and on the minority of ducted units that are still driven by an IR handheld remote. The catch for ducted owners is that most Australian ducted systems use a hard-wired wall controller with a proprietary data bus, not infrared. An IR bridge cannot talk to that, and it certainly cannot open and close motorised dampers. Check what your existing controller is before buying anything on this basis [VERIFY].\n\n::product:tuya-smart-wifi-ir-air-conditioner-controller-thermostat::\n\nBudget Tuya-based IR controllers cover the same ground for less money, with a rougher app experience and more variable Home Assistant support. For a bedroom split or a garage unit, they are a sensible $40–$80 purchase [VERIFY]. For a ducted system, they are not a substitute for zoning.\n\nA note on wall thermostats generally: North American-style 24V thermostats, including several Google Nest models, are frequently **not** compatible with Australian ducted reverse-cycle systems that use proprietary controllers. Verify compatibility with your specific model before ordering [VERIFY].\n\n## What to ask before you sign the quote\n\nRun these past your installer in writing:\n\n1. **Is this on/off zoning or temperature-sensed zoning?** The price difference is real and the comfort difference is bigger.\n2. **Which zone is the constant zone, and can it be changed later?**\n3. **Does the controller include Wi-Fi and app control at no extra cost, and is there any ongoing fee?**\n4. **Is there a documented local API or Home Assistant integration?** Several Australian zone controllers have community integrations; some brands are cloud-only. If local control matters to you, ask now, not after handover.\n5. **How many zones can the system be expanded to?** Adding a zone later to a controller that supports eight is easy. Replacing a four-zone board is not.\n6. **Who does the airflow balancing, and is it in the price?**\n\n## The regulated bits you cannot DIY\n\nThis is not a weekend project. Installing or modifying a ducted air conditioning system involves refrigerant work, which in Australia requires an ARCtick-licensed technician, and 240V fixed wiring, which requires a licensed electrician under AS/NZS wiring rules [VERIFY]. Zone damper motors and controller wiring are typically low voltage, but they are still part of a fixed installation and get connected back to a switched supply.\n\nPlug-in sensors, IR bridges and app modules that connect via a standard Type I socket are fair game for anyone. Anything in the roof space that terminates in the switchboard or the indoor unit is not.\n\n## So is it worth it?\n\nIf you have a two-storey home, a large single-level house with bedrooms and living zones used at different times, or rooms with very different solar exposure, temperature-sensed zoning usually pays for itself in comfort long before it pays for itself in kilowatt-hours. Running a 14kW unit to cool one bedroom overnight is the expensive scenario zoning is designed to avoid.\n\nIf you live in a compact home where the whole floor plan is in use at the same time, basic on/off zoning at the lower price band is often plenty, and the money is better spent on ceiling insulation and external shading.",
+    "keyTakeaways": "On a new ducted install, smart zoning typically adds around $1,200–$3,500 depending on zone count and whether each zone gets its own temperature sensor; retrofitting zoning into an existing system often runs $2,500–$5,000-plus because of roof access and ductwork [VERIFY]. If your system is already zoned, adding app control is usually just a few hundred dollars for a Wi-Fi module.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "ducted air conditioning",
+      "zoning",
+      "climate control",
+      "cost guide",
+      "Australia",
+      "smart thermostat"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Zoning Costs on Ducted Aircon in Australia",
+    "seoDescription": "What smart zoning really adds to a ducted air conditioning quote in Australia: new install vs retrofit price bands, cheap workarounds, and what to ask first.",
+    "seoKeywords": "ducted air conditioning zoning cost, smart zoning Australia, ducted aircon zones price, retrofit zoning ducted, MyAir cost, zone dampers Australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:15:23.829Z",
+    "updatedAt": "2026-08-23T00:43:43.359Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3984,
+      "documentId": "ja4o2wqwalt0wa39n623xmy0",
+      "name": "what-smart-zoning-actually-costs-on-ducted-air-con-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5.jpg",
+          "hash": "large_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5",
+          "mime": "image/jpeg",
+          "name": "large_what-smart-zoning-actually-costs-on-ducted-air-con-cover.jpg",
+          "path": null,
+          "size": 53.18,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 53183
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5.jpg",
+          "hash": "small_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5",
+          "mime": "image/jpeg",
+          "name": "small_what-smart-zoning-actually-costs-on-ducted-air-con-cover.jpg",
+          "path": null,
+          "size": 16.99,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 16985
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5.jpg",
+          "hash": "medium_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5",
+          "mime": "image/jpeg",
+          "name": "medium_what-smart-zoning-actually-costs-on-ducted-air-con-cover.jpg",
+          "path": null,
+          "size": 32.76,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 32761
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5.jpg",
+          "hash": "thumbnail_what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5",
+          "mime": "image/jpeg",
+          "name": "thumbnail_what-smart-zoning-actually-costs-on-ducted-air-con-cover.jpg",
+          "path": null,
+          "size": 5.59,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 5591
+        }
+      },
+      "hash": "what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 111.62,
+      "url": "/uploads/what_smart_zoning_actually_costs_on_ducted_air_con_cover_e54f2165e5.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:15:23.799Z",
+      "updatedAt": "2026-08-23T00:15:23.799Z",
+      "publishedAt": "2026-08-23T00:15:23.799Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1652,
+        "question": "Can I just use a Sensibo or Tuya IR controller instead of paying for ducted zoning?",
+        "answer": "Generally no. Most Australian ducted systems use a hard-wired wall controller on a proprietary data bus rather than infrared, so an IR bridge cannot talk to them and definitely cannot drive motorised dampers [VERIFY]. IR controllers are great value on split systems and the few ducted units still run by a handheld remote, but they are not a substitute for zoning — check what controller you have before buying."
+      },
+      {
+        "order": 2,
+        "id": 1653,
+        "question": "Why does my quote say one zone has to stay open all the time?",
+        "answer": "Most ducted systems need a permanently open constant zone, usually a hallway, or a bypass so the unit is not choked when only one small room is calling for air. It is a design requirement rather than an upsell, and it slightly reduces how much of the house you can actually shut off. Ask your installer which zone it is and whether it can be changed later."
+      },
+      {
+        "order": 3,
+        "id": 1654,
+        "question": "How do I know if zoning will fix my hot bedroom, or if it's something else?",
+        "answer": "Put cheap Wi-Fi, Zigbee or Tuya temperature sensors in three or four rooms for a fortnight and look at the spread. If the master sits three or four degrees above the living room every afternoon while the system runs flat out, per-room sensed zoning should help. If every room tracks within a degree and the whole house is just slow to cool, it is a capacity, duct sizing or insulation problem and dampers will not fix it."
+      },
+      {
+        "order": 4,
+        "id": 1655,
+        "question": "Will a Google Nest thermostat work with my Australian ducted reverse-cycle system?",
+        "answer": "Often not. North American-style 24V thermostats, including several Nest models, are frequently incompatible with Australian ducted reverse-cycle systems that use proprietary wall controllers [VERIFY]. Confirm compatibility against your specific indoor unit and controller model before ordering anything."
+      },
+      {
+        "order": 5,
+        "id": 1656,
+        "question": "My ducted system already has motorised zones — how much to add app control?",
+        "answer": "That is a much smaller job than installing zoning from scratch, often a manufacturer Wi-Fi module at roughly $200–$500 supplied and fitted [VERIFY]. Do not let an installer quote it as the same line item as full zoning. Also ask whether app control is included at no extra cost, whether there is any ongoing fee, and whether there is a documented local API or Home Assistant integration."
+      }
+    ],
+    "categories": [
+      {
+        "id": 2,
+        "documentId": "kr7s0nrg74tdavub6vyhm1of",
+        "name": "Climate",
+        "slug": "climate",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.690Z",
+        "updatedAt": "2026-08-22T18:30:53.594Z",
+        "publishedAt": "2026-08-22T18:30:53.592Z"
+      }
+    ],
+    "author": {
+      "id": 1,
+      "documentId": "ud61ood1bcell6r9unpjogs1",
+      "name": "K Curtis",
+      "slug": "k-curtis",
+      "role": null,
+      "bio": "Kritin Curtis writes practical smart home guides for NXT Smart Home, with a focus on Australian homes, rental-friendly installs, home networking, security cameras, video doorbells, and everyday automation. His work explains what smart devices actually do in real homes, where they fail, and what Australian buyers should check before choosing hubs, sensors, cameras, locks, plugs or connected appliances.",
+      "sameAs": null,
+      "createdAt": "2026-08-22T21:05:59.312Z",
+      "updatedAt": "2026-09-24T02:15:29.618Z",
+      "publishedAt": null
+    }
+  }
+}

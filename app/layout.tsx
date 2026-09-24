@@ -25,9 +25,17 @@ const inter = localFont({
   variable: '--font-inter',
 });
 
-// Logo wordmark only: Outfit, self-hosted from app/fonts/outfit (Google Fonts,
-// SIL OFL 1.1 — licence alongside), used at weight 700 via the font-logo
-// utility (app/globals.css). Body and headings stay on Inter.
+// Logo wordmark: Urbanist (weight 700), self-hosted from app/fonts/urbanist (Google Fonts,
+// SIL OFL 1.1 — licence alongside), used via the font-logo utility (app/globals.css).
+const urbanist = localFont({
+  src: [
+    { path: './fonts/urbanist/UrbanistVariable.woff2', weight: '100 900', style: 'normal' },
+    { path: './fonts/urbanist/UrbanistVariable-Italic.woff2', weight: '100 900', style: 'italic' },
+  ],
+  display: 'swap',
+  variable: '--font-urbanist',
+});
+
 const outfit = localFont({
   src: [{ path: './fonts/outfit/Outfit-latin-variable.woff2', weight: '100 900', style: 'normal' }],
   display: 'swap',
@@ -96,7 +104,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={site.language} className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
+    <html lang={site.language} className={`${inter.variable} ${urbanist.variable} ${outfit.variable}`} suppressHydrationWarning>
       <head>
         {/*
           Applies the theme before first paint. Without this a dark reader gets a

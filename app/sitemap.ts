@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { articleHref, getAllArticles } from '@/lib/content';
 import { pageCount } from '@/components/Pagination';
-import { getAllTopProducts, getIndexableTopProducts } from '@/lib/products';
+import { getIndexableTopProducts } from '@/lib/products';
 import { categories, site } from '@/lib/site';
 import { getAllAuthors, resolveAuthor } from '@/lib/authors';
 
@@ -22,11 +22,9 @@ export const revalidate = 3600;
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getAllArticles();
-  // Only products with our own editorial content; the rest are noindex price
-  // listings (lib/products.ts productEditorial). Product categories are still
-  // derived from the full catalogue, since those listing pages exist regardless.
+  // Only indexable products (lib/products.ts isIndexableProduct), and only the
+  // product-category pages holding at least 3 of them (AdSense Task 2).
   const products = getIndexableTopProducts();
-  const catalogue = getAllTopProducts();
   // Author pages with nothing published under them are noindex; leave them out.
   const authors = getAllAuthors().filter((author) =>
     articles.some((a) => resolveAuthor(a.author).slug === author.slug),
@@ -39,9 +37,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     (_, i) => i + 2,
   );
 
-  const productCategories = Array.from(
-    new Set(catalogue.map((p) => p.categorySlug).filter(Boolean)),
-  );
+  const perCategory = new Map<string, number>();
+  for (const p of products) perCategory.set(p.categorySlug, (perCategory.get(p.categorySlug) ?? 0) + 1);
+  const productCategories = [...perCategory].filter(([slug, n]) => slug && n >= 3).map(([slug]) => slug);
 
   const staticPages = [
     { path: '/', priority: 1.0, changeFrequency: 'daily' as const },
@@ -82,12 +80,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'daily' as const,
       priority: 0.4,
     })),
-    {
-      url: `${site.url}/products/`,
-      lastModified: newest,
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
-    },
+    // The hub only when it lists something indexable (it is noindex otherwise).
+    ...(products.length
+      ? [{ url: `${site.url}/products/`, lastModified: newest, changeFrequency: 'daily' as const, priority: 0.8 }]
+      : []),
     ...productCategories.map((slug) => ({
       url: `${site.url}/products/category/${slug}/`,
       lastModified: newest,

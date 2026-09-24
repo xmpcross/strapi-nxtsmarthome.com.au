@@ -1,0 +1,332 @@
+{
+  "published": {
+    "id": 273,
+    "documentId": "vw5z1ljr7rcrdpg7hlg1vsvh",
+    "title": "What a Robot Vacuum Actually Costs to Keep Running in Australia After the Purchase Price",
+    "slug": "robot-vacuum-running-costs-australia",
+    "excerpt": "Filters, brushes, mop pads, dust bags, detergent and a surprisingly hungry dock all add up long after the sale price is forgotten. Here is a realistic annual running-cost budget for robot vacuums in Australian homes, plus the parts worth buying generic and the ones that are not.",
+    "content": "Robot vacuums get sold on the sticker price. A $1,999 flagship on special at $1,199 feels like a win, and it might be. But the machine keeps asking for money after it comes home: brushes wear, filters clog, dust bags fill, mop pads go grey, and the dock quietly draws power 24 hours a day on a 240V circuit that never sleeps.\n\nHere is what those ongoing costs actually look like in an Australian home, and where you can trim them without shortening the life of the machine.\n\n## Consumables Are the Real Cost, Not Electricity\n\nMost owners assume power is the big ongoing expense. It is not. Replacement parts are.\n\nTypical manufacturer replacement intervals, taken from the user manuals rather than from testing:\n\n- **Side brush:** every 3–6 months\n- **Main roller brush:** every 6–12 months\n- **Washable filter:** rinse monthly, replace every 3–6 months\n- **Mop pads or rollers:** every 3–6 months\n- **Auto-empty dust bags:** every 30–60 days for an average household, faster with pets or long hair\n- **Dock cleaning solution:** one bottle every 2–4 months if you use it\n\nRun the numbers on indicative Australian pricing and a mid-range self-emptying model lands somewhere around **$120–$220 a year in consumables** for a typical three-bedroom home [VERIFY]. A basic vacuum-only robot with no dock can be closer to $50–$80 [VERIFY]. Homes with a shedding dog sit at the top of the range, or above it.\n\nThat is the number worth carrying into the shop. Over five years, consumables can quietly total a second robot vacuum.\n\n## The All-in-One Docks Cost More to Feed\n\nThe more the dock does, the more it consumes. A station that self-empties, washes the mop pads, refills the water tank and hot-air dries the pads has more wear items than a plain charging base — dust bags, a cleaning-solution reservoir, dock filters, and mop pads that live a hard life in a wet tray.\n\nEcovacs' X2 Omni line is the clearest example of this trade-off: an unusually capable dock, and an unusually long consumables list to match.\n\n::product:ecovacs-deebot-x2-omni-square-robot-vacuum::\n\nProprietary detergent is where opinions split. Manufacturers specify their own low-foam solution because a normal floor cleaner can foam inside the dock's pump and sensors. Using something else may not damage the machine, but it can give the manufacturer an easy reason to knock back a warranty claim [VERIFY — check the warranty terms for your specific model]. If the dock cleaning fluid is the part that annoys you, an alternative is to skip detergent entirely and run plain water, which most docks allow.\n\nThe Dreame L10s Ultra sits in the same all-in-one category, and its consumables — dust bags, mop pads, side brush, filter — are widely stocked through Amazon AU and eBay AU, which does keep replacement pricing competitive.\n\n::product:dreame-l10s-ultra-robot-vacuum-and-mop::\n\n## Electricity: Small, But Standby Draw Does the Damage\n\nThe cleaning run itself is cheap. A typical robot battery holds roughly 60–80Wh, so a full charge with losses is around 0.1kWh. Clean daily for a year and that is under 40kWh [VERIFY — varies by model and floor area].\n\nThe less obvious costs:\n\n- **Dock standby.** A dock sitting idle at, say, 2–4W runs 8,760 hours a year. Call it 17–35kWh annually — often more than the cleaning itself.\n- **Self-empty bursts.** Very high wattage, very short duration. Negligible over a year.\n- **Hot-air mop drying.** This is the sleeper. Two to three hours of warm-air drying after every mop cycle adds up, and hot-water washing docks add a heating element on top.\n\nAt a residential rate of roughly 30–40c/kWh across most Australian retailers [VERIFY — check your own tariff], a plain robot vacuum costs somewhere near **$15–$25 a year** to run, and a full mopping-and-drying station perhaps **$35–$70** [VERIFY].\n\nIf you would rather know than guess, put a metering smart plug between the dock and the wall and read the actual consumption over a fortnight. It is the only way to get a figure for your home, your floor area and your cleaning schedule.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nOne caution: check the plug's rated load against the dock's peak draw before you rely on it. Self-empty stations pull hard for a few seconds, and a mini plug rated at 10A on a 240V circuit should cope with a domestic dock, but read both labels rather than assuming [VERIFY]. Never daisy-chain a dock through a travel adaptor or an unrated extension lead.\n\n## Batteries, Repairs and the Three-Year Cliff\n\nLithium batteries in robot vacuums are usually rated for several hundred charge cycles. Clean daily and you may see noticeably shorter runtime somewhere in the two-to-four-year window. Replacement packs run roughly $60–$140 depending on brand and whether you buy genuine [VERIFY], and on most models it is a few screws under the base plate rather than a service job.\n\nBeyond the battery, the common failures are wheel motors, the brush motor, dock pumps and LiDAR turrets. Out-of-warranty repair pricing in Australia is inconsistent and often approaches the cost of a new mid-range unit.\n\nWorth knowing: Australian Consumer Law statutory guarantees can apply beyond the manufacturer's stated warranty period, based on what a reasonable person would expect from the price and the product. That is not the same as a guaranteed free repair, and outcomes depend on the circumstances [VERIFY — see the ACCC's guidance on consumer guarantees before making a claim].\n\n## Where Generic Parts Make Sense, and Where They Do Not\n\nThird-party consumables from eBay AU and Amazon AU are often a third of the genuine price. Some are fine. Some are not.\n\n**Usually safe to buy generic:** side brushes, mop pads, dust bags. These are simple mechanical parts, and a poor one is obvious immediately.\n\n**Be more careful:** filters and main brushes. A filter that does not seal properly lets fine dust bypass into the motor housing, which is a slow, invisible way to shorten the life of the machine. A cheap main brush with the wrong bristle stiffness cleans worse and can rub the floor plate.\n\n**Buy genuine:** batteries. Cell quality and protection circuitry are not things you want to gamble on in a device that charges unattended.\n\n## A Realistic Five-Year Budget\n\nAdd it up for a mid-range all-in-one model:\n\n- Consumables: roughly $150/year\n- Power: roughly $45/year\n- One battery replacement across five years: roughly $100\n- Detergent, if used: roughly $80/year\n\nThat is somewhere near **$1,475 over five years** on top of the purchase price [VERIFY — all figures indicative]. Even at the low end, a $1,200 vacuum is closer to a $2,000 decision.\n\nNone of that makes robot vacuums bad value. It does mean that when you are comparing two models, the price of a three-pack of dust bags and a set of mop pads is a fair thing to check before you tap the card — and that a cheaper machine with widely stocked, non-proprietary consumables can end up costing less than a discounted flagship.",
+    "keyTakeaways": "Budget roughly $150–$300 a year to keep a self-emptying robot vacuum running in Australia — consumables like brushes, filters, dust bags and mop pads are the bulk of it, with electricity typically only $15–$70 a year [VERIFY]. Over five years that ongoing spend can rival the purchase price.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "robot vacuums",
+      "running costs",
+      "consumables",
+      "energy use",
+      "buying advice",
+      "Australia"
+    ],
+    "readingTimeMinutes": 6,
+    "seoTitle": "Robot Vacuum Running Costs in Australia: Real Numbers",
+    "seoDescription": "Filters, brushes, dust bags, detergent and dock standby power all add up. A realistic annual running-cost budget for robot vacuums in Australian homes.",
+    "seoKeywords": "robot vacuum running costs australia, robot vacuum consumables cost, robot vacuum electricity usage, dust bags mop pads replacement cost, robot vacuum battery replacement australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:21:14.158Z",
+    "updatedAt": "2026-08-23T00:44:54.102Z",
+    "publishedAt": "2026-08-23T00:44:54.137Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3993,
+      "documentId": "r2vxcdku90ddrlp8h2vig8f3",
+      "name": "what-a-robot-vacuum-actually-costs-to-keep-running-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca.jpg",
+          "hash": "large_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca",
+          "mime": "image/jpeg",
+          "name": "large_what-a-robot-vacuum-actually-costs-to-keep-running-cover.jpg",
+          "path": null,
+          "size": 54.65,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 54652
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca.jpg",
+          "hash": "small_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca",
+          "mime": "image/jpeg",
+          "name": "small_what-a-robot-vacuum-actually-costs-to-keep-running-cover.jpg",
+          "path": null,
+          "size": 18.48,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 18478
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca.jpg",
+          "hash": "medium_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca",
+          "mime": "image/jpeg",
+          "name": "medium_what-a-robot-vacuum-actually-costs-to-keep-running-cover.jpg",
+          "path": null,
+          "size": 34.25,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 34250
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca.jpg",
+          "hash": "thumbnail_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca",
+          "mime": "image/jpeg",
+          "name": "thumbnail_what-a-robot-vacuum-actually-costs-to-keep-running-cover.jpg",
+          "path": null,
+          "size": 6.27,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6265
+        }
+      },
+      "hash": "what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 115.48,
+      "url": "/uploads/what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:29:34.228Z",
+      "updatedAt": "2026-08-23T00:29:34.228Z",
+      "publishedAt": "2026-08-23T00:29:34.229Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1717,
+        "question": "How much should I budget each year for robot vacuum replacement parts?",
+        "answer": "A mid-range self-emptying model in a typical three-bedroom home works out around $120–$220 a year in consumables, while a basic vacuum-only robot with no dock is closer to $50–$80 [VERIFY]. Homes with a shedding dog sit at the top of that range or above it, mainly because dust bags and filters fill faster."
+      },
+      {
+        "order": 2,
+        "id": 1718,
+        "question": "Is it worth buying cheap third-party brushes and filters from eBay AU or Amazon AU?",
+        "answer": "Side brushes, mop pads and dust bags are usually safe to buy generic — they're simple mechanical parts and a bad one is obvious straight away. Be more careful with filters and main brushes, since a filter that doesn't seal lets fine dust bypass into the motor housing, and buy genuine batteries because cell quality and protection circuitry aren't worth gambling on."
+      },
+      {
+        "order": 3,
+        "id": 1719,
+        "question": "Do I have to use the manufacturer's own dock cleaning solution?",
+        "answer": "Manufacturers specify a low-foam solution because ordinary floor cleaner can foam inside the dock's pump and sensors, and using something else may give the manufacturer grounds to refuse a warranty claim [VERIFY — check your model's warranty terms]. If the proprietary detergent is the part that irritates you, most docks will run on plain water instead."
+      },
+      {
+        "order": 4,
+        "id": 1720,
+        "question": "How much electricity does a robot vacuum dock actually use in a year?",
+        "answer": "The cleaning runs are cheap — roughly 0.1kWh per charge, under 40kWh a year if you clean daily [VERIFY]. Standby draw is the bigger cost: a dock idling at 2–4W for 8,760 hours adds 17–35kWh, so at roughly 30–40c/kWh a plain robot costs about $15–$25 a year and a mopping-and-drying station perhaps $35–$70 [VERIFY — check your own tariff]."
+      },
+      {
+        "order": 5,
+        "id": 1721,
+        "question": "When will the battery need replacing and can I do it myself?",
+        "answer": "Packs are rated for several hundred charge cycles, so with daily cleaning you may notice shorter runtime somewhere in the two-to-four-year window. Replacements run roughly $60–$140 depending on brand and whether you buy genuine [VERIFY], and on most models it's a few screws under the base plate rather than a workshop job."
+      }
+    ],
+    "categories": [
+      {
+        "id": 7,
+        "documentId": "y70h3kes2ecvck8ez2an3qwp",
+        "name": "Robot Vacuums",
+        "slug": "robot-vacuums",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.976Z",
+        "updatedAt": "2026-08-22T18:30:53.780Z",
+        "publishedAt": "2026-08-22T18:30:53.778Z"
+      }
+    ],
+    "author": {
+      "id": 12,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": "2026-08-22T21:55:03.953Z"
+    }
+  },
+  "draft": {
+    "id": 210,
+    "documentId": "vw5z1ljr7rcrdpg7hlg1vsvh",
+    "title": "What a Robot Vacuum Actually Costs to Keep Running in Australia After the Purchase Price",
+    "slug": "robot-vacuum-running-costs-australia",
+    "excerpt": "Filters, brushes, mop pads, dust bags, detergent and a surprisingly hungry dock all add up long after the sale price is forgotten. Here is a realistic annual running-cost budget for robot vacuums in Australian homes, plus the parts worth buying generic and the ones that are not.",
+    "content": "Robot vacuums get sold on the sticker price. A $1,999 flagship on special at $1,199 feels like a win, and it might be. But the machine keeps asking for money after it comes home: brushes wear, filters clog, dust bags fill, mop pads go grey, and the dock quietly draws power 24 hours a day on a 240V circuit that never sleeps.\n\nHere is what those ongoing costs actually look like in an Australian home, and where you can trim them without shortening the life of the machine.\n\n## Consumables Are the Real Cost, Not Electricity\n\nMost owners assume power is the big ongoing expense. It is not. Replacement parts are.\n\nTypical manufacturer replacement intervals, taken from the user manuals rather than from testing:\n\n- **Side brush:** every 3–6 months\n- **Main roller brush:** every 6–12 months\n- **Washable filter:** rinse monthly, replace every 3–6 months\n- **Mop pads or rollers:** every 3–6 months\n- **Auto-empty dust bags:** every 30–60 days for an average household, faster with pets or long hair\n- **Dock cleaning solution:** one bottle every 2–4 months if you use it\n\nRun the numbers on indicative Australian pricing and a mid-range self-emptying model lands somewhere around **$120–$220 a year in consumables** for a typical three-bedroom home [VERIFY]. A basic vacuum-only robot with no dock can be closer to $50–$80 [VERIFY]. Homes with a shedding dog sit at the top of the range, or above it.\n\nThat is the number worth carrying into the shop. Over five years, consumables can quietly total a second robot vacuum.\n\n## The All-in-One Docks Cost More to Feed\n\nThe more the dock does, the more it consumes. A station that self-empties, washes the mop pads, refills the water tank and hot-air dries the pads has more wear items than a plain charging base — dust bags, a cleaning-solution reservoir, dock filters, and mop pads that live a hard life in a wet tray.\n\nEcovacs' X2 Omni line is the clearest example of this trade-off: an unusually capable dock, and an unusually long consumables list to match.\n\n::product:ecovacs-deebot-x2-omni-square-robot-vacuum::\n\nProprietary detergent is where opinions split. Manufacturers specify their own low-foam solution because a normal floor cleaner can foam inside the dock's pump and sensors. Using something else may not damage the machine, but it can give the manufacturer an easy reason to knock back a warranty claim [VERIFY — check the warranty terms for your specific model]. If the dock cleaning fluid is the part that annoys you, an alternative is to skip detergent entirely and run plain water, which most docks allow.\n\nThe Dreame L10s Ultra sits in the same all-in-one category, and its consumables — dust bags, mop pads, side brush, filter — are widely stocked through Amazon AU and eBay AU, which does keep replacement pricing competitive.\n\n::product:dreame-l10s-ultra-robot-vacuum-and-mop::\n\n## Electricity: Small, But Standby Draw Does the Damage\n\nThe cleaning run itself is cheap. A typical robot battery holds roughly 60–80Wh, so a full charge with losses is around 0.1kWh. Clean daily for a year and that is under 40kWh [VERIFY — varies by model and floor area].\n\nThe less obvious costs:\n\n- **Dock standby.** A dock sitting idle at, say, 2–4W runs 8,760 hours a year. Call it 17–35kWh annually — often more than the cleaning itself.\n- **Self-empty bursts.** Very high wattage, very short duration. Negligible over a year.\n- **Hot-air mop drying.** This is the sleeper. Two to three hours of warm-air drying after every mop cycle adds up, and hot-water washing docks add a heating element on top.\n\nAt a residential rate of roughly 30–40c/kWh across most Australian retailers [VERIFY — check your own tariff], a plain robot vacuum costs somewhere near **$15–$25 a year** to run, and a full mopping-and-drying station perhaps **$35–$70** [VERIFY].\n\nIf you would rather know than guess, put a metering smart plug between the dock and the wall and read the actual consumption over a fortnight. It is the only way to get a figure for your home, your floor area and your cleaning schedule.\n\n::product:tp-link-tapo-p100-mini-smart-wi-fi-socket-plug::\n\nOne caution: check the plug's rated load against the dock's peak draw before you rely on it. Self-empty stations pull hard for a few seconds, and a mini plug rated at 10A on a 240V circuit should cope with a domestic dock, but read both labels rather than assuming [VERIFY]. Never daisy-chain a dock through a travel adaptor or an unrated extension lead.\n\n## Batteries, Repairs and the Three-Year Cliff\n\nLithium batteries in robot vacuums are usually rated for several hundred charge cycles. Clean daily and you may see noticeably shorter runtime somewhere in the two-to-four-year window. Replacement packs run roughly $60–$140 depending on brand and whether you buy genuine [VERIFY], and on most models it is a few screws under the base plate rather than a service job.\n\nBeyond the battery, the common failures are wheel motors, the brush motor, dock pumps and LiDAR turrets. Out-of-warranty repair pricing in Australia is inconsistent and often approaches the cost of a new mid-range unit.\n\nWorth knowing: Australian Consumer Law statutory guarantees can apply beyond the manufacturer's stated warranty period, based on what a reasonable person would expect from the price and the product. That is not the same as a guaranteed free repair, and outcomes depend on the circumstances [VERIFY — see the ACCC's guidance on consumer guarantees before making a claim].\n\n## Where Generic Parts Make Sense, and Where They Do Not\n\nThird-party consumables from eBay AU and Amazon AU are often a third of the genuine price. Some are fine. Some are not.\n\n**Usually safe to buy generic:** side brushes, mop pads, dust bags. These are simple mechanical parts, and a poor one is obvious immediately.\n\n**Be more careful:** filters and main brushes. A filter that does not seal properly lets fine dust bypass into the motor housing, which is a slow, invisible way to shorten the life of the machine. A cheap main brush with the wrong bristle stiffness cleans worse and can rub the floor plate.\n\n**Buy genuine:** batteries. Cell quality and protection circuitry are not things you want to gamble on in a device that charges unattended.\n\n## A Realistic Five-Year Budget\n\nAdd it up for a mid-range all-in-one model:\n\n- Consumables: roughly $150/year\n- Power: roughly $45/year\n- One battery replacement across five years: roughly $100\n- Detergent, if used: roughly $80/year\n\nThat is somewhere near **$1,475 over five years** on top of the purchase price [VERIFY — all figures indicative]. Even at the low end, a $1,200 vacuum is closer to a $2,000 decision.\n\nNone of that makes robot vacuums bad value. It does mean that when you are comparing two models, the price of a three-pack of dust bags and a set of mop pads is a fair thing to check before you tap the card — and that a cheaper machine with widely stocked, non-proprietary consumables can end up costing less than a discounted flagship.",
+    "keyTakeaways": "Budget roughly $150–$300 a year to keep a self-emptying robot vacuum running in Australia — consumables like brushes, filters, dust bags and mop pads are the bulk of it, with electricity typically only $15–$70 a year [VERIFY]. Over five years that ongoing spend can rival the purchase price.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "robot vacuums",
+      "running costs",
+      "consumables",
+      "energy use",
+      "buying advice",
+      "Australia"
+    ],
+    "readingTimeMinutes": 6,
+    "seoTitle": "Robot Vacuum Running Costs in Australia: Real Numbers",
+    "seoDescription": "Filters, brushes, dust bags, detergent and dock standby power all add up. A realistic annual running-cost budget for robot vacuums in Australian homes.",
+    "seoKeywords": "robot vacuum running costs australia, robot vacuum consumables cost, robot vacuum electricity usage, dust bags mop pads replacement cost, robot vacuum battery replacement australia",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:21:14.158Z",
+    "updatedAt": "2026-08-23T00:44:54.102Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3993,
+      "documentId": "r2vxcdku90ddrlp8h2vig8f3",
+      "name": "what-a-robot-vacuum-actually-costs-to-keep-running-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca.jpg",
+          "hash": "large_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca",
+          "mime": "image/jpeg",
+          "name": "large_what-a-robot-vacuum-actually-costs-to-keep-running-cover.jpg",
+          "path": null,
+          "size": 54.65,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 54652
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca.jpg",
+          "hash": "small_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca",
+          "mime": "image/jpeg",
+          "name": "small_what-a-robot-vacuum-actually-costs-to-keep-running-cover.jpg",
+          "path": null,
+          "size": 18.48,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 18478
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca.jpg",
+          "hash": "medium_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca",
+          "mime": "image/jpeg",
+          "name": "medium_what-a-robot-vacuum-actually-costs-to-keep-running-cover.jpg",
+          "path": null,
+          "size": 34.25,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 34250
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca.jpg",
+          "hash": "thumbnail_what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca",
+          "mime": "image/jpeg",
+          "name": "thumbnail_what-a-robot-vacuum-actually-costs-to-keep-running-cover.jpg",
+          "path": null,
+          "size": 6.27,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 6265
+        }
+      },
+      "hash": "what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 115.48,
+      "url": "/uploads/what_a_robot_vacuum_actually_costs_to_keep_running_cover_8094106fca.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:29:34.228Z",
+      "updatedAt": "2026-08-23T00:29:34.228Z",
+      "publishedAt": "2026-08-23T00:29:34.229Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1712,
+        "question": "How much should I budget each year for robot vacuum replacement parts?",
+        "answer": "A mid-range self-emptying model in a typical three-bedroom home works out around $120–$220 a year in consumables, while a basic vacuum-only robot with no dock is closer to $50–$80 [VERIFY]. Homes with a shedding dog sit at the top of that range or above it, mainly because dust bags and filters fill faster."
+      },
+      {
+        "order": 2,
+        "id": 1713,
+        "question": "Is it worth buying cheap third-party brushes and filters from eBay AU or Amazon AU?",
+        "answer": "Side brushes, mop pads and dust bags are usually safe to buy generic — they're simple mechanical parts and a bad one is obvious straight away. Be more careful with filters and main brushes, since a filter that doesn't seal lets fine dust bypass into the motor housing, and buy genuine batteries because cell quality and protection circuitry aren't worth gambling on."
+      },
+      {
+        "order": 3,
+        "id": 1714,
+        "question": "Do I have to use the manufacturer's own dock cleaning solution?",
+        "answer": "Manufacturers specify a low-foam solution because ordinary floor cleaner can foam inside the dock's pump and sensors, and using something else may give the manufacturer grounds to refuse a warranty claim [VERIFY — check your model's warranty terms]. If the proprietary detergent is the part that irritates you, most docks will run on plain water instead."
+      },
+      {
+        "order": 4,
+        "id": 1715,
+        "question": "How much electricity does a robot vacuum dock actually use in a year?",
+        "answer": "The cleaning runs are cheap — roughly 0.1kWh per charge, under 40kWh a year if you clean daily [VERIFY]. Standby draw is the bigger cost: a dock idling at 2–4W for 8,760 hours adds 17–35kWh, so at roughly 30–40c/kWh a plain robot costs about $15–$25 a year and a mopping-and-drying station perhaps $35–$70 [VERIFY — check your own tariff]."
+      },
+      {
+        "order": 5,
+        "id": 1716,
+        "question": "When will the battery need replacing and can I do it myself?",
+        "answer": "Packs are rated for several hundred charge cycles, so with daily cleaning you may notice shorter runtime somewhere in the two-to-four-year window. Replacements run roughly $60–$140 depending on brand and whether you buy genuine [VERIFY], and on most models it's a few screws under the base plate rather than a workshop job."
+      }
+    ],
+    "categories": [
+      {
+        "id": 7,
+        "documentId": "y70h3kes2ecvck8ez2an3qwp",
+        "name": "Robot Vacuums",
+        "slug": "robot-vacuums",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.976Z",
+        "updatedAt": "2026-08-22T18:30:53.780Z",
+        "publishedAt": "2026-08-22T18:30:53.778Z"
+      }
+    ],
+    "author": {
+      "id": 3,
+      "documentId": "wae2q2nchm7m60pm36ubrren",
+      "name": "Adrian Thompson",
+      "slug": "adrian-thompson",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Adrian writes the buying guides and platform comparisons on NXT Smart Home, working through what a device actually does in an Australian home rather than what the box claims — 240V power and Type I plugs, AS/NZS wiring rules, and what the local retailers actually stock.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.321Z",
+      "updatedAt": "2026-08-22T21:55:03.941Z",
+      "publishedAt": null
+    }
+  }
+}

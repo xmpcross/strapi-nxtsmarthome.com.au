@@ -5,7 +5,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import JsonLd from '@/components/JsonLd';
 import PageHeader from '@/components/PageHeader';
 import ProductGrid from '@/components/ProductGrid';
-import { getAllTopProducts, toListingCard } from '@/lib/products';
+import { getIndexableTopProducts, getListableTopProducts, toListingCard } from '@/lib/products';
 import { faqJsonLd } from '@/lib/seo';
 import { categories, site } from '@/lib/site';
 import { getNav } from '@/lib/nav';
@@ -21,6 +21,12 @@ export const metadata: Metadata = {
   title: `${TITLE} | NXT Smart Home`,
   description: DESCRIPTION,
   alternates: { canonical: '/products/' },
+  /*
+    The hub lists price listings; with no indexable product among them it is
+    noindex, follow (AdSense Task 2, lib/products.ts isIndexableProduct). The
+    catalogue is read at build, so this is decided per deploy.
+  */
+  ...(getIndexableTopProducts().length ? {} : { robots: { index: false, follow: true } }),
   /*
     Without these the page inherits the root object wholesale — including an
     og:url pointing at the homepage — so sharing this page anywhere presented
@@ -167,7 +173,8 @@ const FAQ: { q: string; a: string; link: { href: string; label: string } }[] = [
 export default function ProductsPage() {
   const { productCategoryNavLinks } = getNav();
 
-  const products = getAllTopProducts();
+  // Empty listings are never listed; their pages still resolve (isEmptyListing).
+  const products = getListableTopProducts();
 
   /*
     {{DATE}} in the draft copy. Derived from the newest pricesCheckedAt in the

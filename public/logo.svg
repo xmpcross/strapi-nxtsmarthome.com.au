@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 50" width="280" height="50" fill="none" role="img" aria-label="NXT Smart Home — Australia's Smart Home Guide">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@700&amp;display=swap');
+      .title-nxt { font-family: 'Urbanist', system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 24px; fill: #4F46E5; }
+      .title-rest { font-family: 'Urbanist', system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 24px; fill: #0F172A; }
+      .slogan { font-family: 'Urbanist', system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 9.5px; letter-spacing: 0.16em; fill: #64748B; text-transform: uppercase; }
+      .mark-light { display: block; }
+      .mark-dark { display: none; }
+
+      @media (prefers-color-scheme: dark) {
+        .title-nxt { fill: #818CF8; }
+        .title-rest { fill: #FFFFFF; }
+        .slogan { fill: #94A3B8; }
+        .mark-light { display: none; }
+        .mark-dark { display: block; }
+      }
+    </style>
+
+    <linearGradient id="nxt-rf-l" x1="6" y1="6" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+
+    <linearGradient id="nxt-rf-d" x1="6" y1="6" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+    <linearGradient id="nxt-dg-d" x1="11" y1="19" x2="33" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Light Mode Mark -->
+  <g class="mark-light" transform="translate(3, 3)">
+    <path d="M8 36V18L22 7L36 18V36" stroke="url(#nxt-rf-l)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M11 19L33 34" stroke="#4F46E5" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="22" cy="22" r="2.5" fill="#0EA5E9"/>
+    <path d="M17 17.5C18.5 16 25.5 16 27 17.5" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M14.5 14.5C17 12.5 27 12.5 29.5 14.5" stroke="#0EA5E9" stroke-width="1.8" stroke-linecap="round" stroke-opacity="0.75"/>
+  </g>
+
+  <!-- Dark Mode Mark -->
+  <g class="mark-dark" transform="translate(3, 3)">
+    <path d="M8 36V18L22 7L36 18V36" stroke="url(#nxt-rf-d)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M11 19L33 34" stroke="url(#nxt-dg-d)" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="22" cy="22" r="2.5" fill="#38BDF8"/>
+    <path d="M17 17.5C18.5 16 25.5 16 27 17.5" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M14.5 14.5C17 12.5 27 12.5 29.5 14.5" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-opacity="0.8"/>
+  </g>
+
+  <!-- Title & Slogan -->
+  <g transform="translate(56, 0)">
+    <text x="0" y="27">
+      <tspan class="title-nxt">NXT</tspan><tspan class="title-rest"> Smart Home</tspan>
+    </text>
+    <text x="1" y="42" class="slogan">AUSTRALIA'S SMART HOME GUIDE</text>
+  </g>
+</svg>

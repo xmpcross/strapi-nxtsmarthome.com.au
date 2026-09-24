@@ -1,0 +1,334 @@
+{
+  "published": {
+    "id": 270,
+    "documentId": "h5qv1esj8s3rjuepdg5bks2t",
+    "title": "Smart Thermostat Options for Gas Ducted and Hydronic Heating in Older Australian Homes",
+    "slug": "smart-thermostat-gas-ducted-hydronic-heating-australia",
+    "excerpt": "Most Australian gas ducted heaters and hydronic boilers won't accept an off-the-shelf smart thermostat. Here are the upgrade paths that actually work in older homes - manufacturer Wi-Fi modules, relay retrofits, OpenTherm room stats and smart TRVs - plus where a licensed trade is legally required.",
+    "content": "Older Australian homes are full of heating that predates the smart home by decades: a Brivis or Braemar gas ducted furnace in the roof space, or a gas boiler pushing hot water through cast iron and panel radiators. Both work fine. Both are usually controlled by a wall unit with the intelligence of a light switch. And both are the reason so many people buy a smart thermostat, get it home, and discover it simply will not connect.\n\nHere is what actually works, and what to avoid wasting money on.\n\n## Why your ducted heater probably won't take a generic smart thermostat\n\nMost smart thermostats sold globally are designed around the North American 24V thermostat standard: a handful of colour-coded wires (R, W, Y, G, C) where the thermostat is effectively a clever switch closing a low-voltage circuit.\n\nAustralian gas ducted heating almost never works that way. Brands like Brivis, Bonaire, Braemar and Rinnai typically use a proprietary low-voltage data bus between the wall controller and the furnace control board - the controller and the heater talk to each other in a language only they speak [VERIFY, varies by model and vintage]. Swap the controller for a third-party thermostat and you get nothing, because there is no standard signal to intercept.\n\nHydronic is friendlier. A gas boiler with zone valves is usually switched by a simple thermostat contact - either a low-voltage circuit or a mains-voltage one - which is much closer to what generic smart thermostats expect.\n\nSo the honest first step is not shopping. It is identifying your system: photograph the wall controller, the model plate on the furnace or boiler, and (if you can safely see it without removing anything fixed) the number of wires at the back of the controller. That determines which of the paths below is open to you.\n\n## Gas ducted: the three realistic upgrade paths\n\n**1. The manufacturer's own Wi-Fi module.** Unromantic, but usually the cleanest result. Most of the major Australian ducted brands now sell a Wi-Fi kit or a networked touch controller that adds app scheduling and remote start - Brivis, Rinnai and Seeley (Braemar) all have their own ecosystems [VERIFY current model names, compatibility and pricing with the manufacturer]. Expect a few hundred dollars installed [VERIFY], and expect compatibility to depend on the age of the furnace control board. A 1990s unit may not be supported at all.\n\nThe upside for Home Assistant users: several of these systems have community integrations, so a manufacturer module can end up more automatable than a third-party thermostat would have been [VERIFY - community integrations are unofficial and can break with firmware updates].\n\n**2. A dry-contact or relay retrofit.** Some ducted furnaces can be configured to accept a simple external thermostat input, at which point a conventional smart thermostat or a relay module can drive it. This is model-dependent and needs the heating technician to confirm it on your specific unit - do not assume it. Done properly it gives you the widest choice of controller; done badly it can bypass safety interlocks.\n\n**3. Leave the controller alone and get smarter around it.** Schedule with the existing controller, then use room sensors and automations to tell you when the schedule is wrong. Less satisfying, zero risk, no cost beyond a couple of sensors.\n\nOne thermostat people constantly ask about is Google's. It is a genuinely good product, but the Nest range has had a patchy Australian retail history and is built around 24V North American wiring conventions, so treat it as a hydronic or heat pump option rather than a ducted gas one unless your installer confirms otherwise [VERIFY availability, current model and local support before buying].\n\n::product:google-nest-smart-thermostat::\n\n## Hydronic heating: relays, zone valves and OpenTherm\n\nIf you have a gas boiler and radiators, you have more options than your ducted-heating neighbours.\n\nThe basic setup is a room thermostat that calls for heat, opening a zone valve and firing the boiler. Replace that thermostat with a smart one and you get scheduling, geofencing and remote control immediately. Two things to check first:\n\n- **Switching voltage.** Australian hydronic thermostats are often mains-voltage switched. Anything involving 240V wiring is electrical work and must be done by a licensed electrician - this is not a DIY job, regardless of what an overseas YouTube video shows [VERIFY current requirements in your state].\n- **On/off versus modulating.** A basic thermostat just says \"heat\" or \"no heat\". An OpenTherm-capable thermostat paired with an OpenTherm boiler can tell the boiler *how much* heat to make, which lowers flow temperatures and can meaningfully cut gas use in a well-zoned house [VERIFY savings for your system]. Bosch's smart room thermostats are the usual example of this class in Australia.\n\n::product:bosch-ii-smart-thermostat::\n\nFor radiator-level control, smart thermostatic radiator valve heads (Zigbee models from the likes of Aqara and Sonoff) screw onto standard valve bodies and let you run bedrooms cooler than living areas. Check the valve thread - M30x1.5 is common but not universal on older Australian installs [VERIFY], and old valve bodies sometimes seize and need a plumber to swap.\n\n## Room sensors are the cheap win older homes need most\n\nIn a 1960s brick veneer or a weatherboard cottage, the single biggest control problem usually isn't the thermostat's intelligence - it's where the thermostat lives. Hallway, external wall, near the front door, three metres from a return air grille. It measures a temperature nobody actually experiences.\n\nA handful of $25-$40 Wi-Fi or Zigbee temperature and humidity sensors [VERIFY pricing] scattered through the bedrooms, living room and the coldest corner will tell you more in a fortnight than a brochure ever will. You will typically find one or two rooms running 3-4°C behind the rest, which is a zoning, draught-sealing or duct problem - not something a $300 thermostat fixes.\n\n::product:tp-link-tapo-smart-temperature-humidity-monitor::\n\nHumidity data matters too. Older homes with unsealed subfloors and gas heating often sit at uncomfortable extremes, and condensation on single-glazed windows is a mould risk worth tracking through winter.\n\n## What needs a licensed trade, and what doesn't\n\nPlainly:\n\n- **Any mains-voltage wiring** - replacing a 240V-switched thermostat, adding a relay into a boiler circuit, running new cable - requires a licensed electrician under the AS/NZS 3000 wiring rules [VERIFY current edition and state requirements].\n- **Anything touching the gas appliance itself** - control boards, interlocks, flue, burner - is work for a licensed gasfitter or the manufacturer's service agent. DIY here can void warranties and insurance, and gets dangerous fast.\n- **Plug-in sensors, battery-powered sensors and app setup** are fine for anyone.\n- **Renting?** Get written landlord permission before anything is unscrewed from a wall, and keep the original controller to reinstate at the end of the lease [VERIFY your state's tenancy rules on alterations].\n\n## A sensible order of operations\n\n1. Identify the exact heater or boiler model and the controller type.\n2. Add three or four temperature sensors and log a fortnight of real data.\n3. Seal draughts and check ceiling insulation - in a leaky older home this beats any control upgrade for comfort per dollar.\n4. Then choose: manufacturer Wi-Fi module for ducted gas, or a smart room thermostat (ideally OpenTherm) plus radiator valve heads for hydronic.\n5. Book the licensed trade for anything wired.\n\nA smart thermostat won't make an inefficient old system efficient. What it will do is stop you heating an empty house, let you pre-warm before you get home, and give you the data to argue with your own assumptions - and in a draughty Australian winter, that's worth a lot.",
+    "keyTakeaways": "Most Australian gas ducted heaters use a proprietary controller bus, so an off-the-shelf smart thermostat won't work - your best options are the manufacturer's own Wi-Fi module or a technician-confirmed dry-contact retrofit. Hydronic systems are far more flexible: a smart room thermostat (ideally OpenTherm) plus smart radiator valve heads works well, but any mains-voltage wiring must be done by a licensed electrician.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "smart thermostat",
+      "gas ducted heating",
+      "hydronic heating",
+      "climate control",
+      "older homes",
+      "home assistant",
+      "energy saving"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Thermostats for Gas Ducted & Hydronic Heating AU",
+    "seoDescription": "Why most smart thermostats won't work with Australian gas ducted heating - and the retrofit, OpenTherm and sensor options that do in older homes.",
+    "seoKeywords": "smart thermostat australia, gas ducted heating smart control, hydronic heating thermostat, brivis wifi module, opentherm thermostat australia, smart trv radiator, older home heating automation",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:20:03.712Z",
+    "updatedAt": "2026-08-23T00:44:20.516Z",
+    "publishedAt": "2026-08-23T00:44:20.543Z",
+    "showFrom": null,
+    "coverImage": {
+      "id": 3987,
+      "documentId": "sc9w3cz4bcxz3r1ttpuf5y6s",
+      "name": "smart-thermostat-options-for-gas-ducted-and-hydron-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118.jpg",
+          "hash": "large_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118",
+          "mime": "image/jpeg",
+          "name": "large_smart-thermostat-options-for-gas-ducted-and-hydron-cover.jpg",
+          "path": null,
+          "size": 65.32,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 65321
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118.jpg",
+          "hash": "small_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118",
+          "mime": "image/jpeg",
+          "name": "small_smart-thermostat-options-for-gas-ducted-and-hydron-cover.jpg",
+          "path": null,
+          "size": 21.82,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 21823
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118.jpg",
+          "hash": "medium_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118",
+          "mime": "image/jpeg",
+          "name": "medium_smart-thermostat-options-for-gas-ducted-and-hydron-cover.jpg",
+          "path": null,
+          "size": 40.25,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 40248
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118.jpg",
+          "hash": "thumbnail_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118",
+          "mime": "image/jpeg",
+          "name": "thumbnail_smart-thermostat-options-for-gas-ducted-and-hydron-cover.jpg",
+          "path": null,
+          "size": 7.15,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 7149
+        }
+      },
+      "hash": "smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 148.45,
+      "url": "/uploads/smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:20:03.688Z",
+      "updatedAt": "2026-08-23T00:20:03.688Z",
+      "publishedAt": "2026-08-23T00:20:03.688Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1687,
+        "question": "Will a Google Nest thermostat work with my Brivis ducted gas heater?",
+        "answer": "Almost certainly not. Australian ducted brands like Brivis, Bonaire, Braemar and Rinnai typically use a proprietary low-voltage data bus between the wall controller and the furnace board, while Nest is built around North American 24V wiring conventions. Treat Nest as a hydronic or heat pump option rather than a ducted gas one unless your installer confirms otherwise, and check current Australian availability and support before buying [VERIFY]."
+      },
+      {
+        "order": 2,
+        "id": 1688,
+        "question": "Can I swap my hydronic room thermostat myself, or do I need an electrician?",
+        "answer": "If the thermostat switches 240V - which is common in Australian hydronic setups - it is electrical work and must be done by a licensed electrician under the AS/NZS 3000 wiring rules [VERIFY current edition and your state's requirements]. Anything touching the boiler's control board, interlocks or burner is gasfitter or manufacturer service agent territory. Battery sensors and app setup are fine for anyone."
+      },
+      {
+        "order": 3,
+        "id": 1689,
+        "question": "What's OpenTherm and is it worth paying extra for?",
+        "answer": "A basic thermostat only tells the boiler \"heat\" or \"no heat\", whereas an OpenTherm thermostat paired with an OpenTherm-capable boiler can tell it how much heat to produce. That allows lower flow temperatures and can meaningfully cut gas use in a well-zoned house [VERIFY savings for your system]. It only pays off if your boiler actually supports OpenTherm."
+      },
+      {
+        "order": 4,
+        "id": 1690,
+        "question": "Some of my rooms are freezing while the hallway is fine - will a smart thermostat fix that?",
+        "answer": "Usually not. The problem is often where the existing thermostat sits - hallway, external wall, near a return air grille - measuring a temperature nobody experiences. Put a few $25-$40 temperature and humidity sensors [VERIFY pricing] in the bedrooms and coldest corner for a fortnight; if rooms run 3-4°C behind, that's a zoning, draught or duct issue, not something a $300 thermostat solves."
+      },
+      {
+        "order": 5,
+        "id": 1691,
+        "question": "I'm renting - can I install a smart thermostat in a place with hydronic radiators?",
+        "answer": "Get written landlord permission before anything comes off a wall, and keep the original controller so you can reinstate it at the end of the lease [VERIFY your state's tenancy rules on alterations]. Battery-powered room sensors are the low-risk option since nothing is unscrewed or rewired. Smart radiator valve heads screw onto existing valve bodies, but old bodies can seize and need a plumber."
+      }
+    ],
+    "categories": [
+      {
+        "id": 2,
+        "documentId": "kr7s0nrg74tdavub6vyhm1of",
+        "name": "Climate",
+        "slug": "climate",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.690Z",
+        "updatedAt": "2026-08-22T18:30:53.594Z",
+        "publishedAt": "2026-08-22T18:30:53.592Z"
+      }
+    ],
+    "author": {
+      "id": 13,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": "2026-08-22T21:55:22.398Z"
+    }
+  },
+  "draft": {
+    "id": 207,
+    "documentId": "h5qv1esj8s3rjuepdg5bks2t",
+    "title": "Smart Thermostat Options for Gas Ducted and Hydronic Heating in Older Australian Homes",
+    "slug": "smart-thermostat-gas-ducted-hydronic-heating-australia",
+    "excerpt": "Most Australian gas ducted heaters and hydronic boilers won't accept an off-the-shelf smart thermostat. Here are the upgrade paths that actually work in older homes - manufacturer Wi-Fi modules, relay retrofits, OpenTherm room stats and smart TRVs - plus where a licensed trade is legally required.",
+    "content": "Older Australian homes are full of heating that predates the smart home by decades: a Brivis or Braemar gas ducted furnace in the roof space, or a gas boiler pushing hot water through cast iron and panel radiators. Both work fine. Both are usually controlled by a wall unit with the intelligence of a light switch. And both are the reason so many people buy a smart thermostat, get it home, and discover it simply will not connect.\n\nHere is what actually works, and what to avoid wasting money on.\n\n## Why your ducted heater probably won't take a generic smart thermostat\n\nMost smart thermostats sold globally are designed around the North American 24V thermostat standard: a handful of colour-coded wires (R, W, Y, G, C) where the thermostat is effectively a clever switch closing a low-voltage circuit.\n\nAustralian gas ducted heating almost never works that way. Brands like Brivis, Bonaire, Braemar and Rinnai typically use a proprietary low-voltage data bus between the wall controller and the furnace control board - the controller and the heater talk to each other in a language only they speak [VERIFY, varies by model and vintage]. Swap the controller for a third-party thermostat and you get nothing, because there is no standard signal to intercept.\n\nHydronic is friendlier. A gas boiler with zone valves is usually switched by a simple thermostat contact - either a low-voltage circuit or a mains-voltage one - which is much closer to what generic smart thermostats expect.\n\nSo the honest first step is not shopping. It is identifying your system: photograph the wall controller, the model plate on the furnace or boiler, and (if you can safely see it without removing anything fixed) the number of wires at the back of the controller. That determines which of the paths below is open to you.\n\n## Gas ducted: the three realistic upgrade paths\n\n**1. The manufacturer's own Wi-Fi module.** Unromantic, but usually the cleanest result. Most of the major Australian ducted brands now sell a Wi-Fi kit or a networked touch controller that adds app scheduling and remote start - Brivis, Rinnai and Seeley (Braemar) all have their own ecosystems [VERIFY current model names, compatibility and pricing with the manufacturer]. Expect a few hundred dollars installed [VERIFY], and expect compatibility to depend on the age of the furnace control board. A 1990s unit may not be supported at all.\n\nThe upside for Home Assistant users: several of these systems have community integrations, so a manufacturer module can end up more automatable than a third-party thermostat would have been [VERIFY - community integrations are unofficial and can break with firmware updates].\n\n**2. A dry-contact or relay retrofit.** Some ducted furnaces can be configured to accept a simple external thermostat input, at which point a conventional smart thermostat or a relay module can drive it. This is model-dependent and needs the heating technician to confirm it on your specific unit - do not assume it. Done properly it gives you the widest choice of controller; done badly it can bypass safety interlocks.\n\n**3. Leave the controller alone and get smarter around it.** Schedule with the existing controller, then use room sensors and automations to tell you when the schedule is wrong. Less satisfying, zero risk, no cost beyond a couple of sensors.\n\nOne thermostat people constantly ask about is Google's. It is a genuinely good product, but the Nest range has had a patchy Australian retail history and is built around 24V North American wiring conventions, so treat it as a hydronic or heat pump option rather than a ducted gas one unless your installer confirms otherwise [VERIFY availability, current model and local support before buying].\n\n::product:google-nest-smart-thermostat::\n\n## Hydronic heating: relays, zone valves and OpenTherm\n\nIf you have a gas boiler and radiators, you have more options than your ducted-heating neighbours.\n\nThe basic setup is a room thermostat that calls for heat, opening a zone valve and firing the boiler. Replace that thermostat with a smart one and you get scheduling, geofencing and remote control immediately. Two things to check first:\n\n- **Switching voltage.** Australian hydronic thermostats are often mains-voltage switched. Anything involving 240V wiring is electrical work and must be done by a licensed electrician - this is not a DIY job, regardless of what an overseas YouTube video shows [VERIFY current requirements in your state].\n- **On/off versus modulating.** A basic thermostat just says \"heat\" or \"no heat\". An OpenTherm-capable thermostat paired with an OpenTherm boiler can tell the boiler *how much* heat to make, which lowers flow temperatures and can meaningfully cut gas use in a well-zoned house [VERIFY savings for your system]. Bosch's smart room thermostats are the usual example of this class in Australia.\n\n::product:bosch-ii-smart-thermostat::\n\nFor radiator-level control, smart thermostatic radiator valve heads (Zigbee models from the likes of Aqara and Sonoff) screw onto standard valve bodies and let you run bedrooms cooler than living areas. Check the valve thread - M30x1.5 is common but not universal on older Australian installs [VERIFY], and old valve bodies sometimes seize and need a plumber to swap.\n\n## Room sensors are the cheap win older homes need most\n\nIn a 1960s brick veneer or a weatherboard cottage, the single biggest control problem usually isn't the thermostat's intelligence - it's where the thermostat lives. Hallway, external wall, near the front door, three metres from a return air grille. It measures a temperature nobody actually experiences.\n\nA handful of $25-$40 Wi-Fi or Zigbee temperature and humidity sensors [VERIFY pricing] scattered through the bedrooms, living room and the coldest corner will tell you more in a fortnight than a brochure ever will. You will typically find one or two rooms running 3-4°C behind the rest, which is a zoning, draught-sealing or duct problem - not something a $300 thermostat fixes.\n\n::product:tp-link-tapo-smart-temperature-humidity-monitor::\n\nHumidity data matters too. Older homes with unsealed subfloors and gas heating often sit at uncomfortable extremes, and condensation on single-glazed windows is a mould risk worth tracking through winter.\n\n## What needs a licensed trade, and what doesn't\n\nPlainly:\n\n- **Any mains-voltage wiring** - replacing a 240V-switched thermostat, adding a relay into a boiler circuit, running new cable - requires a licensed electrician under the AS/NZS 3000 wiring rules [VERIFY current edition and state requirements].\n- **Anything touching the gas appliance itself** - control boards, interlocks, flue, burner - is work for a licensed gasfitter or the manufacturer's service agent. DIY here can void warranties and insurance, and gets dangerous fast.\n- **Plug-in sensors, battery-powered sensors and app setup** are fine for anyone.\n- **Renting?** Get written landlord permission before anything is unscrewed from a wall, and keep the original controller to reinstate at the end of the lease [VERIFY your state's tenancy rules on alterations].\n\n## A sensible order of operations\n\n1. Identify the exact heater or boiler model and the controller type.\n2. Add three or four temperature sensors and log a fortnight of real data.\n3. Seal draughts and check ceiling insulation - in a leaky older home this beats any control upgrade for comfort per dollar.\n4. Then choose: manufacturer Wi-Fi module for ducted gas, or a smart room thermostat (ideally OpenTherm) plus radiator valve heads for hydronic.\n5. Book the licensed trade for anything wired.\n\nA smart thermostat won't make an inefficient old system efficient. What it will do is stop you heating an empty house, let you pre-warm before you get home, and give you the data to argue with your own assumptions - and in a draughty Australian winter, that's worth a lot.",
+    "keyTakeaways": "Most Australian gas ducted heaters use a proprietary controller bus, so an off-the-shelf smart thermostat won't work - your best options are the manufacturer's own Wi-Fi module or a technician-confirmed dry-contact retrofit. Hydronic systems are far more flexible: a smart room thermostat (ideally OpenTherm) plus smart radiator valve heads works well, but any mains-voltage wiring must be done by a licensed electrician.",
+    "coverImageUrl": null,
+    "coverImageAlt": null,
+    "postType": "informative",
+    "publishDate": null,
+    "dateModified": null,
+    "featured": false,
+    "tags": [
+      "smart thermostat",
+      "gas ducted heating",
+      "hydronic heating",
+      "climate control",
+      "older homes",
+      "home assistant",
+      "energy saving"
+    ],
+    "readingTimeMinutes": 7,
+    "seoTitle": "Smart Thermostats for Gas Ducted & Hydronic Heating AU",
+    "seoDescription": "Why most smart thermostats won't work with Australian gas ducted heating - and the retrofit, OpenTherm and sensor options that do in older homes.",
+    "seoKeywords": "smart thermostat australia, gas ducted heating smart control, hydronic heating thermostat, brivis wifi module, opentherm thermostat australia, smart trv radiator, older home heating automation",
+    "sourceUrl": null,
+    "amazonAffiliateTag": null,
+    "source": "ai",
+    "createdAt": "2026-08-23T00:20:03.712Z",
+    "updatedAt": "2026-08-23T00:44:20.516Z",
+    "publishedAt": null,
+    "showFrom": null,
+    "coverImage": {
+      "id": 3987,
+      "documentId": "sc9w3cz4bcxz3r1ttpuf5y6s",
+      "name": "smart-thermostat-options-for-gas-ducted-and-hydron-cover.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "focalPoint": null,
+      "width": 1536,
+      "height": 768,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "/uploads/large_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118.jpg",
+          "hash": "large_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118",
+          "mime": "image/jpeg",
+          "name": "large_smart-thermostat-options-for-gas-ducted-and-hydron-cover.jpg",
+          "path": null,
+          "size": 65.32,
+          "width": 1000,
+          "height": 500,
+          "sizeInBytes": 65321
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "/uploads/small_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118.jpg",
+          "hash": "small_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118",
+          "mime": "image/jpeg",
+          "name": "small_smart-thermostat-options-for-gas-ducted-and-hydron-cover.jpg",
+          "path": null,
+          "size": 21.82,
+          "width": 500,
+          "height": 250,
+          "sizeInBytes": 21823
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "/uploads/medium_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118.jpg",
+          "hash": "medium_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118",
+          "mime": "image/jpeg",
+          "name": "medium_smart-thermostat-options-for-gas-ducted-and-hydron-cover.jpg",
+          "path": null,
+          "size": 40.25,
+          "width": 750,
+          "height": 375,
+          "sizeInBytes": 40248
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "/uploads/thumbnail_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118.jpg",
+          "hash": "thumbnail_smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118",
+          "mime": "image/jpeg",
+          "name": "thumbnail_smart-thermostat-options-for-gas-ducted-and-hydron-cover.jpg",
+          "path": null,
+          "size": 7.15,
+          "width": 245,
+          "height": 123,
+          "sizeInBytes": 7149
+        }
+      },
+      "hash": "smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 148.45,
+      "url": "/uploads/smart_thermostat_options_for_gas_ducted_and_hydron_cover_4169c54118.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2026-08-23T00:20:03.688Z",
+      "updatedAt": "2026-08-23T00:20:03.688Z",
+      "publishedAt": "2026-08-23T00:20:03.688Z"
+    },
+    "gallery": [],
+    "ogImage": null,
+    "faq": [
+      {
+        "order": 1,
+        "id": 1682,
+        "question": "Will a Google Nest thermostat work with my Brivis ducted gas heater?",
+        "answer": "Almost certainly not. Australian ducted brands like Brivis, Bonaire, Braemar and Rinnai typically use a proprietary low-voltage data bus between the wall controller and the furnace board, while Nest is built around North American 24V wiring conventions. Treat Nest as a hydronic or heat pump option rather than a ducted gas one unless your installer confirms otherwise, and check current Australian availability and support before buying [VERIFY]."
+      },
+      {
+        "order": 2,
+        "id": 1683,
+        "question": "Can I swap my hydronic room thermostat myself, or do I need an electrician?",
+        "answer": "If the thermostat switches 240V - which is common in Australian hydronic setups - it is electrical work and must be done by a licensed electrician under the AS/NZS 3000 wiring rules [VERIFY current edition and your state's requirements]. Anything touching the boiler's control board, interlocks or burner is gasfitter or manufacturer service agent territory. Battery sensors and app setup are fine for anyone."
+      },
+      {
+        "order": 3,
+        "id": 1684,
+        "question": "What's OpenTherm and is it worth paying extra for?",
+        "answer": "A basic thermostat only tells the boiler \"heat\" or \"no heat\", whereas an OpenTherm thermostat paired with an OpenTherm-capable boiler can tell it how much heat to produce. That allows lower flow temperatures and can meaningfully cut gas use in a well-zoned house [VERIFY savings for your system]. It only pays off if your boiler actually supports OpenTherm."
+      },
+      {
+        "order": 4,
+        "id": 1685,
+        "question": "Some of my rooms are freezing while the hallway is fine - will a smart thermostat fix that?",
+        "answer": "Usually not. The problem is often where the existing thermostat sits - hallway, external wall, near a return air grille - measuring a temperature nobody experiences. Put a few $25-$40 temperature and humidity sensors [VERIFY pricing] in the bedrooms and coldest corner for a fortnight; if rooms run 3-4°C behind, that's a zoning, draught or duct issue, not something a $300 thermostat solves."
+      },
+      {
+        "order": 5,
+        "id": 1686,
+        "question": "I'm renting - can I install a smart thermostat in a place with hydronic radiators?",
+        "answer": "Get written landlord permission before anything comes off a wall, and keep the original controller so you can reinstate it at the end of the lease [VERIFY your state's tenancy rules on alterations]. Battery-powered room sensors are the low-risk option since nothing is unscrewed or rewired. Smart radiator valve heads screw onto existing valve bodies, but old bodies can seize and need a plumber."
+      }
+    ],
+    "categories": [
+      {
+        "id": 2,
+        "documentId": "kr7s0nrg74tdavub6vyhm1of",
+        "name": "Climate",
+        "slug": "climate",
+        "description": null,
+        "order": 0,
+        "icon": null,
+        "createdAt": "2026-08-13T00:43:41.690Z",
+        "updatedAt": "2026-08-22T18:30:53.594Z",
+        "publishedAt": "2026-08-22T18:30:53.592Z"
+      }
+    ],
+    "author": {
+      "id": 4,
+      "documentId": "jf0pnxa841spfcit3hoshsl7",
+      "name": "Harry Cheng",
+      "slug": "harry-cheng",
+      "role": "What they cover, e.g. Security and cameras",
+      "bio": "Harry Cheng writes practical buying guides and setup advice for NXT Smart Home, covering smart plugs, lighting, climate control, robot vacuums, speakers, platforms, Wi-Fi troubleshooting and Australian retail buying decisions. His work focuses on the details that affect real households: local plug standards, safety limits, compatibility, warranties, rental constraints, and whether a device is worth buying in the first place.",
+      "sameAs": [],
+      "createdAt": "2026-08-22T21:10:41.399Z",
+      "updatedAt": "2026-08-22T21:55:22.387Z",
+      "publishedAt": null
+    }
+  }
+}

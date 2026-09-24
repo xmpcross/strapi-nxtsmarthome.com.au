@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/PageHeader';
 import ProductGrid from '@/components/ProductGrid';
 import { categoryHeroFor } from '@/lib/content';
-import { getAllTopProducts, toListingCard } from '@/lib/products';
+import { getListableTopProducts, isIndexableProduct, toListingCard } from '@/lib/products';
 import { categories, getCategory } from '@/lib/site';
 
 export async function generateStaticParams() {
@@ -19,10 +19,17 @@ export async function generateMetadata({
   const category = getCategory(slug);
   if (!category) return {};
 
+  // A category page listing no indexable product is a page of price listings:
+  // noindex, follow (AdSense Task 2).
+  const indexableHere = getListableTopProducts().filter(
+    (p) => p.categorySlug === category.slug && isIndexableProduct(p),
+  ).length;
+
   return {
     title: `Best ${category.name} in Australia — Prices & Retailers`,
     description: `Compare top rated ${category.name.toLowerCase()} in Australia across JB Hi-Fi, Amazon AU, The Good Guys, and Harvey Norman.`,
     alternates: { canonical: `/products/category/${category.slug}/` },
+    ...(indexableHere ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
@@ -35,7 +42,9 @@ export default async function CategoryProductsPage({
   const category = getCategory(slug);
   if (!category) notFound();
 
-  const allProducts = getAllTopProducts();
+  // Empty listings (under 50 words of our own text) are never listed; their
+  // pages still resolve (lib/products.ts isEmptyListing).
+  const allProducts = getListableTopProducts();
   const hero = categoryHeroFor(category.slug, 'product');
   const heading = `Best ${category.name} in Australia`;
 

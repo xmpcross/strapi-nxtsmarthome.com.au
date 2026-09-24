@@ -9,7 +9,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeStringify from 'rehype-stringify';
 import { categories, getCategoryByKey, type Category } from './site';
-import { editorialHits, postTexts } from './editorial-guard.mjs';
+import { editorialHits, guardMode, postTexts } from './editorial-guard.mjs';
 import { mergedSlugTargets } from './merged-articles.mjs';
 
 
@@ -220,23 +220,38 @@ async function fromStrapi(post: StrapiPost): Promise<Article | null> {
  */
 let lastHeldBack = '';
 
+/**
+ * Editorial markers left in a published post: "[VERIFY", "TODO", "TBD",
+ * "lorem ipsum", template placeholders. Checks body, excerpt, key takeaways
+ * and every FAQ question and answer, case-insensitive (lib/editorial-guard.mjs).
+ * Returns one "<marker> x<count>" string per marker found; empty when clean.
+ */
+export function editorialIssues(post: StrapiPost): string[] {
+  return editorialHits(postTexts(post)).map((h) => `${h.label} x${h.count}`);
+}
+
 function withoutHeldBack(posts: StrapiPost[]): StrapiPost[] {
   const merged = mergedSlugTargets();
-  const unfinished: string[] = [];
+  const mode = guardMode();
+  const flagged: string[] = [];
   const kept = posts.filter((post) => {
     if (merged.has(post.slug)) return false;
-    const hits = editorialHits(postTexts(post));
-    if (!hits.length) return true;
-    unfinished.push(`${post.slug} (${hits.map((h) => `${h.label} x${h.count}`).join(', ')})`);
-    return false;
+    const issues = editorialIssues(post);
+    if (!issues.length) return true;
+    flagged.push(`${post.slug}: ${issues.join(', ')}`);
+    // EDITORIAL_GUARD=warn keeps the post live; the log still names it.
+    return mode === 'warn';
   });
 
   // Logged when the set changes, not on every one-minute cache refresh.
-  const summary = unfinished.join('\n');
+  const summary = `${mode}\n${flagged.join('\n')}`;
   if (summary !== lastHeldBack) {
     lastHeldBack = summary;
-    if (unfinished.length) {
-      console.warn(`[content] holding back ${unfinished.length} unfinished post(s):\n  ${unfinished.join('\n  ')}`);
+    if (flagged.length) {
+      console.warn(
+        `[editorial-guard] ${mode === 'warn' ? 'WARN (EDITORIAL_GUARD=warn, still live)' : 'blocking'} ` +
+          `${flagged.length} post(s) with editorial markers:\n  ${flagged.join('\n  ')}`,
+      );
     }
   }
   return kept;

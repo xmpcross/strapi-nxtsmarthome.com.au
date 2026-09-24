@@ -50,11 +50,12 @@ export default function HeadingWithSub({
   ...props
 }: HeadingWithSubProps) {
   return (
-    <div className={clsx(className, 'relative mb-12', isCenter && 'mx-auto w-full text-center text-pretty')}>
+    // section-heading-wrap / section-subheading: hooks for page-level overrides (app/globals.css).
+    <div className={clsx(className, 'section-heading-wrap relative mb-12', isCenter && 'mx-auto w-full text-center text-pretty')}>
       <Heading level={level} {...props}>
         {children}
       </Heading>
-      {subHeading && <Subheading className={clsx('mt-3.5 max-w-3xl', isCenter && 'mx-auto')}>{subHeading}</Subheading>}
+      {subHeading && <Subheading className={clsx('section-subheading mt-3.5 max-w-3xl', isCenter && 'mx-auto')}>{subHeading}</Subheading>}
     </div>
   )
 }

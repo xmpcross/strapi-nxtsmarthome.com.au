@@ -635,3 +635,399 @@ The differences:
   cons ≥ 2, 300+ words including shortDescription) than the live
   `productEditorial()` (150+ words). The script mirrors the live rule; if Task 2
   changes it, update the replica in the script too.
+
+---
+
+## 24 September 2026: Task 1, off-topic products removed
+
+**Removed** from `public/data/products.json` (205 → 199 products), along with
+their images in `public/images/products/`:
+- `bosch-pof-1200-ae-1200w-corded-router`
+- `ryobi-400w-trim-router-rtr400-s`
+- `ryobi-1600w-plunge-router-rrt1600-s`
+- `ozito-850w-router`
+- `ozito-pxc-18v-brushless-trim-router-pxblts-018`
+- `electric-wood-trimmer-hand-router-trimmer`
+
+No `content/products/*.md` files existed for them, and nothing generated at
+build time indexes products.
+
+**References:** none. None of the six appears in the repo's article drafts, or
+in any of the 69 published and 70 draft Strapi posts (checked for
+`::product:` markers and links). So there are no Strapi edits to make.
+
+**Redirects:** `data/redirects-adsense.json` (new, `[{ from, to, reason }]`)
+sends each `/products/<slug>/` to `/products/category/hubs-and-platforms/`.
+The file feeds two places, and both forms (with and without the trailing
+slash) are covered:
+- `next.config.mjs`, as `redirects()` with `permanent: true`;
+- `scripts/gen-redirects.mjs`, which writes the rules into
+  `public/_redirects` and nginx's `_redirects.map`.
+
+`scripts/audit-thin-content.mjs` reads only the article entries from that
+file, so these product entries don't affect its article checks.
+
+**Root cause:** `scripts/import-category-products.mjs` accepted any Google
+Shopping result with a title, price, image and Australian retailer. Nothing
+checked it was a smart home product, so the "Thread border router Australia"
+query brought in Bunnings woodworking routers.
+
+**The fix is a new guard, `lib/catalogue-guard.mjs`** (`offTopicReason(title,
+category)`). It is used by both keyword-search importers
+(`import-category-products.mjs` and `fetch-top-products.mjs`) and by the
+audit. It rejects:
+- "router" without a networking signal (Wi-Fi, mesh, Thread, Matter, Zigbee,
+  modem, NBN and similar);
+- power-tool and workshop terms (trim, plunge, corded router, wood, trimmer,
+  drill, saw and so on);
+- power-tool brands, but only in Hubs & Platforms. Bosch also makes the smart
+  thermostat in the catalogue, so a global brand ban would be wrong.
+
+Tested against the catalogue as it was before the removal: it flags exactly
+these six and nothing else, and lets through a mesh Wi-Fi router, a Thread
+border router and the Bosch thermostat.
+
+**Checks:** `npm run build` passes. `npm run audit:thin` reports **OFF-TOPIC
+= 0**, with 198 products (199 minus the disabled HomePod): 23 THIN - EMPTY,
+175 THIN, none indexable. On a test server, all six URLs redirect to the Hubs
+category, and it no longer lists them. **Not deployed.**
+
+**Also in this change:** the product page's Features list moved from the
+Highlights card to the Specifications panel, below the spec table (user
+request).
+
+---
+
+## 24 September 2026: Task 2, product quality gate
+
+**The rule** is `isIndexableProduct(product)` in `lib/products.ts`. A product
+page is indexable only with all of:
+- a curated file, `content/products/<slug>.md`;
+- a non-empty bestFor line, at least 3 pros and at least 2 cons;
+- 300+ words of original text, measured by `originalWordCount(product)`.
+
+**What counts as original text:** the curated body (HTML comments excluded),
+bestFor, pros, cons and the shortDescription blurb. The long description counts
+only when it's our rewrite (`descriptionRewrite.model`). For the 63 products
+not rewritten, that field holds the old generated template ("… is a X option
+for shoppers comparing current deals"), which isn't original writing. Scraped
+descriptions, specs, retailer data and reviews never count.
+
+**Replaces the earlier rule:** `productEditorial()`, which asked for only 150
+words and no minimum number of pros or cons. `scripts/audit-thin-content.mjs`
+carries a copy of the rule, since it can't import TypeScript; change both
+together.
+
+**Quick check:** `node scripts/check-original-words.mts` (new) passed all 6
+expectations on three products: the Echo (rewritten, 671 words), the eufy
+C220 (template description not counted, 35 words) and the curated
+`apple-homepod` file (131 words, 4 pros and 3 cons, so not indexable).
+
+**Where it applies:**
+- **Product pages** (`app/products/[slug]`): non-indexable pages are
+  `noindex, follow`, and show "Price listing — not a review. See our guides
+  for recommendations." The link goes to that category's article list.
+- **Meta description** (indexable pages only): bestFor plus the first sentence
+  of the curated verdict. Noindexed pages keep a plain line: "Where to buy X
+  in Australia. Compare prices at Australian retailers."
+- **Empty listings (under 50 words, `isEmptyListing`):** kept out of the
+  `/products/` hub, the category lists, related products, the HTML sitemap and
+  article product boxes. Their URLs still work (200, noindex).
+- **`app/sitemap.ts`:** only indexable products; only product-category pages
+  with 3 or more indexable products; the hub only if it lists an indexable
+  product.
+- **`/products/` hub and `/products/category/*`:** `noindex, follow` when they
+  list no indexable product.
+
+**Counts after the build**, from `npm run audit:thin` and a test server:
+- **Indexable product URLs: 0.** The task expected possibly 3, but none of the
+  3 curated files shares a slug with a catalogue product, and the most any of
+  them has is 131 words.
+- **Sitemap: 62 URLs**, down from 64: no product pages, no product-category
+  pages, and the hub dropped out as noindex.
+- **THIN - EMPTY: 63** (the reference CSV says 37). The difference is that the
+  template text is no longer counted. These are exactly the 63 products held
+  back from the description rewrite. THIN: 135 (no curated file, so no pros or
+  cons).
+- **Checked on a test server:** empty products return 200 with noindex, and
+  none is linked from the hub. The hub and category pages are noindex.
+
+**Needs a decision:** 33 of the 153 product boxes in published articles point
+at empty products, and now render nothing. Two live articles fall below
+CLAUDE.md rule 8's minimum of 2 boxes:
+- `smart-lock-compatibility-australian-doors` (3 → 1 box: eufy C220 and
+  Aqara U100 hidden);
+- `indoor-air-quality-monitor-co2-pm25` (3 → 1: Sensibo Elements and Sensibo
+  Air Pro hidden).
+
+Two ways to fix this:
+- write descriptions for the embedded empty products, which lifts them over
+  50 words (about 20 products, roughly $0.10);
+- swap those markers in Strapi for products that have content.
+
+**Not deployed.**
+
+---
+
+## 24 September 2026: Task 3, product reviews and ratings
+
+Most of Task 3 was already done in the first AdSense pass:
+- no "Verified purchase" badge;
+- an Australian-retailer filter;
+- scores counted only from the shown reviews, 20 or more;
+- no stars or review counts on the hub, cards or related products;
+- "PROMOTED" removed, with its made-up prices.
+
+There is no paid-placement flag in the catalogue, so no card is labelled
+"Sponsored". This task tightened the rest.
+
+**One allow-list:** `lib/review-sources.ts`. The product page, the reviews
+block, the structured data and `scripts/audit-thin-content.mjs` all read it;
+the audit imports the `.ts` file directly, which needs Node 22.18 or later.
+A review renders only when its source is:
+- **an Australian retailer:** jbhifi, thegoodguys, harveynorman, bunnings,
+  officeworks, amazon.com.au, ebay.com.au, binglee, myer, appliancesonline,
+  betta, costco.com.au, mwave, mightyape, kogan.com / .com.au, mitre10;
+- **the brand's own Australian site:** e.g. dyson.com.au, shown as "Dyson
+  Australia";
+- **the brand's global store:** ring.com, sonos.com, eufylife.com and so on,
+  shown as "<Brand> (global store)", and only when the domain matches the
+  product's brand. Marketplaces and overseas chains are never treated as brand
+  stores.
+
+**Thresholds:**
+- under **5** allowed reviews, the block is hidden;
+- the score and histogram are counted from the allowed reviews only, and
+  appear only from **20** up;
+- the catalogue's pooled Google Shopping rating is never shown.
+
+**Heading:** "What customers say at <retailers>", with the note "Reviews
+written by customers of these retailers — not by NXT Smart Home, and not a
+test result."
+
+**Structured data:** `AggregateRating` is emitted only when the page shows a
+score, so none when the block is hidden or has fewer than 20 reviews. No
+`Review` items are emitted. Only the allowed reviews are sent to the browser,
+so the others never appear in the page HTML.
+
+**How many products still show reviews:** **33 of 198** active products,
+with 651 reviews between them, and 17 of the 33 show a score.
+- **80** products have imported reviews at all. **76** of them had reviews
+  from sources that aren't allowed.
+- **10** products now hide the block, because fewer than 5 allowed reviews
+  remain.
+- **Global-store reviews shown:** eufy 82, Sonos 71, ecobee 47, Anker 29,
+  Ring 27, Bose 27, SwitchBot 18, Narwal 18, Swann 17, Arlo 16, Shelly 14,
+  Google 10, Dyson 4, tado 2.
+
+**Checked:** `npm run build` passes. The spot-check used the dev server on port
+3023 with its own build folder. The `npm run dev` script binds port 3011,
+which is nxt.deals' live port on this host, and it writes into the live
+`.next`. The three pages:
+- `ring-floodlight-cam-plus-wired`: 21 reviews, a score, and `AggregateRating`
+  in the page;
+- `tado-smart-ac-control-v3`: exactly 5 reviews, "(global store)" labels, no
+  score, no `AggregateRating`;
+- `google-nest-doorbell-battery`: 30 imported reviews, all from US and
+  Canadian stores, so the block is hidden.
+
+None contained "Verified purchase" or any foreign store name, and the hub
+shows no stars or "PROMOTED". `npm run audit:thin` agrees: 33 products with
+the block shown, 17 with a score.
+
+**Not deployed.**
+
+---
+
+## 24 September 2026: Task 5, editorial guard for [VERIFY] and placeholders
+
+Code only; the content itself is fixed in Task 6.
+
+**`editorialIssues(post): string[]`** in `lib/content.ts`, built on the shared
+marker list in `lib/editorial-guard.mjs`. It checks the body, excerpt, key
+takeaways and every FAQ question and answer, case-insensitive, for:
+- `[VERIFY`, `TODO`, `TBD` and `lorem ipsum`;
+- `Tag one`, `Tag two`, `One or two sentences that would`, `What they
+  cover, e.g.` and `A direct answer in two to four sentences`.
+
+Matching is now case-insensitive; TODO and TBD used to match upper case only.
+The last marker is new.
+
+**Blocking:** a post with any issue is left out of `getAllArticles()`, and
+everything reads from that: listings, category pages, related posts, the
+homepage, author pages and the sitemap. Its article page then returns
+`notFound()`. `scripts/build-search-index.mjs` applies the same check.
+
+**Logging:** each blocked slug is logged with its issues, prefixed
+`[editorial-guard]`, at build time and whenever the flagged set changes on
+revalidation.
+
+**`EDITORIAL_GUARD=warn`** (server environment variable) keeps flagged posts
+live and in search, but still logs every one. The default, `block`, applies
+when the variable is unset or has any other value.
+
+**CLAUDE.md rules 6 and 7** now say `[VERIFY]` tags belong in drafts only.
+A post must have zero tags before it is published, because the site refuses
+to render tagged posts. Unverifiable claims must be confirmed, removed, or
+rewritten to point readers to the official source.
+
+**Build with `EDITORIAL_GUARD=warn`:** it passes, and **29 posts** would be
+blocked:
+- **26 with visible `[VERIFY]` tags**, which matches the audit's FIX count.
+  The old reference CSV said 24; since then the two merge survivors moved
+  from DUPLICATE to FIX.
+- **3 with tags only inside HTML comments:** `thread-vs-matter-difference`,
+  `where-to-buy-smart-home-australia` and
+  `smart-home-devices-without-internet`. The comments still ship in the page
+  source, so the guard counts them.
+
+The 5 merged-away posts that also carry tags aren't counted; they're already
+off the site. No post tripped any of the other markers.
+
+The 29 (tag counts in brackets): smart-light-switches-neutral-wire-older-australian-homes (12),
+wiring-video-doorbell-australian-chime-transformer (11),
+local-recording-vs-cloud-subscriptions-security-cameras-australia (12),
+smart-downlights-australian-ceilings-insulation-clearance-rules (12),
+keep-security-cameras-running-blackout-nbn-outage (16),
+smart-lighting-rental-australia-no-wiring (7),
+streaming-box-australia-free-to-air-catch-up-tv (12),
+movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard (8),
+outdoor-tvs-projectors-speakers-australian-summer (18),
+smart-zoning-ducted-air-conditioning-cost-australia (17),
+reverse-cycle-air-conditioner-rooftop-solar-australia (14),
+bathroom-humidity-sensor-exhaust-fan-automation-australia (9),
+smart-thermostat-gas-ducted-hydronic-heating-australia (16),
+robot-vacuum-local-home-assistant-no-cloud (7),
+zigbee-mesh-garage-granny-flat-double-brick-home (13),
+robot-vacuum-running-costs-australia (16),
+robot-vacuum-dock-placement-rental-apartment-no-new-wiring (13),
+home-assistant-energy-dashboard-solar-export-time-of-use-tariffs (11),
+smart-home-hub-buying-guide-australia (5), smart-plug-buying-guide-australia (6),
+what-not-to-plug-into-a-smart-plug-australia (7), overseas-smart-home-devices-australia (4),
+future-proof-smart-home-devices-australia (1), second-hand-smart-home-devices-australia (7),
+smart-home-devices-older-australians (4), smart-home-holiday-house-australia (6),
+where-to-buy-smart-home-australia (1, in a comment), thread-vs-matter-difference (1, in a comment),
+smart-home-devices-without-internet (2, in comments).
+
+### Step to take: when to block in production
+
+The task says not to switch the default to `block` in production until Task
+6 has cleaned the content. **But production already blocks.** The guard went
+live with PR #12 on 24 September, when the first AdSense brief asked for it,
+and these posts have returned 404 since then. The choice is yours:
+- **Keep blocking** (current live state; nothing to do). The tagged posts
+  stay hidden until Task 6 clears each one, and each reappears within about
+  5 minutes of being fixed in Strapi.
+- **Relax until Task 6 is done:** add `EDITORIAL_GUARD=warn` to `.env.local`
+  and run `./deploy.sh`. The 29 posts come back with their `[VERIFY]` notes
+  visible to readers and to an AdSense reviewer. When Task 6 is finished,
+  remove the variable and deploy again.
+
+**Not deployed.**
+
+---
+
+## 24 September 2026: Task 4, editorial for the most-linked products (batch 1 of N)
+
+**Priority list:** products referenced by `::product:` markers in the 69
+published Strapi posts, counted per post. None passed `isIndexableProduct`
+before this batch. Three curated files (`apple-homepod`, `philips-hue-bridge`,
+`aqara-hub-m3`) have no catalogue entry, so they have no product page to make
+indexable; `apple-homepod`'s 4 references were therefore skipped.
+
+**Completed:** ten new files in `content/products/`, all now indexable. Each
+is research-based, with no rating, no product price and no testing language:
+
+| Product | Posts linking | Body words | Sources |
+|---|---|---|---|
+| tp-link-tapo-p100-mini-smart-wi-fi-socket-plug | 13 | 459 | 7 |
+| ecovacs-deebot-x2-omni-square-robot-vacuum | 6 | 458 | 6 |
+| sonoff-zigbee-3-0-usb-dongle | 6 | 441 | 7 |
+| arlo-ultra-2-4k-spotlight-camera | 4 | 417 | 7 |
+| dreame-l10s-ultra-robot-vacuum-and-mop | 4 | 438 | 6 |
+| tp-link-tapo-p110-smart-plug-with-energy-monitoring | 4 | 384 | 7 |
+| tp-link-tapo-smart-temperature-humidity-monitor | 4 | 433 | 6 |
+| voltx-e600-portable-power-station | 4 | 439 | 5 |
+| bose-smart-soundbar-ultra | 3 | 421 | 4 |
+| philips-hue-smart-dimmer-switch-v2 | 3 | 427 | 4 |
+
+**Format:** the front matter follows the existing curated files: name, brand,
+bestFor, match, identifiers, pros (4–5) and cons (3–4). The `rating` field is
+left out, with a comment saying why. So is the `retailers` block: for a
+catalogue product the page and product boxes use the catalogue's verified
+retailers and photo, so a second list would only compete with them.
+
+**Sources:** each file ends with a "Sources" list, which also renders on the
+page. They are mostly the manufacturer's Australian pages:
+- tp-link.com/au, ecovacs.com/au, dreame.com.au, voltx.com.au, bose.com.au,
+  philips-hue.com/en-au, au.arlo.com;
+- plus ITEAD/Sonoff and kb.arlo.com where no AU page existed;
+- plus the AU retailers that list each product: The Good Guys, JB Hi-Fi,
+  Bunnings, Officeworks, Amazon AU and Outbax;
+- plus Home Assistant's integration pages and a ChannelNews launch report.
+
+Brand claims are attributed to the brand. The only AUD figures are Arlo
+Secure plan prices from au.arlo.com. A draft that quoted Dreame consumable
+prices was edited to leave the prices out.
+
+**Code:**
+- `lib/products.ts`:
+  - `getProductBySlug` merges a curated file over its catalogue record: the
+    editorial comes from the file, while the photo and verified retailers come
+    from the catalogue. Before, the curated file replaced the record
+    wholesale, which would have dropped both.
+  - `getCuratedProduct()` added.
+- `components/ProductEditorial.tsx` (new) adds an "Our research notes" card on
+  the product page:
+  - best for, pros and cons, the body and its sources;
+  - a line reading "Research-based … NXT Smart Home has not tested this
+    product".
+- The verdict card and the meta description now use the curated bestFor.
+
+**Checked:**
+- `isIndexableProduct` passes for all ten, at 1,030–1,220 original words each
+  (the files plus the rewritten descriptions and blurbs).
+- `npm run build` passes. On a test server all ten pages render the notes and
+  sources, with no noindex and no "Price listing" label.
+- The sitemap is now 74 URLs: 10 product pages, 1 product category (Energy &
+  Solar, the only one with 3 or more indexable products) and the `/products/`
+  hub, which is back in the index.
+- `npm run audit:thin`: product OK 10 (all indexable), THIN 125,
+  THIN - EMPTY 63.
+- **Article links (rule 8):** each product is already embedded by the posts
+  that put it in the queue. No markers were added or changed in Strapi.
+
+**Open questions** are in `reports/product-editorial-todo.md`: everything the
+research could not confirm, and conflicts between sources. The main ones:
+- **Tapo P110:** the catalogue entry's description matches the **P110M**
+  (Matter, Siri), not the P110. Its rewritten Description panel may mention
+  Matter, while the new research notes follow TP-Link's P110 page, which
+  lists no Matter. Fix the catalogue text, or repoint the entry to the P110M.
+- **Arlo Ultra 2:** a retailer marks it end of life, replaced by the Ultra 3,
+  and Arlo's AU pages returned 403. The hub requirement, Wi-Fi band and IP
+  rating are unconfirmed.
+- **Dreame L10s Ultra:** Dreame's AU product page returns 404, so the specs
+  come from its global page. The model may have been superseded by the Gen 2.
+- **Ecovacs X2 Omni:** shown as sold out on Ecovacs AU; only the Amazon AU
+  listing is confirmed. Ecovacs' own pages give conflicting mop-wash
+  temperature and runtime figures, so both were left out.
+- **Tapo temperature and humidity monitor:** it's the T315. The JB Hi-Fi link
+  in the catalogue may point at the T310.
+- **VoltX E600:** sources disagree on the output count (6 or 10), the charge
+  time and the warranty (2 years on the product page, 12 months in the terms).
+- **Sonoff dongle:** written as the ZBDongle-E, per the catalogue text. The
+  exact variant sold is unconfirmed (Amazon AU offers P, E and MG24).
+
+**Next 10 in the queue**, by the number of published posts linking to each:
+1. philips-hue-white-color-ambiance-starter-kit-e27 (3)
+2. sensibo-air-smart-air-conditioner-controller (3)
+3. smart-mirabella-genio-wi-fi-powerboard (3)
+4. tp-link-tapo-l530e-smart-wi-fi-light-bulb-e27 (3)
+5. tuya-smart-wifi-ir-air-conditioner-controller-thermostat (3)
+6. zemismart-matter-zigbee-thread-smart-home-hub (3)
+7. amazon-echo-show-10-3rd-gen-hd-display (2)
+8. dyson-purifier-cool-autoreact-tp07 (2)
+9. ecovacs-deebot-t30-pro-omni-robot-vacuum (2)
+10. eufy-eufycam-2c-pro-2k-wireless-security-system (2)
+
+**Not deployed.**

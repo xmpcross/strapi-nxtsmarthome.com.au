@@ -132,8 +132,8 @@ export default async function HomePage() {
     .map(toTPost)
 
   return (
-    <div className="relative container space-y-28 pt-10 pb-28 lg:space-y-32 lg:pt-16 lg:pb-32">
-      {/* The page's one h1; section titles are h2. */}
+    <div className="page-home relative container space-y-28 pt-10 pb-28 lg:space-y-32 lg:pt-16 lg:pb-32">
+      {/* The page's one h1; section titles are h2 (2rem / 700 here: app/globals.css .page-home). */}
       <h1 className="sr-only">{`${site.name} — ${site.shortTagline}`}</h1>
 
       <SectionMagazine10 posts={lead.map(toTPost)} />
