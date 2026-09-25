@@ -109,6 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Impact.com site verification. Written verbatim with `value`, as Impact provides it;
             the metadata API would rewrite `value` to `content`. */}
         <meta {...({ name: 'impact-site-verification', value: 'bd3b6178-4604-4ffc-870b-f0cb0bc2c48f' } as Record<string, string>)} />
+        <meta {...({ name: 'impact-site-verification', value: 'c49cb1f9-740b-4f12-a1f6-8dd57e1355cd' } as Record<string, string>)} />
         {/*
           Applies the theme before first paint. Without this a dark reader gets a
           white flash on every navigation, because the class can only be set once
