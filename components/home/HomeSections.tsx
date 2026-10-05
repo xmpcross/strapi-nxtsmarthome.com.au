@@ -14,11 +14,7 @@ import { AFFILIATE_ENABLED } from '@/lib/affiliate'
 
 export function HomeHero({ articleCount, topicCount }: { articleCount: number; topicCount: number }) {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-neutral-200/90 bg-gradient-to-b from-white via-neutral-50/50 to-neutral-100/50 p-8 sm:p-12 lg:p-16 dark:border-neutral-800 dark:from-neutral-900 dark:via-neutral-900/90 dark:to-neutral-950">
-      {/* Background Accent Gradients */}
-      <div className="pointer-events-none absolute -left-20 -top-20 size-96 rounded-full bg-primary-500/10 blur-3xl dark:bg-primary-500/15"></div>
-      <div className="pointer-events-none absolute -right-20 -bottom-20 size-96 rounded-full bg-purple-500/10 blur-3xl dark:bg-purple-500/15"></div>
-
+    <section className="relative">
       <div className="relative z-10 max-w-4xl">
         <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-4 py-1.5 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-950/80 dark:text-primary-300">
           <span className="relative flex size-2">
