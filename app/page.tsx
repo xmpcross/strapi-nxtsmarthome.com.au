@@ -49,7 +49,7 @@ export default async function HomePage() {
   const firstTopic = topics.find((c) => c.handle === 'entertainment-and-audio')
   // Topics with no section of their own on the home page (user request, 24 Sep
   // 2026). They still appear in "Browse by topic" and on /all-topics/.
-  const HIDDEN_SECTIONS = new Set(['robot-vacuums', 'energy-and-solar', 'lighting', 'hubs-and-platforms'])
+  const HIDDEN_SECTIONS = new Set(['climate-and-comfort', 'robot-vacuums', 'energy-and-solar', 'lighting', 'hubs-and-platforms'])
   const sectionTopics = [
     ...(firstTopic ? [firstTopic] : []),
     ...topics.filter((c) => c !== firstTopic && !HIDDEN_SECTIONS.has(c.handle)),
