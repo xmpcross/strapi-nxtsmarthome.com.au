@@ -1577,23 +1577,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Single post template: every heading (title, article body, sidebar and
-   related sections) at weight 700. Unlayered, so it wins over font-semibold
-   utilities and the prose heading scale. */
-.single-post-page :is(h1, h2, h3, h4, h5, h6) {
+/* Every heading on every page (h1-h6: page titles, section titles, card
+   titles, article body headings, sidebar and footer headings) at weight 700.
+   User request, 6 Oct 2026; it replaces the single-post rule that kept article
+   body h2/h3 at 600. Unlayered, so it wins over font-semibold / font-medium
+   utilities and the prose heading scale. Headings that wrap their text in a
+   <p> or link inherit it. */
+:is(h1, h2, h3, h4, h5, h6) {
   font-weight: 700;
-}
-
-/* Article body section headings on the single post template (user request,
-   24 Sep 2026): h2 26px and h3 20px, both 600. After the rule above so they
-   win over its 700; the title, sidebar and related sections keep 700. */
-.single-post-page .prose h2 {
-  font-size: 26px;
-  font-weight: 600;
-}
-.single-post-page .prose h3 {
-  font-size: 20px;
-  font-weight: 600;
 }
 
 /* "Where to buy" retailer list the AI writer appends to articles
