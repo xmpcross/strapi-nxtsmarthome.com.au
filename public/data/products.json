@@ -41942,7 +41942,18 @@
         "name": "Max Wattage",
         "value": "20 W"
       }
-    ]
+    ],
+    "shortDescription": "The Samsung HW-B400F is a 2.0-channel soundbar with a built-in woofer. The manufacturer says it delivers clear dialogue and enhanced surround sound. It offers Bluetooth, HDMI ARC, and optical connectivity, plus Voice Enhance and Night Mode features. One Remote support allows easy TV control.",
+    "bestFor": "TV viewers wanting dialogue clarity and straightforward soundbar setup",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "google-tv-streamer-4k",
@@ -42026,7 +42037,18 @@
         "name": "Capacity",
         "value": "32 GB"
       }
-    ]
+    ],
+    "shortDescription": "The Google TV Streamer 4K is a streaming device that delivers entertainment to your Wi-Fi-enabled TV with support for 4K HDR and Dolby Vision. It features 32 GB of storage, a redesigned voice remote, and according to the manufacturer, double the RAM and 22% increased CPU performance compared to Chromecast.",
+    "bestFor": "People seeking a premium 4K streaming device with voice control",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "eufy-all-in-one-smart-display-e10",
@@ -42086,7 +42108,18 @@
         "name": "Use",
         "value": "Residential"
       }
-    ]
+    ],
+    "shortDescription": "The eufy All in One Smart Display E10 is an 8-inch video screen that displays live feeds and hands-free alerts from your smart home devices. According to the brand, it shows real-time footage when visitors arrive, doors unlock, or motion is detected, and stores events locally for instant replay without buffering.",
+    "bestFor": "Homeowners wanting centralised smart home monitoring and security alerts",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "englaon-anywhere-32-4k-uhd-touch-screen",
@@ -42246,7 +42279,18 @@
         "name": "Top Use Cases",
         "value": "Watch movies, Browse the web, Browsing experiences, Classrooms, Content creation"
       }
-    ]
+    ],
+    "shortDescription": "The Englaon ANYWHERE is a 32-inch 4K UHD battery-operated touch screen display with Android 13 OS, 8GB RAM, and 128GB storage. According to the manufacturer, it offers 10-point touch capability and complete mobility for portable entertainment and productivity applications.",
+    "bestFor": "Users needing portable 4K display with touch interaction and battery independence",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "tcl-2-1-ch-soundbar-with-wireless-subwoofer-s55h",
@@ -42318,7 +42362,18 @@
         "name": "Max Wattage",
         "value": "220 W"
       }
-    ]
+    ],
+    "shortDescription": "The TCL 2.1 Channel Soundbar with Wireless Subwoofer delivers 220W peak power and supports Dolby Atmos and Dolby Digital. The wireless subwoofer provides deep bass, while connectivity options include HDMI eARC, optical, and Bluetooth. It supports MP3, WMA, FLAC, and WAV formats. A wall mount kit is included for flexible placement.",
+    "bestFor": "Home entertainment enthusiasts wanting immersive audio with wireless convenience",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "kogan-4k-google-tv-dongle",
@@ -42465,7 +42520,18 @@
         "name": "Energy Consumption",
         "value": "5W (Rated Power)"
       }
-    ]
+    ],
+    "shortDescription": "The Kogan 4K Google TV Dongle is a streaming device that connects via HDMI to deliver 4K Ultra HD content with HDR support. It features built-in Chromecast, dual-band Wi-Fi, Bluetooth 5.0, and a voice-control remote. The dongle supports Netflix, YouTube, Amazon Prime Video and Disney+, with Google Assistant integration and kids profiles.",
+    "bestFor": "Users wanting 4K streaming with Google TV and Chromecast built-in",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "yamaha-musiccast-20-wireless-speaker",
@@ -42653,7 +42719,18 @@
         "name": "Typical Users",
         "value": "Consumer not planning to be part of the MusicCast ecosystem, Audiophile who does not care for wireless capabilities"
       }
-    ]
+    ],
+    "shortDescription": "The Yamaha MusicCast 20 is a wireless speaker offering high-resolution audio and multi-room capability. It connects via Bluetooth or Wi-Fi, functions as a standalone unit or stereo pair, and supports AirPlay 2. Compatible with Amazon Alexa and Google Assistant for voice control.",
+    "bestFor": "Those wanting flexible multi-room wireless audio throughout their home",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "lg-32-stanbyme-2-max-portable-smart-touch-screen",
@@ -42737,6 +42814,1075 @@
         "name": "Screen Size",
         "value": "32 in"
       }
+    ],
+    "shortDescription": "The LG 32\" StanbyME 2 Max is a portable smart touch screen with 4K resolution and WebOS 26. It features the a8 AI Processor Gen 3 for picture processing and Tru. Motion 100 for motion clarity. The brand says it supports Dolby Vision, HDR10, and HLG formats, with LG Channels providing free content access.",
+    "bestFor": "Those wanting portable 4K smart display with touch interface and flexible placement",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "smart-air-purifier",
+    "slug": "smart-air-purifier",
+    "name": "Air Purifier",
+    "brand": "Smart",
+    "categoryKey": "climate",
+    "categorySlug": "climate-and-comfort",
+    "categoryName": "Climate & Comfort",
+    "subCategory": "Air Purifiers & Monitors",
+    "priceAud": 399,
+    "currency": "AUD",
+    "image": "/images/products/smart-air-purifier.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/philips-pureprotect-3200-series-smart-air-purifier-silver-white?ab_version=B&srsltid=AU7gw4W6TvpmzoFY2y9BP6cG61psytwny1Xc3g-fo6XiAlF0iuoFsi2qTPM",
+        "primary": true,
+        "priceAud": 399,
+        "deepLink": true
+      },
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/philips-pure-protect-3200i-series-air-purifier-white.html?srsltid=AU7gw4WKaseCLFtgzA_T6eISur6URg7vOchRWc_htn32iXpyKueJnxpzVT8",
+        "primary": false,
+        "priceAud": 399,
+        "deepLink": true
+      },
+      {
+        "name": "Bing Lee",
+        "url": "https://www.binglee.com.au/products/3200i-series-air-purifier-wht-ac322010",
+        "primary": false,
+        "priceAud": 399,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "4527973493715926397",
+    "pricesCheckedAt": "2026-10-05T20:16:58.963Z",
+    "updatedAt": "2026-10-05T20:16:58.963Z",
+    "images": [
+      "/images/products/smart-air-purifier.webp",
+      "/images/products/smart-air-purifier-2.webp",
+      "/images/products/smart-air-purifier-3.webp",
+      "/images/products/smart-air-purifier-4.webp"
+    ],
+    "description": "Enjoy clean, safe air at home, now 50% quieter! Our double-fan design packs more power in a compact form, to purify even large spaces in minutes. With its sleek design, low energy use and smart app control, it fits perfectly into your home.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Philips"
+      },
+      {
+        "name": "HEPA Filter",
+        "value": "Yes"
+      }
+    ],
+    "shortDescription": "The Philips Smart Air Purifier uses a double-fan design to clean air in large spaces quickly. According to the manufacturer, it operates 50% quieter than previous models and features low energy consumption. The unit includes smart app control and a sleek design, with a HEPA filter for air purification.",
+    "bestFor": "People wanting quiet, efficient air purification for large rooms with smart control",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "arovec-air-purifier-smart-true-hepa",
+    "slug": "arovec-air-purifier-smart-true-hepa",
+    "name": "Air Purifier Smart True HEPA",
+    "brand": "AROVEC",
+    "categoryKey": "climate",
+    "categorySlug": "climate-and-comfort",
+    "categoryName": "Climate & Comfort",
+    "subCategory": "Air Purifiers & Monitors",
+    "priceAud": 229.89,
+    "currency": "AUD",
+    "image": "/images/products/arovec-air-purifier-smart-true-hepa.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/AROVEC-Purifier-Smart-Cleaner-Bedroom/dp/B0C42W2P53?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2MPYRTBR43V8O",
+        "primary": true,
+        "priceAud": 229.89,
+        "deepLink": true
+      },
+      {
+        "name": "Kogan AU",
+        "url": "https://www.kogan.com/au/buy/ausbrilliant-brands-arovec-air-purifier-smart-true-hepa-with-air-quality-sensor-av-p152pro-bs-smart-wifi-av-p152pro-bs/",
+        "primary": false,
+        "priceAud": 249.99,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/arovec-air-purifier-smart-true-hepa-air-cleaner-for-home-bedroom-large-room-for-allergens-smoke-black_p0917019?srsltid=AU7gw4UjPFPInzFKLd0jB8XB355C4Wtx7p0EU215Rcr1p5aVQjCA9u6SyII",
+        "primary": false,
+        "priceAud": 269,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "678213298920406393",
+    "pricesCheckedAt": "2026-10-05T20:16:58.963Z",
+    "updatedAt": "2026-10-05T20:16:58.963Z",
+    "images": [
+      "/images/products/arovec-air-purifier-smart-true-hepa.webp",
+      "/images/products/arovec-air-purifier-smart-true-hepa-2.webp",
+      "/images/products/arovec-air-purifier-smart-true-hepa-3.webp",
+      "/images/products/arovec-air-purifier-smart-true-hepa-4.webp"
+    ],
+    "description": "Multi-function ozone deodorizer, purify and sterilize, keep vegetables and fruits fresh, deodorize refrigerators, degrade pesticide residues, and give you the freshest food at any time. Effective deodorization The electric ozone deodorizer has extremely strong permeability, diffusibility and decomposition ability, which can effectively eliminate harmful substances and odors. Oxidative and decomposed ozone deodorants oxidize and decompose odor molecules, making the breath of the refrigerator fresh without destroying the original smell. Thoughtful design Smart ozone deodorizer smart protection mode, regular ozone sterilization, more peace of mind to use. If it is on, don’t worry about forgetting it. Easy to use The electric ozone deodorizer has an independent smart display with clear modes, fast sterilization time, and more convenient to change the required mode.",
+    "specifications": [
+      {
+        "name": "HEPA Filter",
+        "value": "Yes"
+      },
+      {
+        "name": "Odour Absorbing",
+        "value": "Yes"
+      },
+      {
+        "name": "Ionic",
+        "value": "Yes"
+      },
+      {
+        "name": "Ozone-free",
+        "value": "Yes"
+      },
+      {
+        "name": "Brand",
+        "value": "Kogan"
+      },
+      {
+        "name": "Finish",
+        "value": "Black"
+      },
+      {
+        "name": "Coverage Area",
+        "value": "19 m²"
+      }
+    ],
+    "shortDescription": "The AROVEC Air Purifier Smart True HEPA is a multi-function device designed for refrigerator use that the manufacturer says purifies, sterilises and deodorises to keep food fresh. It features ozone deodorising technology with a smart protection mode for regular sterilisation, an independent smart display, and operates across a 19 m² coverage area.",
+    "bestFor": "Refrigerator freshness and food storage odour elimination",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "philips-pureprotect-2200-series-smart-air-purifier",
+    "slug": "philips-pureprotect-2200-series-smart-air-purifier",
+    "name": "PureProtect 2200 Series Smart Air Purifier",
+    "brand": "Philips",
+    "categoryKey": "climate",
+    "categorySlug": "climate-and-comfort",
+    "categoryName": "Climate & Comfort",
+    "subCategory": "Air Purifiers & Monitors",
+    "priceAud": 297,
+    "currency": "AUD",
+    "image": "/images/products/philips-pureprotect-2200-series-smart-air-purifier.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Philips-Purifier-2200-NanoProtect-104m%C2%B2/dp/B0FTMKDWTZ?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": true,
+        "priceAud": 297,
+        "deepLink": true
+      },
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/philips-pure-protect-2200i-series-air-purifier-arctic-white.html?srsltid=AU7gw4Vc88jbRxO-LW3cDfNJg95eTnm2ELu4S6zUnwyC4wKc6JYhceDLazk",
+        "primary": false,
+        "priceAud": 297,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/philips-pureprotect-2200-series-smart-air-purifier-silver-white?ab_version=B&srsltid=AU7gw4Uie9pXigaM8brGzZIQHTVpAiUxoYnLQOmtmtoYhN3JlUkPLj4uO-g",
+        "primary": false,
+        "priceAud": 299,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "483763762985962107",
+    "pricesCheckedAt": "2026-10-05T20:16:58.963Z",
+    "updatedAt": "2026-10-05T20:16:58.963Z",
+    "images": [
+      "/images/products/philips-pureprotect-2200-series-smart-air-purifier.webp",
+      "/images/products/philips-pureprotect-2200-series-smart-air-purifier-2.webp",
+      "/images/products/philips-pureprotect-2200-series-smart-air-purifier-3.webp",
+      "/images/products/philips-pureprotect-2200-series-smart-air-purifier-4.webp"
+    ],
+    "description": "The Philips Pure. Protect 2200 Series Smart Air Purifier delivers advanced purification with near-silent operation, offering the ideal balance of performance and peace for your home. Designed to remove up to 99.97% of airborne allergens, pollutants, and ultra-fine particles, it ensures cleaner, safer air in minutes—without disrupting your environment. Engineered for rooms up to 109 m², this purifier boasts a powerful 420 m³/h CADR rate that can clean a 20 m² room in under 7 minutes. Its 3-layer filtration system, including a HEPA Nano. Protect filter, captures particles as small as 0.003 microns—smaller than the smallest known virus—while an Active Carbon layer targets odors, gases, and VOCs. Built with Silent. Wings technology inspired by owl flight, it operates as quietly as 13 dB(A), making it Philips’ quietest purifier to date. It's perfect for bedrooms, nurseries, and workspaces where silence is essential. Despite its quiet operation, it works powerfully behind the scenes to improve your air quality continuously. The smart design includes app connectivity and real-time air quality feedback, while the long-lasting filter offers up to three years of use, minimising maintenance and replacement hassle. With modern aesthetics and intuitive features, the Pure. Protect 2200 Series is a seamless addition to any living space—quiet, effective, and made for everyday life.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Philips"
+      }
+    ],
+    "shortDescription": "The Philips PureProtect 2200 Series Smart Air Purifier is a smart-connected air purifier designed for rooms up to 109 m². According to the manufacturer, it removes up to 99.97% of airborne allergens and pollutants using a 3-layer filtration system including HEPA and activated carbon. It operates at 13 dB(A) and offers app connectivity with real-time air quality feedback.",
+    "bestFor": "Bedrooms, nurseries, and workspaces where quiet operation is essential",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "smartmi-air-purifier-c1",
+    "slug": "smartmi-air-purifier-c1",
+    "name": "Air Purifier C1",
+    "brand": "Smartmi",
+    "categoryKey": "climate",
+    "categorySlug": "climate-and-comfort",
+    "categoryName": "Climate & Comfort",
+    "subCategory": "Air Purifiers & Monitors",
+    "priceAud": 138.38,
+    "currency": "AUD",
+    "image": "/images/products/smartmi-air-purifier-c1.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Smartmi-Purifier-Purifiers-Allergies-Control/dp/B08HRZFGR7?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2ZUBWR7OPOVKQ",
+        "primary": true,
+        "priceAud": 138.38,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/smartmi-air-purifier-c1-white",
+        "primary": false,
+        "priceAud": 139.38,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/smartmi-air-purifiers-c1-for-home-works-with-alexa-google-white_p0676236?srsltid=AU7gw4W2Rv9jIB9dHknie2_dY88Ce6m80vzQxV7-96xDoJ5gU99t-VikLMc",
+        "primary": false,
+        "priceAud": 329,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "9919948024134011602",
+    "pricesCheckedAt": "2026-10-05T20:16:58.963Z",
+    "updatedAt": "2026-10-05T20:16:58.963Z",
+    "images": [
+      "/images/products/smartmi-air-purifier-c1.webp",
+      "/images/products/smartmi-air-purifier-c1-2.webp",
+      "/images/products/smartmi-air-purifier-c1-3.webp",
+      "/images/products/smartmi-air-purifier-c1-4.webp"
+    ],
+    "description": "Clear your home from pollution and harmful substances with the Smartmi Air Purifier C1 with H13 HEPA Filter (White). Enjoy the benefits of pure, revitalising air in your living space. Purify a 48m² room in 25 minutes, or a 9m² room in just 5 minutes. Advanced filtration Enjoy peace of mind knowing that the purifier shields you and your family from airborne pollutants and allergens. Its advanced H13 HEPA filtration, capable of filtering an impressive 99.97% of particles as small as 0.3μm, ensures your air is always fresh. Your air, your way Control, schedule and monitor your air purifier via the Mi Home app on your smartphone, or connect to Google Home or Amazon Alexa for hands-free voice control. Real-time monitoring Keep tabs on harmful substances and pollution levels in your home thanks to real-time air quality monitoring. With the Smart Auto Mode activated, the purifier will adjust the fan speed automatically based on the current air quality. Sleep with peace of mind Enjoy peaceful and sneeze-free nights with the built-in sleep mode. With the display turned off and operating noise reduced, you can enjoy a restful and undisturbed sleep free of allergens.",
+    "specifications": [
+      {
+        "name": "Coverage Area",
+        "value": "180-320 sq.ft"
+      },
+      {
+        "name": "Air Purification Type",
+        "value": "Air purification"
+      },
+      {
+        "name": "CADR Rating",
+        "value": "250 m³/h"
+      },
+      {
+        "name": "Automatic Shutoff",
+        "value": "Yes (can be configured to automatically turn on when it detects less than ideal quality)"
+      },
+      {
+        "name": "Filter Type",
+        "value": "Activated Carbon"
+      },
+      {
+        "name": "HEPA Filter",
+        "value": "Yes"
+      },
+      {
+        "name": "Ionic Filtration",
+        "value": "No"
+      },
+      {
+        "name": "Odor Absorbing",
+        "value": "Yes"
+      },
+      {
+        "name": "Permanent Filter",
+        "value": "No"
+      },
+      {
+        "name": "Filter Highlights",
+        "value": "HEPA Filter"
+      },
+      {
+        "name": "App Control",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Alexa, Yes"
+      },
+      {
+        "name": "Depth",
+        "value": "31 cm (diameter)"
+      },
+      {
+        "name": "Height",
+        "value": "362.5 mm"
+      },
+      {
+        "name": "Weight",
+        "value": "Approx. 3 kg"
+      },
+      {
+        "name": "Width",
+        "value": "220 mm"
+      },
+      {
+        "name": "Recommended Location",
+        "value": "Room"
+      },
+      {
+        "name": "Noise Level",
+        "value": "19-49 dB"
+      },
+      {
+        "name": "Functionality Type",
+        "value": "Air Purifier"
+      },
+      {
+        "name": "Speed Settings",
+        "value": "Constant fan speed (Favorite mode), Automatic fan speed"
+      },
+      {
+        "name": "Modes",
+        "value": "Sleep mode"
+      },
+      {
+        "name": "Functionality Highlights",
+        "value": "With Timer"
+      },
+      {
+        "name": "Color",
+        "value": "White"
+      },
+      {
+        "name": "Portability",
+        "value": "Yes"
+      },
+      {
+        "name": "Design Highlights",
+        "value": "With Digital Display"
+      },
+      {
+        "name": "Theme",
+        "value": "Shares a lot of its design language with Xiaomi's own air purifiers"
+      },
+      {
+        "name": "Air Quality Sensor",
+        "value": "Yes"
+      },
+      {
+        "name": "Certified By",
+        "value": "Certified HEPA"
+      },
+      {
+        "name": "Suitable Space",
+        "value": "Bedroom"
+      },
+      {
+        "name": "Suitable Use",
+        "value": "Air purification"
+      },
+      {
+        "name": "For Kids",
+        "value": "Yes (Child lock for the controls)"
+      },
+      {
+        "name": "Suitable For Use In",
+        "value": "Bedroom"
+      },
+      {
+        "name": "Suitable User",
+        "value": "Healthy individuals"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Bedroom"
+      },
+      {
+        "name": "Digital Display",
+        "value": "Yes"
+      },
+      {
+        "name": "Touchscreen",
+        "value": "Yes, No (The screen is not touch-enabled, but it is coupled with a touch button)"
+      },
+      {
+        "name": "Display Highlights",
+        "value": "Digital display"
+      },
+      {
+        "name": "Nightlight",
+        "value": "Yes, Colorful LED ring around the screen serves as a visual indicator of PM2.5/TVOC content in the air"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Automatic screen brightness adjustment"
+      },
+      {
+        "name": "Power Type",
+        "value": "Corded"
+      },
+      {
+        "name": "Voltage",
+        "value": "100-240 V"
+      },
+      {
+        "name": "Wattage",
+        "value": "30 W"
+      },
+      {
+        "name": "Cord Length",
+        "value": "2 Metres"
+      }
+    ],
+    "shortDescription": "The Smartmi Air Purifier C1 is a compact home air purifier with H13 HEPA filtration. According to the manufacturer, it filters 99.97% of particles as small as 0.3μm and purifies a 48m² room in 25 minutes. It features smart app control, voice assistant compatibility, real-time air quality monitoring, and a sleep mode with reduced noise.",
+    "bestFor": "Households seeking smartphone-controlled air purification with voice assistant compatibility",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "kogan-smarterhome-zigbee-temperature-and-humidity-sensor",
+    "slug": "kogan-smarterhome-zigbee-temperature-and-humidity-sensor",
+    "name": "SmarterHome Zigbee Temperature and Humidity Sensor",
+    "brand": "Kogan",
+    "categoryKey": "climate",
+    "categorySlug": "climate-and-comfort",
+    "categoryName": "Climate & Comfort",
+    "subCategory": "Climate Sensors",
+    "priceAud": 21.99,
+    "currency": "AUD",
+    "image": "/images/products/kogan-smarterhome-zigbee-temperature-and-humidity-sensor.jpg",
+    "retailers": [
+      {
+        "name": "Kogan AU",
+        "url": "https://www.kogan.com/au/buy/kogan-smarterhometm-zigbee-temperature-and-humidity-sensor-kogan/",
+        "primary": true,
+        "priceAud": 21.99,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Kogan-SmarterHomeTM-Zigbee-Temperature-Humidity/dp/B0DST58WWK",
+        "primary": false,
+        "priceAud": 34,
+        "deepLink": true
+      },
+      {
+        "name": "eBay AU",
+        "url": "https://www.ebay.com.au/itm/167584197014?chn=ps&_ul=AU&mkevt=1&mkcid=28&google_free_listing_action=view_item&srsltid=AU7gw4UACNdgAXbDTKDroBm9XZrBSOJtJgzwT6XgKYMa3o0zhRoD7HkzLxw",
+        "primary": false,
+        "priceAud": 39,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "17443532405660724610",
+    "pricesCheckedAt": "2026-10-05T20:16:58.963Z",
+    "updatedAt": "2026-10-05T20:16:58.963Z",
+    "images": [
+      "/images/products/kogan-smarterhome-zigbee-temperature-and-humidity-sensor.jpg",
+      "/images/products/kogan-smarterhome-zigbee-temperature-and-humidity-sensor-2.webp",
+      "/images/products/kogan-smarterhome-zigbee-temperature-and-humidity-sensor-3.webp",
+      "/images/products/kogan-smarterhome-zigbee-temperature-and-humidity-sensor-4.webp"
+    ],
+    "specifications": [
+      {
+        "name": "Sensor Type",
+        "value": "Humidity sensor, Temperature sensor"
+      },
+      {
+        "name": "Instrument Type",
+        "value": "Sensor"
+      },
+      {
+        "name": "Part Type",
+        "value": "Transducer"
+      },
+      {
+        "name": "Application",
+        "value": "Engine management, Marine systems, Tire monitoring"
+      },
+      {
+        "name": "Measurement Sensor Type",
+        "value": "Zigbee"
+      },
+      {
+        "name": "Functionality Type",
+        "value": "Sensor"
+      },
+      {
+        "name": "Measuring Media",
+        "value": "Humidity, Temperature"
+      },
+      {
+        "name": "Alarm Functions",
+        "value": "Yes"
+      },
+      {
+        "name": "Programmable Features",
+        "value": "Yes"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Data tracking, Real-time alerts, Smart automation"
+      },
+      {
+        "name": "Power Source",
+        "value": "Battery"
+      },
+      {
+        "name": "Included Hardware",
+        "value": "Triangle Pry Opening Tool, Adhesive"
+      },
+      {
+        "name": "Installation Difficulty",
+        "value": "Easy"
+      },
+      {
+        "name": "Wired Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Wireless Connectivity",
+        "value": "Yes, Zigbee compatible"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Home comfort, Pet care, Plant care"
+      },
+      {
+        "name": "Typical Users",
+        "value": "Pet owners, Plant lovers"
+      }
+    ],
+    "shortDescription": "The Kogan SmarterHome Zigbee Temperature and Humidity Sensor measures temperature and humidity levels wirelessly via Zigbee. It features real-time alerts, data tracking, and programmable alarm functions. Battery-powered with easy installation, it includes an adhesive mounting option and a pry tool for setup.",
+    "bestFor": "Pet owners, plant lovers, and those monitoring home comfort conditions",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "aqara-hub-m100",
+    "slug": "aqara-hub-m100",
+    "name": "Hub M100",
+    "brand": "Aqara",
+    "categoryKey": "hubs-and-platforms",
+    "categorySlug": "hubs-and-platforms",
+    "categoryName": "Hubs & Platforms",
+    "subCategory": "Matter & Thread Hubs",
+    "priceAud": 37,
+    "currency": "AUD",
+    "image": "/images/products/aqara-hub-m100.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Aqara-USB-Powered-Controller-Compatible-Adjustable/dp/B0F7H5HYGD?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A25UC4Z15G78VO",
+        "primary": true,
+        "priceAud": 37,
+        "deepLink": true
+      },
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/aqara-hub-m100-aqhmg02d?region_id=GTYP2H",
+        "primary": false,
+        "priceAud": 37,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/aqara-white-smart-home-matter-zigbee-hub-m100_p0995127?srsltid=AU7gw4VAS6toLrd1KA4FuVzpCSCdUFr-x0x_lHdIO33Qc62BcdJLv_4p6Fw&region_id=117313",
+        "primary": false,
+        "priceAud": 37,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "11530217216584781834",
+    "pricesCheckedAt": "2026-10-05T20:39:06.807Z",
+    "updatedAt": "2026-10-05T20:39:06.807Z",
+    "images": [
+      "/images/products/aqara-hub-m100.webp",
+      "/images/products/aqara-hub-m100-2.webp",
+      "/images/products/aqara-hub-m100-3.webp",
+      "/images/products/aqara-hub-m100-4.webp"
+    ],
+    "mpn": "M100, Aqara Hub M100",
+    "description": "Thread Border Router & Mesh Extender The M100 enhances your current smart home hub by serving as a Thread Border Router, adding Thread support to your setup if you already have a smart home hub. It also functions as a mesh extender, boosting the reliability and range of your Thread network. Local Automations Supports local automation execution for Zigbee and Matter devices, allowing automation rules to run within the LAN without relying on cloud servers or external connections. Support Advanced Matter Bridging The Hub M100 supports Matter bridging to sync Aqara scenes and signals with ecosystems like Home Assistant. I supports various Matter devices, including lights, thermostats, outlets, switches, buttons, and sensors. 2.4GHz Wi. Fi 6 with WPA3 Security Enjoy faster and more efficient connections with 2.4GHz Wi-Fi 6 support. With enhanced WPA3 security, Wi-Fi 6 ensures smooth performance in high-traffic areas, allowing multiple devices to connect effortlessly without sacrificing speed or reliability. Universal USB-A Interface 210° Adjustable Shaft The M100 offers versatile power supply and data communication through a USB-A interface, providing flexible installation options with its 210° adjustable shaft. It can be powered by any USB-equipped device, such as a power bank, outlet, or PC, or discreetly placed behind your router for a sleek, seamless setup.",
+    "specifications": [
+      {
+        "name": "Supported Assistants",
+        "value": "Google Home, Amazon Alexa"
+      },
+      {
+        "name": "Supported Devices",
+        "value": "Zigbee devices, Sensors"
+      },
+      {
+        "name": "Supported Platforms",
+        "value": "Google Home, Alexa, Apple Home, Home Assistant, Matter"
+      },
+      {
+        "name": "App Compatibility",
+        "value": "Aqara app"
+      },
+      {
+        "name": "Brands or Ecosystems",
+        "value": "Aqara"
+      },
+      {
+        "name": "Control Method",
+        "value": "Aqara app"
+      },
+      {
+        "name": "Remote Access",
+        "value": "Remote thermostat control"
+      },
+      {
+        "name": "Quantity of Devices",
+        "value": "1 (Hub M100)"
+      },
+      {
+        "name": "Encryption",
+        "value": "WPA3 encryption"
+      },
+      {
+        "name": "Access Control",
+        "value": "On-device facial recognition (specific to Aqara devices)"
+      },
+      {
+        "name": "Security Protocols",
+        "value": "WPA3 Security"
+      },
+      {
+        "name": "Number of Connected Devices",
+        "value": "Up to 20 Zigbee devices, Up to 20 Thread devices"
+      },
+      {
+        "name": "Reliability",
+        "value": "Satisfactory as a Bridge, No disconnections (as a Bridge)"
+      },
+      {
+        "name": "Responsiveness",
+        "value": "Speedy local control, Fast Local Automations"
+      },
+      {
+        "name": "Scalability",
+        "value": "Can be used to expand your existing Thread network"
+      },
+      {
+        "name": "Automation Capabilities",
+        "value": "Speedy local control, Fast Local Automations"
+      },
+      {
+        "name": "Notifications",
+        "value": "Limits alerts to notifications on the phone"
+      },
+      {
+        "name": "Monitoring",
+        "value": "Get updates when motion is detected (with cameras), Air quality sensors"
+      },
+      {
+        "name": "Connectivity Protocols",
+        "value": "Zigbee, Matter, Thread"
+      },
+      {
+        "name": "Connectivity Technology",
+        "value": "Wi-Fi"
+      },
+      {
+        "name": "Connectivity Range",
+        "value": "Extend range (for Thread devices)"
+      },
+      {
+        "name": "Ports",
+        "value": "USB-A port"
+      },
+      {
+        "name": "Wired Connectivity",
+        "value": "USB-A port"
+      },
+      {
+        "name": "Included Components",
+        "value": "User Manual \times 1, Hub M100 \times 1"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Matter controller, Matter Bridge, Thread Border Router"
+      },
+      {
+        "name": "Software Updates",
+        "value": "Recent updates (M100 Hub can expose most of Aqara's global Zigbee listings to Matter)"
+      },
+      {
+        "name": "Installation Type",
+        "value": "USB-A setup"
+      },
+      {
+        "name": "Power Type",
+        "value": "5V 0.5A (input)"
+      },
+      {
+        "name": "Power Backup",
+        "value": "Can join your existing network and take over when the primary hub goes down, Can back you up for adding Matter devices (if without a Thread border router at home)"
+      },
+      {
+        "name": "Power Consumption",
+        "value": "0.5 A (Rated Current)"
+      },
+      {
+        "name": "Color",
+        "value": "White"
+      },
+      {
+        "name": "Dimensions",
+        "value": "108\times30\times8 mm"
+      },
+      {
+        "name": "Form Factor",
+        "value": "Resembling a Wi-Fi dongle"
+      },
+      {
+        "name": "Weight",
+        "value": "40 g"
+      },
+      {
+        "name": "Indicators",
+        "value": "Viewing climate data on the W100 screen, At-a-glance temp and humidity readings (on display)"
+      },
+      {
+        "name": "Network Type",
+        "value": "Local Thread network"
+      },
+      {
+        "name": "Network Speed",
+        "value": "Wi-Fi 6 speed"
+      },
+      {
+        "name": "Buttons",
+        "value": "Button to add it to HomeKit quickly from the app (for iOS users)"
+      },
+      {
+        "name": "Memory",
+        "value": "Double the memory of the previous iteration"
+      },
+      {
+        "name": "Certifications",
+        "value": "Matter-certified"
+      },
+      {
+        "name": "Model",
+        "value": "M100, Aqara Hub M100"
+      },
+      {
+        "name": "Version",
+        "value": "Ark 2.0 (technology supported)"
+      },
+      {
+        "name": "Skill Level",
+        "value": "New to smart home gadgets"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Home automation"
+      },
+      {
+        "name": "Typical Users",
+        "value": "HomeKit user"
+      }
+    ],
+    "shortDescription": "The Aqara Hub M100 is a Thread Border Router and mesh extender that adds Thread support to existing smart home setups. The manufacturer states it supports local automations for Zigbee and Matter devices, enabling rules to run on the LAN without cloud reliance. It offers Wi-Fi 6 with WPA3 security and functions as a Matter bridge for various device types.",
+    "bestFor": "Users wanting Thread network expansion and local automation control",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "bluetti-ac2a-portable-power-station",
+    "slug": "bluetti-ac2a-portable-power-station",
+    "name": "ac2a Portable Power Station",
+    "brand": "BLUETTI",
+    "categoryKey": "energy",
+    "categorySlug": "energy-and-solar",
+    "categoryName": "Energy & Solar",
+    "subCategory": "Portable Power Stations",
+    "priceAud": 299,
+    "currency": "AUD",
+    "image": "/images/products/bluetti-ac2a-portable-power-station.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/BLUETTI-Portable-AC2A-Recharge-Generator/dp/B0DWXFJSR9?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A23B1DD9HLNVBM",
+        "primary": true,
+        "priceAud": 299,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/bluetti-ac2a-portable-power-station-300w-204wh_p0559803?srsltid=AU7gw4XpRviseNmxBrFO8TlDVp4G6N2AZicllAyQF5pqtgotIkuCXOHPmic",
+        "primary": false,
+        "priceAud": 299,
+        "deepLink": true
+      },
+      {
+        "name": "eBay AU",
+        "url": "https://www.ebay.com.au/itm/358445517786?chn=ps&_ul=AU&mkevt=1&mkcid=28&google_free_listing_action=view_item&srsltid=AU7gw4UdGxGlVmrL90vgUU2oRU9EXqiZ8HrWxaqbB_yU_pBuejTiLmf0CkE",
+        "primary": false,
+        "priceAud": 499.95,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "1243904970526806654",
+    "pricesCheckedAt": "2026-10-05T20:46:05.423Z",
+    "updatedAt": "2026-10-05T20:46:05.423Z",
+    "images": [
+      "/images/products/bluetti-ac2a-portable-power-station.webp",
+      "/images/products/bluetti-ac2a-portable-power-station-2.webp"
+    ],
+    "description": "Weighing only 3.6 kg, the bluetti ac2a redefines portable power! This solar generator may be tiny, but it's mighty! Experience lightning-fast charging speed, higher-than-average solar input, lifting power capability, and seamless compatibility with bluetti's expansion battery, all in one package. It outshines previous models in every way. With the ac2a, you'll enjoy the perfect blend of safety, durability, and versatility. Take your outdoor adventures to new heights!",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Bluetti"
+      },
+      {
+        "name": "Type",
+        "value": "Power Bank"
+      },
+      {
+        "name": "Fast Charging",
+        "value": "Yes"
+      }
     ]
+  },
+  {
+    "id": "millers-falls-portable-power-station-400w",
+    "slug": "millers-falls-portable-power-station-400w",
+    "name": "Falls Portable Power Station 400w",
+    "brand": "Millers",
+    "categoryKey": "energy",
+    "categorySlug": "energy-and-solar",
+    "categoryName": "Energy & Solar",
+    "subCategory": "Portable Power Stations",
+    "priceAud": 340,
+    "currency": "AUD",
+    "image": "/images/products/millers-falls-portable-power-station-400w.webp",
+    "retailers": [
+      {
+        "name": "eBay AU",
+        "url": "https://www.ebay.com.au/itm/387347176755?chn=ps&_ul=AU&mkevt=1&mkcid=28&google_free_listing_action=view_item&srsltid=AU7gw4W9qoFxq5b0fAVxj_BwtcvSx-pv5iaUYddq-hniI1R5huS8SYGWvuA",
+        "primary": true,
+        "priceAud": 340,
+        "deepLink": true
+      },
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/millers-falls-portable-power-station-400w.html?srsltid=AU7gw4VMviXBrgz8teRQMXhfcettPr1-0n__pj4iD2e4fQLcF4lTMvVBn5s",
+        "primary": false,
+        "priceAud": 399,
+        "deepLink": true
+      },
+      {
+        "name": "Woolworths",
+        "url": "https://www.woolworths.com.au/shop/productdetails/1113539867",
+        "primary": false,
+        "priceAud": 558.99,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "727414833638391413",
+    "pricesCheckedAt": "2026-10-05T20:46:05.423Z",
+    "updatedAt": "2026-10-05T20:46:05.423Z",
+    "images": [
+      "/images/products/millers-falls-portable-power-station-400w.webp",
+      "/images/products/millers-falls-portable-power-station-400w-2.webp"
+    ],
+    "description": "This 346. Wh portable power station delivers 400W continuous 240V AC output plus 12V DC and 5V USB charging from a single lithium battery unit.",
+    "specifications": [
+      {
+        "name": "Inverter Technology",
+        "value": "Yes"
+      },
+      {
+        "name": "Continuous Output",
+        "value": "400 W"
+      },
+      {
+        "name": "Power Output",
+        "value": "5V"
+      },
+      {
+        "name": "Voltage",
+        "value": "110/240V"
+      },
+      {
+        "name": "Peak Output",
+        "value": "450W"
+      },
+      {
+        "name": "Connectivity Ports",
+        "value": "USB, AC, DC"
+      },
+      {
+        "name": "Number of Outlets",
+        "value": "Multiple"
+      },
+      {
+        "name": "Weight",
+        "value": "0.001 KGM"
+      },
+      {
+        "name": "Depth",
+        "value": "19 CMT"
+      },
+      {
+        "name": "Height",
+        "value": "37 CMT"
+      },
+      {
+        "name": "Width",
+        "value": "22 CMT"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Lithium Battery, AC/DC Inverter"
+      },
+      {
+        "name": "Included Accessories",
+        "value": "User manual, 12V car accessory adaptor, 12V DC Car Charger, 240V Power Adaptor, AC Line"
+      },
+      {
+        "name": "Mobility",
+        "value": "Portable"
+      },
+      {
+        "name": "Color",
+        "value": "Black"
+      },
+      {
+        "name": "Battery Capacity",
+        "value": "93600mAh – 3.7V/366Wh"
+      },
+      {
+        "name": "Battery Type",
+        "value": "Lithium Battery"
+      }
+    ],
+    "shortDescription": "The Millers Falls Portable Power Station 400w is a 346Wh lithium battery unit delivering 400W continuous 240V AC output alongside 12V DC and 5V USB charging. According to the manufacturer, it reaches 450W peak output. The portable unit includes multiple outlets and comes with a car adaptor and chargers.",
+    "bestFor": "People needing portable AC and DC power for camping, travel or emergency backup",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "arlec-grid-connect-smart-4-outlet-powerboard-with-usb-a-and-c-charger",
+    "slug": "arlec-grid-connect-smart-4-outlet-powerboard-with-usb-a-and-c-charger",
+    "name": "Grid Connect Smart 4 Outlet Powerboard With USB A And C Charger",
+    "brand": "Arlec",
+    "categoryKey": "energy",
+    "categorySlug": "energy-and-solar",
+    "categoryName": "Energy & Solar",
+    "subCategory": "Power Boards",
+    "priceAud": 52.18,
+    "currency": "AUD",
+    "image": "/images/products/arlec-grid-connect-smart-4-outlet-powerboard-with-usb-a-and-c-charger.webp",
+    "retailers": [
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/arlec-grid-connect-smart-4-outlet-powerboard-with-usb-a-and-c-charger_p0587680?srsltid=AU7gw4Xn3sCJGlkHEA88JdqIU0PmTIlTqEHM2P1TlpCJhb2ZicJ8mLbg3xE&region_id=117313",
+        "primary": true,
+        "priceAud": 52.18,
+        "deepLink": true
+      },
+      {
+        "name": "eBay AU",
+        "url": "https://www.ebay.com.au/itm/407235616016?chn=ps&_ul=AU&mkevt=1&mkcid=28&google_free_listing_action=view_item&srsltid=AU7gw4U_ayFY6wsvf-L1_K3HagM-t9k7iz7cNmgfhpQkbOpm_O_6IaLTWLc",
+        "primary": false,
+        "priceAud": 69.04,
+        "deepLink": true
+      },
+      {
+        "name": "Woolworths",
+        "url": "https://www.woolworths.com.au/shop/productdetails/1127438255",
+        "primary": false,
+        "priceAud": 86.1,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "13193030532290410559",
+    "pricesCheckedAt": "2026-10-05T20:46:05.423Z",
+    "updatedAt": "2026-10-05T20:46:05.423Z",
+    "images": [
+      "/images/products/arlec-grid-connect-smart-4-outlet-powerboard-with-usb-a-and-c-charger.webp",
+      "/images/products/arlec-grid-connect-smart-4-outlet-powerboard-with-usb-a-and-c-charger-2.webp"
+    ],
+    "description": "The Arlec Grid Connect Smart 4 Outlet Powerboard with USB A&C Charger transforms your appliances into smart devices for both your work and living space. It comes with four independently controllable outlets, controllable USB. Type A and C charging ports with a total rating of 4.2A, and LED power indicators. Controlling your plugged device from anywhere is made simple with the GRID Connect App, a free, easy to download, pair and use app that is safe and secure. Manage your smart devices and use your preferred voice assistants, including Google Assistant and Amazon Alexa to make your life easier. This product is compatible with the Grid Connect smart home automation system, built to optimise your everyday living. Simply download the free Grid Connect app on your iOS or Android device and use your home Wi-Fi or mobile internet connection to control, customise and automate your product. It takes only minutes to set up, and there’s a wide range of products available that allow you to customise your system any way you like. Use the app to create the perfect scene for every moment of the day, set your product to operate on your ideal schedule, and enjoy peace of mind while you’re away. Most Grid Connect products are compatible with Google Assistant and Amazon Alexa (sold separately), so you can operate your system with the ultimate convenience.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Arlec"
+      }
+    ],
+    "shortDescription": "The Arlec Grid Connect Smart 4 Outlet Powerboard with USB A and C Charger features four independently controllable outlets and dual USB charging ports rated at 4.2A total. Control plugged devices remotely via the free Grid Connect App on iOS or Android, or use voice commands with Google Assistant and Amazon Alexa. The brand says setup takes minutes.",
+    "bestFor": "Those wanting remote control and voice automation of multiple devices and charging",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   }
 ]
