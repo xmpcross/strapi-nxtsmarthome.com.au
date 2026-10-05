@@ -158,7 +158,7 @@ const Footer: React.FC = () => {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="nc-Footer relative border-t border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950">
+    <footer className="nc-Footer relative bg-neutral-50 dark:bg-neutral-950">
       <div className="container grid gap-12 py-16 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,3fr)] lg:gap-16 lg:py-20">
         {/* Brand */}
         <div className="flex max-w-sm flex-col gap-5">
