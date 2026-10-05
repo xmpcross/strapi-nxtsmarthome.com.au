@@ -1,6 +1,125 @@
 {
   "_comment": "Catalogue products taken off the site: out of /products/, category pages, related products, article product boxes and the sitemap, and the page 404s. The entry stays in public/data/products.json, so re-enabling is deleting the slug from this list. A list rather than a flag in products.json, because a catalogue refresh rewrites that file. Read by lib/products.ts getAllTopProducts() and scripts/audit-thin-content.mjs.",
   "disabled": [
-    { "slug": "apple-homepod-2nd-generation", "date": "2026-09-24", "reason": "user request" }
+    {
+      "slug": "apple-homepod-2nd-generation",
+      "date": "2026-09-24",
+      "reason": "user request"
+    },
+    {
+      "slug": "aqara-camera-hub-g3-pan-tilt",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "eve-energy-strip-3-outlet-smart-power-board",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "sensibo-power-smart-plug",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "switchbot-curtain-3-motorized-rod-track",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "shelly-1pm-gen3-wi-fi-power-relay",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "aqara-hub-m2-multi-protocol-hub",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "apple-tv-4k-128gb-wi-fi-ethernet-thread",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "nabu-casa-home-assistant-yellow-hub-poe",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "nabu-casa-home-assistant-green-plug-and-play-hub",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "roborock-q5-pro-self-emptying-robot-vacuum",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "laser-smart-home-6m-rgb-light-strip-tv-sync-kit-alexa-google-assistant",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "nanoleaf-sense-smart-wireles-switch",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "lt1-63t-smart-switch-circuit-breaker-touch-control-power-metering-timer-relay-63",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "useelink-wifi-smart-power-strip-power-board-with-4-outlets-and-2-usb-ports-2-typ",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "smart-home-energy-monitor-real-time-electricity-monitor-with-16-50a-3-300a-circu",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "smart-power-board-wifi-power-strip-compatible-with-alexa-and-google-home-wifi-ve",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "tuya-wifi-intelligent-circuit-breaker-power-measurement-energy-kwh-meter-1p-1-63",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "uantii-zigbee-temperature-humidity-sensor-with-external-probe-for-for-plants-aqu",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "wifi-digital-thermometer-fridge-hygrometer-room-indoor-humidity-meter",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "matter-smart-home-hub-thread-tuya-zigbee-3-0-control-your-connected-devices",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "matter-smart-home-hub-m6-zigbee-3-0-gateway-with-antenna-for-home-automation",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "ha-smart-home-matter-hub",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    },
+    {
+      "slug": "3-5-inch-smart-home-control-panel-with-3-gang-relay-touchscreen-and-3-button-app",
+      "date": "2026-10-06",
+      "reason": "user request: no manufacturer description or specifications to write a product page from"
+    }
   ]
 }

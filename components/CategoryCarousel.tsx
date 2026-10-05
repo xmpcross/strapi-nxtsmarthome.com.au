@@ -7,7 +7,7 @@ export type CategoryCard = {
   slug: string;
   emoji: string;
   name: string;
-  count: number;
+  count?: number;
   body: string;
   links: { href: string; label: string }[];
 };
@@ -83,9 +83,11 @@ export default function CategoryCarousel({ cards }: { cards: CategoryCard[] }) {
                 <span className="text-base font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-400">
                   {cat.name}
                 </span>
-                <span className="ml-auto text-xs text-neutral-500 dark:text-neutral-400">
-                  {cat.count}
-                </span>
+                {cat.count !== undefined && (
+                  <span className="ml-auto text-xs text-neutral-500 dark:text-neutral-400">
+                    {cat.count}
+                  </span>
+                )}
               </Link>
 
               <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
