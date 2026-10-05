@@ -14,7 +14,7 @@ interface Props {
 const WidgetCategories: FC<Props> = ({ className = 'bg-neutral-100 dark:bg-neutral-800', categories, limit = 6 }) => {
   return (
     <div className={clsx('widget-categories overflow-hidden rounded-3xl', className)}>
-      <WidgetHeading title="Suggested categories" viewAll={{ label: 'View all', href: '/categories/' }} />
+      <WidgetHeading title="Suggested categories" viewAll={{ label: 'View all', href: '/all-topics/' }} />
       <div className="flow-root">
         <div className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-700">
           {categories?.slice(0, limit).map((category) => (

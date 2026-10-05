@@ -21,14 +21,15 @@ export async function getNavigation(): Promise<TNavigationItem[]> {
     { id: 'home', href: '/', name: 'Home' },
     {
       id: 'topics',
-      href: '/categories/',
+      href: '/all-topics/',
       name: 'Topics',
       type: 'dropdown',
       children: items(nav.topicNavLinks, 'topics'),
     },
     {
       id: 'guides',
-      href: '/articles/',
+      // '#': the top-level Guides link goes nowhere; its dropdown holds the links.
+      href: '#',
       name: 'Guides',
       type: 'dropdown',
       children: items(nav.guideNavLinks, 'guides'),

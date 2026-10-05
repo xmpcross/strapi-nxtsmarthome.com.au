@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const SITE_PAGES: Array<{ href: string; label: string }> = [
   { href: '/', label: 'Home' },
   { href: '/articles/', label: 'All articles' },
-  { href: '/categories/', label: 'Topics and categories' },
+  { href: '/all-topics/', label: 'Topics and categories' },
   { href: '/products/', label: 'Product catalogue' },
   { href: '/about/', label: 'About this site' },
   { href: '/how-we-test/', label: 'How we research' },
