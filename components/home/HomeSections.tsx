@@ -269,12 +269,12 @@ export function HomeSetupGuides({
   )
 }
 
-/** Product pages with our own research notes (the indexable ones). */
+/** A random selection of products priced at 3+ Australian retailers (chosen in app/page.tsx). */
 export function HomeProducts({ products }: { products: TopProduct[] }) {
   if (!products.length) return null
   return (
     <section>
-      <HeadingWithSub subHeading="Devices our guides recommend most, with research notes on who each suits, Australian details and alternatives.">
+      <HeadingWithSub subHeading="A rotating selection of products with prices from at least three Australian retailers.">
         Researched products
       </HeadingWithSub>
       <div className="grid gap-[15px] sm:grid-cols-2 lg:grid-cols-4">

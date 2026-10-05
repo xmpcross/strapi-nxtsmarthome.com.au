@@ -15,7 +15,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import JsonLd from '@/components/JsonLd'
 import { HomeBuyingGuides, HomeHero, HomeSetupGuides, HomeProducts, HomeStartHere, HomeTopics, HomeTrust } from '@/components/home/HomeSections'
-import { getIndexableTopProducts, toListingCard } from '@/lib/products'
+import { getListableTopProducts, toListingCard } from '@/lib/products'
 
 // Home page on the Ncmaz "Home Demo 5" layout, filled from Strapi and
 // revalidated with the article data (ISR, 5 minutes). SEO redesign (24 Sep
@@ -164,7 +164,17 @@ export default async function HomePage() {
     .slice(0, 4)
     .map(toTPost)
   // Product pages with our own research notes: the indexable ones.
-  const researched = getIndexableTopProducts().slice(0, 8).map(toListingCard)
+  // Researched products: only products with at least 3 retailers showing a real price, in
+  // random order. The page is ISR (revalidate above), so the selection changes on each
+  // regeneration, not per visitor.
+  const withPrices = getListableTopProducts().filter(
+    (p) => (p.retailers ?? []).filter((r) => typeof r.priceAud === 'number' && r.priceAud > 0).length >= 3,
+  )
+  for (let i = withPrices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[withPrices[i], withPrices[j]] = [withPrices[j], withPrices[i]]
+  }
+  const researched = withPrices.slice(0, 8).map(toListingCard)
   // Topic sections before and after the researched-products block. The block
   // sits just before Climate & Comfort, so Climate runs straight into Lighting
   // (user request, 24 Sep 2026); without Climate it falls back to halfway.
