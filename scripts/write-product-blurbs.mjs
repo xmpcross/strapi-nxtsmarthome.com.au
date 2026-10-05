@@ -34,6 +34,10 @@ const write = args.includes('--write');
 const flag = (n, d) => { const i = args.indexOf(`--${n}`); return i === -1 ? d : args[i + 1]; };
 const category = flag('category', null);
 const limit = Number(flag('limit', 999));
+// --slugs <file.json>: regenerate for exactly these slugs even if they already have a (too short)
+// short description. The previous text is kept in descriptionRewrite.previousShortDescription.
+const slugsFile = flag('slugs', null);
+const only = slugsFile ? new Set(JSON.parse(readFileSync(slugsFile, 'utf8'))) : null;
 
 const SCHEMA = {
   type: 'object',
@@ -58,7 +62,7 @@ const words = (s) => s.split(/\s+/).filter(Boolean).length;
 
 const products = JSON.parse(readFileSync(PRODUCTS_JSON, 'utf8'));
 const todo = products
-  .filter((p) => !p.shortDescription && (p.description || (p.specifications || []).length))
+  .filter((p) => (only ? only.has(p.slug) : !p.shortDescription) && (p.description || (p.specifications || []).length))
   .filter((p) => !category || p.categorySlug === category)
   .slice(0, limit);
 console.log(`${todo.length} products without a short description${category ? ` in ${category}` : ''}`);
@@ -69,13 +73,16 @@ for (const p of todo) {
   const prompt = `Product: ${p.brand} ${p.name}\n\nManufacturer description:\n${(p.description || '(none)').slice(0, 3000)}\n\nSpecifications:\n${specs || '(none)'}`;
   try {
     const out = await askForJson({ system: SYSTEM, prompt, schema: SCHEMA, model: MODEL, maxTokens: 600 });
-    const n = words(out.shortDescription) + words(out.bestFor);
-    console.log(`\n• ${p.brand} ${p.name}  [${n} words]\n  ${out.shortDescription}\n  bestFor: ${out.bestFor}`);
+    const keptBestFor = only && p.bestFor ? p.bestFor : out.bestFor;
+    const n = words(out.shortDescription) + words(keptBestFor);
+    console.log(`\n• ${p.brand} ${p.name}  [${n} words]${p.shortDescription && only ? `\n  was: ${p.shortDescription}` : ''}\n  ${out.shortDescription}\n  bestFor: ${keptBestFor}`);
     if (n < 50) { console.log('  ✗ under 50 words, not applied'); continue; }
     if (write) {
+      const previous = p.shortDescription;
       p.shortDescription = out.shortDescription.trim();
-      p.bestFor = out.bestFor.trim().replace(/\.$/, '');
+      p.bestFor = keptBestFor.trim().replace(/\.$/, '');
       p.descriptionRewrite = {
+        ...(previous ? { previousShortDescription: previous } : {}),
         approach: 'Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass',
         model: 'claude-haiku-4-5',
         sources: ['manufacturer description', 'catalogue specifications'],
