@@ -145,8 +145,8 @@ export default function CookiesPage() {
               {SOVRN_ENABLED && (
                 <li>
                   A commerce script from Sovrn attributes outbound merchant links, and may set a
-                  cookie to record which link you followed. Like the analytics tag, it is not loaded
-                  at all until you accept.
+                  cookie to record which link you followed. Unlike the analytics tag, it loads on
+                  every page, whether or not you accept.
                 </li>
               )}
               <li>

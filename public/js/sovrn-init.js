@@ -12,7 +12,8 @@
   if (!key) return;
   var loaded = false;
   window.__nxtLoadSovrn = function () {
-    if (loaded) return;
+    // nginx already injects the snippet on every page (sub_filter); never add a second copy.
+    if (loaded || window.vglnk) return;
     loaded = true;
     window.vglnk = { key: key };
     var s = document.createElement('script');
