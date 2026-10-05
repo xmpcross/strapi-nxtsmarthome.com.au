@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
-import PageHeader from '@/components/PageHeader';
-import Link from 'next/link';
+import AllTopicsClient, { TopicCategoryData } from '@/components/AllTopicsClient';
+import FlyonAccordion from '@/components/flyonui/FlyonAccordion';
+import FlyonHero from '@/components/flyonui/FlyonHero';
 import { getCategories } from '@/data/categories';
 import { getAllArticles } from '@/lib/content';
 import { breadcrumbJsonLd } from '@/lib/seo';
@@ -12,7 +13,7 @@ const DESCRIPTION =
   'Browse smart home guides and reviews by topic — security, lighting, energy, climate, hubs and platforms, robot vacuums, setup guides and buying guides.';
 
 export const metadata: Metadata = {
-  title: 'Topics & Categories',
+  title: 'Topics & Categories — NXT Smart Home AU',
   description: DESCRIPTION,
   alternates: { canonical: '/all-topics/' },
 };
@@ -22,12 +23,48 @@ export const revalidate = 300;
 
 export default async function CategoriesIndex() {
   const articles = await getAllArticles();
-  const cats = (await getCategories()).filter((c) => c.count > 0);
-  // Topics with listed products get a link to their product category page; the rest (setup and buying guides) have none.
+  const rawCats = await getCategories();
+  const cats = rawCats.filter((c) => c.count > 0);
   const withProducts = new Set(getListableTopProducts().map((p) => p.categorySlug));
 
+  const topicData: TopicCategoryData[] = cats.map((c) => {
+    const meta = getCategory(c.handle);
+    return {
+      id: c.id,
+      name: c.name,
+      handle: c.handle,
+      count: c.count,
+      description: c.description,
+      emoji: meta?.emoji,
+      intro: meta?.intro,
+      subcategories: meta?.subcategories,
+      hasProducts: withProducts.has(c.handle),
+    };
+  });
+
+  const topicFaqs = [
+    {
+      id: 'faq-1',
+      question: 'How are these smart home guides tailored for Australia?',
+      answer:
+        'All NXT Smart Home guides specifically cover Australian electrical standards (230V/50Hz), NBN Wi-Fi configurations (2.4GHz vs 5GHz band separation), local retailer availability (JB Hi-Fi, Bunnings, Harvey Norman), and Australian compliance marks (RCM / Telecommunications standards).',
+    },
+    {
+      id: 'faq-2',
+      question: 'Which smart home ecosystems work best together in Australian homes?',
+      answer:
+        'Apple Home, Google Home, and Amazon Alexa are the primary platforms in AU. Matter and Thread devices seamlessly bridge across all three. Check our Hubs & Platforms guides for step-by-step setup.',
+    },
+    {
+      id: 'faq-3',
+      question: 'Do I need a certified electrician to install smart switches in Australia?',
+      answer:
+        'Yes. In Australia, any 240V mains wiring — including hardwired smart light switches and smart power points — legally requires a licensed electrician. Plug-in smart plugs and battery/DIY smart devices do not.',
+    },
+  ];
+
   return (
-    <div className="page-categories-index container pt-14 pb-24 lg:pt-20 lg:pb-28">
+    <div className="page-categories-index container pt-8 pb-24 lg:pt-12 lg:pb-28 max-w-7xl mx-auto px-4 sm:px-6">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: 'Home', path: '/' },
@@ -54,75 +91,53 @@ export default async function CategoriesIndex() {
         }}
       />
 
-      <PageHeader
-        eyebrow="Topics"
-        title="Explore smart home topics"
-        // h1 at 2.5rem, section h2s at 2rem (app/globals.css), user request 24 Sep 2026.
-        titleClassName="text-[2.5rem] leading-tight"
-        intro={`Everything we publish, organised by what you're trying to do: ${articles.length} guides across ${cats.length} topics, written for Australian homes, retailers and electrical rules.`}
+      {/* FlyonUI Hero Banner */}
+      <FlyonHero
+        badge="Australian Smart Home Directory"
+        title="Explore Smart Home"
+        highlightedTitle="Topics & Guides"
+        description={`Everything we publish, organized by what you want to achieve: ${articles.length} in-depth guides across ${cats.length} core topics, crafted for Australian homes, retail ecosystems, and electrical standards.`}
+        primaryCta={{ label: 'Explore All Guides', href: '#directory' }}
+        secondaryCta={{ label: 'Compare Products', href: '/products/' }}
       />
 
-      {/* A directory, not a feed: what each topic covers and where to go next.
-          The home page carries the latest articles per topic. */}
-      <ul className="grid gap-6 md:grid-cols-2">
-        {cats.map((c) => {
-          const meta = getCategory(c.handle);
-          return (
-            <li
-              key={c.id}
-              className="flex flex-col rounded-3xl border border-neutral-200 bg-white p-7 dark:border-neutral-800 dark:bg-neutral-900"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <span
-                  className="flex size-14 items-center justify-center rounded-2xl bg-primary-50 text-3xl dark:bg-primary-950/60"
-                  aria-hidden="true"
-                >
-                  {meta?.emoji}
-                </span>
-                <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
-                  {c.count} {c.count === 1 ? 'guide' : 'guides'}
-                </span>
-              </div>
-              <h2 className="mt-5 text-2xl leading-tight font-bold text-neutral-900 dark:text-white">
-                <Link href={`/categories/${c.handle}/`} className="hover:text-primary-700 dark:hover:text-primary-300">
-                  {c.name}
-                </Link>
-              </h2>
-              <p className="mt-2 leading-relaxed text-neutral-600 dark:text-neutral-300">{meta?.intro ?? c.description}</p>
-              {meta?.subcategories?.length ? (
-                <div className="mt-5">
-                  <p className="text-xs font-semibold tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
-                    Covers
-                  </p>
-                  <ul className="mt-2 flex flex-wrap gap-2">
-                    {meta.subcategories.map((sub) => (
-                      <li
-                        key={sub}
-                        className="rounded-full border border-neutral-200 px-3 py-1 text-sm text-neutral-700 dark:border-neutral-700 dark:text-neutral-200"
-                      >
-                        {sub}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-              <div className="mt-auto flex flex-wrap gap-x-6 gap-y-2 border-t border-neutral-100 pt-5 text-sm font-medium dark:border-neutral-800">
-                <Link href={`/categories/${c.handle}/`} className="mt-5 text-primary-700 hover:underline dark:text-primary-300">
-                  Read {c.name} guides →
-                </Link>
-                {withProducts.has(c.handle) && (
-                  <Link
-                    href={`/products/category/${c.handle}/`}
-                    className="mt-5 text-primary-700 hover:underline dark:text-primary-300"
-                  >
-                    Compare products →
-                  </Link>
-                )}
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      {/* Quick Metrics Bar */}
+      <div className="my-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+        <div className="card card-border bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-4 rounded-xl shadow-xs">
+          <span className="text-2xl lg:text-3xl font-extrabold text-primary">{articles.length}</span>
+          <span className="text-xs text-base-content/70 font-medium mt-1 block">Published Guides</span>
+        </div>
+        <div className="card card-border bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-4 rounded-xl shadow-xs">
+          <span className="text-2xl lg:text-3xl font-extrabold text-primary">{cats.length}</span>
+          <span className="text-xs text-base-content/70 font-medium mt-1 block">Topic Categories</span>
+        </div>
+        <div className="card card-border bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-4 rounded-xl shadow-xs">
+          <span className="text-2xl lg:text-3xl font-extrabold text-primary">100%</span>
+          <span className="text-xs text-base-content/70 font-medium mt-1 block">AU Compliance</span>
+        </div>
+        <div className="card card-border bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-4 rounded-xl shadow-xs">
+          <span className="text-2xl lg:text-3xl font-extrabold text-primary">2.4GHz / 5GHz</span>
+          <span className="text-xs text-base-content/70 font-medium mt-1 block">Wi-Fi Tested</span>
+        </div>
+      </div>
+
+      {/* Interactive Category Filter & Directory */}
+      <div id="directory" className="pt-4">
+        <AllTopicsClient categories={topicData} />
+      </div>
+
+      {/* FlyonUI Accordion FAQ Section */}
+      <div className="mt-20 card card-border bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-8 rounded-2xl">
+        <div className="max-w-2xl mb-6">
+          <span className="badge badge-soft badge-primary text-xs font-semibold uppercase tracking-wider mb-2">
+            Frequently Asked Questions
+          </span>
+          <h2 className="text-2xl font-bold text-base-content">
+            Understanding Australian Smart Home Setup
+          </h2>
+        </div>
+        <FlyonAccordion items={topicFaqs} />
+      </div>
     </div>
   );
 }

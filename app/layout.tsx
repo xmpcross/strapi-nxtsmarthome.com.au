@@ -8,6 +8,7 @@ import Footer from '@/components/Footer/Footer';
 import Header2 from '@/components/Header/Header2';
 import ThemeProvider from './theme-provider';
 import CookieBanner from '@/components/CookieBanner';
+import FlyonuiScript from '@/components/FlyonuiScript';
 import HeadScripts from '@/components/HeadScripts';
 import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
@@ -152,6 +153,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </AudioProvider>
         </ThemeProvider>
         <CookieBanner />
+        <FlyonuiScript />
       </body>
     </html>
   );

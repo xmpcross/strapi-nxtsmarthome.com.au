@@ -1,5 +1,7 @@
 /* Ncmaz template base (Tailwind 4); primary = the site's brand ramp. */
 @import 'tailwindcss';
+@import 'flyonui/flyonui.css';
+@import 'flyonui/variants.css';
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/aspect-ratio";
