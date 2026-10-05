@@ -51,6 +51,97 @@ const widgetMenus: WidgetFooterMenu[] = [
   },
 ]
 
+const svgProps = {
+  viewBox: '0 0 24 24',
+  className: 'size-4',
+  'aria-hidden': true,
+} as const
+const stroke = { fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' } as const
+
+const shareUrl = encodeURIComponent(`${site.url}/`)
+const shareText = encodeURIComponent(`${site.name}: smart home guides for Australian homes`)
+
+/*
+ * Footer icons. Only Facebook is a profile; Twitter/X, Reddit and WhatsApp are
+ * "share this site" links, because the site has no profile on them (add one to
+ * site.social and link it here to change that).
+ */
+const socials: { label: string; href: string; external?: boolean; icon: React.ReactNode }[] = [
+  ...(site.social.facebook
+    ? [
+        {
+          label: `${site.name} on Facebook`,
+          href: site.social.facebook,
+          external: true,
+          icon: (
+            <svg {...svgProps} fill="currentColor">
+              <path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9Z" />
+            </svg>
+          ),
+        },
+      ]
+    : []),
+  {
+    label: 'Share on Twitter / X',
+    href: `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`,
+    external: true,
+    icon: (
+      <svg {...svgProps} fill="currentColor">
+        <path d="M18.9 2h3.4l-7.4 8.5L23.6 22h-6.8l-5.3-7-6.1 7H2l7.9-9.1L1.7 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.9L7.7 3.9H5.7L17.7 20Z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Share on Reddit',
+    href: `https://www.reddit.com/submit?url=${shareUrl}&title=${shareText}`,
+    external: true,
+    icon: (
+      <svg {...svgProps} {...stroke}>
+        <ellipse cx="12" cy="14" rx="8" ry="5.5" />
+        <circle cx="9" cy="13" r="1" fill="currentColor" stroke="none" />
+        <circle cx="15" cy="13" r="1" fill="currentColor" stroke="none" />
+        <path d="M9.5 16.3c1.5 1 3.5 1 5 0" />
+        <path d="M12 8.5 13.2 3l4 1" />
+        <circle cx="18" cy="4.2" r="1.2" />
+        <circle cx="4.2" cy="11.5" r="1.6" />
+        <circle cx="19.8" cy="11.5" r="1.6" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Share on WhatsApp',
+    href: `https://wa.me/?text=${shareText}%20${shareUrl}`,
+    external: true,
+    icon: (
+      <svg {...svgProps} {...stroke}>
+        <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+        <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.3-1.6-2-1-.9.8c-.9-.4-1.6-1.1-2-2l.8-.9-1-2L9 9.5Z" />
+      </svg>
+    ),
+  },
+  {
+    label: `Email ${site.name}`,
+    href: `mailto:${site.organisation.email}`,
+    icon: (
+      <svg {...svgProps} {...stroke}>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </svg>
+    ),
+  },
+  {
+    label: 'RSS feed',
+    href: '/feed.xml',
+    icon: (
+      <svg {...svgProps} {...stroke}>
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" fill="currentColor" />
+      </svg>
+    ),
+  },
+]
+
 const linkClass =
   'text-neutral-600 transition-colors hover:text-primary-600 dark:text-neutral-400 dark:hover:text-white'
 
@@ -73,8 +164,9 @@ const Footer: React.FC = () => {
         <div className="flex max-w-sm flex-col gap-5">
           <Logo size="size-10" alwaysShowWordmark />
           <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-            Research-based smart home guides for Australian homes: 240V wiring, AS/NZS rules,
-            renters, local retailers and Australian Consumer Law.
+            Independent smart home buying guides and setup help for Australian homes, covering
+            230V wiring, AS/NZS standards, renting, Australian retailers and Australian Consumer
+            Law.
           </p>
           {/* Email only, 18px bold (user request, 24 Sep 2026); the Contact
               page is in the site column below. break-all keeps it inside
@@ -85,19 +177,21 @@ const Footer: React.FC = () => {
           >
             {site.organisation.email}
           </a>
-          {site.social.facebook && (
-            <a
-              href={site.social.facebook}
-              rel="noopener"
-              target="_blank"
-              aria-label={`${site.name} on Facebook`}
-              className="inline-flex size-9 items-center justify-center rounded-lg border border-neutral-300 text-neutral-600 transition hover:border-primary-600 hover:text-primary-600 dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-white dark:hover:text-white"
-            >
-              <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden="true">
-                <path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9Z" />
-              </svg>
-            </a>
-          )}
+          <ul className="flex flex-wrap gap-2" aria-label={`${site.name} on social media and feeds`}>
+            {socials.map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  {...(item.external ? { rel: 'noopener', target: '_blank' } : {})}
+                  aria-label={item.label}
+                  title={item.label}
+                  className="inline-flex size-9 items-center justify-center rounded-lg border border-neutral-300 text-neutral-600 transition hover:border-primary-600 hover:text-primary-600 dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-white dark:hover:text-white"
+                >
+                  {item.icon}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Link columns */}

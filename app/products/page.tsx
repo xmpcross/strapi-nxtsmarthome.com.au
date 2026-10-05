@@ -215,7 +215,7 @@ export default function ProductsPage() {
           <Link
             key={item.href}
             href={item.href}
-            className="group rounded-2xl border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-900"
+            className="group rounded-2xl border border-primary-200 bg-primary-50 p-6 transition hover:-translate-y-0.5 hover:shadow-lg dark:border-primary-900 dark:bg-primary-950/40"
           >
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold tracking-wider text-primary-600 uppercase dark:text-primary-400">
@@ -225,7 +225,7 @@ export default function ProductsPage() {
                 Read →
               </span>
             </div>
-            <h3 className="mt-2 font-semibold text-neutral-900 dark:text-white">{item.label}</h3>
+            <h3 className="mt-2 text-lg leading-snug font-bold text-neutral-900 dark:text-white">{item.label}</h3>
           </Link>
         ))}
       </div>
@@ -252,21 +252,21 @@ export default function ProductsPage() {
       <ProductGrid products={products.map(toListingCard)} categoriesList={categories} pageSize={6} showCounts={false} />
 
       {/* What to check — the Australia-specific traps, ordered by cost of error. */}
-      <section className="mt-16 border-t border-neutral-200 pt-10 dark:border-neutral-700">
+      <section className="mt-24">
         <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
           Australia only
         </span>
-        <h2 className="mt-2 text-2xl font-bold text-neutral-900 dark:text-white">
+        <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">
           What to check before you buy in Australia
         </h2>
 
-        <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CHECKS.map((item, i) => (
-            <div key={item.label} className="border-t border-neutral-200 pt-4 dark:border-neutral-700">
+            <div key={item.label} className="rounded-2xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
               <div className="flex items-baseline gap-3">
                 <span
                   aria-hidden="true"
-                  className="text-2xl font-bold leading-none text-primary-200 dark:text-primary-900/70"
+                  className="text-2xl font-bold leading-none text-primary-600 dark:text-primary-400"
                 >
                   {String(i + 1).padStart(2, '0')}
                 </span>
@@ -289,11 +289,11 @@ export default function ProductsPage() {
       </section>
 
       {/* Browse by category — auto-advancing cards. */}
-      <section className="mt-16 border-t border-neutral-200 pt-10 dark:border-neutral-700">
+      <section className="mt-24">
         <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
           Categories
         </span>
-        <h2 className="mt-2 text-2xl font-bold text-neutral-900 dark:text-white">
+        <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">
           Browse by category
         </h2>
         <div className="mt-8">
@@ -311,12 +311,12 @@ export default function ProductsPage() {
         two more things to scroll past. Stacks below lg, where two columns
         would leave the FAQ answers too narrow to read.
       */}
-      <section className="mt-16 grid gap-x-12 gap-y-12 border-t border-neutral-200 pt-10 dark:border-neutral-700 lg:grid-cols-2">
+      <section className="mt-24 grid gap-x-12 gap-y-12 rounded-3xl bg-primary-50 px-6 py-10 sm:px-10 lg:grid-cols-2 lg:px-14 lg:py-14 dark:bg-primary-950/40">
         <div>
           <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
             Transparency
           </span>
-          <h2 className="mt-2 text-2xl font-bold text-neutral-900 dark:text-white">
+          <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">
             How products get onto this page
           </h2>
 
@@ -357,7 +357,7 @@ export default function ProductsPage() {
           <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
             FAQ
           </span>
-          <h2 className="mt-2 text-2xl font-bold text-neutral-900 dark:text-white">
+          <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">
             Common questions
           </h2>
           <FaqAccordion items={FAQ} />

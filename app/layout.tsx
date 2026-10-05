@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   description: site.metaDescription,
   applicationName: site.name,
-  alternates: { canonical: '/' },
+  alternates: { canonical: '/', types: { 'application/rss+xml': '/feed.xml' } },
   // Files live in public/. The SVG is served to browsers that support it and stays
   // crisp at any density; the PNGs cover Android/iOS home screens and the .ico is
   // there for older browsers that still request /favicon.ico directly.
