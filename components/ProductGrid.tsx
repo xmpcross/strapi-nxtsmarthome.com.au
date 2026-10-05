@@ -34,6 +34,8 @@ interface Props {
   currentCategorySlug?: string;
   /** Products per page. Defaults to DEFAULT_PAGE_SIZE. */
   pageSize?: number;
+  /** Show product counts ("Showing x of N", category totals). Off on /products/. */
+  showCounts?: boolean;
 }
 
 export default function ProductGrid({
@@ -41,6 +43,7 @@ export default function ProductGrid({
   categoriesList = [],
   currentCategorySlug = 'all',
   pageSize = DEFAULT_PAGE_SIZE,
+  showCounts = true,
 }: Props) {
   const PAGE_SIZE = pageSize;
   const [selectedCategory, setSelectedCategory] = useState<string>(currentCategorySlug);
@@ -298,7 +301,7 @@ export default function ProductGrid({
                       <span>🏠</span>
                       <span>All Categories</span>
                     </span>
-                    <span className="text-[10px] opacity-80">({products.length})</span>
+                    {showCounts && <span className="text-[10px] opacity-80">({products.length})</span>}
                   </button>
 
                   {productCategories.map((cat) => {
@@ -339,7 +342,7 @@ export default function ProductGrid({
                             <span className="truncate">{cat.name}</span>
                           </span>
                           <span className="flex items-center gap-1.5 shrink-0">
-                            <span className="text-[10px] opacity-80">({count})</span>
+                            {showCounts && <span className="text-[10px] opacity-80">({count})</span>}
                             {catSubCategories.length > 0 && (
                               <span className={`text-[10px] transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`}>
                                 ▶
@@ -361,7 +364,7 @@ export default function ProductGrid({
                               }`}
                             >
                               <span>All {cat.name}</span>
-                              <span className="text-[10px] opacity-75">({count})</span>
+                              {showCounts && <span className="text-[10px] opacity-75">({count})</span>}
                             </button>
 
                             {catSubCategories.map((sub) => {
@@ -387,7 +390,7 @@ export default function ProductGrid({
                                     <span className="text-[9px] opacity-60">•</span>
                                     <span className="truncate">{sub}</span>
                                   </span>
-                                  <span className="text-[10px] opacity-75">({subCount})</span>
+                                  {showCounts && <span className="text-[10px] opacity-75">({subCount})</span>}
                                 </button>
                               );
                             })}
@@ -416,7 +419,7 @@ export default function ProductGrid({
                   }`}
                 >
                   <span>Any price</span>
-                  <span className="text-[10px] opacity-80">({products.length})</span>
+                  {showCounts && <span className="text-[10px] opacity-80">({products.length})</span>}
                 </button>
                 {PRICE_BANDS.map((band) => {
                   const count = products.filter(
@@ -436,7 +439,7 @@ export default function ProductGrid({
                       }`}
                     >
                       <span>{band.label}</span>
-                      <span className="text-[10px] opacity-80">({count})</span>
+                      {showCounts && <span className="text-[10px] opacity-80">({count})</span>}
                     </button>
                   );
                 })}
@@ -459,7 +462,7 @@ export default function ProductGrid({
                   }`}
                 >
                   <span>All Retailers</span>
-                  <span className="text-[10px] opacity-80">({products.length})</span>
+                  {showCounts && <span className="text-[10px] opacity-80">({products.length})</span>}
                 </button>
               </div>
               {/* 32 stockists is too many to list in full. Capped and scrolled,
@@ -481,7 +484,7 @@ export default function ProductGrid({
                       }`}
                     >
                       <span>{ret}</span>
-                      <span className="text-[10px] opacity-80">({count})</span>
+                      {showCounts && <span className="text-[10px] opacity-80">({count})</span>}
                     </button>
                   );
                 })}
@@ -494,9 +497,13 @@ export default function ProductGrid({
         <main className="min-w-0 flex-1">
           {/* Header Bar showing count */}
           <div className="mb-4 hidden items-center justify-between border-b border-neutral-100 pb-3 lg:flex dark:border-neutral-800">
+            {showCounts ? (
             <p className="text-xs font-semibold text-neutral-600 dark:text-neutral-400">
               Showing <span className="font-bold text-neutral-900 dark:text-white">{paginatedProducts.length}</span> of <span className="font-bold text-neutral-900 dark:text-white">{filteredProducts.length}</span> products
             </p>
+            ) : (
+              <span />
+            )}
             <div className="flex flex-wrap gap-2">
               {selectedCategory !== 'all' && (
                 <span className="inline-flex items-center gap-1 rounded-full bg-primary-100 px-3 py-0.5 text-xs font-semibold text-primary-800 dark:bg-primary-900 dark:text-primary-300">
@@ -550,7 +557,9 @@ export default function ProductGrid({
                   className="mt-8 flex flex-col items-end gap-3 border-t border-neutral-100 pt-5 dark:border-neutral-800 sm:flex-row sm:items-center sm:justify-between"
                 >
                   <span className="text-sm text-neutral-500 dark:text-neutral-400">
-                    Showing {(currentPage - 1) * PAGE_SIZE + 1}–{Math.min(currentPage * PAGE_SIZE, filteredProducts.length)} of {filteredProducts.length} products
+                    {showCounts
+                      ? `Showing ${(currentPage - 1) * PAGE_SIZE + 1}–${Math.min(currentPage * PAGE_SIZE, filteredProducts.length)} of ${filteredProducts.length} products`
+                      : `Page ${currentPage} of ${totalPages}`}
                   </span>
 
                   <div className="flex items-center gap-2 self-end sm:self-auto">

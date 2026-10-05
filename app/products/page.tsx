@@ -200,7 +200,6 @@ export default function ProductsPage() {
         eyebrow="Product catalogue"
         title="Compare smart home devices in Australia"
         intro="Every device here is sold in Australia, runs on 230V power, and is stocked by at least one local retailer with Australian warranty support. We link you to the retailer to check the current price, because prices move daily. Order is based on what we'd recommend, not on what pays us the most."
-        meta={`${products.length} devices catalogued`}
         // h1 at 2.5rem; description full width at 1rem (user requests, 24 Sep 2026).
         // text-[1rem]! beats PageHeader's md:text-lg default.
         titleClassName="text-[2.5rem] leading-tight"
@@ -250,7 +249,7 @@ export default function ProductsPage() {
         </ul>
       </nav>
 
-      <ProductGrid products={products.map(toListingCard)} categoriesList={categories} pageSize={6} />
+      <ProductGrid products={products.map(toListingCard)} categoriesList={categories} pageSize={6} showCounts={false} />
 
       {/* What to check — the Australia-specific traps, ordered by cost of error. */}
       <section className="mt-16 border-t border-neutral-200 pt-10 dark:border-neutral-700">
@@ -301,7 +300,6 @@ export default function ProductsPage() {
           <CategoryCarousel
             cards={CATEGORY_CARDS.map((c) => ({
               ...c,
-              count: products.filter((p) => p.categorySlug === c.slug).length,
             }))}
           />
         </div>
