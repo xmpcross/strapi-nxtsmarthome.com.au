@@ -126,6 +126,7 @@ export function TopicTile({ topic }: { topic: TCategory }) {
 /** HomeTopics - Shadowless Section */
 export function HomeTopics({ topics }: { topics: TCategory[] }) {
   if (!topics.length) return null
+  const displayTopics = topics.slice(0, 6)
   return (
     <section>
       <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
@@ -137,7 +138,7 @@ export function HomeTopics({ topics }: { topics: TCategory[] }) {
             Browse Smart Home Topics
           </h2>
           <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-            Explore {topics.length} core categories covering security, lighting, climate, energy, and platforms.
+            Explore core categories covering security, lighting, climate, energy, and platforms.
           </p>
         </div>
         <Link
@@ -149,7 +150,7 @@ export function HomeTopics({ topics }: { topics: TCategory[] }) {
       </div>
 
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {topics.map((topic) => (
+        {displayTopics.map((topic) => (
           <li key={topic.id}>
             <TopicTile topic={topic} />
           </li>
