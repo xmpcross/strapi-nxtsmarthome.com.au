@@ -177,7 +177,7 @@ export function HomeTopicSection({
   const emoji = meta?.emoji || '⚡'
 
   return (
-    <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 lg:p-10 dark:border-neutral-800 dark:bg-neutral-900">
+    <section className="relative">
       {/* Section Header */}
       <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-200 pb-6 dark:border-neutral-800">
         <div className="flex items-center gap-4">
@@ -336,7 +336,7 @@ export function HomeFaq() {
   ]
 
   return (
-    <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 lg:p-12 dark:border-neutral-800 dark:bg-neutral-900">
+    <section className="relative">
       <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
         <div>
           <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
@@ -431,7 +431,7 @@ export function HomeProducts({ products }: { products: TopProduct[] }) {
   const displayProducts = products.slice(0, 8)
 
   return (
-    <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 lg:p-10 dark:border-neutral-800 dark:bg-neutral-900">
+    <section className="relative">
       <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
         <div>
           <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
