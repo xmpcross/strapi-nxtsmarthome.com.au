@@ -41871,5 +41871,872 @@
       ],
       "date": "2026-10-05"
     }
+  },
+  {
+    "id": "samsung-hw-b400f-b-series-2-0ch-soundbar",
+    "slug": "samsung-hw-b400f-b-series-2-0ch-soundbar",
+    "name": "HW-B400F B-Series 2.0ch Soundbar",
+    "brand": "Samsung",
+    "categoryKey": "entertainment",
+    "categorySlug": "entertainment-and-audio",
+    "categoryName": "Entertainment & Audio",
+    "subCategory": "Smart Soundbars",
+    "priceAud": 169,
+    "currency": "AUD",
+    "image": "/images/products/samsung-hw-b400f-b-series-2-0ch-soundbar.webp",
+    "retailers": [
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/samsung-2-0-soundbar-b400f-smhwb400f?region_id=GTYP2H",
+        "primary": true,
+        "priceAud": 169,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Samsung-B400F-Channel-Soundbar-Black/dp/B0FBW6VBM5?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": false,
+        "priceAud": 169,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/samsung-hw-b400f-series-2-0-ch-soundbar-2025?ab_version=B&srsltid=AU7gw4XBeTyM_KmN93VA5e5SCTRInfljh1gLkl8zyOajJRHSHLsTE6oTKGo",
+        "primary": false,
+        "priceAud": 179,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "12051329650109287871",
+    "pricesCheckedAt": "2026-10-05T20:04:26.891Z",
+    "updatedAt": "2026-10-05T20:04:26.891Z",
+    "images": [
+      "/images/products/samsung-hw-b400f-b-series-2-0ch-soundbar.webp",
+      "/images/products/samsung-hw-b400f-b-series-2-0ch-soundbar-2.webp",
+      "/images/products/samsung-hw-b400f-b-series-2-0ch-soundbar-3.webp",
+      "/images/products/samsung-hw-b400f-b-series-2-0ch-soundbar-4.webp"
+    ],
+    "description": "Samsung HW-B400F 2.0ch Soundbar with built-in woofer delivers clear dialogue and enhanced surround sound. Features Bluetooth, HDMI ARC, Optical input, Voice Enhance, Night Mode, USB playback and One Remote support for easy TV control.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Samsung"
+      },
+      {
+        "name": "Wireless",
+        "value": "Yes"
+      },
+      {
+        "name": "Configuration",
+        "value": "2 Channel"
+      },
+      {
+        "name": "Special Purpose",
+        "value": "Soundbar"
+      },
+      {
+        "name": "Connectivity",
+        "value": "Bluetooth, USB, HDMI"
+      },
+      {
+        "name": "Max Wattage",
+        "value": "20 W"
+      }
+    ]
+  },
+  {
+    "id": "google-tv-streamer-4k",
+    "slug": "google-tv-streamer-4k",
+    "name": "TV Streamer 4K",
+    "brand": "Google",
+    "categoryKey": "entertainment",
+    "categorySlug": "entertainment-and-audio",
+    "categoryName": "Entertainment & Audio",
+    "subCategory": "Smart Displays & TV Boxes",
+    "priceAud": 147,
+    "currency": "AUD",
+    "image": "/images/products/google-tv-streamer-4k.webp",
+    "retailers": [
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/google-tv-streamer-4k-goa05662au?region_id=GTYP2H",
+        "primary": true,
+        "priceAud": 147,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/google-tv-streamer-4k?ab_version=A&srsltid=AU7gw4X28l07yYHwuAJZDm1_SO3-q6odkM5L72SwKUpzE9L3jZZAe54MxAw",
+        "primary": false,
+        "priceAud": 159,
+        "deepLink": true
+      },
+      {
+        "name": "BIG W",
+        "url": "https://www.bigw.com.au/product/google-tv-streamer-4k/p/6002958?srsltid=AU7gw4WmZaQzYWYiqaWWA69PH6z0CB1k0Z5TemsOr0iL8QJKb8_OWEq1ohU",
+        "primary": false,
+        "priceAud": 159,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "844880091612438146",
+    "pricesCheckedAt": "2026-10-05T20:04:26.891Z",
+    "updatedAt": "2026-10-05T20:04:26.891Z",
+    "images": [
+      "/images/products/google-tv-streamer-4k.webp",
+      "/images/products/google-tv-streamer-4k-2.webp",
+      "/images/products/google-tv-streamer-4k-3.webp",
+      "/images/products/google-tv-streamer-4k-4.webp"
+    ],
+    "description": "Google TV Streamer (4K), Google's most advanced streamer yet with its premium performance and design, delivers your favourite entertainment quickly, easily, and personalised to your Wi-Fi-enabled TV. Enjoy a cinematic experience with support from 4K HDR and Dolby Vision. Its stylish design lets you place Google TV Streamer (4K) prominently, and the redesigned voice remote is easy to use and comfortable to hold. Built with 32 GB of storage for apps, double the RAM, and a 22% increase in CPU performance from Chromecast, it's powered by Google's most advanced hardware yet.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Google"
+      },
+      {
+        "name": "Connectivity",
+        "value": "Ethernet, Wi-Fi"
+      },
+      {
+        "name": "Dongle",
+        "value": "Yes"
+      },
+      {
+        "name": "Supported Services",
+        "value": "Google Play"
+      },
+      {
+        "name": "Remote Included",
+        "value": "Yes"
+      },
+      {
+        "name": "Local File Playback",
+        "value": "Yes"
+      },
+      {
+        "name": "HD Type",
+        "value": "Ultra HD (4K)"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant"
+      },
+      {
+        "name": "Capacity",
+        "value": "32 GB"
+      }
+    ]
+  },
+  {
+    "id": "eufy-all-in-one-smart-display-e10",
+    "slug": "eufy-all-in-one-smart-display-e10",
+    "name": "All in One Smart Display E10",
+    "brand": "eufy",
+    "categoryKey": "entertainment",
+    "categorySlug": "entertainment-and-audio",
+    "categoryName": "Entertainment & Audio",
+    "subCategory": "Smart Displays & TV Boxes",
+    "priceAud": 449,
+    "currency": "AUD",
+    "image": "/images/products/eufy-all-in-one-smart-display-e10.jpg",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/eufy-Security-Smart-Display-Control/dp/B0GQH6134D",
+        "primary": true,
+        "priceAud": 449,
+        "deepLink": true
+      },
+      {
+        "name": "Woolworths",
+        "url": "https://www.woolworths.com.au/shop/productdetails/1126925161",
+        "primary": false,
+        "priceAud": 479,
+        "deepLink": true
+      },
+      {
+        "name": "eBay AU",
+        "url": "https://www.ebay.com.au/itm/336724730545?chn=ps&_ul=AU&mkevt=1&mkcid=28&google_free_listing_action=view_item&srsltid=AU7gw4WRmajPVJJjLHKiwOCVirCdmwyd3gZGFqP9cawRZuNDVKWCp5fbacE",
+        "primary": false,
+        "priceAud": 584,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "8999447256494517629",
+    "pricesCheckedAt": "2026-10-05T20:04:26.891Z",
+    "updatedAt": "2026-10-05T20:04:26.891Z",
+    "images": [
+      "/images/products/eufy-all-in-one-smart-display-e10.jpg",
+      "/images/products/eufy-all-in-one-smart-display-e10-2.webp",
+      "/images/products/eufy-all-in-one-smart-display-e10-3.webp",
+      "/images/products/eufy-all-in-one-smart-display-e10-4.webp"
+    ],
+    "description": "Step into seamless home security with the eufy Smart Display E10, an 8-inch video screen that delivers instant hands-free alerts and four simultaneous live feeds views of your entire property. The smart display lights up with voice announcements and real-time live footage when visitors ring your doorbell doors unlock, or motion is detected, showing you who's 8there without lifting a finger. Replay history instantly with zero buffering-events auto-save locally for smooth, delay-free playback. Get smarter daily insights through AI-powered summaries (courtesy of Home. Base S380) that highlight key events like recognized faces or package deliveries. Designed for everyone, the user-friendly touchscreen works effortlessly for kids and seniors alike. Monitor your world anytime, anywhere-simply, securely, and in crystal clarity.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "eufy"
+      },
+      {
+        "name": "Protection Area",
+        "value": "Door"
+      },
+      {
+        "name": "Use",
+        "value": "Residential"
+      }
+    ]
+  },
+  {
+    "id": "englaon-anywhere-32-4k-uhd-touch-screen",
+    "slug": "englaon-anywhere-32-4k-uhd-touch-screen",
+    "name": "ANYWHERE 32\" 4K UHD Touch Screen",
+    "brand": "ENGLAON",
+    "categoryKey": "entertainment",
+    "categorySlug": "entertainment-and-audio",
+    "categoryName": "Entertainment & Audio",
+    "subCategory": "Smart Displays & TV Boxes",
+    "priceAud": 1559.95,
+    "currency": "AUD",
+    "image": "/images/products/englaon-anywhere-32-4k-uhd-touch-screen.webp",
+    "retailers": [
+      {
+        "name": "BIG W",
+        "url": "https://www.bigw.com.au/product/englaon-anywhere-32-4k-uhd-android-13-google-certified-auto-rotate-touch-screen/p/9902439494?srsltid=AU7gw4Wqeo-WTJ_5lIue-xfo0w3m3SmFvcMdvyghlfdkgjhMatm84_ModBI",
+        "primary": true,
+        "priceAud": 1559.95,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/englaon-anywhere-32-4k-uhd-touch-screen",
+        "primary": false,
+        "priceAud": 1559.95,
+        "deepLink": true
+      },
+      {
+        "name": "Woolworths",
+        "url": "https://www.woolworths.com.au/shop/productdetails/1123469967",
+        "primary": false,
+        "priceAud": 1559.95,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "14444799390036312938",
+    "pricesCheckedAt": "2026-10-05T20:04:26.891Z",
+    "updatedAt": "2026-10-05T20:04:26.891Z",
+    "images": [
+      "/images/products/englaon-anywhere-32-4k-uhd-touch-screen.webp",
+      "/images/products/englaon-anywhere-32-4k-uhd-touch-screen-2.webp",
+      "/images/products/englaon-anywhere-32-4k-uhd-touch-screen-3.webp",
+      "/images/products/englaon-anywhere-32-4k-uhd-touch-screen-4.webp"
+    ],
+    "description": "Experience the next generation of portable entertainment and productivity with the Englaon ANYWHERE 4K UHD Touch Screen Monitor—a powerful, battery-operated 32” UHD smart display with 10-point touch capability and complete mobility.",
+    "specifications": [
+      {
+        "name": "Operating System",
+        "value": "Android 13 OS"
+      },
+      {
+        "name": "RAM",
+        "value": "8GB RAM"
+      },
+      {
+        "name": "Processor",
+        "value": "RK3588S chipset, Octa-core processor (ARM Cortex-A76 x4 + Cortex-A55 x4), RK3588S Octa-Core CPU"
+      },
+      {
+        "name": "GPU",
+        "value": "Mali-G610 MP4 GPU, Mali-G610 GPU"
+      },
+      {
+        "name": "Input Devices",
+        "value": "Wireless Mouse, Touchscreen"
+      },
+      {
+        "name": "Storage Capacity",
+        "value": "128GB"
+      },
+      {
+        "name": "Storage Type",
+        "value": "ROM"
+      },
+      {
+        "name": "Storage Expansion",
+        "value": "Expandable variant optional"
+      },
+      {
+        "name": "Memory Capacity",
+        "value": "8GB"
+      },
+      {
+        "name": "Number of Cores",
+        "value": "Octa-core, 4 (ARM Cortex-A76), 4 (Cortex-A55)"
+      },
+      {
+        "name": "Video Output",
+        "value": "HDMI 2.0"
+      },
+      {
+        "name": "Video Resolution",
+        "value": "4K"
+      },
+      {
+        "name": "Screen Size",
+        "value": "32\","
+      },
+      {
+        "name": "Display Resolution",
+        "value": "UHD, 3840x2160, 4K resolution"
+      },
+      {
+        "name": "Touchscreen",
+        "value": "Yes, 10-point, 10-Point Touchscreen Interface, INCELL capacitive"
+      },
+      {
+        "name": "Display Refresh Rate",
+        "value": "60Hz"
+      },
+      {
+        "name": "Wired Ports",
+        "value": "USB 3.0 ports, HDMI, HDMI 2.0, USB 2.0 ports"
+      },
+      {
+        "name": "Wireless Connectivity",
+        "value": "Dual-band WiFi (WiFi 6), Bluetooth 5.1"
+      },
+      {
+        "name": "Bluetooth",
+        "value": "5.1"
+      },
+      {
+        "name": "Depth",
+        "value": "55 mm (with stand)"
+      },
+      {
+        "name": "Height",
+        "value": "1333 mm (with stand)"
+      },
+      {
+        "name": "Weight",
+        "value": "19.2 kg (Net Weight)"
+      },
+      {
+        "name": "Width",
+        "value": "734 mm (with stand)"
+      },
+      {
+        "name": "Power Source",
+        "value": "Power Cable, 136.8Wh lithium-ion battery, 9500mAh / 14.4V (136.8Wh), Built-in Rechargeable Battery"
+      },
+      {
+        "name": "Audio Output",
+        "value": "Stereo"
+      },
+      {
+        "name": "Color",
+        "value": "White"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Smart Screen, Flexible Viewing & Adjustable Stand, Google Certified Auto Rotate, High-Performance Smart Platform"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Watch movies, Browse the web, Browsing experiences, Classrooms, Content creation"
+      }
+    ]
+  },
+  {
+    "id": "tcl-2-1-ch-soundbar-with-wireless-subwoofer-s55h",
+    "slug": "tcl-2-1-ch-soundbar-with-wireless-subwoofer-s55h",
+    "name": "2.1 Ch Soundbar with Wireless Subwoofer s55h",
+    "brand": "TCL",
+    "categoryKey": "entertainment",
+    "categorySlug": "entertainment-and-audio",
+    "categoryName": "Entertainment & Audio",
+    "subCategory": "Smart Soundbars",
+    "priceAud": 245,
+    "currency": "AUD",
+    "image": "/images/products/tcl-2-1-ch-soundbar-with-wireless-subwoofer-s55h.webp",
+    "retailers": [
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/tcl-2-1ch-dolby-atmos-soundbar-with-wireless-subwoofer-black.html?srsltid=AU7gw4X5TgbygxyUdiuN7F_sc3lH_GWnUqvwGzUik8pEqD_t8pQatz1Xqqg",
+        "primary": true,
+        "priceAud": 245,
+        "deepLink": true
+      },
+      {
+        "name": "Bing Lee",
+        "url": "https://www.binglee.com.au/products/21ch-dolby-atmos-soundbar-with-wireless-subwoofer-s55h",
+        "primary": false,
+        "priceAud": 245,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/tcl-21-ch-dolby-atmos-220w-soundbar-s55h?srsltid=AU7gw4VzGpD2POEgwR7lFXk43buYTnMbQaEKTF1RPME6jhGIMYelWQXP0kc",
+        "primary": false,
+        "priceAud": 249,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "17082141598743162463",
+    "pricesCheckedAt": "2026-10-05T20:04:26.891Z",
+    "updatedAt": "2026-10-05T20:04:26.891Z",
+    "images": [
+      "/images/products/tcl-2-1-ch-soundbar-with-wireless-subwoofer-s55h.webp",
+      "/images/products/tcl-2-1-ch-soundbar-with-wireless-subwoofer-s55h-2.webp",
+      "/images/products/tcl-2-1-ch-soundbar-with-wireless-subwoofer-s55h-3.webp",
+      "/images/products/tcl-2-1-ch-soundbar-with-wireless-subwoofer-s55h-4.webp"
+    ],
+    "description": "Take your home audio to the next level with the TCL 2.1 Channel Soundbar, offering 220W peak power for powerful, high-quality sound. Featuring Dolby Atmos and Dolby Digital, it creates a truly immersive experience, bringing depth and clarity to movies, music, and games. The wireless subwoofer enhances every beat with deep, punchy bass, while multiple connectivity options—including HDMI eARC, optical, and Bluetooth—make it easy to connect to a variety of devices. It supports MP3, WMA, FLAC, and WAV formats, ensuring great sound across all your content. The included wall mount kit allows for a sleek, space-saving setup. Whether you're watching your favourite films or streaming music, this TCL soundbar delivers crystal-clear audio and room-shaking bass for an unbeatable entertainment experience.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "TCL"
+      },
+      {
+        "name": "Wireless",
+        "value": "Yes"
+      },
+      {
+        "name": "Configuration",
+        "value": "2.1 Channel"
+      },
+      {
+        "name": "Dolby Atmos Enabled",
+        "value": "Yes"
+      },
+      {
+        "name": "Connectivity",
+        "value": "Bluetooth, HDMI, AUX"
+      },
+      {
+        "name": "Max Wattage",
+        "value": "220 W"
+      }
+    ]
+  },
+  {
+    "id": "kogan-4k-google-tv-dongle",
+    "slug": "kogan-4k-google-tv-dongle",
+    "name": "4K Google TV Dongle",
+    "brand": "Kogan",
+    "categoryKey": "entertainment",
+    "categorySlug": "entertainment-and-audio",
+    "categoryName": "Entertainment & Audio",
+    "subCategory": "Smart Displays & TV Boxes",
+    "priceAud": 119,
+    "currency": "AUD",
+    "image": "/images/products/kogan-4k-google-tv-dongle.webp",
+    "retailers": [
+      {
+        "name": "Kogan AU",
+        "url": "https://www.kogan.com/au/buy/kogan-4k-smart-tv-dongle-with-google-tvtm-kogan/",
+        "primary": true,
+        "priceAud": 119,
+        "deepLink": true
+      },
+      {
+        "name": "eBay AU",
+        "url": "https://www.ebay.com.au/itm/318466966605?chn=ps&_ul=AU&mkevt=1&mkcid=28&google_free_listing_action=view_item&srsltid=AU7gw4Uwul3UXOym8rZfVMZveW4X-0NkeNT1vSNsFwKDGeWGLcPh0ohd_qs",
+        "primary": false,
+        "priceAud": 129.5,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Kogan-Google-Dongle-Chromecast-Built/dp/B0GCZBNZR4?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1NI3URD5ZVE01",
+        "primary": false,
+        "priceAud": 135,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "17848614568856525512",
+    "pricesCheckedAt": "2026-10-05T20:04:26.891Z",
+    "updatedAt": "2026-10-05T20:04:26.891Z",
+    "images": [
+      "/images/products/kogan-4k-google-tv-dongle.webp",
+      "/images/products/kogan-4k-google-tv-dongle-2.webp",
+      "/images/products/kogan-4k-google-tv-dongle-3.webp",
+      "/images/products/kogan-4k-google-tv-dongle-4.webp"
+    ],
+    "specifications": [
+      {
+        "name": "Streaming Services",
+        "value": "YouTube, Amazon Prime Video, Disney+, Netflix"
+      },
+      {
+        "name": "Display Output Resolution",
+        "value": "4K Ultra HD"
+      },
+      {
+        "name": "HDR Support",
+        "value": "HDR"
+      },
+      {
+        "name": "Ports and Interfaces",
+        "value": "USB, HDMI"
+      },
+      {
+        "name": "Wi-Fi",
+        "value": "Wi-Fi, 2.4GHz & 5.0GHz, Dual-band Wi-Fi"
+      },
+      {
+        "name": "Bluetooth",
+        "value": "5.0"
+      },
+      {
+        "name": "Supported Wireless Technologies",
+        "value": "Chromecast built-in"
+      },
+      {
+        "name": "Dimensions",
+        "value": "78.9 x 78.9 x 22 mm"
+      },
+      {
+        "name": "Form Factor",
+        "value": "Dongle"
+      },
+      {
+        "name": "Weight",
+        "value": "69 g"
+      },
+      {
+        "name": "Audio Support",
+        "value": "Dolby Audio support"
+      },
+      {
+        "name": "USB Ports",
+        "value": "USB"
+      },
+      {
+        "name": "Remote Included",
+        "value": "Yes"
+      },
+      {
+        "name": "Remote Features",
+        "value": "Voice control"
+      },
+      {
+        "name": "HD Type",
+        "value": "Ultra HD, 4K, UHD"
+      },
+      {
+        "name": "Video Output",
+        "value": "HDR"
+      },
+      {
+        "name": "Video Highlights",
+        "value": "HDR playback, 4K playback"
+      },
+      {
+        "name": "Voice Assistant Support",
+        "value": "Voice Control, Google Assistant, Google Assistant voice control"
+      },
+      {
+        "name": "Bundle",
+        "value": "Warranty Card, AAA Batteries (2), HDMI Cable, Kogan 4K Google TV Dongle (With Chromecast Built-in)"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Plug-and-play setup, Dongle, Kids profiles and watchlist, LED Indicator Light"
+      },
+      {
+        "name": "RAM",
+        "value": "2GB"
+      },
+      {
+        "name": "Processor",
+        "value": "ARM Cortex-A35 64-bit Quad-core processor"
+      },
+      {
+        "name": "Storage Type",
+        "value": "eMMC"
+      },
+      {
+        "name": "Power Source",
+        "value": "5V, 1A (Input)"
+      },
+      {
+        "name": "Energy Consumption",
+        "value": "5W (Rated Power)"
+      }
+    ]
+  },
+  {
+    "id": "yamaha-musiccast-20-wireless-speaker",
+    "slug": "yamaha-musiccast-20-wireless-speaker",
+    "name": "MusicCast 20 Wireless Speaker",
+    "brand": "Yamaha",
+    "categoryKey": "entertainment",
+    "categorySlug": "entertainment-and-audio",
+    "categoryName": "Entertainment & Audio",
+    "subCategory": "Smart Speakers",
+    "priceAud": 328,
+    "currency": "AUD",
+    "image": "/images/products/yamaha-musiccast-20-wireless-speaker.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Yamaha-WX021B-MusicCast-20-Black/dp/B07NLCP4GK?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": true,
+        "priceAud": 328,
+        "deepLink": true
+      },
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/yamaha-musiccast-20-wireless-speaker-black.html?srsltid=AU7gw4WcBxnc2nvvBBBCj2mOluFjKYUOe6i6H2Nrno6YP7JLH9xn1OzaKgA",
+        "primary": false,
+        "priceAud": 445,
+        "deepLink": true
+      },
+      {
+        "name": "Bing Lee",
+        "url": "https://www.binglee.com.au/products/wireless-bt-musiccast-spk-blk-wx-021b",
+        "primary": false,
+        "priceAud": 445,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "12308674445483447448",
+    "pricesCheckedAt": "2026-10-05T20:04:26.891Z",
+    "updatedAt": "2026-10-05T20:04:26.891Z",
+    "images": [
+      "/images/products/yamaha-musiccast-20-wireless-speaker.webp",
+      "/images/products/yamaha-musiccast-20-wireless-speaker-2.webp",
+      "/images/products/yamaha-musiccast-20-wireless-speaker-3.webp",
+      "/images/products/yamaha-musiccast-20-wireless-speaker-4.webp"
+    ],
+    "description": "The Yamaha Music. Cast 20 Bluetooth Wireless Speaker WX-021B delivers versatile listening with high-resolution audio support and built-in music streaming services. Functions as a standalone speaker, stereo pair when using two units, or wireless surround speakers with compatible Music. Cast AV receivers and sound bars. Features Music. Cast multi-room technology for whole-home audio, plus Bluetooth and Wi-Fi connectivity with Air. Play 2 support. Includes alarm function, soft-touch preset buttons for instant playback, and Amazon Alexa plus Google Assistant voice control compatibility. Ideal for music enthusiasts wanting flexible wireless audio throughout their home.",
+    "specifications": [
+      {
+        "name": "Outdoor",
+        "value": "No"
+      },
+      {
+        "name": "Frequency Response",
+        "value": "Sharp roll off below 80-90 Hz (bass), Bass starts at about 80 - 90 Hz"
+      },
+      {
+        "name": "Bluetooth",
+        "value": "Yes"
+      },
+      {
+        "name": "Connectivity Technology",
+        "value": "Wireless, Bluetooth, Wi-Fi"
+      },
+      {
+        "name": "Ports and Interfaces",
+        "value": "Ethernet"
+      },
+      {
+        "name": "Wi-Fi",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Alexa, Amazon Alexa"
+      },
+      {
+        "name": "Smart Functions",
+        "value": "Multi-room audio"
+      },
+      {
+        "name": "Durability Highlights",
+        "value": "Isolating material at the base ensures they stay put"
+      },
+      {
+        "name": "Speaker Placement",
+        "value": "Wall mountable"
+      },
+      {
+        "name": "Audio Configuration",
+        "value": "2-way"
+      },
+      {
+        "name": "Audio Highlights",
+        "value": "High-resolution audio support, Multi-room audio"
+      },
+      {
+        "name": "Audio Channels",
+        "value": "Stereo"
+      },
+      {
+        "name": "Design Highlights",
+        "value": "Wall mountable"
+      },
+      {
+        "name": "Material",
+        "value": "High quality, soft touch plastics"
+      },
+      {
+        "name": "Style",
+        "value": "Compact chassis"
+      },
+      {
+        "name": "Driver Size",
+        "value": "3-1/2\" (woofer)"
+      },
+      {
+        "name": "Driver Configuration",
+        "value": "Front-firing"
+      },
+      {
+        "name": "Driver Type",
+        "value": "Woofer"
+      },
+      {
+        "name": "Number of Drivers",
+        "value": "2 (passive radiator)"
+      },
+      {
+        "name": "Max Output Power",
+        "value": "40 W (woofer 25 W + tweeter 15 W)"
+      },
+      {
+        "name": "Nominal Output Power",
+        "value": "130 W"
+      },
+      {
+        "name": "Max Wattage",
+        "value": "40 W"
+      },
+      {
+        "name": "Weight",
+        "value": "2.2 kg"
+      },
+      {
+        "name": "Depth",
+        "value": "5-1/8\""
+      },
+      {
+        "name": "Height",
+        "value": "7-3/8\""
+      },
+      {
+        "name": "Width",
+        "value": "5-7/8\""
+      },
+      {
+        "name": "Amplifier Power",
+        "value": "40 W (Woofer 25 W + Tweeter 15 W)"
+      },
+      {
+        "name": "Amplifier Type",
+        "value": "Bi-Amplifying"
+      },
+      {
+        "name": "System Components",
+        "value": "Power Cord"
+      },
+      {
+        "name": "Power Source",
+        "value": "AC (detachable power cord)"
+      },
+      {
+        "name": "Batteries Required",
+        "value": "No"
+      },
+      {
+        "name": "Remote Control",
+        "value": "No (smartphone used as remote)"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Home theater"
+      },
+      {
+        "name": "Typical Users",
+        "value": "Consumer not planning to be part of the MusicCast ecosystem, Audiophile who does not care for wireless capabilities"
+      }
+    ]
+  },
+  {
+    "id": "lg-32-stanbyme-2-max-portable-smart-touch-screen",
+    "slug": "lg-32-stanbyme-2-max-portable-smart-touch-screen",
+    "name": "32\" StanbyME 2 Max Portable Smart Touch Screen",
+    "brand": "LG",
+    "categoryKey": "entertainment",
+    "categorySlug": "entertainment-and-audio",
+    "categoryName": "Entertainment & Audio",
+    "subCategory": "Smart Displays & TV Boxes",
+    "priceAud": 2456,
+    "currency": "AUD",
+    "image": "/images/products/lg-32-stanbyme-2-max-portable-smart-touch-screen.webp",
+    "retailers": [
+      {
+        "name": "Appliances Online",
+        "url": "https://www.appliancesonline.com.au/product/lg-32-inch-stanbyme-2-max-4k-uhd-portable-smart-touch-screen-tv-32lx6bdga-2026/",
+        "primary": true,
+        "priceAud": 2456,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/LG-StanbyME-Portable-Screen-Display/dp/B0H3TF915C?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": false,
+        "priceAud": 2456,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/lg-32-stanbyme-2-max-4k-uhd-portable-smart-touch-screen-2026?ab_version=B&srsltid=AU7gw4XkkvHTaiAvObt1q-53AZXAhGPyIcaSlWCfhJg8A3F8pl4k4NUVYl4",
+        "primary": false,
+        "priceAud": 2495,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "11992415756552775764",
+    "pricesCheckedAt": "2026-10-05T20:04:26.891Z",
+    "updatedAt": "2026-10-05T20:04:26.891Z",
+    "images": [
+      "/images/products/lg-32-stanbyme-2-max-portable-smart-touch-screen.webp",
+      "/images/products/lg-32-stanbyme-2-max-portable-smart-touch-screen-2.webp",
+      "/images/products/lg-32-stanbyme-2-max-portable-smart-touch-screen-3.webp",
+      "/images/products/lg-32-stanbyme-2-max-portable-smart-touch-screen-4.webp"
+    ],
+    "description": "With a touch screen interface and 4K resolution, the LG 32\" StanbyME 2 Max Portable Smart Touch Screen (2026) is designed to bring smart functionality to a portable format. The a8 AI Processor Gen 3 supports enhanced picture processing, while Tru. Motion 100 helps maintain clarity during motion. Dolby Vision, HDR10, and HLG formats are supported for broader content compatibility, and WebOS 26 provides an organised smart platform experience. LG Channels adds access to a range of free content. This portable screen brings together touch functionality and advanced processing in a flexible, movable design.",
+    "specifications": [
+      {
+        "name": "Portable",
+        "value": "Yes"
+      },
+      {
+        "name": "Brand",
+        "value": "LG"
+      },
+      {
+        "name": "Resolution",
+        "value": "3840 x 2160"
+      },
+      {
+        "name": "High Definition",
+        "value": "Yes"
+      },
+      {
+        "name": "Screen Form",
+        "value": "Flat"
+      },
+      {
+        "name": "HDR",
+        "value": "Yes"
+      },
+      {
+        "name": "Connectivity",
+        "value": "Bluetooth, Wi-Fi, USB, HDMI"
+      },
+      {
+        "name": "With Energy Saving Mode",
+        "value": "Yes"
+      },
+      {
+        "name": "Screen Size",
+        "value": "32 in"
+      }
+    ]
   }
 ]
