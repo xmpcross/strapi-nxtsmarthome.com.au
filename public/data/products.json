@@ -39087,5 +39087,2789 @@
       ],
       "date": "2026-10-05"
     }
+  },
+  {
+    "id": "tp-link-tapo-2k-3mp-solar-powered-security-camera-kit",
+    "slug": "tp-link-tapo-2k-3mp-solar-powered-security-camera-kit",
+    "name": "Link Tapo 2K 3MP Solar-Powered Security Camera Kit",
+    "brand": "TP",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Security Cameras",
+    "priceAud": 99,
+    "currency": "AUD",
+    "image": "/images/products/tp-link-tapo-2k-3mp-solar-powered-security-camera-kit.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/tp-link-tapo-2k-3mp-smart-wire-free-security-camera-w-solar-panel?ab_version=B&srsltid=AU7gw4WT25H_PUaEeA5pPtfkSqPAGAm30aI3wtBsTVwz_oRAFP6awQyIbOE",
+        "primary": true,
+        "priceAud": 99,
+        "deepLink": true
+      },
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/tp-link-tapo-c410-kit-solar-powered-security-camera-kit.html?srsltid=AU7gw4UsSQaEa1fPACn4WvoxPkskqRqVaLNn1XhvtLR3mWicGCfSY4jlIsU",
+        "primary": false,
+        "priceAud": 138,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/tp-link-2k-3mp-solar-powered-security-camera-tapo-c410-kit?srsltid=AU7gw4WGBRo7CRpX0f9nW7ERF6ro6y_bmwW5t_lNXg05PEb493P1nyKbWAA",
+        "primary": false,
+        "priceAud": 139,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "1986284010812144225",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/tp-link-tapo-2k-3mp-solar-powered-security-camera-kit.webp",
+      "/images/products/tp-link-tapo-2k-3mp-solar-powered-security-camera-kit-2.webp",
+      "/images/products/tp-link-tapo-2k-3mp-solar-powered-security-camera-kit-3.webp",
+      "/images/products/tp-link-tapo-2k-3mp-solar-powered-security-camera-kit-4.webp"
+    ],
+    "description": "This TP Link Tapo C410 Solar Powered Security Camera Kit gives you a flexible and low-maintenance way to improve your home security. The solar panel means you can install the camera independent of outlets thanks to its continuous power supply. Enjoy superior visuals, colour night vision, smart person detection and notifications and flexible storage options.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "TP-Link"
+      },
+      {
+        "name": "With Audio",
+        "value": "Yes"
+      },
+      {
+        "name": "Night Vision",
+        "value": "Yes"
+      },
+      {
+        "name": "Motion Sensing",
+        "value": "Yes"
+      },
+      {
+        "name": "With Wi-Fi",
+        "value": "Yes"
+      },
+      {
+        "name": "Location",
+        "value": "Outdoor Use"
+      },
+      {
+        "name": "Wireless",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Use",
+        "value": "Residential"
+      }
+    ],
+    "shortDescription": "The TP Link Tapo C410 is an outdoor security camera kit powered by a solar panel, enabling installation away from power outlets. According to the manufacturer, it offers colour night vision, smart person detection, and motion-triggered notifications. The system includes flexible storage options and integrates with Google Assistant and Amazon Alexa.",
+    "bestFor": "Homeowners seeking wire-free outdoor security with solar charging",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "tp-link-tapo-c500-outdoor-pan-tilt-security-wifi-camera",
+    "slug": "tp-link-tapo-c500-outdoor-pan-tilt-security-wifi-camera",
+    "name": "Tapo C500 Outdoor Pan/Tilt Security WiFi Camera",
+    "brand": "TP-Link",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Security Cameras",
+    "priceAud": 87,
+    "currency": "AUD",
+    "image": "/images/products/tp-link-tapo-c500-outdoor-pan-tilt-security-wifi-camera.webp",
+    "retailers": [
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/tp-link-outdoor-pan-and-tilt-security-wifi-camera-c500-wired-tptapoc500?region_id=GTYP2H",
+        "primary": true,
+        "priceAud": 87,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/tp-link-tapo-outdoor-pan-tilt-wifi-security-camera?ab_version=A&srsltid=AU7gw4V7YBYWH8EqFeFTfiCxPx11ctSeMpLJ7P8Y7yiDMkesjN1EoQn4x44",
+        "primary": false,
+        "priceAud": 89,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/tp-link-outdoor-hd-pantilt-security-wi-fi-camera-tapo-c500?srsltid=AU7gw4Wu1KudaeFfoXr0PzRJN0FaT2v0PnEMLvxfcA_2RhMOJ7vqvxW-YSc",
+        "primary": false,
+        "priceAud": 89,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "6876200866881086980",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/tp-link-tapo-c500-outdoor-pan-tilt-security-wifi-camera.webp",
+      "/images/products/tp-link-tapo-c500-outdoor-pan-tilt-security-wifi-camera-2.webp",
+      "/images/products/tp-link-tapo-c500-outdoor-pan-tilt-security-wifi-camera-3.webp",
+      "/images/products/tp-link-tapo-c500-outdoor-pan-tilt-security-wifi-camera-4.webp"
+    ],
+    "description": "Person Detection and Motion Tracking Smart AI identifies a person while tracking motion with high-speed rotation, notifying users as needed. 1080p Full HD, Clear Every Second Capture more details to make every moment shine. IP65 Water & Dust Resistant Offers excellent waterproof and dustproof performance for outdoor scenarios. Customizable Sound Alarm Record your customized audio as an alarm to extend your usages. Two-Way Audio Communicate directly with the outdoors for your convenience. Secure Local Storage Record videos 24/7 and create your customized recording schedule with an installed micro SD card(up to 512 GB)†. Cloud Storage Tapo Care supported. Enjoy your cloud storage with unlimited spaces. Multiple Installation Options Use the mounting screws, template and loops‡ to install on any wall, ceiling or pole for the perfect view—wherever you want. Voice Activated Enjoy your smart life and keep an eye on your vital areas with Alexa & Google Assistant supported. Physical Privacy Mode Maintains your privacy with the lens physically blocked by the housing.",
+    "specifications": [
+      {
+        "name": "Location",
+        "value": "Outdoor"
+      },
+      {
+        "name": "Resolution",
+        "value": "1080p"
+      },
+      {
+        "name": "Installation Method",
+        "value": "Wired"
+      },
+      {
+        "name": "Mount Type",
+        "value": "Wall Mount, Ceiling mount"
+      },
+      {
+        "name": "Storage Media",
+        "value": "microSD card, Cloud storage"
+      },
+      {
+        "name": "Cloud Storage",
+        "value": "Yes (optional Tapo Care)"
+      },
+      {
+        "name": "Continuous Recording",
+        "value": "Yes (Records 24/7)"
+      },
+      {
+        "name": "Frame Rate",
+        "value": "15 fps"
+      },
+      {
+        "name": "Local Storage",
+        "value": "Yes"
+      },
+      {
+        "name": "Channel Count",
+        "value": "2"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Home security"
+      },
+      {
+        "name": "Wireless Connectivity",
+        "value": "Yes"
+      },
+      {
+        "name": "Cellular Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Wi-Fi Connectivity",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant"
+      },
+      {
+        "name": "Encryption Type",
+        "value": "WPA, WPA2-PSK"
+      },
+      {
+        "name": "Ethernet Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Mobile App Support",
+        "value": "Yes (Tapo app)"
+      },
+      {
+        "name": "Bluetooth Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Motion Detection",
+        "value": "Yes"
+      },
+      {
+        "name": "Object Detection",
+        "value": "Person detection"
+      },
+      {
+        "name": "Sound Detection",
+        "value": "Yes"
+      },
+      {
+        "name": "Live Streaming",
+        "value": "Yes (limited to display on Chromecast & Nest devices)"
+      },
+      {
+        "name": "Pan And Tilt",
+        "value": "Yes"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Pan/Tilt, Customizable Sound Alarm, Physical Privacy Mode"
+      },
+      {
+        "name": "Camera Type",
+        "value": "PTZ"
+      },
+      {
+        "name": "Night Vision",
+        "value": "Yes"
+      },
+      {
+        "name": "Angle Of View",
+        "value": "360° (horizontal)"
+      },
+      {
+        "name": "Night Vision Distance",
+        "value": "98 ft"
+      },
+      {
+        "name": "Optical Zoom",
+        "value": "3 x"
+      },
+      {
+        "name": "Lens Type",
+        "value": "PTZ"
+      },
+      {
+        "name": "Digital Zoom",
+        "value": "12x"
+      },
+      {
+        "name": "Image Sensor Type",
+        "value": "1/3.29'' Progressive Scan CMOS"
+      },
+      {
+        "name": "Two Way Audio",
+        "value": "Yes"
+      },
+      {
+        "name": "Audio Type",
+        "value": "Two-way audio"
+      },
+      {
+        "name": "With Alarm",
+        "value": "Yes"
+      },
+      {
+        "name": "Power Source",
+        "value": "Wired connection"
+      },
+      {
+        "name": "Battery Life",
+        "value": "No battery life (wired connection)"
+      },
+      {
+        "name": "Power Consumption",
+        "value": "5.4 watts"
+      },
+      {
+        "name": "Durability",
+        "value": "IP65 weatherproof rating"
+      },
+      {
+        "name": "Temperature Range",
+        "value": "-40°F ~ 158°F (-40°C ~ 70°C) (Storage), -22°F ~ 122°F (-30°C ~ 50°C) (Operating)"
+      },
+      {
+        "name": "Compression",
+        "value": "H.264"
+      },
+      {
+        "name": "Dimensions",
+        "value": "12.4 x 12.3 x 9 cm"
+      },
+      {
+        "name": "Camera Style",
+        "value": "Rounded, functional design"
+      },
+      {
+        "name": "Material",
+        "value": "Plastic"
+      },
+      {
+        "name": "Weight",
+        "value": "0.66 lb (300 g)"
+      },
+      {
+        "name": "Included Accessories",
+        "value": "Power Adapter, Mounting Template, Quick Start Guide"
+      },
+      {
+        "name": "Buttons",
+        "value": "Reset button"
+      },
+      {
+        "name": "Number Of Cameras",
+        "value": "1"
+      },
+      {
+        "name": "Indicators",
+        "value": "LED indicators"
+      }
+    ],
+    "shortDescription": "The TP-Link Tapo C500 is an outdoor pan/tilt security camera with 1080p Full HD recording. According to the manufacturer, it identifies persons and tracks motion automatically, offers two-way audio, supports customisable sound alarms, and provides IP65 water and dust resistance. It records continuously via local microSD storage or cloud storage through Tapo Care.",
+    "bestFor": "Homeowners wanting outdoor monitoring with person detection and pan/tilt tracking",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "ring-wired-video-doorbell-2k-plug-in",
+    "slug": "ring-wired-video-doorbell-2k-plug-in",
+    "name": "Wired Video Doorbell 2K Plug-In",
+    "brand": "Ring",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Video Doorbells",
+    "priceAud": 47,
+    "currency": "AUD",
+    "image": "/images/products/ring-wired-video-doorbell-2k-plug-in.webp",
+    "retailers": [
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/ring-wired-video-doorbell-plus-2nd-gen-speckled-grey-rgb0fjjjbj?region_id=GTYP2H",
+        "primary": true,
+        "priceAud": 47,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/ring-wired-video-doorbell-2k-plug-in-speckled-grey?ab_version=B&srsltid=AU7gw4Wc-vJyyb38y5klfbx3rxH_ya2CHL7P6z7T_FaJ-G04Ip0dHhQv76Q",
+        "primary": false,
+        "priceAud": 49,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Ring-Doorbell-Retinal-Enhanced-Subscription/dp/B0FJJJBJK1",
+        "primary": false,
+        "priceAud": 49,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "927012169273851852",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/ring-wired-video-doorbell-2k-plug-in.webp",
+      "/images/products/ring-wired-video-doorbell-2k-plug-in-2.webp",
+      "/images/products/ring-wired-video-doorbell-2k-plug-in-3.webp",
+      "/images/products/ring-wired-video-doorbell-2k-plug-in-4.webp"
+    ],
+    "description": "The Ring Wired Video Doorbell 2K Plug-In Security Camera - Speckled Grey keeps you connected to your front door with continuous power and crisp Retinal 2K video. With real-time alerts, two-way communication, and advanced motion detection, you can see and respond to visitors wherever you are.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Ring"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Amazon Alexa"
+      },
+      {
+        "name": "Smart",
+        "value": "Yes"
+      },
+      {
+        "name": "With Doorbell",
+        "value": "Yes"
+      },
+      {
+        "name": "Use",
+        "value": "Residential"
+      }
+    ],
+    "shortDescription": "The Ring Wired Video Doorbell 2K Plug-In is a hardwired doorbell camera providing continuous power and 2K video. The manufacturer says it offers real-time alerts, two-way communication, and advanced motion detection, letting you see and respond to visitors remotely. It integrates with Amazon Alexa for voice control and notifications.",
+    "bestFor": "Homeowners wanting a hardwired video doorbell with two-way audio and continuous monitoring",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "tp-link-2k-tapo-smart-video-doorbell-mini",
+    "slug": "tp-link-2k-tapo-smart-video-doorbell-mini",
+    "name": "Link 2K Tapo Smart Video Doorbell Mini",
+    "brand": "TP",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Video Doorbells",
+    "priceAud": 79,
+    "currency": "AUD",
+    "image": "/images/products/tp-link-2k-tapo-smart-video-doorbell-mini.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/tp-link-tapo-2k-smart-video-doorbell-mini?ab_version=A&srsltid=AU7gw4Un9POXzHZ0G1lmDTj2UpEajOYsCggh0dDYVO073CDj58KoEyQyT0Q",
+        "primary": true,
+        "priceAud": 79,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/TP-Link-Tapo-Detection-Anti-theft-D205/dp/B0FGDVSTKT?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": false,
+        "priceAud": 79,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/tp-link-smart-2k-video-doorbell-mini-tapo-d205?srsltid=AU7gw4XnWVW_FzMmgZc8Xk5c_X0unK8Nc3EmbrDmHvbwfP_JLtFHLAPOWGg",
+        "primary": false,
+        "priceAud": 99,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "10398671274299325556",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/tp-link-2k-tapo-smart-video-doorbell-mini.webp",
+      "/images/products/tp-link-2k-tapo-smart-video-doorbell-mini-2.webp",
+      "/images/products/tp-link-2k-tapo-smart-video-doorbell-mini-3.webp",
+      "/images/products/tp-link-2k-tapo-smart-video-doorbell-mini-4.webp"
+    ],
+    "description": "Sharp Eyes. Instant Replies! When it comes to protecting your home, every detail matters. With the Tapo D205's 2K video and image clarity during both day and night, no crucial detail will ever be missed. Gain peace of mind and receive more relevant real-time notifications with AI detection that alerts you when people are detected within frame, no additional fees or subscription needed. Receive a call when someone rings your doorbell and talk instantly—just like a regular phone call, no need to open the app. Or tap into the app to view live. Respond to your deliveries without saying a word with preset responses through the Tapo app. The built-in 5200m. Ah rechargeable lithium-ion battery provides long-lasting power - also compatible with Tapo solar panels for a maintenance-free setup.",
+    "specifications": [
+      {
+        "name": "Wireless",
+        "value": "Yes"
+      },
+      {
+        "name": "Brand",
+        "value": "TP-Link"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Smart",
+        "value": "Yes"
+      },
+      {
+        "name": "With Doorbell",
+        "value": "Yes"
+      },
+      {
+        "name": "Use",
+        "value": "Residential"
+      }
+    ],
+    "shortDescription": "The TP-Link Tapo D205 is a 2K smart video doorbell that according to the manufacturer provides clear day and night vision with AI person detection. It features two-way calling without opening an app, preset response messages, and a rechargeable 5200mAh battery compatible with optional solar panels. Compatible with Google Assistant and Amazon Alexa.",
+    "bestFor": "Homeowners wanting HD video monitoring with voice communication and minimal maintenance",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "aqara-a100-smart-door-lock",
+    "slug": "aqara-a100-smart-door-lock",
+    "name": "A100 Smart Door Lock",
+    "brand": "Aqara",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Smart Locks",
+    "priceAud": 297,
+    "currency": "AUD",
+    "image": "/images/products/aqara-a100-smart-door-lock.webp",
+    "retailers": [
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/aqara-smart-lock-a100-black-opznms02es?region_id=GTYP2H",
+        "primary": true,
+        "priceAud": 297,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/aqara-a100-smart-door-lock_p0670905?srsltid=AU7gw4W5rsHgtdJ8GGZtRJIjTvAh9MBhG9ZVrZXBFhT20udh6yKD8YWO46I&region_id=117313",
+        "primary": false,
+        "priceAud": 297,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/aqara-smart-door-lock-a100?ab_version=B&srsltid=AU7gw4V3s3uVKeyWpwgJqTrymDwSKBG8ODPcggfSrUvgEVF4KBCo9wSUmb8",
+        "primary": false,
+        "priceAud": 299,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "8548047301326085391",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/aqara-a100-smart-door-lock.webp",
+      "/images/products/aqara-a100-smart-door-lock-2.webp",
+      "/images/products/aqara-a100-smart-door-lock-3.webp",
+      "/images/products/aqara-a100-smart-door-lock-4.webp"
+    ],
+    "description": "The Aqara A100 Zigbee Smart Door Lock supports multiple users, each with their own PIN codes, fingerprints, and NFC devices. Store up to 50 fingerprints, 50 PIN codes, and 25 NFC devices. Users can be set with different access levels. As part of your smart home, the smart lock can also be locked and unlocked with the Aqara Home and Apple Home apps. It can also be unlocked with Google Assistant. In addition, the Aqara A100 also supports one-time PIN codes which can be generated remotely, as well as periodic PIN codes which can be configured to work throughout a specified time period, and automatically expire at the end. User management is easily configured through the Aqara Home app. Adding or removing individual PINs, fingerprints, and NFC cards is straightforward and easy.",
+    "specifications": [
+      {
+        "name": "Type",
+        "value": "Smart Lock"
+      },
+      {
+        "name": "Height",
+        "value": "375 mm"
+      },
+      {
+        "name": "Width",
+        "value": "77 mm"
+      },
+      {
+        "name": "Depth",
+        "value": "23.6 mm"
+      },
+      {
+        "name": "Color",
+        "value": "Black"
+      },
+      {
+        "name": "Compatible With",
+        "value": "Home door locks, Automated pet door"
+      },
+      {
+        "name": "Material",
+        "value": "Metal"
+      },
+      {
+        "name": "Installation Method",
+        "value": "Self-Adhesive"
+      },
+      {
+        "name": "Hardware Type",
+        "value": "Locks"
+      },
+      {
+        "name": "Included Hardware",
+        "value": "Mechanical Key x 2"
+      },
+      {
+        "name": "Design Finish",
+        "value": "Textured matt black coating"
+      },
+      {
+        "name": "Design Style",
+        "value": "Modern"
+      },
+      {
+        "name": "Design Surface Type",
+        "value": "Textured"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Fingerprint recognition, Google Assistant support, Hidden keypad, Multi-point bolts, NFC access"
+      },
+      {
+        "name": "Performance Security Rating",
+        "value": "Fire-Rated"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Security"
+      },
+      {
+        "name": "Typical Users",
+        "value": "Homeowners"
+      },
+      {
+        "name": "Smart Connectivity",
+        "value": "Yes"
+      },
+      {
+        "name": "Wireless Technology",
+        "value": "Zigbee, Bluetooth"
+      },
+      {
+        "name": "Assembly Required",
+        "value": "Yes"
+      },
+      {
+        "name": "Assembly Tools Required",
+        "value": "Tools for cutting holes"
+      }
+    ],
+    "shortDescription": "The Aqara A100 is a Zigbee smart door lock supporting up to 50 fingerprints, 50 PIN codes, and 25 NFC devices with different access levels per user. The manufacturer says it integrates with Aqara Home and Apple Home apps, and works with Google Assistant. It also supports one-time and periodic PIN codes that expire automatically.",
+    "bestFor": "Homeowners wanting multi-user access control with fingerprint and NFC",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "swann-xtreem4k-eco-wireless-security-camera-with-solar-panel",
+    "slug": "swann-xtreem4k-eco-wireless-security-camera-with-solar-panel",
+    "name": "Xtreem4K Eco Wireless Security Camera with Solar Panel",
+    "brand": "Swann",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Security Cameras",
+    "priceAud": 267,
+    "currency": "AUD",
+    "image": "/images/products/swann-xtreem4k-eco-wireless-security-camera-with-solar-panel.webp",
+    "retailers": [
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/swann-xtreem4k-eco-wireless-security-camera-with-solar-panel-swnx4keco?region_id=GTYP2H",
+        "primary": true,
+        "priceAud": 267,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/swann-xtreem4k-wireless-security-camera-and-solar-panel_p0765300?srsltid=AU7gw4VCZwDtqJXbK8v9jqnEEqRYxCwX3SzP7f5zLSDS5XOVBbltMjPbJV4&region_id=117313",
+        "primary": false,
+        "priceAud": 267,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/swann-xtreem4k-wirelesscamera-with-solar-panel?ab_version=B&srsltid=AU7gw4UJPqwi1Cf1hz8omGW2iuLERg5PyLmN7g7aLo_eRSKQpWJU4jEAML0",
+        "primary": false,
+        "priceAud": 269,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "3200312517182823551",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/swann-xtreem4k-eco-wireless-security-camera-with-solar-panel.webp",
+      "/images/products/swann-xtreem4k-eco-wireless-security-camera-with-solar-panel-2.webp",
+      "/images/products/swann-xtreem4k-eco-wireless-security-camera-with-solar-panel-3.webp",
+      "/images/products/swann-xtreem4k-eco-wireless-security-camera-with-solar-panel-4.webp"
+    ],
+    "description": "The Swann Xtreem4K Eco Security Camera boasts seamless wireless operation and comes with a solar panel for reliable, continuous charging. Experience ultimate security with 4K ultra HD video clarity and color night vision for enhanced peace of mind. Trigger video recording and mobile notifications when True Detect heat and motion sensors detect activity, optimizing battery usage, memory storage and reducing false alarms. With the accompanying 32GB MicroSD Card storage, you can store up to six months of footage before having to backup data, and there's free cloud storage too*. No monthly subscription fees to worry about. Comes with free 1-day cloud storage when SD card is inserted in the camera.",
+    "specifications": [
+      {
+        "name": "Location",
+        "value": "Indoor or Outdoor"
+      },
+      {
+        "name": "Resolution",
+        "value": "4K"
+      },
+      {
+        "name": "Motion Detection",
+        "value": "Yes, True Detect™ Heat/Motion-Sensing"
+      },
+      {
+        "name": "Installation Method",
+        "value": "Wireless"
+      },
+      {
+        "name": "Mount Type",
+        "value": "Outdoor Mounting Stand (for Camera), Adjustable Mounting Stand (for Solar Panel)"
+      },
+      {
+        "name": "Wireless Connectivity",
+        "value": "Yes"
+      },
+      {
+        "name": "Cellular Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Wi-Fi Connectivity",
+        "value": "Yes, 2.4GHz"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Ethernet Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Mobile App Support",
+        "value": "Yes"
+      },
+      {
+        "name": "Storage Media",
+        "value": "MicroSD card"
+      },
+      {
+        "name": "Cloud Storage",
+        "value": "Yes"
+      },
+      {
+        "name": "Local Storage",
+        "value": "Yes"
+      },
+      {
+        "name": "Channel Count",
+        "value": "1"
+      },
+      {
+        "name": "Camera Type",
+        "value": "Security Camera"
+      },
+      {
+        "name": "Night Vision",
+        "value": "Yes"
+      },
+      {
+        "name": "Angle Of View",
+        "value": "120°"
+      },
+      {
+        "name": "Night Vision Distance",
+        "value": "Up to 50 ft, Up to 32 ft (color night vision)"
+      },
+      {
+        "name": "Image Sensor Type",
+        "value": "CMOS Sensor"
+      },
+      {
+        "name": "Two Way Audio",
+        "value": "Yes, With Microphone, With Speaker"
+      },
+      {
+        "name": "Audio Type",
+        "value": "Two-way audio"
+      },
+      {
+        "name": "With Alarm",
+        "value": "Yes"
+      },
+      {
+        "name": "Power Source",
+        "value": "Solar panel"
+      },
+      {
+        "name": "Battery Life",
+        "value": "Up to 120 days (out of a single charge)"
+      },
+      {
+        "name": "Power Consumption",
+        "value": "3W (Maximum)"
+      },
+      {
+        "name": "Dimensions",
+        "value": "1.97\" x 4.13\" x 2.76\" (50mm x 105mm x 70mm)"
+      },
+      {
+        "name": "Weight",
+        "value": "0.50 lb (228 g)"
+      },
+      {
+        "name": "Durability",
+        "value": "IP56"
+      },
+      {
+        "name": "Temperature Range",
+        "value": "14ºF to 122ºF (-10ºC to 50ºC)"
+      },
+      {
+        "name": "Included Accessories",
+        "value": "32GB MicroSD card"
+      },
+      {
+        "name": "Number Of Cameras",
+        "value": "1"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Spotlights, Siren"
+      }
+    ],
+    "shortDescription": "The Swann Xtreem4K Eco is a wireless outdoor security camera with 4K resolution and a solar panel for continuous charging. According to the manufacturer, it features True Detect heat and motion sensors, colour night vision, and two-way audio. It stores footage locally on a 32GB MicroSD card and offers free cloud storage with no monthly subscription fees.",
+    "bestFor": "Homeowners seeking wireless outdoor security with solar-powered operation",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "eufy-security-solar-wall-light-cam-s120",
+    "slug": "eufy-security-solar-wall-light-cam-s120",
+    "name": "Security Solar Wall Light Cam S120",
+    "brand": "Eufy",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Security Cameras",
+    "priceAud": 172.93,
+    "currency": "AUD",
+    "image": "/images/products/eufy-security-solar-wall-light-cam-s120.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/eufy-Security-Activated-Detection-Waterproof/dp/B0C9ZYHLBZ?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3P6X2GIMA114Z",
+        "primary": true,
+        "priceAud": 172.93,
+        "deepLink": true
+      },
+      {
+        "name": "Appliances Online",
+        "url": "https://www.appliancesonline.com.au/product/eufy-s120-solar-wall-light-cam-t81a0c11/",
+        "primary": false,
+        "priceAud": 270,
+        "deepLink": true
+      },
+      {
+        "name": "Woolworths",
+        "url": "https://www.woolworths.com.au/shop/productdetails/1125760775",
+        "primary": false,
+        "priceAud": 270,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "5430773638535046453",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/eufy-security-solar-wall-light-cam-s120.webp",
+      "/images/products/eufy-security-solar-wall-light-cam-s120-2.webp",
+      "/images/products/eufy-security-solar-wall-light-cam-s120-3.webp",
+      "/images/products/eufy-security-solar-wall-light-cam-s120-4.webp"
+    ],
+    "description": "The Eufy Solar Wall Light Cam S120 is a wireless outdoor IP security camera that combines wall-mounted surveillance with integrated lighting in a single unit. Powered entirely by its built-in solar panel, it requires no mains wiring, making it straightforward to install on garden walls, driveways, porches and other exterior locations. Video is captured at a maximum resolution of 2304 x 1296 pixels, delivering clear footage during the day and at night thanks to IR LED night vision and a dedicated day/night mode. The integrated light produces 300 lumens at a 4000 K colour temperature, providing practical illumination alongside security monitoring. Motion detection uses a passive infrared PIR sensor with a detection range of 7.62 metres, triggering the camera and the 105 dB onboard siren when activity is detected. Two-way audio allows real-time communication through the camera. Connectivity is wireless via Wi-Fi, supporting 802.11b, 802.11g and Wi-Fi 4 802.11n standards. The unit carries an IP65 weather rating, confirming it is dust-tight and protected against water jets, making it suitable for year-round outdoor use in the UK climate. Wall mounting type is included. Compatible with the Eufy Security app for remote monitoring and management.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "eufy"
+      },
+      {
+        "name": "With Audio",
+        "value": "Yes"
+      },
+      {
+        "name": "Night Vision",
+        "value": "Yes"
+      },
+      {
+        "name": "Motion Sensing",
+        "value": "Yes"
+      },
+      {
+        "name": "With Wi-Fi",
+        "value": "Yes"
+      },
+      {
+        "name": "Wireless",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Use",
+        "value": "Residential"
+      }
+    ],
+    "shortDescription": "The Eufy Security Solar Wall Light Cam S120 is a wireless outdoor security camera with integrated lighting, powered by a built-in solar panel. It captures video at 2304 x 1296 pixels with IR night vision, produces 300 lumens of illumination, and detects motion up to 7.62 metres via PIR sensor. Features two-way audio, a 105 dB siren, and IP65 weather protection for year-round outdoor use.",
+    "bestFor": "Homeowners wanting solar-powered outdoor surveillance with integrated lighting",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "tp-link-tapo-2k-solar-powered-pan-tilt-security-camera-kit",
+    "slug": "tp-link-tapo-2k-solar-powered-pan-tilt-security-camera-kit",
+    "name": "Link Tapo 2K Solar-Powered Pan/Tilt Security Camera Kit",
+    "brand": "TP",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Security Cameras",
+    "priceAud": 129,
+    "currency": "AUD",
+    "image": "/images/products/tp-link-tapo-2k-solar-powered-pan-tilt-security-camera-kit.webp",
+    "retailers": [
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/tapo-2k-solar-powered-pan-tilt-security-camera-kit_p0932832?srsltid=AU7gw4W5P9B79zY8PzUIksRABIftM7C1anD_2HPYj44ah5EnGetAgRl8OVE&region_id=117313",
+        "primary": true,
+        "priceAud": 129,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/tp-link-tapo-2k-solar-powered-pan-tilt-security-camera-kit?ab_version=B&srsltid=AU7gw4U36gYcZZRTE5paF4ZmqsAeq39hXlG8FeXDJXWmL7Io7o2RrncRb34",
+        "primary": false,
+        "priceAud": 139,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/tp-link-2k-solar-powered-pantilt-security-camera-kit-tapo-c610-kit?srsltid=AU7gw4WYHM7zKdJqEqLH49rfPaHzS5SaWdgU_7pOtUbbo6p9n86kIKFScWo",
+        "primary": false,
+        "priceAud": 199,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "16040517505910003927",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/tp-link-tapo-2k-solar-powered-pan-tilt-security-camera-kit.webp",
+      "/images/products/tp-link-tapo-2k-solar-powered-pan-tilt-security-camera-kit-2.webp",
+      "/images/products/tp-link-tapo-2k-solar-powered-pan-tilt-security-camera-kit-3.webp",
+      "/images/products/tp-link-tapo-2k-solar-powered-pan-tilt-security-camera-kit-4.webp"
+    ],
+    "description": "Sun-Charged, Fully Guarded 360° Protection Day & Night! Capture the perfect shot while not being limited to power outlet placement. The Tapo C610 Kit combines into one sleek unit for a neater appearance or connect via a 4-meter cable to maximise sun exposure. Enjoy sharper visuals with 2K resolution, outperforming standard 1080p. Advanced exposure algorithms automatically adjust overexposed areas in real time for consistently high-quality images. At night, built-in spotlights deliver brighter, full-colour footage with vivid detail—enhancing your security around the clock. The C610 offers 360° Protection Powered by AI with no subscription required. Scare off intruders with sound and light alarm. You can customise the alarm to fit your needs. The C610 supports up to 512GB of local storage via microSD card. (microSD card sold separately).",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "TP-Link"
+      },
+      {
+        "name": "With Audio",
+        "value": "Yes"
+      },
+      {
+        "name": "Pan <wbr>/<wbr> Tilt",
+        "value": "Yes"
+      },
+      {
+        "name": "Night Vision",
+        "value": "Yes"
+      },
+      {
+        "name": "Motion Sensing",
+        "value": "Yes"
+      },
+      {
+        "name": "With Wi-Fi",
+        "value": "Yes"
+      },
+      {
+        "name": "For Dashboard",
+        "value": "Yes"
+      },
+      {
+        "name": "Wireless",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Use",
+        "value": "Residential"
+      },
+      {
+        "name": "Field of View",
+        "value": "84° field of view"
+      }
+    ],
+    "shortDescription": "The TP-Link Tapo C610 is a solar-powered pan/tilt security camera kit with 2K resolution offering 360° protection. According to the manufacturer, it features AI-powered motion detection, night vision with spotlights for colour footage, and customisable alarm alerts. Local storage supports up to 512GB via microSD card.",
+    "bestFor": "Home security without mains power dependency, 24-hour monitoring",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "swann-evo-wireless-2k-security-camera-solar",
+    "slug": "swann-evo-wireless-2k-security-camera-solar",
+    "name": "EVO Wireless 2K Security Camera Solar",
+    "brand": "Swann",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Security Cameras",
+    "priceAud": 147,
+    "currency": "AUD",
+    "image": "/images/products/swann-evo-wireless-2k-security-camera-solar.webp",
+    "retailers": [
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/swann-2k-evo-wireless-security-camera-with-solar-panel-swn2kcams?region_id=GTYP2H",
+        "primary": true,
+        "priceAud": 147,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/swann-evo-wireless-2k-security-camera-with-solar-panel_p0919786?srsltid=AU7gw4W1-6gNaw3Kbc-HJrWdMFdxpiw_4R_Bdx4K4MZ4p4pG0FF0SNkWFNM&region_id=117313",
+        "primary": false,
+        "priceAud": 147,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Swann-Panel-100-Wire-Free-Subscription-Weatherproof/dp/B0FF9TXMS3?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A358JC32K5TD7K",
+        "primary": false,
+        "priceAud": 147,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "12352082772875445389",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/swann-evo-wireless-2k-security-camera-solar.webp",
+      "/images/products/swann-evo-wireless-2k-security-camera-solar-2.webp",
+      "/images/products/swann-evo-wireless-2k-security-camera-solar-3.webp",
+      "/images/products/swann-evo-wireless-2k-security-camera-solar-4.webp"
+    ],
+    "description": "With this Swann EVO Security Camera with Solar Panel you can enjoy the convenience of wireless* connection with set and forget solar charging. Mount the camera and solar panel anywhere that the sun shines within Wi-Fi range but without the need for a hub or base station. Monitor your property in crisp 2K Full HD video day and night, store recordings locally, and receive reliable alerts with heat and motion detection. With two-way audio, you can stay connected, even when you’re away. The camera stores footage on the included 32GB MicroSD card, which can be accessed via Swann Security app on your phone for free with no ongoing subscription fees. *Camera connects to Wi-Fi network wirelessly but uses USB-C cable to connect to included Solar Panel.",
+    "specifications": [
+      {
+        "name": "Location",
+        "value": "Outdoor, Indoor"
+      },
+      {
+        "name": "Resolution",
+        "value": "2K"
+      },
+      {
+        "name": "Installation Method",
+        "value": "Wireless, Battery-powered, Solar-powered"
+      },
+      {
+        "name": "Power Source",
+        "value": "Rechargeable 5200mAh Lithium Battery, Built-in Solar Panel"
+      },
+      {
+        "name": "Motion Detection",
+        "value": "Yes, True Detect™ Infrared Energy Sensing"
+      },
+      {
+        "name": "Face Detection",
+        "value": "Yes"
+      },
+      {
+        "name": "Storage Media",
+        "value": "Secure Cloud, MicroSD Card"
+      },
+      {
+        "name": "Cloud Storage",
+        "value": "Yes (optional)"
+      },
+      {
+        "name": "Local Storage",
+        "value": "Yes"
+      },
+      {
+        "name": "Night Vision",
+        "value": "Yes"
+      },
+      {
+        "name": "Angle Of View",
+        "value": "120º Super-Wide Angle"
+      },
+      {
+        "name": "Night Vision Distance",
+        "value": "32 ft"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Home security"
+      },
+      {
+        "name": "Wireless Connectivity",
+        "value": "Yes"
+      },
+      {
+        "name": "Wi-Fi Connectivity",
+        "value": "Yes, 2.4GHz"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Ethernet Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Mobile App Support",
+        "value": "Yes (Swann Security app)"
+      },
+      {
+        "name": "Bluetooth Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Two Way Audio",
+        "value": "Yes, With Microphone, With Speaker"
+      },
+      {
+        "name": "Audio Type",
+        "value": "Two-way audio"
+      },
+      {
+        "name": "With Alarm",
+        "value": "Yes, No"
+      },
+      {
+        "name": "Dimensions",
+        "value": "84mm x 58mm x 107mm"
+      },
+      {
+        "name": "Weight",
+        "value": "253 g"
+      },
+      {
+        "name": "Durability",
+        "value": "IP56"
+      },
+      {
+        "name": "Temperature Range",
+        "value": "14ºF to 122ºF"
+      },
+      {
+        "name": "Pan And Tilt",
+        "value": "No"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Two-way talk, Siren"
+      },
+      {
+        "name": "Included Accessories",
+        "value": "16GB MicroSD card"
+      },
+      {
+        "name": "Number Of Cameras",
+        "value": "2 Cameras"
+      }
+    ],
+    "shortDescription": "The Swann EVO Wireless 2K Security Camera Solar is an outdoor camera with solar panel charging and Wi-Fi connectivity. It records in 2K resolution with night vision to 32 feet, includes heat and motion detection with face detection, and offers two-way audio. Local storage uses a 32GB MicroSD card accessible via the Swann Security app.",
+    "bestFor": "Property owners wanting wireless outdoor monitoring without hub or subscription",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "philips-2k-dual-cam-video-doorbell-dda270x-2txs3",
+    "slug": "philips-2k-dual-cam-video-doorbell-dda270x-2txs3",
+    "name": "2K Dual-Cam Video Doorbell DDA270X-2TXS3",
+    "brand": "Philips",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Video Doorbells",
+    "priceAud": 295,
+    "currency": "AUD",
+    "image": "/images/products/philips-2k-dual-cam-video-doorbell-dda270x-2txs3.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/philips-2k-dualcamera-smart-video-doorbell-with-chime",
+        "primary": true,
+        "priceAud": 295,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Doorbell-Wireless-Security-Compatible-Assistant/dp/B0CW97QCYF?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2VEJDHL9K1M6J",
+        "primary": false,
+        "priceAud": 295,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/philips-dda270x-2txs-dual-camera-video-doorbell_p0959625?srsltid=AU7gw4Xmnum9CoEDyjTJgIHqqXGLSQjm7TellBaT9zgB8K6z3I0VjdOam9c&region_id=117313",
+        "primary": false,
+        "priceAud": 295,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "11335068534703851003",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/philips-2k-dual-cam-video-doorbell-dda270x-2txs3.webp",
+      "/images/products/philips-2k-dual-cam-video-doorbell-dda270x-2txs3-2.webp",
+      "/images/products/philips-2k-dual-cam-video-doorbell-dda270x-2txs3-3.webp",
+      "/images/products/philips-2k-dual-cam-video-doorbell-dda270x-2txs3-4.webp"
+    ],
+    "description": "Elevate your home security with the Philips Video Doorbell. This innovative doorbell features 2K HD clarity with HDR, dual cam technology, and motion detection with zone control. The sleek design brings a modern look to your front door. This video doorbell utilizes a low-angle camera to eliminate traditional blind spots, along with the high-definition main camera on the front, providing a complete view of your doorstep. Benefit from a broader perspective and enhanced security, ensuring you never miss a moment of crucial front door activity. Boasting an ultra-wide viewing angle, our video doorbell ensures you capture every detail from head to toe. Whether it's a visitor's face or a package at your doorstep, experience unmatched clarity and coverage. Configured with high-precision PIR and Radar sensors and an AI algorithm-driven human detection, this Philips Video Doorbell allows you to track any individuals approaching your doorway with instant notifications. Define specific areas around your doorstep for motion alerts, reducing unnecessary notifications. Enjoy a personalized security experience that focuses on what matters most to you, ensuring you stay informed about activities within your chosen zones. With the two-way audio and 2K live view, you can see and talk to your visitors via the Philips Home Access app in real-time. Receive alerts when activity occurs at your front door, including someone at the door, package arrivals, and suspicious activity. Stay aware and stay safe. Use your voice assistant devices as extra doorbell chimes throughout your home. Command live video feeds to appear on your Echo Show and Google Home devices, and even get an alert from Alexa if a person is detected at your door. Wire your video doorbell or use the rechargeable battery with up to 6 months on a single charge. Local storage and no monthly fees or subscriptions needed.",
+    "specifications": [
+      {
+        "name": "Components",
+        "value": "Doorbell, Chime"
+      },
+      {
+        "name": "Type",
+        "value": "Doorbell"
+      },
+      {
+        "name": "Video Recording",
+        "value": "Yes"
+      },
+      {
+        "name": "Cloud Storage Support",
+        "value": "Yes"
+      },
+      {
+        "name": "Storage Type",
+        "value": "Cloud storage"
+      },
+      {
+        "name": "Camera Resolution",
+        "value": "2K HD"
+      },
+      {
+        "name": "Camera Field of View",
+        "value": "157 degree"
+      },
+      {
+        "name": "Camera Highlights",
+        "value": "Night vision, HDR"
+      },
+      {
+        "name": "Camera Count",
+        "value": "Dual"
+      },
+      {
+        "name": "Motion Detection",
+        "value": "Yes"
+      },
+      {
+        "name": "Monitoring Highlights",
+        "value": "Live view"
+      },
+      {
+        "name": "Video Highlights",
+        "value": "HD video"
+      },
+      {
+        "name": "Battery Power Source",
+        "value": "Low-voltage 8-24V AC power supply (when powering it with wires), Built-in rechargeable battery"
+      },
+      {
+        "name": "Battery Capacity",
+        "value": "10000 mAh"
+      },
+      {
+        "name": "Battery Type",
+        "value": "Rechargeable"
+      },
+      {
+        "name": "Use",
+        "value": "Home security"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Motion detection with zone control, Advanced motion detection with adjustable motion zones"
+      },
+      {
+        "name": "Security Highlights",
+        "value": "Motion detection with zone control, Advanced motion detection with adjustable motion zones"
+      },
+      {
+        "name": "Microphone",
+        "value": "Yes, Built-in Microphone"
+      },
+      {
+        "name": "Audio Highlights",
+        "value": "Two-way audio, Noise cancellation"
+      },
+      {
+        "name": "Speaker",
+        "value": "Built-In Speaker"
+      },
+      {
+        "name": "For Outdoor Use?",
+        "value": "Yes"
+      },
+      {
+        "name": "Durability Highlights",
+        "value": "Weather resistant (IP67)"
+      },
+      {
+        "name": "Operating Temperature",
+        "value": "–20°C to 60°C (–4°F to 140°F), 0℃ to 50℃ （32℉ to 122℉) (for charging)"
+      },
+      {
+        "name": "Installation Location",
+        "value": "Outdoor Use"
+      },
+      {
+        "name": "Installation Type",
+        "value": "Wired"
+      },
+      {
+        "name": "Mounting Type",
+        "value": "Wall Mount"
+      },
+      {
+        "name": "Wiring Requirements",
+        "value": "Low-voltage 8-24V AC power supply (when powering it with wires), 8-24 VAC, 40VA max, 50/60Hz (for hardwired connection)"
+      },
+      {
+        "name": "Included Hardware",
+        "value": "Mounting Hardware"
+      },
+      {
+        "name": "Depth",
+        "value": "1.22 in. (31mm)"
+      },
+      {
+        "name": "Height",
+        "value": "6.29 in. (160mm)"
+      },
+      {
+        "name": "Width",
+        "value": "2.16 in. (55mm)"
+      },
+      {
+        "name": "Weight",
+        "value": "9.87 ounces"
+      },
+      {
+        "name": "Sensors",
+        "value": "Motion sensor"
+      },
+      {
+        "name": "Wireless Connectivity",
+        "value": "Yes"
+      },
+      {
+        "name": "Wireless Technology",
+        "value": "Wi-Fi"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Amazon Alexa, Google Home"
+      },
+      {
+        "name": "Connection Type",
+        "value": "Wi-Fi, Wired"
+      },
+      {
+        "name": "Wi-Fi",
+        "value": "Yes, Wi-Fi Compatible"
+      },
+      {
+        "name": "Network",
+        "value": "Wi-Fi"
+      },
+      {
+        "name": "Bluetooth",
+        "value": "Yes"
+      },
+      {
+        "name": "Cellular Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Frequency",
+        "value": "50/60Hz (for hardwired connection)"
+      },
+      {
+        "name": "Ports",
+        "value": "Fast-charging port"
+      },
+      {
+        "name": "App Control",
+        "value": "Yes, Yes (via Philips Home Access app)"
+      },
+      {
+        "name": "Notifications",
+        "value": "Instant alerts on your smartphone from the Philips Home Access app (when your package arrives)"
+      },
+      {
+        "name": "Smart Assistant Support",
+        "value": "Google Home, Amazon Alexa"
+      },
+      {
+        "name": "Smart Highlights",
+        "value": "Smart compatible"
+      },
+      {
+        "name": "Subtype",
+        "value": "Video Doorbell"
+      },
+      {
+        "name": "Dimensions",
+        "value": "6.29 in. x 2.16 in. x 1.22 in. (160mm x 55mm x 31mm)"
+      },
+      {
+        "name": "Weather Resistance",
+        "value": "IP67"
+      },
+      {
+        "name": "Material",
+        "value": "Aluminum"
+      },
+      {
+        "name": "Accessory Type",
+        "value": "Chime"
+      },
+      {
+        "name": "Shape",
+        "value": "Rectangular"
+      },
+      {
+        "name": "Included Accessories",
+        "value": "Chime"
+      },
+      {
+        "name": "Power Source",
+        "value": "Battery, Wired"
+      },
+      {
+        "name": "Input Voltage",
+        "value": "8-24 VAC (for hardwired connection)"
+      },
+      {
+        "name": "Voltage",
+        "value": "8-24 VAC (for hardwired connection)"
+      },
+      {
+        "name": "Power Consumption",
+        "value": "40VA max (for hardwired connection)"
+      },
+      {
+        "name": "Supported OS",
+        "value": "iOS, Android"
+      },
+      {
+        "name": "OS Version",
+        "value": "iOS 13.3, Android 6.0"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Two-way communication, Monitoring visitors"
+      },
+      {
+        "name": "Solution For",
+        "value": "Home security"
+      },
+      {
+        "name": "Age Range",
+        "value": "ADULT"
+      },
+      {
+        "name": "Typical Users",
+        "value": "UNISEX"
+      }
+    ],
+    "shortDescription": "The Philips 2K Dual-Cam Video Doorbell is an outdoor doorbell featuring dual cameras with 2K HD clarity and HDR. It offers a 157-degree field of view and low-angle positioning to reduce blind spots. Motion detection with zone control, two-way audio, and night vision are included. It operates via low-voltage wiring or rechargeable battery lasting up to six months.",
+    "bestFor": "Homeowners wanting comprehensive doorway coverage without subscriptions",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "eufy-security-smart-lock-touch-wifi",
+    "slug": "eufy-security-smart-lock-touch-wifi",
+    "name": "Security Smart Lock Touch & WiFi",
+    "brand": "Eufy",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Smart Locks",
+    "priceAud": 498,
+    "currency": "AUD",
+    "image": "/images/products/eufy-security-smart-lock-touch-wifi.webp",
+    "retailers": [
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/eufy-security-smart-lock-touch-wi-fi.html?srsltid=AU7gw4UINu7ZDMuy41B0dUnscvk0hAAoeVBC-D8qlzFZetGqRHxHuStdvdM",
+        "primary": true,
+        "priceAud": 498,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/eufy-security-wi-fi-smart-lock-touch?ab_version=B&srsltid=AU7gw4X5Bo6zf95m5dKOk5GQoC4wK4gkhZnmRz1lA_CPuImnWjc-aYzNIqQ",
+        "primary": false,
+        "priceAud": 499,
+        "deepLink": true
+      },
+      {
+        "name": "BIG W",
+        "url": "https://www.bigw.com.au/product/eufy-smart-lock-touch-with-wifi/p/9903130965?srsltid=AU7gw4XMFtRjxURXqXHeDfCl40z-za1VzTQf50GI4sttOU8CfovKXCyeYJc",
+        "primary": false,
+        "priceAud": 499,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "4191786016003914447",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/eufy-security-smart-lock-touch-wifi.webp",
+      "/images/products/eufy-security-smart-lock-touch-wifi-2.webp",
+      "/images/products/eufy-security-smart-lock-touch-wifi-3.webp",
+      "/images/products/eufy-security-smart-lock-touch-wifi-4.webp"
+    ],
+    "description": "Introducing the Eufy Smart Lock Touch with Wifi, a convenient and secure way to enhance your home's security. With multiple ways to unlock, including fingerprint recognition, keyless entry codes, and the Eufy Security app, you'll never have to worry about losing your keys again. This smart lock is designed to withstand the elements with its IP65 waterproof performance, ensuring durability and longevity. Built to last, it is constructed with high-quality materials, making it strong and sturdy. Rest assured that your home is protected with bank-grade security, as this smart lock utilizes advanced encryption and anti-peeping technology. The automatic locking feature adds an extra layer of convenience, automatically locking the door behind you after a set period of time. Installation is a breeze, as it can be easily installed on a wide range of existing door locks. With the Eufy Smart Lock Touch with Wifi, you can have peace of mind knowing that your home is secure and accessible with just a touch or a tap.",
+    "specifications": [
+      {
+        "name": "Type",
+        "value": "Smart Lock"
+      },
+      {
+        "name": "Color",
+        "value": "Black"
+      },
+      {
+        "name": "Compatible With",
+        "value": "Wide range of existing door locks"
+      },
+      {
+        "name": "Durability",
+        "value": "Tested to handle the comings and goings of a busy household for over 60 years, IP65 rating (exterior lock panel only)"
+      },
+      {
+        "name": "Material",
+        "value": "Zinc alloy, Polycarbonate, Stainless steel (frame), Tempered glass"
+      },
+      {
+        "name": "Design Finish",
+        "value": "Black"
+      },
+      {
+        "name": "Hardware Type",
+        "value": "Lock"
+      },
+      {
+        "name": "Included Hardware",
+        "value": "Rechargeable Battery, 2 Keys, Quick Start Guide"
+      },
+      {
+        "name": "Water Penetration Rating",
+        "value": "IP65 Waterproof Performance"
+      },
+      {
+        "name": "Performance Security Rating",
+        "value": "Encrypted storage, Advanced 3D Fingerprint Identification, AES-256 Bank-Grade fingerprint security algorithm"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Security Features, Advanced 3D Fingerprint Identification, Works with Amazon Alexa, Works with Google Assistant"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Security"
+      },
+      {
+        "name": "Smart Connectivity",
+        "value": "Yes"
+      },
+      {
+        "name": "Wireless Technology",
+        "value": "Wi-Fi"
+      }
+    ],
+    "shortDescription": "The Eufy Security Smart Lock Touch & WiFi is a smart door lock offering fingerprint recognition, keyless entry codes, and app control. The manufacturer says it features IP65 waterproof rating, bank-grade encryption, and anti-peeping technology. It works with Amazon Alexa and Google Assistant, with automatic locking and simple installation on existing door locks.",
+    "bestFor": "Homeowners wanting keyless entry with multiple unlocking methods",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "connect-smarthome-2k-outdoor-camera-4-pack",
+    "slug": "connect-smarthome-2k-outdoor-camera-4-pack",
+    "name": "SmartHome 2K Outdoor Camera 4 Pack",
+    "brand": "Connect",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Security Cameras",
+    "priceAud": 374,
+    "currency": "AUD",
+    "image": "/images/products/connect-smarthome-2k-outdoor-camera-4-pack.webp",
+    "retailers": [
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/connect-smarthome-2k-outdoor-camera-4-pack-csh-2kodcq928?srsltid=AU7gw4Velo851IKejnnkRkHbsPjSW7XWqTw5uXmYFtRG25KnmLlWZ0_ftUA",
+        "primary": true,
+        "priceAud": 374,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Connect-SmartHome-Outdoor-Security-Camera/dp/B0FBX66G1D?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": false,
+        "priceAud": 374,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/connect-smart-home-2k-outdoor-security-camera-4-pack",
+        "primary": false,
+        "priceAud": 379,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "17888556419071849152",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/connect-smarthome-2k-outdoor-camera-4-pack.webp",
+      "/images/products/connect-smarthome-2k-outdoor-camera-4-pack-2.webp",
+      "/images/products/connect-smarthome-2k-outdoor-camera-4-pack-3.webp",
+      "/images/products/connect-smarthome-2k-outdoor-camera-4-pack-4.webp"
+    ],
+    "specifications": [
+      {
+        "name": "Location",
+        "value": "Outdoor"
+      },
+      {
+        "name": "Resolution",
+        "value": "2K"
+      },
+      {
+        "name": "Motion Detection",
+        "value": "Yes"
+      },
+      {
+        "name": "Camera Type",
+        "value": "Security camera"
+      },
+      {
+        "name": "Night Vision",
+        "value": "Yes"
+      },
+      {
+        "name": "Night Vision Distance",
+        "value": "10 Meters"
+      },
+      {
+        "name": "Installation Method",
+        "value": "Wireless"
+      },
+      {
+        "name": "Mount Type",
+        "value": "Wall Mount"
+      },
+      {
+        "name": "Durability",
+        "value": "IP rated water resistance"
+      },
+      {
+        "name": "Storage Media",
+        "value": "Storage options"
+      },
+      {
+        "name": "Cloud Storage",
+        "value": "No (No cloud required)"
+      },
+      {
+        "name": "Frame Rate",
+        "value": "15 frames per second"
+      },
+      {
+        "name": "Local Storage",
+        "value": "Yes (Supports up to 256GB microSD)"
+      },
+      {
+        "name": "Channel Count",
+        "value": "2"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Home security"
+      },
+      {
+        "name": "Wireless Connectivity",
+        "value": "Yes"
+      },
+      {
+        "name": "Cellular Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Wi-Fi Connectivity",
+        "value": "Dual band Wi-Fi connectivity"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Home, Amazon Alexa"
+      },
+      {
+        "name": "Ethernet Connectivity",
+        "value": "No"
+      },
+      {
+        "name": "Mobile App Support",
+        "value": "Yes (via the Connect SmartHome App)"
+      },
+      {
+        "name": "Bluetooth Connectivity",
+        "value": "Yes"
+      },
+      {
+        "name": "Live Streaming",
+        "value": "Yes (Use voice commands to view your live feed)"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Dual band Wi-Fi connectivity, Colour night vision"
+      },
+      {
+        "name": "Audio Type",
+        "value": "Audio security features"
+      },
+      {
+        "name": "Power Source",
+        "value": "USB-C, Battery Powered, Rechargeable battery, Solar Powered"
+      },
+      {
+        "name": "Power Consumption",
+        "value": "3 watts"
+      },
+      {
+        "name": "Dimensions",
+        "value": "82 MMT (width)"
+      },
+      {
+        "name": "Camera Style",
+        "value": "Rectangular"
+      },
+      {
+        "name": "Weight",
+        "value": "200 g"
+      },
+      {
+        "name": "Included Accessories",
+        "value": "Solar panels"
+      },
+      {
+        "name": "Number Of Cameras",
+        "value": "2"
+      }
+    ],
+    "shortDescription": "The Connect SmartHome 2K Outdoor Camera 4 Pack is a wireless security camera system with 2K resolution and night vision up to 10 metres. It offers dual-band Wi-Fi connectivity, colour night vision, and local storage via microSD card. The system integrates with Google Home and Amazon Alexa for voice-controlled live streaming.",
+    "bestFor": "Homeowners wanting wireless outdoor security with local storage",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "connect-smarthome-2k-outdoor-camera-with-solar-panel",
+    "slug": "connect-smarthome-2k-outdoor-camera-with-solar-panel",
+    "name": "SmartHome 2K Outdoor Camera with solar panel",
+    "brand": "Connect",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Security Cameras",
+    "priceAud": 114,
+    "currency": "AUD",
+    "image": "/images/products/connect-smarthome-2k-outdoor-camera-with-solar-panel.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Connect-SmartHome-Outdoor-Security-Camera/dp/B0FBWSR5XF?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": true,
+        "priceAud": 114,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/connect-smarthome-2k-outdoor-camera-with-3w-solar-panel-csh-2kodc-904?srsltid=AU7gw4WKp0MNkYRfO5yWwb4m161UeBFDS5QYfg6WYkE7fyL_aikJsrU53b0",
+        "primary": false,
+        "priceAud": 114,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/connect-smart-home-2k-outdoor-camera-with-3w-solar-panel",
+        "primary": false,
+        "priceAud": 115,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "912624650256371172",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/connect-smarthome-2k-outdoor-camera-with-solar-panel.webp",
+      "/images/products/connect-smarthome-2k-outdoor-camera-with-solar-panel-2.webp",
+      "/images/products/connect-smarthome-2k-outdoor-camera-with-solar-panel-3.webp",
+      "/images/products/connect-smarthome-2k-outdoor-camera-with-solar-panel-4.webp"
+    ],
+    "description": "Crystal Clear 2K Resolution – Capture sharper video with 4x the detail of 720p; perfect for identifying faces, license plates, and motion activity. Solar Powered Convenience – Includes a 3W solar panel for continuous wire-free power—no batteries to replace or cords to run. Full-Colour Night Vision – See what’s happening even in total darkness with advanced sensors that provide vivid, color-accurate footage at night. Smart Motion Detection & Alerts – Get real-time notifications on your phone when motion is detected, and use two-way audio to respond instantly. Voice-Controlled Hands-Free Security – Seamlessly integrates with Amazon Alexa and Google Assistant for live feed viewing and voice command control. Dual-Band Wi. Fi & Local Storage – Enjoy stable connectivity with 2.4GHz and 5GHz support, and record events to a microSD card (up to 256GB, sold separately). IP65 All-Weather Protection – Engineered for year-round outdoor use, withstanding rain, dust, and extreme temperatures.",
+    "specifications": [
+      {
+        "name": "Location",
+        "value": "Outdoor"
+      },
+      {
+        "name": "Resolution",
+        "value": "2K"
+      },
+      {
+        "name": "Installation Method",
+        "value": "Wire-Free"
+      },
+      {
+        "name": "Mount Type",
+        "value": "Wall-Mounted, Ceiling-Mounted, Tabletop"
+      },
+      {
+        "name": "Power Source",
+        "value": "Optional Solar Panel: Tapo A201 (Sold separately), Adapter Input: 100-240 V, 50/60 Hz"
+      },
+      {
+        "name": "Battery Life",
+        "value": "Up to 180 days of security on a single charge"
+      },
+      {
+        "name": "Storage Media",
+        "value": "microSD card, Cloud Storage Services, Tapo Care cloud service"
+      },
+      {
+        "name": "Cloud Storage",
+        "value": "Yes, Tapo Care Cloud Storage Services (Subscription required)"
+      },
+      {
+        "name": "Frame Rate",
+        "value": "15 fps"
+      },
+      {
+        "name": "Local Storage",
+        "value": "Yes, Local microSD storage, MicroSD Card Slot on Camera"
+      },
+      {
+        "name": "Wireless Connectivity",
+        "value": "Wire-Free, Yes"
+      },
+      {
+        "name": "Wi-Fi Connectivity",
+        "value": "IEEE 802.11b/g/n, 2.4 GHz Wi-Fi, Connect via Wi-Fi"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Encryption Type",
+        "value": "WPA/WPA2-PSK, 128-bit AES Encryption with SSL/TLS"
+      },
+      {
+        "name": "Mobile App Support",
+        "value": "Tapo App (iOS 11.0 or higher), Tapo App (Andriod 5.0 or higher)"
+      },
+      {
+        "name": "Motion Detection",
+        "value": "Yes"
+      },
+      {
+        "name": "Object Detection",
+        "value": "Smart Person Detection"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Home security"
+      },
+      {
+        "name": "Night Vision",
+        "value": "Full-Color Night Vision"
+      },
+      {
+        "name": "Angle Of View",
+        "value": "56\b° (Vertical)"
+      },
+      {
+        "name": "Night Vision Distance",
+        "value": "Up to 30 ft (9 m), 30 ft / 9.1 m"
+      },
+      {
+        "name": "Image Sensor Type",
+        "value": "CMOS Starlight Sensor"
+      },
+      {
+        "name": "Dimensions",
+        "value": "D60 mm × 89 mm"
+      },
+      {
+        "name": "Live Streaming",
+        "value": "Yes"
+      },
+      {
+        "name": "Highlighted Features",
+        "value": "Spotlights, 3DNR WDR (Image Enhancement), Activity Zones, Built-in spotlights"
+      },
+      {
+        "name": "Two Way Audio",
+        "value": "Two-Way Audio with Noise Cancellation, Built-in Microphone and Speaker"
+      },
+      {
+        "name": "Audio Type",
+        "value": "Two-way audio, Built-in Microphone and Speaker"
+      },
+      {
+        "name": "With Alarm",
+        "value": "Siren Volume: 94 dB (Level measured at 4-inch/10-cm distance)"
+      },
+      {
+        "name": "Durability",
+        "value": "IP65 Weatherproof"
+      },
+      {
+        "name": "Temperature Range",
+        "value": "0-45℃ (Charging Temperature)"
+      },
+      {
+        "name": "Compression",
+        "value": "H.264"
+      },
+      {
+        "name": "Included Accessories",
+        "value": "USB Adapter × 1, Camera Bracket × 1, Mounting Template × 1, Quick Start Guide × 1, Screws and Anchors × 3"
+      },
+      {
+        "name": "Buttons",
+        "value": "RESET Button, POWER Button"
+      },
+      {
+        "name": "Number Of Cameras",
+        "value": "1"
+      }
+    ],
+    "shortDescription": "The Connect SmartHome 2K Outdoor Camera is a wire-free outdoor security camera with 2K resolution and full-colour night vision. The brand says it includes a 3W solar panel for continuous power and features smart motion detection with real-time alerts. It integrates with Amazon Alexa and Google Assistant, and supports local microSD storage.",
+    "bestFor": "Homeowners wanting wire-free outdoor security with solar charging",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "tp-link-tapo-d210-2k-video-doorbell-camera",
+    "slug": "tp-link-tapo-d210-2k-video-doorbell-camera",
+    "name": "Tapo D210 2K Video Doorbell Camera",
+    "brand": "TP-Link",
+    "categoryKey": "security",
+    "categorySlug": "security-and-cameras",
+    "categoryName": "Security & Cameras",
+    "subCategory": "Video Doorbells",
+    "priceAud": 109,
+    "currency": "AUD",
+    "image": "/images/products/tp-link-tapo-d210-2k-video-doorbell-camera.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/tp-link-tapo-2k-smart-video-doorbell?ab_version=B&srsltid=AU7gw4VKzxHaQj7rcJ1G4sf81UAj-i6J2idfHwrmrCUmwb6VCA7L5Urmx5o",
+        "primary": true,
+        "priceAud": 109,
+        "deepLink": true
+      },
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/tp-link-tapo-video-doorbell-camera-d210-tptapod210?region_id=GTYP2H",
+        "primary": false,
+        "priceAud": 127,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/tp-link-2k-3mp-wireless-video-doorbell-wchime-tapo-d210?srsltid=AU7gw4X4-xZtYtZqJ_8-taFAXk7osi3j0N9u5EJZg7_pCTVC-yswfuPMmJk",
+        "primary": false,
+        "priceAud": 149,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "2681310369676435901",
+    "pricesCheckedAt": "2026-10-05T19:36:08.288Z",
+    "updatedAt": "2026-10-05T19:36:08.288Z",
+    "images": [
+      "/images/products/tp-link-tapo-d210-2k-video-doorbell-camera.webp",
+      "/images/products/tp-link-tapo-d210-2k-video-doorbell-camera-2.webp",
+      "/images/products/tp-link-tapo-d210-2k-video-doorbell-camera-3.webp",
+      "/images/products/tp-link-tapo-d210-2k-video-doorbell-camera-4.webp"
+    ],
+    "description": "The tp-link Tapo D210 video doorbell camera TAPO-D210 delivers 2K 3MP video clarity with comprehensive front door monitoring. Features a 160-degree diagonal field of view to capture visitors from head to toe, plus night vision for clear footage in low-light conditions. Includes an indoor chime with customizable ringtones and weatherproof design for reliable outdoor installation. Ideal for homeowners wanting detailed security coverage with clear day and night video recording.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "TP-Link"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Smart",
+        "value": "Yes"
+      },
+      {
+        "name": "With Doorbell",
+        "value": "Yes"
+      },
+      {
+        "name": "Use",
+        "value": "Residential"
+      }
+    ],
+    "shortDescription": "The TP-Link Tapo D210 is a 2K video doorbell camera with 3MP resolution and 160-degree field of view. It features night vision for low-light conditions and includes an indoor chime with customizable ringtones. The weatherproof design supports Google Assistant and Amazon Alexa integration for smart home control.",
+    "bestFor": "Homeowners seeking detailed front door video monitoring with voice assistant compatibility",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "tp-link-tapo-l530e-smart-wi-fi-multicolour-bulb",
+    "slug": "tp-link-tapo-l530e-smart-wi-fi-multicolour-bulb",
+    "name": "Tapo l530e Smart Wi-Fi Multicolour Bulb",
+    "brand": "TP-Link",
+    "categoryKey": "lighting",
+    "categorySlug": "lighting",
+    "categoryName": "Lighting",
+    "subCategory": "Smart Bulbs",
+    "priceAud": 17,
+    "currency": "AUD",
+    "image": "/images/products/tp-link-tapo-l530e-smart-wi-fi-multicolour-bulb.webp",
+    "retailers": [
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/tp-link-tapo-multicolour-wifi-smart-bulb-e27-base-tptapl530e?region_id=GTYP2H",
+        "primary": true,
+        "priceAud": 17,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/tp-link-tapo-smart-wi-fi-multicolour-bulb-e27?ab_version=A&srsltid=AU7gw4XxgE5sv8fSrcBGM7l9kWVOB0kkMKme0paFDAKvP5QQ1svHE9RMdLg",
+        "primary": false,
+        "priceAud": 19,
+        "deepLink": true
+      },
+      {
+        "name": "BIG W",
+        "url": "https://www.bigw.com.au/product/tapo-tp-link-wi-fi-light-bulb-multicolour-e27-60w-equivalent-preset-schedule-timer-sunrise-and-sunset-modes-voice-app-control-away-mode-no-hub-required-tapo-l530e/p/9905295156?srsltid=AU7gw4VbHetMg3tzVBOo1sOddi7feHVAqUGw5EWRbz9URd1ggwojcu9_SN8",
+        "primary": false,
+        "priceAud": 36.4,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "12666940685640811116",
+    "pricesCheckedAt": "2026-10-05T19:36:23.926Z",
+    "updatedAt": "2026-10-05T19:36:23.926Z",
+    "images": [
+      "/images/products/tp-link-tapo-l530e-smart-wi-fi-multicolour-bulb.webp",
+      "/images/products/tp-link-tapo-l530e-smart-wi-fi-multicolour-bulb-2.webp",
+      "/images/products/tp-link-tapo-l530e-smart-wi-fi-multicolour-bulb-3.webp",
+      "/images/products/tp-link-tapo-l530e-smart-wi-fi-multicolour-bulb-4.webp"
+    ],
+    "description": "The TP-Link Tapo L530E is an innovative, multicolored light bulb that is ideal for modern smart home applications. With a total power of 8.7 watts, it offers an energy-efficient alternative to conventional 60-watt incandescent bulbs without compromising on brightness. The lamp is equipped with an E27 socket and allows for a color temperature range of 2500 to 6500 Kelvin, enabling flexible adaptation to various lighting needs and moods. Thanks to its Wi-Fi connectivity, the Tapo L530E can be conveniently controlled via the Tapo App, allowing users to adjust the lighting at any time and from anywhere. Integration with voice assistants such as Amazon Alexa and Google Assistant enables easy voice control. Additionally, individual lighting scenarios can be created and schedules for turning the lamp on and off can be set, enhancing comfort and user-friendliness. Energy-efficient with only 8.7 W for 60 W brightness 16 million colors for personalized lighting design Voice control via Amazon Alexa and Google Assistant Easy control via the Tapo App from anywhere Preset options for various lighting scenarios.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "TP-Link"
+      },
+      {
+        "name": "Type",
+        "value": "Incandescent"
+      },
+      {
+        "name": "Edison",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Dimmable",
+        "value": "Yes"
+      },
+      {
+        "name": "Bulb Colour",
+        "value": "Multicoloured"
+      },
+      {
+        "name": "Base Type",
+        "value": "Edison Screw"
+      },
+      {
+        "name": "Wattage",
+        "value": "60 watts"
+      }
+    ],
+    "shortDescription": "The TP-Link Tapo L530E is a multicolour Wi-Fi smart bulb with an E27 socket. The manufacturer lists it as using 8.7 watts whilst providing the equivalent brightness of a 60-watt incandescent bulb. It offers 16 million colours, adjustable colour temperature from 2500 to 6500 Kelvin, and remote control via the Tapo App or voice commands through Amazon Alexa and Google Assistant. Users can create lighting scenarios and set schedules.",
+    "bestFor": "Users wanting energy-efficient multicolour lighting with app and voice control",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "50-bulb-wifi-smart-outdoor-festoon-lights",
+    "slug": "50-bulb-wifi-smart-outdoor-festoon-lights",
+    "name": "Bulb Wifi Smart Outdoor Festoon Lights",
+    "brand": "50",
+    "categoryKey": "lighting",
+    "categorySlug": "lighting",
+    "categoryName": "Lighting",
+    "subCategory": "Outdoor Lighting",
+    "priceAud": 119.95,
+    "currency": "AUD",
+    "image": "/images/products/50-bulb-wifi-smart-outdoor-festoon-lights.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/LumiFx-Smart-Outdoor-Festoon-Lights/dp/B0FHPWYTJ2",
+        "primary": true,
+        "priceAud": 119.95,
+        "deepLink": true
+      },
+      {
+        "name": "Woolworths",
+        "url": "https://www.woolworths.com.au/shop/productdetails/1127178675",
+        "primary": false,
+        "priceAud": 139.95,
+        "deepLink": true
+      },
+      {
+        "name": "Appliances Online",
+        "url": "https://www.appliancesonline.com.au/product/lumifx-50-bulb-wifi-smart-outdoor-festoon-lights-10004639/",
+        "primary": false,
+        "priceAud": 140,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "10388865697048144404",
+    "pricesCheckedAt": "2026-10-05T19:36:23.926Z",
+    "updatedAt": "2026-10-05T19:36:23.926Z",
+    "images": [
+      "/images/products/50-bulb-wifi-smart-outdoor-festoon-lights.webp",
+      "/images/products/50-bulb-wifi-smart-outdoor-festoon-lights-2.webp",
+      "/images/products/50-bulb-wifi-smart-outdoor-festoon-lights-3.webp",
+      "/images/products/50-bulb-wifi-smart-outdoor-festoon-lights-4.webp"
+    ],
+    "specifications": [
+      {
+        "name": "Power Source",
+        "value": "Electric"
+      },
+      {
+        "name": "Outdoor",
+        "value": "Yes"
+      },
+      {
+        "name": "Animation",
+        "value": "Twinkle, Chasing, Flashing"
+      }
+    ]
+  },
+  {
+    "id": "arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight",
+    "slug": "arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight",
+    "name": "9W 92mm Grid Connect Smart RGB+CCT LED Downlight",
+    "brand": "Arlec",
+    "categoryKey": "lighting",
+    "categorySlug": "lighting",
+    "categoryName": "Lighting",
+    "subCategory": "Smart Bulbs",
+    "priceAud": 20.6,
+    "currency": "AUD",
+    "image": "/images/products/arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight.webp",
+    "retailers": [
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight_p0549111?srsltid=AU7gw4WGU-WV_3jsW8AJmr20WHqxWg_Y6OdUpENd2oYULqmRNhEaBkT7G8c&region_id=117313",
+        "primary": true,
+        "priceAud": 20.6,
+        "deepLink": true
+      },
+      {
+        "name": "Woolworths",
+        "url": "https://www.woolworths.com.au/shop/productdetails/1127700777",
+        "primary": false,
+        "priceAud": 49.9,
+        "deepLink": true
+      },
+      {
+        "name": "BIG W",
+        "url": "https://www.bigw.com.au/product/arlec-ald295ha-9w-92mm-grid-connect-smart-rgb-cct-led-downlight/p/9903969402?srsltid=AU7gw4Wd4UM-R9uslxykUSXt834wfD3zp6yWjVA7W1ZmduzJdN0akWN0R7c",
+        "primary": false,
+        "priceAud": 49.9,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "15800375378572210009",
+    "pricesCheckedAt": "2026-10-05T19:36:23.926Z",
+    "updatedAt": "2026-10-05T19:36:23.926Z",
+    "images": [
+      "/images/products/arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight.webp",
+      "/images/products/arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight-2.webp",
+      "/images/products/arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight-3.webp",
+      "/images/products/arlec-9w-92mm-grid-connect-smart-rgb-cct-led-downlight-4.webp"
+    ],
+    "description": "This Arlec LED Grid-Connect Downlight features a Tri-Colour function. Slide the switch at the side of downlight to set the default colour temperature of your choice before installation. The product is fitted with a lead and plug for easy installation and the dimmable LED driver is suitable for use with trailing edge, and universal dimmers. This product is compatible with the Grid Connect smart home automation system, built to optimise your everyday living. Simply download the free Grid Connect app on your iOS or Android device and use your home Wi-Fi or mobile internet connection to control, customise and automate your product. It takes only minutes to set up, and there’s a wide range of products available that allow you to customise your system any way you like. Use the app to create the perfect scene for every moment of the day, set your product to operate on your ideal schedule, and enjoy peace of mind while you’re away. Most Grid Connect products are compatible with Google Assistant and Amazon Alexa (sold separately), so you can operate your system with the ultimate convenience.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Arlec"
+      },
+      {
+        "name": "Light Bulb Type",
+        "value": "LED"
+      },
+      {
+        "name": "Max. Wattage",
+        "value": "Max. Wattage: 9 watts"
+      }
+    ],
+    "shortDescription": "The Arlec 9W 92mm Grid Connect Smart RGB+CCT LED Downlight is a dimmable downlight with tri-colour functionality and selectable default colour temperature. It connects to the Grid Connect app via Wi-Fi for remote control, scheduling and scene creation. Compatible with Google Assistant and Amazon Alexa (sold separately). Lead and plug included for easy installation.",
+    "bestFor": "Grid Connect users seeking app-controlled RGB and colour temperature adjustment",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "wiz-colour-a60-e27-smart-bulb",
+    "slug": "wiz-colour-a60-e27-smart-bulb",
+    "name": "Colour A60 E27 Smart Bulb",
+    "brand": "WiZ",
+    "categoryKey": "lighting",
+    "categorySlug": "lighting",
+    "categoryName": "Lighting",
+    "subCategory": "Smart Bulbs",
+    "priceAud": 18.5,
+    "currency": "AUD",
+    "image": "/images/products/wiz-colour-a60-e27-smart-bulb.webp",
+    "retailers": [
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/wiz-a60-e27-led-806lm-colour-8w-smart-globe_p0489321?srsltid=AU7gw4Wd3bKkThKy-b5cR9ckPue9FEs3OcDk-v_9u-g7lYjbnHf5m4zGsBY&region_id=117313",
+        "primary": true,
+        "priceAud": 18.5,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Color-Tunable-White-WIZWCAE27A60BTP-929003601001/dp/B0C6QKPFQ6?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": false,
+        "priceAud": 18.5,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/wiz-colour-a60-e27-smart-bulb-gen-2?ab_version=B&srsltid=AU7gw4WakPyJELuiWqKy4hY5SEayhFETJwtznr2wOI-fDKHie7X4nPoBzbg",
+        "primary": false,
+        "priceAud": 19,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "6820447709618023406",
+    "pricesCheckedAt": "2026-10-05T19:36:23.926Z",
+    "updatedAt": "2026-10-05T19:36:23.926Z",
+    "images": [
+      "/images/products/wiz-colour-a60-e27-smart-bulb.webp",
+      "/images/products/wiz-colour-a60-e27-smart-bulb-2.webp",
+      "/images/products/wiz-colour-a60-e27-smart-bulb-3.webp",
+      "/images/products/wiz-colour-a60-e27-smart-bulb-4.webp"
+    ],
+    "description": "The Signify WiZ Colors LED light bulb enhances any indoor space with RGB lighting and smart home connectivity. This IoT-compatible bulb integrates with smart assistants like Siri, Google Assistant, and Alexa, allowing voice control for operation. With a frosted finish and an A60 shape, this bulb provides instant full light and enables various lighting schedules through the WiZ app, giving users control over illumination. The 8.5 W bulb is equivalent to a traditional 60 W bulb, offering 806 lumens of brightness with energy efficiency. Designed for convenience, this energy-efficient bulb has a lifetime of 25,000 hours and withstands up to 50,000 switch cycles. The bulb features Wi-Fi control for integration into any smart home setup, and a color temperature range from 2200 K to 6500 K allows for ambiance customization in any room. The WiZ Space. Sense technology enhances the experience, ensuring consistent lighting and performance that meets modern living standards.",
+    "specifications": [
+      {
+        "name": "Highlighted Features",
+        "value": "Color Changing, Smart Light"
+      },
+      {
+        "name": "Lifespan Hours",
+        "value": "25000 hours"
+      },
+      {
+        "name": "Technology Type",
+        "value": "LED, Smart"
+      },
+      {
+        "name": "Brightness Lumens",
+        "value": "806 lumens"
+      },
+      {
+        "name": "Brightness Equivalence",
+        "value": "60W equivalent"
+      },
+      {
+        "name": "Wattage Equivalent",
+        "value": "60 W"
+      },
+      {
+        "name": "Base Size",
+        "value": "E27"
+      },
+      {
+        "name": "Base Type",
+        "value": "E27"
+      },
+      {
+        "name": "Bulb Color",
+        "value": "White"
+      },
+      {
+        "name": "Color Temperature",
+        "value": "2200-6500K"
+      },
+      {
+        "name": "Design Shape",
+        "value": "A60"
+      },
+      {
+        "name": "Finish",
+        "value": "Frosted"
+      },
+      {
+        "name": "Connectivity Type",
+        "value": "Wi-Fi"
+      },
+      {
+        "name": "Control Method",
+        "value": "App (WiZ app), Remote, Voice (Alexa, Google Assistant, Siri)"
+      },
+      {
+        "name": "Energy Consumption",
+        "value": "8.5 W"
+      },
+      {
+        "name": "Energy Rating",
+        "value": "F"
+      },
+      {
+        "name": "Location Use",
+        "value": "Indoor"
+      },
+      {
+        "name": "Color Rendering Index",
+        "value": "80"
+      },
+      {
+        "name": "Diameter",
+        "value": "60 mm"
+      },
+      {
+        "name": "Length",
+        "value": "122 mm"
+      },
+      {
+        "name": "Light",
+        "value": "Colour and Tunable White"
+      },
+      {
+        "name": "Voltage Rating",
+        "value": "AC 220 - 240 V"
+      },
+      {
+        "name": "Beam Angle",
+        "value": "Sphere (360°)"
+      },
+      {
+        "name": "Material Type",
+        "value": "Plastic"
+      }
+    ],
+    "shortDescription": "The WiZ Colour A60 E27 is an RGB smart bulb with Wi-Fi connectivity for voice and app control. It delivers 806 lumens equivalent to a traditional 60W bulb, with a colour temperature range from 2200K to 6500K. The 8.5W LED bulb has a 25,000-hour lifespan and integrates with Alexa, Google Assistant, and Siri.",
+    "bestFor": "Users wanting colour-changing smart lighting with voice control capability",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "arlec-grid-connect-smart-strip-light-with-razer-chroma-rgb",
+    "slug": "arlec-grid-connect-smart-strip-light-with-razer-chroma-rgb",
+    "name": "Grid Connect Smart Strip Light With Razer Chroma RGB",
+    "brand": "Arlec",
+    "categoryKey": "lighting",
+    "categorySlug": "lighting",
+    "categoryName": "Lighting",
+    "subCategory": "Smart Lightstrips",
+    "priceAud": 51.75,
+    "currency": "AUD",
+    "image": "/images/products/arlec-grid-connect-smart-strip-light-with-razer-chroma-rgb.webp",
+    "retailers": [
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/arlec-grid-connect-smart-5m-strip-light-with-razer-chroma-rgb_p0830269?srsltid=AU7gw4UMWarQa8fRobaq8RaRzJHtQQHgqxNsG67RHP_T4kc6kDuMyx74ujk&region_id=117313",
+        "primary": true,
+        "priceAud": 51.75,
+        "deepLink": true
+      },
+      {
+        "name": "Woolworths",
+        "url": "https://www.woolworths.com.au/shop/productdetails/1126570089",
+        "primary": false,
+        "priceAud": 84.9,
+        "deepLink": true
+      },
+      {
+        "name": "BIG W",
+        "url": "https://www.bigw.com.au/product/arlec-chr382ha-grid-connect-smart-5m-strip-light-with-razer-chroma-rgb/p/9902819590?srsltid=AU7gw4WDTldMc2ii6eJlRsLHcca1-h_Sv-lm54dr3FyIQoOR1OYzJIYUKxU",
+        "primary": false,
+        "priceAud": 84.9,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "1768232196093358305",
+    "pricesCheckedAt": "2026-10-05T19:36:23.926Z",
+    "updatedAt": "2026-10-05T19:36:23.926Z",
+    "description": "This smart 5m strip light set is a great way to add versatile ambient lighting to your space. The strip light supports cool to warm whites to light up dark corners or hallways or set the light to one of the sound sync or animating modes to create a fun and colourful RGB look. The flexible strip light can be cut-to-length at marked points and rejoined using the included connectors. It is powered by an included low-voltage adaptor. Pair to the Grid Connect app to access the full feature set, including a wide range of animating effects, sound sync modes to react to the beat of music, and segmented control to display different colours along the length of the strip light. This product is compatible with the Grid Connect smart home automation system, built to optimise your everyday living. Simply download the free Grid Connect app on your iOS or Android device and use your home Wi-Fi or mobile internet connection to control, customise and automate your product. It takes only minutes to set up, and there’s a wide range of products available that allow you to customise your system any way you like. Use the app to create the perfect light for every moment of the day, set your product to operate on your ideal schedule, and enjoy peace of mind while you’re away. Most Grid Connect products are compatible with Google Assistant and Amazon Alexa (sold separately), so you can operate your system with the ultimate convenience.",
+    "specifications": [
+      {
+        "name": "Type",
+        "value": "Strip"
+      },
+      {
+        "name": "Power Source",
+        "value": "Electric"
+      },
+      {
+        "name": "Brand",
+        "value": "Arlec"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      }
+    ],
+    "shortDescription": "The Arlec Grid Connect Smart Strip Light With Razer Chroma RGB is a 5-metre flexible LED strip that offers cool to warm white ambient lighting and RGB colour modes. It features sound sync and animating effects via the Grid Connect app, supports segmented control for varied colours along the strip, and can be cut-to-length using included connectors.",
+    "bestFor": "Those wanting customisable ambient lighting with music-reactive RGB effects",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "mirabella-genio-3m-wi-fi-led-strip-light",
+    "slug": "mirabella-genio-3m-wi-fi-led-strip-light",
+    "name": "Genio 3m Wi-Fi LED Strip Light",
+    "brand": "Mirabella",
+    "categoryKey": "lighting",
+    "categorySlug": "lighting",
+    "categoryName": "Lighting",
+    "subCategory": "Smart Lightstrips",
+    "priceAud": 37,
+    "currency": "AUD",
+    "image": "/images/products/mirabella-genio-3m-wi-fi-led-strip-light.webp",
+    "retailers": [
+      {
+        "name": "BIG W",
+        "url": "https://www.bigw.com.au/product/mirabella-genio-smart-led-strip-3m/p/113185?srsltid=AU7gw4Wg8Z79wEYbE_0EKED71Wb5lO97mCX-OrlD1wsKsRp1b7Jve1c04cE",
+        "primary": true,
+        "priceAud": 37,
+        "deepLink": true
+      },
+      {
+        "name": "Kmart",
+        "url": "https://www.kmart.com.au/product/mirabella-genio-wi-fi-led-strip-light-3m-42769477/?sku=42769477&utm_source=google&utm_medium=organic&utm_campaign=free_listings&offer_id=1&srsltid=AU7gw4U8sUfx3ubuOd7eIwTk6Pnab_0Jn1xWd8ekvhTpraZ3pc5-oif9gys&region_id=200001",
+        "primary": false,
+        "priceAud": 37,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Mirabella-Genio-Wi-Fi-Smart-Voltage/dp/B0F4QTTGSJ?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": false,
+        "priceAud": 37,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "3901548067435747400",
+    "pricesCheckedAt": "2026-10-05T19:36:23.926Z",
+    "updatedAt": "2026-10-05T19:36:23.926Z",
+    "images": [
+      "/images/products/mirabella-genio-3m-wi-fi-led-strip-light.webp",
+      "/images/products/mirabella-genio-3m-wi-fi-led-strip-light-2.webp",
+      "/images/products/mirabella-genio-3m-wi-fi-led-strip-light-3.webp",
+      "/images/products/mirabella-genio-3m-wi-fi-led-strip-light-4.webp"
+    ],
+    "description": "Mirabella Genio Smart LED Strip 3m Create the right mood in your home for any situation with the Mirabella Genio series. Control these Strip Lights with your phone, Google Home or Amazon Alexa, allowing you to change the colour and schedule when the lights will be on.",
+    "specifications": [
+      {
+        "name": "Bulb Type",
+        "value": "LED"
+      },
+      {
+        "name": "Weatherproof",
+        "value": "IP65"
+      },
+      {
+        "name": "Color Tone",
+        "value": "Cool White"
+      },
+      {
+        "name": "Light Form",
+        "value": "Strip light"
+      },
+      {
+        "name": "Light Style",
+        "value": "Modern"
+      },
+      {
+        "name": "Animation",
+        "value": "Editable scenes"
+      },
+      {
+        "name": "Timer Supported",
+        "value": "Yes (via schedule)"
+      },
+      {
+        "name": "Weather Resistance",
+        "value": "IP65"
+      },
+      {
+        "name": "Power Source",
+        "value": "12V 1A Adaptor"
+      },
+      {
+        "name": "Voltage",
+        "value": "12V"
+      },
+      {
+        "name": "Special Occasion",
+        "value": "All occasions"
+      },
+      {
+        "name": "Shape",
+        "value": "Strip"
+      },
+      {
+        "name": "Application Control Supported",
+        "value": "Yes (via Google Home app), Yes (via Alexa app), Yes (via Genio app)"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Home, Alexa"
+      },
+      {
+        "name": "Mounting Type",
+        "value": "3M double sided backing tape"
+      },
+      {
+        "name": "Theme",
+        "value": "Lighting"
+      },
+      {
+        "name": "Outdoor Use",
+        "value": "Indoor"
+      },
+      {
+        "name": "Typical Users",
+        "value": "UNISEX"
+      },
+      {
+        "name": "Solution For",
+        "value": "Customizable light display"
+      }
+    ],
+    "shortDescription": "The Mirabella Genio 3m Wi-Fi LED Strip Light is a smart strip light that can be controlled via phone, Google Home or Amazon Alexa. According to the manufacturer, you can change colours and schedule when the lights turn on. It features editable scenes and uses a 12V power adaptor with IP65 weatherproofing.",
+    "bestFor": "People wanting customisable mood lighting they can control remotely",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
+  },
+  {
+    "id": "tp-link-tapo-b22-multicolour-bulb",
+    "slug": "tp-link-tapo-b22-multicolour-bulb",
+    "name": "Tapo B22 Multicolour Bulb",
+    "brand": "TP-Link",
+    "categoryKey": "lighting",
+    "categorySlug": "lighting",
+    "categoryName": "Lighting",
+    "subCategory": "Smart Bulbs",
+    "priceAud": 18,
+    "currency": "AUD",
+    "image": "/images/products/tp-link-tapo-b22-multicolour-bulb.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/TP-Link-Tapo-Multicolour-Equivalent-L535B/dp/B0CMCXCJLW?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": true,
+        "priceAud": 18,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/tp-link-tapo-b22-multicolour-bulb-matter-compatible?ab_version=B&srsltid=AU7gw4UV7KdJeBOnYaEcyF0mitbCmskzGyXlo0680k832d_jAZJQfWRHl3U",
+        "primary": false,
+        "priceAud": 19,
+        "deepLink": true
+      },
+      {
+        "name": "Officeworks",
+        "url": "https://www.officeworks.com.au/shop/officeworks/p/tp-link-tapo-multicolour-wifi-matter-smart-bulb-b22-base-tptapl535b?region_id=GTYP2H",
+        "primary": false,
+        "priceAud": 20,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "15849272594436848009",
+    "pricesCheckedAt": "2026-10-05T19:36:23.926Z",
+    "updatedAt": "2026-10-05T19:36:23.926Z",
+    "images": [
+      "/images/products/tp-link-tapo-b22-multicolour-bulb.webp",
+      "/images/products/tp-link-tapo-b22-multicolour-bulb-2.webp",
+      "/images/products/tp-link-tapo-b22-multicolour-bulb-3.webp",
+      "/images/products/tp-link-tapo-b22-multicolour-bulb-4.webp"
+    ],
+    "description": "The TP-Link Tapo L535B B27 Smart Wi. Fi Light Bulb delivers 1055 lumens of vibrant multicolour lighting with millions of colour options for any mood or occasion. This 8.6W LED bulb features adjustable brightness, scheduling functions and countdown timers, plus sunrise and sunset modes that activate automatically according to your time zone. Voice control works seamlessly with Alexa, Siri and Google Assistant for hands-free operation, while the Tapo app provides remote control convenience. The energy-efficient design reduces consumption by up to 89% compared to traditional 75W incandescent bulbs while maintaining superior brightness quality. Ideal for smart homes wanting customisable lighting solutions.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "TP-Link"
+      },
+      {
+        "name": "Type",
+        "value": "LED"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa, Siri"
+      },
+      {
+        "name": "Decorative",
+        "value": "Yes"
+      },
+      {
+        "name": "Dimmable",
+        "value": "Yes"
+      },
+      {
+        "name": "Bulb Colour",
+        "value": "Multicoloured"
+      },
+      {
+        "name": "Wattage Equivalence",
+        "value": "0 W equivalence"
+      }
+    ],
+    "shortDescription": "The TP-Link Tapo B22 Multicolour Bulb is an 8.6W LED smart bulb offering millions of colour options and adjustable brightness. It delivers 1055 lumens and features scheduling, countdown timers, and sunrise/sunset modes. Voice control works with Alexa, Siri and Google Assistant, whilst the Tapo app enables remote control.",
+    "bestFor": "Smart home users seeking customisable multicolour lighting solutions",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   }
 ]
