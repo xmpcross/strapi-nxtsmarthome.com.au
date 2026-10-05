@@ -70,7 +70,7 @@ export default async function HomePage() {
     const j = Math.floor(Math.random() * (i + 1))
     ;[withPrices[i], withPrices[j]] = [withPrices[j], withPrices[i]]
   }
-  const researched = withPrices.slice(0, 9).map(toListingCard)
+  const researched = withPrices.slice(0, 8).map(toListingCard)
   // Topic sections before and after the researched-products block. The block
   // sits just before Climate & Comfort, so Climate runs straight into Lighting
   // (user request, 24 Sep 2026); without Climate it falls back to halfway.

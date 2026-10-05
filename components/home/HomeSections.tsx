@@ -449,30 +449,32 @@ export function HomeSetupGuides({
   )
 }
 
-/** HomeProducts */
+/** HomeProducts - 4 per row, max 2 rows (8 items) */
 export function HomeProducts({ products }: { products: TopProduct[] }) {
   if (!products.length) return null
+  const displayProducts = products.slice(0, 8)
+
   return (
-    <section>
-      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-4 dark:border-neutral-800">
+    <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 lg:p-10 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
         <div>
           <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
-            Catalog
+            Catalog Spotlight
           </span>
-          <h2 className="text-3xl font-black text-neutral-900 dark:text-white">
+          <h2 className="text-2xl font-black text-neutral-900 dark:text-white sm:text-3xl">
             Researched Products & Prices
           </h2>
           <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
             Comparing prices across Australian retailers including JB Hi-Fi, Bunnings, and Amazon AU.
           </p>
         </div>
-        <Link href="/products/" className="btn btn-sm btn-outline border-neutral-300 dark:border-neutral-700 font-bold rounded-xl">
+        <Link href="/products/" className="btn btn-sm btn-primary font-bold rounded-xl shrink-0">
           All Products & Prices →
         </Link>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((product) => (
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {displayProducts.map((product) => (
           <ProductCard key={product.slug} product={product} />
         ))}
       </div>
@@ -496,12 +498,12 @@ export function HomeTrust({ editorName, editorSlug }: { editorName: string; edit
     },
   ]
   return (
-    <section className="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-8 sm:p-12 lg:p-16 dark:border-neutral-800 dark:bg-neutral-900/60">
+    <section className="relative">
       <div className="max-w-3xl mb-8">
         <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
           Trust & Methodology
         </span>
-        <h2 className="text-3xl font-black text-neutral-900 dark:text-white">
+        <h2 className="text-3xl font-black text-neutral-900 dark:text-white sm:text-4xl">
           How We Research & Review
         </h2>
         <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
