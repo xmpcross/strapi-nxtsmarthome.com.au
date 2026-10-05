@@ -158,7 +158,7 @@ export function HomeTopics({ topics }: { topics: TCategory[] }) {
   )
 }
 
-/** HomeTopicSection - Hairline border layout */
+/** HomeTopicSection - Hairline border layout without box shadows */
 export function HomeTopicSection({
   category,
   posts,
@@ -171,37 +171,49 @@ export function HomeTopicSection({
   if (!posts.length) return null
   const [lead, ...rest] = posts
   const list = rest.slice(0, 4)
-  const emoji = getCategory(category.handle)?.emoji || '⚡'
+  const meta = getCategory(category.handle)
+  const emoji = meta?.emoji || '⚡'
 
   return (
     <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 lg:p-10 dark:border-neutral-800 dark:bg-neutral-900">
-      <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
+      {/* Section Header */}
+      <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-200 pb-6 dark:border-neutral-800">
         <div className="flex items-center gap-4">
           <span
-            className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-neutral-100 text-2xl dark:bg-neutral-800"
+            className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-3xl transition-transform duration-300 group-hover:scale-110 dark:bg-primary-950/60"
             aria-hidden="true"
           >
             {emoji}
           </span>
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-3xl">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider rounded-full px-2.5 py-0.5">
+                Topic Showcase
+              </span>
+              <span className="text-xs font-semibold text-neutral-400">
+                {category.count} {category.count === 1 ? 'guide' : 'guides'}
+              </span>
+            </div>
+            <h2 className="text-2xl font-black tracking-tight text-neutral-900 dark:text-white sm:text-3xl">
               {category.name}
             </h2>
-            <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{category.description}</p>
+            <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{meta?.intro || category.description}</p>
           </div>
         </div>
         <Link
           href={`/categories/${category.handle}/`}
-          className="btn btn-xs sm:btn-sm btn-primary gap-1 font-semibold rounded-lg"
+          className="btn btn-sm btn-primary font-bold rounded-xl shrink-0 self-start md:self-center"
         >
-          All {category.count} Articles →
+          All {category.count} {category.name} Guides →
         </Link>
       </div>
 
+      {/* Main Grid: Lead Card + Ranked Article List */}
       <div className="grid gap-8 lg:grid-cols-5">
+        {/* Lead Featured Article Card */}
         <Link
           href={`/${lead.handle}/`}
-          className={`group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50/50 transition hover:border-primary-500 dark:border-neutral-800 dark:bg-neutral-800/40 ${
+          className={`group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50/50 transition-all duration-300 hover:border-primary-500 hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-800/40 dark:hover:border-primary-400 ${
             list.length ? 'lg:col-span-2' : 'lg:col-span-5'
           } ${flip ? 'lg:order-2' : ''}`}
         >
@@ -215,41 +227,54 @@ export function HomeTopicSection({
                 loading="lazy"
               />
             ) : (
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-500/20 to-purple-500/20 text-6xl">
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-500/15 via-indigo-500/10 to-purple-500/15 text-6xl">
                 <span aria-hidden="true">{emoji}</span>
               </div>
             )}
           </div>
           <div className="flex flex-1 flex-col p-6">
-            <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider mb-2 w-fit">
-              Featured in {category.name}
-            </span>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider rounded-full px-2.5 py-0.5">
+                Featured Lead
+              </span>
+              <span className="text-[11px] font-medium text-neutral-400">
+                {lead.readingTime} min read
+              </span>
+            </div>
             <h3 className="text-xl font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
               {lead.title}
             </h3>
             {lead.excerpt && (
               <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{lead.excerpt}</p>
             )}
-            <span className="mt-auto pt-4 text-xs font-medium text-neutral-400">{lead.readingTime} min read</span>
+            <div className="mt-auto pt-5 flex items-center justify-between text-xs font-semibold text-primary-600 dark:text-primary-400">
+              <span>Read Full Guide</span>
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
           </div>
         </Link>
 
+        {/* Next Ranked Articles List */}
         {list.length > 0 && (
           <ol className={`flex flex-col divide-y divide-neutral-200 dark:divide-neutral-800 lg:col-span-3 ${flip ? 'lg:order-1' : ''}`}>
             {list.map((post, i) => (
-              <li key={post.id} className="py-4 first:pt-0 last:pb-0">
-                <Link href={`/${post.handle}/`} className="group flex items-start gap-4">
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-primary-100 font-bold text-primary-800 text-sm dark:bg-primary-950/80 dark:text-primary-300">
+              <li key={post.id} className="py-4.5 first:pt-0 last:pb-0">
+                <Link href={`/${post.handle}/`} className="group flex items-start gap-4.5">
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-primary-100 font-bold text-primary-800 text-xs dark:bg-primary-950/80 dark:text-primary-300 border border-primary-500/20 dark:border-primary-500/30">
                     0{i + 2}
                   </span>
                   <div className="flex min-w-0 flex-1 flex-col">
-                    <span className="font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
+                    <span className="font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors text-base">
                       {post.title}
                     </span>
                     {post.excerpt && (
-                      <span className="mt-1 line-clamp-2 text-xs text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
+                      <span className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
                     )}
-                    <span className="mt-2 text-[11px] font-medium text-neutral-400">{post.readingTime} min read</span>
+                    <div className="mt-2.5 flex items-center gap-3 text-[11px] font-medium text-neutral-400">
+                      <span>{post.readingTime} min read</span>
+                      <span>·</span>
+                      <span className="group-hover:text-primary-600 dark:group-hover:text-primary-400 font-semibold transition-colors">Read article →</span>
+                    </div>
                   </div>
                 </Link>
               </li>
