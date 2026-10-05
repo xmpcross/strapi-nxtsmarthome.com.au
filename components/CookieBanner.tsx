@@ -193,14 +193,14 @@ export default function CookieBanner() {
             {ADS_ENABLED ? (
               <>
                 Google Analytics tells us which guides get read
-                {SOVRN_ENABLED ? ', Google AdSense shows ads, and Sovrn Commerce credits us when a link you follow leads to a purchase. ' : ' and Google AdSense shows ads. '}
-                <strong>{SOVRN_ENABLED ? 'Analytics, personalised ads and Sovrn wait for your answer' : 'Analytics and personalised ads wait for your answer'}</strong>;
+                {SOVRN_ENABLED ? ', Google AdSense shows ads, and Sovrn Commerce (which loads on every page) credits us when a link you follow leads to a purchase. ' : ' and Google AdSense shows ads. '}
+                <strong>Analytics and personalised ads wait for your answer</strong>;
                 decline and any ads shown are non-personalised.
               </>
             ) : SOVRN_ENABLED ? (
               <>
                 Google Analytics tells us which guides get read, and Sovrn Commerce credits us when
-                a link you follow leads to a purchase. <strong>Both wait for your answer.</strong>
+                a link you follow leads to a purchase. <strong>Analytics waits for your answer; Sovrn loads on every page.</strong>
               </>
             ) : (
               <>

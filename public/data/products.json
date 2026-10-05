@@ -20,7 +20,7 @@
         "url": "https://www.amazon.com.au/All-new-Ring-Floodlight-motion-activated-release/dp/B08F6H9RZT?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
         "deepLink": true,
-        "priceAud": 165.64
+        "priceAud": 175.77
       },
       {
         "name": "JB Hi-Fi",
@@ -46,8 +46,7 @@
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Floodlight%20Cam%20Plus%20Wired",
-        "primary": false,
-        "priceAud": 288.99
+        "primary": false
       },
       {
         "name": "The Good Guys",
@@ -57,7 +56,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -435,8 +434,7 @@
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Spotlight%20Cam%20Pro%20Battery",
-        "primary": false,
-        "priceAud": 130.97
+        "primary": false
       },
       {
         "name": "The Good Guys",
@@ -455,7 +453,6 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "specifications": [
       {
         "name": "Brand",
@@ -807,7 +804,7 @@
         "url": "https://www.jbhifi.com.au/products/ring-outdoor-security-camera-stick-up-cam-battery-white?ab_version=B&srsltid=AfmBOooPdw3pEsI9BeRnovkhrN9yRVFR4CdH90KFaB3IP52teDsyxtmL0Ak",
         "primary": false,
         "deepLink": true,
-        "priceAud": 214
+        "priceAud": 199
       },
       {
         "name": "Officeworks",
@@ -829,7 +826,7 @@
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Stick%20Up%20Cam%20Battery",
         "primary": false,
-        "priceAud": 65.94
+        "priceAud": 219.99
       },
       {
         "name": "Telstra",
@@ -838,7 +835,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -1194,8 +1191,7 @@
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/ring-indoor-cam-2-pack-2nd-genwhite?ab_version=B&srsltid=AfmBOopIJwMUvULYMrHMMv_V9GQpC9gUdd0I409vO3D1lHfg3AL10bUIJTE",
         "primary": false,
-        "deepLink": true,
-        "priceAud": 49
+        "deepLink": true
       },
       {
         "name": "Officeworks",
@@ -1217,17 +1213,17 @@
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Indoor%20Cam%20(2nd%20Gen)",
-        "primary": false
+        "primary": false,
+        "priceAud": 70.5
       },
       {
         "name": "Harvey Norman",
         "url": "https://www.harveynorman.com.au/ring-indoor-cam-2nd-generation-2-pack-security-camera-white.html?srsltid=AfmBOop8N3XO0gBf5yABV__5u1EO_DgGPeIxXIIOgVD610_WMnBPOc--YgE",
-        "deepLink": true,
-        "priceAud": 68
+        "deepLink": true
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -1297,7 +1293,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Video%20Doorbell%20Pro%202",
         "primary": true,
-        "priceAud": 255
+        "priceAud": 188
       },
       {
         "name": "JB Hi-Fi",
@@ -1333,11 +1329,12 @@
       {
         "name": "BIG W",
         "url": "https://www.bigw.com.au/product/ring-video-doorbell-pro-wired-black/p/9900295256?srsltid=AfmBOoreU6UpHmdJlmujNYd0KboyKEO3qFrpX24I5LYs4oc1tfsSHKlwtc4",
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 143.78
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -1667,7 +1664,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Battery%20Doorbell%20Plus",
         "primary": true,
-        "priceAud": 119
+        "priceAud": 247
       },
       {
         "name": "JB Hi-Fi",
@@ -1697,7 +1694,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -2024,7 +2021,7 @@
         "url": "https://www.amazon.com.au/Ring-Battery-Doorbell-Wireless-Speckled/dp/B0GX2Z2XPF",
         "primary": true,
         "deepLink": true,
-        "priceAud": 119
+        "priceAud": 188
       },
       {
         "name": "JB Hi-Fi",
@@ -2052,12 +2049,14 @@
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Video%20Doorbell%20(2nd%20Gen)",
-        "primary": false
+        "primary": false,
+        "priceAud": 157.95
       },
       {
         "name": "The Good Guys",
         "url": "https://www.thegoodguys.com.au/ring-battery-video-doorbell-2nd-gen-speckled-grey-b0fhj7tkzm?srsltid=AfmBOoqF906xvb69AA2hjDhKv1zBjphadYTyWGa-RQxLengM597KwE4WPWg",
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 119
       },
       {
         "name": "Telstra",
@@ -2066,7 +2065,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -2668,7 +2667,7 @@
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=eufyCam%203%20(S380)%204K%20Solar%20Security%20Camera",
         "primary": false,
-        "priceAud": 1599
+        "priceAud": 348.34
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
@@ -2691,7 +2690,7 @@
       }
     ],
     "googleProductId": "8163437980732378912",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "A 4K security camera from eufy with solar charging capability. Check the retailer listing for full specifications, compatibility details and to confirm current features and availability.",
     "descriptionRewrite": {
       "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
@@ -2718,7 +2717,7 @@
         "url": "https://www.amazon.com.au/Security-eufyCam-Wireless-Requires-HomeBase/dp/B07XCC3GDX?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3JCEYBC5L8UJ8",
         "primary": true,
         "deepLink": true,
-        "priceAud": 495.04
+        "priceAud": 222.81
       },
       {
         "name": "JB Hi-Fi",
@@ -2738,8 +2737,7 @@
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=eufyCam%202C%20Pro%202K%20Wireless%20Security%20System",
-        "primary": false,
-        "priceAud": 399
+        "primary": false
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
@@ -3062,7 +3060,7 @@
     "reviewsUrl": "https://www.amazon.com.au/Security-eufyCam-Wireless-Requires-HomeBase/dp/B07XCC3GDX?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3JCEYBC5L8UJ8",
     "description": "Requires eufy Security Home. Base 2 eufy. Cam 2C addon camera requires a Home. Base 2 to operate. Please note, the camera alone will not work. Home. Base/Home. Base E does not currently support eufy. Cam 2/2c. They will be supported soon. Ready for Any Weather With an IP67 weatherproofrating, eufy. Cam 2C is built to withstand the elements. The Alerts* That Matter Human detection technology enables the camera to intelligently detect body shape and face pattern. Ensuring you are only alerted when a person, and not a stray cat, approaches. Half. Year Security from 1 Charge Avoid frequent trips to charge the battery and enjoy 180day battery life from just one charge. Picture Perfect Surveillance Livestream and record footage in crystal clear 1080p HD. The 135° diagonal field of view allows you to see exactly what is happening in and around your home.",
     "googleProductId": "11027205429986245822",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "Wireless outdoor security camera that pairs with eufy's Home Base 2 hub. The brand says it detects people specifically to reduce false alerts, records in 1080p HD with night vision across a 135-degree field of view, and claims a battery life of around 180 days. It features IP67 weather-resistance for outdoor use year-round. Requires the eufy Security Home app.",
     "cmsDescriptionHtml": "<p>The eufyCam 2C Pro is a wireless outdoor camera designed to work with eufy's Home Base 2 hub. The camera alone will not function; you must pair it with a Home Base 2 for it to operate. The brand describes it as weather-resistant with an IP67 rating, meaning it can handle outdoor conditions year-round.</p>\n<p>According to eufy, the camera uses human detection technology to distinguish between people and other motion sources, so you receive alerts only when someone approaches rather than for every passing animal or vehicle. The brand claims the battery lasts around 180 days between charges, reducing the need for frequent maintenance. Footage streams and records in 1080p HD with a 135-degree diagonal field of view, and the camera includes night vision.</p>\n<p>Before purchasing, confirm your existing eufy setup: if you own a Home Base or Home Base E, note that the manufacturer description indicates these models do not currently support the 2C camera, though the brand says support is coming. You'll need a Home Base 2 specifically. The camera requires the eufy Security Home app for operation and monitoring.</p>\n<h2>Key features</h2>\n<ul>\n<li>Requires Home Base 2 hub to operate</li>\n<li>IP67 weather rating for outdoor durability</li>\n<li>Per the brand: 180-day battery life per charge</li>\n<li>Per the brand: human detection to reduce false alerts</li>\n<li>Night vision and 1080p HD recording</li>\n<li>135-degree field of view</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Download the eufy Security Home app and create an account</li>\n<li>Ensure you have a Home Base 2 connected to your network</li>\n<li>Mount the camera in your desired location, following the manufacturer's instructions</li>\n<li>Add the camera to the Home Base 2 within the app</li>\n<li>Follow the manufacturer's instructions to complete setup</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>The camera will not work without a Home Base 2; Home Base and Home Base E are not currently compatible per the brand</li>\n<li>Check that your Wi-Fi network is strong where you plan to mount the camera</li>\n<li>The brand claims human detection reduces unnecessary alerts, but no independent testing data is provided</li>\n<li>Supports Siri for voice control on compatible Apple devices per the catalogue specs</li>\n<li>Long battery life means less frequent maintenance compared to wired options, but charges are still required periodically</li>\n</ul>\n<h2>FAQs</h2>\n<h3>Can I use this camera with my existing eufy Home Base?</h3>\n<p>No. The eufyCam 2C Pro requires a Home Base 2 to operate. The brand states that Home Base and Home Base E do not currently support this camera model, though support is planned.</p>\n<h3>Does the camera need to be wired to power?</h3>\n<p>No, the eufyCam 2C Pro is wireless and battery-powered. The brand claims the battery lasts approximately 180 days per charge.</p>\n<h3>What does human detection do?</h3>\n<p>According to eufy, the camera uses human detection technology to recognise body shape and face patterns, so it alerts you when a person approaches rather than triggering for every motion event like animals or traffic.</p>",
     "descriptionRewrite": {
@@ -3096,7 +3094,8 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/eufy-Security-Cameras-Resolution-Monitor/dp/B0CD7F1M9R?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A33XXGVNKGGJCW",
         "primary": true,
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 279
       },
       {
         "name": "JB Hi-Fi",
@@ -3116,18 +3115,16 @@
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Security%20Indoor%20Cam%20S350%20Dual-Lens",
-        "primary": false,
-        "priceAud": 229
+        "primary": false
       },
       {
         "name": "eufy AU",
         "url": "https://www.eufy.com/au/products/eufy-security-indoor-cam-s350?variant=47563085676823&srsltid=AfmBOoozj9DGJCMH86gzpvtFzLjJ6yb6RyjrVI3DviTyMCO8_8mDrEMLU_s",
-        "deepLink": true,
-        "priceAud": 279.95
+        "deepLink": true
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -3449,13 +3446,14 @@
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Video%20Doorbell%20E340%20Dual%20Camera",
-        "primary": true
+        "primary": true,
+        "priceAud": 344.09
       },
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/search?query=Video%20Doorbell%20E340%20Dual%20Camera",
         "primary": false,
-        "priceAud": 280
+        "priceAud": 349
       },
       {
         "name": "The Good Guys",
@@ -3470,12 +3468,11 @@
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Video%20Doorbell%20E340%20Dual%20Camera",
-        "primary": false,
-        "priceAud": 265
+        "primary": false
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -3800,7 +3797,8 @@
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Security%20SoloCam%20S340%20Solar%20Pan%20%26%20Tilt",
-        "primary": true
+        "primary": true,
+        "priceAud": 599
       },
       {
         "name": "JB Hi-Fi",
@@ -4339,7 +4337,8 @@
       ],
       "date": "2026-09-24",
       "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+    },
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z"
   },
   {
     "id": "eufy-smart-lock-c220-with-wi-fi",
@@ -4364,8 +4363,7 @@
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/search?query=Smart%20Lock%20C220%20with%20Wi-Fi",
-        "primary": false,
-        "priceAud": 249
+        "primary": false
       },
       {
         "name": "The Good Guys",
@@ -4385,12 +4383,11 @@
       {
         "name": "Appliances Online",
         "url": "https://www.appliancesonline.com.au/product/eufy-c220-smart-lock-nickel-t8506t21/",
-        "deepLink": true,
-        "priceAud": 365
+        "deepLink": true
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Type",
@@ -4766,7 +4763,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Pro%205%202K%20Wireless%20Security%20Camera",
         "primary": false,
-        "priceAud": 324
+        "priceAud": 430
       },
       {
         "name": "JB Hi-Fi",
@@ -4795,7 +4792,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -5119,7 +5116,8 @@
       {
         "name": "Harvey Norman",
         "url": "https://www.harveynorman.com.au/catalogsearch/result/?q=Ultra%202%204K%20Spotlight%20Camera",
-        "primary": false
+        "primary": false,
+        "priceAud": 848
       },
       {
         "name": "Officeworks",
@@ -5134,12 +5132,11 @@
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Ultra%202%204K%20Spotlight%20Camera",
-        "primary": false,
-        "priceAud": 699.99
+        "primary": false
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -5543,7 +5540,7 @@
     "reviewsUrl": "https://www.amazon.com.au/Arlo-Video-Doorbell-2nd-Generation/dp/B0CH7NJC51?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
     "description": "Video Doorbell protects with crystal-clear 2K resolution, Night Vision, and Integrated Siren. Respond to visitors with 2-way audio or send a quick message. Receive notifications when motion is detected and live stream from your smart device. Speak to visitors with 2-way audio from your phone or use pre-recorded quick reply messages. Or trigger the integrated siren automatically, or manually from the Arlo Secure App to ward intruders. See who’s at the door even in low light with night vision.",
     "googleProductId": "11947452228491970158",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "A wireless video doorbell that monitors your front door from your phone. Arlo describes it as capturing 2K footage with night vision, offering two-way audio and quick replies to visitors. The brand says it includes a siren you can trigger remotely and sends motion alerts. According to Arlo, it integrates with Google Assistant and Alexa. Suits those wanting remote door monitoring without hardwiring.",
     "cmsDescriptionHtml": "<p>This is a wireless video doorbell designed to monitor your front door and respond to visitors remotely. The brand describes it as capturing footage in 2K resolution and includes night vision to see visitors in low light. According to Arlo, you can speak to anyone at the door via two-way audio from your phone, or alternatively send quick reply messages without needing to be present.</p>\n<p>The doorbell includes an integrated siren that the brand says you can trigger automatically or manually through the Arlo Secure App to ward off intruders. Arlo claims the device sends notifications when motion is detected and allows you to live stream to your smart device. The product works with Google Assistant and Amazon Alexa, so it integrates into those ecosystems.</p>\n<p>The manufacturer description does not specify wireless range, battery life, cloud storage, subscription requirements, or installation complexity. Check compatibility with your existing smart home setup and whether you need a subscription to use all features.</p>\n<h2>Key features</h2>\n<ul>\n<li>2K video resolution (per the brand)</li>\n<li>Night vision for low-light viewing (per the brand)</li>\n<li>Two-way audio and pre-recorded quick replies (per the brand)</li>\n<li>Integrated siren (per the brand)</li>\n<li>Motion detection and notifications (per the brand)</li>\n<li>Works with Google Assistant and Amazon Alexa</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Install the Arlo Secure App on your smartphone or tablet</li>\n<li>Follow the in-app pairing instructions to add the doorbell to your account</li>\n<li>Connect the doorbell to your home WiFi network</li>\n<li>Adjust motion detection and notification settings in the app</li>\n<li>Mount the doorbell at your entrance following the manufacturer's installation guide</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>The brand describes it as wireless, so check your home's WiFi coverage at your front door before purchasing</li>\n<li>The sources do not state battery life, so confirm with Arlo how often you will need to recharge or replace batteries</li>\n<li>The sources do not specify subscription requirements for features like siren control or cloud recording</li>\n<li>It works with Amazon Alexa and Google Assistant, so it suits homes already using those ecosystems</li>\n<li>The integrated siren aims to deter intruders, but the sources do not specify siren volume or range</li>\n</ul>\n<h2>FAQs</h2>\n<h3>Can I talk to visitors even if I'm not home?</h3>\n<p>Yes. The brand says you can speak to visitors via two-way audio from your phone, or send pre-recorded quick reply messages if you are unable to answer in person.</p>\n<h3>Does it work in the dark?</h3>\n<p>Yes. According to Arlo, the doorbell includes night vision so you can see who is at the door even in low light conditions.</p>\n<h3>What happens if someone tries to break in?</h3>\n<p>The brand says you can trigger the integrated siren automatically or manually from the Arlo Secure App to ward off intruders. The doorbell also sends motion notifications when activity is detected.</p>\n<h3>Which voice assistants does it work with?</h3>\n<p>The doorbell works with Google Assistant and Amazon Alexa, allowing you to control it through your existing smart home setup.</p>",
     "descriptionRewrite": {
@@ -5576,8 +5573,7 @@
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Tapo%20C220%202K%20Pan%2FTilt%20Security%20Camera",
-        "primary": true,
-        "priceAud": 69.19
+        "primary": true
       },
       {
         "name": "JB Hi-Fi",
@@ -5607,7 +5603,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -5954,8 +5950,7 @@
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/search?query=Tapo%20C520WS%20Outdoor%20Pan%2FTilt%20Security%20Camera",
-        "primary": false,
-        "priceAud": 89
+        "primary": false
       },
       {
         "name": "Officeworks",
@@ -5979,7 +5974,6 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "specifications": [
       {
         "name": "Brand",
@@ -6305,7 +6299,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -6553,7 +6547,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Argus%203%20Ultra%204K%20Solar%20Camera",
         "primary": true,
-        "priceAud": 149.99
+        "priceAud": 157.23
       },
       {
         "name": "eBay AU",
@@ -6573,18 +6567,17 @@
       {
         "name": "Woolworths",
         "url": "https://www.woolworths.com.au/shop/productdetails/1119013151",
-        "deepLink": true,
-        "priceAud": 129.99
+        "deepLink": true
       },
       {
         "name": "Reolink AU",
         "url": "https://reolink.com/au/product/argus-3-ultra/?attribute_pa_version=1-pack-white&srsltid=AfmBOoquDucvJYzlxs0VxIs3KEXTQHKbCdgebvOAnXObhJUq_siAz_an6B0",
         "deepLink": true,
-        "priceAud": 129.19
+        "priceAud": 123.19
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.162Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -6715,7 +6708,7 @@
         "url": "https://www.amazon.com.au/Reolink-Doorbell-Camera-Personal-Detection/dp/B0B4KBMDD3",
         "primary": true,
         "deepLink": true,
-        "priceAud": 168.38
+        "priceAud": 170.33
       },
       {
         "name": "Scorptec",
@@ -6731,11 +6724,11 @@
         "name": "Reolink AU",
         "url": "https://reolink.com/au/product/reolink-video-doorbell-wifi/?attribute_pa_version=1-packblack&srsltid=AfmBOopPKz5NblNGxJgZhZFfOMMGNbI6UXf44dEoIZMa1H6mCY_6W5JWyuM",
         "deepLink": true,
-        "priceAud": 152.94
+        "priceAud": 161.49
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Battery Power Source",
@@ -7346,7 +7339,8 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/Google-Nest-Outdoor-Indoor-Battery/dp/B09FCMSJZG",
         "primary": false,
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 333.72
       },
       {
         "name": "JB Hi-Fi",
@@ -7377,7 +7371,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -7721,13 +7715,12 @@
         "url": "https://www.amazon.com.au/Google-Nest-Doorbell-Battery-Wireless/dp/B09GZQ1MHC",
         "primary": false,
         "deepLink": true,
-        "priceAud": 321.47
+        "priceAud": 281.43
       },
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/search?query=Nest%20Doorbell%20(Battery)",
-        "primary": true,
-        "priceAud": 329
+        "primary": true
       },
       {
         "name": "The Good Guys",
@@ -7751,7 +7744,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -8535,7 +8528,7 @@
         "url": "https://www.amazon.com.au/Aqara-Doorbell-Wireless-Supports-Assistant/dp/B0FHKH1BP1?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A25UC4Z15G78VO",
         "primary": true,
         "deepLink": true,
-        "priceAud": 199
+        "priceAud": 187
       },
       {
         "name": "eBay AU",
@@ -8559,7 +8552,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Components",
@@ -9240,11 +9233,11 @@
         "name": "Harvey Norman",
         "url": "https://www.harveynorman.com.au/swann-maxranger4k-solar-security-system-with-longest-range-wireless-and-64gb-sd-card-2-pack.html?srsltid=AfmBOoq3eXIVvH1uqBkfcRwgQwB89inBmIencvIXAzh5sHhiJixkX-Ab-W0",
         "deepLink": true,
-        "priceAud": 248
+        "priceAud": 698
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Focal Length",
@@ -9807,7 +9800,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Assure%20Lock%20SL%20Key-Free%20Deadbolt",
         "primary": true,
-        "priceAud": 214.63
+        "priceAud": 220.62
       },
       {
         "name": "JB Hi-Fi",
@@ -9826,7 +9819,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Smart",
@@ -9892,7 +9885,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Wi-Fi%20Smart%20Lock%20(4th%20Gen)",
         "primary": true,
-        "priceAud": 262.12
+        "priceAud": 282.32
       },
       {
         "name": "JB Hi-Fi",
@@ -9911,7 +9904,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Type",
@@ -10314,7 +10307,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=White%20%26%20Color%20Ambiance%20Starter%20Kit%20E27",
         "primary": true,
-        "priceAud": 246.06
+        "priceAud": 131.61
       },
       {
         "name": "JB Hi-Fi",
@@ -10348,7 +10341,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brightness Lumens",
@@ -10504,12 +10497,13 @@
         "url": "https://www.amazon.com.au/Philips-Hue-Colour-Ambience-Fitting/dp/B09V2FB3YL?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ACYE7UYN0UN5Y",
         "primary": true,
         "deepLink": true,
-        "priceAud": 37.93
+        "priceAud": 41.64
       },
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/search?query=White%20%26%20Color%20Ambiance%20B22%20Bulb",
-        "primary": false
+        "primary": false,
+        "priceAud": 59
       },
       {
         "name": "Officeworks",
@@ -10535,7 +10529,7 @@
         "name": "Harvey Norman",
         "url": "https://www.harveynorman.com.au/philips-hue-white-and-colour-ambiance-11w-a60-b22-smart-bulb-with-bluetooth.html?srsltid=AfmBOorK9qaEu7aHKEVH1jUIwE3d-Q6kAp9ybBNrnkVjDMsYxB7Up08G_is",
         "deepLink": true,
-        "priceAud": 54
+        "priceAud": 44
       },
       {
         "name": "Beacon Lighting",
@@ -10544,7 +10538,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -10678,7 +10672,7 @@
         "url": "https://www.amazon.com.au/Philips-Hue-LightStrip-Dimmable-Smart/dp/B08BLHX5FB?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
         "deepLink": true,
-        "priceAud": 86.83
+        "priceAud": 88.82
       },
       {
         "name": "JB Hi-Fi",
@@ -10717,7 +10711,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -11035,7 +11029,7 @@
         "url": "https://www.amazon.com.au/Philips-Hue-Play-White-Ambiance/dp/B07PZYFM2F?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
         "deepLink": true,
-        "priceAud": 241.1
+        "priceAud": 99
       },
       {
         "name": "JB Hi-Fi",
@@ -11064,7 +11058,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -11098,7 +11092,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Smart%20Dimmer%20Switch%20V2",
         "primary": true,
-        "priceAud": 68.87
+        "priceAud": 46.2
       },
       {
         "name": "JB Hi-Fi",
@@ -11132,7 +11126,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Connectivity Type",
@@ -11892,13 +11886,14 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/LIFX-Bayonet-Antibacterial-required-Compatible/dp/B08L3DC9QD?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A12JLXGS17K1I",
         "primary": false,
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 89.99
       },
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/search?query=Clean%20Antibacterial%20Smart%20Bulb%20E27",
         "primary": true,
-        "priceAud": 59
+        "priceAud": 99
       },
       {
         "name": "Officeworks",
@@ -11919,7 +11914,7 @@
         "name": "LIFX AU",
         "url": "https://www.lifx.com.au/products/lifx-clean",
         "deepLink": true,
-        "priceAud": 69.99
+        "priceAud": 64.99
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
@@ -11994,7 +11989,7 @@
     "reviewsUrl": "https://www.lifx.com.au/products/lifx-clean",
     "description": "LIFX Clean is the world’s first antibacterial, germicidal smart light. It has all of our standard smart light functionality – billions of colour options, voice control capability, and smart home automation – plus it doubles as an advanced cleaning tool. By scheduling LIFX Clean to activate its Clean Cycle in the hours that you’re not using it as a standard smart light, HEV lighting will switch on to eliminate harmful bacteria* on surfaces and objects in your home. Plus, it’s is safe for you, your family, your pets and your plants. There’s never been a lighter way to a cleaner home.",
     "googleProductId": "8267404555623268061",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "LIFX Clean is an E27 smart bulb that delivers colour, dimming and voice control via Google Assistant, Alexa or Siri. Per the brand, it includes a Clean Cycle mode using HEV light technology that the manufacturer claims eliminates harmful bacteria when scheduled during unoccupied hours. The brand says it's safe for people, pets and plants.",
     "cmsDescriptionHtml": "<p>LIFX Clean is a smart bulb that fits a standard E27 socket and offers the lighting functions of a standard LIFX bulb: billions of colour options, dimming, and voice control through Google Assistant, Amazon Alexa or Siri. Per the brand, you can integrate it into smart home routines and automations alongside other connected devices.</p>\n<p>The brand's key proposition is the addition of a Clean Cycle mode using HEV light technology. You schedule this cycle to run during hours when you're not using the space, and the brand claims the HEV light will eliminate harmful bacteria on surfaces and objects in that room. According to the manufacturer, the bulb is safe for people, pets and plants when operating in either standard or Clean Cycle mode.</p>\n<p>Before buying, consider where you'd place it—you need an E27 socket—and whether the cleaning cycle timing fits your household routine. The manufacturer description does not specify how long a Clean Cycle takes, what bacteria it targets, or what surfaces the cleaning light reaches effectively.</p>\n<h2>Key features</h2>\n<ul>\n<li>Multicoloured smart bulb with billions of colour options</li>\n<li>Per the brand, germicidal HEV light for scheduled antibacterial cleaning cycles</li>\n<li>Per the brand, works with Google Assistant, Amazon Alexa and Siri</li>\n<li>Per the brand, dimmable and compatible with smart home automation</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Install the LIFX app on your smartphone or tablet</li>\n<li>Screw the bulb into an E27 socket and power it on</li>\n<li>Follow the in-app pairing process to connect the bulb to your home Wi-Fi and voice assistant</li>\n<li>Schedule Clean Cycles through the app for times when the room is unoccupied</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>The brand claims the bulb is safe for people, pets and plants during Clean Cycle operation, but independent safety testing is not mentioned in the sources</li>\n<li>Check that you have an E27 socket available in the space where you want antibacterial cleaning</li>\n<li>The sources do not state how long a Clean Cycle lasts or which bacteria species are targeted</li>\n<li>Per the brand, compatible with Google Assistant, Alexa and Siri voice control for scheduling and lighting adjustments</li>\n</ul>\n<h2>FAQs</h2>\n<h3>How does LIFX Clean work as an antibacterial light?</h3>\n<p>The bulb switches to a HEV light mode during a scheduled Clean Cycle. Per the brand, this eliminates harmful bacteria on surfaces and objects, and you schedule these cycles during hours when you're not using the room as a standard light.</p>\n<h3>Is the Clean Cycle safe for my family and pets?</h3>\n<p>Per the brand, the bulb is safe for people, family members, pets and plants during Clean Cycle operation.</p>\n<h3>What voice assistants does it work with?</h3>\n<p>Per the brand, LIFX Clean works with Google Assistant, Amazon Alexa and Siri for voice control and smart home automation.</p>",
     "descriptionRewrite": {
@@ -12026,13 +12021,13 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Color%20Smart%20Bulb%20B22",
         "primary": false,
-        "priceAud": 54.99
+        "priceAud": 79.99
       },
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/search?query=Color%20Smart%20Bulb%20B22",
         "primary": true,
-        "priceAud": 99
+        "priceAud": 59
       },
       {
         "name": "Officeworks",
@@ -12051,7 +12046,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -12142,7 +12137,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Power Source",
@@ -12510,7 +12505,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -12844,14 +12839,12 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/Nanoleaf-NL42-0005HX-9PK-Shapes-Hexagon-Smarter/dp/B08DXPLB7F?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3FU840Q8WAXJ4",
         "primary": false,
-        "deepLink": true,
-        "priceAud": 291.89
+        "deepLink": true
       },
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/search?query=Shapes%20Hexagons%20Starter%20Kit%20(9%20Panels)",
-        "primary": true,
-        "priceAud": 249
+        "primary": true
       },
       {
         "name": "Officeworks",
@@ -12872,12 +12865,10 @@
       {
         "name": "Apple AU",
         "url": "https://www.apple.com/au/shop/go/product/HPE92Z/A?cid=aos-au-seo-pla-3pp",
-        "deepLink": true,
-        "priceAud": 299.95
+        "deepLink": true
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "specifications": [
       {
         "name": "Electrical Voltage",
@@ -13340,7 +13331,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Essentials%20Matter%20Smart%20Bulb%20E27",
         "primary": false,
-        "priceAud": 28.83
+        "priceAud": 49.11
       },
       {
         "name": "JB Hi-Fi",
@@ -13364,7 +13355,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -13449,14 +13440,14 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/WiZ-Tunable-Ceiling-Downlight-WIZWCADWNLTBT/dp/B0CGWZXW8Z?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": false,
-        "deepLink": true,
-        "priceAud": 38.09
+        "deepLink": true
       },
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/wiz-colour-tuneable-white-90mm-smart-downlight?ab_version=A&srsltid=AfmBOopO_H9gRV-z8IgxvrudkZmXLUJytCHWTG4amBPs2qHzoahhnpomMvc",
         "primary": true,
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 39
       },
       {
         "name": "Officeworks",
@@ -13485,7 +13476,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.163Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Color Tone",
@@ -13959,13 +13950,14 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Tapo%20P110%20Smart%20Plug%20with%20Energy%20Monitoring",
         "primary": true,
-        "priceAud": 21.9
+        "priceAud": 20.61
       },
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/tp-link-tapo-mini-energy-monitoring-smart-plug-matter-compatible?ab_version=A&srsltid=AfmBOoriHP_XHFn32pNgF9zeO1oxY8E0Ypwa32JMkUgGWCQr-e8T18AY9-Q",
         "primary": false,
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 47
       },
       {
         "name": "Officeworks",
@@ -13999,7 +13991,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.164Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Smart",
@@ -14334,7 +14326,7 @@
         "name": "Telstra",
         "url": "https://www.telstra.com.au/accessories/smart-plugs/tp-link/tapo-powerboard?repayment=Outright&colour=White",
         "deepLink": true,
-        "priceAud": 79
+        "priceAud": 69
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.164Z",
@@ -14631,7 +14623,7 @@
     "reviewsUrl": "https://www.officeworks.com.au/shop/officeworks/p/tp-link-tapo-3-outlet-smart-wifi-power-strip-tptapp300?region_id=GTYP2H",
     "description": "Individual Control – Separately control 3 smart outlets on the power strip via app or voice commands. 18 W Fast Charging¹ – Supports up to 18W PD and QC3.0 charging for compatible devices. Home. Kit Enable – Control your connected devices directly from your Apple devices. Remote Control – Instantly turn connected devices on/off wherever you are through the Tapo app. Voice Control² – Manage your smart plug with voice commands via Amazon Alexa, Siri, or the Google Assistant. Schedule & Timer – Set schedules or timers to automate connected devices. Away Mode – Automatically turns devices on and off at different times to simulate occupancy for added security. Easy Setup and Use – No hub required, set up quickly and manage easily through the free app. Guaranteed Safety – Multiple safety features offer all-round protection to safeguard you and your family. *Note: Smart features apply only to the 3 smart AC outlets. The USB ports are always on and they are not controlled by the app.",
     "googleProductId": "9405906001238812765",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "The Tapo P300 is a Wi-Fi-enabled power strip with three individually controlled AC outlets and two always-on USB ports. TP-Link says it lets you switch outlets remotely via app or voice, set schedules and timers, and use Away Mode to simulate occupancy. The brand claims it supports fast charging up to 18W. No hub required; setup involves connecting to Wi-Fi through the Tapo app.",
     "cmsDescriptionHtml": "<p>The Tapo P300 combines a traditional power strip with smart control over three AC outlets. Each outlet can be switched on or off independently through the Tapo app or voice commands, letting you manage different devices separately from anywhere. The brand also includes two USB ports on the strip; these remain always on and cannot be controlled through the app or automations.</p>\n<p>According to TP-Link, the strip supports fast charging up to 18W for compatible devices via Power Delivery and Quick Charge 3.0 standards. The brand describes features including remote control via the Tapo app, scheduling and timer automation for connected devices, and an Away Mode that automatically cycles devices on and off to simulate occupancy when you are not home for added security. Setup requires no hub; you install the free Tapo app and connect the strip to your Wi-Fi network, with the brand claiming easy setup and management through the app.</p>\n<p>Smart features and individual control apply only to the three AC outlets. The USB ports are always powered and provide no app control, automation, or scheduling. If you need to automate USB-powered devices or want every port controlled separately, this limitation may affect your setup. The brand also claims multiple safety features offer all-round protection, though specific details are not provided.</p>\n<h2>Key features</h2>\n<ul>\n<li>Three individually controlled smart AC outlets</li>\n<li>Per the brand, supports up to 18W fast charging on USB ports</li>\n<li>Remote control via app from anywhere</li>\n<li>Per the brand, Away Mode simulates occupancy when you are away</li>\n<li>Voice control with Alexa, Siri, or Google Assistant</li>\n<li>Schedule and timer automation</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Install the free Tapo app on your smartphone or tablet</li>\n<li>Connect the power strip to a power outlet and switch it on</li>\n<li>Follow the in-app pairing process to add the Tapo P300 to your Wi-Fi network</li>\n<li>Use the app to name each of the three outlets and configure any schedules or automations</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>The two USB ports on the strip are always on and cannot be controlled via app or automations; smart features apply only to the three AC outlets</li>\n<li>The brand states the strip requires no hub, which may suit users without existing smart home infrastructure or those wanting a standalone device</li>\n<li>Check that your Wi-Fi network can reach the location where you plan to install the strip, as it connects directly to your home network</li>\n<li>HomeKit integration is available per the brand; confirm your Apple devices meet the requirements if you want to use this feature</li>\n</ul>\n<h2>FAQs</h2>\n<h3>Can I control the USB ports separately from the app?</h3>\n<p>No. Per the manufacturer, the USB ports are always on and cannot be controlled through the app. Only the three AC outlets can be controlled individually.</p>\n<h3>Do I need a smart hub to use this power strip?</h3>\n<p>No. The brand states the strip requires no hub; it connects directly to your Wi-Fi network and can be controlled via the Tapo app.</p>\n<h3>What voice assistants does this work with?</h3>\n<p>The strip supports Amazon Alexa, Siri, and Google Assistant, so you can control it with any of these voice services.</p>\n<h3>What happens in Away Mode?</h3>\n<p>Per the brand, Away Mode automatically turns devices on and off at different times to simulate occupancy for added security when you are not home.</p>",
     "descriptionRewrite": {
@@ -14847,7 +14839,7 @@
         "url": "https://www.amazon.com.au/meross-Monitoring-Automation-Compatible-SmartThings/dp/B0DPMVWTJ1?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
         "deepLink": true,
-        "priceAud": 22.09
+        "priceAud": 26.18
       },
       {
         "name": "Scorptec",
@@ -14861,7 +14853,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.164Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Subtype",
@@ -15763,7 +15755,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Smart%20Weather%20Station",
         "primary": true,
-        "priceAud": 107.06
+        "priceAud": 108.3
       },
       {
         "name": "eBay AU",
@@ -15782,7 +15774,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.164Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -16369,7 +16361,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Delta%202%20Portable%20Power%20Station%201024Wh",
         "primary": true,
-        "priceAud": 1499
+        "priceAud": 1474.41
       },
       {
         "name": "JB Hi-Fi",
@@ -16385,11 +16377,11 @@
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Delta%202%20Portable%20Power%20Station%201024Wh",
         "primary": false,
-        "priceAud": 1899.99
+        "priceAud": 1179
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.164Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "reviews": [
       {
         "id": "ecoflow-delta-2-portable-power-station-1024wh-0",
@@ -16688,8 +16680,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/Anker-Portable-Station-Generator-Optional/dp/B0C5C89QKZ?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A33XXGVNKGGJCW",
         "primary": true,
-        "deepLink": true,
-        "priceAud": 549
+        "deepLink": true
       },
       {
         "name": "JB Hi-Fi",
@@ -16710,11 +16701,11 @@
         "name": "Anker AU",
         "url": "https://www.ankersolix.com/au/products/c1000?variant=49173189493034",
         "deepLink": true,
-        "priceAud": 699
+        "priceAud": 1049
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.164Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -17454,8 +17445,7 @@
       {
         "name": "Harvey Norman",
         "url": "https://www.harveynorman.com.au/catalogsearch/result/?q=Era%20100%20Smart%20Speaker",
-        "primary": false,
-        "priceAud": 570
+        "primary": false
       },
       {
         "name": "Bing Lee",
@@ -17470,7 +17460,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.165Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -17936,7 +17926,8 @@
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Move%202%20Portable%20Smart%20Speaker",
-        "primary": false
+        "primary": false,
+        "priceAud": 646.86
       },
       {
         "name": "JB Hi-Fi",
@@ -17967,7 +17958,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.165Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Outdoor",
@@ -18430,7 +18421,8 @@
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Beam%20(Gen%202)%20Compact%20Smart%20Soundbar",
-        "primary": false
+        "primary": false,
+        "priceAud": 853.71
       },
       {
         "name": "JB Hi-Fi",
@@ -18564,7 +18556,7 @@
     "reviewsUrl": "https://www.harveynorman.com.au/sonos-beam-gen-2-soundbar-sub-mini-pair-of-era-100-speaker-package-black.html?srsltid=AfmBOorx_hHB81Q5sZa22SkQ7ISc3d9WdAaS7WkqBk6X-5Ybkf1ZPbHLp4c",
     "description": "Experience surround sound for home cinema and music with this compact smart soundbar and subwoofer plus rear speakers. Beam (Gen 2) immerses you in films, shows, and games with Dolby Atmos while Sub Mini balances the bass for clearer, richer sound. The Era 100 stereo pair brings every detail to life. Quickly set up and connect your system over Wi. Fi using the Sonos app, and enjoy easy control with your TV remote or voice.",
     "googleProductId": "296589496042035438",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "This compact soundbar sits beneath or above your TV. Sonos claims it delivers surround sound with Dolby Atmos for films, shows and games. Set up and control it via the Sonos app, TV remote, or voice commands through Google Assistant or Alexa. You can expand the system with optional subwoofers and rear speakers. The brand positions it as suited to smaller spaces where a full-width soundbar may not fit.",
     "cmsDescriptionHtml": "<p>The Beam (Gen 2) is a smart soundbar designed to sit beneath or above a television. The brand describes it as delivering surround sound for home cinema and music, and claims it uses Dolby Atmos to immerse you in films, shows and games. According to Sonos, you can set up and control the system using the Sonos app over Wi-Fi, or use your TV remote or voice commands via Google Assistant or Amazon Alexa.</p>\n<p>To expand the system, Sonos sells the Sub Mini subwoofer and Era 100 rear speakers as separate purchases. The brand says the Sub Mini balances the bass for clearer, richer sound, and that the Era 100 stereo pair brings every detail to life. The brand positions this as a compact option suited to smaller spaces where a full-width soundbar may not fit.</p>\n<p>Before purchasing, confirm that your television is compatible with the remote control setup, and check whether you use Google Assistant or Alexa in your home, as this will affect your voice control options. Setup happens through the Sonos app over Wi-Fi, so you will need a mobile device and internet connection to get the system running.</p>\n<h2>Key features</h2>\n<ul>\n<li>Compact soundbar with Wi-Fi and Bluetooth connectivity</li>\n<li>Voice control via Google Assistant and Amazon Alexa</li>\n<li>Dolby Atmos support per the brand</li>\n<li>Optional Sub Mini subwoofer and Era 100 rear speakers (sold separately)</li>\n<li>Control via Sonos app or TV remote</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Download the Sonos app to your phone or tablet</li>\n<li>Connect the Beam (Gen 2) to your Wi-Fi network using the app</li>\n<li>Follow the pairing instructions in the app to link voice assistants and configure your television remote</li>\n<li>Refer to the manufacturer's instructions for detailed setup and connection steps</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>The brand positions this as a compact option, so check your television stand space before buying</li>\n<li>Google Assistant and Amazon Alexa support is built in; choose based on your existing smart home ecosystem</li>\n<li>Subwoofer and rear speakers are sold separately and will increase the total cost if you want a complete surround sound setup</li>\n<li>Setup and control happen through the Sonos app, so you'll need Wi-Fi and the app installed on a mobile device</li>\n<li>The Beam (Gen 2) is portable and can be moved between rooms, though it is designed as a fixed television soundbar</li>\n</ul>\n<h2>FAQs</h2>\n<h3>Does the Beam (Gen 2) come with a subwoofer and rear speakers?</h3>\n<p>No. The Beam (Gen 2) is a soundbar only. Sonos sells the Sub Mini subwoofer and Era 100 rear speakers as optional add-ons that you can purchase separately to expand the system.</p>\n<h3>Can I use this soundbar with any television?</h3>\n<p>The brand states you can control the system using your TV remote, though you should confirm your specific television model is compatible before purchasing. You can also control it via the Sonos app or voice commands.</p>\n<h3>How do I set up the soundbar?</h3>\n<p>Use the Sonos app to connect the soundbar to your Wi-Fi network, then follow the in-app setup instructions to configure voice assistants and television remote control. Refer to the manufacturer's detailed instructions for step-by-step guidance.</p>",
     "descriptionRewrite": {
@@ -18648,7 +18640,7 @@
       }
     ],
     "googleProductId": "10746620980411735736",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "A smart soundbar designed to integrate into your Sonos system and connect with your TV for audio enhancement. Check the retailer listing for detailed specifications and compatibility information.",
     "cmsDescriptionHtml": "<h2>Sonos Arc Premium Smart Soundbar</h2>\n<p>Sonos Arc Premium Smart Soundbar is a entertainment product for Australian smart homes, listed in the Entertainment &#x26; Audio range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights assistant support (Google Assistant), connectivity (Bluetooth, Wi-Fi, NFC, HDMI, Ethernet, Optical Audio). Use those details to compare ecosystem support, voice control and everyday usability before deciding whether it suits your home.</p>\n<ul>\n<li>Assistant support: Google Assistant.</li>\n<li>Connectivity: Bluetooth, Wi-Fi, NFC, HDMI, Ethernet, Optical Audio.</li>\n<li>Category: Entertainment &#x26; Audio.</li>\n<li>Best checked on ecosystem support, voice control and everyday usability.</li>\n</ul>",
     "descriptionRewrite": {
@@ -18686,8 +18678,7 @@
         "name": "The Good Guys",
         "url": "https://www.thegoodguys.com.au/sonos-sub-mini-subm1au1blk?srsltid=AfmBOoryOp0-8heaVtVBhUYEofnS3dqmUCpqiJvKuAszBw7Z0HutBpyrrGI",
         "primary": false,
-        "deepLink": true,
-        "priceAud": 549
+        "deepLink": true
       },
       {
         "name": "Harvey Norman",
@@ -19152,7 +19143,6 @@
     "reviewsUrl": "https://www.sonos.com/en-nz/shop/sub-mini",
     "description": "Introducing Sub Mini The wireless subwoofer for bold bass. Experience powerful lows that surpass your highest expectations. Pair Sub Mini with Beam, Ray, One, One SL or SYMFONISK speakers to enhance scenes and songs with surprisingly rich, clear, and balanced low end. Mini makes a big impact Feel more immersed in every scene and song with surprisingly rich, clear, and balanced low end. More exhilarating home theatre Unlock your entertainment experience when you pair Sub Mini with Beam or Ray. The 5 GHz Wi. Fi connection enhances audio transmission speed so you can enjoy films, shows, and games with high-quality sound reliably synced with your TV. More mesmerising music Never miss a beat and hear more nuance in every note when you pair Sub Mini with One or One SL. Core power Within the acoustically-sealed cabinet, dual custom woofers generate the full-toned low frequencies of a much larger subwoofer. Advanced processing further enhances the bass response. No buzz or rattle Both woofers face inwards to create a force-cancelling effect that neutralises distortion. Better bass for your space Trueplay tuning technology adapts the bass for the unique acoustics of the room so it never sounds harsh, muddy, or flat — even if you place Sub Mini next to the wall. Hides in plain sight Elegant and compact, Sub Mini blends in beside your furniture and easily fits under a desk or table. Connects wirelessly Sub Mini connects to your system over Wi. Fi, so you can place it wherever it fits and looks best in the room.",
     "googleProductId": "13403445280562069635",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "shortDescription": "The Sub Mini is a wireless subwoofer designed to pair with select Sonos speakers like Beam, Ray, One and One SL. Sonos says its dual inward-facing woofers reduce buzz and rattle, while Trueplay tuning adapts bass response to your room's acoustics. The brand claims it works well even near walls. Its compact, cylindrical design fits under furniture or desks, connecting wirelessly over Wi-Fi.",
     "cmsDescriptionHtml": "<p>Sub Mini is a wireless subwoofer designed to work with Sonos Beam, Ray, One, One SL and SYMFONISK speakers. The brand says it uses dual custom woofers housed in an acoustically-sealed cabinet that face inward to create a force-cancelling effect, which it claims reduces buzz and rattle. According to Sonos, Trueplay tuning technology adapts the bass response to your room's unique acoustics so the sound avoids harshness, muddiness or flatness, even when placed next to a wall.</p>\n<p>When paired with Beam or Ray, the brand says a 5 GHz Wi-Fi connection enhances audio transmission speed for films, shows and games with high-quality, synced sound. With One or One SL speakers, Sonos claims you hear more nuance in music. The brand describes the subwoofer as connecting wirelessly over Wi-Fi, so you can position it wherever it suits your room layout and decor. It's cylindrical and compact by design, intended to blend alongside furniture or fit under desks and tables.</p>\n<p>Note that the brand does not publish detailed specifications like precise frequency response range, sensitivity or power output comparisons to other models, so you'll need to verify these technical details if they matter for your setup.</p>\n<h2>Key features</h2>\n<ul>\n<li>Dual inward-facing woofers in an acoustically-sealed cabinet (per the brand)</li>\n<li>Wireless Wi-Fi connection for flexible placement (per the brand)</li>\n<li>Trueplay tuning adapts bass to your room (per the brand)</li>\n<li>Per the brand, pairs with Sonos Beam, Ray, One, One SL and SYMFONISK speakers</li>\n<li>Compact cylindrical design fits under desks or beside furniture</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Download and open the Sonos app on your mobile device</li>\n<li>Power on Sub Mini using the included AC adapter</li>\n<li>Follow the in-app pairing instructions to connect Sub Mini to your Sonos system</li>\n<li>Select which compatible Sonos speaker to pair it with</li>\n<li>Run Trueplay tuning through the app to optimise bass for your room (follow manufacturer's instructions)</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>Only works with Sonos Beam, Ray, One, One SL or SYMFONISK speakers; not compatible with other brands</li>\n<li>Requires a 5 GHz Wi-Fi network for optimal performance with Beam or Ray (per the brand)</li>\n<li>The brand does not publish detailed power output or frequency response specifications, so check if you need technical specs before buying</li>\n<li>Per the brand, connects via Wi-Fi rather than a wired connection, giving you placement flexibility throughout your room</li>\n<li>Energy Star Certified for power consumption</li>\n<li>Includes an AC adapter; no batteries required</li>\n</ul>\n<h2>FAQs</h2>\n<h3>Can I use Sub Mini with any Sonos speaker?</h3>\n<p>No. Sub Mini works only with Sonos Beam, Ray, One, One SL and SYMFONISK speakers. The brand says pairing it with other Sonos models is not supported.</p>\n<h3>Do I need a wire to connect Sub Mini to my speakers?</h3>\n<p>No. Per the brand, Sub Mini connects wirelessly over Wi-Fi, so you can place it anywhere in your room that looks and sounds good to you without running cables.</p>\n<h3>Will Sub Mini sound muddy or boomy in my room?</h3>\n<p>The brand says Trueplay tuning technology adapts the bass for your room's unique acoustics so it does not sound harsh, muddy or flat, even if you place it next to a wall. You run tuning through the Sonos app after setup.</p>",
     "descriptionRewrite": {
@@ -19853,14 +19843,12 @@
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Echo%20(4th%20Gen)%20Smart%20Speaker",
-        "primary": false,
-        "priceAud": 146
+        "primary": false
       },
       {
         "name": "eBay AU",
         "url": "https://www.ebay.com.au/p/21041516546?iid=174375387252",
-        "deepLink": true,
-        "priceAud": 213.95
+        "deepLink": true
       },
       {
         "name": "BIG W",
@@ -19870,11 +19858,12 @@
       {
         "name": "Dick Smith",
         "url": "https://www.dicksmith.com.au/da/buy/amazon-echo-4th-gen-smart-speaker-with-alexa-charcoal-00810014304212/",
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 119
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.165Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -19971,7 +19960,7 @@
         "name": "eBay AU",
         "url": "https://www.ebay.com.au/p/28041516516?iid=306891054920",
         "deepLink": true,
-        "priceAud": 160
+        "priceAud": 449.9
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.165Z",
@@ -20356,7 +20345,7 @@
     "reviewsUrl": "https://www.amazon.com.au/Echo-Show-10-3rd-Gen-HD-smart-display-with-motion-and-Alexa-Charcoal/dp/B084NTF5ZY",
     "description": "Meet the Echo Show 10 -Designed to move with you. Move around the room during video calls or while watching a TV show and the brilliant 10.1” HD screen will automatically turn to face you. You can stay focused on who you’re talking to or what you’re watching. Alexa can show you even more With a 10.1\" HD screen that’s designed to move with you, video calls, recipes, and shows are always in view. The speakers deliver premium, directional sound. Stay in frame Video call friends and family or take a picture while the 13 MP camera with auto-framing and motion keeps you front and center. Make video calls to those with the Alexa app, another Echo Show, Skype, or Zoom. Smart home made simple Set up compatible Zigbee devices or smart products without a separate hub. Ask Alexa to show you security cameras, control lights, and adjust thermostats. Take a look around when you’re away Securely access the built-in camera to remotely monitor your home anytime with the Alexa app or other Echo Show devices. So much entertainment Ask Alexa to play your favorite shows, music, and podcasts from Prime Video, Netflix, Amazon Music, Spotify, and more. The ultimate kitchen companion Get daily personalized recipes, cook along hands-free with step-by-step instructions, set timers, and add to your grocery list. Put your memories on display Use Amazon Photos & Alexa for a picture-perfect pairing. You can turn your home screen into a digital frame, share your favorites with friends and family, and even take photos. Plus, Prime members get unlimited photo storage. Designed to protect your privacy Amazon is not in the business of selling your personal information to others. Built with multiple layers of privacy controls including a mic/camera off button and a built-in camera shutter. Disable motion at any time.",
     "googleProductId": "16992502086954965376",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "A 10.1-inch HD smart display with a motorised rotating base that Amazon says automatically turns to face you during video calls and entertainment. The brand describes it as offering auto-framing video calling, smart home control, recipe assistance, and remote camera access. It requires power outlet access and dedicated space due to the rotating base.",
     "cmsDescriptionHtml": "<p>This is a smart display built around a motorised 10.1-inch HD screen in a rotating base. Amazon says the screen automatically turns to face you as you move around the room, keeping video calls, recipes, and entertainment in view without you having to reposition it. The device includes a 13 MP camera that Amazon describes as having auto-framing and motion detection to keep you centred during video calls to Alexa app users, other Echo Show devices, Skype, or Zoom. The brand describes the speaker system as delivering directional sound through a 2.1-channel setup.</p>\n<p>Amazon says you can ask Alexa to control compatible smart home devices without a separate hub, access security cameras, and stream shows, music, and podcasts from services including Prime Video, Netflix, Amazon Music, and Spotify. The brand also positions it as a kitchen companion for recipes, timers, and grocery lists. You can securely access the built-in camera via the Alexa app or other Echo Show devices to remotely monitor your home when you're away.</p>\n<p>Amazon highlights privacy features including a microphone and camera off button and a built-in camera shutter, plus the ability to disable motion tracking. The device runs on AC power, so placement is limited to areas near power outlets. The motorised base takes up more space than a traditional display and requires continuous power to operate the rotation mechanism.</p>\n<h2>Key features</h2>\n<ul>\n<li>10.1-inch HD screen that Amazon says automatically rotates to face you</li>\n<li>13 MP camera with auto-framing for video calls</li>\n<li>Alexa voice control and smart home integration without a separate hub</li>\n<li>Directional 2.1-channel speaker system</li>\n<li>Streams entertainment from Prime Video, Netflix, Spotify, and other services</li>\n<li>Remote home monitoring via the built-in camera</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Install the Alexa app on your smartphone to set up and manage the device</li>\n<li>Connect the Echo Show 10 to your Wi-Fi network during initial setup</li>\n<li>Position the device near a power outlet</li>\n<li>Follow the in-app prompts to link your Amazon account and any connected smart home devices</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>Amazon describes the motorised screen as automatically following you, but this requires clear sight lines and space around the device to rotate</li>\n<li>The device relies on Wi-Fi connectivity; you'll need a stable network for video calls and streaming</li>\n<li>Compatible Zigbee smart home devices can be added directly without a separate hub, according to the brand</li>\n<li>The brand says it includes privacy controls, but like any device with a camera and microphone, consider your comfort level with always-on connectivity</li>\n<li>Requires AC power—placement is limited to areas near power outlets</li>\n</ul>\n<h2>FAQs</h2>\n<h3>Will the screen follow me around the room automatically?</h3>\n<p>Amazon says the 10.1-inch HD screen automatically turns to face you as you move around the room during video calls or while watching shows, keeping the content in view without manual adjustment.</p>\n<h3>Can I use this for home security when I'm away?</h3>\n<p>Yes, according to the brand you can securely access the built-in camera via the Alexa app or other Echo Show devices to remotely monitor your home anytime.</p>\n<h3>Do I need a separate hub to control smart home devices?</h3>\n<p>Amazon says you can set up compatible Zigbee devices and smart products without a separate hub, though compatibility depends on the specific devices you own.</p>\n<h3>What video calling options does it support?</h3>\n<p>The brand states you can make video calls to users with the Alexa app, other Echo Show devices, Skype, or Zoom.</p>",
     "descriptionRewrite": {
@@ -20409,7 +20398,7 @@
         "name": "Harvey Norman",
         "url": "https://www.harveynorman.com.au/catalogsearch/result/?q=Smart%20Soundbar%20Ultra",
         "primary": false,
-        "priceAud": 1490
+        "priceAud": 949
       },
       {
         "name": "Bing Lee",
@@ -20418,7 +20407,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.165Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -20769,8 +20758,7 @@
       {
         "name": "Bing Lee",
         "url": "https://www.binglee.com.au/search?q=Sky%20Smart%20Air%20Conditioner%20Controller",
-        "primary": false,
-        "priceAud": 217
+        "primary": false
       },
       {
         "name": "BIG W",
@@ -20939,7 +20927,7 @@
     "reviewCountReal": 17,
     "reviewsUrl": "https://reductionrevolution.com.au/products/sensibo-sky?variant=32148909817958&country=AU&currency=AUD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOorqJz5tUA-pvDSG1_Hpq5e2DGvbqIm74ZLXGNCOEMkCwhNZOXiP_1Y",
     "googleProductId": "4464513965743024556",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "A smart air conditioner controller that connects to your existing AC unit for remote control and scheduling. Check the retailer listing for specifications and compatibility details.",
     "cmsDescriptionHtml": "<h2>Sensibo Sky Smart Air Conditioner Controller</h2>\n<p>Sensibo Sky Smart Air Conditioner Controller is a climate-control product for Australian homes, listed in the Climate &#x26; Comfort range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare app control, scheduling, sensors and room fit before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Climate &#x26; Comfort.</li>\n<li>Best checked on app control, scheduling, sensors and room fit.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
@@ -20977,8 +20965,7 @@
       {
         "name": "The Good Guys",
         "url": "https://www.thegoodguys.com.au/SearchDisplay?searchTerm=Air%20PRO%20Smart%20AC%20Controller%20with%20Air%20Quality",
-        "primary": false,
-        "priceAud": 149
+        "primary": false
       },
       {
         "name": "Bing Lee",
@@ -20992,7 +20979,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -21629,7 +21616,7 @@
         "name": "Apple AU",
         "url": "https://www.bigapplebuddy.com/product/8/smartsensor-for-doors-and-windows-2-pack-white/14005091?child_sku=6412968&utm-medium=pla&utm-co=AU&srsltid=AfmBOoqTz873Q9ffH4Qts9UZfe6IB7r7gg17GtSxhH8Zy1kkaCcAd9gG0mg",
         "deepLink": true,
-        "priceAud": 85.33
+        "priceAud": 71.78
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
@@ -21921,7 +21908,7 @@
     "reviewsUrl": "https://www.ebay.com.au/itm/325282276817?chn=ps&_ul=AU&mkevt=1&mkcid=28&google_free_listing_action=view_item&srsltid=AfmBOoqRI-OMbFT6IyaIuKxvXjOPxVWvkbiaj_ZkfZQ-mRLMiDHIdrBg0Ao",
     "description": "About the product Real-time notifications whenever a door or window is opened or closed through the ecobee app. When paired with ecobee Smart Thermostat Premium, it can play a chime when your Smart. Sensor for doors and windows is opened, for greater peace of mind. No Smart Security Subscription required to use this feature. Place Smart. Sensors near your valuables like drawers, safes, and medicines cabinets, and receive instant notifications if they are opened. Installation is quick and easy. Simply, attach a Smart. Sensor to a door, window, entryway, or other areas that contain valuable items drawers, safes, and medicine cabinets. Smart. Sensors gives you peace of mind thats powered by an easily replaceable battery designed to last up to 3 years. With an ecobee Smart Security subscription youll unlock real-time push notifications when the system is armed. It can detect motion from a range of up to a 120 arc 16 feet away, notifying you when doors or windows are opened unexpectedly, or when unexpected motion is detected in your home. Comes with an industry-leading 3-year .",
     "googleProductId": "9345978088466021848",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "These door and window sensors monitor openings and movement, sending real-time app notifications when triggered. The brand says they detect motion across a 120-degree arc from up to 16 feet away and work with ecobee Smart Thermostats to trigger chime alerts. They suit anyone wanting to monitor entry points and valuables remotely via Alexa or Siri integration.",
     "cmsDescriptionHtml": "<p>These sensors attach to doors, windows, entryways, or storage areas like drawers and medicine cabinets to monitor openings and movement. The brand describes them as sending real-time notifications via the ecobee app whenever a door or window opens or closes, with motion detection covering a 120-degree arc from up to 16 feet away. You can place them near valuables to receive instant notifications if those items are accessed.</p>\n<p>When paired with an ecobee Smart Thermostat Premium, the brand says they can trigger a chime alert on the thermostat itself, without requiring a separate security subscription for that feature. Each sensor runs on a replaceable battery that the brand claims lasts up to three years. For expanded notifications and armed-system alerts, the brand offers an optional ecobee Smart Security subscription. The sensors work with Amazon Alexa and Siri through the ecobee app, letting you monitor activity remotely from your phone or tablet. Installation is straightforward: attach each sensor to your chosen location using the included mounting method.</p>\n<h2>Key features</h2>\n<ul>\n<li>Real-time door and window open or close notifications via app</li>\n<li>Motion detection across 120-degree arc up to 16 feet away, per the brand</li>\n<li>Per the brand, chime alerts when paired with ecobee Smart Thermostat Premium</li>\n<li>Battery lasts up to 3 years, per the brand</li>\n<li>Works with Amazon Alexa and Siri</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Install the ecobee app on your smartphone or tablet</li>\n<li>Follow the in-app pairing process to connect each sensor to your ecobee account</li>\n<li>Attach sensors to doors, windows, or other monitoring locations using the included adhesive or mounting hardware</li>\n<li>Refer to the manufacturer's full instructions for specific placement and pairing details</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>Designed for use with ecobee thermostats and smart home setups, not as standalone devices</li>\n<li>Per the brand, chime features require pairing with ecobee Smart Thermostat Premium</li>\n<li>Real-time push notifications when the system is armed require an optional ecobee Smart Security subscription, per the brand</li>\n<li>The two-pack gives you coverage for multiple entry points or areas with valuable items</li>\n<li>Check your ecobee thermostat model is compatible before purchase</li>\n</ul>\n<h2>FAQs</h2>\n<h3>Do I need a security subscription to use these sensors?</h3>\n<p>No, per the brand. Basic real-time notifications for door and window openings work without a subscription. Per the brand, the chime feature with ecobee Smart Thermostat Premium also does not require a subscription. An optional ecobee Smart Security subscription adds armed-system alerts and push notifications.</p>\n<h3>How long do the batteries last?</h3>\n<p>The brand claims the batteries last up to three years and are easily replaceable.</p>\n<h3>How far away can the motion detection reach?</h3>\n<p>Per the brand, motion detection covers a 120-degree arc and can detect movement from up to 16 feet away.</p>\n<h3>Which voice assistants do these work with?</h3>\n<p>The sensors integrate with Amazon Alexa and Siri through the ecobee app.</p>",
     "descriptionRewrite": {
@@ -21973,7 +21960,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -22562,7 +22549,7 @@
         "url": "https://www.amazon.com.au/tado%C2%B0-Smart-AC-Control-Installation/dp/B07PDZSYCM",
         "primary": true,
         "deepLink": true,
-        "priceAud": 294.11
+        "priceAud": 151.02
       },
       {
         "name": "JB Hi-Fi",
@@ -22581,7 +22568,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Performance Highlights",
@@ -22917,7 +22904,7 @@
         "url": "https://www.amazon.com.au/Netatmo-Thermostat-Orange-Blue-Yellow/dp/B0CC67PYHY?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3P6X2GIMA114Z",
         "primary": true,
         "deepLink": true,
-        "priceAud": 251.23
+        "priceAud": 232.06
       },
       {
         "name": "eBay AU",
@@ -22936,7 +22923,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -23137,7 +23124,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Coverage Area",
@@ -23221,12 +23208,13 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Hub%202%20(Matter%20%26%20IR%20AC%20Controller)",
         "primary": true,
-        "priceAud": 99.02
+        "priceAud": 94.19
       },
       {
         "name": "eBay AU",
         "url": "https://www.ebay.com.au/sch/i.html?_nkw=Hub%202%20(Matter%20%26%20IR%20AC%20Controller)",
-        "primary": false
+        "primary": false,
+        "priceAud": 253.51
       },
       {
         "name": "Scorptec",
@@ -23358,7 +23346,7 @@
     "reviewsUrl": "https://www.tradeinn.com/techinn/en/switchbot-mini-matter-enabled-hub/142273107/p?utm_source=google_products&utm_medium=merchant&id_producte=148761454&country=au&srsltid=AfmBOorwHnBKhuQ0LgRo065OpPPQsx2U4H3dKsgyPaHuv4UH7x0iOagkof8",
     "description": "The SwitchBot Hub Mini supports Matter, a universal smart home standard that enables seamless communication between devices from different manufacturers. With the hub you can use older remote-controlled devices (e.g. B. You can integrate your home appliances (e.g., air conditioners, lighting, televisions) and Bluetooth-enabled SwitchBot devices into Apple Home and then control them via your iPhone or by voice command via the HomePod. This is ideal for anyone who wants to set up a smart home without having to replace all of their existing equipment.",
     "googleProductId": "9621460345177509144",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "shortDescription": "The SwitchBot Hub 2 is a Matter-compatible smart home hub. Per the brand, it integrates infrared-controlled devices like air conditioners and TVs alongside SwitchBot devices into your smart home ecosystem, and works with Apple Home, Google Assistant and Amazon Alexa. The brand says it suits those wanting a smart home without replacing existing equipment.",
     "cmsDescriptionHtml": "<p>The SwitchBot Hub 2 functions as a central hub that supports Matter, a smart home standard designed to let devices from different manufacturers communicate with each other. Per the brand, the Hub 2 integrates infrared-controlled appliances such as air conditioners, lighting and televisions alongside Bluetooth-enabled SwitchBot devices into your smart home ecosystem.</p>\n<p>The brand describes the Hub 2 as enabling control of older remote-controlled devices through Apple Home on your iPhone or by voice command via HomePod. It also works with Google Assistant and Amazon Alexa. Per the brand, this suits households that want a smart home without replacing all their existing equipment. Before purchasing, check which voice assistants and home platforms you use, and confirm that your infrared-controlled devices are compatible with the hub's IR learning capability.</p>\n<h2>Key features</h2>\n<ul>\n<li>Matter support for cross-manufacturer device communication</li>\n<li>Infrared control for air conditioners, televisions and lighting per the brand</li>\n<li>Integration with Apple Home, Google Assistant and Amazon Alexa per the brand</li>\n<li>Bluetooth support for SwitchBot devices per the brand</li>\n<li>No replacement of existing appliances needed per the brand</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Download the SwitchBot app to your smartphone</li>\n<li>Connect the Hub 2 to power and complete the initial pairing in the app</li>\n<li>Follow the in-app instructions to add your infrared devices by learning their remote codes</li>\n<li>Add the hub to your preferred smart home platform (Apple Home, Google Home or Alexa)</li>\n<li>Test control of your devices from the app and your chosen voice assistant</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>Per the brand, this suits people who want to integrate older appliances without replacing them</li>\n<li>Check that your infrared devices are compatible with the hub's learning capability before purchasing</li>\n<li>Confirm which voice assistants and home platforms you use in your household</li>\n<li>The brand says it works alongside Bluetooth-enabled SwitchBot products for expanded control options</li>\n<li>The hub requires power, so choose a location with reliable access to an outlet</li>\n</ul>\n<h2>FAQs</h2>\n<h3>Can I use this with my existing air conditioner without replacing it?</h3>\n<p>Yes, per the brand, the Hub 2 lets you integrate infrared-controlled appliances like air conditioners into your smart home by learning their remote codes, so you do not need to replace your existing equipment.</p>\n<h3>Which voice assistants does this work with?</h3>\n<p>The Hub 2 works with Apple Home (via HomePod voice control), Google Assistant and Amazon Alexa.</p>\n<h3>What is Matter and why does it matter for this hub?</h3>\n<p>Matter is a universal smart home standard that the brand says enables seamless communication between devices from different manufacturers, allowing the hub to work more broadly across your home ecosystem.</p>",
     "descriptionRewrite": {
@@ -23391,7 +23379,8 @@
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Temperature%20and%20Humidity%20Sensor%20T1",
-        "primary": true
+        "primary": true,
+        "priceAud": 31.79
       },
       {
         "name": "eBay AU",
@@ -23787,7 +23776,8 @@
       ],
       "date": "2026-09-24",
       "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+    },
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z"
   },
   {
     "id": "aqara-hub-m3-matter-zigbee-coordinator",
@@ -24094,7 +24084,7 @@
         "url": "https://www.amazon.com.au/Philips-Hue-Compatible-HomeKit-Assistant/dp/B077K5G4ZB?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
         "deepLink": true,
-        "priceAud": 69.73
+        "priceAud": 66.5
       },
       {
         "name": "JB Hi-Fi",
@@ -24129,7 +24119,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -24442,7 +24432,7 @@
         "url": "https://www.amazon.com.au/Homey-Early-2023-Smart-Automation/dp/B0C5R1JS91",
         "primary": true,
         "deepLink": true,
-        "priceAud": 391.62
+        "priceAud": 400.64
       },
       {
         "name": "eBay AU",
@@ -24461,7 +24451,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -24556,7 +24546,7 @@
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=SmartThings%20Station%20with%2015W%20Wireless%20Charger",
         "primary": false,
-        "priceAud": 50.24
+        "priceAud": 45.95
       },
       {
         "name": "Bunnings",
@@ -24565,7 +24555,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Charger Type",
@@ -24969,7 +24959,7 @@
         "url": "https://www.amazon.com.au/Aeotec-Smart-Home-Hub-SmartThings/dp/B08NDH9NXN",
         "primary": true,
         "deepLink": true,
-        "priceAud": 153.08
+        "priceAud": 154.85
       },
       {
         "name": "eBay AU",
@@ -24988,7 +24978,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Supported Assistants",
@@ -25477,7 +25467,8 @@
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=Echo%20Hub%208%22%20Smart%20Home%20Control%20Panel",
-        "primary": false
+        "primary": false,
+        "priceAud": 399.99
       },
       {
         "name": "Bing Lee",
@@ -25487,12 +25478,11 @@
       {
         "name": "Woolworths",
         "url": "https://www.woolworths.com.au/shop/productdetails/1127336116",
-        "deepLink": true,
-        "priceAud": 189.99
+        "deepLink": true
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.166Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -25638,24 +25628,25 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Qrevo%20Master%20Robot%20Vacuum",
         "primary": false,
-        "priceAud": 2798.4
+        "priceAud": 849
       },
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/search?query=Qrevo%20Master%20Robot%20Vacuum",
         "primary": true,
-        "priceAud": 1438
+        "priceAud": 1999
       },
       {
         "name": "The Good Guys",
         "url": "https://www.thegoodguys.com.au/SearchDisplay?searchTerm=Qrevo%20Master%20Robot%20Vacuum",
-        "primary": false
+        "primary": false,
+        "priceAud": 1999
       },
       {
         "name": "Harvey Norman",
         "url": "https://www.harveynorman.com.au/catalogsearch/result/?q=Qrevo%20Master%20Robot%20Vacuum",
         "primary": false,
-        "priceAud": 1497
+        "priceAud": 848
       },
       {
         "name": "Bing Lee",
@@ -25669,7 +25660,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.167Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -25958,8 +25949,7 @@
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/dreame-l20-ultra-robot-vacuum-and-mop-with-auto-empty-and-mop-self-cleaning?ab_version=A&srsltid=AfmBOop1RY37rBkFsyYgw-BXL8_fHBPo7MEEZJEdOGWzFaso0B3mlBHFvdQ",
         "primary": true,
-        "deepLink": true,
-        "priceAud": 897
+        "deepLink": true
       },
       {
         "name": "The Good Guys",
@@ -26158,7 +26148,6 @@
     "reviewsUrl": "https://www.jbhifi.com.au/products/dreame-l20-ultra-robot-vacuum-and-mop-with-auto-empty-and-mop-self-cleaning?ab_version=A&srsltid=AfmBOoqOXAn41sOJ-lRJaGEUMJe5pE6sK1S20_w2bv1WZF5akdO9Xq-Km60",
     "description": "The cutting-edge Dreame L20 Ultra Robotic Vacuum and Mop combines innovation and advanced technology to effortlessly maintain spotless floors. Pathfinder Smart Navigation ensures adaptability across diverse floor type, delivering a thorough cleaning experience. The 7,000. Pa Vormax Suction System efficiently eradicates dirt, dust and pet hair from various surfaces, guaranteeing optimal cleanliness. With Mop. Extend Edge-Cleaning, this robotic wonder extends its reach to tackle hard-to-access areas with ease and precision.",
     "googleProductId": "8033048013046508533",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "shortDescription": "A cordless robot vacuum and mop combination that the brand says uses Pathfinder Smart Navigation to adapt to different floor surfaces and a 7,000 Pa Vormax Suction System for dirt, dust and pet hair. The brand claims its Mop Extend feature reaches edges and hard-to-access areas. The brand indicates it holds 3.5 litres and works with Amazon Alexa. Dreame positions it for pet-owning households.",
     "cmsDescriptionHtml": "<p>This robotic vacuum and mop unit combines two cleaning functions in one device. The brand says its Pathfinder Smart Navigation adapts to different floor surfaces, and its 7,000 Pa Vormax Suction System targets dirt, dust and pet hair across various surfaces. The Dreame L20 Ultra also features Mop Extend Edge-Cleaning, which the brand claims extends the mop reach into hard-to-access areas and edges.</p>\n<p>The unit holds a 3.5 litre capacity and works with Amazon Alexa for voice control. It is cordless, allowing it to move freely around your home without power cable constraints. The brand positions it as suitable for homes with pets. Before purchasing, you should verify that the combined vacuum and mop function aligns with your specific floor types and cleaning preferences, and consider whether your home's layout suits autonomous cleaning schedules.</p>\n<h2>Key features</h2>\n<ul>\n<li>Pathfinder Smart Navigation for multiple floor types (brand claim)</li>\n<li>7,000 Pa Vormax Suction System for dirt and pet hair (brand claim)</li>\n<li>Mop Extend Edge-Cleaning for corners and edges (brand claim)</li>\n<li>Amazon Alexa voice control</li>\n<li>3.5 litre capacity</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Install the companion mobile app on your smartphone</li>\n<li>Follow the in-app instructions to connect the device to your home Wi-Fi</li>\n<li>Place the charging dock on a level, accessible surface away from obstacles</li>\n<li>Pair with Amazon Alexa if you wish to use voice commands</li>\n<li>Follow the manufacturer's full setup instructions for dock positioning and initial cleaning bin preparation</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>The brand describes it as designed for homes with pets, though you should verify that suction strength suits your specific pet hair types and shedding levels</li>\n<li>Check whether combined wet and dry cleaning in one device suits your floor types and whether you prefer separate vacuum and mop units</li>\n<li>Amazon Alexa integration requires a compatible Alexa device and a reliable Wi-Fi connection in your home</li>\n<li>You should follow the manufacturer's instructions for cleaning solution use with the mopping function, as this is not detailed in the brand's main claims</li>\n<li>The 3.5 litre capacity affects how often you'll empty the combined waste tank, especially in larger homes or homes with multiple pets</li>\n</ul>\n<h2>FAQs</h2>\n<h3>Does this vacuum clean carpets and hard floors?</h3>\n<p>The brand says the Pathfinder Smart Navigation adapts across diverse floor types and the Vormax Suction System works on various surfaces, but you should verify with the manufacturer whether it performs equally well on all your specific floor types before purchase.</p>\n<h3>Can it clean edges and corners?</h3>\n<p>Yes, the brand claims the Mop Extend Edge-Cleaning feature extends the mop's reach to hard-to-access areas, edges and corners.</p>\n<h3>Is it suitable for pet owners?</h3>\n<p>The brand positions the device as suitable for homes with pets, and the 7,000 Pa suction system is designed to target pet hair among other debris.</p>",
     "descriptionRewrite": {
@@ -26191,8 +26180,7 @@
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=L10s%20Ultra%20Robot%20Vacuum%20and%20Mop",
-        "primary": false,
-        "priceAud": 649.99
+        "primary": false
       },
       {
         "name": "JB Hi-Fi",
@@ -26218,7 +26206,7 @@
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/s/?q=L10s%20Ultra%20Robot%20Vacuum%20and%20Mop",
         "primary": false,
-        "priceAud": 1073.99
+        "priceAud": 599
       },
       {
         "name": "BIG W",
@@ -26227,7 +26215,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.167Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Brand",
@@ -26532,8 +26520,7 @@
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=X40%20Ultra%20Flagship%20Robot%20Vacuum",
-        "primary": false,
-        "priceAud": 1199.99
+        "primary": false
       },
       {
         "name": "JB Hi-Fi",
@@ -26835,7 +26822,6 @@
     "reviewsUrl": "http://www.everyday.com.au/shop/product/dreame-rlx63ce-x40-ultra-robotic-vacuum-17452326/17452326-1",
     "description": "The Dreame X40 Ultra Robot Vacuum and Mop is an advanced home cleaning solution designed to revolutionize your cleaning routine. This state-of-the-art device seamlessly combines powerful vacuuming and intelligent mopping with next-level automation, ensuring every corner of your home is spotless. With features like Mop. Extend Robo. Swing Technology and Omni. Dirt Detection, it adapts effortlessly to different cleaning scenarios for a customized and efficient experience. The hands-free base station is the epitome of convenience, handling self-emptying and mop cleaning without user intervention. Its award-winning design includes a liftable mop and side brush system, preventing wet and dry debris from mixing and protecting your carpets. A Vormax suction system delivers an impressive 12,000. Pa of cleaning power, ensuring even the finest dust and stubborn debris are captured. Smart Mop & Washboard Cleaning technology keeps your mop pad fresh and effective during every cleaning session, while precision mopping strategies ensure thorough coverage, leaving floors streak-free and shining. From unreachable spots to delicate surfaces, the extendable and liftable side brush and mop adapt to clean with care and accuracy. The X40 Ultra doesn't just clean—it transforms your space with minimal effort required from you.",
     "googleProductId": "11627176065535009760",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "shortDescription": "The Dreame X40 Ultra is a cordless robot vacuum and mop combining two cleaning functions. Per the brand, it uses Vormax suction technology delivering 12,000 Pa of power and adapts to different floor types through features like mop extension and debris detection. The hands-free base station handles self-emptying and mop cleaning. The brand says it integrates with Google Assistant and Amazon Alexa for voice control.",
     "cmsDescriptionHtml": "<p>The X40 Ultra is a cordless robot vacuum and mop that combines two cleaning functions in one device. The brand claims it uses Vormax suction technology to deliver 12,000 Pa of cleaning power, targeting fine dust and stubborn debris. Per Dreame, the vacuum adapts to different floor types through features like Mop Extend Robo Swing Technology, which extends and lifts the mop and side brush as needed, and Omni Dirt Detection, which the brand says customises cleaning to different scenarios.</p>\n<p>The hands-free base station is central to the product's appeal. Dreame claims it handles self-emptying, mop pad cleaning, and washboard cleaning without user intervention, using Smart Mop &#x26; Washboard Cleaning technology to keep the mop fresh during each session. The brand also describes an award-winning design that lifts the mop and side brush to prevent wet and dry debris mixing and to protect carpets from moisture damage. The device works with Google Assistant and Amazon Alexa for voice control integration.</p>\n<p>Before purchasing, check the 0.2-litre capacity against your home size to understand how often the base station will need emptying. Confirm your WiFi network strength in areas where the device will operate, as connectivity is required for app control and voice assistant integration.</p>\n<h2>Key features</h2>\n<ul>\n<li>12,000 Pa suction via Vormax system (per the brand)</li>\n<li>Hands-free base station with self-emptying and mop cleaning (brand claim)</li>\n<li>Liftable mop and side brush to protect carpets (brand claim)</li>\n<li>Mop Extend Robo Swing and Omni Dirt Detection (brand claims)</li>\n<li>Wet and dry cleaning capability</li>\n</ul>\n<h2>Setting it up</h2>\n<ol>\n<li>Install the companion app on your smartphone</li>\n<li>Follow the in-app pairing instructions to connect the device to your home WiFi</li>\n<li>Set up the hands-free base station in a suitable location per the manufacturer's instructions</li>\n<li>Link the device to Google Assistant or Amazon Alexa if you want voice control</li>\n</ol>\n<h2>Good to know</h2>\n<ul>\n<li>Per the brand, it adapts to different floor types and the brand positions this for homes wanting automated wet and dry cleaning with minimal manual intervention</li>\n<li>The 0.2-litre capacity is relatively small; check how often the base station empties for your home size</li>\n<li>Confirm your WiFi network strength in areas where the device will operate most</li>\n<li>Requires Google Assistant or Amazon Alexa for voice control, so check compatibility with your chosen voice ecosystem before purchasing</li>\n</ul>\n<h2>FAQs</h2>\n<h3>Does the X40 Ultra work on both hard floors and carpet?</h3>\n<p>Yes, the brand describes it as adapting to different floor types. It has a liftable mop and side brush that lift away from carpets to protect them while cleaning other surfaces, per Dreame's description.</p>\n<h3>What does the base station do automatically?</h3>\n<p>Per the brand, the base station handles self-emptying, mop pad cleaning, and washboard cleaning without user intervention, using Smart Mop &#x26; Washboard Cleaning technology to keep the mop fresh during each session.</p>\n<h3>Can I control it with voice assistants?</h3>\n<p>Yes, the X40 Ultra supports both Google Assistant and Amazon Alexa for voice control integration with your smart home.</p>",
     "descriptionRewrite": {
@@ -27256,7 +27242,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.167Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Surface Type",
@@ -28054,12 +28040,11 @@
       {
         "name": "Dick Smith",
         "url": "https://www.dicksmith.com.au/da/buy/all-best-products-irobot-roomba-combo-i5-robot-vacuum-and-mop-with-smart-mapping-kumwtojfd6884/",
-        "deepLink": true,
-        "priceAud": 699
+        "deepLink": true
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.167Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Wet <wbr>/<wbr> Dry",
@@ -28799,7 +28784,7 @@
         "url": "https://www.amazon.com.au/Robotic-Washing-Self-Contained-Tangling-Australian/dp/B0CSVPV251?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3OWKRX6Q543WB",
         "primary": false,
         "deepLink": true,
-        "priceAud": 895
+        "priceAud": 1049.99
       },
       {
         "name": "JB Hi-Fi",
@@ -28833,7 +28818,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.167Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "HEPA Filter",
@@ -29152,7 +29137,7 @@
         "url": "https://www.amazon.com.au/Xiaomi-X20-Station-Suction-Navigation/dp/B0CTCXKL52?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": false,
         "deepLink": true,
-        "priceAud": 566
+        "priceAud": 643.85
       },
       {
         "name": "JB Hi-Fi",
@@ -29187,7 +29172,7 @@
       }
     ],
     "updatedAt": "2026-08-04T15:25:36.167Z",
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "specifications": [
       {
         "name": "Surface Type",
@@ -29563,7 +29548,7 @@
         "url": "https://www.jbhifi.com.au/products/wiz-colour-a60-b22-smart-bulb-gen-2?ab_version=B&srsltid=AfmBOorLFxmPK6H9wdz-PvGwnq5-hycuaTGlX_Cz2r-v0iwr8wQPDDJr250",
         "primary": true,
         "deepLink": true,
-        "priceAud": 24
+        "priceAud": 19
       },
       {
         "name": "Bunnings",
@@ -29579,16 +29564,15 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/WiZ-Color-A60-Smart-Bulb/dp/B0CLB34R8F?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3VMLCXCK1HUGJ",
         "deepLink": true,
-        "priceAud": 15.96
+        "priceAud": 19
       },
       {
         "name": "BIG W",
         "url": "https://www.bigw.com.au/product/wiz-connected-color-tunable-white-a60-gen2-smart-led-lightbulb-b22/p/9902912238?srsltid=AfmBOoqYSeQ2FdK6e6S6gPgbij_hhr503vzTc7iGYMNpY-OHe2q3T4mlLCM",
-        "deepLink": true,
-        "priceAud": 27.05
+        "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:46.544Z",
     "ratingReal": 4.5,
     "reviewCountReal": 23,
@@ -29723,16 +29707,16 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/Philips-Hue-Ambiance-FloodLight-Compatible/dp/B07KMNWQLQ?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
-        "deepLink": true,
-        "priceAud": 245.49
+        "deepLink": true
       },
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/philips-hue-outdoor-discover-flood-light?ab_version=A&srsltid=AfmBOopm3PKd1IYTd2aTD9xDHAwN2hh5fu1s2uzvg1QhnXJ9VEN5YY1GxoU",
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 399
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:46.769Z",
     "ratingReal": 4.7,
     "reviewCountReal": 149,
@@ -30036,7 +30020,7 @@
         "url": "https://www.jbhifi.com.au/products/wiz-colour-tuneable-white-90mm-smart-downlight?ab_version=A&srsltid=AfmBOop54JFXarO38j6ng5zG5joR_h8XzUk0K5D_0PIcisKEdVRwoZSOwaM",
         "primary": true,
         "deepLink": true,
-        "priceAud": 19
+        "priceAud": 24
       },
       {
         "name": "Bunnings",
@@ -30049,7 +30033,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:46.790Z",
     "ratingReal": 4.2,
     "reviewCountReal": 16,
@@ -30173,7 +30157,7 @@
         "priceAud": 49
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:46.985Z",
     "shortDescription": "A smart RGB light strip designed for use with Alexa and Google Assistant. Check the retailer listing for full specifications, features and compatibility details.",
     "descriptionRewrite": {
@@ -30196,11 +30180,9 @@
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/search?query=Nanoleaf+Sense%2B+Smart+Wireles+Switch",
-        "primary": true,
-        "priceAud": 49
+        "primary": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "updatedAt": "2026-08-05T07:11:47.087Z",
     "ratingReal": 4.3,
     "reviewCountReal": 34,
@@ -30283,8 +30265,7 @@
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/philips-hue-colour-ambiance-bluetooth-downlight-90mm?ab_version=B&srsltid=AfmBOop7qbEclhVqmQDW4h0NOErb-ZQV9_3Ab5n7JFcySxf7csWOxP1u0u4",
-        "deepLink": true,
-        "priceAud": 129
+        "deepLink": true
       },
       {
         "name": "Bunnings",
@@ -30297,7 +30278,6 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "updatedAt": "2026-08-05T07:11:47.255Z",
     "ratingReal": 4.7,
     "reviewCountReal": 80,
@@ -30486,7 +30466,7 @@
         "priceAud": 29
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:47.403Z",
     "googleProductId": "3468525939733287691",
     "description": "Key Features Million of Colours Govee RGBWW light bulbs with over 16 million vividcolour options and 54 preset scene modes, you can explore your preferred ones in it, and find one that suits your moods most, which can bring you a really fantastic lighting experience. Matter Compatibility Connect instantly to Alexa, Google Home, and Apple HomeKit with Matter for faster, more reliable smart home control. Voice & App Control Govee smart light bulbs are compatible with Alexa & Google Assistant, you can control them with simple voice commands. And you'd feel free to turn your smart bulbs on/off, adjust brightness, or change the colours via App Govee Home. Music Sync Our smart light bulbs change colour and brightness simultaneously when sounds are detected by the microphone on your phone. Note: only works when the microphone is not occupied. Download Govee Home App and enable microphone permissions. Group Control Wanna manipulate your Govee smart light bulbs at the same time? you just need to create a group and add your bulbs in, then multiple bulbs can be controlled simultaneously(only when you bulbs are connected with stable 2.4Ghz WiFi). Timer and Schedule Applying your smart bulbs to your daily routine now is easier than ever. With modes like Sunrise and Sunset, you can set your smart wifi bulb to brighten when you wake up, and gradually dim when you drift off to sleep.",
@@ -30551,7 +30531,7 @@
         "priceAud": 16.75
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:47.550Z",
     "googleProductId": "1597212955922718209",
     "description": "Create the right mood in your home for any situation with the Mirabella Genio series. Control these bulbs with your phone, Google Home or Amazon Alexa, allowing you to change the colour and schedule when the lights will be on.",
@@ -30694,8 +30674,7 @@
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/tp-link-tapo-smart-wi-fi-multicolour-bulb-b22?ab_version=A&srsltid=AfmBOoqlr_O4fF7FGARHSHfzaHkyEyDrwk95fPTXxD0mlB1VrGwym7qKr3Q",
-        "deepLink": true,
-        "priceAud": 34
+        "deepLink": true
       },
       {
         "name": "Woolworths",
@@ -30703,7 +30682,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:47.704Z",
     "ratingReal": 4.4,
     "reviewCountReal": 109,
@@ -30843,10 +30822,10 @@
         "url": "https://www.kogan.com/au/buy/kogan-smarterhometm-smart-touch-light-switch-1-gang-white-2-pack-kogan/",
         "primary": true,
         "deepLink": true,
-        "priceAud": 49.99
+        "priceAud": 35.99
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:47.809Z",
     "googleProductId": "15087022235796891416",
     "description": "Transform your home with the Kogan SmarterHome Smart Touch Light Switch, this cutting-edge light switch enables you to effortlessly control your lights through voice commands or a simple smart touch. Simply say “OK, Google!” and unleash the power of voice-activated control, swiftly switching your devices on and off with ease. Easy control via SmarterHome app The SmarterHome app lets you remotely manage your smart light switch with one-touch operation. Schedule lights to conserve energy effortlessly and never worry about leaving lights on again Sleek tempered glass Mounted on tempered glass, this light switch features a smooth touch finish for effortless operation with a single finger. Plus, the backing LED blue light can be turned off in the bedroom, ensuring a peaceful night’s sleep.",
@@ -30953,7 +30932,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:47.869Z",
     "ratingReal": 5,
     "reviewCountReal": 1,
@@ -31010,7 +30989,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:48.585Z",
     "ratingReal": 4.1,
     "reviewCountReal": 34,
@@ -31103,7 +31082,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:48.757Z",
     "ratingReal": 5,
     "reviewCountReal": 8,
@@ -31223,7 +31202,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:48.856Z",
     "ratingReal": 3,
     "reviewCountReal": 2,
@@ -31302,10 +31281,11 @@
       {
         "name": "The Good Guys",
         "url": "https://www.thegoodguys.com.au/tp-link-tapo-smart-wi-fi-light-strip-with-multicolour-zones-5m-tapo-l930-5?srsltid=AfmBOor3-q1wNGtCkORMfdk7DrzI5aCp2A7InttUZOhPQfVkDF8d9dor8e8",
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 79
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T07:11:48.862Z",
     "ratingReal": 4.7,
     "reviewCountReal": 250,
@@ -31360,8 +31340,7 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/Philips-Hue-Spotlight-Extension-Compatible/dp/B082XMZC9S?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
-        "deepLink": true,
-        "priceAud": 203.46
+        "deepLink": true
       },
       {
         "name": "JB Hi-Fi",
@@ -31374,7 +31353,6 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "updatedAt": "2026-08-05T07:11:49.265Z",
     "ratingReal": 4.6,
     "reviewCountReal": 85,
@@ -31426,7 +31404,7 @@
         "url": "https://www.jbhifi.com.au/products/tp-link-tapo-mini-smart-plug-with-energy-monitoring-2-pack?ab_version=B&srsltid=AfmBOoo0lWEiYILF9W08wx0rSXj_sGxQBANH2Osk_lLEZDA9A2vCFzyAbbg",
         "primary": true,
         "deepLink": true,
-        "priceAud": 29
+        "priceAud": 47
       },
       {
         "name": "Officeworks",
@@ -31434,7 +31412,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:24.756Z",
     "ratingReal": 4.5,
     "reviewCountReal": 29,
@@ -31486,10 +31464,10 @@
         "url": "https://www.amazon.com.au/Intelligent-Circuit-Mobilephone-Compatible-Assistant/dp/B0CYPTNNSZ",
         "primary": true,
         "deepLink": true,
-        "priceAud": 24.92
+        "priceAud": 27.49
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:25.096Z",
     "googleProductId": "14119979028568922798",
     "specifications": [
@@ -31595,7 +31573,8 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/Powersensor-Essential-Solar-Monitoring-Solution/dp/B0CJQRGS6Y?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1X9DF4ANOO8XN",
         "primary": true,
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 199
       }
     ],
     "updatedAt": "2026-08-05T09:04:25.433Z",
@@ -31613,7 +31592,8 @@
       ],
       "date": "2026-09-24",
       "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+    },
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z"
   },
   {
     "id": "tp-link-tapo-p110m-mini-smart-wi-fi-plug",
@@ -31637,7 +31617,8 @@
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/tp-link-tapo-mini-energy-monitoring-smart-plug-matter-compatible?ab_version=A&srsltid=AfmBOoqPlCD1xZ5qt-byMKb_JruHdQdLwWlo1sm3rHyjVD6_7IopQbaAn6I",
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 47
       },
       {
         "name": "Bing Lee",
@@ -31676,7 +31657,8 @@
       ],
       "date": "2026-09-24",
       "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+    },
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z"
   },
   {
     "id": "smart-power-strip-with-6-outlets",
@@ -31699,7 +31681,7 @@
         "priceAud": 12.95
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:26.175Z",
     "ratingReal": 4.4,
     "reviewCountReal": 5,
@@ -31755,7 +31737,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:26.282Z",
     "ratingReal": 2.9,
     "reviewCountReal": 11,
@@ -31842,10 +31824,10 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=LT1+63T+Smart+Switch+Circuit+Breaker+Touch+Control+Power+Metering+Timer+Relay+63A+Timer+Voice+Remote+Control+Energy+Monitor+for+APP+Control+for+Home",
         "primary": true,
-        "priceAud": 30.74
+        "priceAud": 31.61
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:26.290Z",
     "shortDescription": "A 63A smart switch circuit breaker with touch control and energy monitoring capabilities. Check the retailer listing for full specifications, compatibility details and setup requirements.",
     "descriptionRewrite": {
@@ -31872,7 +31854,7 @@
         "priceAud": 59.99
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:26.627Z",
     "shortDescription": "A WiFi-enabled power board with outlets and USB ports that you can control remotely. Check the retailer listing for full specifications and compatibility details.",
     "descriptionRewrite": {
@@ -31896,11 +31878,9 @@
         "name": "Bunnings",
         "url": "https://www.bunnings.com.au/bluetti-ac180p-solar-portable-power-station-1-800w-1-440wh_p0947312?srsltid=AfmBOopUf9nWrqpt3iy-TIrEtdFA2ICVtj0m97ULJ4Ee3QmfzLg9xdH9HEw",
         "primary": true,
-        "deepLink": true,
-        "priceAud": 695.74
+        "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "updatedAt": "2026-08-05T09:04:26.641Z",
     "ratingReal": 4.8,
     "reviewCountReal": 553,
@@ -31958,7 +31938,7 @@
         "priceAud": 173.61
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:26.976Z",
     "shortDescription": "A home energy monitor that tracks electricity usage at the circuit level. Check the retailer listing for specifications on sensor capacity and compatibility with your solar or net metering setup.",
     "descriptionRewrite": {
@@ -31996,7 +31976,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:27.104Z",
     "ratingReal": 4.7,
     "reviewCountReal": 32,
@@ -32048,10 +32028,10 @@
         "url": "https://www.amazon.com.au/Electricity-Statistics-Protection-Overvoltage-Undervoltage/dp/B0D2L25TKT?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2HA1ZP0EN8PEG",
         "primary": true,
         "deepLink": true,
-        "priceAud": 19.75
+        "priceAud": 20.84
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:27.367Z",
     "googleProductId": "2605880255945171933",
     "specifications": [
@@ -32092,7 +32072,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:27.568Z",
     "googleProductId": "1244784711614258240",
     "specifications": [
@@ -32152,10 +32132,10 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/s?k=Smart+Power+Board%2C+WiFi+Power+Strip%2CCompatible+with+Alexa+and+Google+Home+%28WiFi+Version+-+Whtie%29",
         "primary": true,
-        "priceAud": 56.99
+        "priceAud": 59.99
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:27.730Z",
     "shortDescription": "A WiFi-enabled power board that integrates with smart home systems. Check the retailer listing for full specifications, compatibility details and outlet configuration.",
     "descriptionRewrite": {
@@ -32193,7 +32173,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:28.086Z",
     "ratingReal": 4.9,
     "reviewCountReal": 1200,
@@ -32247,7 +32227,7 @@
         "priceAud": 42.74
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:28.255Z",
     "ratingReal": 4.9,
     "reviewCountReal": 60,
@@ -32392,10 +32372,10 @@
         "url": "https://www.amazon.com.au/IAMMETER-WEM3050T-Split-Core-Real-Time-Monitoring/dp/B0CP23TVYF?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ASKQTAEGDVK97",
         "primary": true,
         "deepLink": true,
-        "priceAud": 172
+        "priceAud": 250
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:32.072Z",
     "googleProductId": "12289941580424848879",
     "specifications": [
@@ -32432,7 +32412,7 @@
         "url": "https://www.harveynorman.com.au/voltx-e600-portable-power-station.html?srsltid=AfmBOoouUJYgqrJkT-FjnY8korfms-mA2wZNY6ofvdbX2CNXxbs8jZpAn14",
         "primary": true,
         "deepLink": true,
-        "priceAud": 399
+        "priceAud": 449
       },
       {
         "name": "Woolworths",
@@ -32440,7 +32420,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:32.249Z",
     "googleProductId": "10824495689091225369",
     "description": "With a 307.2Wh LiFePO4 battery, multiple charging options, and advanced safety protection, the VoltX E600 Portable Power Station is perfect for camping, outdoor adventures, and emergency backup. It features a pure sine wave AC output, USB-C fast charging, and a 12V jump start function to accommodate your varying power needs.",
@@ -32517,7 +32497,7 @@
         "priceAud": 389.99
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:32.657Z",
     "ratingReal": 4,
     "reviewCountReal": 2,
@@ -32659,7 +32639,7 @@
         "priceAud": 299
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:32.667Z",
     "ratingReal": 4.5,
     "reviewCountReal": 103,
@@ -32718,16 +32698,16 @@
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/amazon-echo-dot-smart-speaker-alexa-5th-gen-glacier-white?ab_version=B&srsltid=AfmBOoot93mYl-rmz-IHz7lCkzYGy5upqO9A7vViwg4AZc1P8Ew7RrthUEs",
         "primary": true,
-        "deepLink": true,
-        "priceAud": 129
+        "deepLink": true
       },
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/All-New-release-Smart-speaker-Glacier/dp/B09B8VHBH1?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 69
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:32.673Z",
     "ratingReal": 4.7,
     "reviewCountReal": 18000,
@@ -32882,7 +32862,7 @@
         "priceAud": 268
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:33.134Z",
     "ratingReal": 4.7,
     "reviewCountReal": 431,
@@ -33033,11 +33013,10 @@
       {
         "name": "BIG W",
         "url": "https://www.bigw.com.au/product/amazon-echo-dot-max-graphite/p/6054658?srsltid=AfmBOorNoZtjQZ5mUiIDtU0Z1bh86OFWfn8-g3eV9rphgMU-zYi49lIornw",
-        "deepLink": true,
-        "priceAud": 112.69
+        "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:33.830Z",
     "ratingReal": 4.8,
     "reviewCountReal": 129,
@@ -33119,7 +33098,7 @@
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/laser-hdmi-set-top-box-with-usb-recording-function",
         "deepLink": true,
-        "priceAud": 46.05
+        "priceAud": 49
       },
       {
         "name": "Amazon AU",
@@ -33127,7 +33106,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:33.835Z",
     "ratingReal": 3.8,
     "reviewCountReal": 86,
@@ -33408,10 +33387,10 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/Amazon-Echo-Show-15-Smart-Kitchen-TV/dp/B0C7XK9TCM?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "deepLink": true,
-        "priceAud": 649
+        "priceAud": 648.95
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:34.640Z",
     "ratingReal": 5,
     "reviewCountReal": 1,
@@ -33494,7 +33473,7 @@
         "priceAud": 59
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:34.800Z",
     "ratingReal": 3.3,
     "reviewCountReal": 31,
@@ -33618,7 +33597,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:34.807Z",
     "ratingReal": 4.4,
     "reviewCountReal": 1000,
@@ -33883,7 +33862,7 @@
         "priceAud": 368
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:35.248Z",
     "ratingReal": 3.6,
     "reviewCountReal": 7,
@@ -33927,7 +33906,7 @@
         "url": "https://www.amazon.com.au/Bose-Lifestyle-Bluetooth-TrueSpatial-CleanBass/dp/B0GQ4PV9QR?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
         "deepLink": true,
-        "priceAud": 499.95
+        "priceAud": 549
       },
       {
         "name": "JB Hi-Fi",
@@ -33935,7 +33914,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:35.523Z",
     "ratingReal": 3.9,
     "reviewCountReal": 336,
@@ -34015,7 +33994,8 @@
       {
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/sonos-ray-soundbar-white?ab_version=A&srsltid=AfmBOor95DsVb_TcJC1KvdM3dGVpSoSwZGE14gmJ3issErHO1qb0ktPbPbQ",
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 349
       }
     ],
     "updatedAt": "2026-08-05T09:04:35.652Z",
@@ -34189,7 +34169,8 @@
       ],
       "date": "2026-09-24",
       "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+    },
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z"
   },
   {
     "id": "google-premium-audio-speaker",
@@ -34209,10 +34190,10 @@
         "url": "https://www.amazon.com.au/Google-Premium-Speaker-Coming-360-Degree/dp/B0H6GXQ7NT",
         "primary": true,
         "deepLink": true,
-        "priceAud": 181.43
+        "priceAud": 177.33
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:35.980Z",
     "googleProductId": "10025811724276378503",
     "specifications": [
@@ -34262,10 +34243,11 @@
       {
         "name": "The Good Guys",
         "url": "https://www.thegoodguys.com.au/lg-27-inches-stanbyme-2-portable-smart-touch-screen-tv-27lx6tdga?srsltid=AfmBOoosDrL-VJ8Z0Ex_bKXMa-EduPjLJsK6EIjcsIdrR9CWLXev4OuWLQ0",
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 1688
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:36.121Z",
     "ratingReal": 4.8,
     "reviewCountReal": 423,
@@ -34503,7 +34485,7 @@
         "priceAud": 289
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:36.583Z",
     "ratingReal": 4.9,
     "reviewCountReal": 397,
@@ -34551,10 +34533,10 @@
         "url": "https://www.amazon.com.au/YaSao-Conditioner-Controller-Thermostat-Temperature/dp/B0BCWZL75R?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2W15J60EE38W5",
         "primary": true,
         "deepLink": true,
-        "priceAud": 40.78
+        "priceAud": 42.36
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:36.743Z",
     "googleProductId": "6076101892224373036",
     "specifications": [
@@ -34607,7 +34589,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:36.754Z",
     "ratingReal": 5,
     "reviewCountReal": 13,
@@ -34684,7 +34666,7 @@
         "priceAud": 169
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:36.757Z",
     "ratingReal": 4.3,
     "reviewCountReal": 756,
@@ -35061,7 +35043,7 @@
         "priceAud": 15
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:37.105Z",
     "ratingReal": 4.6,
     "reviewCountReal": 256,
@@ -35104,7 +35086,7 @@
         "url": "https://www.amazon.com.au/Philips-NanoProtect-Ultra-quiet-Purification-AC0951/dp/B0D9YMNLK4?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
         "deepLink": true,
-        "priceAud": 243
+        "priceAud": 229
       },
       {
         "name": "JB Hi-Fi",
@@ -35117,7 +35099,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:37.266Z",
     "ratingReal": 4.6,
     "reviewCountReal": 311,
@@ -35176,21 +35158,23 @@
         "name": "JB Hi-Fi",
         "url": "https://www.jbhifi.com.au/products/tp-link-tapo-smart-desktop-temperature-humidity-monitor?ab_version=B&srsltid=AfmBOopVkq4weDigqDCBJYOWPAZbc_OOBlMLh9JcKQm358IrtD_qvKi_8LA",
         "primary": true,
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 29
       },
       {
         "name": "The Good Guys",
         "url": "https://www.thegoodguys.com.au/tp-link-smart-temperature-and-humidity-monitor-tapo-t315?srsltid=AfmBOorta6koUBYUgKekoXiutzbZqIKqxXVzeepALeLizvKeqru5l-SNEG8",
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 59
       },
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/TP-Link-Tapo-Temperature-Notification-T315/dp/B0BWCL335L?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "deepLink": true,
-        "priceAud": 22
+        "priceAud": 73.6
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:37.275Z",
     "ratingReal": 4.8,
     "reviewCountReal": 754,
@@ -35342,10 +35326,10 @@
         "url": "https://www.amazon.com.au/Google-Learning-Thermostat-Generation-Bundle/dp/B0DFDXZZ8G?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A4XRJ8S0WXSO0",
         "primary": true,
         "deepLink": true,
-        "priceAud": 123.29
+        "priceAud": 126.69
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:37.281Z",
     "googleProductId": "6886754687725929963",
     "specifications": [
@@ -35679,7 +35663,8 @@
       },
       {
         "name": "eBay AU",
-        "url": "https://www.ebay.com.au/sch/i.html?_nkw=Google+Nest+Smart+Thermostat"
+        "url": "https://www.ebay.com.au/sch/i.html?_nkw=Google+Nest+Smart+Thermostat",
+        "priceAud": 78.9
       }
     ],
     "updatedAt": "2026-08-05T09:04:37.434Z",
@@ -35737,7 +35722,8 @@
       ],
       "date": "2026-09-24",
       "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+    },
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z"
   },
   {
     "id": "aircon-off-universal-air-conditioner-smart-remote",
@@ -35838,11 +35824,9 @@
       {
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/Breville-Connect-Purifier-Wi-Fi-LAP158WHT2IAN1/dp/B08NYTLNQ9?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
-        "deepLink": true,
-        "priceAud": 221
+        "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "updatedAt": "2026-08-05T09:04:37.743Z",
     "ratingReal": 4.5,
     "reviewCountReal": 224,
@@ -36029,7 +36013,7 @@
         "priceAud": 26.49
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:37.849Z",
     "ratingReal": 3.8,
     "reviewCountReal": 24,
@@ -36090,7 +36074,7 @@
         "priceAud": 36
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:38.019Z",
     "shortDescription": "A Zigbee temperature and humidity sensor designed for monitoring indoor climate. Check the retailer listing for specifications, compatibility details and available features.",
     "descriptionRewrite": {
@@ -36128,7 +36112,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:38.215Z",
     "ratingReal": 4.8,
     "reviewCountReal": 662,
@@ -36378,7 +36362,7 @@
         "priceAud": 30.95
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:38.399Z",
     "ratingReal": 4.8,
     "reviewCountReal": 32,
@@ -36405,7 +36389,7 @@
         "url": "https://www.thegoodguys.com.au/shark-neverchange5-air-purifier-hp150anz?srsltid=AfmBOorXU0PMUciehlEfhA6QRhCDiNGJLGLLwfJSwii2ExQI-844hZ6eNg0",
         "primary": true,
         "deepLink": true,
-        "priceAud": 367
+        "priceAud": 459
       },
       {
         "name": "JB Hi-Fi",
@@ -36418,7 +36402,7 @@
         "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:38.659Z",
     "ratingReal": 4.4,
     "reviewCountReal": 21,
@@ -36470,10 +36454,10 @@
         "url": "https://www.amazon.com.au/Bosch-Smart-Home-Controlling-thermostats/dp/B0BKLXTWQX?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3P6X2GIMA114Z",
         "primary": true,
         "deepLink": true,
-        "priceAud": 91.78
+        "priceAud": 102.68
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:39.045Z",
     "ratingReal": 4.3,
     "reviewCountReal": 187,
@@ -36605,16 +36589,15 @@
         "url": "https://www.amazon.com.au/Xiaomi-Purifier-99-97-Pollen-Allergens/dp/B0H5RLH5M6?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
         "deepLink": true,
-        "priceAud": 319
+        "priceAud": 392.37
       },
       {
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/buy/itz-xiaomi-air-purifier-6-with-smart-app-control-oled-display-purify-pollen-hommix33600/",
-        "deepLink": true,
-        "priceAud": 480.14
+        "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:39.255Z",
     "ratingReal": 4.9,
     "reviewCountReal": 128,
@@ -36649,10 +36632,10 @@
         "url": "https://www.amazon.com.au/Homey-Bridge-Ultimate-Automation/dp/B08FRLQH75?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3JCEYBC5L8UJ8",
         "primary": true,
         "deepLink": true,
-        "priceAud": 149.35
+        "priceAud": 149.45
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:39.417Z",
     "ratingReal": 3.6,
     "reviewCountReal": 116,
@@ -36762,7 +36745,7 @@
         "priceAud": 78.93
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:39.532Z",
     "ratingReal": 4.2,
     "reviewCountReal": 5,
@@ -36932,10 +36915,10 @@
         "url": "https://www.amazon.com.au/Gateway-Universal-Assistant-Zigbee2MQTT-Wireless/dp/B0B6P22YJC?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
         "primary": true,
         "deepLink": true,
-        "priceAud": 47.4
+        "priceAud": 32.78
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:40.044Z",
     "ratingReal": 4.8,
     "reviewCountReal": 711,
@@ -37069,7 +37052,7 @@
         "priceAud": 71.96
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:40.256Z",
     "shortDescription": "A Matter and Zigbee 3.0 hub designed to centralise smart home automation. Check the retailer listing for full specifications and compatibility details.",
     "descriptionRewrite": {
@@ -37094,10 +37077,10 @@
         "url": "https://www.amazon.com.au/Automation-Wireless-Universal-Controllers-Compatible/dp/B0CNTPQD2V?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2HA1ZP0EN8PEG",
         "primary": true,
         "deepLink": true,
-        "priceAud": 35.1
+        "priceAud": 36.49
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:40.630Z",
     "ratingReal": 3,
     "reviewCountReal": 1,
@@ -37156,7 +37139,8 @@
         "name": "Kogan AU",
         "url": "https://www.kogan.com/au/buy/stuffology-store-35-inch-smart-home-control-panel-with-tuya-and-zigbee-9362172028680/",
         "primary": true,
-        "deepLink": true
+        "deepLink": true,
+        "priceAud": 211.78
       }
     ],
     "updatedAt": "2026-08-05T09:04:40.790Z",
@@ -37199,7 +37183,8 @@
     "cmsDescriptionHtml": "<h2>3.5 Inch Smart Home Control Panel</h2>\n<p>3.5 Inch Smart Home Control Panel is a hub or bridge for smart home setups, listed in the Hubs &#x26; Platforms range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights power (Wired), connectivity (Zigbee). Use those details to compare protocol support, app compatibility and local availability before deciding whether it suits your home.</p>\n<ul>\n<li>Power: Wired.</li>\n<li>Connectivity: Zigbee.</li>\n<li>Category: Hubs &#x26; Platforms.</li>\n<li>Best checked on protocol support, app compatibility and local availability.</li>\n</ul>",
     "descriptionRewrite": {
       "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+    },
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z"
   },
   {
     "id": "tuya-smart-home-bridge",
@@ -37219,10 +37204,10 @@
         "url": "https://www.amazon.com.au/Bluetooth-Gateway-Wireless-Control-Intelligent/dp/B0BDYF1Y1J?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3P6X2GIMA114Z",
         "primary": true,
         "deepLink": true,
-        "priceAud": 23.81
+        "priceAud": 23.95
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:41.309Z",
     "googleProductId": "11027256174379835950",
     "specifications": [
@@ -37304,10 +37289,10 @@
         "url": "https://www.amazon.com.au/Go-Smart-Automation-Blinds-Compatible/dp/B09M7HTTNF?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A4XRJ8S0WXSO0",
         "primary": true,
         "deepLink": true,
-        "priceAud": 250.07
+        "priceAud": 255.83
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:41.697Z",
     "googleProductId": "15819255302850686439",
     "specifications": [
@@ -37380,10 +37365,10 @@
         "url": "https://www.amazon.com.au/MOES-Matter-ZigBee-Gateway-Compatiable/dp/B0D1QVHWPV",
         "primary": true,
         "deepLink": true,
-        "priceAud": 35.73
+        "priceAud": 36.69
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:41.700Z",
     "ratingReal": 4.4,
     "reviewCountReal": 112,
@@ -37529,7 +37514,7 @@
         "priceAud": 65.11
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
     "updatedAt": "2026-08-05T09:04:42.129Z",
     "googleProductId": "4056309952244936132",
     "specifications": [
@@ -37569,11 +37554,9 @@
         "name": "Amazon AU",
         "url": "https://www.amazon.com.au/Atlantic-Cozytouch-500109-Wi-Fi-Bridge/dp/B09B77CDHX",
         "primary": true,
-        "deepLink": true,
-        "priceAud": 189.16
+        "deepLink": true
       }
     ],
-    "pricesCheckedAt": "2026-09-24T05:47:24.838Z",
     "updatedAt": "2026-08-05T09:04:42.247Z",
     "ratingReal": 4.2,
     "reviewCountReal": 229,
