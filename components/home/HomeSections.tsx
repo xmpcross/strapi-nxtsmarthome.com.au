@@ -7,20 +7,20 @@ import { getCategory, site } from '@/lib/site'
 import { AFFILIATE_ENABLED } from '@/lib/affiliate'
 
 /*
- * Home page sections redesigned with FlyonUI (Oct 2026).
- * Combines high visual impact, rich typography, glassmorphism accents,
- * and responsive grids while preserving 100% SEO metadata and crawlability.
+ * Completely new, shadowless design for Home Page sections (Oct 2026).
+ * Focuses on crisp hairline borders, elegant typography, subtle background tints,
+ * and high-contrast dark/light mode aesthetics without ANY drop shadows.
  */
 
 export function HomeHero({ articleCount, topicCount }: { articleCount: number; topicCount: number }) {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-gradient-to-b from-white via-neutral-50 to-neutral-100 p-8 sm:p-12 lg:p-16 shadow-xl dark:border-neutral-800/80 dark:from-neutral-900 dark:via-neutral-900/90 dark:to-neutral-950">
-      {/* Animated Background Mesh Orbs */}
+    <section className="relative overflow-hidden rounded-3xl border border-neutral-200/90 bg-gradient-to-b from-white via-neutral-50/50 to-neutral-100/50 p-8 sm:p-12 lg:p-16 dark:border-neutral-800 dark:from-neutral-900 dark:via-neutral-900/90 dark:to-neutral-950">
+      {/* Background Accent Gradients */}
       <div className="pointer-events-none absolute -left-20 -top-20 size-96 rounded-full bg-primary-500/10 blur-3xl dark:bg-primary-500/15"></div>
       <div className="pointer-events-none absolute -right-20 -bottom-20 size-96 rounded-full bg-purple-500/10 blur-3xl dark:bg-purple-500/15"></div>
 
       <div className="relative z-10 max-w-4xl">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/20 bg-primary-50/80 px-4 py-1.5 text-xs font-bold text-primary-700 backdrop-blur-md dark:border-primary-500/30 dark:bg-primary-950/60 dark:text-primary-300">
+        <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-4 py-1.5 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-950/80 dark:text-primary-300">
           <span className="relative flex size-2">
             <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
             <span className="relative inline-flex size-2 rounded-full bg-primary-500"></span>
@@ -36,40 +36,40 @@ export function HomeHero({ articleCount, topicCount }: { articleCount: number; t
         </h1>
 
         <p className="mt-5 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-          Buying guides, setup help, and plain-English explainers for smart lighting, security cameras, energy monitoring, climate control, robot vacuums, and platforms — written for 230V wiring, Australian retailers, renters, and owners.
+          Buying advice, setup help, and explainers for smart lighting, security cameras, energy monitoring, climate control, robot vacuums, and platforms — written for 230V wiring, Australian retailers, renters, and owners.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
             href="/articles/"
-            className="btn btn-primary gap-2 font-bold shadow-lg shadow-primary-500/20 hover:scale-105 transition-all"
+            className="btn btn-primary gap-2 font-bold transition-all hover:bg-primary-700"
           >
             Browse All {articleCount} Guides
             <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </Link>
           <Link
             href="/all-topics/"
-            className="btn btn-outline border-neutral-300 bg-white font-bold text-neutral-800 shadow-xs hover:border-primary-500 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
+            className="btn btn-outline border-neutral-300 bg-white font-bold text-neutral-800 hover:border-primary-500 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
           >
             Explore {topicCount} Topics
           </Link>
         </div>
 
-        {/* Live Feature Stats */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-neutral-200/60 dark:border-neutral-800">
-          <div>
+        {/* Live Feature Stats - Clean Hairline Borders */}
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+          <div className="rounded-2xl border border-neutral-200 bg-white/60 p-4 dark:border-neutral-800 dark:bg-neutral-900/60">
             <div className="text-2xl font-extrabold text-primary-600 dark:text-primary-400">{articleCount}+</div>
             <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">In-Depth Guides</div>
           </div>
-          <div>
+          <div className="rounded-2xl border border-neutral-200 bg-white/60 p-4 dark:border-neutral-800 dark:bg-neutral-900/60">
             <div className="text-2xl font-extrabold text-primary-600 dark:text-primary-400">{topicCount}</div>
             <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">Core Topics</div>
           </div>
-          <div>
+          <div className="rounded-2xl border border-neutral-200 bg-white/60 p-4 dark:border-neutral-800 dark:bg-neutral-900/60">
             <div className="text-2xl font-extrabold text-primary-600 dark:text-primary-400">230V AU</div>
             <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">Wiring Tested</div>
           </div>
-          <div>
+          <div className="rounded-2xl border border-neutral-200 bg-white/60 p-4 dark:border-neutral-800 dark:bg-neutral-900/60">
             <div className="text-2xl font-extrabold text-primary-600 dark:text-primary-400">NBN / Wi-Fi</div>
             <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">2.4GHz Verified</div>
           </div>
@@ -79,7 +79,7 @@ export function HomeHero({ articleCount, topicCount }: { articleCount: number; t
   )
 }
 
-/** One topic tile with FlyonUI styling */
+/** TopicTile - Hairline border without box shadows */
 export function TopicTile({ topic }: { topic: TCategory }) {
   const newest = topic.posts?.[0]
   const emoji = getCategory(topic.handle)?.emoji || '⚡'
@@ -87,12 +87,12 @@ export function TopicTile({ topic }: { topic: TCategory }) {
   return (
     <Link
       href={`/categories/${topic.handle}/`}
-      className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary-500/40 hover:shadow-xl dark:border-neutral-800/90 dark:bg-neutral-900"
+      className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 transition-all duration-200 hover:border-primary-500 hover:bg-neutral-50/50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-500 dark:hover:bg-neutral-800/50"
     >
       <div>
         <div className="flex items-center justify-between gap-3">
           <span
-            className="flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500/15 to-purple-500/15 text-2xl transition-transform duration-300 group-hover:scale-110 dark:from-primary-500/25 dark:to-purple-500/25"
+            className="flex size-14 items-center justify-center rounded-2xl bg-neutral-100 text-2xl transition-transform duration-300 group-hover:scale-105 dark:bg-neutral-800"
             aria-hidden="true"
           >
             {emoji}
@@ -124,12 +124,12 @@ export function TopicTile({ topic }: { topic: TCategory }) {
   )
 }
 
-/** Browse by topic section with FlyonUI styling */
+/** HomeTopics - Shadowless Section */
 export function HomeTopics({ topics }: { topics: TCategory[] }) {
   if (!topics.length) return null
   return (
     <section>
-      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-4 dark:border-neutral-800">
         <div>
           <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
             Categories
@@ -157,7 +157,7 @@ export function HomeTopics({ topics }: { topics: TCategory[] }) {
   )
 }
 
-/** One topic's section with FlyonUI magazine list layout */
+/** HomeTopicSection - Hairline border layout */
 export function HomeTopicSection({
   category,
   posts,
@@ -173,11 +173,11 @@ export function HomeTopicSection({
   const emoji = getCategory(category.handle)?.emoji || '⚡'
 
   return (
-    <section className="rounded-3xl border border-neutral-200/80 bg-white p-6 sm:p-8 lg:p-10 shadow-lg dark:border-neutral-800/80 dark:bg-neutral-900">
+    <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 lg:p-10 dark:border-neutral-800 dark:bg-neutral-900">
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
         <div className="flex items-center gap-4">
           <span
-            className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-2xl dark:bg-primary-950/60"
+            className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-neutral-100 text-2xl dark:bg-neutral-800"
             aria-hidden="true"
           >
             {emoji}
@@ -200,7 +200,7 @@ export function HomeTopicSection({
       <div className="grid gap-8 lg:grid-cols-5">
         <Link
           href={`/${lead.handle}/`}
-          className={`group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50/50 transition hover:border-primary-500/40 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-800/40 ${
+          className={`group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50/50 transition hover:border-primary-500 dark:border-neutral-800 dark:bg-neutral-800/40 ${
             list.length ? 'lg:col-span-2' : 'lg:col-span-5'
           } ${flip ? 'lg:order-2' : ''}`}
         >
@@ -220,7 +220,7 @@ export function HomeTopicSection({
             )}
           </div>
           <div className="flex flex-1 flex-col p-6">
-            <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider mb-2">
+            <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider mb-2 w-fit">
               Featured in {category.name}
             </span>
             <h3 className="text-xl font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
@@ -260,7 +260,7 @@ export function HomeTopicSection({
   )
 }
 
-/** Buying Guides Section */
+/** HomeBuyingGuides */
 export function HomeBuyingGuides({
   heading,
   subHeading,
@@ -278,7 +278,7 @@ export function HomeBuyingGuides({
   const [featured, ...rest] = posts
 
   return (
-    <section className="rounded-3xl border border-neutral-200/80 bg-white p-8 lg:p-12 shadow-xl dark:border-neutral-800/80 dark:bg-neutral-900">
+    <section className="rounded-3xl border border-neutral-200 bg-white p-8 lg:p-12 dark:border-neutral-800 dark:bg-neutral-900">
       <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
         <div>
           <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
@@ -295,7 +295,7 @@ export function HomeBuyingGuides({
       <div className="grid gap-6 lg:grid-cols-3">
         <Link
           href={`/${featured.handle}/`}
-          className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50/50 transition hover:border-primary-500/40 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-800/40"
+          className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50/50 transition hover:border-primary-500 dark:border-neutral-800 dark:bg-neutral-800/40"
         >
           <div className="relative aspect-16/10 w-full overflow-hidden bg-neutral-200 dark:bg-neutral-800 lg:aspect-auto lg:min-h-52 lg:flex-1">
             {featured.featuredImage?.src ? (
@@ -311,7 +311,7 @@ export function HomeBuyingGuides({
             )}
           </div>
           <div className="flex flex-col p-6">
-            <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider mb-2">
+            <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider mb-2 w-fit">
               Featured Buying Guide
             </span>
             <h3 className="text-xl font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
@@ -329,7 +329,7 @@ export function HomeBuyingGuides({
             <li key={post.id}>
               <Link
                 href={`/${post.handle}/`}
-                className="group flex h-full gap-4 rounded-2xl border border-neutral-200 bg-neutral-50/30 p-5 transition hover:border-primary-500/40 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-800/30"
+                className="group flex h-full gap-4 rounded-2xl border border-neutral-200 bg-neutral-50/30 p-5 transition hover:border-primary-500 dark:border-neutral-800 dark:bg-neutral-800/30"
               >
                 <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary-100 font-bold text-primary-800 text-xs dark:bg-primary-950/80 dark:text-primary-300">
                   0{i + 2}
@@ -354,7 +354,7 @@ export function HomeBuyingGuides({
   )
 }
 
-/** Setup Guides Section */
+/** HomeSetupGuides */
 export function HomeSetupGuides({
   heading,
   subHeading,
@@ -389,7 +389,7 @@ export function HomeSetupGuides({
           <li key={post.id}>
             <Link
               href={`/${post.handle}/`}
-              className="group flex items-center gap-5 rounded-2xl border border-neutral-200 bg-white p-4 shadow-xs transition-all hover:-translate-y-0.5 hover:border-primary-500/40 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
+              className="group flex items-center gap-5 rounded-2xl border border-neutral-200 bg-white p-4 transition-all hover:border-primary-500 hover:bg-neutral-50/50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800/50"
             >
               <span className="relative size-20 shrink-0 overflow-hidden rounded-xl sm:size-24 bg-neutral-100 dark:bg-neutral-800">
                 {post.featuredImage?.src ? (
@@ -423,12 +423,12 @@ export function HomeSetupGuides({
   )
 }
 
-/** Researched Products Section */
+/** HomeProducts */
 export function HomeProducts({ products }: { products: TopProduct[] }) {
   if (!products.length) return null
   return (
     <section>
-      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-4 dark:border-neutral-800">
         <div>
           <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
             Catalog
@@ -470,7 +470,7 @@ export function HomeTrust({ editorName, editorSlug }: { editorName: string; edit
     },
   ]
   return (
-    <section className="rounded-3xl border border-neutral-200/80 bg-gradient-to-br from-primary-500/10 via-indigo-500/5 to-purple-500/10 p-8 sm:p-12 lg:p-16 shadow-xl dark:border-neutral-800/80 dark:from-primary-950/40 dark:to-neutral-950">
+    <section className="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-8 sm:p-12 lg:p-16 dark:border-neutral-800 dark:bg-neutral-900/60">
       <div className="max-w-3xl mb-8">
         <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
           Trust & Methodology
@@ -485,7 +485,7 @@ export function HomeTrust({ editorName, editorSlug }: { editorName: string; edit
 
       <ul className="grid gap-6 md:grid-cols-3">
         {points.map((p) => (
-          <li key={p.title} className="rounded-2xl border border-neutral-200/80 bg-white/80 p-6 backdrop-blur-md shadow-xs dark:border-neutral-800 dark:bg-neutral-900/80">
+          <li key={p.title} className="rounded-2xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
             <h3 className="text-base font-bold text-neutral-900 dark:text-white">{p.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{p.body}</p>
           </li>

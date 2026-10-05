@@ -92,15 +92,15 @@ export default async function CategoriesIndex() {
       />
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Futuristic Hero Section with Gradient Glow Backdrop */}
-        <section className="relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-gradient-to-b from-white via-neutral-50 to-neutral-100 p-8 sm:p-12 lg:p-16 shadow-xl dark:border-neutral-800/80 dark:from-neutral-900 dark:via-neutral-900/90 dark:to-neutral-950">
+        {/* Hairline Border Hero Banner, Zero Drop Shadow */}
+        <section className="relative overflow-hidden rounded-3xl border border-neutral-200 bg-gradient-to-b from-white via-neutral-50 to-neutral-100 p-8 sm:p-12 lg:p-16 dark:border-neutral-800 dark:from-neutral-900 dark:via-neutral-900/90 dark:to-neutral-950">
           {/* Animated Background Mesh Orbs */}
           <div className="pointer-events-none absolute -left-20 -top-20 size-96 rounded-full bg-primary-500/10 blur-3xl dark:bg-primary-500/15"></div>
           <div className="pointer-events-none absolute -right-20 -bottom-20 size-96 rounded-full bg-purple-500/10 blur-3xl dark:bg-purple-500/15"></div>
 
           <div className="relative z-10 max-w-3xl">
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/20 bg-primary-50/80 px-4 py-1.5 text-xs font-bold text-primary-700 backdrop-blur-md dark:border-primary-500/30 dark:bg-primary-950/60 dark:text-primary-300">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-4 py-1.5 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-950/80 dark:text-primary-300">
               <span className="relative flex size-2">
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
                 <span className="relative inline-flex size-2 rounded-full bg-primary-500"></span>
@@ -120,21 +120,21 @@ export default async function CategoriesIndex() {
               Explore {articles.length} expert guides across {cats.length} core smart home domains — thoroughly tested for Australian 230V power rules, NBN network setups, and local retail availability.
             </p>
 
-            {/* Stats Counter Bar */}
+            {/* Stats Counter Bar - Hairline Border */}
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className="rounded-2xl border border-neutral-200/80 bg-white/80 p-4 backdrop-blur-md shadow-xs dark:border-neutral-800 dark:bg-neutral-800/80">
+              <div className="rounded-2xl border border-neutral-200 bg-white/80 p-4 dark:border-neutral-800 dark:bg-neutral-800/80">
                 <div className="text-2xl font-black text-primary-600 dark:text-primary-400">{articles.length}</div>
                 <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Published Guides</div>
               </div>
-              <div className="rounded-2xl border border-neutral-200/80 bg-white/80 p-4 backdrop-blur-md shadow-xs dark:border-neutral-800 dark:bg-neutral-800/80">
+              <div className="rounded-2xl border border-neutral-200 bg-white/80 p-4 dark:border-neutral-800 dark:bg-neutral-800/80">
                 <div className="text-2xl font-black text-primary-600 dark:text-primary-400">{cats.length}</div>
                 <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Categories</div>
               </div>
-              <div className="rounded-2xl border border-neutral-200/80 bg-white/80 p-4 backdrop-blur-md shadow-xs dark:border-neutral-800 dark:bg-neutral-800/80">
+              <div className="rounded-2xl border border-neutral-200 bg-white/80 p-4 dark:border-neutral-800 dark:bg-neutral-800/80">
                 <div className="text-2xl font-black text-primary-600 dark:text-primary-400">RCM / AU</div>
                 <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Electrical Standards</div>
               </div>
-              <div className="rounded-2xl border border-neutral-200/80 bg-white/80 p-4 backdrop-blur-md shadow-xs dark:border-neutral-800 dark:bg-neutral-800/80">
+              <div className="rounded-2xl border border-neutral-200 bg-white/80 p-4 dark:border-neutral-800 dark:bg-neutral-800/80">
                 <div className="text-2xl font-black text-primary-600 dark:text-primary-400">Matter</div>
                 <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Thread Ready</div>
               </div>
@@ -148,7 +148,7 @@ export default async function CategoriesIndex() {
         </section>
 
         {/* Australian Standards & Buying Advice Section */}
-        <section className="mt-20 rounded-3xl border border-neutral-200/80 bg-white p-8 md:p-12 shadow-xl dark:border-neutral-800/80 dark:bg-neutral-900">
+        <section className="mt-20 rounded-3xl border border-neutral-200 bg-white p-8 md:p-12 dark:border-neutral-800 dark:bg-neutral-900">
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8 mb-8">
             <div className="max-w-2xl">
               <span className="inline-block rounded-full bg-primary-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-800 dark:bg-primary-950/80 dark:text-primary-300">
@@ -163,7 +163,7 @@ export default async function CategoriesIndex() {
             </div>
             <Link
               href="/how-we-test/"
-              className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-2.5 text-xs font-bold text-neutral-800 shadow-xs hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 shrink-0"
+              className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-2.5 text-xs font-bold text-neutral-800 hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 shrink-0"
             >
               How We Test Devices →
             </Link>

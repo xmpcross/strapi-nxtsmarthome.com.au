@@ -25,7 +25,7 @@ export default function FlyonCard({
   return (
     <Link
       href={href}
-      className="card card-border group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl"
+      className="card card-border group flex flex-col overflow-hidden transition-all duration-300 hover:border-primary-500 bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl"
     >
       {imageUrl && (
         <figure className="aspect-video w-full overflow-hidden bg-base-200">
