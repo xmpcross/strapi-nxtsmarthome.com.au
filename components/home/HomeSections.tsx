@@ -75,43 +75,45 @@ export function HomeHero({ articleCount, topicCount }: { articleCount: number; t
   )
 }
 
-/** TopicTile - Hairline border without box shadows */
+/** TopicTile - Ultra-clean shadowless card with hairline borders */
 export function TopicTile({ topic }: { topic: TCategory }) {
   const newest = topic.posts?.[0]
-  const emoji = getCategory(topic.handle)?.emoji || '⚡'
+  const meta = getCategory(topic.handle)
+  const emoji = meta?.emoji || '⚡'
 
   return (
     <Link
       href={`/categories/${topic.handle}/`}
-      className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 transition-all duration-200 hover:border-primary-500 hover:bg-neutral-50/50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-500 dark:hover:bg-neutral-800/50"
+      className="group flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-neutral-200 bg-white p-7 transition-all duration-300 hover:border-primary-500 hover:bg-neutral-50/60 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-400 dark:hover:bg-neutral-800/40"
     >
       <div>
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center justify-between gap-4">
           <span
-            className="flex size-14 items-center justify-center rounded-2xl bg-neutral-100 text-2xl transition-transform duration-300 group-hover:scale-105 dark:bg-neutral-800"
+            className="flex size-14 items-center justify-center rounded-2xl bg-primary-50 text-3xl transition-transform duration-300 group-hover:scale-110 dark:bg-primary-950/60"
             aria-hidden="true"
           >
             {emoji}
           </span>
-          <span className="badge badge-soft badge-primary font-semibold text-xs py-2 px-3 rounded-full">
+          <span className="badge badge-soft badge-primary font-bold text-xs py-1.5 px-3 rounded-full border border-primary-500/20 dark:border-primary-500/30">
             {topic.count} {topic.count === 1 ? 'guide' : 'guides'}
           </span>
         </div>
 
-        <h3 className="mt-5 text-xl font-bold text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
+        <h3 className="mt-6 text-2xl font-bold tracking-tight text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
           {topic.name}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 line-clamp-2">
-          {topic.description}
+        <p className="mt-2.5 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 line-clamp-2">
+          {meta?.intro || topic.description}
         </p>
       </div>
 
       {newest && (
-        <div className="mt-6 border-t border-neutral-100 pt-4 text-sm dark:border-neutral-800">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
-            Latest Article
-          </span>
-          <span className="mt-1 line-clamp-1 block text-xs font-semibold text-neutral-800 group-hover:text-primary-600 dark:text-neutral-200 dark:group-hover:text-primary-400">
+        <div className="mt-6 pt-4 border-t border-neutral-100 dark:border-neutral-800">
+          <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 mb-1">
+            <span>Latest Guide</span>
+            <span className="text-primary-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+          <span className="line-clamp-1 block text-xs font-semibold text-neutral-800 group-hover:text-primary-600 dark:text-neutral-200 dark:group-hover:text-primary-400">
             {newest.title}
           </span>
         </div>
@@ -125,20 +127,23 @@ export function HomeTopics({ topics }: { topics: TCategory[] }) {
   if (!topics.length) return null
   return (
     <section>
-      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-4 dark:border-neutral-800">
+      <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
         <div>
           <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
-            Categories
+            Topic Directory
           </span>
-          <h2 className="text-3xl font-black text-neutral-900 dark:text-white">
-            Browse by Topic
+          <h2 className="text-3xl font-black tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
+            Browse Smart Home Topics
           </h2>
+          <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+            Explore {topics.length} core categories covering security, lighting, climate, energy, and platforms.
+          </p>
         </div>
         <Link
           href="/all-topics/"
-          className="btn btn-sm btn-outline border-neutral-300 dark:border-neutral-700 text-xs font-bold rounded-xl"
+          className="btn btn-sm btn-outline border-neutral-300 dark:border-neutral-700 text-xs font-bold rounded-xl shrink-0"
         >
-          View All Topics →
+          All Topics & Categories →
         </Link>
       </div>
 
