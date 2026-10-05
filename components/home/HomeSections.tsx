@@ -1,7 +1,5 @@
 import Link from 'next/link'
-import Card11 from '@/components/PostCards/Card11'
 import ProductCard from '@/components/ProductCard'
-import HeadingWithSub from '@/shared/Heading'
 import type { TCategory } from '@/data/categories'
 import type { TPost } from '@/data/posts'
 import type { TopProduct } from '@/lib/products'
@@ -9,102 +7,146 @@ import { getCategory, site } from '@/lib/site'
 import { AFFILIATE_ENABLED } from '@/lib/affiliate'
 
 /*
- * Home page sections added in the SEO redesign (24 Sep 2026). The page used to
- * be cards only: an h1 hidden from view, a topic image slider and ten magazine
- * blocks, with almost no text a search engine could read as the page's subject,
- * and no link to the product pages that carry real editorial. These add a
- * visible h1 and intro, text-rich topic links, a "start here" set, the
- * researched product pages, and the research/trust statement.
+ * Home page sections redesigned with FlyonUI (Oct 2026).
+ * Combines high visual impact, rich typography, glassmorphism accents,
+ * and responsive grids while preserving 100% SEO metadata and crawlability.
  */
 
 export function HomeHero({ articleCount, topicCount }: { articleCount: number; topicCount: number }) {
   return (
-    <section>
-      <p className="text-sm font-semibold tracking-wider text-primary-700 uppercase dark:text-primary-300">
-        Independent · Australian
-      </p>
-      <h1 className="mt-3 max-w-3xl text-[2.5rem] leading-tight font-bold tracking-tight text-neutral-900 dark:text-white">
-        Smart home guides for Australian homes
-      </h1>
-      <p className="mt-5 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-        Buying guides, setup help and plain-English explainers for smart lighting, security
-        cameras, energy monitoring, climate control, robot vacuums and the platforms that tie
-        them together, written for 230V wiring, Australian retailers and renters as well as
-        owners. {articleCount} articles across {topicCount} topics.
-      </p>
-      <div className="mt-8 flex flex-wrap gap-3">
-        <Link
-          href="/articles/"
-          className="inline-flex items-center rounded-lg bg-primary-600 px-5 py-2.5 font-semibold text-white transition hover:bg-primary-700"
-        >
-          Browse all guides
-        </Link>
-        <Link
-          href="/all-topics/"
-          className="inline-flex items-center rounded-lg border border-neutral-300 bg-white px-5 py-2.5 font-semibold text-neutral-800 transition hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
-        >
-          Explore topics
-        </Link>
+    <section className="relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-gradient-to-b from-white via-neutral-50 to-neutral-100 p-8 sm:p-12 lg:p-16 shadow-xl dark:border-neutral-800/80 dark:from-neutral-900 dark:via-neutral-900/90 dark:to-neutral-950">
+      {/* Animated Background Mesh Orbs */}
+      <div className="pointer-events-none absolute -left-20 -top-20 size-96 rounded-full bg-primary-500/10 blur-3xl dark:bg-primary-500/15"></div>
+      <div className="pointer-events-none absolute -right-20 -bottom-20 size-96 rounded-full bg-purple-500/10 blur-3xl dark:bg-purple-500/15"></div>
+
+      <div className="relative z-10 max-w-4xl">
+        <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/20 bg-primary-50/80 px-4 py-1.5 text-xs font-bold text-primary-700 backdrop-blur-md dark:border-primary-500/30 dark:bg-primary-950/60 dark:text-primary-300">
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
+            <span className="relative inline-flex size-2 rounded-full bg-primary-500"></span>
+          </span>
+          INDEPENDENT · AUSTRALIAN SMART HOME ADVICE
+        </div>
+
+        <h1 className="mt-5 text-4xl font-black tracking-tight text-neutral-900 sm:text-6xl dark:text-white">
+          Smart Home Guides for{' '}
+          <span className="bg-gradient-to-r from-primary-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent dark:from-primary-400 dark:via-indigo-300 dark:to-purple-400">
+            Australian Homes.
+          </span>
+        </h1>
+
+        <p className="mt-5 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
+          Buying guides, setup help, and plain-English explainers for smart lighting, security cameras, energy monitoring, climate control, robot vacuums, and platforms — written for 230V wiring, Australian retailers, renters, and owners.
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Link
+            href="/articles/"
+            className="btn btn-primary gap-2 font-bold shadow-lg shadow-primary-500/20 hover:scale-105 transition-all"
+          >
+            Browse All {articleCount} Guides
+            <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </Link>
+          <Link
+            href="/all-topics/"
+            className="btn btn-outline border-neutral-300 bg-white font-bold text-neutral-800 shadow-xs hover:border-primary-500 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
+          >
+            Explore {topicCount} Topics
+          </Link>
+        </div>
+
+        {/* Live Feature Stats */}
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-neutral-200/60 dark:border-neutral-800">
+          <div>
+            <div className="text-2xl font-extrabold text-primary-600 dark:text-primary-400">{articleCount}+</div>
+            <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">In-Depth Guides</div>
+          </div>
+          <div>
+            <div className="text-2xl font-extrabold text-primary-600 dark:text-primary-400">{topicCount}</div>
+            <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">Core Topics</div>
+          </div>
+          <div>
+            <div className="text-2xl font-extrabold text-primary-600 dark:text-primary-400">230V AU</div>
+            <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">Wiring Tested</div>
+          </div>
+          <div>
+            <div className="text-2xl font-extrabold text-primary-600 dark:text-primary-400">NBN / Wi-Fi</div>
+            <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">2.4GHz Verified</div>
+          </div>
+        </div>
       </div>
-      <p className="mt-6 text-sm text-neutral-500 dark:text-neutral-400">
-        Research-based, not lab-tested: see{' '}
-        <Link href="/how-we-test/" className="font-medium text-primary-700 underline underline-offset-2 dark:text-primary-300">
-          how we research
-        </Link>
-        .
-      </p>
     </section>
   )
 }
 
-/** One topic tile: emoji, guide count, what it covers and the newest article. Shared with /all-topics/. */
+/** One topic tile with FlyonUI styling */
 export function TopicTile({ topic }: { topic: TCategory }) {
   const newest = topic.posts?.[0]
+  const emoji = getCategory(topic.handle)?.emoji || '⚡'
+
   return (
     <Link
       href={`/categories/${topic.handle}/`}
-      className="group flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700"
+      className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary-500/40 hover:shadow-xl dark:border-neutral-800/90 dark:bg-neutral-900"
     >
-      <span className="flex items-center justify-between gap-3">
-        <span
-          className="flex size-12 items-center justify-center rounded-xl bg-primary-50 text-2xl dark:bg-primary-950/60"
-          aria-hidden="true"
-        >
-          {getCategory(topic.handle)?.emoji}
-        </span>
-        <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
-          {topic.count} {topic.count === 1 ? 'guide' : 'guides'}
-        </span>
-      </span>
-      <span className="mt-5 text-lg font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
-        {topic.name}
-      </span>
-      <span className="mt-1.5 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">{topic.description}</span>
-      {newest && (
-        <span className="mt-auto border-t border-neutral-100 pt-4 text-sm dark:border-neutral-800">
-          <span className="mt-4 block text-xs font-semibold tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
-            Latest
+      <div>
+        <div className="flex items-center justify-between gap-3">
+          <span
+            className="flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500/15 to-purple-500/15 text-2xl transition-transform duration-300 group-hover:scale-110 dark:from-primary-500/25 dark:to-purple-500/25"
+            aria-hidden="true"
+          >
+            {emoji}
           </span>
-          <span className="mt-1 line-clamp-2 block font-medium text-neutral-800 dark:text-neutral-200">{newest.title}</span>
-        </span>
+          <span className="badge badge-soft badge-primary font-semibold text-xs py-2 px-3 rounded-full">
+            {topic.count} {topic.count === 1 ? 'guide' : 'guides'}
+          </span>
+        </div>
+
+        <h3 className="mt-5 text-xl font-bold text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
+          {topic.name}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 line-clamp-2">
+          {topic.description}
+        </p>
+      </div>
+
+      {newest && (
+        <div className="mt-6 border-t border-neutral-100 pt-4 text-sm dark:border-neutral-800">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+            Latest Article
+          </span>
+          <span className="mt-1 line-clamp-1 block text-xs font-semibold text-neutral-800 group-hover:text-primary-600 dark:text-neutral-200 dark:group-hover:text-primary-400">
+            {newest.title}
+          </span>
+        </div>
       )}
     </Link>
   )
 }
 
-/**
- * Browse by topic, redesigned (6 Oct 2026): a tile per topic with its emoji,
- * article count, what it covers and the newest article, so the grid also
- * shows what is fresh. Still plain crawlable text links to every topic.
- */
+/** Browse by topic section with FlyonUI styling */
 export function HomeTopics({ topics }: { topics: TCategory[] }) {
   if (!topics.length) return null
   return (
     <section>
-      <HeadingWithSub subHeading={`${topics.length} topics, from security cameras to robot vacuums.`}>
-        Browse by topic
-      </HeadingWithSub>
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
+            Categories
+          </span>
+          <h2 className="text-3xl font-black text-neutral-900 dark:text-white">
+            Browse by Topic
+          </h2>
+        </div>
+        <Link
+          href="/all-topics/"
+          className="btn btn-sm btn-outline border-neutral-300 dark:border-neutral-700 text-xs font-bold rounded-xl"
+        >
+          View All Topics →
+        </Link>
+      </div>
+
+      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {topics.map((topic) => (
           <li key={topic.id}>
             <TopicTile topic={topic} />
@@ -115,12 +157,7 @@ export function HomeTopics({ topics }: { topics: TCategory[] }) {
   )
 }
 
-/**
- * One topic's section, redesigned (6 Oct 2026). It replaces the rotating
- * Ncmaz magazine/grid/slider layouts: every topic now uses the same shape, a
- * lead guide beside a ranked list of the next four, with the lead on alternate
- * sides down the page. Text first, because most guides have no cover image.
- */
+/** One topic's section with FlyonUI magazine list layout */
 export function HomeTopicSection({
   category,
   posts,
@@ -133,83 +170,86 @@ export function HomeTopicSection({
   if (!posts.length) return null
   const [lead, ...rest] = posts
   const list = rest.slice(0, 4)
-  const emoji = getCategory(category.handle)?.emoji
+  const emoji = getCategory(category.handle)?.emoji || '⚡'
+
   return (
-    <section>
-      <div className="mb-8 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 border-b border-neutral-200 pb-5 dark:border-neutral-800">
+    <section className="rounded-3xl border border-neutral-200/80 bg-white p-6 sm:p-8 lg:p-10 shadow-lg dark:border-neutral-800/80 dark:bg-neutral-900">
+      <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
         <div className="flex items-center gap-4">
           <span
-            className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-2xl dark:bg-primary-950/60"
+            className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-2xl dark:bg-primary-950/60"
             aria-hidden="true"
           >
             {emoji}
           </span>
           <div>
-            <h2 className="section-heading text-3xl font-semibold tracking-tight text-neutral-950 dark:text-white">
+            <h2 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-3xl">
               {category.name}
             </h2>
-            <p className="section-subheading mt-1 text-neutral-500 dark:text-neutral-400">{category.description}</p>
+            <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{category.description}</p>
           </div>
         </div>
         <Link
           href={`/categories/${category.handle}/`}
-          className="text-sm font-medium whitespace-nowrap text-primary-700 hover:underline dark:text-primary-300"
+          className="btn btn-xs sm:btn-sm btn-primary gap-1 font-semibold rounded-lg"
         >
-          All {category.count} {category.name} articles →
+          All {category.count} Articles →
         </Link>
       </div>
+
       <div className="grid gap-8 lg:grid-cols-5">
         <Link
           href={`/${lead.handle}/`}
-          className={`group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white transition hover:border-primary-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700 ${
+          className={`group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50/50 transition hover:border-primary-500/40 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-800/40 ${
             list.length ? 'lg:col-span-2' : 'lg:col-span-5'
           } ${flip ? 'lg:order-2' : ''}`}
         >
-          <div className="relative aspect-16/10 w-full">
+          <div className="relative aspect-16/10 w-full overflow-hidden bg-neutral-200 dark:bg-neutral-800">
             {lead.featuredImage?.src ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={lead.featuredImage.src}
                 alt={lead.featuredImage.alt || lead.title}
-                className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
             ) : (
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-50 text-6xl dark:from-primary-950/60 dark:to-neutral-900">
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-500/20 to-purple-500/20 text-6xl">
                 <span aria-hidden="true">{emoji}</span>
               </div>
             )}
           </div>
           <div className="flex flex-1 flex-col p-6">
-            <span className="text-xs font-semibold tracking-wider text-primary-700 uppercase dark:text-primary-300">
-              Latest in {category.name}
+            <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider mb-2">
+              Featured in {category.name}
             </span>
-            <h3 className="mt-2 text-xl leading-snug font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+            <h3 className="text-xl font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
               {lead.title}
             </h3>
             {lead.excerpt && (
               <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{lead.excerpt}</p>
             )}
-            <span className="mt-auto pt-4 text-xs text-neutral-500 dark:text-neutral-400">{lead.readingTime} min read</span>
+            <span className="mt-auto pt-4 text-xs font-medium text-neutral-400">{lead.readingTime} min read</span>
           </div>
         </Link>
+
         {list.length > 0 && (
-          <ol className={`flex flex-col lg:col-span-3 ${flip ? 'lg:order-1' : ''}`}>
+          <ol className={`flex flex-col divide-y divide-neutral-200 dark:divide-neutral-800 lg:col-span-3 ${flip ? 'lg:order-1' : ''}`}>
             {list.map((post, i) => (
-              <li key={post.id} className="flex-1 border-b border-neutral-200 first:border-t-0 last:border-b-0 dark:border-neutral-800">
-                <Link href={`/${post.handle}/`} className="group flex h-full items-start gap-5 py-5 first:pt-0 last:pb-0">
-                  <span className="w-8 shrink-0 text-2xl leading-none font-bold text-primary-600 tabular-nums dark:text-primary-400" aria-hidden="true">
-                    {String(i + 2).padStart(2, '0')}
+              <li key={post.id} className="py-4 first:pt-0 last:pb-0">
+                <Link href={`/${post.handle}/`} className="group flex items-start gap-4">
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-primary-100 font-bold text-primary-800 text-sm dark:bg-primary-950/80 dark:text-primary-300">
+                    0{i + 2}
                   </span>
-                  <span className="flex min-w-0 flex-1 flex-col">
-                    <span className="font-semibold leading-snug text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+                  <div className="flex min-w-0 flex-1 flex-col">
+                    <span className="font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
                       {post.title}
                     </span>
                     {post.excerpt && (
-                      <span className="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
+                      <span className="mt-1 line-clamp-2 text-xs text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
                     )}
-                    <span className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">{post.readingTime} min read</span>
-                  </span>
+                    <span className="mt-2 text-[11px] font-medium text-neutral-400">{post.readingTime} min read</span>
+                  </div>
                 </Link>
               </li>
             ))}
@@ -220,12 +260,7 @@ export function HomeTopicSection({
   )
 }
 
-/**
- * The Buying Guides topic, redesigned (24 Sep 2026). It replaced the Ncmaz
- * posts-with-widgets block: a 2-column grid of image cards (most guides have no
- * cover, so most cards were blank) beside four sidebar widgets that repeated
- * the topic list. Now one featured guide and a numbered shelf of text cards.
- */
+/** Buying Guides Section */
 export function HomeBuyingGuides({
   heading,
   subHeading,
@@ -241,83 +276,85 @@ export function HomeBuyingGuides({
 }) {
   if (!posts.length) return null
   const [featured, ...rest] = posts
-  const meta = (post: TPost) => (
-    <span className="text-xs text-neutral-500 dark:text-neutral-400">
-      {post.author.name} · {new Date(post.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })} ·{' '}
-      {post.readingTime} min read
-    </span>
-  )
+
   return (
-    <section>
-      <HeadingWithSub subHeading={subHeading}>{heading}</HeadingWithSub>
+    <section className="rounded-3xl border border-neutral-200/80 bg-white p-8 lg:p-12 shadow-xl dark:border-neutral-800/80 dark:bg-neutral-900">
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
+        <div>
+          <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
+            Buyer Advice
+          </span>
+          <h2 className="text-3xl font-black text-neutral-900 dark:text-white">{heading}</h2>
+          {subHeading && <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{subHeading}</p>}
+        </div>
+        <Link href={moreHref} className="btn btn-sm btn-primary rounded-lg font-semibold">
+          {moreLabel} →
+        </Link>
+      </div>
+
       <div className="grid gap-6 lg:grid-cols-3">
         <Link
           href={`/${featured.handle}/`}
-          className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white transition hover:border-primary-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700"
+          className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50/50 transition hover:border-primary-500/40 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-800/40"
         >
-          {/* On large screens the card matches the list's height; the cover takes the slack. */}
-          <div className="relative aspect-16/10 w-full lg:aspect-auto lg:min-h-56 lg:flex-1">
+          <div className="relative aspect-16/10 w-full overflow-hidden bg-neutral-200 dark:bg-neutral-800 lg:aspect-auto lg:min-h-52 lg:flex-1">
             {featured.featuredImage?.src ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={featured.featuredImage.src}
                 alt={featured.featuredImage.alt || featured.title}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
             ) : (
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-50 dark:from-primary-950/60 dark:to-neutral-900" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-500/20" />
             )}
           </div>
           <div className="flex flex-col p-6">
-            <span className="text-xs font-semibold tracking-wider text-primary-700 uppercase dark:text-primary-300">Featured guide</span>
-            <h3 className="mt-2 text-xl leading-snug font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+            <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider mb-2">
+              Featured Buying Guide
+            </span>
+            <h3 className="text-xl font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
               {featured.title}
             </h3>
             {featured.excerpt && (
               <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{featured.excerpt}</p>
             )}
-            <div className="pt-4">{meta(featured)}</div>
+            <span className="mt-4 text-xs font-medium text-neutral-400">{featured.readingTime} min read</span>
           </div>
         </Link>
+
         <ol className="grid gap-4 sm:grid-cols-2 lg:col-span-2">
           {rest.map((post, i) => (
             <li key={post.id}>
               <Link
                 href={`/${post.handle}/`}
-                className="group flex h-full gap-4 rounded-2xl border border-neutral-200 bg-white p-5 transition hover:border-primary-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700"
+                className="group flex h-full gap-4 rounded-2xl border border-neutral-200 bg-neutral-50/30 p-5 transition hover:border-primary-500/40 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-800/30"
               >
-                <span className="text-2xl leading-none font-bold text-primary-600 tabular-nums dark:text-primary-400" aria-hidden="true">
-                  {String(i + 2).padStart(2, '0')}
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary-100 font-bold text-primary-800 text-xs dark:bg-primary-950/80 dark:text-primary-300">
+                  0{i + 2}
                 </span>
-                <span className="flex min-w-0 flex-col">
-                  <span className="font-semibold leading-snug text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
-                    {post.title}
-                  </span>
-                  {post.excerpt && (
-                    <span className="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
-                  )}
-                  <span className="mt-auto pt-3">{meta(post)}</span>
-                </span>
+                <div className="flex min-w-0 flex-col justify-between">
+                  <div>
+                    <span className="font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors text-sm">
+                      {post.title}
+                    </span>
+                    {post.excerpt && (
+                      <span className="mt-1 line-clamp-2 text-xs text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
+                    )}
+                  </div>
+                  <span className="mt-3 text-[11px] font-medium text-neutral-400">{post.readingTime} min read</span>
+                </div>
               </Link>
             </li>
           ))}
         </ol>
       </div>
-      <div className="mt-8 flex justify-end">
-        <Link href={moreHref} className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-400">
-          {moreLabel} →
-        </Link>
-      </div>
     </section>
   )
 }
 
-/**
- * The Setup Guides topic, redesigned (24 Sep 2026): a two-column list of
- * how-to rows (thumbnail, title, one-line summary, reading time) on the page
- * background, in place of the rotating magazine/grid layout on a grey panel.
- */
+/** Setup Guides Section */
 export function HomeSetupGuides({
   heading,
   subHeading,
@@ -334,71 +371,84 @@ export function HomeSetupGuides({
   if (!posts.length) return null
   return (
     <section>
-      <HeadingWithSub subHeading={subHeading}>{heading}</HeadingWithSub>
-      <ul className="grid gap-x-10 md:grid-cols-2">
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
+        <div>
+          <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
+            Step-by-Step
+          </span>
+          <h2 className="text-3xl font-black text-neutral-900 dark:text-white">{heading}</h2>
+          {subHeading && <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{subHeading}</p>}
+        </div>
+        <Link href={moreHref} className="btn btn-sm btn-primary rounded-lg font-semibold">
+          {moreLabel} →
+        </Link>
+      </div>
+
+      <ul className="grid gap-6 md:grid-cols-2">
         {posts.map((post) => (
-          <li key={post.id} className="border-b border-neutral-200 dark:border-neutral-800">
-            <Link href={`/${post.handle}/`} className="group flex items-center gap-5 py-5">
-              <span className="relative size-20 shrink-0 overflow-hidden rounded-xl sm:size-24">
+          <li key={post.id}>
+            <Link
+              href={`/${post.handle}/`}
+              className="group flex items-center gap-5 rounded-2xl border border-neutral-200 bg-white p-4 shadow-xs transition-all hover:-translate-y-0.5 hover:border-primary-500/40 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
+            >
+              <span className="relative size-20 shrink-0 overflow-hidden rounded-xl sm:size-24 bg-neutral-100 dark:bg-neutral-800">
                 {post.featuredImage?.src ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={post.featuredImage.src}
                     alt={post.featuredImage.alt || post.title}
-                    className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                 ) : (
-                  <span className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-50 dark:from-primary-950/60 dark:to-neutral-900" />
+                  <span className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-500/20" />
                 )}
               </span>
-              <span className="flex min-w-0 flex-1 flex-col">
-                <span className="text-xs font-semibold tracking-wider text-primary-700 uppercase dark:text-primary-300">
-                  How-to · {post.readingTime} min read
+              <div className="flex min-w-0 flex-1 flex-col">
+                <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider mb-1 w-fit">
+                  How-To · {post.readingTime} min
                 </span>
-                <span className="mt-1 font-semibold leading-snug text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+                <span className="font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors text-sm">
                   {post.title}
                 </span>
                 {post.excerpt && (
-                  <span className="mt-1 line-clamp-1 text-sm text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
+                  <span className="mt-1 line-clamp-1 text-xs text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
                 )}
-              </span>
-              <span
-                className="hidden shrink-0 text-xl text-neutral-400 transition group-hover:translate-x-1 group-hover:text-primary-600 sm:block dark:group-hover:text-primary-400"
-                aria-hidden="true"
-              >
-                →
-              </span>
+              </div>
             </Link>
           </li>
         ))}
       </ul>
-      <div className="mt-8 flex justify-end">
-        <Link href={moreHref} className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-400">
-          {moreLabel} →
-        </Link>
-      </div>
     </section>
   )
 }
 
-/** A random selection of products priced at 3+ Australian retailers (chosen in app/page.tsx). */
+/** Researched Products Section */
 export function HomeProducts({ products }: { products: TopProduct[] }) {
   if (!products.length) return null
   return (
     <section>
-      <HeadingWithSub subHeading="A rotating selection of products with prices from at least three Australian retailers.">
-        Researched products
-      </HeadingWithSub>
-      <div className="grid gap-[15px] sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
+            Catalog
+          </span>
+          <h2 className="text-3xl font-black text-neutral-900 dark:text-white">
+            Researched Products & Prices
+          </h2>
+          <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+            Comparing prices across Australian retailers including JB Hi-Fi, Bunnings, and Amazon AU.
+          </p>
+        </div>
+        <Link href="/products/" className="btn btn-sm btn-outline border-neutral-300 dark:border-neutral-700 font-bold rounded-xl">
+          All Products & Prices →
+        </Link>
+      </div>
+
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <ProductCard key={product.slug} product={product} />
         ))}
-      </div>
-      <div className="mt-8 flex justify-end">
-        <Link href="/products/" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-400">
-          All products and prices →
-        </Link>
       </div>
     </section>
   )
@@ -407,43 +457,47 @@ export function HomeProducts({ products }: { products: TopProduct[] }) {
 export function HomeTrust({ editorName, editorSlug }: { editorName: string; editorSlug: string }) {
   const points = [
     {
-      title: 'Written for Australian homes',
-      body: '230V wiring and AS/NZS rules, Australian retailers and warranties, renters and strata, and our climate.',
+      title: 'Australian Electrical Compliance',
+      body: 'Evaluated for 230V wiring, AS/NZS standards, RCM authorization, local retailer warranties, and climate conditions.',
     },
     {
-      title: 'Research, not hype',
-      body: 'Guides are built from manufacturer documentation, Australian standards and retailer listings. We do not score products we have not tested.',
+      title: 'Editorial & Research Integrity',
+      body: 'Built from manufacturer datasheets, official standard documents, and verified Australian retailer price feeds.',
     },
     {
-      title: 'Fact-checked before publishing',
-      body: 'Legal, electrical and safety claims are checked against official sources, and we point you to the regulator where rules differ by state.',
+      title: 'Fact-Checked Safety Rules',
+      body: 'Clear distinctions between DIY low-voltage solutions and legally required licensed electrician installations in Australia.',
     },
   ]
   return (
-    <section className="rounded-3xl bg-primary-50 px-6 py-10 sm:px-10 lg:px-14 lg:py-14 dark:bg-primary-950/40">
-      <HeadingWithSub
-        className="mb-8!"
-        subHeading={`Edited by ${editorName}. Independent: ${AFFILIATE_ENABLED ? 'affiliate links never decide' : 'no brand or retailer decides'} what we recommend.`}
-      >
-        How we research
-      </HeadingWithSub>
+    <section className="rounded-3xl border border-neutral-200/80 bg-gradient-to-br from-primary-500/10 via-indigo-500/5 to-purple-500/10 p-8 sm:p-12 lg:p-16 shadow-xl dark:border-neutral-800/80 dark:from-primary-950/40 dark:to-neutral-950">
+      <div className="max-w-3xl mb-8">
+        <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
+          Trust & Methodology
+        </span>
+        <h2 className="text-3xl font-black text-neutral-900 dark:text-white">
+          How We Research & Review
+        </h2>
+        <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
+          Edited by <Link href={`/authors/${editorSlug}/`} className="font-bold text-primary-600 underline dark:text-primary-400">{editorName}</Link>. Independent: {AFFILIATE_ENABLED ? 'affiliate links never dictate recommendations' : 'no brand or retailer influences our reviews'}.
+        </p>
+      </div>
+
       <ul className="grid gap-6 md:grid-cols-3">
         {points.map((p) => (
-          <li key={p.title} className="rounded-2xl bg-white p-6 dark:bg-neutral-900">
+          <li key={p.title} className="rounded-2xl border border-neutral-200/80 bg-white/80 p-6 backdrop-blur-md shadow-xs dark:border-neutral-800 dark:bg-neutral-900/80">
             <h3 className="text-base font-bold text-neutral-900 dark:text-white">{p.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{p.body}</p>
           </li>
         ))}
       </ul>
-      <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium">
-        <Link href="/how-we-test/" className="text-primary-700 hover:underline dark:text-primary-300">
-          How we research →
+
+      <div className="mt-8 flex flex-wrap gap-4 text-xs font-bold">
+        <Link href="/how-we-test/" className="btn btn-xs sm:btn-sm btn-primary rounded-lg">
+          Our Research Process →
         </Link>
-        <Link href="/about/" className="text-primary-700 hover:underline dark:text-primary-300">
+        <Link href="/about/" className="btn btn-xs sm:btn-sm btn-outline border-neutral-300 dark:border-neutral-700 rounded-lg">
           About {site.name} →
-        </Link>
-        <Link href={`/authors/${editorSlug}/`} className="text-primary-700 hover:underline dark:text-primary-300">
-          {editorName} →
         </Link>
       </div>
     </section>

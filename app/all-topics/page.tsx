@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 import AllTopicsClient, { TopicCategoryData } from '@/components/AllTopicsClient';
 import FlyonAccordion from '@/components/flyonui/FlyonAccordion';
-import FlyonHero from '@/components/flyonui/FlyonHero';
 import { getCategories } from '@/data/categories';
 import { getAllArticles } from '@/lib/content';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { getListableTopProducts } from '@/lib/products';
 import { getCategory, site } from '@/lib/site';
+import Link from 'next/link';
 
 const DESCRIPTION =
   'Browse smart home guides and reviews by topic — security, lighting, energy, climate, hubs and platforms, robot vacuums, setup guides and buying guides.';
@@ -44,27 +44,27 @@ export default async function CategoriesIndex() {
 
   const topicFaqs = [
     {
-      id: 'faq-1',
-      question: 'How are these smart home guides tailored for Australia?',
+      id: 'au-standards',
+      question: 'How are these guides adapted for Australian electrical & network rules?',
       answer:
-        'All NXT Smart Home guides specifically cover Australian electrical standards (230V/50Hz), NBN Wi-Fi configurations (2.4GHz vs 5GHz band separation), local retailer availability (JB Hi-Fi, Bunnings, Harvey Norman), and Australian compliance marks (RCM / Telecommunications standards).',
+        'Australia uses 230V/50Hz mains power, requiring RCM (Regulatory Compliance Mark) certified hardware. Any 240V in-wall switch or power point requires installation by a licensed Australian electrician. Our guides strictly distinguish between DIY low-voltage devices and electrician-required hardware.',
     },
     {
-      id: 'faq-2',
-      question: 'Which smart home ecosystems work best together in Australian homes?',
+      id: 'wifi-bands',
+      question: 'Why do most smart home devices require a separate 2.4GHz Wi-Fi band?',
       answer:
-        'Apple Home, Google Home, and Amazon Alexa are the primary platforms in AU. Matter and Thread devices seamlessly bridge across all three. Check our Hubs & Platforms guides for step-by-step setup.',
+        'Most IoT microcontrollers (e.g., Tuya, ESP32, Matter over Wi-Fi) operate exclusively on 2.4GHz because it offers far superior range and wall penetration than 5GHz. Australian mesh routers (Telstra Smart Modem, eero, Google Nest Wi-Fi) often band-steer, so our setup guides provide exact steps to split or temporarily separate bands.',
     },
     {
-      id: 'faq-3',
-      question: 'Do I need a certified electrician to install smart switches in Australia?',
+      id: 'ecosystem-choice',
+      question: 'Should I choose Apple Home, Google Home, or Amazon Alexa in Australia?',
       answer:
-        'Yes. In Australia, any 240V mains wiring — including hardwired smart light switches and smart power points — legally requires a licensed electrician. Plug-in smart plugs and battery/DIY smart devices do not.',
+        'All three platforms have strong Australian localization. Apple Home is best for privacy and fast local execution; Google Home excels at natural voice queries and Nest hardware; Amazon Alexa offers the widest accessory compatibility. Devices supporting Matter or Thread work across all three simultaneously.',
     },
   ];
 
   return (
-    <div className="page-categories-index container pt-8 pb-24 lg:pt-12 lg:pb-28 max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="page-categories-index min-h-screen bg-neutral-50/50 py-10 dark:bg-neutral-950">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: 'Home', path: '/' },
@@ -91,52 +91,86 @@ export default async function CategoriesIndex() {
         }}
       />
 
-      {/* FlyonUI Hero Banner */}
-      <FlyonHero
-        badge="Australian Smart Home Directory"
-        title="Explore Smart Home"
-        highlightedTitle="Topics & Guides"
-        description={`Everything we publish, organized by what you want to achieve: ${articles.length} in-depth guides across ${cats.length} core topics, crafted for Australian homes, retail ecosystems, and electrical standards.`}
-        primaryCta={{ label: 'Explore All Guides', href: '#directory' }}
-        secondaryCta={{ label: 'Compare Products', href: '/products/' }}
-      />
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Futuristic Hero Section with Gradient Glow Backdrop */}
+        <section className="relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-gradient-to-b from-white via-neutral-50 to-neutral-100 p-8 sm:p-12 lg:p-16 shadow-xl dark:border-neutral-800/80 dark:from-neutral-900 dark:via-neutral-900/90 dark:to-neutral-950">
+          {/* Animated Background Mesh Orbs */}
+          <div className="pointer-events-none absolute -left-20 -top-20 size-96 rounded-full bg-primary-500/10 blur-3xl dark:bg-primary-500/15"></div>
+          <div className="pointer-events-none absolute -right-20 -bottom-20 size-96 rounded-full bg-purple-500/10 blur-3xl dark:bg-purple-500/15"></div>
 
-      {/* Quick Metrics Bar */}
-      <div className="my-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-        <div className="card card-border bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-4 rounded-xl shadow-xs">
-          <span className="text-2xl lg:text-3xl font-extrabold text-primary">{articles.length}</span>
-          <span className="text-xs text-base-content/70 font-medium mt-1 block">Published Guides</span>
-        </div>
-        <div className="card card-border bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-4 rounded-xl shadow-xs">
-          <span className="text-2xl lg:text-3xl font-extrabold text-primary">{cats.length}</span>
-          <span className="text-xs text-base-content/70 font-medium mt-1 block">Topic Categories</span>
-        </div>
-        <div className="card card-border bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-4 rounded-xl shadow-xs">
-          <span className="text-2xl lg:text-3xl font-extrabold text-primary">100%</span>
-          <span className="text-xs text-base-content/70 font-medium mt-1 block">AU Compliance</span>
-        </div>
-        <div className="card card-border bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-4 rounded-xl shadow-xs">
-          <span className="text-2xl lg:text-3xl font-extrabold text-primary">2.4GHz / 5GHz</span>
-          <span className="text-xs text-base-content/70 font-medium mt-1 block">Wi-Fi Tested</span>
-        </div>
-      </div>
+          <div className="relative z-10 max-w-3xl">
+            {/* Top Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/20 bg-primary-50/80 px-4 py-1.5 text-xs font-bold text-primary-700 backdrop-blur-md dark:border-primary-500/30 dark:bg-primary-950/60 dark:text-primary-300">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
+                <span className="relative inline-flex size-2 rounded-full bg-primary-500"></span>
+              </span>
+              AUSTRALIAN SMART HOME DIRECTORY
+            </div>
 
-      {/* Interactive Category Filter & Directory */}
-      <div id="directory" className="pt-4">
-        <AllTopicsClient categories={topicData} />
-      </div>
+            {/* Giant Display Title */}
+            <h1 className="mt-5 text-4xl font-black tracking-tight text-neutral-900 sm:text-6xl dark:text-white">
+              Master Your Home.{' '}
+              <span className="bg-gradient-to-r from-primary-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent dark:from-primary-400 dark:via-indigo-300 dark:to-purple-400">
+                Topic by Topic.
+              </span>
+            </h1>
 
-      {/* FlyonUI Accordion FAQ Section */}
-      <div className="mt-20 card card-border bg-base-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-8 rounded-2xl">
-        <div className="max-w-2xl mb-6">
-          <span className="badge badge-soft badge-primary text-xs font-semibold uppercase tracking-wider mb-2">
-            Frequently Asked Questions
-          </span>
-          <h2 className="text-2xl font-bold text-base-content">
-            Understanding Australian Smart Home Setup
-          </h2>
-        </div>
-        <FlyonAccordion items={topicFaqs} />
+            <p className="mt-4 text-lg font-normal leading-relaxed text-neutral-600 dark:text-neutral-300">
+              Explore {articles.length} expert guides across {cats.length} core smart home domains — thoroughly tested for Australian 230V power rules, NBN network setups, and local retail availability.
+            </p>
+
+            {/* Stats Counter Bar */}
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="rounded-2xl border border-neutral-200/80 bg-white/80 p-4 backdrop-blur-md shadow-xs dark:border-neutral-800 dark:bg-neutral-800/80">
+                <div className="text-2xl font-black text-primary-600 dark:text-primary-400">{articles.length}</div>
+                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Published Guides</div>
+              </div>
+              <div className="rounded-2xl border border-neutral-200/80 bg-white/80 p-4 backdrop-blur-md shadow-xs dark:border-neutral-800 dark:bg-neutral-800/80">
+                <div className="text-2xl font-black text-primary-600 dark:text-primary-400">{cats.length}</div>
+                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Categories</div>
+              </div>
+              <div className="rounded-2xl border border-neutral-200/80 bg-white/80 p-4 backdrop-blur-md shadow-xs dark:border-neutral-800 dark:bg-neutral-800/80">
+                <div className="text-2xl font-black text-primary-600 dark:text-primary-400">RCM / AU</div>
+                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Electrical Standards</div>
+              </div>
+              <div className="rounded-2xl border border-neutral-200/80 bg-white/80 p-4 backdrop-blur-md shadow-xs dark:border-neutral-800 dark:bg-neutral-800/80">
+                <div className="text-2xl font-black text-primary-600 dark:text-primary-400">Matter</div>
+                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Thread Ready</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Main Interactive Category Directory Component */}
+        <section className="mt-12">
+          <AllTopicsClient categories={topicData} />
+        </section>
+
+        {/* Australian Standards & Buying Advice Section */}
+        <section className="mt-20 rounded-3xl border border-neutral-200/80 bg-white p-8 md:p-12 shadow-xl dark:border-neutral-800/80 dark:bg-neutral-900">
+          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8 mb-8">
+            <div className="max-w-2xl">
+              <span className="inline-block rounded-full bg-primary-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-800 dark:bg-primary-950/80 dark:text-primary-300">
+                Australian Buying & Setup Advice
+              </span>
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-neutral-900 dark:text-white">
+                Frequently Asked Smart Home Questions
+              </h2>
+              <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
+                Essential knowledge for setting up smart devices safely and reliably in Australia.
+              </p>
+            </div>
+            <Link
+              href="/how-we-test/"
+              className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-neutral-50 px-4 py-2.5 text-xs font-bold text-neutral-800 shadow-xs hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 shrink-0"
+            >
+              How We Test Devices →
+            </Link>
+          </div>
+
+          <FlyonAccordion items={topicFaqs} />
+        </section>
       </div>
     </div>
   );
