@@ -5,7 +5,7 @@ import { getAllArticles } from '@/lib/content'
 import { site } from '@/lib/site'
 import type { Metadata } from 'next'
 import JsonLd from '@/components/JsonLd'
-import { HomeBuyingGuides, HomeHero, HomeSetupGuides, HomeProducts, HomeTopicSection, HomeTopics, HomeTrust } from '@/components/home/HomeSections'
+import { HomeFaq, HomeHero, HomeSetupGuides, HomeProducts, HomeTopicSection, HomeTopics, HomeTrust } from '@/components/home/HomeSections'
 import { getListableTopProducts, toListingCard } from '@/lib/products'
 
 // Home page on the Ncmaz "Home Demo 5" layout, filled from Strapi and
@@ -46,18 +46,13 @@ export default async function HomePage() {
   const categories = await getCategoriesWithPosts()
   const topics = categories.filter((c) => c.count > 0).sort((a, b) => b.count - a.count)
 
-  // Pinned slots: Entertainment & Audio is the first section under Top topics,
-  // Buying Guides closes the page (HomeBuyingGuides). The other
-  // topics rotate between them, biggest first. (A pinned topic with no posts
-  // falls back to the count order.)
-  const lastTopic = topics.find((c) => c.handle === 'buying-guides') ?? topics[topics.length - 1]
-  const firstTopic = topics.find((c) => c.handle === 'entertainment-and-audio' && c !== lastTopic)
+  const firstTopic = topics.find((c) => c.handle === 'entertainment-and-audio')
   // Topics with no section of their own on the home page (user request, 24 Sep
   // 2026). They still appear in "Browse by topic" and on /all-topics/.
   const HIDDEN_SECTIONS = new Set(['robot-vacuums', 'energy-and-solar', 'lighting', 'hubs-and-platforms'])
   const sectionTopics = [
     ...(firstTopic ? [firstTopic] : []),
-    ...topics.filter((c) => c !== lastTopic && c !== firstTopic && !HIDDEN_SECTIONS.has(c.handle)),
+    ...topics.filter((c) => c !== firstTopic && !HIDDEN_SECTIONS.has(c.handle)),
   ]
   // Product pages with our own research notes: the indexable ones.
   // Researched products: only products with at least 3 retailers showing a real price, in
@@ -125,15 +120,7 @@ export default async function HomePage() {
 
       <HomeTrust editorName={editor.name} editorSlug={editor.slug} />
 
-      {lastTopic && (
-        <HomeBuyingGuides
-          heading={lastTopic.name}
-          subHeading={lastTopic.description}
-          posts={(lastTopic.posts ?? []).slice(0, 9)}
-          moreHref={`/categories/${lastTopic.handle}/`}
-          moreLabel={`All ${lastTopic.name}`}
-        />
-      )}
+      <HomeFaq />
     </div>
   )
 }

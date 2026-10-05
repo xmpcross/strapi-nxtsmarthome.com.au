@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ProductCard from '@/components/ProductCard'
+import FlyonAccordion from '@/components/flyonui/FlyonAccordion'
 import type { TCategory } from '@/data/categories'
 import type { TPost } from '@/data/posts'
 import type { TopProduct } from '@/lib/products'
@@ -286,96 +287,70 @@ export function HomeTopicSection({
   )
 }
 
-/** HomeBuyingGuides */
-export function HomeBuyingGuides({
-  heading,
-  subHeading,
-  posts,
-  moreHref,
-  moreLabel,
-}: {
-  heading: string
-  subHeading?: string
-  posts: TPost[]
-  moreHref: string
-  moreLabel: string
-}) {
-  if (!posts.length) return null
-  const [featured, ...rest] = posts
+/** HomeFaq - FAQs section for bottom of home page */
+export function HomeFaq() {
+  const faqItems = [
+    {
+      id: 'electrician-req',
+      question: 'Do I need a licensed electrician to install smart switches in Australia?',
+      answer:
+        'Yes. Under AS/NZS 3000 wiring standards, any 230V mains electrical work in Australia—including hardwired smart light switches, smart power points, ceiling fan controllers, and outdoor security lights—must legally be performed by a licensed electrician. DIY smart plugs, battery sensors, and plug-in devices do not require an electrician.',
+      link: { href: '/categories/lighting/', label: 'Explore Smart Lighting & Wiring Guides' },
+    },
+    {
+      id: 'ecosystem-choice',
+      question: 'Which smart home ecosystem works best for Australian households?',
+      answer:
+        'Apple HomeKit, Google Home, and Home Assistant are all widely supported in Australia. Apple HomeKit excels in local privacy and fast response times, Google Home offers seamless Google Assistant voice control and broad hardware compatibility, and Home Assistant is ideal for advanced users wanting local Zigbee or Z-Wave automation without cloud dependencies.',
+      link: { href: '/all-topics/', label: 'View All Topic Categories' },
+    },
+    {
+      id: 'overseas-devices',
+      question: 'Can I import and use overseas smart home devices in Australia?',
+      answer:
+        'Exercise caution. US devices run on 110V power and non-AU wireless frequencies (e.g. US Z-Wave operates at 908.4MHz, which conflicts with Australian RF spectrum allocations). Importing non-compliant 230V mains gear violates safety laws and voids home insurance. Always check for the Regulatory Compliance Mark (RCM) logo on devices.',
+      link: { href: '/how-we-test/', label: 'Learn About Australian Compliance' },
+    },
+    {
+      id: 'au-retailers',
+      question: 'Where can I buy genuine Australian-certified smart home gear?',
+      answer:
+        'Major authorized Australian retailers include JB Hi-Fi, Bunnings Warehouse, Officeworks, The Good Guys, and Amazon AU. Buying RCM-certified models locally ensures 230V compliance, official firmware updates, and protection under Australian Consumer Law (ACL) warranties.',
+      link: { href: '/products/', label: 'Compare Product Prices & Retailers' },
+    },
+    {
+      id: 'matter-standard',
+      question: 'What is Matter and should I prioritize Matter-certified smart devices?',
+      answer:
+        'Matter is an open-source interoperability standard backed by Apple, Google, Amazon, and Samsung. Matter devices work locally across multiple smart home apps simultaneously without needing custom bridges. Choosing Matter-certified devices ensures future-proof compatibility regardless of which smartphone ecosystem you use.',
+      link: { href: '/articles/', label: 'Read Our Smart Home Tech Guides' },
+    },
+    {
+      id: 'energy-savings',
+      question: 'How do smart home devices help reduce Australian electricity bills?',
+      answer:
+        'Intelligent climate controllers (like Sensibo or Tado for split systems), smart solar-diverting EV chargers, and automated off-peak appliance schedules can trim household electricity bills by 15-30%—especially during extreme Australian summer heatwaves.',
+      link: { href: '/categories/energy-and-solar/', label: 'Browse Energy & Solar Guides' },
+    },
+  ]
 
   return (
-    <section className="rounded-3xl border border-neutral-200 bg-white p-8 lg:p-12 dark:border-neutral-800 dark:bg-neutral-900">
+    <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 lg:p-12 dark:border-neutral-800 dark:bg-neutral-900">
       <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-200 pb-5 dark:border-neutral-800">
         <div>
           <span className="badge badge-soft badge-primary text-xs font-bold uppercase tracking-wider mb-2">
-            Buyer Advice
+            Frequently Asked Questions
           </span>
-          <h2 className="text-3xl font-black text-neutral-900 dark:text-white">{heading}</h2>
-          {subHeading && <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{subHeading}</p>}
+          <h2 className="text-2xl font-black text-neutral-900 dark:text-white sm:text-3xl">
+            Smart Home FAQs for Australians
+          </h2>
+          <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+            Answers to common questions about electrical compliance, ecosystem compatibility, and device selection.
+          </p>
         </div>
-        <Link href={moreHref} className="btn btn-sm btn-primary rounded-lg font-semibold">
-          {moreLabel} →
-        </Link>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <Link
-          href={`/${featured.handle}/`}
-          className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50/50 transition hover:border-primary-500 dark:border-neutral-800 dark:bg-neutral-800/40"
-        >
-          <div className="relative aspect-16/10 w-full overflow-hidden bg-neutral-200 dark:bg-neutral-800 lg:aspect-auto lg:min-h-52 lg:flex-1">
-            {featured.featuredImage?.src ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={featured.featuredImage.src}
-                alt={featured.featuredImage.alt || featured.title}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-            ) : (
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-500/20" />
-            )}
-          </div>
-          <div className="flex flex-col p-6">
-            <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider mb-2 w-fit">
-              Featured Buying Guide
-            </span>
-            <h3 className="text-xl font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
-              {featured.title}
-            </h3>
-            {featured.excerpt && (
-              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{featured.excerpt}</p>
-            )}
-            <span className="mt-4 text-xs font-medium text-neutral-400">{featured.readingTime} min read</span>
-          </div>
-        </Link>
-
-        <ol className="grid gap-4 sm:grid-cols-2 lg:col-span-2">
-          {rest.map((post, i) => (
-            <li key={post.id}>
-              <Link
-                href={`/${post.handle}/`}
-                className="group flex h-full gap-4 rounded-2xl border border-neutral-200 bg-neutral-50/30 p-5 transition hover:border-primary-500 dark:border-neutral-800 dark:bg-neutral-800/30"
-              >
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary-100 font-bold text-primary-800 text-xs dark:bg-primary-950/80 dark:text-primary-300">
-                  0{i + 2}
-                </span>
-                <div className="flex min-w-0 flex-col justify-between">
-                  <div>
-                    <span className="font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors text-sm">
-                      {post.title}
-                    </span>
-                    {post.excerpt && (
-                      <span className="mt-1 line-clamp-2 text-xs text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
-                    )}
-                  </div>
-                  <span className="mt-3 text-[11px] font-medium text-neutral-400">{post.readingTime} min read</span>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ol>
-      </div>
+      <FlyonAccordion items={faqItems} alwaysOpen={false} />
     </section>
   )
 }
