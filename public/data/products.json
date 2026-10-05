@@ -37679,7 +37679,18 @@
         "name": "Capacity",
         "value": "3 litres"
       }
-    ]
+    ],
+    "shortDescription": "The Dyson Spot+Scrub Ai is a robot vacuum and mop that cleans hard floors and carpets. According to the manufacturer, it detects stains using AI and optic illumination, then adapts cleaning power accordingly. It washes with heated water and the brand says it cleans repeatedly to remove stubborn marks. The self-cleaning dock automatically empties, refills and recharges.",
+    "bestFor": "Households with hard floors, carpets and pet hair seeking automated stain removal",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "dreame-l40-plus-robot-vacuum-and-mop",
@@ -37755,7 +37766,18 @@
         "name": "Capacity",
         "value": "4 litres"
       }
-    ]
+    ],
+    "shortDescription": "The Dreame L40 Plus is a robot vacuum and mop with a 4-litre auto-empty base station, dual rotating mops, and intelligent carpet recognition. According to the manufacturer, it delivers 13,000pa suction, features Roboswing technology for edge cleaning, and automatically lifts mop pads on carpets. The dust bag requires emptying only every 90 days.",
+    "bestFor": "Homes with mixed flooring and pet owners seeking hands-free cleaning",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "electrolux-ultimatehome-700-robotic-vacuum-mop",
@@ -37875,7 +37897,18 @@
         "name": "Noise Level",
         "value": "Quiet (without mop settings and empty water tank)"
       }
-    ]
+    ],
+    "shortDescription": "The Electrolux UltimateHome 700 is a robotic vacuum and mop combination with a Clean Station for charging and maintenance. According to the manufacturer, it delivers up to 140 minutes of runtime and 4000Pa suction on maximum mode, handling all floor types. The 2-in-1 device offers both vacuuming and mopping capabilities as a hands-free cleaning solution.",
+    "bestFor": "Busy households wanting automated vacuuming and mopping on all floor types",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "dreame-l50-ultra-robot-vacuum-cleaner",
@@ -37947,7 +37980,18 @@
         "name": "Capacity",
         "value": "0.2 litres"
       }
-    ]
+    ],
+    "shortDescription": "The Dreame L50 Ultra is a cordless robotic vacuum and mop cleaner featuring Vormax suction up to 20,000 Pa. According to the manufacturer, it includes intelligent obstacle recognition, automated mop removal, and a multifunctional docking station with mop washing and water tank refilling. It operates for up to 200 minutes per charge across homes to 186m².",
+    "bestFor": "Busy households and pet owners seeking automated wet and dry cleaning",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "irobot-roomba-max-705-combo-x185000",
@@ -38071,7 +38115,18 @@
         "name": "Storage Type",
         "value": "Docking station"
       }
-    ]
+    ],
+    "shortDescription": "The iRobot Roomba Max 705 Combo is a cordless robotic vacuum and mop with lidar navigation and an Autowash Dock. According to the manufacturer, it delivers 175 times more suction power and features double rubber brushes that resist tangling. The extendable roller mop cleans hard floors whilst vacuuming. The dock automatically maintains the robot and keeps it charged and ready.",
+    "bestFor": "Pet owners wanting automated vacuuming and mopping with app control",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "devanti-robot-vacuum-and-mop-self-empty-app-control-6000pa-lds-laser-3in1",
@@ -38135,7 +38190,18 @@
         "name": "Capacity",
         "value": "1.5 litres"
       }
-    ]
+    ],
+    "shortDescription": "The DEVANTI Robot Vacuum and Mop Self-Empty is a three-in-one cleaning unit combining sweeping, vacuuming, and mopping. According to the manufacturer, it delivers 6000Pa suction power and uses LDS laser navigation to map your home. The unit returns to its station to self-empty its 1.5-litre dust box.",
+    "bestFor": "Busy households and pet owners seeking automated floor cleaning",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "dreame-aqua10-ultra-roller-robot-vacuum-cleaner",
@@ -38203,7 +38269,18 @@
         "name": "Capacity",
         "value": "0.58 litres"
       }
-    ]
+    ],
+    "shortDescription": "The Dreame Aqua10 Ultra is a cordless robot vacuum and mop that combines wet and dry cleaning. According to the manufacturer, it uses continuous fresh-water rinsing technology to actively wash floors whilst simultaneously vacuuming dust and debris. The device features a high-torque roller motor, smart dirt-sensing capabilities, and automated self-cleaning with hot-air drying at the base station.",
+    "bestFor": "Households with mixed floor debris and pet messes requiring hands-free cleaning",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "eufy-clean-robovac-vacuum-l60-ses-t2278t11",
@@ -38303,7 +38380,18 @@
         "name": "Assistant Support",
         "value": "Google Assistant, Alexa"
       }
-    ]
+    ],
+    "shortDescription": "The Eufy Clean Robovac Vacuum L60 SES is a cordless robotic vacuum with self-emptying station and mopping function. The manufacturer says it delivers 5,000 Pa suction for pet hair and dust on carpets and hard floors, with a 120-minute battery life. It features laser navigation, real-time mapping, customizable mopping zones, and hair detangling technology in the self-empty station.",
+    "bestFor": "Pet owners and busy households wanting hands-free cleaning",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "ecovacs-deebot-x8-pro-omni-robotic-vacuum-cleaner",
@@ -38455,7 +38543,18 @@
         "name": "Storage Type",
         "value": "Omni station"
       }
-    ]
+    ],
+    "shortDescription": "The Ecovacs Deebot X8 Pro Omni is a 2-in-1 robotic vacuum and mop designed for wet and dry cleaning. It features AIVI 3D 3.0 Omni-Approach Technology for real-time navigation and environment recognition. The brand says it offers superior carpet care, suction power and corner coverage with anti-tangle technology. It includes self-cleaning capabilities and integrates with smart home systems via app control or voice assistants.",
+    "bestFor": "Pet owners wanting wet and dry robotic cleaning with smart home integration",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "roborock-qrevo-l-pro-robot-vacuum-and-mop",
@@ -38523,7 +38622,18 @@
         "name": "Capacity",
         "value": "2.7 litres"
       }
-    ]
+    ],
+    "shortDescription": "The Roborock Qrevo L Pro is a robot vacuum and mop that the manufacturer says delivers 18,500 Pa suction with self-washing mops and smart navigation. It features a HEPA filter, 2.7 litre capacity, and cordless operation. According to the brand, it suits busy families managing pet hair and household cleaning.",
+    "bestFor": "Busy families with pets seeking combined vacuuming and mopping",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "irobot-roomba-e5-robot-vacuum",
@@ -38577,7 +38687,18 @@
         "name": "Assistant Support",
         "value": "Amazon Alexa"
       }
-    ]
+    ],
+    "shortDescription": "The iRobot Roomba E5 is a cordless robot vacuum featuring a 3-Stage Cleaning System with dual Multi-Surface Rubber Brushes, powerful suction, and a high-efficiency filter. An Edge-Sweeping Brush targets edges and corners whilst navigation and Dirt Detect technologies navigate furniture and concentrate on areas needing more attention. The unit auto-recharges and works with Amazon Alexa.",
+    "bestFor": "Owners wanting hands-off daily cleaning with edge and corner attention",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "dreame-matrix10-ultra-robot-vacuum-cleaner",
@@ -38645,7 +38766,18 @@
         "name": "Capacity",
         "value": "0.2 litres"
       }
-    ]
+    ],
+    "shortDescription": "The Dreame Matrix10 Ultra is a cordless robot vacuum and mop combo. According to the manufacturer, it features ultra-high suction power and automated mop-switching technology for carpets and hard floors. The brand says it includes smart navigation and a self-cleaning dock, offering a 'set-and-forget' cleaning solution with minimal user effort.",
+    "bestFor": "Busy households with carpets, hard floors, and pets",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "roborock-qrevo-edge-c-vacuum-cleaner",
@@ -38769,7 +38901,18 @@
         "name": "Assistant Support",
         "value": "No (Roborock's built-in voice assistant Rocky)"
       }
-    ]
+    ],
+    "shortDescription": "The Roborock Qrevo Edge C is a cordless robotic vacuum and mop designed for households with pets and children. It features 18,500 Pa suction, a Duo Divide Brush to prevent hair tangling, and edge-to-edge cleaning with a Flexi Arm Arc Side Brush. The multifunctional dock autonomously empties, washes mop cloths with hot water, dries, and refills the unit.",
+    "bestFor": "Busy homes with pets and children needing automated floor cleaning",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "dreame-x60-ultra-robot-vacuum-cleaner",
@@ -38849,7 +38992,18 @@
         "name": "Capacity",
         "value": "2 litres"
       }
-    ]
+    ],
+    "shortDescription": "The Dreame X60 Ultra is a robot vacuum with binocular vision and light detection for identifying messes and obstacles. It offers 35,000 Pa suction, wet and dry cleaning, and dual 120-degree AI cameras detecting over 280 object types. According to the manufacturer, it provides millimetre-precision detection down to 10mm for advanced obstacle avoidance.",
+    "bestFor": "Homes with pets needing powerful suction and wet-dry cleaning capability",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "ecovacs-deebot-t80s-omni-robot-vacuum-mop",
@@ -38921,6 +39075,17 @@
         "name": "Capacity",
         "value": "3 litres"
       }
-    ]
+    ],
+    "shortDescription": "The Ecovacs Deebot T80S Omni is a cordless robot vacuum and mop that combines 24,800 Pa suction with the brand's Zero Tangle 3.0 technology to lift dirt without hair wrapping. Its Ozmo Roller 2.0 system scrubs hard floors at 220 RPM, while the Triple Lift System adjusts automatically across floor types. The AIVI 3D 3.0 system maps your home in real-time to navigate around obstacles.",
+    "bestFor": "Those wanting hands-off floor cleaning across carpets and hard floors",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   }
 ]
