@@ -57,6 +57,41 @@ export function HomeHero({ articleCount, topicCount }: { articleCount: number; t
   )
 }
 
+/** One topic tile: emoji, guide count, what it covers and the newest article. Shared with /all-topics/. */
+export function TopicTile({ topic }: { topic: TCategory }) {
+  const newest = topic.posts?.[0]
+  return (
+    <Link
+      href={`/categories/${topic.handle}/`}
+      className="group flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700"
+    >
+      <span className="flex items-center justify-between gap-3">
+        <span
+          className="flex size-12 items-center justify-center rounded-xl bg-primary-50 text-2xl dark:bg-primary-950/60"
+          aria-hidden="true"
+        >
+          {getCategory(topic.handle)?.emoji}
+        </span>
+        <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
+          {topic.count} {topic.count === 1 ? 'guide' : 'guides'}
+        </span>
+      </span>
+      <span className="mt-5 text-lg font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+        {topic.name}
+      </span>
+      <span className="mt-1.5 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">{topic.description}</span>
+      {newest && (
+        <span className="mt-auto border-t border-neutral-100 pt-4 text-sm dark:border-neutral-800">
+          <span className="mt-4 block text-xs font-semibold tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
+            Latest
+          </span>
+          <span className="mt-1 line-clamp-2 block font-medium text-neutral-800 dark:text-neutral-200">{newest.title}</span>
+        </span>
+      )}
+    </Link>
+  )
+}
+
 /**
  * Browse by topic, redesigned (6 Oct 2026): a tile per topic with its emoji,
  * article count, what it covers and the newest article, so the grid also
@@ -70,45 +105,11 @@ export function HomeTopics({ topics }: { topics: TCategory[] }) {
         Browse by topic
       </HeadingWithSub>
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {topics.map((topic) => {
-          const newest = topic.posts?.[0]
-          return (
-            <li key={topic.id}>
-              <Link
-                href={`/categories/${topic.handle}/`}
-                className="group flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700"
-              >
-                <span className="flex items-center justify-between gap-3">
-                  <span
-                    className="flex size-12 items-center justify-center rounded-xl bg-primary-50 text-2xl dark:bg-primary-950/60"
-                    aria-hidden="true"
-                  >
-                    {getCategory(topic.handle)?.emoji}
-                  </span>
-                  <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
-                    {topic.count} {topic.count === 1 ? 'guide' : 'guides'}
-                  </span>
-                </span>
-                <span className="mt-5 text-lg font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
-                  {topic.name}
-                </span>
-                <span className="mt-1.5 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-                  {topic.description}
-                </span>
-                {newest && (
-                  <span className="mt-auto border-t border-neutral-100 pt-4 text-sm dark:border-neutral-800">
-                    <span className="mt-4 block text-xs font-semibold tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
-                      Latest
-                    </span>
-                    <span className="mt-1 line-clamp-2 block font-medium text-neutral-800 dark:text-neutral-200">
-                      {newest.title}
-                    </span>
-                  </span>
-                )}
-              </Link>
-            </li>
-          )
-        })}
+        {topics.map((topic) => (
+          <li key={topic.id}>
+            <TopicTile topic={topic} />
+          </li>
+        ))}
       </ul>
     </section>
   )

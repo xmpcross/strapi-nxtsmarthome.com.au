@@ -1,16 +1,13 @@
-import ArchiveHeader from '@/components/ArchiveHeader';
+import Link from 'next/link';
+import LeadArticleCard from '@/components/LeadArticleCard';
 import Card11 from '@/components/PostCards/Card11';
 import JsonLd from '@/components/JsonLd';
 import Pagination, { PER_PAGE } from '@/components/Pagination';
 import TopicChips from '@/components/TopicChips';
-import { categoryColor } from '@/data/categories';
 import { toTPost } from '@/data/posts';
 import { breadcrumbJsonLd } from '@/lib/seo';
-import { categoryHeroFor, coverFor } from '@/lib/content';
 import type { Article } from '@/lib/content';
 import type { Category } from '@/lib/site';
-
-const NO_BANNER = new Set(['security-and-cameras', 'lighting']);
 
 /**
  * The category listing, shared by /categories/[slug]/ and its /page/N/ routes so
@@ -34,11 +31,9 @@ export default function CategoryView({
   const start = (page - 1) * PER_PAGE;
   const visible = articles.slice(start, start + PER_PAGE);
 
-  const hero = categoryHeroFor(category.slug, 'post');
-  const thumb = articles[0] ? coverFor(articles[0]) : hero ?? undefined;
-  // Categories whose title section shows no background banner, even though
-  // one exists in public/heroes/post/ (user request, 24 Sep 2026).
-  const banner = NO_BANNER.has(category.slug) ? null : hero;
+  // Page one opens with the topic's newest article as a wide lead card.
+  const lead = page === 1 && visible[0] ? toTPost(visible[0]) : null;
+  const grid = lead ? visible.slice(1) : visible;
 
   return (
     <>
@@ -50,21 +45,55 @@ export default function CategoryView({
       />
 
       <div className={`page-category-${category.slug}`}>
-        <ArchiveHeader
-          eyebrow="Topic"
-          eyebrowColor={categoryColor(category.key)}
-          title={category.name}
-          intro={<p>{category.intro}</p>}
-          meta={`${articles.length} ${articles.length === 1 ? 'article' : 'articles'}${page > 1 ? ` · Page ${page}` : ''}`}
-          image={thumb}
-          banner={banner}
-          fullWidth
-          introClassName="text-base/7"
-          // Category title at 2.5rem (user request, 24 Sep 2026).
-          titleClassName="text-[2.5rem] leading-tight"
-        />
+        {/* Default header for every topic: the same tinted panel as the product category pages. */}
+        <div className="container pt-10 lg:pt-16">
+          <header className="mb-10 rounded-3xl bg-primary-50 px-6 py-10 sm:px-10 lg:mb-14 lg:px-14 lg:py-14 dark:bg-primary-950/40">
+            <div className="flex items-center gap-4">
+              <span
+                className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-white text-3xl dark:bg-neutral-900"
+                aria-hidden="true"
+              >
+                {category.emoji}
+              </span>
+              <p className="text-sm font-semibold tracking-wider text-primary-700 uppercase dark:text-primary-300">
+                Topic
+              </p>
+            </div>
+            {/* Category title at 2.5rem (user request, 24 Sep 2026). */}
+            <h1 className="mt-5 max-w-3xl text-[2.5rem] leading-tight font-bold tracking-tight text-neutral-900 dark:text-white">
+              {category.name}
+            </h1>
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-neutral-700 md:text-lg dark:text-neutral-300">
+              {category.intro}
+            </p>
+            {category.subcategories?.length ? (
+              <ul className="mt-6 flex flex-wrap gap-2" aria-label={`What ${category.name} covers`}>
+                {category.subcategories.map((sub) => (
+                  <li
+                    key={sub}
+                    className="rounded-full bg-white px-3.5 py-1.5 text-sm font-medium text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200"
+                  >
+                    {sub}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+              <span>
+                {articles.length} {articles.length === 1 ? 'article' : 'articles'}
+                {page > 1 ? ` · Page ${page}` : ''}
+              </span>
+              <Link
+                href={`/products/category/${category.slug}/`}
+                className="font-medium text-primary-700 hover:underline dark:text-primary-300"
+              >
+                Compare {category.name} products →
+              </Link>
+            </p>
+          </header>
+        </div>
 
-        <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">
+        <div className="container pb-24 lg:pb-28">
           {/* Phones and tablets keep the chip row; from lg the topics move to
               the left sidebar, the same layout as the product category page. */}
           <div className="lg:hidden">
@@ -92,11 +121,16 @@ export default function CategoryView({
                   Nothing published in this section yet — it&apos;s next on the list.
                 </p>
               ) : (
-                <div className="mt-8 grid gap-[15px] sm:grid-cols-2 lg:mt-0 xl:grid-cols-3">
-                  {visible.map((article) => (
-                    <Card11 key={article.slug} post={toTPost(article)} />
-                  ))}
-                </div>
+                <>
+                  {lead && <LeadArticleCard post={lead} className="mt-8 lg:mt-0" />}
+                  <div
+                    className={`grid gap-[15px] sm:grid-cols-2 xl:grid-cols-3 ${lead ? 'mt-[15px]' : 'mt-8 lg:mt-0'}`}
+                  >
+                    {grid.map((article) => (
+                      <Card11 key={article.slug} post={toTPost(article)} />
+                    ))}
+                  </div>
+                </>
               )}
 
               <Pagination base={base} page={page} total={articles.length} />

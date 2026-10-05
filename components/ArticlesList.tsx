@@ -1,4 +1,5 @@
-import ArchiveHeader from '@/components/ArchiveHeader';
+import LeadArticleCard from '@/components/LeadArticleCard';
+import PageHeader from '@/components/PageHeader';
 import Card11 from '@/components/PostCards/Card11';
 import TopicChips from '@/components/TopicChips';
 import { toTPost } from '@/data/posts';
@@ -27,24 +28,24 @@ export default function ArticlesList({
   const totalPages = pageCount(total);
   const start = (page - 1) * PER_PAGE;
   const shown = articles.slice(start, start + PER_PAGE);
+  // Page one opens with the newest article as a wide lead card; the grid shows the rest.
+  const lead = page === 1 && shown[0] ? toTPost(shown[0]) : null;
+  const grid = lead ? shown.slice(1) : shown;
 
   return (
     <div className="page-articles">
-      <ArchiveHeader
-        eyebrow="Archive"
-        title="All articles"
-        // h1 at 2.5rem, matching the category pages (user request, 24 Sep 2026).
-        titleClassName="text-[2.5rem] leading-tight"
-        intro={
-          <p>
-            {total} {total === 1 ? 'article' : 'articles'} on smart home gear, setup and buying decisions — newest
-            first.
-          </p>
-        }
-        meta={totalPages > 1 ? `Page ${page} of ${totalPages}` : undefined}
-      />
+      <div className="container pt-10 lg:pt-16">
+        <PageHeader
+          eyebrow="Archive"
+          title="All articles"
+          // h1 at 2.5rem, matching the category pages (user request, 24 Sep 2026).
+          titleClassName="text-[2.5rem] leading-tight"
+          intro={`${total} ${total === 1 ? 'article' : 'articles'} on smart home gear, setup and buying decisions, newest first.`}
+          meta={totalPages > 1 ? `Page ${page} of ${totalPages}` : undefined}
+        />
+      </div>
 
-      <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">
+      <div className="container pb-24 lg:pb-28">
         {total === 0 ? (
           <p className="text-neutral-500">No articles published yet.</p>
         ) : (
@@ -68,8 +69,9 @@ export default function ArticlesList({
               </aside>
 
               <div className="min-w-0 flex-1">
-                <div className="mt-8 grid gap-[15px] sm:grid-cols-2 lg:mt-0 xl:grid-cols-3">
-                  {shown.map((article) => (
+                {lead && <LeadArticleCard post={lead} className="mt-8 lg:mt-0" />}
+                <div className={`grid gap-[15px] sm:grid-cols-2 xl:grid-cols-3 ${lead ? 'mt-[15px]' : 'mt-8 lg:mt-0'}`}>
+                  {grid.map((article) => (
                     <Card11 key={article.slug} post={toTPost(article)} />
                   ))}
                 </div>
