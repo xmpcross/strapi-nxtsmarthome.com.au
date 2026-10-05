@@ -37604,5 +37604,1323 @@
     "descriptionRewrite": {
       "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
     }
+  },
+  {
+    "id": "dyson-spot-scrub-ai-robot-vacuum",
+    "slug": "dyson-spot-scrub-ai-robot-vacuum",
+    "name": "Spot+Scrub Ai Robot Vacuum",
+    "brand": "Dyson",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 1899,
+    "currency": "AUD",
+    "image": "/images/products/dyson-spot-scrub-ai-robot-vacuum.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Dyson-Spot-ScrubTMAi-Robot-Vacuum/dp/B0GQ96QV9B?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": true,
+        "priceAud": 1899,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/dyson-spotscrubai-wet-and-dry-robot-vacuum?ab_version=A&srsltid=AU7gw4VJGU3fptQ_trSNPhaCzI22Mp6sawWaw14FoBIGYiSxjeKS1KizlyU",
+        "primary": false,
+        "priceAud": 1999,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/dyson-spot-plusscrub-ai-wet-and-dry-robot-vacuum-218087-01?srsltid=AU7gw4Uu_9iQOFeV9XdNSWSbWUVuPmJ3IIZ0wtazLKRuKQh_HYLF3rqp3ss",
+        "primary": false,
+        "priceAud": 1999,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "7578869850963976901",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/dyson-spot-scrub-ai-robot-vacuum.webp",
+      "/images/products/dyson-spot-scrub-ai-robot-vacuum-2.webp",
+      "/images/products/dyson-spot-scrub-ai-robot-vacuum-3.webp",
+      "/images/products/dyson-spot-scrub-ai-robot-vacuum-4.webp"
+    ],
+    "description": "Cleans again and again​ Checks the floor and continues to clean up to 15 times to ensure the stains are cleaned away properly. ¹ Powerful suction across hard floors and carpets​ Removes microscopic dust, debris, long hair and pet hair without tangling. When carpet fibres are detected, suction power is boosted 35% to enhance cleaning performance across tougher surfaces. ³ New stain detection​ Optic illumination works with the HD camera + Ai to identify spills and stains, then adapts the power to clear the mess. DToF LiDAR navigation​ Uses high-speed LiDAR to scan your room 7 times per second, for more accurate mapping and navigation. ⁴ Washes with heated water​ Heated at the dock to 60 ̊C to aid the removal of stubborn stains from hard floors. Includes robot vacuum cleaner, Self-Cleaning Dock and Charger​ ​ Docking Station​ Self-empties, self-cleans, refills and recharges. ​ All automatically. ​ Charger ​ Plug into the dock to charge your robot.",
+    "specifications": [
+      {
+        "name": "Bagless",
+        "value": "Yes"
+      },
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Brand",
+        "value": "Dyson"
+      },
+      {
+        "name": "Cordless",
+        "value": "Yes"
+      },
+      {
+        "name": "For Pets",
+        "value": "Yes"
+      },
+      {
+        "name": "Weight",
+        "value": "6.6 kg"
+      },
+      {
+        "name": "Capacity",
+        "value": "3 litres"
+      }
+    ]
+  },
+  {
+    "id": "dreame-l40-plus-robot-vacuum-and-mop",
+    "slug": "dreame-l40-plus-robot-vacuum-and-mop",
+    "name": "L40 Plus Robot Vacuum and Mop",
+    "brand": "Dreame",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 566,
+    "currency": "AUD",
+    "image": "/images/products/dreame-l40-plus-robot-vacuum-and-mop.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Powerful-Auto-Empty-Capacity-Navigation-Automatic/dp/B0GYRGKFM2?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": true,
+        "priceAud": 566,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/dreame-l40-plus-wet-dry-robot-vacuum-cleaner?ab_version=B&srsltid=AU7gw4WefeXhspiEGO_IQ2g9fMF-xjnTEZZLbuquco-Zt3YGarL2t9BfYmg",
+        "primary": false,
+        "priceAud": 599,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/dreame-l40-plus-robot-vacuum-r5345g?srsltid=AU7gw4UpRLcTOSm_ZDrTm-wpirIb7YpnVYxZG9AMLSGFhBd3p19fJp2F1BY",
+        "primary": false,
+        "priceAud": 797,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "18419331393003012721",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/dreame-l40-plus-robot-vacuum-and-mop.webp",
+      "/images/products/dreame-l40-plus-robot-vacuum-and-mop-2.webp",
+      "/images/products/dreame-l40-plus-robot-vacuum-and-mop-3.webp",
+      "/images/products/dreame-l40-plus-robot-vacuum-and-mop-4.webp"
+    ],
+    "description": "Complete cleaning. Edge to edge. The dreame l40 plus brings whole-home vacuum and mop performance together in one smart machine complete with a 4l auto-empty base station, dual rotating mops, and intelligent carpet recognition. Set it running and walk away the l40 plus will cover every corner, clean itself up, and be ready for next time. 13,000pa vormax suction powerful and quiet the dreame powerful motor delivers 13,000pa suction to capture dust, debris, and pet hair from all floor types, with noise reduction technology ensuring peaceful operation throughout the home. Compatible with the optional tricut brush for even more effective hair removal. Duoscrub dual rotating mops floor scrubbing, not just wiping two counter-rotating mop pads work the floor with consistent downward pressure, scrubbing rather than simply dragging across the surface. Roboswing technology extends the mop reach into corners and along edges, covering more ground in a single run. 4l auto-empty dust bag up to 90 days hands-freewhen the robot returns to its base station, it automatically transfers collected debris into a large 4l dust bag keeping the robot's own bin clear and your hands clean. With up to 90 days between bag changes, it's maintenance on your terms, not the vacuum's. Smart carpet recognition dry rugs, clean floors ultrasonic carpet detection identifies carpets automatically, lifting the mop pads by up to 7mm and boosting suction for a deeper fibre clean. The all-rubber floating brush removes embedded dust and pet hair without tangling, keeping performance consistent across every surface. Guided by smart pathfinder technology the l40 plus navigates your home using smart pathfinder technology for precise, methodical room coverage. Schedule cleans, set no-go zones, and monitor progress through the dreamehome app or simply let the robot manage your routine on its own.",
+    "specifications": [
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Brand",
+        "value": "Dreame"
+      },
+      {
+        "name": "HEPA Filter",
+        "value": "Yes"
+      },
+      {
+        "name": "Cordless",
+        "value": "Yes"
+      },
+      {
+        "name": "For Pets",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa, Siri"
+      },
+      {
+        "name": "Capacity",
+        "value": "4 litres"
+      }
+    ]
+  },
+  {
+    "id": "electrolux-ultimatehome-700-robotic-vacuum-mop",
+    "slug": "electrolux-ultimatehome-700-robotic-vacuum-mop",
+    "name": "UltimateHome 700 Robotic Vacuum & Mop",
+    "brand": "Electrolux",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Self-Emptying Docks",
+    "priceAud": 294,
+    "currency": "AUD",
+    "image": "/images/products/electrolux-ultimatehome-700-robotic-vacuum-mop.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/electrolux-ultimatehome-700-robotic-vac-and-mop?ab_version=A&srsltid=AU7gw4WqIqBTILHbTUD7oXma_kVY9JD8cvrArkz8tPIjTk8-RZkuDmXAA_Y",
+        "primary": true,
+        "priceAud": 294,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/electrolux-floorcare-ultimatehome-700-robotic-vacuum-mop-with-clean-station_p0708191?srsltid=AU7gw4XhxtkZk_qQXa9ZfNRIUw63q2cieiOnFAgaJ2adf9vPOA8zDAJuMQE",
+        "primary": false,
+        "priceAud": 479,
+        "deepLink": true
+      },
+      {
+        "name": "Kmart",
+        "url": "https://www.kmart.com.au/product/ultimatehome-700-robotic-vacuum-and-mop-with-clean-station-efr71222ds-110050120/?utm_source=google&utm_medium=organic&utm_campaign=free_listings&offerId=185805&srsltid=AU7gw4XsKdvUhPCkK_obEasmBTWY6h_qScX9C2CGe_cIeTv6mYreXl1FofQ",
+        "primary": false,
+        "priceAud": 499,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "12752781119529635984",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/electrolux-ultimatehome-700-robotic-vacuum-mop.webp",
+      "/images/products/electrolux-ultimatehome-700-robotic-vacuum-mop-2.webp",
+      "/images/products/electrolux-ultimatehome-700-robotic-vacuum-mop-3.webp",
+      "/images/products/electrolux-ultimatehome-700-robotic-vacuum-mop-4.webp"
+    ],
+    "description": "Keep your floors immaculate with the Ultimate. Home 700 Robotic Vacuum & Mop with Clean Station. With up to 140 minutes of runtime and powerful suction, this 2-in-1 device effortlessly handles dirt and debris on all floor types. Its intuitive navigation ensures thorough coverage, while the Clean Station keeps it charged and ready. Offering both vacuuming and mopping functions, it’s the ultimate hands-free cleaning solution for busy households.",
+    "specifications": [
+      {
+        "name": "Surface Type",
+        "value": "All floors, Carpets, Hard floors"
+      },
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Suction Power",
+        "value": "4000Pa (on max mode)"
+      },
+      {
+        "name": "Water Tank Capacity",
+        "value": "Empty water tank"
+      },
+      {
+        "name": "Filtration Type",
+        "value": "Pleated filter"
+      },
+      {
+        "name": "Power Source",
+        "value": "Cordless"
+      },
+      {
+        "name": "Voltage",
+        "value": "14.8 V"
+      },
+      {
+        "name": "Battery Life",
+        "value": "140 minutes (on quiet mode without mop settings and empty water tank)"
+      },
+      {
+        "name": "Battery Charging Time",
+        "value": "360 minutes"
+      },
+      {
+        "name": "Battery Type",
+        "value": "Li-ION"
+      },
+      {
+        "name": "Vacuum Type",
+        "value": "Robotic"
+      },
+      {
+        "name": "Design Highlights",
+        "value": "Bagless, Mopping Function"
+      },
+      {
+        "name": "Weight",
+        "value": "8 KGM"
+      },
+      {
+        "name": "Depth",
+        "value": "335 MMT"
+      },
+      {
+        "name": "Height",
+        "value": "100 MMT"
+      },
+      {
+        "name": "Width",
+        "value": "335 MMT"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Home cleaning"
+      },
+      {
+        "name": "Noise Level",
+        "value": "Quiet (without mop settings and empty water tank)"
+      }
+    ]
+  },
+  {
+    "id": "dreame-l50-ultra-robot-vacuum-cleaner",
+    "slug": "dreame-l50-ultra-robot-vacuum-cleaner",
+    "name": "L50 Ultra Robot Vacuum Cleaner",
+    "brand": "Dreame",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 996,
+    "currency": "AUD",
+    "image": "/images/products/dreame-l50-ultra-robot-vacuum-cleaner.webp",
+    "retailers": [
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/dreame-l50-ultra-robot-vacuum-rll94ce?srsltid=AU7gw4Vq2ybc0sX31Odsw9ClMMEPPRDknO1-hodpRS_FWNiBH6D5pP6pdFE",
+        "primary": true,
+        "priceAud": 996,
+        "deepLink": true
+      },
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/dreame-l50-ultra-robotic-vacuum-and-mop-white.html?srsltid=AU7gw4VqsWCyl-z6ipN1_LwkGXSuQs_4x6V280N0utKa3MrMMM1Zz7eCxqo",
+        "primary": false,
+        "priceAud": 996,
+        "deepLink": true
+      },
+      {
+        "name": "Appliances Online",
+        "url": "https://www.appliancesonline.com.au/product/dreame-l50-ultra-robot-vacuum-cleaner-with-mop-dre-l50u/",
+        "primary": false,
+        "priceAud": 1022,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "10552419113726020795",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/dreame-l50-ultra-robot-vacuum-cleaner.webp",
+      "/images/products/dreame-l50-ultra-robot-vacuum-cleaner-2.webp",
+      "/images/products/dreame-l50-ultra-robot-vacuum-cleaner-3.webp",
+      "/images/products/dreame-l50-ultra-robot-vacuum-cleaner-4.webp"
+    ],
+    "description": "The Dreame L50 Ultra Robotic Vacuum & Mop is a powerful all-in-one cleaning solution designed to take the hassle out of household chores. Engineered with Vormax suction power of up to 20,000. Pa, it delivers exceptional debris pick-up across hard floors and carpets, while the intelligent Hyper. Stream Detangling Duo Brush tackles pet hair and dust without missing a beat. Smart obstacle recognition paired with Pro. Leap 6cm obstacle-crossing technology means it glides effortlessly around furniture, over thresholds, and even onto high-pile rugs. For added convenience, the Dreame L50 Ultra features automated mop removal to keep your bedroom carpets dry and pristine, offering a truly customised clean. The multifunctional docking station handles everything from mop washing and drying to auto water refills, backed by large clean and used water tanks (4.5L/4.0L) and a generous 395ml dust bin. With up to 200 minutes of runtime, it can cover homes up to 186m² on a single charge, making it ideal for busy households, pet owners, and anyone looking to upgrade their cleaning routine with smart, effortless efficiency.",
+    "specifications": [
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Brand",
+        "value": "Dreame"
+      },
+      {
+        "name": "Cordless",
+        "value": "Yes"
+      },
+      {
+        "name": "For Pets",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Capacity",
+        "value": "0.2 litres"
+      }
+    ]
+  },
+  {
+    "id": "irobot-roomba-max-705-combo-x185000",
+    "slug": "irobot-roomba-max-705-combo-x185000",
+    "name": "Roomba Max 705 Combo X185000",
+    "brand": "iRobot",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 894,
+    "currency": "AUD",
+    "image": "/images/products/irobot-roomba-max-705-combo-x185000.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/roomba-max-705-combo-robot-vacuum-autowash-dock?ab_version=B&srsltid=AU7gw4Wg5rRDs3ssnUJM7sfw4Tmq1EedOSi3CLZpdfGS0GbodAjSSNZIW3o",
+        "primary": true,
+        "priceAud": 894,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/iRobot-Roomba-Combo-Vacuum-AutoWashTM/dp/B0FK4MHF7T?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1WQIFGAY5FP0W",
+        "primary": false,
+        "priceAud": 894,
+        "deepLink": true
+      },
+      {
+        "name": "BIG W",
+        "url": "https://www.bigw.com.au/product/irobot-roomba-max-705-combo-robot-autowash-dock/p/6041236?srsltid=AU7gw4V8WQF857o21yS4x9oWUs9oeiIewYGuxttuJaYi3LCIBhuFghLDwtI",
+        "primary": false,
+        "priceAud": 2399,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "11416628729377282740",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/irobot-roomba-max-705-combo-x185000.webp",
+      "/images/products/irobot-roomba-max-705-combo-x185000-2.webp",
+      "/images/products/irobot-roomba-max-705-combo-x185000-3.webp",
+      "/images/products/irobot-roomba-max-705-combo-x185000-4.webp"
+    ],
+    "description": "The i. Robot Roomba Max 705 Combo Robot with Autowash Dock offers a smarter, more powerful way to keep your home clean with minimal effort. Featuring advanced lidar navigation, it moves with precision, creating a detailed map of your home so you can define keep out zones to avoid or clean zones to focus on. Its powerful 13000 Pa suction removes dust, debris and pet hair with ease, while the double rubber brushes adjust to different floor types and resist tangling. For sparkling hard floors, the extendable roller mop and durable mop cover deliver an effective scrub as it vacuums. The innovative Autowash Dock does more than just charge — it maintains your Roomba, ensuring it’s always ready for its next job. With smart mapping, strong suction and a thoughtful multi-function dock, the Roomba Max 705 is a dependable and intelligent cleaning companion that keeps your home looking its best, day after day.",
+    "specifications": [
+      {
+        "name": "Power Source",
+        "value": "Cordless"
+      },
+      {
+        "name": "Surface Type",
+        "value": "Carpets"
+      },
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Suction Power",
+        "value": "175x more suction power"
+      },
+      {
+        "name": "Cleaning Width",
+        "value": "5.8\""
+      },
+      {
+        "name": "Weight",
+        "value": "3.4 kg (Robot)"
+      },
+      {
+        "name": "Depth",
+        "value": "35 cm (Robot)"
+      },
+      {
+        "name": "Height",
+        "value": "29 cm (Dock)"
+      },
+      {
+        "name": "Width",
+        "value": "34.5 cm (Robot)"
+      },
+      {
+        "name": "Vacuum Type",
+        "value": "Robotic"
+      },
+      {
+        "name": "Construction Material",
+        "value": "LDPE 04 plastic (for docking station wrapping)"
+      },
+      {
+        "name": "Design Highlights",
+        "value": "Anti-tangle dual rubber brushes, App Control, Detailed edge cleaning, Self-cleaning roller mop"
+      },
+      {
+        "name": "Battery Charging Time",
+        "value": "1.5 hours"
+      },
+      {
+        "name": "Battery Type",
+        "value": "Lithium-ion"
+      },
+      {
+        "name": "Noise Level",
+        "value": "70 dB"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Pet hair removal"
+      },
+      {
+        "name": "Typical Users",
+        "value": "Pet owners"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Amazon Alexa, Google Assistant"
+      },
+      {
+        "name": "Storage Type",
+        "value": "Docking station"
+      }
+    ]
+  },
+  {
+    "id": "devanti-robot-vacuum-and-mop-self-empty-app-control-6000pa-lds-laser-3in1",
+    "slug": "devanti-robot-vacuum-and-mop-self-empty-app-control-6000pa-lds-laser-3in1",
+    "name": "Robot Vacuum and Mop Self-Empty APP Control 6000Pa LDS Laser 3in1",
+    "brand": "DEVANTI",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Self-Emptying Docks",
+    "priceAud": 284.85,
+    "currency": "AUD",
+    "image": "/images/products/devanti-robot-vacuum-and-mop-self-empty-app-control-6000pa-lds-laser-3in1.webp",
+    "retailers": [
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/devanti-robot-vacuum-and-mop-self-empty-app-control-6000pa-lds-laser-3in1_p1223544?srsltid=AU7gw4UgobA1VB65NrL8ym_Tyr7CaseokzO0n3gic_ZbukgyiJv1P8VSsTw",
+        "primary": true,
+        "priceAud": 284.85,
+        "deepLink": true
+      },
+      {
+        "name": "Woolworths",
+        "url": "https://www.woolworths.com.au/shop/productdetails/1129908445",
+        "primary": false,
+        "priceAud": 284.85,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/devanti-robot-vacuum-and-mop-self-empty-app-control-6000pa-lds-laser-3in1",
+        "primary": false,
+        "priceAud": 299.95,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "1690092814997361344",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/devanti-robot-vacuum-and-mop-self-empty-app-control-6000pa-lds-laser-3in1.webp",
+      "/images/products/devanti-robot-vacuum-and-mop-self-empty-app-control-6000pa-lds-laser-3in1-2.webp",
+      "/images/products/devanti-robot-vacuum-and-mop-self-empty-app-control-6000pa-lds-laser-3in1-3.webp",
+      "/images/products/devanti-robot-vacuum-and-mop-self-empty-app-control-6000pa-lds-laser-3in1-4.webp"
+    ],
+    "description": "Keep your floors spotless without lifting a finger. The Devanti Robot Vacuum Cleaner combines sweep, vacuum, and mop capabilities in one sleek unit. With 6000. Pa suction power, it effortlessly clears pet hair, daily crumbs, and hidden carpet dust. Precision LDS laser navigation maps your home accurately to prevent sticking or missed spots. When done, it returns to the station and empties its own dust box. Ideal for busy households and pet owners who want reliable, effortless everyday clean floors.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Devanti"
+      },
+      {
+        "name": "Cordless",
+        "value": "Yes"
+      },
+      {
+        "name": "For Pets",
+        "value": "Yes"
+      },
+      {
+        "name": "Capacity",
+        "value": "1.5 litres"
+      }
+    ]
+  },
+  {
+    "id": "dreame-aqua10-ultra-roller-robot-vacuum-cleaner",
+    "slug": "dreame-aqua10-ultra-roller-robot-vacuum-cleaner",
+    "name": "Aqua10 Ultra Roller Robot Vacuum Cleaner",
+    "brand": "Dreame",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 1788,
+    "currency": "AUD",
+    "image": "/images/products/dreame-aqua10-ultra-roller-robot-vacuum-cleaner.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/dreame-aqua10-ultra-roller-robot-vacuum-cleaner?ab_version=A&srsltid=AU7gw4XeFZv-oUhTpY2R02sJIveYVULzzZ857T3VgSQ6xozaOg4X_CKs07U",
+        "primary": true,
+        "priceAud": 1788,
+        "deepLink": true
+      },
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Automatic-Cleaning-Obstacle-Avoidance-Intelligent/dp/B0FVM9DD3W?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ANEGB3WVEVKZB",
+        "primary": false,
+        "priceAud": 1788,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/dreame-aqua10-ultra-roller-robot-vacuum-rlh71de?srsltid=AU7gw4UEMBcWQbw2pJ1QWZu5-C606WmcnFl4LF6fcMowRH1nwO6NTlO9QYQ",
+        "primary": false,
+        "priceAud": 2999,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "4143439374545915932",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/dreame-aqua10-ultra-roller-robot-vacuum-cleaner.webp",
+      "/images/products/dreame-aqua10-ultra-roller-robot-vacuum-cleaner-2.webp",
+      "/images/products/dreame-aqua10-ultra-roller-robot-vacuum-cleaner-3.webp",
+      "/images/products/dreame-aqua10-ultra-roller-robot-vacuum-cleaner-4.webp"
+    ],
+    "description": "Dreame aqua10 ultra roller robotic vacuum and mop ditch the traditional mop and bucket for a pristine, streak-free shine. The dreame aqua10 ultra roller is a premium smart wetdry vacuum engineered to handle tough, stuck-on spills and fine dust simultaneously. Driven by a high-torque roller motor and an innovative continuous fresh-water rinsing system, it actively washes your floors with clean water every single secondleaving a completely sanitized surface that dries in moments. Key features continuous fresh-water rinsing technology unlike traditional mops that push dirty water around, the aqua10 ultra continuously injects fresh water onto the roller brush while immediately extracting the dirty residue into a separate tank. Dual wet dry mess elimination a true all-in-one powerhouse. Whether you are cleaning up dry cereal, spilled milk, muddy paw prints, or sticky kitchen grease, the high-speed roller scrubs and vacuums it all up in a single pass. Flawless edge-to-edge cleaning engineered with an ultra-slim, dual-sided bezel design. The roller brush extends right to the outermost edge of the vacuum head, allowing you to flush the machine tightly against baseboards, cabinets, and stairs to capture hidden dirt. Smart dirt-sensing led display clean intelligently. The built-in smart sensor dynamically monitors floor dirt levels in real-time, automatically adjusting suction power and water flow while communicating air-quality status via a color-changing led ring. One-touch self-cleaning hot-air drying station maintenance is completely automated. Once placed on the base station, a single button press thoroughly flushes the roller and internal tubing with fresh water before drying it with quiet, warm air to prevent bacteria, mold, and odors. High-capacity dual-tank system designed for large homes. The generous, separate clean water and dirty water tanks allow you to clean up to 200m without interruption, ensuring a non-stop stream of pure water for your floors.",
+    "specifications": [
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Brand",
+        "value": "Dreame"
+      },
+      {
+        "name": "Cordless",
+        "value": "Yes"
+      },
+      {
+        "name": "For Pets",
+        "value": "Yes"
+      },
+      {
+        "name": "Capacity",
+        "value": "0.58 litres"
+      }
+    ]
+  },
+  {
+    "id": "eufy-clean-robovac-vacuum-l60-ses-t2278t11",
+    "slug": "eufy-clean-robovac-vacuum-l60-ses-t2278t11",
+    "name": "Clean Robovac Vacuum L60 SES t2278t11",
+    "brand": "Eufy",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 478,
+    "currency": "AUD",
+    "image": "/images/products/eufy-clean-robovac-vacuum-l60-ses-t2278t11.webp",
+    "retailers": [
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/eufy-clean-l60-hybrid-robotic-vacuum-and-mop-with-self-empty-station.html?srsltid=AU7gw4WUfZlUCoKKgXbMo_v3tOk_vEdCDYjtbVxmpDUgTrSD9h1Cnl0tw0k",
+        "primary": true,
+        "priceAud": 478,
+        "deepLink": true
+      },
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/eufy-clean-robovac-l60-ses-with-auto-empty-station?ab_version=B&srsltid=AU7gw4URvHZajY28Qj9pGLwayV1j92wDHZizQWoR8_phjWLUuxJkGwvkkRk",
+        "primary": false,
+        "priceAud": 479,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/eufy-clean-robovac-l60-ses-t2278t11?srsltid=AU7gw4UxzKsqkVcU-CMxDIPTRg3yqmK476ZTQydtTMqgZFINHrqmM1jk2cA",
+        "primary": false,
+        "priceAud": 479,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "10022591902669504776",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/eufy-clean-robovac-vacuum-l60-ses-t2278t11.webp",
+      "/images/products/eufy-clean-robovac-vacuum-l60-ses-t2278t11-2.webp",
+      "/images/products/eufy-clean-robovac-vacuum-l60-ses-t2278t11-3.webp",
+      "/images/products/eufy-clean-robovac-vacuum-l60-ses-t2278t11-4.webp"
+    ],
+    "description": "The eufy L60 Hybrid Robot Vacuum with Self-Empty Station delivers powerful, intelligent cleaning with minimal maintenance. Designed to streamline floor care in homes with pets, families, and busy schedules, the L60 combines advanced suction, real-time mapping, and automated debris disposal for a comprehensive clean with virtually no manual effort. Featuring 5,000 Pa of ultra-strong suction, the L60 lifts pet hair, crumbs, and fine dust from both hard floors and carpets in a single pass. It also offers a built-in mop function for a light, refreshing clean of hard surfaces. With customizable water flow and targeted mopping zones, it adapts to every surface in your home. The included Self-Empty Station holds up to 60 days of dust and debris and integrates Hair Detangling Technology that cuts tangled hair from the roller brush automatically—making it ideal for pet owners. Its 17,000 Pa suction power ensures every bit of dirt is securely transferred to the 2.5 L dust bag, freeing you from frequent emptying. Navigation is precise and efficient thanks to i. Path Laser Navigation and AI. Map 2.0. The L60 scans and maps your space in real time, allowing you to schedule room-specific cleans, create no-go zones, and manage multi-floor maps—all from the app. Whether you want to clean by room, avoid delicate spaces, or focus on high-traffic areas, the L60 offers a hands-free, personalized approach to everyday cleanliness.",
+    "specifications": [
+      {
+        "name": "Power Source",
+        "value": "Cordless"
+      },
+      {
+        "name": "Surface Type",
+        "value": "Tiles, Carpet, Floorboards"
+      },
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Suction Power",
+        "value": "5000Pa"
+      },
+      {
+        "name": "Battery Life",
+        "value": "120 mins"
+      },
+      {
+        "name": "Battery Type",
+        "value": "2600mAh Battery"
+      },
+      {
+        "name": "Vacuum Type",
+        "value": "Robotic"
+      },
+      {
+        "name": "Design Highlights",
+        "value": "iPath laser navigation"
+      },
+      {
+        "name": "Weight",
+        "value": "11 KGM"
+      },
+      {
+        "name": "Depth",
+        "value": "404 MMT"
+      },
+      {
+        "name": "Height",
+        "value": "446 MMT"
+      },
+      {
+        "name": "Width",
+        "value": "352 MMT"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Alexa"
+      }
+    ]
+  },
+  {
+    "id": "ecovacs-deebot-x8-pro-omni-robotic-vacuum-cleaner",
+    "slug": "ecovacs-deebot-x8-pro-omni-robotic-vacuum-cleaner",
+    "name": "Deebot X8 Pro Omni Robotic Vacuum Cleaner",
+    "brand": "Ecovacs",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Self-Emptying Docks",
+    "priceAud": 999,
+    "currency": "AUD",
+    "image": "/images/products/ecovacs-deebot-x8-pro-omni-robotic-vacuum-cleaner.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/ecovacs-deebot-x8-pro-omni-robotic-vacuum-cleaner-black?ab_version=B&srsltid=AU7gw4Xln4CciDkb-nE3wkhuMuywxjgFeZ3zoYtq00eDkEUqmaFFJkwnLUA",
+        "primary": true,
+        "priceAud": 999,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/ecovacs-deebot-x8-pro-omni-robotic-vacuum-deebot-x8-pro-omni-b?srsltid=AU7gw4XQCWNgNrlwGMOQlB12bAxf3iCyvt0SSYAO1CZe92IpY7hnC41Jk2c",
+        "primary": false,
+        "priceAud": 999,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/ecovacs-deebot-x8-pro-omni-robot-vacuum-mop-black_p1033250?srsltid=AU7gw4Ukh8_-Qt12JZ-kSdmaZuEenjQK5CBx98m4NUYOYm_4k1I6qP2gKO0",
+        "primary": false,
+        "priceAud": 1499.99,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "1080685396531206728",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/ecovacs-deebot-x8-pro-omni-robotic-vacuum-cleaner.webp",
+      "/images/products/ecovacs-deebot-x8-pro-omni-robotic-vacuum-cleaner-2.webp",
+      "/images/products/ecovacs-deebot-x8-pro-omni-robotic-vacuum-cleaner-3.webp",
+      "/images/products/ecovacs-deebot-x8-pro-omni-robotic-vacuum-cleaner-4.webp"
+    ],
+    "description": "Designed for dynamic wet and dry cleaning, this intelligent 2-in-1 vacuum and mop combo efficiently plans the most effective route while recognising and responding to its environment in real-time - thanks to AIVI 3D 3.0 Omni-Approach Technology. Experience superior carpet care, suction power and corner coverage, with anti-tangle technology ensuring this handy robot stays a smooth operator. Compatible with Amazon Alexa and Google Assistant, it's also easy to integrate into your smart home network and control via the Ecovacs Home App or cutting edge YIKO-GPT interface. Plus, a sophisticated self-cleaning system does most of the dirty work for you with minimal upkeep required!",
+    "specifications": [
+      {
+        "name": "Surface Type",
+        "value": "Carpets"
+      },
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Suction Power",
+        "value": "18000 Pa"
+      },
+      {
+        "name": "Cleaning Width",
+        "value": "35+ cm (rotating mops)"
+      },
+      {
+        "name": "Water Tank Capacity",
+        "value": "4L (Dirty water tank)"
+      },
+      {
+        "name": "HEPA Certified",
+        "value": "Yes"
+      },
+      {
+        "name": "Filtration Type",
+        "value": "Washable"
+      },
+      {
+        "name": "Power Source",
+        "value": "Cordless"
+      },
+      {
+        "name": "Voltage",
+        "value": "230 V"
+      },
+      {
+        "name": "Battery Life",
+        "value": "Longer than two hours, 134 minutes"
+      },
+      {
+        "name": "Battery Charging Time",
+        "value": "4 hrs"
+      },
+      {
+        "name": "Battery Type",
+        "value": "6,400mAh battery"
+      },
+      {
+        "name": "Weight",
+        "value": "5.3 kg (robot)"
+      },
+      {
+        "name": "Depth",
+        "value": "13.8 inches"
+      },
+      {
+        "name": "Height",
+        "value": "3.9 inches"
+      },
+      {
+        "name": "Width",
+        "value": "13.9 inches"
+      },
+      {
+        "name": "Vacuum Type",
+        "value": "Robotic"
+      },
+      {
+        "name": "Construction Material",
+        "value": "Soft (mop), Rubber (wheels)"
+      },
+      {
+        "name": "Design Highlights",
+        "value": "App Control, Obstacle avoidance, Self-emptying"
+      },
+      {
+        "name": "Max Wattage",
+        "value": "650 W (auto dust collection)"
+      },
+      {
+        "name": "Motor Type",
+        "value": "Brush Motor"
+      },
+      {
+        "name": "Noise Level",
+        "value": "Quiet (suction power mode)"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Pet hair"
+      },
+      {
+        "name": "Typical Users",
+        "value": "Pet owners"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant"
+      },
+      {
+        "name": "Storage Type",
+        "value": "Omni station"
+      }
+    ]
+  },
+  {
+    "id": "roborock-qrevo-l-pro-robot-vacuum-and-mop",
+    "slug": "roborock-qrevo-l-pro-robot-vacuum-and-mop",
+    "name": "Qrevo L Pro Robot Vacuum and Mop",
+    "brand": "Roborock",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 849,
+    "currency": "AUD",
+    "image": "/images/products/roborock-qrevo-l-pro-robot-vacuum-and-mop.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/roborock-Robot-Vacuum-Self-Emptying-Anti-Tangle/dp/B0GT8DQFSH?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2Q32YF790A3FN",
+        "primary": true,
+        "priceAud": 849,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/roborock-qrevo-l-pro-robot-vacuum-and-mop-white_p1197560?srsltid=AU7gw4XRuKLHqNwr1l_cur_hN3WMJW0_FQBLZahYOg4ZADarpT8nEE-LBg0",
+        "primary": false,
+        "priceAud": 899,
+        "deepLink": true
+      },
+      {
+        "name": "BIG W",
+        "url": "https://www.bigw.com.au/product/roborock-qrevo-l-pro-robot-vacuum-and-mop-18-500pa-powerful-suction/p/9905453787?srsltid=AU7gw4Wt4mEag0gU__OElnQn5f_1RNoPs22FfJJbS2WpQ2wSghiUMjydd7k",
+        "primary": false,
+        "priceAud": 999,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "13328630964885333611",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/roborock-qrevo-l-pro-robot-vacuum-and-mop.webp",
+      "/images/products/roborock-qrevo-l-pro-robot-vacuum-and-mop-2.webp",
+      "/images/products/roborock-qrevo-l-pro-robot-vacuum-and-mop-3.webp",
+      "/images/products/roborock-qrevo-l-pro-robot-vacuum-and-mop-4.webp"
+    ],
+    "description": "Discover the Roborock Q Revo L Pro vacuum mop with 18,500. Pa suction, smart navigation, and self-washing mops for effortless cleaning. Perfect for busy families.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Roborock"
+      },
+      {
+        "name": "HEPA Filter",
+        "value": "Yes"
+      },
+      {
+        "name": "Cordless",
+        "value": "Yes"
+      },
+      {
+        "name": "For Pets",
+        "value": "Yes"
+      },
+      {
+        "name": "Capacity",
+        "value": "2.7 litres"
+      }
+    ]
+  },
+  {
+    "id": "irobot-roomba-e5-robot-vacuum",
+    "slug": "irobot-roomba-e5-robot-vacuum",
+    "name": "Roomba E5 Robot Vacuum",
+    "brand": "iRobot",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 550,
+    "currency": "AUD",
+    "image": "/images/products/irobot-roomba-e5-robot-vacuum.webp",
+    "retailers": [
+      {
+        "name": "eBay AU",
+        "url": "https://www.ebay.com.au/itm/317210093545?chn=ps&_ul=AU&mkevt=1&mkcid=28&google_free_listing_action=view_item&srsltid=AU7gw4WKuFnHN2u2p7uLHTN1NYi0dlXt7wNtduvpfjILH1F7izq88c40IOk",
+        "primary": true,
+        "priceAud": 550,
+        "deepLink": true
+      },
+      {
+        "name": "Woolworths",
+        "url": "https://www.woolworths.com.au/shop/productdetails/1126129455",
+        "primary": false,
+        "priceAud": 580,
+        "deepLink": true
+      },
+      {
+        "name": "BIG W",
+        "url": "https://www.bigw.com.au/product/irobot-roomba-e5-5150-robot-vacuum-wi-fi-connected-compatible-with-alexa-ideal-for-pet-hair-carpets-hard-self-charging-robotic-vacuum-black/p/9902441516?srsltid=AU7gw4U8D8-aAc8Vahbo0Agm-KAPGW-H3UZ2s-sIa3-6rk6NsQPFLeylVIU",
+        "primary": false,
+        "priceAud": 580,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "12668598917258979565",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "description": "The auto-recharging i. Robot Roomba e5 features a 3-Stage Cleaning System that uses dual Multi-Surface Rubber Brushes, powerful suction, and a high-efficiency filter to help thoroughly clean every day. The Edge-Sweeping Brush concentrates on edges and corners as the navigation and Dirt Detect technologies get around furniture and focus on areas that need it most.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "iRobot"
+      },
+      {
+        "name": "Cordless",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Amazon Alexa"
+      }
+    ]
+  },
+  {
+    "id": "dreame-matrix10-ultra-robot-vacuum-cleaner",
+    "slug": "dreame-matrix10-ultra-robot-vacuum-cleaner",
+    "name": "Matrix10 Ultra Robot Vacuum Cleaner",
+    "brand": "Dreame",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 1994,
+    "currency": "AUD",
+    "image": "/images/products/dreame-matrix10-ultra-robot-vacuum-cleaner.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/dreame-matrix10-ultra-robot-vacuum-cleaner?ab_version=B&srsltid=AU7gw4U8w02eRpuu-jLEEfoxR6ffP3WB6-lWyYi7Vy-YGGUJNHtz4uRiP1k",
+        "primary": true,
+        "priceAud": 1994,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/dreame-matrix10-ultra-robot-vacuum-rlx95ce?srsltid=AU7gw4WxR1GXNxLWgeGYnOZ5z-IXauZEN-Ci_Od-PgEu7n1vp1RvJnmSgZM",
+        "primary": false,
+        "priceAud": 3499,
+        "deepLink": true
+      },
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/dreame-matrix-10-ultra-robotic-vacuum-and-mop-black.html?srsltid=AU7gw4VmMlz8QbPneqOxiLIn-o9uRf8N7xrizyK4wHfGrba1kUvpUJdVorI",
+        "primary": false,
+        "priceAud": 3499,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "7164152198953763583",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/dreame-matrix10-ultra-robot-vacuum-cleaner.webp",
+      "/images/products/dreame-matrix10-ultra-robot-vacuum-cleaner-2.webp",
+      "/images/products/dreame-matrix10-ultra-robot-vacuum-cleaner-3.webp",
+      "/images/products/dreame-matrix10-ultra-robot-vacuum-cleaner-4.webp"
+    ],
+    "description": "The Dreame Matrix10 Ultra is a next-generation robot vacuum and mop combo built for effortless, deep cleaning across entire homes. With ultra-high suction power and automated mop-switching technology, it tackles carpets, hard floors, and even transitions between surfaces without manual intervention. Smart navigation and a self-cleaning dock make it a 'set-and-forget' solution for busy households. It's designed to deliver premium performance with minimal user effort.",
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Dreame"
+      },
+      {
+        "name": "Cordless",
+        "value": "Yes"
+      },
+      {
+        "name": "For Pets",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa"
+      },
+      {
+        "name": "Capacity",
+        "value": "0.2 litres"
+      }
+    ]
+  },
+  {
+    "id": "roborock-qrevo-edge-c-vacuum-cleaner",
+    "slug": "roborock-qrevo-edge-c-vacuum-cleaner",
+    "name": "Qrevo Edge C Vacuum Cleaner",
+    "brand": "Roborock",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 699,
+    "currency": "AUD",
+    "image": "/images/products/roborock-qrevo-edge-c-vacuum-cleaner.webp",
+    "retailers": [
+      {
+        "name": "Amazon AU",
+        "url": "https://www.amazon.com.au/Roborock-EdgeC-Multifunctional-Zero-Tangling-Self-Emptying/dp/B0F1XPNXY8?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2Q32YF790A3FN",
+        "primary": true,
+        "priceAud": 699,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/roborock-qrevo-edge-c-robotic-vacuum-rr-qrec02-03-wht?srsltid=AU7gw4VW4M5YLP8spTTBXjwmMmVA-RJlFZEH0EusW3jfSf5XOrJ-w9AsYyM",
+        "primary": false,
+        "priceAud": 897,
+        "deepLink": true
+      },
+      {
+        "name": "Bunnings",
+        "url": "https://www.bunnings.com.au/roborock-qrevo-edge-c-robot-vacuum-mop-white_p0853570?srsltid=AU7gw4VkpWkyTgGFhq_lSrY90gbVwVYHhij0mgnEwhRaszmic0k1CBxmOVQ",
+        "primary": false,
+        "priceAud": 999.99,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "4719403301348345537",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/roborock-qrevo-edge-c-vacuum-cleaner.webp",
+      "/images/products/roborock-qrevo-edge-c-vacuum-cleaner-2.webp",
+      "/images/products/roborock-qrevo-edge-c-vacuum-cleaner-3.webp",
+      "/images/products/roborock-qrevo-edge-c-vacuum-cleaner-4.webp"
+    ],
+    "description": "The Roborock Qrevo Edge C is designed to make everyday cleaning easier, smarter, and more effective, especially in busy homes with pets, kids, and a constant flow of daily life. Whether it’s crumbs under the dining table, pet hair along the skirting boards, or spills in the kitchen, this intelligent cleaner brings powerful precision to every corner with calm, consistent care. Equipped with a Duo. Divide Brush, this robot vacuum is engineered to prevent hair tangling andfuss-free hair removal, making it an ideal solution for households with pets and little ones. The 18,500 Pa Hyper. Force suction tackles even the most stubborn debris, lifting dust from carpet fibres and fine particles from floorboard gaps. With edge-to-edge technology like the Flexi. Arm Arc Side Brush and 0mm Edge Mopping, no speck is left behind. Completing the picture is its multifunctional dock, a fully autonomous system that handles emptying, hot water mop washing, drying, and even refilling itself. The Qrevo Edge C doesn’t just clean; it simplifies your day, giving you back precious time to spend where it matters most.",
+    "specifications": [
+      {
+        "name": "Power Source",
+        "value": "Cordless"
+      },
+      {
+        "name": "Surface Type",
+        "value": "Various floor surfaces, Carpeted surfaces, Hardwood floors, Shaggy pile rugs, Thick carpets"
+      },
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Suction Power",
+        "value": "18,500 Pa"
+      },
+      {
+        "name": "Cleaning Width",
+        "value": "13 cm (dual-mop cloths)"
+      },
+      {
+        "name": "Water Tank Capacity",
+        "value": "2.5 L (built in the dock)"
+      },
+      {
+        "name": "Filtration Type",
+        "value": "E12 filter"
+      },
+      {
+        "name": "Battery Life",
+        "value": "180 mins"
+      },
+      {
+        "name": "Battery Charging Time",
+        "value": "4 hour"
+      },
+      {
+        "name": "Battery Type",
+        "value": "Lithium-ion"
+      },
+      {
+        "name": "Vacuum Type",
+        "value": "Robotic"
+      },
+      {
+        "name": "Design Highlights",
+        "value": "Trimmed down obstacle avoidance technology, Intelligent mapping, Self-cleaning, Simpler Reactive model (obstacle avoidance)"
+      },
+      {
+        "name": "Weight",
+        "value": "3.99 kg (Robot)"
+      },
+      {
+        "name": "Depth",
+        "value": "56 cm"
+      },
+      {
+        "name": "Height",
+        "value": "9.79 cm"
+      },
+      {
+        "name": "Width",
+        "value": "38.9 cm"
+      },
+      {
+        "name": "Top Use Cases",
+        "value": "Spot-clean spills, Cleaning under low-lying furniture, Deep cleaning for pet-specific areas"
+      },
+      {
+        "name": "Noise Level",
+        "value": "Quiet (suction level)"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "No (Roborock's built-in voice assistant Rocky)"
+      }
+    ]
+  },
+  {
+    "id": "dreame-x60-ultra-robot-vacuum-cleaner",
+    "slug": "dreame-x60-ultra-robot-vacuum-cleaner",
+    "name": "X60 Ultra Robot Vacuum Cleaner",
+    "brand": "Dreame",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 2999,
+    "currency": "AUD",
+    "image": "/images/products/dreame-x60-ultra-robot-vacuum-cleaner.webp",
+    "retailers": [
+      {
+        "name": "JB Hi-Fi",
+        "url": "https://www.jbhifi.com.au/products/dreame-x60-ultra-robot-vacuum-cleaner?ab_version=A&srsltid=AU7gw4VMZ3_F-3wH1ygkwyRf8aCMGPdW9Df-6oYAgilCLXeKRJ13bY2_0UQ",
+        "primary": true,
+        "priceAud": 2999,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/dreame-x60-ultra-robot-vacuum-rlx86de?srsltid=AU7gw4V8w-u6SRCxbFL1F9H0Be41gt1ASPyfygXh6VGQvBHTCyqgfKnGo4g",
+        "primary": false,
+        "priceAud": 2999,
+        "deepLink": true
+      },
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/dreame-x60-ultra-robotic-vacuum-and-mop.html?srsltid=AU7gw4XTzxzKX80dO1rQ96kZFQ78v99TVHqKgwMiE9AqFiX7n2p9PBmfTWQ",
+        "primary": false,
+        "priceAud": 2999,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "17102740595592718757",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/dreame-x60-ultra-robot-vacuum-cleaner.webp",
+      "/images/products/dreame-x60-ultra-robot-vacuum-cleaner-2.webp",
+      "/images/products/dreame-x60-ultra-robot-vacuum-cleaner-3.webp",
+      "/images/products/dreame-x60-ultra-robot-vacuum-cleaner-4.webp"
+    ],
+    "description": "The Dreame X60 Ultra Robot Vacuum Cleaner (DRE-X60U) in black offers advanced, intelligent cleaning with an ultra-thin design for effortless movement. It features upgraded binocular vision and proactive light detection to identify and adapt to various messes, including hard-to-see hair and liquids. Dual 120-degree AI cameras enable millimeter-precision detection of over 280 object types, even tiny items down to 10mm, ensuring next-gen obstacle avoidance and instant response. With 35,000. Pa of powerful suction, this robot vacuum tackles tough debris effectively, delivering a thorough and dynamic cleaning experience for modern homes.",
+    "specifications": [
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Brand",
+        "value": "Dreame"
+      },
+      {
+        "name": "HEPA Filter",
+        "value": "Yes"
+      },
+      {
+        "name": "Cordless",
+        "value": "Yes"
+      },
+      {
+        "name": "For Pets",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant, Amazon Alexa, Siri"
+      },
+      {
+        "name": "Weight",
+        "value": "10.6 kg"
+      },
+      {
+        "name": "Capacity",
+        "value": "2 litres"
+      }
+    ]
+  },
+  {
+    "id": "ecovacs-deebot-t80s-omni-robot-vacuum-mop",
+    "slug": "ecovacs-deebot-t80s-omni-robot-vacuum-mop",
+    "name": "Deebot T80S Omni Robot Vacuum & Mop",
+    "brand": "Ecovacs",
+    "categoryKey": "robot-vacuums",
+    "categorySlug": "robot-vacuums",
+    "categoryName": "Robot Vacuums",
+    "subCategory": "Robot Vacuums & Mops",
+    "priceAud": 888,
+    "currency": "AUD",
+    "image": "/images/products/ecovacs-deebot-t80s-omni-robot-vacuum-mop.webp",
+    "retailers": [
+      {
+        "name": "Bing Lee",
+        "url": "https://www.binglee.com.au/products/deebot-t80s-omni-black-robot-vacuum-and-mop-deebot-t80s-omni",
+        "primary": true,
+        "priceAud": 888,
+        "deepLink": true
+      },
+      {
+        "name": "The Good Guys",
+        "url": "https://www.thegoodguys.com.au/ecovacs-deebot-t80s-omni-robotic-vacuum-dex62?srsltid=AU7gw4U4HPJdsMUAQ79kh6uNNLRk1tYUdLAjL69-GHPImL_bYtR8L7rF540",
+        "primary": false,
+        "priceAud": 899,
+        "deepLink": true
+      },
+      {
+        "name": "Harvey Norman",
+        "url": "https://www.harveynorman.com.au/ecovac-deebot-t80s-omni-robot-vacuum-and-mop-black.html?srsltid=AU7gw4U7vFkuFdRoqJQ-UrzpXR-RbQTNRTeKWYAeB1j6XxK51EOQNLOuDC0",
+        "primary": false,
+        "priceAud": 899,
+        "deepLink": true
+      }
+    ],
+    "googleProductId": "3406434886002369781",
+    "pricesCheckedAt": "2026-10-05T19:10:11.471Z",
+    "updatedAt": "2026-10-05T19:10:11.471Z",
+    "images": [
+      "/images/products/ecovacs-deebot-t80s-omni-robot-vacuum-mop.webp",
+      "/images/products/ecovacs-deebot-t80s-omni-robot-vacuum-mop-2.webp",
+      "/images/products/ecovacs-deebot-t80s-omni-robot-vacuum-mop-3.webp",
+      "/images/products/ecovacs-deebot-t80s-omni-robot-vacuum-mop-4.webp"
+    ],
+    "description": "Keeping floors clean is a completely hands-off experience with the Ecovacs Deebot T80S Omni! This powerhouse pairs a mighty 24,800. Pa suction with Zero. Tangle 3.0 technology, effortlessly lifting deep-seated dirt without hair wrapping around the brushes. For hard floors, the Ozmo Roller 2.0 system spins at 220 RPM to scrub away stubborn stains, while the Triple Lift System automatically adjusts to protect carpets and optimise cleaning across all floor types. Navigation is just as seamless - the AIVI 3D 3.0 Omni-Approach system maps your home in real-time to dodge furniture and obstacles with precision. And once the job is done, the OMNI Station takes over, offering 90 days of maintenance-free cleaning with 75°C water washing and 63°C heat drying for total hygiene.",
+    "specifications": [
+      {
+        "name": "Bagless",
+        "value": "Yes"
+      },
+      {
+        "name": "Wet <wbr>/<wbr> Dry",
+        "value": "Yes"
+      },
+      {
+        "name": "Brand",
+        "value": "ECOVACS ROBOTICS"
+      },
+      {
+        "name": "Cordless",
+        "value": "Yes"
+      },
+      {
+        "name": "Assistant Support",
+        "value": "Google Assistant"
+      },
+      {
+        "name": "Capacity",
+        "value": "3 litres"
+      }
+    ]
   }
 ]
