@@ -2625,9 +2625,16 @@
       }
     ],
     "googleProductId": "15639415013551322233",
-    "shortDescription": "A five-piece alarm system kit from Ring designed for home security. Check the retailer listing for details on what's included, specifications and compatibility with your smart home setup.",
+    "shortDescription": "The Ring Alarm 5-Piece Security Kit (2nd Gen) is a home security system offering professional monitoring through the Ring app. It includes motion detection, contact sensors, and a keypad with rechargeable batteries. The system features a 104-decibel siren, cloud recording at 1080p HD, and mobile notifications, with connectivity via Wi-Fi, LTE, and Z-Wave.",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A five-piece alarm system kit from Ring designed for home security. Check the retailer listing for details on what's included, specifications and compatibility with your smart home setup.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -2691,9 +2698,16 @@
     ],
     "googleProductId": "8163437980732378912",
     "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
-    "shortDescription": "A 4K security camera from eufy with solar charging capability. Check the retailer listing for full specifications, compatibility details and to confirm current features and availability.",
+    "shortDescription": "The eufy eufyCam 3 (S380) is a wireless 4K security camera featuring solar charging capability. The brand states it offers night vision and includes built-in audio. It integrates with Google Assistant and Amazon Alexa for voice control and smart home compatibility.",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A 4K security camera from eufy with solar charging capability. Check the retailer listing for full specifications, compatibility details and to confirm current features and availability.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -4737,10 +4751,17 @@
     ],
     "reviewsUrl": "https://www.eufy.com/au/products/t8506111",
     "googleProductId": "6784012321099035687",
-    "shortDescription": "A smart lock from eufy that connects to Wi-Fi for remote access and control. Check the retailer listing for full specifications, compatibility details and setup requirements.",
+    "shortDescription": "The eufy Smart Lock C220 is a Wi-Fi-enabled deadbolt that operates via voice control with Google Assistant or Alexa, and automatically locks when the door closes. It is BHMA Grade 3 certified, IP53 waterproof rated, and made of aluminium with a dirt and smudge resistant finish.",
     "cmsDescriptionHtml": "<h2>eufy Smart Lock C220 with Wi-Fi</h2>\n<p>eufy Smart Lock C220 with Wi-Fi is a security device for homes and small properties, listed in the Security &#x26; Cameras range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights detection (Security Features). Use those details to compare power, storage, alerts and installation fit before deciding whether it suits your home.</p>\n<ul>\n<li>Detection: Security Features.</li>\n<li>Category: Security &#x26; Cameras.</li>\n<li>Best checked on power, storage, alerts and installation fit.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A smart lock from eufy that connects to Wi-Fi for remote access and control. Check the retailer listing for full specifications, compatibility details and setup requirements.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -8462,9 +8483,16 @@
     "reviewsUrl": "https://www.aqara.com/en/product/smart-lock-u100/",
     "description": "Enjoy hassle-free and secure keyless entry with fingerprint access. Compatible with Apple Home for smart control. Order today!",
     "googleProductId": "15105821316388400320",
-    "shortDescription": "Smart lock from Aqara designed for Apple HomeKey compatibility. Check the retailer listing for details on specifications, installation requirements and how it fits with your smart home setup.",
+    "shortDescription": "The Aqara Smart Lock U100 is a fingerprint-enabled smart lock compatible with Apple Home and HomeKey. The manufacturer says it offers keyless entry with security features, IP65 water resistance, and requires no drilling for most doors. It includes four AA batteries, mechanical keys, and installation accessories.",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "Smart lock from Aqara designed for Apple HomeKey compatibility. Check the retailer listing for details on specifications, installation requirements and how it fits with your smart home setup.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -11066,10 +11094,17 @@
       }
     ],
     "googleProductId": "11886315825342903287",
-    "shortDescription": "A pair of smart light bars from Philips Hue for accent lighting in your setup. Check the retailer listing for specifications on brightness, colour options, connectivity and control methods.",
+    "shortDescription": "The Philips Hue Play Light Bar is a smart lighting accessory designed to add dynamic, colour-changing light to entertainment spaces. The pack includes two bars that work with the Hue ecosystem via the Hue Bridge. According to the brand, they deliver immersive lighting effects that sync with content and create ambient atmosphere for gaming and media viewing.",
     "cmsDescriptionHtml": "<h2>Philips Hue Play Light Bar (2-Pack)</h2>\n<p>Philips Hue Play Light Bar (2-Pack) is a smart lighting product for Australian homes, listed in the Lighting range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare fitting type, brightness, app control and ecosystem support before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Lighting.</li>\n<li>Best checked on fitting type, brightness, app control and ecosystem support.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A pair of smart light bars from Philips Hue for accent lighting in your setup. Check the retailer listing for specifications on brightness, colour options, connectivity and control methods.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -13924,10 +13959,17 @@
     "reviewCountReal": 21,
     "reviewsUrl": "https://www.megateh.eu/products/aqara-xiaomi-smarthome/aqara-ws-euk03-g-smart-wall-switch-h1-eu-gray-single-with-neutral-wire",
     "googleProductId": "10965636419305090731",
-    "shortDescription": "A smart wall switch for the Aqara ecosystem designed for European installations without neutral wiring. Check the retailer listing for full specifications and compatibility details.",
+    "shortDescription": "The Aqara Smart Light Switch H1 EU is a double rocker wall-mounted switch that controls normal lights via ZigBee wireless connectivity. It supports Alexa, Google, and HomeKit voice assistants and features overheat protection. Operating at 100–250VAC with an 8A resistive load capacity, it requires no neutral wire for installation.",
     "cmsDescriptionHtml": "<h2>Aqara Smart Light Switch H1 EU (No Neutral)</h2>\n<p>Aqara Smart Light Switch H1 EU (No Neutral) is a smart lighting product for Australian homes, listed in the Lighting range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights power (Wired), assistant support (Alexa, Google, HomeKit), connectivity (ZigBee), power rating (8A (resistive load)). Use those details to compare fitting type, brightness, app control and ecosystem support before deciding whether it suits your home.</p>\n<ul>\n<li>Power: Wired.</li>\n<li>Assistant support: Alexa, Google, HomeKit.</li>\n<li>Connectivity: ZigBee.</li>\n<li>Category: Lighting.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A smart wall switch for the Aqara ecosystem designed for European installations without neutral wiring. Check the retailer listing for full specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -14881,10 +14923,17 @@
       }
     ],
     "googleProductId": "11797362323629904619",
-    "shortDescription": "A compact smart plug that connects to your home Wi-Fi network, letting you control and monitor connected devices remotely. See the retailer listing for full specifications and compatibility details.",
+    "shortDescription": "The Meross Smart Wi-Fi Plug Mini AU is a compact smart plug with energy monitoring capabilities. It connects via Wi-Fi and integrates with home automation systems. The mini design makes it suitable for use in tight spaces without blocking adjacent outlets or switches.",
     "cmsDescriptionHtml": "<h2>Meross Smart Wi-Fi Plug Mini AU (MSS210)</h2>\n<p>Meross Smart Wi-Fi Plug Mini AU (MSS210) is a smart lighting product for Australian homes, listed in the Energy &#x26; Solar range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights connectivity (WiFi), detection (Energy Monitoring). Use those details to compare fitting type, brightness, app control and ecosystem support before deciding whether it suits your home.</p>\n<ul>\n<li>Connectivity: WiFi.</li>\n<li>Detection: Energy Monitoring.</li>\n<li>Category: Energy &#x26; Solar.</li>\n<li>Best checked on fitting type, brightness, app control and ecosystem support.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A compact smart plug that connects to your home Wi-Fi network, letting you control and monitor connected devices remotely. See the retailer listing for full specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -15689,10 +15738,17 @@
     "reviewCountReal": 21,
     "reviewsUrl": "https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled",
     "googleProductId": "14508059768791427564",
-    "shortDescription": "A compact smart plug for the Australian market that lets you control power to connected devices through your smart home system. See the retailer listing for full specifications and compatibility details.",
+    "shortDescription": "SwitchBot Smart Plug Mini AU is a single-outlet smart plug that connects via Wi-Fi to enable voice control and app management of connected devices. It features scheduling, timer functions, and energy monitoring capabilities. Compatible with HomeKit, Alexa, Google Assistant, and Siri. Rated for 1875 W maximum.",
     "cmsDescriptionHtml": "<h2>SwitchBot Smart Plug Mini AU</h2>\n<p>SwitchBot Smart Plug Mini AU is a smart lighting product for Australian homes, listed in the Energy &#x26; Solar range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights power (Wall outlet), assistant support (HomeKit, Alexa, Google Assistant, Siri), connectivity (Wi-Fi), detection (Voice control, Scheduling). Use those details to compare fitting type, brightness, app control and ecosystem support before deciding whether it suits your home.</p>\n<ul>\n<li>Power: Wall outlet.</li>\n<li>Assistant support: HomeKit, Alexa, Google Assistant, Siri.</li>\n<li>Connectivity: Wi-Fi.</li>\n<li>Category: Energy &#x26; Solar.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A compact smart plug for the Australian market that lets you control power to connected devices through your smart home system. See the retailer listing for full specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -18641,10 +18697,17 @@
     ],
     "googleProductId": "10746620980411735736",
     "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
-    "shortDescription": "A smart soundbar designed to integrate into your Sonos system and connect with your TV for audio enhancement. Check the retailer listing for detailed specifications and compatibility information.",
+    "shortDescription": "The Sonos Arc Premium Smart Soundbar is a wireless soundbar with support for Google Assistant and Dolby Atmos audio. It connects via Bluetooth, Wi-Fi, NFC, HDMI, Ethernet, and optical audio. According to the manufacturer, this soundbar delivers spatial audio for home entertainment systems.",
     "cmsDescriptionHtml": "<h2>Sonos Arc Premium Smart Soundbar</h2>\n<p>Sonos Arc Premium Smart Soundbar is a entertainment product for Australian smart homes, listed in the Entertainment &#x26; Audio range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights assistant support (Google Assistant), connectivity (Bluetooth, Wi-Fi, NFC, HDMI, Ethernet, Optical Audio). Use those details to compare ecosystem support, voice control and everyday usability before deciding whether it suits your home.</p>\n<ul>\n<li>Assistant support: Google Assistant.</li>\n<li>Connectivity: Bluetooth, Wi-Fi, NFC, HDMI, Ethernet, Optical Audio.</li>\n<li>Category: Entertainment &#x26; Audio.</li>\n<li>Best checked on ecosystem support, voice control and everyday usability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A smart soundbar designed to integrate into your Sonos system and connect with your TV for audio enhancement. Check the retailer listing for detailed specifications and compatibility information.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -20928,10 +20991,17 @@
     "reviewsUrl": "https://reductionrevolution.com.au/products/sensibo-sky?variant=32148909817958&country=AU&currency=AUD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOorqJz5tUA-pvDSG1_Hpq5e2DGvbqIm74ZLXGNCOEMkCwhNZOXiP_1Y",
     "googleProductId": "4464513965743024556",
     "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
-    "shortDescription": "A smart air conditioner controller that connects to your existing AC unit for remote control and scheduling. Check the retailer listing for specifications and compatibility details.",
+    "shortDescription": "The Sensibo Sky is a smart controller for air conditioning units. According to the manufacturer, it enables remote control via smartphone and voice assistant integration. The device is listed as compatible with most air conditioner models and offers scheduling features. It connects to home WiFi networks for remote access and control of temperature settings.",
     "cmsDescriptionHtml": "<h2>Sensibo Sky Smart Air Conditioner Controller</h2>\n<p>Sensibo Sky Smart Air Conditioner Controller is a climate-control product for Australian homes, listed in the Climate &#x26; Comfort range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare app control, scheduling, sensors and room fit before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Climate &#x26; Comfort.</li>\n<li>Best checked on app control, scheduling, sensors and room fit.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A smart air conditioner controller that connects to your existing AC unit for remote control and scheduling. Check the retailer listing for specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -21027,10 +21097,17 @@
     "reviewCountReal": 5,
     "reviewsUrl": "https://www.woolworths.com.au/shop/productdetails/1112911667",
     "googleProductId": "275836978594292849",
-    "shortDescription": "A smart controller for air conditioning systems that monitors air quality. Check the retailer listing for full specifications and compatibility details with your existing AC unit.",
+    "shortDescription": "The Sensibo Air PRO is a smart air conditioner controller that connects to existing AC units via WiFi. According to the manufacturer, it optimises cooling efficiency and integrates with smart home systems. The device is listed with air quality monitoring capabilities to track indoor environmental conditions.",
     "cmsDescriptionHtml": "<h2>Sensibo Air PRO Smart AC Controller with Air Quality</h2>\n<p>Sensibo Air PRO Smart AC Controller with Air Quality is a smart home product for Australian buyers, listed in the Climate &#x26; Comfort range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare compatibility, support, price and setup fit before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Climate &#x26; Comfort.</li>\n<li>Best checked on compatibility, support, price and setup fit.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A smart controller for air conditioning systems that monitors air quality. Check the retailer listing for full specifications and compatibility details with your existing AC unit.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -21123,10 +21200,17 @@
     "reviewCountReal": 5,
     "reviewsUrl": "https://www.woolworths.com.au/shop/productdetails/1112911667",
     "googleProductId": "275836978594292849",
-    "shortDescription": "An indoor air quality monitor from Sensibo for tracking air conditions in your home. Check the retailer listing for specifications and compatibility details.",
+    "shortDescription": "The Sensibo Elements is an indoor air quality monitor. The brand indicates it measures air quality parameters to help users monitor their indoor environment. It is designed to provide information about air conditions within homes or similar spaces, supporting awareness of environmental factors that may affect comfort and health.",
     "cmsDescriptionHtml": "<h2>Sensibo Elements Indoor Air Quality Monitor</h2>\n<p>Sensibo Elements Indoor Air Quality Monitor is a smart home product for Australian buyers, listed in the Climate &#x26; Comfort range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare compatibility, support, price and setup fit before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Climate &#x26; Comfort.</li>\n<li>Best checked on compatibility, support, price and setup fit.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "An indoor air quality monitor from Sensibo for tracking air conditions in your home. Check the retailer listing for specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -21976,9 +22060,16 @@
       }
     ],
     "googleProductId": "13602027745657994108",
-    "shortDescription": "A Dyson air purifier designed to heat and cool your space while purifying the air. Check the retailer listing for full specifications and performance details.",
+    "shortDescription": "The Dyson Purifier Hot+Cool Formaldehyde is an electric fan heater that combines heating and purification capabilities. According to the manufacturer, it is listed as detecting and destroying formaldehyde. The device offers heating functionality alongside air purification in a single unit for year-round climate control.",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A Dyson air purifier designed to heat and cool your space while purifying the air. Check the retailer listing for full specifications and performance details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -23085,10 +23176,17 @@
     "reviewCountReal": 15,
     "reviewsUrl": "https://www.amazon.com.au/Netatmo-Thermostat-Orange-Blue-Yellow/dp/B0CC67PYHY?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3P6X2GIMA114Z",
     "googleProductId": "3687774807081639855",
-    "shortDescription": "A smart thermostat from Netatmo for controlling your home's heating and cooling. Check the retailer listing for detailed specifications and compatibility information.",
+    "shortDescription": "The Netatmo Smart Thermostat is a digital, programmable thermostat with remote programming capabilities. It operates on both line and low voltage systems and is compatible with heat pump systems. Battery-operated functionality allows operation during power interruptions. The device integrates with Google Assistant, Amazon Alexa, and Siri for voice control.",
     "cmsDescriptionHtml": "<h2>Netatmo Smart Thermostat</h2>\n<p>Netatmo Smart Thermostat is a climate-control product for Australian homes, listed in the Climate &#x26; Comfort range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights assistant support (Google Assistant, Amazon Alexa, Siri). Use those details to compare app control, scheduling, sensors and room fit before deciding whether it suits your home.</p>\n<ul>\n<li>Assistant support: Google Assistant, Amazon Alexa, Siri.</li>\n<li>Category: Climate &#x26; Comfort.</li>\n<li>Best checked on app control, scheduling, sensors and room fit.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A smart thermostat from Netatmo for controlling your home's heating and cooling. Check the retailer listing for detailed specifications and compatibility information.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -23898,10 +23996,17 @@
     "reviewCountReal": 9,
     "reviewsUrl": "https://www.desertcart.com.au/products/783229692-smart-hub-m200-matter-controller-thread-border-router-featuring-aqara-zigbee-bluetooth-wi-fi-poe-ir-supports-apple-homekit-home-assistant-alexa-smartthings-google?srsltid=AfmBOopIXlAva5Rhr1P7EvlgZTxDqme3VIjgWUOpw4ELqFHjIlNc-6ekPj0",
     "googleProductId": "10855993648860741744",
-    "shortDescription": "The Aqara Hub M3 is a coordinator for Zigbee and Matter devices. Check the retailer listing for specifications and compatibility details.",
+    "shortDescription": "The Aqara Hub M3 is a Matter and Zigbee coordinator that integrates with Google Assistant, Amazon Alexa, and Siri. According to the manufacturer, it supports these voice platforms for smart-home control and coordination of compatible devices using both Matter and Zigbee protocols for connectivity.",
     "cmsDescriptionHtml": "<h2>Aqara Hub M3 Matter &#x26; Zigbee Coordinator</h2>\n<p>Aqara Hub M3 Matter &#x26; Zigbee Coordinator is a hub or bridge for smart home setups, listed in the Hubs &#x26; Platforms range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights assistant support (Google Assistant, Amazon Alexa, Siri). Use those details to compare protocol support, app compatibility and local availability before deciding whether it suits your home.</p>\n<ul>\n<li>Assistant support: Google Assistant, Amazon Alexa, Siri.</li>\n<li>Category: Hubs &#x26; Platforms.</li>\n<li>Best checked on protocol support, app compatibility and local availability.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "The Aqara Hub M3 is a coordinator for Zigbee and Matter devices. Check the retailer listing for specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -24932,10 +25037,17 @@
     "reviewCountReal": 112,
     "reviewsUrl": "https://www.amazon.com.au/TOUGH-Wireless-Charger-Samsung-Charging/dp/B0CSY8ZMH5?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=AK46J9BG1VMCX",
     "googleProductId": "8298438880058901767",
-    "shortDescription": "A SmartThings automation controller with integrated wireless charging. Check the retailer listing for specifications, compatibility details and current availability.",
+    "shortDescription": "The Samsung SmartThings Station is a 15W wireless charging stand that charges compatible Galaxy phones, Buds, and Watches simultaneously. It features fast Qi charging, works through cases up to 5mm thick, and includes overcharge and overvoltage protection. The 20W wall adapter is SAA-certified.",
     "cmsDescriptionHtml": "<h2>Samsung SmartThings Station with 15W Wireless Charger</h2>\n<p>Samsung SmartThings Station with 15W Wireless Charger is a smart lighting product for Australian homes, listed in the Hubs &#x26; Platforms range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights power (Wall outlet (via 20W wall adapter)). Use those details to compare fitting type, brightness, app control and ecosystem support before deciding whether it suits your home.</p>\n<ul>\n<li>Power: Wall outlet (via 20W wall adapter).</li>\n<li>Category: Hubs &#x26; Platforms.</li>\n<li>Best checked on fitting type, brightness, app control and ecosystem support.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A SmartThings automation controller with integrated wireless charging. Check the retailer listing for specifications, compatibility details and current availability.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -25870,9 +25982,16 @@
     "reviewCountReal": 21,
     "reviewsUrl": "https://www.ebay.com.au/itm/358585603682?chn=ps&_ul=AU&mkevt=1&mkcid=28&google_free_listing_action=view_item&srsltid=AfmBOooUYf4B5sN5vBM_LByKz4zX5YjcOICrHeI-PiE0hjdIUMmxWo8Ip9Q",
     "googleProductId": "140197143984340026",
-    "shortDescription": "Roborock's Qrevo Master is a robot vacuum and mop designed to handle floor cleaning in your home. See the retailer listing for full specifications and features.",
+    "shortDescription": "The Roborock Qrevo Master is a cordless robot vacuum weighing 15.06 kg with a 0.22-litre capacity. It is listed as suitable for homes with pets and integrates with Amazon Alexa for voice control. The brand positions this model as part of their Qrevo range of autonomous cleaning solutions.",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "Roborock's Qrevo Master is a robot vacuum and mop designed to handle floor cleaning in your home. See the retailer listing for full specifications and features.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     }
   },
   {
@@ -31480,11 +31599,19 @@
         "value": "Switch"
       }
     ],
-    "shortDescription": "A ZigBee-enabled circuit breaker for smart home energy management. Check the retailer listing for specifications, compatibility and installation requirements.",
+    "shortDescription": "The Tuya ZigBee Smart Circuit Breaker is a switch device that connects via ZigBee protocol. According to the manufacturer, it enables remote control of electrical circuits through a smart home network. The device integrates with Tuya-compatible systems for automated switching and monitoring capabilities.",
     "cmsDescriptionHtml": "<h2>TUYA ZigBee Smart Circuit Breaker</h2>\n<p>TUYA ZigBee Smart Circuit Breaker is a smart lighting product for Australian homes, listed in the Energy &#x26; Solar range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare fitting type, brightness, app control and ecosystem support before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Energy &#x26; Solar.</li>\n<li>Best checked on fitting type, brightness, app control and ecosystem support.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A ZigBee-enabled circuit breaker for smart home energy management. Check the retailer listing for specifications, compatibility and installation requirements.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Users seeking remote circuit control integrated with ZigBee smart home systems"
   },
   {
     "id": "tp-link-tapo-smart-wi-fi-power-strip",
@@ -32040,11 +32167,19 @@
         "value": "Switch"
       }
     ],
-    "shortDescription": "A smart circuit breaker designed for use within Tuya-compatible smart home systems. Check the retailer listing for specifications, features and compatibility details.",
+    "shortDescription": "The Tuya Smart Circuit Breaker is an intelligent switch designed to integrate with smart home systems. According to the manufacturer, it enables remote control and monitoring of electrical circuits. The device connects to compatible smart home platforms for automated management and scheduling of power distribution throughout the home.",
     "cmsDescriptionHtml": "<h2>TUYA Smart Circuit Breaker</h2>\n<p>TUYA Smart Circuit Breaker is a smart lighting product for Australian homes, listed in the Energy &#x26; Solar range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare fitting type, brightness, app control and ecosystem support before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Energy &#x26; Solar.</li>\n<li>Best checked on fitting type, brightness, app control and ecosystem support.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A smart circuit breaker designed for use within Tuya-compatible smart home systems. Check the retailer listing for specifications, features and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Homeowners wanting remote control of electrical circuits"
   },
   {
     "id": "powerboard-10in1-surge-protection-smart-usb-c-power-board",
@@ -32109,11 +32244,19 @@
         "value": "Switch"
       }
     ],
-    "shortDescription": "A smart power board with surge protection and USB-C outlets designed for managing multiple devices in your home. Check the retailer listing for full specifications and compatibility details.",
+    "shortDescription": "The Powerboard 10in1 Surge Protection Smart USB C Power Board is a wall-mountable power board with four outlets and USB ports. It features surge protection and a childproof design for safety. The board includes a switch and is listed as a smart device, though specific smart capabilities are not detailed.",
     "cmsDescriptionHtml": "<h2>Powerboard 10in1 Surge Protection Smart USB C Power Board</h2>\n<p>Powerboard 10in1 Surge Protection Smart USB C Power Board is a smart lighting product for Australian homes, listed in the Energy &#x26; Solar range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare fitting type, brightness, app control and ecosystem support before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Energy &#x26; Solar.</li>\n<li>Best checked on fitting type, brightness, app control and ecosystem support.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A smart power board with surge protection and USB-C outlets designed for managing multiple devices in your home. Check the retailer listing for full specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Families seeking surge-protected wall-mounted power with childproof safety features"
   },
   {
     "id": "smart-power-board-wifi-power-strip-compatible-with-alexa-and-google-home-wifi-ve",
@@ -32348,11 +32491,19 @@
         "value": "Timer/scheduler function"
       }
     ],
-    "shortDescription": "A Wi-Fi-connected power board from Mirabella Genio that lets you control connected devices remotely as part of your smart home setup. Check the retailer listing for full specifications and features.",
+    "shortDescription": "The Smart Mirabella Genio Wi-Fi Powerboard is a four-outlet power strip with surge and overload protection, designed for indoor use. It features scheduling capabilities, Amazon Alexa support, and USB-C and USB-A ports, with a 1.4 metre cord and 2400 W maximum capacity.",
     "cmsDescriptionHtml": "<h2>Smart Mirabella Genio Wi-Fi Powerboard</h2>\n<p>Smart Mirabella Genio Wi-Fi Powerboard is a smart lighting product for Australian homes, listed in the Energy &#x26; Solar range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights assistant support (Amazon Alexa). Use those details to compare fitting type, brightness, app control and ecosystem support before deciding whether it suits your home.</p>\n<ul>\n<li>Assistant support: Amazon Alexa.</li>\n<li>Category: Energy &#x26; Solar.</li>\n<li>Best checked on fitting type, brightness, app control and ecosystem support.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A Wi-Fi-connected power board from Mirabella Genio that lets you control connected devices remotely as part of your smart home setup. Check the retailer listing for full specifications and features.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Users wanting to control and schedule Christmas lights and displays remotely"
   },
   {
     "id": "iammeter-wem3050t-wifi-energy-meter",
@@ -32388,11 +32539,19 @@
         "value": "Amazon Alexa"
       }
     ],
-    "shortDescription": "A WiFi-enabled energy meter that monitors power consumption in your smart home. Check the retailer listing for specifications on measurement range, accuracy and compatibility details.",
+    "shortDescription": "The IAMMETER WEM3050T is a WiFi-enabled energy meter that monitors power consumption in your home. According to the manufacturer, it integrates with Amazon Alexa for voice control and smart home automation. The device tracks energy usage data, allowing users to optimise their household power consumption and understand their electricity patterns.",
     "cmsDescriptionHtml": "<h2>IAMMETER WEM3050T WiFi Energy Meter</h2>\n<p>IAMMETER WEM3050T WiFi Energy Meter is a smart energy product for Australian homes, listed in the Energy &#x26; Solar range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights assistant support (Amazon Alexa). Use those details to compare ratings, monitoring features and local electrical compatibility before deciding whether it suits your home.</p>\n<ul>\n<li>Assistant support: Amazon Alexa.</li>\n<li>Category: Energy &#x26; Solar.</li>\n<li>Best checked on ratings, monitoring features and local electrical compatibility.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A WiFi-enabled energy meter that monitors power consumption in your smart home. Check the retailer listing for specifications on measurement range, accuracy and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Homeowners wanting to monitor and manage household energy consumption remotely"
   },
   {
     "id": "voltx-e600-portable-power-station",
@@ -32608,11 +32767,19 @@
         "value": "Home"
       }
     ],
-    "shortDescription": "A wireless speaker system designed for playing audio across multiple rooms. Check the retailer listing for specifications, compatibility and setup requirements.",
+    "shortDescription": "The Avantree Harmony 2 is a portable wireless speaker system offering multi-room audio capability. It features Bluetooth and wireless connectivity with optical and AUX ports. The speaker delivers up to 15W of power with dual drivers and bass radiators, and runs for up to six hours on its built-in rechargeable battery.",
     "cmsDescriptionHtml": "<h2>Avantree Harmony 2 Multi-Room Wireless Speaker System</h2>\n<p>Avantree Harmony 2 Multi-Room Wireless Speaker System is a smart lighting product for Australian homes, listed in the Entertainment &#x26; Audio range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights power (Built-in rechargeable 18650 battery), assistant support (No (voice assistant)), connectivity (No). Use those details to compare fitting type, brightness, app control and ecosystem support before deciding whether it suits your home.</p>\n<ul>\n<li>Power: Built-in rechargeable 18650 battery.</li>\n<li>Assistant support: No (voice assistant).</li>\n<li>Connectivity: No.</li>\n<li>Category: Entertainment &#x26; Audio.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A wireless speaker system designed for playing audio across multiple rooms. Check the retailer listing for specifications, compatibility and setup requirements.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Portable multi-room listening with wireless convenience and extended battery life"
   },
   {
     "id": "hisense-hs2100-2-1ch-soundbar",
@@ -34210,11 +34377,19 @@
         "value": "Bluetooth"
       }
     ],
-    "shortDescription": "A smart speaker from Google designed for audio playback and entertainment. Check the retailer listing for detailed specifications, compatibility information and other product details.",
+    "shortDescription": "The Google Premium Audio Speaker is a wireless speaker that connects via Bluetooth. The manufacturer has not provided a detailed description of its capabilities, features, or audio specifications. This limits what can be definitively stated about its performance characteristics or intended use cases.",
     "cmsDescriptionHtml": "<h2>Google Premium Audio Speaker</h2>\n<p>Google Premium Audio Speaker is a entertainment product for Australian smart homes, listed in the Entertainment &#x26; Audio range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights connectivity (Bluetooth). Use those details to compare ecosystem support, voice control and everyday usability before deciding whether it suits your home.</p>\n<ul>\n<li>Connectivity: Bluetooth.</li>\n<li>Category: Entertainment &#x26; Audio.</li>\n<li>Best checked on ecosystem support, voice control and everyday usability.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A smart speaker from Google designed for audio playback and entertainment. Check the retailer listing for detailed specifications, compatibility information and other product details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Users wanting wireless audio via Bluetooth connectivity"
   },
   {
     "id": "lg-stanbyme-2-27-portable-smart-touch-screen-tv",
@@ -34557,11 +34732,19 @@
         "value": "Google Assistant, Amazon Alexa"
       }
     ],
-    "shortDescription": "A Wi-Fi-enabled IR controller for air conditioners that integrates with your smart home setup. Check the retailer listing for specific compatibility, features and technical specifications.",
+    "shortDescription": "The Tuya Smart WiFi IR Air Conditioner Controller Thermostat is a digital control device with a touchscreen that operates air conditioners via infrared. It supports remote programming and works with Google Assistant and Amazon Alexa for voice control of your air conditioning system.",
     "cmsDescriptionHtml": "<h2>TUYA Smart Wifi IR Air Conditioner Controller Thermostat</h2>\n<p>TUYA Smart Wifi IR Air Conditioner Controller Thermostat is a climate-control product for Australian homes, listed in the Climate &#x26; Comfort range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights assistant support (Google Assistant, Amazon Alexa). Use those details to compare app control, scheduling, sensors and room fit before deciding whether it suits your home.</p>\n<ul>\n<li>Assistant support: Google Assistant, Amazon Alexa.</li>\n<li>Category: Climate &#x26; Comfort.</li>\n<li>Best checked on app control, scheduling, sensors and room fit.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A Wi-Fi-enabled IR controller for air conditioners that integrates with your smart home setup. Check the retailer listing for specific compatibility, features and technical specifications.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Users wanting voice and remote control of existing air conditioners"
   },
   {
     "id": "levoit-core-300s-smart-air-purifier",
@@ -35062,11 +35245,19 @@
         "value": "Tuya"
       }
     ],
-    "shortDescription": "A wifi-enabled temperature and humidity sensor for indoor monitoring. This device fits into your smart home climate management setup. Check the retailer listing for detailed specifications and compatibility information.",
+    "shortDescription": "The Tuya WiFi Temperature Humidity Sensor is a wireless indoor hygrometer thermometer detector that connects to the Tuya Smart Life app. According to the manufacturer, it measures both temperature and humidity levels within your home. The device uses WiFi connectivity for remote monitoring and integration with compatible smart home systems.",
     "cmsDescriptionHtml": "<h2>TUYA Wifi Temperature Humidity Sensor Indoor Hygrometer Thermometer Detector Smart Life</h2>\n<p>TUYA Wifi Temperature Humidity Sensor Indoor Hygrometer Thermometer Detector Smart Life is a climate-control product for Australian homes, listed in the Climate &#x26; Comfort range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare app control, scheduling, sensors and room fit before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Climate &#x26; Comfort.</li>\n<li>Best checked on app control, scheduling, sensors and room fit.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A wifi-enabled temperature and humidity sensor for indoor monitoring. This device fits into your smart home climate management setup. Check the retailer listing for detailed specifications and compatibility information.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Those seeking wireless temperature and humidity monitoring via smartphone"
   },
   {
     "id": "philips-pureprotect-mini-900-series-smart-air-purifier",
@@ -35362,11 +35553,19 @@
         "value": "Universal"
       }
     ],
-    "shortDescription": "A learning thermostat from Google designed to help manage your home's heating and cooling. Check the retailer listing for specifications and compatibility details.",
+    "shortDescription": "The Google Nest Learning Thermostat E 3rd Generation is a programmable digital thermostat with remote programming capabilities. It works with Google Assistant and Amazon Alexa, and offers universal system compatibility with low-voltage systems. According to the manufacturer, it learns household patterns to optimise heating and cooling.",
     "cmsDescriptionHtml": "<h2>Google Nest Learning Thermostat E 3rd Generation</h2>\n<p>Google Nest Learning Thermostat E 3rd Generation is a climate-control product for Australian homes, listed in the Climate &#x26; Comfort range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights assistant support (Google Assistant, Amazon Alexa). Use those details to compare app control, scheduling, sensors and room fit before deciding whether it suits your home.</p>\n<ul>\n<li>Assistant support: Google Assistant, Amazon Alexa.</li>\n<li>Category: Climate &#x26; Comfort.</li>\n<li>Best checked on app control, scheduling, sensors and room fit.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A learning thermostat from Google designed to help manage your home's heating and cooling. Check the retailer listing for specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Households wanting voice-controlled, remotely programmable temperature management"
   },
   {
     "id": "levoit-core-400s-air-purifier",
@@ -36608,11 +36807,19 @@
         "value": "Xiaomi"
       }
     ],
-    "shortDescription": "A smart air purifier from Xiaomi designed for your home. Check the retailer listing for specifications, compatibility details and other product information.",
+    "shortDescription": "The Xiaomi Smart Air Purifier 6 is an air purification device for indoor spaces. According to the manufacturer, it removes airborne particles and contaminants. The unit operates with smart home compatibility, allowing remote control and monitoring through connected devices. It features automated filtration technology designed for continuous air quality management in residential environments.",
     "cmsDescriptionHtml": "<h2>Xiaomi Smart Air Purifier 6</h2>\n<p>Xiaomi Smart Air Purifier 6 is a climate-control product for Australian homes, listed in the Climate &#x26; Comfort range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare app control, scheduling, sensors and room fit before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Climate &#x26; Comfort.</li>\n<li>Best checked on app control, scheduling, sensors and room fit.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A smart air purifier from Xiaomi designed for your home. Check the retailer listing for specifications, compatibility details and other product information.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Homeowners seeking automated indoor air quality management"
   },
   {
     "id": "homey-bridge-the-ultimate-home-automation-hub",
@@ -36891,11 +37098,19 @@
         "value": "Those looking to expand their homes on a budget"
       }
     ],
-    "shortDescription": "A Matter and Thread hub from Zemismart designed to work with compatible smart home devices. Check the retailer listing for full specifications and compatibility details.",
+    "shortDescription": "The Zemismart Matter Zigbee Thread Smart Home Hub is a Matter-certified hub that connects Thread, Zigbee, and Tuya devices. It supports up to 125 connected devices and works with Siri, Google Home, and HomeKit. The hub connects via WiFi or Ethernet and can be controlled through voice commands or apps.",
     "cmsDescriptionHtml": "<h2>Zemismart Matter Zigbee Thread Smart Home Hub</h2>\n<p>Zemismart Matter Zigbee Thread Smart Home Hub is a smart lighting product for Australian homes, listed in the Hubs &#x26; Platforms range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights detection (Matter border router). Use those details to compare fitting type, brightness, app control and ecosystem support before deciding whether it suits your home.</p>\n<ul>\n<li>Detection: Matter border router.</li>\n<li>Category: Hubs &#x26; Platforms.</li>\n<li>Best checked on fitting type, brightness, app control and ecosystem support.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A Matter and Thread hub from Zemismart designed to work with compatible smart home devices. Check the retailer listing for full specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Users connecting Thread, Zigbee and Tuya devices across ecosystems"
   },
   {
     "id": "sonoff-zigbee-3-0-usb-dongle",
@@ -37091,11 +37306,19 @@
         "value": "Yes"
       }
     ],
-    "shortDescription": "A bridge automation module that combines WiFi and RF connectivity for smart home control. Check the retailer listing for full specifications and compatibility details.",
+    "shortDescription": "The WiFi+RF Bridge Smart Home Automation Module is a wireless connectivity device designed to integrate smart home systems. According to the manufacturer, it supports both WiFi and RF protocols, enabling communication between various smart home devices. The bridge facilitates automation and control of compatible connected devices within a home network.",
     "cmsDescriptionHtml": "<h2>WiFi+RF Bridge Smart Home Automation Module</h2>\n<p>WiFi+RF Bridge Smart Home Automation Module is a hub or bridge for smart home setups, listed in the Hubs &#x26; Platforms range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare protocol support, app compatibility and local availability before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Hubs &#x26; Platforms.</li>\n<li>Best checked on protocol support, app compatibility and local availability.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A bridge automation module that combines WiFi and RF connectivity for smart home control. Check the retailer listing for full specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Users wanting to connect WiFi and RF smart home devices together"
   },
   {
     "id": "ha-smart-home-matter-hub",
@@ -37179,12 +37402,20 @@
         "value": "95mm (packing size)"
       }
     ],
-    "shortDescription": "A 3.5-inch smart home control panel for automating and managing your connected devices. Check the retailer listing for full specifications and compatibility details.",
+    "shortDescription": "The 3.5 Inch Smart Home Control Panel is a wired smart home hub with Zigbee connectivity. It operates on 100-240V mains power with a maximum load capacity of 600W. The device measures 95mm in width and height with 48mm depth.",
     "cmsDescriptionHtml": "<h2>3.5 Inch Smart Home Control Panel</h2>\n<p>3.5 Inch Smart Home Control Panel is a hub or bridge for smart home setups, listed in the Hubs &#x26; Platforms range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights power (Wired), connectivity (Zigbee). Use those details to compare protocol support, app compatibility and local availability before deciding whether it suits your home.</p>\n<ul>\n<li>Power: Wired.</li>\n<li>Connectivity: Zigbee.</li>\n<li>Category: Hubs &#x26; Platforms.</li>\n<li>Best checked on protocol support, app compatibility and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
+      "previousShortDescription": "A 3.5-inch smart home control panel for automating and managing your connected devices. Check the retailer listing for full specifications and compatibility details.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
     },
-    "pricesCheckedAt": "2026-10-05T18:17:51.432Z"
+    "pricesCheckedAt": "2026-10-05T18:17:51.432Z",
+    "bestFor": "Users seeking a central wired Zigbee-based smart home control solution"
   },
   {
     "id": "tuya-smart-home-bridge",
@@ -37341,11 +37572,19 @@
         "value": "Home Automation Hub for Motorized Blinds"
       }
     ],
-    "shortDescription": "A home automation hub designed to sit at the centre of a smart home system. Check the retailer listing for full specifications and compatible devices.",
+    "shortDescription": "The Go Smart Bridge Home Automation Hub is a plug-in device that connects motorized blinds to Alexa for remote control and automation. According to the specifications, it supports automatic operation mode and integrates with IFTTT for smart home routines. The compact plastic unit measures 7.5 x 6.5 x 3.3 cm and weighs 140 grams.",
     "cmsDescriptionHtml": "<h2>Go Smart Bridge Home Automation Hub</h2>\n<p>Go Smart Bridge Home Automation Hub is a smart energy product for Australian homes, listed in the Hubs &#x26; Platforms range for buyers comparing practical smart-home options in Australia.</p>\n<p>Use this listing to compare ratings, monitoring features and local electrical compatibility before deciding whether it fits your existing setup, installation limits and local support expectations.</p>\n<ul>\n<li>Category: Hubs &#x26; Platforms.</li>\n<li>Best checked on ratings, monitoring features and local electrical compatibility.</li>\n<li>Confirm current price, warranty and local availability.</li>\n<li>Check installation needs before buying.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A home automation hub designed to sit at the centre of a smart home system. Check the retailer listing for full specifications and compatible devices.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Alexa users wanting to automate motorized blinds remotely"
   },
   {
     "id": "tuya-zigbee-matter-thread-gateway-smart-home-bridge-matter-hub",
@@ -37487,11 +37726,19 @@
         "value": "Smart home assistant"
       }
     ],
-    "shortDescription": "A Tuya smart home bridge that supports Zigbee, Matter and Thread protocols. Check the retailer listing for compatibility details, setup requirements and which devices it can connect.",
+    "shortDescription": "The Tuya Zigbee Matter Thread Gateway Smart Home Bridge is a wired hub that connects Thread and Zigbee devices to Matter. It supports up to 128 connected devices and works with Alexa, Google Assistant, and Siri. According to the manufacturer, it offers app control, scheduling, scene automation, and remote access via Android or iOS.",
     "cmsDescriptionHtml": "<h2>TUYA Zigbee Matter Thread Gateway Smart Home Bridge Matter Hub</h2>\n<p>TUYA Zigbee Matter Thread Gateway Smart Home Bridge Matter Hub is a smart lighting product for Australian homes, listed in the Hubs &#x26; Platforms range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights detection (Compact Design). Use those details to compare fitting type, brightness, app control and ecosystem support before deciding whether it suits your home.</p>\n<ul>\n<li>Detection: Compact Design.</li>\n<li>Category: Hubs &#x26; Platforms.</li>\n<li>Best checked on fitting type, brightness, app control and ecosystem support.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "A Tuya smart home bridge that supports Zigbee, Matter and Thread protocols. Check the retailer listing for compatibility details, setup requirements and which devices it can connect.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Users connecting Thread and Zigbee devices to Matter ecosystem"
   },
   {
     "id": "rf-bridge",
@@ -37599,11 +37846,19 @@
         "value": "Atlantic Cozytouch 500109 WLAN Bridge"
       }
     ],
-    "shortDescription": "The Atlantic cozytouch V2 Bridge box is an automation controller for use with the cozytouch application. Check the retailer listing for full specifications, device compatibility and setup requirements.",
+    "shortDescription": "The Atlantic Cozytouch V2 Bridge is a WLAN bridge box that connects to home automation systems via the Cozytouch application. It requires an electric cable for power and features wireless connectivity. The compact white device measures 1 x 1 x 1 cm and weighs 330 g, serving as a central connection point for compatible smart-home devices.",
     "cmsDescriptionHtml": "<h2>Atlantic cozytouch V2 Bridge box home automation connection for cozytouch application</h2>\n<p>Atlantic cozytouch V2 Bridge box home automation connection for cozytouch application is a smart lighting product for Australian homes, listed in the Hubs &#x26; Platforms range for buyers comparing practical smart-home options in Australia.</p>\n<p>The specification data highlights power (electric cable). Use those details to compare fitting type, brightness, app control and ecosystem support before deciding whether it suits your home.</p>\n<ul>\n<li>Power: electric cable.</li>\n<li>Category: Hubs &#x26; Platforms.</li>\n<li>Best checked on fitting type, brightness, app control and ecosystem support.</li>\n<li>Confirm current price, warranty and local availability.</li>\n</ul>",
     "descriptionRewrite": {
-      "shortDescription": "2026-09-24 Haiku 4.5 Batch + attribution pass, short blurb only"
-    }
+      "previousShortDescription": "The Atlantic cozytouch V2 Bridge box is an automation controller for use with the cozytouch application. Check the retailer listing for full specifications, device compatibility and setup requirements.",
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    },
+    "bestFor": "Users wanting to connect Atlantic Cozytouch devices via wireless home automation"
   },
   {
     "id": "dyson-spot-scrub-ai-robot-vacuum",
@@ -43697,7 +43952,18 @@
         "name": "Fast Charging",
         "value": "Yes"
       }
-    ]
+    ],
+    "shortDescription": "The Bluetti AC2A is a portable power station weighing 3.6 kg. According to the manufacturer, it features lightning-fast charging speed, higher-than-average solar input, and is compatible with Bluetti's expansion battery. The brand says it offers a blend of safety, durability, and versatility for outdoor use.",
+    "bestFor": "Outdoor enthusiasts needing lightweight, portable power",
+    "descriptionRewrite": {
+      "approach": "Haiku 4.5 write from manufacturer description + specifications, claims attributed to the brand, previewed before writing, no fact check pass",
+      "model": "claude-haiku-4-5",
+      "sources": [
+        "manufacturer description",
+        "catalogue specifications"
+      ],
+      "date": "2026-10-05"
+    }
   },
   {
     "id": "millers-falls-portable-power-station-400w",
