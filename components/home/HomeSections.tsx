@@ -389,7 +389,7 @@ export function HomeProducts({ products }: { products: TopProduct[] }) {
       <HeadingWithSub subHeading="A rotating selection of products with prices from at least three Australian retailers.">
         Researched products
       </HeadingWithSub>
-      <div className="grid gap-[15px] sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-[15px] sm:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <ProductCard key={product.slug} product={product} />
         ))}
