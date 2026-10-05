@@ -48,6 +48,9 @@ const nextConfig = {
     : {
         redirects: async () => [
           ...adsenseRedirects(),
+          // The topics index moved from /categories/ (6 Oct 2026); /categories/<slug>/ is unchanged.
+          { source: '/categories', destination: '/all-topics/', permanent: true },
+          { source: '/categories/', destination: '/all-topics/', permanent: true },
           // Generated article text sometimes links /product/<slug> (singular),
           // which 404s; the pages live at /products/<slug>/ (AdSense Task 10).
           { source: '/product/:slug', destination: '/products/:slug/', permanent: true },

@@ -24,7 +24,7 @@ const widgetMenus: WidgetFooterMenu[] = [
     title: 'More topics',
     menus: [
       ...categories.slice(5).map((c) => ({ href: `/categories/${c.slug}/`, label: c.name })),
-      { href: '/categories/', label: 'All topics' },
+      { href: '/all-topics/', label: 'All topics' },
     ],
   },
   {

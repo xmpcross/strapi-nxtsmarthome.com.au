@@ -5,7 +5,7 @@ import HeadingWithSub from '@/shared/Heading'
 import type { TCategory } from '@/data/categories'
 import type { TPost } from '@/data/posts'
 import type { TopProduct } from '@/lib/products'
-import { site } from '@/lib/site'
+import { getCategory, site } from '@/lib/site'
 import { AFFILIATE_ENABLED } from '@/lib/affiliate'
 
 /*
@@ -40,7 +40,7 @@ export function HomeHero({ articleCount, topicCount }: { articleCount: number; t
           Browse all guides
         </Link>
         <Link
-          href="/categories/"
+          href="/all-topics/"
           className="inline-flex items-center rounded-lg border border-neutral-300 bg-white px-5 py-2.5 font-semibold text-neutral-800 transition hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
         >
           Explore topics
@@ -57,23 +57,11 @@ export function HomeHero({ articleCount, topicCount }: { articleCount: number; t
   )
 }
 
-export function HomeStartHere({ posts }: { posts: TPost[] }) {
-  if (!posts.length) return null
-  return (
-    <section>
-      <HeadingWithSub subHeading="The buying guides and complete guides most readers start with.">
-        Start here
-      </HeadingWithSub>
-      <div className="grid gap-[15px] sm:grid-cols-2 lg:grid-cols-4">
-        {posts.map((post) => (
-          <Card11 key={post.id} post={post} />
-        ))}
-      </div>
-    </section>
-  )
-}
-
-/** Text links to every topic: name, what it covers, article count. Replaces the image-only slider. */
+/**
+ * Browse by topic, redesigned (6 Oct 2026): a tile per topic with its emoji,
+ * article count, what it covers and the newest article, so the grid also
+ * shows what is fresh. Still plain crawlable text links to every topic.
+ */
 export function HomeTopics({ topics }: { topics: TCategory[] }) {
   if (!topics.length) return null
   return (
@@ -81,28 +69,152 @@ export function HomeTopics({ topics }: { topics: TCategory[] }) {
       <HeadingWithSub subHeading={`${topics.length} topics, from security cameras to robot vacuums.`}>
         Browse by topic
       </HeadingWithSub>
-      <ul className="grid gap-[15px] sm:grid-cols-2 lg:grid-cols-3">
-        {topics.map((topic) => (
-          <li key={topic.id}>
-            <Link
-              href={`/categories/${topic.handle}/`}
-              className="group flex h-full flex-col rounded-lg border border-neutral-200 bg-white p-5 transition hover:border-primary-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700"
-            >
-              <span className="flex items-baseline justify-between gap-3">
-                <span className="text-lg font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {topics.map((topic) => {
+          const newest = topic.posts?.[0]
+          return (
+            <li key={topic.id}>
+              <Link
+                href={`/categories/${topic.handle}/`}
+                className="group flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700"
+              >
+                <span className="flex items-center justify-between gap-3">
+                  <span
+                    className="flex size-12 items-center justify-center rounded-xl bg-primary-50 text-2xl dark:bg-primary-950/60"
+                    aria-hidden="true"
+                  >
+                    {getCategory(topic.handle)?.emoji}
+                  </span>
+                  <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
+                    {topic.count} {topic.count === 1 ? 'guide' : 'guides'}
+                  </span>
+                </span>
+                <span className="mt-5 text-lg font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
                   {topic.name}
                 </span>
-                <span className="shrink-0 text-sm text-neutral-500 dark:text-neutral-400">
-                  {topic.count} {topic.count === 1 ? 'guide' : 'guides'}
+                <span className="mt-1.5 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+                  {topic.description}
                 </span>
-              </span>
-              <span className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-                {topic.description}
-              </span>
-            </Link>
-          </li>
-        ))}
+                {newest && (
+                  <span className="mt-auto border-t border-neutral-100 pt-4 text-sm dark:border-neutral-800">
+                    <span className="mt-4 block text-xs font-semibold tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
+                      Latest
+                    </span>
+                    <span className="mt-1 line-clamp-2 block font-medium text-neutral-800 dark:text-neutral-200">
+                      {newest.title}
+                    </span>
+                  </span>
+                )}
+              </Link>
+            </li>
+          )
+        })}
       </ul>
+    </section>
+  )
+}
+
+/**
+ * One topic's section, redesigned (6 Oct 2026). It replaces the rotating
+ * Ncmaz magazine/grid/slider layouts: every topic now uses the same shape, a
+ * lead guide beside a ranked list of the next four, with the lead on alternate
+ * sides down the page. Text first, because most guides have no cover image.
+ */
+export function HomeTopicSection({
+  category,
+  posts,
+  flip,
+}: {
+  category: TCategory
+  posts: TPost[]
+  flip?: boolean
+}) {
+  if (!posts.length) return null
+  const [lead, ...rest] = posts
+  const list = rest.slice(0, 4)
+  const emoji = getCategory(category.handle)?.emoji
+  return (
+    <section>
+      <div className="mb-8 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 border-b border-neutral-200 pb-5 dark:border-neutral-800">
+        <div className="flex items-center gap-4">
+          <span
+            className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-2xl dark:bg-primary-950/60"
+            aria-hidden="true"
+          >
+            {emoji}
+          </span>
+          <div>
+            <h2 className="section-heading text-3xl font-semibold tracking-tight text-neutral-950 dark:text-white">
+              {category.name}
+            </h2>
+            <p className="section-subheading mt-1 text-neutral-500 dark:text-neutral-400">{category.description}</p>
+          </div>
+        </div>
+        <Link
+          href={`/categories/${category.handle}/`}
+          className="text-sm font-medium whitespace-nowrap text-primary-700 hover:underline dark:text-primary-300"
+        >
+          All {category.count} {category.name} articles →
+        </Link>
+      </div>
+      <div className="grid gap-8 lg:grid-cols-5">
+        <Link
+          href={`/${lead.handle}/`}
+          className={`group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white transition hover:border-primary-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-700 ${
+            list.length ? 'lg:col-span-2' : 'lg:col-span-5'
+          } ${flip ? 'lg:order-2' : ''}`}
+        >
+          <div className="relative aspect-16/10 w-full">
+            {lead.featuredImage?.src ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={lead.featuredImage.src}
+                alt={lead.featuredImage.alt || lead.title}
+                className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-50 text-6xl dark:from-primary-950/60 dark:to-neutral-900">
+                <span aria-hidden="true">{emoji}</span>
+              </div>
+            )}
+          </div>
+          <div className="flex flex-1 flex-col p-6">
+            <span className="text-xs font-semibold tracking-wider text-primary-700 uppercase dark:text-primary-300">
+              Latest in {category.name}
+            </span>
+            <h3 className="mt-2 text-xl leading-snug font-bold text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+              {lead.title}
+            </h3>
+            {lead.excerpt && (
+              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{lead.excerpt}</p>
+            )}
+            <span className="mt-auto pt-4 text-xs text-neutral-500 dark:text-neutral-400">{lead.readingTime} min read</span>
+          </div>
+        </Link>
+        {list.length > 0 && (
+          <ol className={`flex flex-col lg:col-span-3 ${flip ? 'lg:order-1' : ''}`}>
+            {list.map((post, i) => (
+              <li key={post.id} className="flex-1 border-b border-neutral-200 first:border-t-0 last:border-b-0 dark:border-neutral-800">
+                <Link href={`/${post.handle}/`} className="group flex h-full items-start gap-5 py-5 first:pt-0 last:pb-0">
+                  <span className="w-8 shrink-0 text-2xl leading-none font-bold text-primary-600 tabular-nums dark:text-primary-400" aria-hidden="true">
+                    {String(i + 2).padStart(2, '0')}
+                  </span>
+                  <span className="flex min-w-0 flex-1 flex-col">
+                    <span className="font-semibold leading-snug text-neutral-900 group-hover:text-primary-700 dark:text-white dark:group-hover:text-primary-300">
+                      {post.title}
+                    </span>
+                    {post.excerpt && (
+                      <span className="mt-1.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">{post.excerpt}</span>
+                    )}
+                    <span className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">{post.readingTime} min read</span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        )}
+      </div>
     </section>
   )
 }
@@ -307,7 +419,7 @@ export function HomeTrust({ editorName, editorSlug }: { editorName: string; edit
     },
   ]
   return (
-    <section>
+    <section className="rounded-3xl bg-primary-50 px-6 py-10 sm:px-10 lg:px-14 lg:py-14 dark:bg-primary-950/40">
       <HeadingWithSub
         className="mb-8!"
         subHeading={`Edited by ${editorName}. Independent: ${AFFILIATE_ENABLED ? 'affiliate links never decide' : 'no brand or retailer decides'} what we recommend.`}
@@ -316,7 +428,7 @@ export function HomeTrust({ editorName, editorSlug }: { editorName: string; edit
       </HeadingWithSub>
       <ul className="grid gap-6 md:grid-cols-3">
         {points.map((p) => (
-          <li key={p.title}>
+          <li key={p.title} className="rounded-2xl bg-white p-6 dark:bg-neutral-900">
             <h3 className="text-base font-bold text-neutral-900 dark:text-white">{p.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{p.body}</p>
           </li>

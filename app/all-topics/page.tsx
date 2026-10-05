@@ -16,7 +16,7 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: 'Topics & Categories',
   description: DESCRIPTION,
-  alternates: { canonical: '/categories/' },
+  alternates: { canonical: '/all-topics/' },
 };
 
 // Topic counts and the per-topic rows refresh with the articles (ISR).
@@ -41,7 +41,7 @@ export default async function CategoriesIndex() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: 'Home', path: '/' },
-          { name: 'Topics & Categories', path: '/categories/' },
+          { name: 'Topics & Categories', path: '/all-topics/' },
         ])}
       />
       <JsonLd
@@ -49,7 +49,7 @@ export default async function CategoriesIndex() {
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
           name: 'Topics & Categories',
-          url: `${site.url}/categories/`,
+          url: `${site.url}/all-topics/`,
           description: DESCRIPTION,
           mainEntity: {
             '@type': 'ItemList',

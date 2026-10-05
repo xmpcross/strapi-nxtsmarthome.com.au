@@ -1,20 +1,11 @@
-import BackgroundSection from '@/components/BackgroundSection'
-import SectionGridPosts from '@/components/SectionGridPosts'
 import SectionMagazine10 from '@/components/SectionMagazine10'
-import SectionMagazine2 from '@/components/SectionMagazine2'
-import SectionMagazine7 from '@/components/SectionMagazine7'
-import SectionMagazine8 from '@/components/SectionMagazine8'
-import SectionMagazine9 from '@/components/SectionMagazine9'
-import SectionSliderPosts from '@/components/SectionSliderPosts'
 import { getCategoriesWithPosts, type TCategory } from '@/data/categories'
 import { toTPost, type TPost } from '@/data/posts'
 import { getAllArticles } from '@/lib/content'
 import { site } from '@/lib/site'
-import Link from 'next/link'
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
 import JsonLd from '@/components/JsonLd'
-import { HomeBuyingGuides, HomeHero, HomeSetupGuides, HomeProducts, HomeStartHere, HomeTopics, HomeTrust } from '@/components/home/HomeSections'
+import { HomeBuyingGuides, HomeHero, HomeSetupGuides, HomeProducts, HomeTopicSection, HomeTopics, HomeTrust } from '@/components/home/HomeSections'
 import { getListableTopProducts, toListingCard } from '@/lib/products'
 
 // Home page on the Ncmaz "Home Demo 5" layout, filled from Strapi and
@@ -23,11 +14,11 @@ import { getListableTopProducts, toListingCard } from '@/lib/products'
 // researched product pages and the research/trust statement
 // (components/home/HomeSections.tsx) around the topic sections.
 //
-// Below the lead grid, "Start here" and the topic links, every section is one of the site's
+// Below the lead grid and the topic tiles, every section is one of the site's
 // topics: its title and description come from lib/site.ts and it shows only
-// that topic's posts. Topics are ordered by post count and rotate through the
-// template layouts, so a new topic or new posts reshape the page with no code
-// change.
+// that topic's posts. Topics are ordered by post count and share one layout
+// (HomeTopicSection, lead on alternating sides), so a new topic or new posts
+// reshape the page with no code change.
 export const revalidate = 300
 
 const HOME_TITLE = 'Smart Home Guides for Australian Homes'
@@ -47,93 +38,6 @@ export const metadata: Metadata = {
   },
 }
 
-type Layout = 'magazine9' | 'magazine8' | 'magazine2' | 'magazine7' | 'grid' | 'slider'
-
-// Rotation of layouts, with the fewest posts each needs to look complete.
-// A topic with fewer posts than its layout needs falls back to the card grid.
-const ROTATION: { layout: Layout; min: number }[] = [
-  { layout: 'magazine9', min: 6 },
-  { layout: 'magazine8', min: 6 },
-  { layout: 'magazine2', min: 5 },
-  { layout: 'magazine7', min: 4 },
-  { layout: 'grid', min: 1 },
-  { layout: 'slider', min: 5 },
-]
-
-function ViewAll({ category }: { category: TCategory }) {
-  return (
-    <div className="mt-8 flex justify-end">
-      <Link
-        href={`/categories/${category.handle}/`}
-        className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-400"
-      >
-        View all {category.count} {category.name} articles →
-      </Link>
-    </div>
-  )
-}
-
-// Topic sections drawn without the grey BackgroundSection panel (user request,
-// 24 Sep 2026).
-const NO_BACKGROUND = new Set(['hubs-and-platforms'])
-
-function CategorySection({ category, posts, layout }: { category: TCategory; posts: TPost[]; layout: Layout }) {
-  const plain = NO_BACKGROUND.has(category.handle)
-  const heading = category.name
-  const subHeading = category.description
-  let body: ReactNode
-  switch (layout) {
-    case 'magazine9':
-      body = <SectionMagazine9 heading={heading} subHeading={subHeading} posts={posts.slice(0, 18)} />
-      break
-    case 'magazine8':
-      body = <SectionMagazine8 heading={heading} subHeading={subHeading} posts={posts.slice(0, 6)} />
-      break
-    case 'magazine2':
-      return (
-        <SectionMagazine2
-          heading={heading}
-          subHeading={subHeading}
-          posts={posts.slice(0, 5)}
-          viewAllHref={`/categories/${category.handle}/`}
-        />
-      )
-    case 'magazine7':
-      body = <SectionMagazine7 heading={heading} subHeading={subHeading} posts={posts.slice(0, 6)} />
-      break
-    case 'slider':
-      return (
-        <div className="relative py-16 lg:py-20">
-          {!plain && <BackgroundSection />}
-          <SectionSliderPosts postCardName="card10V2" heading={heading} subHeading={subHeading} posts={posts} />
-          <ViewAll category={category} />
-        </div>
-      )
-    default:
-      return (
-        <div className="relative py-16 lg:py-20">
-          {!plain && <BackgroundSection />}
-          <SectionGridPosts
-            headingIsCenter
-            postCardName="card11"
-            heading={heading}
-            subHeading={subHeading}
-            posts={posts.slice(0, 8)}
-            gridClass="md:grid-cols-2 lg:grid-cols-4"
-            moreHref={`/categories/${category.handle}/`}
-            moreLabel={`All ${category.name}`}
-          />
-        </div>
-      )
-  }
-  return (
-    <div>
-      {body}
-      <ViewAll category={category} />
-    </div>
-  )
-}
-
 export default async function HomePage() {
   const articles = await getAllArticles()
   // Featured first, then newest, for the lead grid.
@@ -149,20 +53,12 @@ export default async function HomePage() {
   const lastTopic = topics.find((c) => c.handle === 'buying-guides') ?? topics[topics.length - 1]
   const firstTopic = topics.find((c) => c.handle === 'entertainment-and-audio' && c !== lastTopic)
   // Topics with no section of their own on the home page (user request, 24 Sep
-  // 2026). They still appear in "Browse by topic" and on /categories/.
-  const HIDDEN_SECTIONS = new Set(['robot-vacuums', 'energy-and-solar', 'lighting'])
+  // 2026). They still appear in "Browse by topic" and on /all-topics/.
+  const HIDDEN_SECTIONS = new Set(['robot-vacuums', 'energy-and-solar', 'lighting', 'hubs-and-platforms'])
   const sectionTopics = [
     ...(firstTopic ? [firstTopic] : []),
     ...topics.filter((c) => c !== lastTopic && c !== firstTopic && !HIDDEN_SECTIONS.has(c.handle)),
   ]
-  // "Start here": buying guides and complete (pillar) guides, longest first,
-  // not already in the lead grid above.
-  const leadSlugs = new Set(lead.map((a) => a.slug))
-  const startHere = articles
-    .filter((a) => (a.type === 'buying-guide' || a.type === 'pillar') && !leadSlugs.has(a.slug))
-    .sort((a, b) => b.wordCount - a.wordCount)
-    .slice(0, 4)
-    .map(toTPost)
   // Product pages with our own research notes: the indexable ones.
   // Researched products: only products with at least 3 retailers showing a real price, in
   // random order. The page is ISR (revalidate above), so the selection changes on each
@@ -196,9 +92,7 @@ export default async function HomePage() {
           moreLabel={`All ${category.name}`}
         />
       )
-    const slot = ROTATION[i % ROTATION.length]
-    const layout: Layout = posts.length >= slot.min ? slot.layout : 'grid'
-    return <CategorySection key={category.id} category={category} posts={posts} layout={layout} />
+    return <HomeTopicSection key={category.id} category={category} posts={posts} flip={i % 2 === 1} />
   }
 
   return (
@@ -220,8 +114,6 @@ export default async function HomePage() {
       <HomeHero articleCount={articles.length} topicCount={topics.length} />
 
       <SectionMagazine10 posts={lead.map(toTPost)} />
-
-      <HomeStartHere posts={startHere} />
 
       <HomeTopics topics={topics} />
 
