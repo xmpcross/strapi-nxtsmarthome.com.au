@@ -1,0 +1,526 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T07:44:07+00:00",
+  "title": "Design System: NXT Smart Home",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Guide Indigo",
+        "canonical": "var(--color-primary-600)",
+        "tonalRamp": [
+          "#37348f",
+          "#4440b4",
+          "#514dcc",
+          "#5955d1",
+          "#7b77e4",
+          "#9895ff",
+          "#c6c4ff",
+          "#f1f0ff"
+        ]
+      },
+      "primary-deep": {
+        "role": "primary",
+        "displayName": "Deep Indigo",
+        "canonical": "var(--color-primary-700)",
+        "tonalRamp": [
+          "#37348f",
+          "#4440b4",
+          "#514dcc",
+          "#5955d1",
+          "#7b77e4",
+          "#9895ff",
+          "#c6c4ff",
+          "#f1f0ff"
+        ]
+      },
+      "primary-bright": {
+        "role": "primary",
+        "displayName": "Bright Indigo",
+        "canonical": "var(--color-primary-400)",
+        "tonalRamp": [
+          "#37348f",
+          "#4440b4",
+          "#514dcc",
+          "#5955d1",
+          "#7b77e4",
+          "#9895ff",
+          "#c6c4ff",
+          "#f1f0ff"
+        ]
+      },
+      "primary-ring": {
+        "role": "primary",
+        "displayName": "Ring Indigo",
+        "canonical": "var(--color-primary-500)",
+        "tonalRamp": [
+          "#37348f",
+          "#4440b4",
+          "#514dcc",
+          "#5955d1",
+          "#7b77e4",
+          "#9895ff",
+          "#c6c4ff",
+          "#f1f0ff"
+        ]
+      },
+      "primary-wash": {
+        "role": "primary",
+        "displayName": "Indigo Wash",
+        "canonical": "var(--color-primary-50)",
+        "tonalRamp": [
+          "#37348f",
+          "#4440b4",
+          "#514dcc",
+          "#5955d1",
+          "#7b77e4",
+          "#9895ff",
+          "#c6c4ff",
+          "#f1f0ff"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "var(--color-neutral-900)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "night-ground": {
+        "role": "neutral",
+        "displayName": "Night Ground",
+        "canonical": "var(--color-neutral-900)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "footer-ground-dark": {
+        "role": "neutral",
+        "displayName": "Footer Ground (dark)",
+        "canonical": "neutral-950",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "footer-ground-light": {
+        "role": "neutral",
+        "displayName": "Footer Ground (light)",
+        "canonical": "var(--color-neutral-50)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "body-text": {
+        "role": "neutral",
+        "displayName": "Body Text",
+        "canonical": "var(--color-neutral-700)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "body-text-dark": {
+        "role": "neutral",
+        "displayName": "Body Text (dark)",
+        "canonical": "var(--color-neutral-300)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "meta-text": {
+        "role": "neutral",
+        "displayName": "Meta Text",
+        "canonical": "var(--color-neutral-600)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "meta-text-dark": {
+        "role": "neutral",
+        "displayName": "Meta Text (dark)",
+        "canonical": "var(--color-neutral-400)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "var(--color-neutral-200)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Rule (dark)",
+        "canonical": "var(--color-neutral-800)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "control-edge": {
+        "role": "neutral",
+        "displayName": "Control Edge",
+        "canonical": "var(--color-neutral-300)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "control-edge-dark": {
+        "role": "neutral",
+        "displayName": "Control Edge (dark)",
+        "canonical": "var(--color-neutral-700)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "card-dark": {
+        "role": "neutral",
+        "displayName": "Card Surface (dark)",
+        "canonical": "var(--color-card)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      },
+      "card-edge-dark": {
+        "role": "neutral",
+        "displayName": "Card Edge (dark)",
+        "canonical": "var(--color-card-edge)",
+        "tonalRamp": [
+          "rgb(17, 24, 39)",
+          "rgb(31, 41, 55)",
+          "rgb(55, 65, 81)",
+          "rgb(75, 85, 99)",
+          "rgb(107, 114, 128)",
+          "rgb(156, 163, 175)",
+          "rgb(209, 213, 219)",
+          "rgb(243, 244, 246)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page H1s; renders 700 via the global heading rule."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings within a page."
+      },
+      "headline-section": {
+        "displayName": "Headline (home / All Topics)",
+        "purpose": "Section headings on the homepage and /all-topics, scoped via .section-heading."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Row and card titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Intros and overviews at 68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Meta lines, counts, toggles."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Indigo ranked-list numbers, tabular."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "Logo and footer column labels only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "tinted-lift",
+        "value": "0 8px 32px 0 rgba(35, 33, 89, 0.07)",
+        "purpose": "Resting lift under /articles grid cards; black in dark theme."
+      },
+      {
+        "name": "soft-float",
+        "value": "rgba(17,17,26,0.1) 0px 4px 16px, rgba(17,17,26,0.05) 0px 8px 32px",
+        "purpose": "Popovers and floating panels."
+      },
+      {
+        "name": "arrow-float",
+        "value": "0 4px 12px rgba(0,0,0,0.08)",
+        "purpose": "Detached arrow button on notched cards; 0.4 alpha in dark."
+      }
+    ],
+    "motion": [
+      {
+        "name": "colour-transition",
+        "value": "150ms to 200ms ease",
+        "purpose": "Hover and focus colour/border changes; the only motion on topic pages."
+      },
+      {
+        "name": "arrow-nudge",
+        "value": "translate(3px, -3px) rotate(-8deg), 200ms ease",
+        "purpose": "Detached arrow on card hover; removed under prefers-reduced-motion."
+      },
+      {
+        "name": "card-lift",
+        "value": "translateY(-2px), 200ms ease",
+        "purpose": "Compact post card hover; removed under prefers-reduced-motion."
+      },
+      {
+        "name": "sparkle-twinkle",
+        "value": "3.2s ease-in-out infinite",
+        "purpose": "Small icon beside homepage section headings; static under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "post-grid",
+        "value": "700px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "2xl",
+        "value": "1536px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single solid call to action, e.g. Browse products.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Browse products <svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 17 17 7\"/><path d=\"M7 7h10v10\"/></svg></a>",
+      "css": ".ds-btn-primary { font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif); display: inline-flex; align-items: center; gap: 6px; background: var(--color-primary-600, #5955d1); color: #fff; padding: 10px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 700; text-decoration: none; transition: background-color 150ms ease; } .ds-btn-primary:hover { background: var(--color-primary-700, #514dcc); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-primary-500, #7b77e4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action beside a primary one.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">All topics</a>",
+      "css": ".ds-btn-outline { font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif); display: inline-flex; align-items: center; padding: 10px 20px; border: 1px solid var(--color-neutral-700, rgb(55,65,81)); border-radius: 8px; color: var(--color-neutral-300, rgb(209,213,219)); font-size: 0.875rem; font-weight: 700; text-decoration: none; transition: border-color 150ms ease, color 150ms ease; } .ds-btn-outline:hover { border-color: #fff; color: #fff; } .ds-btn-outline:focus-visible { outline: 2px solid var(--color-primary-500, #7b77e4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Filter Toggle",
+      "kind": "chip",
+      "refersTo": "filter-toggle",
+      "description": "aria-pressed toggles with counts that narrow a ruled list by article type (dark theme shown).",
+      "html": "<div class=\"ds-filters\" role=\"group\" aria-label=\"Filter guides by type\"><button class=\"ds-toggle\" aria-pressed=\"true\">All <span class=\"ds-count\">12</span></button><button class=\"ds-toggle\" aria-pressed=\"false\">Buying advice <span class=\"ds-count\">1</span></button><button class=\"ds-toggle\" aria-pressed=\"false\">Explained <span class=\"ds-count\">6</span></button></div>",
+      "css": ".ds-filters { display: flex; flex-wrap: wrap; gap: 8px; } .ds-toggle { font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif); border: 1px solid var(--color-neutral-700, rgb(55,65,81)); background: transparent; color: var(--color-neutral-300, rgb(209,213,219)); padding: 4px 12px; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease; } .ds-toggle:hover { border-color: #fff; color: #fff; } .ds-toggle[aria-pressed='true'] { background: #fff; border-color: #fff; color: #0a0a0a; } .ds-count { font-variant-numeric: tabular-nums; opacity: 0.7; } .ds-toggle:focus-visible { outline: 2px solid var(--color-primary-500, #7b77e4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Inline indigo link with offset underline (dark theme value).",
+      "html": "<a class=\"ds-link\" href=\"#\">Browse Security &amp; Cameras products</a>",
+      "css": ".ds-link { font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif); color: var(--color-primary-400, #9895ff); font-size: 0.875rem; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; transition: color 150ms ease; } .ds-link:hover { color: var(--color-primary-300, #aeabff); } .ds-link:focus-visible { outline: 2px solid var(--color-primary-500, #7b77e4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ranked Ruled Row",
+      "kind": "custom",
+      "refersTo": "ruled-row",
+      "description": "Signature topic-page row: indigo tabular numeral, title, one-line why, meta, small 4:3 thumbnail, between hairline rules.",
+      "html": "<ol class=\"ds-ranked\"><li><a class=\"ds-rrow\" href=\"#\"><span class=\"ds-num\" aria-hidden=\"true\">1</span><span class=\"ds-rbody\"><span class=\"ds-rtitle\">Video Doorbell Buying Guide: What Matters in an Australian Home</span><span class=\"ds-why\">What matters in a doorbell before you buy one.</span><span class=\"ds-meta\">Buying advice · <span class=\"ds-tnum\">6</span> min read</span></span><span class=\"ds-thumb\" aria-hidden=\"true\"></span></a></li><li><a class=\"ds-rrow\" href=\"#\"><span class=\"ds-num\" aria-hidden=\"true\">2</span><span class=\"ds-rbody\"><span class=\"ds-rtitle\">Wired vs Battery Security Cameras</span><span class=\"ds-why\">The first choice for any camera: how it gets power.</span><span class=\"ds-meta\">Comparisons · <span class=\"ds-tnum\">7</span> min read</span></span><span class=\"ds-thumb\" aria-hidden=\"true\"></span></a></li></ol>",
+      "css": ".ds-ranked { font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif); list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-neutral-800, rgb(31,41,55)); } .ds-ranked li { border-bottom: 1px solid var(--color-neutral-800, rgb(31,41,55)); } .ds-rrow { display: grid; grid-template-columns: 2.75rem minmax(0,1fr) 7rem; gap: 0 24px; align-items: start; padding: 16px 0; text-decoration: none; border-radius: 8px; } .ds-num { font-size: 2.25rem; line-height: 1; font-weight: 900; font-variant-numeric: tabular-nums; color: var(--color-primary-400, #9895ff); } .ds-rtitle { display: block; font-size: 1.125rem; line-height: 1.375; font-weight: 700; color: #fff; transition: color 150ms ease; } .ds-rrow:hover .ds-rtitle { color: var(--color-primary-400, #9895ff); text-decoration: underline; text-underline-offset: 4px; } .ds-why { display: block; margin-top: 6px; color: var(--color-neutral-300, rgb(209,213,219)); } .ds-meta { display: block; margin-top: 8px; font-size: 0.875rem; color: var(--color-neutral-400, rgb(156,163,175)); } .ds-tnum { font-variant-numeric: tabular-nums; } .ds-thumb { width: 7rem; aspect-ratio: 4/3; border-radius: 8px; background: var(--color-neutral-800, rgb(31,41,55)); } .ds-rrow:focus-visible { outline: 2px solid var(--color-primary-500, #7b77e4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Dated Feed Row",
+      "kind": "custom",
+      "refersTo": "ruled-row",
+      "description": "The New feed: indigo tabular date over a semibold title, between hairline rules.",
+      "html": "<ul class=\"ds-feed\"><li><a href=\"#\" class=\"ds-frow\"><time class=\"ds-date\">5 Oct</time><span class=\"ds-ftitle\">Security Camera Storage: Cloud vs Local vs NVR Explained</span></a></li><li><a href=\"#\" class=\"ds-frow\"><time class=\"ds-date\">26 Sept</time><span class=\"ds-ftitle\">How to Stop Parcel Theft With Smart Doorbells and Lockers</span></a></li></ul>",
+      "css": ".ds-feed { font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif); list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-neutral-800, rgb(31,41,55)); } .ds-feed li { border-bottom: 1px solid var(--color-neutral-800, rgb(31,41,55)); } .ds-frow { display: block; padding: 16px 0; text-decoration: none; border-radius: 8px; } .ds-date { font-size: 0.875rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--color-primary-400, #9895ff); } .ds-ftitle { display: block; margin-top: 4px; font-weight: 600; line-height: 1.375; color: #fff; } .ds-frow:hover .ds-ftitle { text-decoration: underline; text-underline-offset: 4px; } .ds-frow:focus-visible { outline: 2px solid var(--color-primary-500, #7b77e4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Compact Post Card",
+      "kind": "card",
+      "refersTo": "post-card-dark",
+      "description": "Incumbent homepage compact card: thumbnail, two-line title, meta; lifts 2px on hover.",
+      "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-cthumb\" aria-hidden=\"true\"></span><span class=\"ds-cbody\"><span class=\"ds-ctitle\">Best Smart Home Devices Under $50 in Australia</span><span class=\"ds-cmeta\">Buying Guides · 9 min read</span></span></a>",
+      "css": ".ds-card { font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif); display: flex; align-items: center; gap: 15px; padding: 12px; min-height: 110px; background: var(--color-card, #222324); border: 1px solid var(--color-card-edge, #313131); border-radius: 8px; text-decoration: none; transition: border-color 200ms ease, transform 200ms ease; } .ds-card:hover { border-color: rgba(255,255,255,0.4); transform: translateY(-2px); } .ds-cthumb { flex-shrink: 0; width: 86px; height: 86px; border-radius: 8px; background: #313131; } .ds-cbody { display: flex; flex-direction: column; gap: 8px; } .ds-ctitle { font-size: 0.9375rem; font-weight: 700; line-height: 1.2; color: #fff; transition: color 200ms ease; } .ds-card:hover .ds-ctitle { color: var(--color-brand-600, #5955d1); } .ds-cmeta { font-size: 0.6875rem; color: rgba(255,255,255,0.4); } .ds-card:focus-visible { outline: 2px solid var(--color-primary-500, #7b77e4); outline-offset: 2px; } @media (prefers-reduced-motion: reduce) { .ds-card:hover { transform: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Plain-Spoken Reference Shelf",
+    "overview": "**Creative North Star: \"The Plain-Spoken Reference Shelf\"**\n\nNXT Smart Home is an Australian guide publication, and its visual system behaves like a well-kept reference shelf: Inter on quiet neutral grounds, one indigo accent, and every corner cut to the same 8px. The theme is dark by default (a near-navy charcoal ground), with a full light theme the reader can choose; both are first-class and every colour decision exists in pairs.\n\nDensity is moderate and editorial. Pages lead with a plain heading, a reading-measure intro and then the content; ornament is limited to the category 3D icons, the logo, and photography on article covers. The newest surface, the topic category page, shows where the system is heading: hairline-ruled rows instead of card shells, indigo numerals and dates as the only colour in a list, tabular figures for counts and dates, and a single thumbnail per ranked pick.\n\nThe older homepage and archive surfaces still carry the template it grew from (notched post cards with a detached arrow button, a soft tinted lift on article grids). Those are incumbent and stay; new surfaces default to the ruled-row language.",
+    "keyCharacteristics": [
+      "Dark theme by default, light theme equal in care; every colour has a light and a dark assignment.",
+      "One accent: indigo, used for links, numerals, dates, the primary button and focus rings.",
+      "Inter for everything readable; Urbanist only for the wordmark and its footer labels.",
+      "8px corners on everything, including anything authored as fully round.",
+      "Hairline rules and tonal grounds carry structure; shadows are rare.",
+      "Motion is colour transitions and a small arrow nudge; reduced motion is always honoured."
+    ],
+    "rules": [
+      {
+        "name": "The One Voice Rule",
+        "body": "Indigo is the only accent on a page. In a list it marks exactly one thing per row (the numeral, the date, or the hovered title), never two.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paired Theme Rule",
+        "body": "Nothing ships with only a light value. Every text, rule and surface colour is written as a light and dark pair, and dark is the default the reader first sees.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "Counts, dates, read times and ranked numerals set with tabular figures so columns of numbers align.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Headings, section labels and meta lines are sentence case; the uppercase tracked style belongs to the wordmark's tagline and footer column labels, and does not move into page content.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rules Before Shells Rule",
+        "body": "New list surfaces separate items with hairline rules and space; a card shell is for a single standalone object (a post card, a product box), not for every row of an index.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Eight Pixel Rule",
+        "body": "Nothing on the site is rounder or sharper than 8px; do not author a radius, author `rounded`.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do write every colour as a light and dark pair, and check the dark theme first; it is the default.",
+      "Do use Guide Indigo in light theme and Bright Indigo in dark for the same role.",
+      "Do separate list items with 1px Rule hairlines and 16px row padding on new index surfaces.",
+      "Do set counts, dates, numerals and read times in tabular figures.",
+      "Do give every link and control a 2px indigo focus outline with a 2px offset.",
+      "Do hold intro and overview copy to 68ch.",
+      "Do keep motion to 200ms colour transitions and the arrow nudge, both disabled or reduced under `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "Don't author a radius other than the 8px token, and don't expect `rounded-full` to produce a circle.",
+      "Don't add a second accent hue; the teal secondary and orange accent ramps in the theme are unused and should stay that way.",
+      "Don't put a pill, kicker or uppercase tracked label above a heading in page content.",
+      "Don't show star ratings, scores or \"tested\" badges in any component.",
+      "Don't use a weight utility to make a heading heavier; headings render at 700 site-wide."
+    ]
+  }
+}
