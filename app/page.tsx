@@ -52,6 +52,9 @@ export default async function HomePage() {
         }}
       />
 
+      {/* Top Magazine Lead Grid Section */}
+      <SectionMagazine10 posts={lead.map(toTPost)} />
+
       {/* Advertisement Banner Placeholder */}
       <div className="flex justify-center w-full">
         <div className="relative w-full max-w-5xl overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 group">
@@ -72,8 +75,6 @@ export default async function HomePage() {
 
       {/* Editors Choice Carousel Section */}
       <EditorsChoiceSection posts={allPosts} />
-
-      <SectionMagazine10 posts={lead.map(toTPost)} />
 
       {/* Zaira Theme Bottom Sections (Recent Posts, Trending News, Sidebar & Bottom Banner) */}
       <ZairaBottomSections posts={allPosts} categories={topics} />
