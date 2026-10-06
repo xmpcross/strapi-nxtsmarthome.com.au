@@ -35,46 +35,46 @@ function ZairaHeader({ title, viewAllHref }: { title: string; viewAllHref?: stri
   )
 }
 
-// Redesigned Creative Product Spotlight Auto-Slide Slider
-function ProductAutoSlider() {
-  const products = [
-    {
-      id: 'echo-show-15-2nd-gen',
-      title: 'Echo Show 15 2nd Gen',
-      category: 'ENTERTAINMENT & AUDIO',
-      price: '$549 AUD',
-      rating: '5.0 ★',
-      badge: 'FEATURED SPOTLIGHT',
-      href: '/products/amazon-echo-show-15-2nd-gen/',
-      image: '/images/products/amazon-echo-show-15-2nd-gen-sq500.webp',
-    },
-    {
-      id: 'echo-hub-8-smart-home-control-panel',
-      title: 'Echo Hub 8" Smart Home Control Panel',
-      category: 'HUBS & PLATFORMS',
-      price: '$329 AUD',
-      rating: '4.7 ★',
-      badge: 'SMART CONTROL',
-      href: '/products/amazon-echo-hub-8-smart-home-control-panel/',
-      image: '/images/products/amazon-echo-hub-8-smart-home-control-panel-sq500.webp',
-    },
+// New Interactive Smart Gear Showcase Widget for Right Sidebar
+function SmartGearShowcaseWidget() {
+  const gearItems = [
     {
       id: 'aqara-a100-smart-door-lock',
       title: 'Aqara A100 Smart Door Lock',
       category: 'SMART LOCKS',
       price: '$297 AUD',
       rating: '4.8 ★',
-      badge: 'HOME ACCESS',
+      highlight: 'HomeKit & Fingerprint',
       href: '/products/aqara-a100-smart-door-lock/',
       image: '/images/products/aqara-a100-smart-door-lock.webp',
     },
     {
+      id: 'echo-show-15-2nd-gen',
+      title: 'Echo Show 15 2nd Gen',
+      category: 'ENTERTAINMENT',
+      price: '$549 AUD',
+      rating: '5.0 ★',
+      highlight: '15.6" 1080p Smart Display',
+      href: '/products/amazon-echo-show-15-2nd-gen/',
+      image: '/images/products/amazon-echo-show-15-2nd-gen-sq500.webp',
+    },
+    {
+      id: 'echo-hub-8-smart-home-control-panel',
+      title: 'Echo Hub 8" Smart Control Panel',
+      category: 'HUBS & PLATFORMS',
+      price: '$329 AUD',
+      rating: '4.7 ★',
+      highlight: 'Matter, Thread & Zigbee',
+      href: '/products/amazon-echo-hub-8-smart-home-control-panel/',
+      image: '/images/products/amazon-echo-hub-8-smart-home-control-panel-sq500.webp',
+    },
+    {
       id: 'arlo-ultra-2-4k-spotlight-camera',
       title: 'Arlo Ultra 2 4K Spotlight Camera',
-      category: 'SECURITY & CAMERAS',
+      category: 'SECURITY CAMERAS',
       price: '$449 AUD',
       rating: '4.8 ★',
-      badge: '4K SECURITY',
+      highlight: '4K HDR & Color Night Vision',
       href: '/products/arlo-ultra-2-4k-spotlight-camera/',
       image: '/images/products/arlo-ultra-2-4k-spotlight-camera-sq500.webp',
     },
@@ -84,113 +84,132 @@ function ProductAutoSlider() {
       category: 'SMART LOCKS',
       price: '$269 AUD',
       rating: '4.8 ★',
-      badge: 'EASY SETUP',
+      highlight: 'Built-in Wi-Fi & Keypad',
       href: '/products/eufy-smart-lock-c220-with-wi-fi/',
       image: '/images/products/eufy-smart-lock-c220-with-wi-fi-sq500.webp',
     },
   ]
 
-  const [currentIndex, setCurrentIndex] = React.useState(0)
-  const [isPaused, setIsPaused] = React.useState(false)
+  const [selectedIdx, setSelectedIdx] = React.useState(0)
 
-  React.useEffect(() => {
-    if (isPaused) return
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % products.length)
-    }, 4500)
-    return () => clearInterval(timer)
-  }, [isPaused, products.length])
+  const featured = gearItems[selectedIdx]
+  const subList = gearItems.filter((_, idx) => idx !== selectedIdx).slice(0, 3)
 
   return (
-    <div
-      className="group relative h-[450px] w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-md bg-white dark:bg-neutral-900"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      {/* Top Floating Glass Header Bar */}
-      <div className="absolute top-4 inset-x-4 z-30 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center gap-2 rounded-full bg-neutral-900/80 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white backdrop-blur-md shadow-md">
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-          </span>
-          <span>SPOTLIGHT DEALS</span>
+    <section className="space-y-4">
+      {/* Widget Header with Direct Shop All Link */}
+      <div className="flex items-center justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
+        <div className="relative">
+          <h2 className="text-xl font-bold tracking-tight text-neutral-900 dark:text-white">
+            Featured Smart Gear
+          </h2>
+          <span className="absolute -bottom-3.5 left-0 h-0.5 w-12 bg-primary-600 dark:bg-primary-400" />
         </div>
 
-        <span className="rounded-full bg-primary-600 px-3 py-1 text-xs font-black text-white shadow-lg backdrop-blur-md">
-          {products[currentIndex].price}
-        </span>
+        <Link
+          href="/products/"
+          className="flex items-center gap-1 rounded-lg border border-neutral-200 bg-white px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-neutral-600 transition hover:border-primary-500 hover:text-primary-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:border-primary-400 dark:hover:text-primary-400"
+        >
+          <span>Shop All</span>
+          <svg className="size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </Link>
       </div>
 
-      {/* Product Slides */}
-      {products.map((product, idx) => {
-        const isActive = idx === currentIndex
-        return (
-          <Link
-            key={product.id}
-            href={product.href}
-            className={`absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-700 ease-in-out ${
-              isActive ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
-            }`}
-          >
-            {/* Background Product Image - Clean & Un-tinted */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={product.image}
-              alt={product.title}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
-            />
+      {/* Hero Featured Spotlight Card */}
+      <Link
+        href={featured.href}
+        className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-neutral-200 bg-white p-4 transition-all duration-300 hover:border-primary-500 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-400 shadow-sm"
+      >
+        <div className="relative h-48 w-full overflow-hidden rounded-xl bg-neutral-50 dark:bg-neutral-800/80 flex items-center justify-center p-4 border border-neutral-100 dark:border-neutral-800">
+          {/* Top Category Badge */}
+          <span className="absolute top-2.5 left-2.5 z-10 rounded-md bg-primary-600 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-sm">
+            {featured.category}
+          </span>
 
-            {/* Soft Bottom-Only Gradient Overlay for Text Contrast */}
-            <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
+          {/* Top Price Tag */}
+          <span className="absolute top-2.5 right-2.5 z-10 rounded-full bg-neutral-900 px-2.5 py-1 text-xs font-black text-white dark:bg-white dark:text-neutral-950 shadow-md">
+            {featured.price}
+          </span>
 
-            {/* Bottom Info Overlay */}
-            <div className="relative z-20 space-y-2 mb-10 text-left">
-              <div className="flex items-center gap-2">
-                <span className="inline-block rounded-md bg-white/20 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white backdrop-blur-sm">
-                  {product.category}
-                </span>
-                <span className="text-[10px] font-bold text-amber-400 flex items-center gap-1">
-                  {product.rating}
-                </span>
-              </div>
+          {/* Clean Un-tinted Product Image */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={featured.image}
+            alt={featured.title}
+            className="h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
 
-              <h3 className="text-lg font-black leading-snug text-white group-hover:text-primary-300 transition-colors line-clamp-2">
-                {product.title}
-              </h3>
+        <div className="mt-3 space-y-1.5">
+          <div className="flex items-center justify-between text-[11px]">
+            <span className="font-extrabold text-amber-500 flex items-center gap-1">
+              ★ {featured.rating}
+            </span>
+            <span className="font-semibold text-neutral-500 dark:text-neutral-400 text-[10px] uppercase tracking-wider">
+              {featured.highlight}
+            </span>
+          </div>
 
-              <div className="flex items-center justify-between pt-1">
-                <span className="text-xs font-extrabold uppercase tracking-wider text-primary-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  <span>Explore Product</span>
-                  <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                </span>
-              </div>
+          <h3 className="text-base font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 line-clamp-2 transition-colors">
+            {featured.title}
+          </h3>
+
+          <div className="pt-2 flex items-center justify-between border-t border-neutral-100 dark:border-neutral-800">
+            <span className="text-xs font-bold text-primary-600 dark:text-primary-400 group-hover:underline flex items-center gap-1">
+              View Gear Details
+              <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </span>
+            <span className="text-[10px] font-semibold text-neutral-400 uppercase tracking-widest">
+              AU Retailers
+            </span>
+          </div>
+        </div>
+      </Link>
+
+      {/* Mini Product Quick Selector List */}
+      <div className="space-y-2.5 pt-1">
+        {subList.map((item) => {
+          const originalIdx = gearItems.findIndex((g) => g.id === item.id)
+          return (
+            <div
+              key={item.id}
+              className="group flex items-center justify-between gap-3 rounded-xl border border-neutral-200/70 bg-white p-2.5 transition-all duration-300 hover:border-primary-500 hover:bg-neutral-50/60 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-400"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedIdx(originalIdx)}
+                className="flex items-center gap-3 flex-1 min-w-0 text-left"
+              >
+                <div className="relative size-14 shrink-0 overflow-hidden rounded-lg bg-neutral-50 dark:bg-neutral-800 p-1 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={item.image} alt={item.title} className="h-full w-auto object-contain" />
+                </div>
+                <div className="flex-1 min-w-0 space-y-0.5">
+                  <span className="inline-block text-[9px] font-extrabold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+                    {item.category}
+                  </span>
+                  <h4 className="text-xs font-bold leading-tight text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 line-clamp-1 transition-colors">
+                    {item.title}
+                  </h4>
+                  <div className="text-[11px] font-extrabold text-neutral-900 dark:text-white">
+                    {item.price}
+                  </div>
+                </div>
+              </button>
+
+              <Link
+                href={item.href}
+                className="shrink-0 flex size-8 items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 text-neutral-600 transition hover:border-primary-500 hover:bg-primary-600 hover:text-white dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-primary-600 dark:hover:text-white"
+                title={`View ${item.title}`}
+              >
+                <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </Link>
             </div>
-          </Link>
-        )
-      })}
-
-      {/* Interactive Mini Product Tabs Bar at Bottom */}
-      <div className="absolute bottom-3 inset-x-3 z-30 flex items-center justify-center gap-2 bg-black/40 backdrop-blur-md p-1.5 rounded-xl border border-white/10">
-        {products.map((p, idx) => (
-          <button
-            key={p.id}
-            type="button"
-            onClick={() => setCurrentIndex(idx)}
-            className={`relative size-9 overflow-hidden rounded-lg border transition-all duration-300 ${
-              idx === currentIndex
-                ? 'border-primary-500 scale-105 shadow-md ring-2 ring-primary-500/50'
-                : 'border-white/20 opacity-60 hover:opacity-100'
-            }`}
-            title={p.title}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={p.image} alt={p.title} className="h-full w-full object-cover" />
-          </button>
-        ))}
+          )
+        })}
       </div>
-    </div>
+    </section>
   )
 }
 
@@ -667,9 +686,9 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
           </section>
         </div>
 
-        {/* Right Column (4 cols): Product Auto-Slide Widget & Popular Tech */}
+        {/* Right Column (4 cols): Smart Gear Showcase & Popular Tech */}
         <div className="lg:col-span-4 flex flex-col justify-start space-y-10">
-          <ProductAutoSlider />
+          <SmartGearShowcaseWidget />
 
           {/* Popular Tech Widget (Moved below the banner image) */}
           <section>
