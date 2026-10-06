@@ -351,7 +351,7 @@ export function HomeFaq() {
         </div>
       </div>
 
-      <FlyonAccordion items={faqItems} alwaysOpen={false} />
+      <FlyonAccordion items={faqItems} alwaysOpen={false} columns={2} />
     </section>
   )
 }
