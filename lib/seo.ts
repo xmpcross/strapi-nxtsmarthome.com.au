@@ -18,6 +18,10 @@ export function organisationJsonLd() {
         name: site.organisation.name,
         url: site.url,
         email: site.organisation.email,
+        // Entity signals the audit found missing (GEO-3 / #24).
+        logo: { '@type': 'ImageObject', url: `${site.url}/icon-512.png`, width: 512, height: 512 },
+        description: site.metaDescription,
+        areaServed: { '@type': 'Country', name: 'Australia' },
         ...(sameAs.length ? { sameAs } : {}),
       },
       {

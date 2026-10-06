@@ -22,12 +22,12 @@ export default function ReadAlso({ items }: { items: Article[] }) {
       className="not-prose my-10 rounded-lg border border-slate-200 bg-white p-7 shadow-xs sm:p-8 dark:border-slate-700 dark:bg-slate-800/60"
       aria-labelledby="read-also-heading"
     >
-      <h2
+      <p
         id="read-also-heading"
         className="text-xl font-bold text-slate-900 dark:text-white"
       >
         Read Also
-      </h2>
+      </p>
 
       <ul className="mt-5 flex flex-col gap-5">
         {items.map((article) => (
@@ -49,14 +49,14 @@ export default function ReadAlso({ items }: { items: Article[] }) {
             </Link>
 
             <div className="min-w-0">
-              <h3 className="text-base font-bold leading-snug text-slate-900 dark:text-white">
+              <p className="text-base font-bold leading-snug text-slate-900 dark:text-white">
                 <Link
                   href={articleHref(article)}
                   className="hover:text-brand-700 dark:hover:text-brand-400"
                 >
                   {article.title}
                 </Link>
-              </h3>
+              </p>
               <p className="mt-1.5 flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                 <time dateTime={article.date}>
                   {formatDate(article.updated ?? article.date)}

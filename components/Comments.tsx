@@ -99,14 +99,14 @@ export default function Comments({
 
   return (
     <section className="not-prose mt-12" aria-labelledby="comments-heading">
-      <h2
+      <p
         id="comments-heading"
         className="border-b border-slate-200 pb-3 text-base font-bold text-slate-900 dark:border-card-edge dark:text-white"
       >
         {comments.length === 0
           ? 'Comments'
           : `${comments.length} ${comments.length === 1 ? 'Comment' : 'Comments'}`}
-      </h2>
+      </p>
 
       {comments.length > 0 && (
         <ul className="mt-6 flex flex-col gap-8">
@@ -134,9 +134,9 @@ export default function Comments({
         </ul>
       )}
 
-      <h3 className="mt-10 text-3xl font-bold text-slate-900 dark:text-white">
+      <p className="mt-10 text-3xl font-bold text-slate-900 dark:text-white">
         Leave a comment
-      </h3>
+      </p>
 
       {ACTION ? (
         <form action={ACTION} method="post" onSubmit={onSubmit} className="mt-3">

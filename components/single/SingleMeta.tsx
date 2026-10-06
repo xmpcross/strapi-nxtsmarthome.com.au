@@ -7,9 +7,19 @@ import { FC } from 'react'
 
 interface Props extends Pick<TPostDetail, 'date' | 'author' | 'readingTime'> {
   className?: string
+  /** Last substantive update. Shown only when it falls on a later day than `date`. */
+  updated?: string
 }
 
-const SingleMeta: FC<Props> = ({ className, date, author, readingTime }) => {
+const DAY = { year: 'numeric', month: 'long', day: 'numeric' } as const
+
+/*
+ * "Published 14 January 2026 · Updated 1 August 2026" (audit C8/#17): the byline
+ * used to show the modified date alone, unlabelled, so a bulk date bump read as
+ * a fresh article.
+ */
+const SingleMeta: FC<Props> = ({ className, date, updated, author, readingTime }) => {
+  const showUpdated = !!updated && updated.slice(0, 10) > String(date).slice(0, 10)
   return (
     <div className={clsx('single-meta relative flex shrink-0 flex-wrap items-center text-sm', className)}>
       <Avatar className={'size-10 sm:size-11'} src={author.avatar.src} width={44} height={44} sizes="44px" />
@@ -17,10 +27,20 @@ const SingleMeta: FC<Props> = ({ className, date, author, readingTime }) => {
       <div className="ms-3">
         <p className="block font-semibold">{author.name}</p>
 
-        <div className="mt-1.5 flex items-center gap-x-2 text-xs">
+        <div className="mt-1.5 flex flex-wrap items-center gap-x-2 text-xs">
           <span>
-            <LocalDate date={date} options={{ year: 'numeric', month: 'long', day: 'numeric' }} />
+            Published{' '}
+            <LocalDate date={date} options={DAY} />
           </span>
+          {showUpdated && (
+            <>
+              <span>·</span>
+              <span>
+                Updated{' '}
+                <LocalDate date={updated} options={DAY} />
+              </span>
+            </>
+          )}
           <span>•</span>
           <span>{readingTime} min read</span>
         </div>

@@ -181,7 +181,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ catego
             </p>
             <Divider />
             <div className="flex flex-wrap items-center gap-5">
-              <SingleMeta author={post.author} date={article.updated ?? article.date} readingTime={post.readingTime} />
+              <SingleMeta author={post.author} date={article.date} updated={article.updated} readingTime={post.readingTime} />
               <SingleMetaAction className="ms-auto" handle={post.handle} title={article.title} />
             </div>
           </div>

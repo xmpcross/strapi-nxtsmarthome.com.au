@@ -58,12 +58,12 @@ export default function AffiliateLinks({
   // article has products.
   return (
     <section className="not-prose mt-12" aria-labelledby="affiliate-link-heading">
-      <h2
+      <p
         id="affiliate-link-heading"
         className="text-base font-bold text-slate-900 dark:text-white"
       >
         Affiliate Link
-      </h2>
+      </p>
 
       <p className="mt-2 text-[14px] leading-relaxed text-slate-600 dark:text-slate-300">
         Some of the links in this article are affiliate links. If you buy through one we may

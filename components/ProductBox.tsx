@@ -54,9 +54,9 @@ export default function ProductBox({ product, subId, rank }: Props) {
                 #{rank}
               </span>
             )}
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+            <p className="text-lg font-bold text-slate-900 dark:text-white">
               {product.brand ? `${product.brand} ${product.name}` : product.name}
-            </h3>
+            </p>
             {product.bestFor && (
               <p className="mt-0.5 text-sm text-slate-600 dark:text-slate-300">
                 Best for: {product.bestFor}
@@ -71,9 +71,9 @@ export default function ProductBox({ product, subId, rank }: Props) {
         <div className="grid gap-4 px-5 py-4 sm:grid-cols-2">
           {product.pros?.length ? (
             <div>
-              <h4 className="mb-2 text-sm font-semibold text-primary-700 dark:text-primary-400">
+              <p className="mb-2 text-sm font-semibold text-primary-700 dark:text-primary-400">
                 What we like
-              </h4>
+              </p>
               <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
                 {product.pros.map((pro) => (
                   <li key={pro} className="flex gap-2">
@@ -89,9 +89,9 @@ export default function ProductBox({ product, subId, rank }: Props) {
 
           {product.cons?.length ? (
             <div>
-              <h4 className="mb-2 text-sm font-semibold text-rose-700 dark:text-rose-400">
+              <p className="mb-2 text-sm font-semibold text-rose-700 dark:text-rose-400">
                 Worth knowing
-              </h4>
+              </p>
               <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
                 {product.cons.map((con) => (
                   <li key={con} className="flex gap-2">
