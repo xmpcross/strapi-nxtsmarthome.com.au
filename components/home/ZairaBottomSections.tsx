@@ -11,13 +11,21 @@ interface Props {
 }
 
 // Reusable Section Header matching Zaira theme styling
-function ZairaHeader({ title, viewAllHref }: { title: string; viewAllHref?: string }) {
+function ZairaHeader({
+  title,
+  viewAllHref,
+  as: HeadingTag = 'h2',
+}: {
+  title: string
+  viewAllHref?: string
+  as?: 'h2' | 'h3'
+}) {
   return (
     <div className="relative mb-6 flex items-center justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
       <div className="relative">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
+        <HeadingTag className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
           {title}
-        </h2>
+        </HeadingTag>
         {/* Coral accent bar under title */}
         <span className="absolute -bottom-3.5 left-0 h-0.5 w-12 bg-primary-600 dark:bg-primary-400" />
       </div>
@@ -230,7 +238,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
   const popularPosts = posts.slice(12, 15).length >= 3 ? posts.slice(12, 15) : posts.slice(1, 4)
 
   const popularTechFeatured = posts[15] || posts[0]
-  const popularTechList = posts.slice(16, 19).length >= 3 ? posts.slice(16, 19) : posts.slice(2, 5)
+  const popularTechList = posts.filter((p) => p.id !== popularTechFeatured?.id).slice(0, 5)
 
   // Default Hot Categories fallback
   const hotCategoriesList = categories.slice(0, 4).length > 0
@@ -464,7 +472,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
           
           {/* SIDEBAR BLOCK 1: SUBSCRIBE & FOLLOWERS */}
           <section>
-            <ZairaHeader title="Subscribe & Followers" />
+            <ZairaHeader title="Subscribe & Followers" as="h3" />
             <div className="grid grid-cols-2 gap-2.5">
               {[
                 { name: 'Facebook', icon: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
@@ -516,7 +524,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
 
           {/* SIDEBAR BLOCK 3: HOT CATEGORIES */}
           <section>
-            <ZairaHeader title="Hot Categories" />
+            <ZairaHeader title="Hot Categories" as="h3" />
             <div className="space-y-3">
               {hotCategoriesList.map((cat) => (
                 <Link
@@ -550,7 +558,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
 
           {/* SIDEBAR BLOCK 4: POPULAR POSTS */}
           <section>
-            <ZairaHeader title="Popular Posts" />
+            <ZairaHeader title="Popular Posts" as="h3" />
             <div className="space-y-4">
               {popularPosts.map((post) => (
                 <Link
@@ -692,7 +700,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
 
           {/* Popular Tech Widget (Moved below the banner image) */}
           <section>
-            <ZairaHeader title="Popular Tech" />
+            <ZairaHeader title="Popular Tech" as="h3" />
             <div className="space-y-4">
               {/* Top Featured Overlay Post Card */}
               {popularTechFeatured && (
