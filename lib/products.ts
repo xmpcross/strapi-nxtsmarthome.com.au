@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import type { ProductRef, RetailerLink } from './content';
+import { withShortLinks } from './geniuslink-links';
 
 const PRODUCTS_DIR = path.join(process.cwd(), 'content', 'products');
 const JSON_PRODUCTS_PATH = path.join(process.cwd(), 'public', 'data', 'products.json');
@@ -138,7 +139,7 @@ function readProduct(filename: string): Product | null {
     pros: Array.isArray(data.pros) ? data.pros : undefined,
     cons: Array.isArray(data.cons) ? data.cons : undefined,
     image: data.image,
-    retailers: Array.isArray(data.retailers) ? (data.retailers as RetailerLink[]) : undefined,
+    retailers: withShortLinks(Array.isArray(data.retailers) ? (data.retailers as RetailerLink[]) : undefined),
     match: Array.from(
       new Set([...match, data.brand ? `${data.brand} ${data.name}` : '', data.name].filter(Boolean)),
     ),
@@ -278,15 +279,17 @@ export function getAllTopProducts(): TopProduct[] {
      * Set PRODUCTS_KEEP_SEEDED_RATINGS=1 to fall back to the seeded numbers.
      */
     const keepSeeded = process.env.PRODUCTS_KEEP_SEEDED_RATINGS === '1';
-    topProductsCache = parsed.map((product) =>
-      !keepSeeded && typeof product.ratingReal === 'number'
+    topProductsCache = parsed.map((raw) => {
+      // Non-Amazon retailers get their geni.us short link (lib/geniuslink-links.ts).
+      const product = { ...raw, retailers: withShortLinks(raw.retailers) };
+      return !keepSeeded && typeof product.ratingReal === 'number'
         ? {
             ...product,
             rating: product.ratingReal,
             reviewCount: product.reviewCountReal ?? product.reviewCount,
           }
-        : product,
-    );
+        : product;
+    });
   } catch {
     topProductsCache = [];
   }
