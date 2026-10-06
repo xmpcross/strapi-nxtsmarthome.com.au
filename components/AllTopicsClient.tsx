@@ -11,6 +11,8 @@ export type TopicCategoryData = {
   count: number;
   description: string;
   emoji?: string;
+  icon3d?: string;
+  iconSvg?: string;
   intro?: string;
   subcategories?: string[];
   hasProducts: boolean;
@@ -273,13 +275,17 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
                   setSelectedCategory(selectedCategory === cat.handle ? null : cat.handle);
                   setVisibleCount(12);
                 }}
-                className={`flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-extrabold transition-all ${
+                className={`flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-extrabold transition-all ${
                   selectedCategory === cat.handle
                     ? 'bg-primary-600 text-white shadow-xs'
                     : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700'
                 }`}
               >
-                <span>{cat.emoji || '⚡'}</span>
+                {cat.iconSvg ? (
+                  <img src={cat.iconSvg} alt="" className="size-4 shrink-0 object-contain" />
+                ) : (
+                  <span>{cat.emoji || '⚡'}</span>
+                )}
                 <span>{cat.name}</span>
                 <span className="rounded-full bg-black/10 px-1.5 py-0.2 text-[10px] dark:bg-white/10">
                   {cat.count}
@@ -340,8 +346,18 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
               >
                 <div className="space-y-3">
                   <div className="flex items-start justify-between">
-                    <span className="flex size-12 items-center justify-center rounded-xl bg-neutral-100 text-2xl transition-transform group-hover:scale-110 dark:bg-neutral-800">
-                      {c.emoji || '⚡'}
+                    <span className="flex size-14 items-center justify-center bg-transparent transition-transform duration-300 group-hover:scale-110">
+                      {c.icon3d ? (
+                        <img
+                          src={c.icon3d}
+                          alt={c.name}
+                          width={56}
+                          height={56}
+                          className="size-14 object-contain"
+                        />
+                      ) : (
+                        <span className="text-3xl">{c.emoji || '⚡'}</span>
+                      )}
                     </span>
                     <span className="rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-extrabold text-primary-700 border border-primary-500/20 dark:bg-primary-950/60 dark:text-primary-300">
                       {c.count} {c.count === 1 ? 'Guide' : 'Guides'}

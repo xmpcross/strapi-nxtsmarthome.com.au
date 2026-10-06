@@ -61,6 +61,8 @@ export interface Category {
   blurb: string;
   intro: string;
   emoji: string;
+  icon3d?: string;
+  iconSvg?: string;
   subcategories?: string[];
   /**
    * Long-form orientation shown above the article grid on the category page.
@@ -77,6 +79,8 @@ export const categories: Category[] = [
     name: 'Security & Cameras',
     slug: 'security-and-cameras',
     emoji: '🔒',
+    icon3d: '/images/category-3d/security-camera.png',
+    iconSvg: '/images/icons/outdoor-cam-7984135.svg',
     blurb: 'Cameras, video doorbells, sensors and alarms.',
     intro:
       'Security is where most Australian smart homes start. This section covers indoor and outdoor cameras, video doorbells, motion and door sensors, and full alarm systems — including the privacy law and strata rules that apply when your camera can see a neighbour or a shared space.',
@@ -87,6 +91,8 @@ export const categories: Category[] = [
     name: 'Smart Door Locks',
     slug: 'smart-door-locks',
     emoji: '🔐',
+    icon3d: '/images/category-3d/smart-lock-door.png',
+    iconSvg: '/images/icons/door-lock-7984128.svg',
     blurb: 'Keyless entry deadbolts, fingerprint keypads, and smart door locks.',
     intro:
       'Smart door locks offer keyless entry, remote access, guest PIN codes, and HomeKey integration for Australian homes. This section covers retrofit deadbolts, mortise locks, keypads, and smart lock installation on timber and aluminium doors.',
@@ -97,6 +103,8 @@ export const categories: Category[] = [
     name: 'Lighting',
     slug: 'lighting',
     emoji: '💡',
+    icon3d: '/images/category-3d/smart-bulb.png',
+    iconSvg: '/images/icons/smart-light-7984142.svg',
     blurb: 'Smart bulbs, switches, strips and lighting automation.',
     intro:
       'Smart lighting is the cheapest way into home automation and the easiest to get wrong. This section covers bulbs versus switches, the B22 vs E27 fitting question that trips up Australians buying from overseas, dimming compatibility, and how to wire smart switches safely under AS/NZS rules.',
@@ -107,6 +115,8 @@ export const categories: Category[] = [
     name: 'Energy & Solar',
     slug: 'energy-and-solar',
     emoji: '⚡',
+    icon3d: '/images/category-3d/smart-energy.png',
+    iconSvg: '/images/icons/home-automation-7984119.svg',
     blurb: 'Smart plugs, energy monitoring, solar and load shifting.',
     intro:
       'Australian electricity is expensive and our solar uptake is the highest per capita in the world. This section covers energy monitoring, smart plugs, hot water and pool pump control, and how to automate around time-of-use tariffs and feed-in tariffs so your automations actually cut the bill.',
@@ -117,6 +127,8 @@ export const categories: Category[] = [
     name: 'Entertainment & Audio',
     slug: 'entertainment-and-audio',
     emoji: '🔊',
+    icon3d: '/images/category-3d/smart-tv.png',
+    iconSvg: '/images/icons/home-control-system-7984151.svg',
     blurb: 'Speakers, streaming, multi-room audio and TV integration.',
     intro:
       'Smart speakers, multi-room audio, streaming boxes and how they tie into the rest of the house. Includes what actually works with Australian free-to-air and local streaming services, and which voice assistants are worth committing to.',
@@ -127,6 +139,8 @@ export const categories: Category[] = [
     name: 'Climate & Comfort',
     slug: 'climate-and-comfort',
     emoji: '🌡️',
+    icon3d: '/images/category-3d/smart-energy.png',
+    iconSvg: '/images/icons/smarthome-7984136.svg',
     blurb: 'Air conditioning, heating, fans, sensors and air quality.',
     intro:
       'Australia asks a lot of climate control — 45°C summers in the west, damp winters in Melbourne, humidity in Queensland. This section covers making split systems smart, thermostats, ceiling fan control, humidity and air quality monitoring, and bushfire-smoke automations.',
@@ -137,6 +151,8 @@ export const categories: Category[] = [
     name: 'Hubs & Platforms',
     slug: 'hubs-and-platforms',
     emoji: '🧠',
+    icon3d: '/images/category-3d/smart-home-hub.png',
+    iconSvg: '/images/icons/wireless-security-system-7984144.svg',
     blurb: 'Matter, Thread, Zigbee, Z-Wave, Home Assistant and the big ecosystems.',
     intro:
       'The most important decision you will make is which platform to build on, because it determines what you can buy for the next decade. This section explains Matter, Thread, Zigbee and Z-Wave in plain language, and compares Apple Home, Google Home, Amazon Alexa, SmartThings and Home Assistant.',
@@ -147,6 +163,8 @@ export const categories: Category[] = [
     name: 'Robot Vacuums',
     slug: 'robot-vacuums',
     emoji: '🤖',
+    icon3d: '/images/category-3d/smart-vacuum-robot.png',
+    iconSvg: '/images/icons/home-protection-7984120.svg',
     blurb: 'Robot vacuums, mops and self-emptying docks.',
     intro:
       'Robot vacuums and mops, how mapping and navigation actually differ between price tiers, what a self-emptying dock is worth, and how they cope with the pet hair and hard floors common in Australian homes.',
@@ -157,6 +175,8 @@ export const categories: Category[] = [
     name: 'Setup Guides',
     slug: 'setup-guides',
     emoji: '🛠️',
+    icon3d: '/images/category-3d/setup-guides.png',
+    iconSvg: '/images/icons/phone-control-7984141.svg',
     blurb: 'Step-by-step installation, configuration and troubleshooting.',
     intro:
       'Practical, step-by-step walkthroughs: getting devices onto your Wi-Fi, building your first automations, fixing connection dropouts, and knowing when a job legally requires a licensed electrician in Australia.',
@@ -174,6 +194,8 @@ export const categories: Category[] = [
     name: 'Buying Guides',
     slug: 'buying-guides',
     emoji: '🛒',
+    icon3d: '/images/category-3d/buying-guides.png',
+    iconSvg: '/images/icons/home-insurance-paper-7984126.svg',
     blurb: 'What to buy, what to skip, and how to compare.',
     intro:
       'Decision-first buying advice. What actually matters in a spec sheet, what marketing terms mean nothing, how to compare options honestly, and how to avoid the parallel-import and warranty traps that catch Australian buyers.',

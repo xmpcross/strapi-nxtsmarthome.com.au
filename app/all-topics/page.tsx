@@ -38,6 +38,8 @@ export default async function CategoriesIndex() {
       count: c.count,
       description: c.description,
       emoji: meta?.emoji,
+      icon3d: meta?.icon3d,
+      iconSvg: meta?.iconSvg,
       intro: meta?.intro,
       subcategories: meta?.subcategories,
       hasProducts: withProducts.has(c.handle),
