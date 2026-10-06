@@ -18,15 +18,7 @@ export function HomeHero({ articleCount, topicCount }: { articleCount: number; t
   return (
     <section className="relative">
       <div className="relative z-10 max-w-4xl">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-4 py-1.5 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-950/80 dark:text-primary-300">
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
-            <span className="relative inline-flex size-2 rounded-full bg-primary-500"></span>
-          </span>
-          INDEPENDENT · AUSTRALIAN SMART HOME ADVICE
-        </div>
-
-        <h1 className="mt-5 text-4xl font-black tracking-tight text-neutral-900 sm:text-6xl dark:text-white">
+        <h1 className="text-4xl font-black tracking-tight text-neutral-900 sm:text-6xl dark:text-white">
           Smart Home Guides for{' '}
           <span className="bg-gradient-to-r from-primary-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent dark:from-primary-400 dark:via-indigo-300 dark:to-purple-400">
             Australian Homes.
