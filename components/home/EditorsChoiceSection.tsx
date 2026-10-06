@@ -46,7 +46,7 @@ export default function EditorsChoiceSection({ posts, heading = "Editors Choice"
       {/* Section Header */}
       <div className="relative mb-6 flex items-center justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
         <div className="relative">
-          <h2 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-3xl">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
             {heading}
           </h2>
           {/* Coral accent bar under title */}

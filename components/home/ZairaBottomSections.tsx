@@ -35,6 +35,115 @@ function ZairaHeader({ title, viewAllHref }: { title: string; viewAllHref?: stri
   )
 }
 
+// Auto-slide Product Card Carousel for Right Sidebar
+function ProductAutoSlider() {
+  const products = [
+    {
+      id: 'echo-show-15-2nd-gen',
+      title: 'Echo Show 15 2nd Gen',
+      category: 'ENTERTAINMENT & AUDIO',
+      price: '$549 AUD',
+      href: '/products/amazon-echo-show-15-2nd-gen/',
+      image: '/images/products/amazon-echo-show-15-2nd-gen-sq500.webp',
+      badge: 'FEATURED PRODUCT',
+    },
+    {
+      id: 'echo-hub-8-smart-home-control-panel',
+      title: 'Echo Hub 8" Smart Home Control Panel',
+      category: 'HUBS & PLATFORMS',
+      price: '$329 AUD',
+      href: '/products/amazon-echo-hub-8-smart-home-control-panel/',
+      image: '/images/products/amazon-echo-hub-8-smart-home-control-panel-sq500.webp',
+      badge: 'SMART CONTROL',
+    },
+  ]
+
+  const [currentIndex, setCurrentIndex] = React.useState(0)
+  const [isPaused, setIsPaused] = React.useState(false)
+
+  React.useEffect(() => {
+    if (isPaused) return
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % products.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [isPaused, products.length])
+
+  return (
+    <div
+      className="group relative h-[420px] w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-md"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {products.map((product, idx) => {
+        const isActive = idx === currentIndex
+        return (
+          <Link
+            key={product.id}
+            href={product.href}
+            className={`absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-700 ease-in-out ${
+              isActive ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
+            }`}
+          >
+            {/* Background Featured Image */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={product.image}
+              alt={product.title}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+
+            {/* Dark Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+            {/* Top Category Badge */}
+            <div className="absolute top-4 left-4 z-20">
+              <span className="inline-block rounded-lg bg-primary-600 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md">
+                {product.category}
+              </span>
+            </div>
+
+            {/* Bottom Content Overlay */}
+            <div className="relative z-20 space-y-2 text-left">
+              <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest text-primary-300">
+                {product.badge}
+              </span>
+              <h3 className="text-base sm:text-lg font-bold leading-snug text-white group-hover:text-primary-300 transition-colors line-clamp-2">
+                {product.title}
+              </h3>
+              <div className="flex items-center justify-between pt-1">
+                <span className="text-xs font-extrabold text-white bg-white/20 px-3 py-1 rounded-full backdrop-blur-md border border-white/30">
+                  {product.price}
+                </span>
+                <span className="flex items-center gap-1 text-xs font-bold text-neutral-200 group-hover:text-white transition-colors">
+                  <span>View Product</span>
+                  <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+              </div>
+            </div>
+          </Link>
+        )
+      })}
+
+      {/* Pagination Slide Indicators */}
+      <div className="absolute bottom-3 right-4 z-30 flex items-center gap-1.5">
+        {products.map((_, idx) => (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => setCurrentIndex(idx)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              idx === currentIndex ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'
+            }`}
+            aria-label={`Go to product slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function ZairaBottomSections({ posts, categories = [] }: Props) {
   if (!posts.length) return null
 
@@ -465,99 +574,52 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
           <section>
             <ZairaHeader title="Weekly Best News" viewAllHref="/articles/" />
 
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {weeklyBestPosts.map((post) => (
-                <div
+                <Link
                   key={post.id}
-                  className="grid grid-cols-1 gap-6 items-center border-b border-neutral-200/70 dark:border-neutral-800 pb-6 last:border-none last:pb-0 sm:grid-cols-2"
+                  href={`/${post.handle}/`}
+                  className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-neutral-200/80 bg-white p-4 transition-all duration-300 hover:border-primary-500 hover:bg-neutral-50/50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-400"
                 >
-                  {/* Left Side Details */}
-                  <div className="flex flex-col justify-center space-y-2.5">
-                    <span className="inline-block w-fit rounded bg-primary-600 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
-                      {post.categories?.[0]?.name || 'TECHNOLOGY'}
-                    </span>
-
-                    <h3 className="text-base sm:text-lg font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 line-clamp-2 transition-colors">
-                      <Link href={`/${post.handle}/`}>{post.title}</Link>
-                    </h3>
-
-                    <div className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-wider text-neutral-400">
-                      <span className="flex items-center gap-1">
-                        <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                        {post.date || 'SEPTEMBER 11, 2025'}
-                      </span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1">
-                        <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        {post.readingTime || 2} MINS
-                      </span>
+                  <div className="space-y-3">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800">
+                      {post.featuredImage?.src ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={post.featuredImage.src}
+                          alt={post.featuredImage.alt || post.title}
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800" />
+                      )}
                     </div>
-
-                    <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3 leading-relaxed">
-                      {post.excerpt ||
-                        'Browned butter and brown sugar caramelly goodness crispy edges thick and soft centers and ey melty little puddles of chocolate.'}
-                    </p>
-
-                    <Link
-                      href={`/${post.handle}/`}
-                      className="mt-1 flex w-fit items-center gap-1.5 rounded-lg border border-neutral-300 bg-white px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-neutral-800 transition hover:border-primary-500 hover:text-primary-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-primary-400"
-                    >
-                      <span>Read More</span>
-                      <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                    </Link>
+                    <div className="space-y-1.5">
+                      <span className="inline-block rounded bg-primary-600 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
+                        {post.categories?.[0]?.name || 'TECHNOLOGY'}
+                      </span>
+                      <h3 className="text-base font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 line-clamp-2 transition-colors">
+                        {post.title}
+                      </h3>
+                      <p className="text-xs text-neutral-600 dark:text-neutral-400 line-clamp-2 leading-relaxed">
+                        {post.excerpt || 'Discover the latest smart home technology news and insights.'}
+                      </p>
+                    </div>
                   </div>
-
-                  {/* Right Side Image */}
-                  <Link href={`/${post.handle}/`} className="group relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-neutral-200/60 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800">
-                    {post.featuredImage?.src ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={post.featuredImage.src}
-                        alt={post.featuredImage.alt || post.title}
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800" />
-                    )}
-                  </Link>
-                </div>
+                  <div className="mt-4 flex items-center justify-between border-t border-neutral-100 pt-3 text-[11px] font-semibold text-neutral-400 dark:border-neutral-800">
+                    <span>{post.date || 'SEPTEMBER 11, 2025'}</span>
+                    <span>{post.readingTime || 2} MIN READ</span>
+                  </div>
+                </Link>
               ))}
             </div>
           </section>
         </div>
 
-        {/* Right Column (4 cols): Vertical Promo Banner & Popular Tech */}
+        {/* Right Column (4 cols): Product Auto-Slide Widget & Popular Tech */}
         <div className="lg:col-span-4 flex flex-col justify-start space-y-10">
-          {/* Banner 1: Liquid Cooled Custom PC Tech Banner */}
-          <div className="group relative h-[420px] w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-md">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/ads/sidebar_discount_ad.jpg"
-              alt="Automation 20% Discount"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-            {/* Cyan Chevron Tag Badge at Bottom Left */}
-            <div className="absolute bottom-6 left-0">
-              <div
-                className="bg-[#00e5ff] text-neutral-950 font-black px-5 py-3.5 shadow-xl"
-                style={{
-                  clipPath: 'polygon(0% 0%, 82% 0%, 100% 50%, 82% 100%, 0% 100%)',
-                  paddingRight: '2.5rem',
-                }}
-              >
-                <div className="text-base sm:text-lg font-extrabold leading-tight tracking-tight">
-                  Automation
-                </div>
-                <div className="text-xs sm:text-sm font-bold opacity-90">
-                  20% Discount
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProductAutoSlider />
 
           {/* Popular Tech Widget (Moved below the banner image) */}
           <section>
