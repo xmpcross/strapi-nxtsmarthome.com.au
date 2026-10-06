@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import FaqAccordion from '@/components/FaqAccordion';
 import JsonLd from '@/components/JsonLd';
-import ProductGrid from '@/components/ProductGrid';
-import { getIndexableTopProducts, getShoppableTopProducts, toListingCard } from '@/lib/products';
+import ProductCatalogue from '@/components/products/ProductCatalogue';
+import { toCatalogueItem } from '@/components/products/catalogue-item';
+import ProductPick from '@/components/products/ProductPick';
+import { FOCUS } from '@/components/category/shared';
+import { getAllArticles } from '@/lib/content';
+import { guideMentions } from '@/lib/product-mentions';
+import { getIndexableTopProducts, getShoppableTopProducts } from '@/lib/products';
 import { faqJsonLd } from '@/lib/seo';
 import { categories, site } from '@/lib/site';
-import { getNav } from '@/lib/nav';
 
 const TITLE = 'Smart Home Devices for Australian Homes';
 const DESCRIPTION =
@@ -44,73 +47,11 @@ export const metadata: Metadata = {
   },
 };
 
-/** The two links that save a first-time buyer the most money, in order. */
-const START_HERE = [
-  {
-    href: '/buying-guides/smart-home-starter-guide-beginners-australia/',
-    label: 'Smart Home for Beginners: How to Start Without Wasting Money',
-  },
-  {
-    href: '/hubs-and-platforms/best-smart-home-platform-australia/',
-    label: 'Which Smart Home Platform Should You Choose in Australia?',
-  },
-];
-
-/** Your "Browse by category" copy, one card each. */
-const CATEGORY_CARDS = [
-  {
-    slug: 'security-and-cameras', emoji: '🔒', name: 'Security & Cameras',
-    body: 'Doorbells, indoor and outdoor cameras, and sensors. The category where subscription costs and where footage is stored matter more than the camera itself.',
-    links: [
-      { href: '/security-and-cameras/video-doorbell-buying-guide-australia/', label: 'Video Doorbell Buying Guide' },
-      { href: '/security-and-cameras/smart-home-privacy-cameras-australia-law/', label: 'Cameras and Australian Privacy Law' },
-    ],
-  },
-  {
-    slug: 'smart-door-locks', emoji: '🔐', name: 'Smart Door Locks',
-    body: 'Keyless entry deadbolts, fingerprint keypads, and Apple HomeKey locks. Make sure to check door backset and Australian mortise compatibility.',
-    links: [{ href: '/security-and-cameras/smart-lock-compatibility-australian-doors/', label: 'Smart Lock Compatibility for AU Doors' }],
-  },
-  {
-    slug: 'lighting', emoji: '💡', name: 'Lighting',
-    body: 'Bulbs, lightstrips and switches. Check the fitting before anything else; Australian homes are mostly B22 bayonet, not E27 screw.',
-    links: [{ href: '/lighting/smart-bulbs-vs-smart-switches-australia/', label: 'Smart Bulbs vs Smart Switches' }],
-  },
-  {
-    slug: 'energy-and-solar', emoji: '⚡', name: 'Energy & Solar',
-    body: "Plugs with energy monitoring, power stations and solar accessories. Useful if you're on a time-of-use tariff and want to shift load.",
-    links: [{ href: '/energy-and-solar/smart-plugs-energy-monitoring-australia/', label: 'Smart Plugs and Energy Monitoring' }],
-  },
-  {
-    slug: 'entertainment-and-audio', emoji: '🔊', name: 'Entertainment & Audio',
-    body: "Smart speakers, displays and multi-room audio. Mostly a decision about which voice assistant you're willing to live with.",
-    links: [{ href: '/entertainment-and-audio/smart-speakers-multiroom-audio-australia/', label: 'Smart Speakers and Multi-Room Audio' }],
-  },
-  {
-    slug: 'climate-and-comfort', emoji: '🌡️', name: 'Climate & Comfort',
-    body: 'Aircon controllers, thermostats and air quality monitors. Most Australian homes use split systems, which need an IR controller rather than a wired thermostat.',
-    links: [{ href: '/climate-and-comfort/make-split-system-aircon-smart-australia/', label: 'How to Make a Split System Aircon Smart' }],
-  },
-  {
-    slug: 'hubs-and-platforms', emoji: '🧠', name: 'Hubs & Platforms',
-    body: 'Hubs, bridges and coordinators. The choice everything else depends on.',
-    links: [
-      { href: '/hubs-and-platforms/what-is-matter-smart-home-australia/', label: 'What Is Matter?' },
-      { href: '/hubs-and-platforms/zigbee-vs-zwave-vs-thread-vs-wifi/', label: 'Zigbee vs Z-Wave vs Thread vs Wi-Fi' },
-    ],
-  },
-  {
-    slug: 'robot-vacuums', emoji: '🤖', name: 'Robot Vacuums',
-    body: 'Vacuums and mop hybrids. Suction numbers are the most oversold spec in the category.',
-    links: [{ href: '/robot-vacuums/robot-vacuum-buying-guide-australia/', label: 'Robot Vacuum Buying Guide' }],
-  },
-];
-
 /** Australia-specific failure modes, ordered by how expensive the mistake is. */
 const CHECKS: { label: string; body: string; link?: { href: string; label: string } }[] = [
   {
     label: 'Bulb fittings',
-    body: 'Australian homes use B22 bayonet far more than E27 screw. Check which one a smart bulb ships with before ordering — this is the single most common return in the category.',
+    body: 'B22 bayonet fittings are common in Australian homes, especially older ones, while many imported ranges default to E27 screw. Check which one a smart bulb ships with before ordering.',
   },
   {
     label: 'Z-Wave frequency',
@@ -122,7 +63,7 @@ const CHECKS: { label: string; body: string; link?: { href: string; label: strin
   },
   {
     label: 'Warranty',
-    body: "Buying from an Australian retailer gives you consumer guarantees under Australian Consumer Law that apply regardless of what the manufacturer's warranty says. Grey imports don't carry the same protection.",
+    body: "When you buy from an Australian business, Australian Consumer Law gives you consumer guarantees alongside the manufacturer's warranty; the ACCC explains what they cover. A grey import can be harder to claim on.",
   },
   {
     label: 'Matter support',
@@ -130,7 +71,7 @@ const CHECKS: { label: string; body: string; link?: { href: string; label: strin
   },
   {
     label: 'Wired work',
-    body: 'Anything involving fixed wiring — switches, downlights, hardwired sensors — is licensed electrician territory in every state.',
+    body: 'Fixed wiring — switches, downlights, hardwired sensors — is regulated work that usually needs a licensed electrician. Check your state or territory’s electrical safety regulator.',
     link: {
       href: '/setup-guides/smart-home-electrical-work-australia-legal/',
       label: 'What Electrical Work You Can Legally Do Yourself',
@@ -156,12 +97,12 @@ const FAQ: { q: string; a: string; link: { href: string; label: string } }[] = [
   },
   {
     q: 'Do I need a hub?',
-    a: 'Not for Wi-Fi devices. You do need one for Zigbee, Z-Wave or Thread devices, and a hub also keeps automations running when your internet drops.',
+    a: 'Not for Wi-Fi devices. Zigbee and Z-Wave devices need a hub, and Thread devices need a border router (often built into a smart speaker or hub). A hub can also keep automations running when your internet drops.',
     link: { href: '/hubs-and-platforms/smart-home-devices-without-internet/', label: 'Do Devices Still Work When the Internet Drops?' },
   },
   {
     q: 'Can renters install this gear?',
-    a: 'Most of it, yes. Anything that plugs in, sits on a shelf or mounts with adhesive is fine. Avoid anything requiring fixed wiring or holes without written permission.',
+    a: 'Most of it, yes. Anything that plugs in, sits on a shelf or mounts with removable adhesive usually needs no permission. Ask your landlord before anything that needs holes or wiring; your state or territory’s tenancy authority explains the rules.',
     link: { href: '/buying-guides/smart-home-for-renters-australia/', label: 'Smart Home for Renters' },
   },
   {
@@ -171,270 +112,191 @@ const FAQ: { q: string; a: string; link: { href: string; label: string } }[] = [
   },
 ];
 
-export default function ProductsPage() {
-  const { productCategoryNavLinks } = getNav();
+// The picks come from the articles, which refresh from Strapi every 5 minutes.
+export const revalidate = 300;
 
+const PICKS_PER_CATEGORY = 3;
+
+export default async function ProductsPage() {
   // Empty listings are never listed; their pages still resolve (isEmptyListing).
   const products = getShoppableTopProducts();
+  const mentions = guideMentions(await getAllArticles());
 
-  /*
-    {{DATE}} in the draft copy. Derived from the newest pricesCheckedAt in the
-    catalogue rather than hardcoded, so the page cannot claim prices were
-    checked on a date that has since gone stale.
-  */
-  const lastChecked = products
-    .map((p) => p.pricesCheckedAt)
-    .filter(Boolean)
-    .sort()
-    .at(-1);
-  const checkedLabel = lastChecked
-    ? new Date(lastChecked).toLocaleDateString('en-AU', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      })
-    : null;
+  // Per category: the listed products our guides discuss, most-discussed first.
+  const picks = categories
+    .map((category) => ({
+      category,
+      count: products.filter((p) => p.categorySlug === category.slug).length,
+      items: products
+        .filter((p) => p.categorySlug === category.slug && mentions.has(p.slug))
+        .sort((a, b) => (mentions.get(b.slug)!.length - mentions.get(a.slug)!.length) || a.name.localeCompare(b.name))
+        .slice(0, PICKS_PER_CATEGORY),
+    }))
+    .filter((group) => group.items.length > 0);
 
-  // Priced products per category, for the category cards.
-  const countBySlug = new Map<string, number>();
-  for (const p of products) countBySlug.set(p.categorySlug, (countBySlug.get(p.categorySlug) ?? 0) + 1);
+  const items = [...products].sort((a, b) => a.name.localeCompare(b.name)).map((p) => toCatalogueItem(p, 'category'));
+  const groups = categories.map((c) => ({ key: c.slug, label: c.name }));
+  const categoryCount = new Set(products.map((p) => p.categorySlug)).size;
 
   return (
-    <main className="container py-10 lg:py-16">
-      {/* Hero — two columns, matches /all-topics/ and the category hubs */}
-      <header className="grid items-center gap-10 lg:grid-cols-2">
-        <div className="space-y-5">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-neutral-500 dark:text-neutral-400">
-            <Link href="/" className="hover:text-neutral-900 dark:hover:text-white">Home</Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-neutral-900 dark:text-white">Products</span>
-          </nav>
-
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-3.5 py-1 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-900/40 dark:text-primary-300">
-            <span className="size-2 rounded-full bg-primary-500" />
-            Product catalogue
-          </div>
-
-          <h1 className="text-4xl sm:text-[3rem] font-black tracking-tight leading-[1.1] text-neutral-900 dark:text-white">
-            Smart home devices{' '}
-            <span className="bg-gradient-to-r from-primary-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent dark:from-primary-400 dark:via-indigo-300 dark:to-purple-400">
-              for Australian homes.
-            </span>
-          </h1>
-
-          <p className="max-w-2xl text-base font-medium leading-relaxed text-neutral-600 dark:text-neutral-300">
-            Every device here is sold in Australia, runs on 230V power, and is stocked by at least one local retailer
-            with Australian warranty support. We link you to the retailer to check the current price, because prices
-            move daily. Order is based on what we&apos;d recommend, not on what pays us the most.
-          </p>
-
-          <dl className="grid max-w-md grid-cols-2 gap-3 pt-1">
-            <div className="rounded-2xl border border-neutral-200/80 flex flex-col-reverse p-3.5 dark:border-neutral-800">
-              <dt className="mt-0.5 text-xs font-semibold text-neutral-500 dark:text-neutral-400">Devices listed</dt>
-              <dd className="text-2xl font-black text-primary-600 dark:text-primary-400">{products.length}</dd>
-            </div>
-            <div className="rounded-2xl border border-neutral-200/80 flex flex-col-reverse p-3.5 dark:border-neutral-800">
-              <dt className="mt-0.5 text-xs font-semibold text-neutral-500 dark:text-neutral-400">Categories</dt>
-              <dd className="text-2xl font-black text-primary-600 dark:text-primary-400">{countBySlug.size}</dd>
-            </div>
-          </dl>
-          {checkedLabel ? (
-            <p className="text-xs text-neutral-500 dark:text-neutral-400">Prices last checked {checkedLabel}.</p>
-          ) : null}
-        </div>
-
-        <aside className="relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-gradient-to-br from-primary-50/60 via-white to-purple-50/40 p-6 sm:p-8 dark:border-neutral-800 dark:from-neutral-900/80 dark:via-neutral-900 dark:to-neutral-950">
-          <div className="pointer-events-none absolute -right-16 -top-16 size-60 rounded-full bg-primary-500/15 blur-3xl dark:bg-primary-500/25" />
-          <div className="relative space-y-4">
-            <h2 className="text-lg font-bold text-neutral-900 dark:text-white">New here? Start with these</h2>
-            <p className="text-sm text-neutral-600 dark:text-neutral-300">
-              Two things save the most money: picking your platform before you buy anything, and knowing which devices
-              you can install yourself.
-            </p>
-            {START_HERE.map((item, idx) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group block rounded-2xl border border-neutral-200 bg-white/80 p-5 transition hover:-translate-y-0.5 hover:border-primary-500 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800/70"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold tracking-wider text-primary-600 uppercase dark:text-primary-400">
-                    {idx === 0 ? 'Starter guide' : 'Platform choice'}
-                  </span>
-                  <span className="text-xs font-medium text-neutral-500 transition-transform group-hover:translate-x-1">
-                    Read →
-                  </span>
-                </div>
-                <h3 className="mt-2 text-base leading-snug font-bold text-neutral-900 dark:text-white">{item.label}</h3>
-              </Link>
-            ))}
-          </div>
-        </aside>
-      </header>
-
-      {/* Category chips + the grid. Chips are a shortcut to the category pages,
-          kept on one row and scrolling on narrow screens. */}
-      <section aria-label="Products" className="mt-16">
-        <nav aria-label="Product categories" className="-mx-4 mb-6 border-y border-neutral-200 px-4 py-4 sm:mx-0 sm:px-0 dark:border-neutral-800">
-          <ul className="flex gap-2 overflow-x-auto pb-1 scrollbar-none [&::-webkit-scrollbar]:hidden">
-            {productCategoryNavLinks.map((cat) => (
-              <li key={cat.href} className="shrink-0">
-                <Link
-                  href={cat.href}
-                  className="inline-block whitespace-nowrap rounded-full border border-neutral-300 px-4 py-1.5 text-sm font-medium text-neutral-700 transition hover:border-primary-500 hover:text-primary-700 dark:border-neutral-600 dark:text-neutral-200 dark:hover:border-primary-400 dark:hover:text-primary-400"
-                >
-                  {cat.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <ProductGrid products={products.map(toListingCard)} categoriesList={categories} pageSize={6} showCounts={false} />
-      </section>
-
-      {/* Browse by category — one card per category, 3D icon + real counts. */}
-      <section className="mt-24">
-        <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
-          Categories
-        </span>
-        <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">Browse by category</h2>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {CATEGORY_CARDS.map((card) => {
-            const meta = categories.find((c) => c.slug === card.slug);
-            const count = countBySlug.get(card.slug) ?? 0;
-            return (
-              <div
-                key={card.slug}
-                className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:border-primary-500 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-400"
-              >
-                <div className="flex items-start justify-between">
-                  {meta?.icon3d ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={meta.icon3d} alt="" width={48} height={48} className="size-12 object-contain" />
-                  ) : (
-                    <span className="text-3xl" aria-hidden="true">{card.emoji}</span>
-                  )}
-                  {count ? (
-                    <span className="rounded-full border border-primary-500/20 bg-primary-50 px-2.5 py-0.5 text-xs font-bold text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
-                      {count} {count === 1 ? 'device' : 'devices'}
-                    </span>
-                  ) : null}
-                </div>
-                <h3 className="mt-4 text-base font-bold text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400">
-                  <Link href={`/products/category/${card.slug}/`}>{card.name}</Link>
-                </h3>
-                <p className="mt-1 flex-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{card.body}</p>
-                <ul className="mt-4 space-y-1 border-t border-neutral-100 pt-3 dark:border-neutral-800">
-                  {card.links.map((link) => (
-                    <li key={link.href}>
-                      <Link href={link.href} className="text-xs font-medium text-primary-700 hover:underline dark:text-primary-400">
-                        → {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* What to check — the Australia-specific traps, ordered by cost of error. */}
-      <section className="mt-24 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
-            Australia only
-          </span>
-          <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">
-            What to check before you buy in Australia
-          </h2>
-          <p className="mt-3 text-sm text-neutral-600 dark:text-neutral-300">Ordered by how expensive the mistake is.</p>
-        </div>
-        <ol className="divide-y divide-neutral-200 border-y border-neutral-200 dark:divide-neutral-800 dark:border-neutral-800">
-          {CHECKS.map((item, i) => (
-            <li key={item.label} className="grid grid-cols-[3rem_minmax(0,1fr)] gap-2 py-5">
-              <span aria-hidden="true" className="text-2xl font-black leading-none text-primary-600 dark:text-primary-400">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <div>
-                <h3 className="text-base font-bold text-neutral-900 dark:text-white">{item.label}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{item.body}</p>
-                {item.link ? (
-                  <Link
-                    href={item.link.href}
-                    className="mt-2 inline-block text-sm font-medium text-primary-700 hover:underline dark:text-primary-400"
-                  >
-                    → {item.link.label}
-                  </Link>
-                ) : null}
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/*
-        Transparency and FAQ share one row: both answer "can I trust this
-        page", and side by side they read as one disclosure block rather than
-        two more things to scroll past. Stacks below lg, where two columns
-        would leave the FAQ answers too narrow to read.
-      */}
-      <section className="mt-24 grid gap-x-12 gap-y-12 rounded-3xl bg-primary-50 px-6 py-10 sm:px-10 lg:grid-cols-2 lg:px-14 lg:py-14 dark:bg-primary-900/20">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
-            Transparency
-          </span>
-          <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">
-            How products get onto this page
-          </h2>
-
-          <div className="mt-6 space-y-4 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
-            <p>
-              We list devices that are actually available in Australia from a retailer with local
-              warranty support. Imported-only gear is excluded.
-            </p>
-            <p>
-              Prices are indicative{checkedLabel ? ` and last checked ${checkedLabel}` : ''}. They
-              change daily — always confirm on the retailer&apos;s site before buying. We don&apos;t
-              hold stock and we don&apos;t set prices.
-            </p>
-            <p>
-              Some links earn us a commission at no extra cost to you. It doesn&apos;t affect which
-              products appear here or how they&apos;re ordered. These are price listings, not
-              reviews: we have not tested these products.
-            </p>
-            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1">
-              <Link
-                href="/how-we-test/"
-                className="text-sm font-medium text-primary-700 hover:underline dark:text-primary-400"
-              >
-                → How we research
-              </Link>
-              <span aria-hidden="true" className="text-neutral-300 dark:text-neutral-600">·</span>
-              <Link
-                href="/affiliate-disclosure/"
-                className="text-sm font-medium text-primary-700 hover:underline dark:text-primary-400"
-              >
-                Affiliate disclosure
-              </Link>
-            </p>
-          </div>
-        </div>
-
-        <div>
-          <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
-            FAQ
-          </span>
-          <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">
-            Common questions
-          </h2>
-          <FaqAccordion items={FAQ} />
-        </div>
-      </section>
-
+    <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+            { '@type': 'ListItem', position: 2, name: 'Products', item: `${site.url}/products/` },
+          ],
+        }}
+      />
       <JsonLd data={faqJsonLd(FAQ.map(({ q, a }) => ({ q, a })))} />
 
-    </main>
+      <header className="container pt-8 lg:pt-12">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-neutral-600 dark:text-neutral-400">
+          <Link href="/" className={`hover:text-neutral-900 dark:hover:text-white ${FOCUS}`}>
+            Home
+          </Link>
+          <span aria-hidden="true">/</span>
+          <span className="text-neutral-900 dark:text-white" aria-current="page">
+            Products
+          </span>
+        </nav>
+        <h1 className="mt-6 text-4xl font-black tracking-tight text-balance text-neutral-900 sm:text-5xl dark:text-white">
+          Smart home devices for Australian homes
+        </h1>
+        <p className="mt-5 max-w-[68ch] text-base leading-relaxed text-pretty text-neutral-700 sm:text-lg dark:text-neutral-300">
+          Devices sold by Australian retailers, each with a short note on who it suits. We start with the ones our guides
+          discuss, then list everything. Prices change daily, so we send you to the retailer to check the current one.
+          These are listings, not reviews: we have not tested these products.
+        </p>
+        <p className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm text-neutral-600 dark:text-neutral-400">
+          <span>
+            <span className="tabular-nums font-semibold text-neutral-900 dark:text-white">{products.length}</span> devices in{' '}
+            <span className="tabular-nums">{categoryCount}</span> categories
+          </span>
+          <a href="#how-listed" className={`font-semibold text-primary-600 underline underline-offset-4 dark:text-primary-400 ${FOCUS}`}>
+            How these are listed
+          </a>
+        </p>
+      </header>
+
+      <main className="container pt-12 pb-20 lg:pt-14 lg:pb-28">
+        {picks.length ? (
+          <section aria-labelledby="picks-heading">
+            <h2 id="picks-heading" className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl dark:text-white">
+              Discussed in our guides
+            </h2>
+            <p className="mt-2 max-w-[68ch] text-neutral-700 dark:text-neutral-300">
+              Devices that come up in our buying and setup guides, by category, with the guide that covers them.
+            </p>
+            <div className="mt-10 space-y-14">
+              {picks.map(({ category, count, items: groupItems }) => (
+                <section key={category.slug} aria-labelledby={`picks-${category.slug}`}>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                    <h3 id={`picks-${category.slug}`} className="text-xl font-bold text-neutral-900 dark:text-white">
+                      {category.name}
+                    </h3>
+                    <Link
+                      href={`/products/category/${category.slug}/`}
+                      className={`text-sm font-semibold text-primary-600 underline underline-offset-4 dark:text-primary-400 ${FOCUS}`}
+                    >
+                      All {count} {category.name} devices
+                    </Link>
+                  </div>
+                  <div className="mt-4 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+                    {groupItems.map((product) => (
+                      <ProductPick key={product.slug} product={product} guide={mentions.get(product.slug)?.[0]} />
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <section aria-labelledby="every-heading" className="mt-20 lg:mt-24">
+          <h2 id="every-heading" className="mb-5 text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl dark:text-white">
+            Every device
+          </h2>
+          <ProductCatalogue items={items} groups={groups} groupName="Category" />
+        </section>
+
+        <section aria-labelledby="checks-heading" className="mt-20 lg:mt-24">
+          <h2 id="checks-heading" className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl dark:text-white">
+            Before you buy in Australia
+          </h2>
+          <dl className="mt-6 grid gap-x-10 border-t border-neutral-200 lg:grid-cols-2 dark:border-neutral-800">
+            {CHECKS.map((check) => (
+              <div key={check.label} className="border-b border-neutral-200 py-5 dark:border-neutral-800">
+                <dt className="font-semibold text-neutral-900 dark:text-white">{check.label}</dt>
+                <dd className="mt-1.5 leading-relaxed text-neutral-700 dark:text-neutral-300">
+                  {check.body}
+                  {check.link ? (
+                    <>
+                      {' '}
+                      <Link
+                        href={check.link.href}
+                        className={`font-semibold text-primary-600 underline underline-offset-4 dark:text-primary-400 ${FOCUS}`}
+                      >
+                        {check.link.label}
+                      </Link>
+                    </>
+                  ) : null}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section aria-labelledby="faq-heading" className="mt-20 max-w-[68ch] lg:mt-24">
+          <h2 id="faq-heading" className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl dark:text-white">
+            Common questions
+          </h2>
+          <div className="mt-6 border-t border-neutral-200 dark:border-neutral-800">
+            {FAQ.map((item) => (
+              <details key={item.q} className="group border-b border-neutral-200 dark:border-neutral-800">
+                <summary
+                  className={`flex cursor-pointer list-none items-start justify-between gap-4 py-4 text-lg font-semibold text-neutral-900 dark:text-white [&::-webkit-details-marker]:hidden ${FOCUS}`}
+                >
+                  {item.q}
+                  <svg aria-hidden="true" className="mt-1.5 size-4 shrink-0 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </summary>
+                <div className="pb-5 leading-relaxed text-neutral-700 dark:text-neutral-300">
+                  <p>{item.a}</p>
+                  <p className="mt-2">
+                    <Link href={item.link.href} className={`font-semibold text-primary-600 underline underline-offset-4 dark:text-primary-400 ${FOCUS}`}>
+                      {item.link.label}
+                    </Link>
+                  </p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section id="how-listed" aria-labelledby="how-listed-heading" className="mt-20 max-w-[68ch] scroll-mt-24 lg:mt-24">
+          <h2 id="how-listed-heading" className="text-xl font-bold text-neutral-900 dark:text-white">
+            How these products are listed
+          </h2>
+          <p className="mt-3 leading-relaxed text-neutral-700 dark:text-neutral-300">
+            We list devices sold in Australia by a retailer with local warranty support. Prices change daily, so the
+            retailer’s site has the current one. These are listings, not reviews: we have not tested these products.
+            Devices our guides discuss come first; everything else is listed by name. Some links earn us a commission at no
+            extra cost to you, which does not affect what appears here or its order.
+          </p>
+          <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm">
+            <Link href="/how-we-test/" className={`font-semibold text-primary-600 underline underline-offset-4 dark:text-primary-400 ${FOCUS}`}>
+              How we research
+            </Link>
+            <Link href="/affiliate-disclosure/" className={`font-semibold text-primary-600 underline underline-offset-4 dark:text-primary-400 ${FOCUS}`}>
+              Affiliate disclosure
+            </Link>
+          </p>
+        </section>
+      </main>
+    </>
   );
 }
