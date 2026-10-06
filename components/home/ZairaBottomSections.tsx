@@ -66,7 +66,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
 
   return (
     <div className="w-full space-y-[50px]">
-      {/* 2-Column Main Section (Left Content + Right Sidebar) */}
+      {/* 1. TOP 2-COLUMN MAIN SECTION (Recent Posts & Trending News | Right Sidebar) */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
         
         {/* LEFT MAIN COLUMN (8 cols) */}
@@ -276,71 +276,6 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                   </Link>
                 ))}
               </div>
-            </div>
-          </section>
-
-          {/* SECTION 3: WEEKLY BEST NEWS */}
-          <section>
-            <ZairaHeader title="Weekly Best News" viewAllHref="/articles/" />
-
-            <div className="space-y-6">
-              {weeklyBestPosts.map((post) => (
-                <div
-                  key={post.id}
-                  className="grid grid-cols-1 gap-6 items-center border-b border-neutral-200/70 dark:border-neutral-800 pb-6 last:border-none last:pb-0 sm:grid-cols-2"
-                >
-                  {/* Left Side Details */}
-                  <div className="flex flex-col justify-center space-y-2.5">
-                    <span className="inline-block w-fit rounded bg-primary-600 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
-                      {post.categories?.[0]?.name || 'TECHNOLOGY'}
-                    </span>
-
-                    <h3 className="text-base sm:text-lg font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 line-clamp-2 transition-colors">
-                      <Link href={`/${post.handle}/`}>{post.title}</Link>
-                    </h3>
-
-                    <div className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-wider text-neutral-400">
-                      <span className="flex items-center gap-1">
-                        <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                        {post.date || 'SEPTEMBER 11, 2025'}
-                      </span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1">
-                        <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        {post.readingTime || 2} MINS
-                      </span>
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3 leading-relaxed">
-                      {post.excerpt ||
-                        'Browned butter and brown sugar caramelly goodness crispy edges thick and soft centers and ey melty little puddles of chocolate.'}
-                    </p>
-
-                    <Link
-                      href={`/${post.handle}/`}
-                      className="mt-1 flex w-fit items-center gap-1.5 rounded-lg border border-neutral-300 bg-white px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-neutral-800 transition hover:border-primary-500 hover:text-primary-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-primary-400"
-                    >
-                      <span>Read More</span>
-                      <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                    </Link>
-                  </div>
-
-                  {/* Right Side Image */}
-                  <Link href={`/${post.handle}/`} className="group relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-neutral-200/60 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800">
-                    {post.featuredImage?.src ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={post.featuredImage.src}
-                        alt={post.featuredImage.alt || post.title}
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800" />
-                    )}
-                  </Link>
-                </div>
-              ))}
             </div>
           </section>
 
@@ -577,7 +512,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
 
       </div>
 
-      {/* BOTTOM FULL-WIDTH PROMO BANNER */}
+      {/* 2. BOTTOM FULL-WIDTH PROMO BANNER */}
       <section className="relative overflow-hidden rounded-3xl border border-lime-300/80 bg-gradient-to-r from-lime-200 via-emerald-100 to-lime-300 p-6 sm:p-8 dark:border-lime-800/80 dark:from-lime-950/60 dark:via-emerald-950/40 dark:to-lime-900/60 shadow-md">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           
@@ -615,6 +550,79 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
           </Link>
         </div>
       </section>
+
+      {/* 3. NEW BOTTOM 2-COLUMN SECTION UNDER THE BANNER */}
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
+        {/* Left Column (8 cols): Weekly Best News */}
+        <div className="lg:col-span-8">
+          <section>
+            <ZairaHeader title="Weekly Best News" viewAllHref="/articles/" />
+
+            <div className="space-y-6">
+              {weeklyBestPosts.map((post) => (
+                <div
+                  key={post.id}
+                  className="grid grid-cols-1 gap-6 items-center border-b border-neutral-200/70 dark:border-neutral-800 pb-6 last:border-none last:pb-0 sm:grid-cols-2"
+                >
+                  {/* Left Side Details */}
+                  <div className="flex flex-col justify-center space-y-2.5">
+                    <span className="inline-block w-fit rounded bg-primary-600 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
+                      {post.categories?.[0]?.name || 'TECHNOLOGY'}
+                    </span>
+
+                    <h3 className="text-base sm:text-lg font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 line-clamp-2 transition-colors">
+                      <Link href={`/${post.handle}/`}>{post.title}</Link>
+                    </h3>
+
+                    <div className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-wider text-neutral-400">
+                      <span className="flex items-center gap-1">
+                        <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                        {post.date || 'SEPTEMBER 11, 2025'}
+                      </span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">
+                        <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        {post.readingTime || 2} MINS
+                      </span>
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3 leading-relaxed">
+                      {post.excerpt ||
+                        'Browned butter and brown sugar caramelly goodness crispy edges thick and soft centers and ey melty little puddles of chocolate.'}
+                    </p>
+
+                    <Link
+                      href={`/${post.handle}/`}
+                      className="mt-1 flex w-fit items-center gap-1.5 rounded-lg border border-neutral-300 bg-white px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-neutral-800 transition hover:border-primary-500 hover:text-primary-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-primary-400"
+                    >
+                      <span>Read More</span>
+                      <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                    </Link>
+                  </div>
+
+                  {/* Right Side Image */}
+                  <Link href={`/${post.handle}/`} className="group relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-neutral-200/60 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800">
+                    {post.featuredImage?.src ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={post.featuredImage.src}
+                        alt={post.featuredImage.alt || post.title}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800" />
+                    )}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        {/* Right Column (4 cols): Empty for now */}
+        <div className="lg:col-span-4" />
+      </div>
     </div>
   )
 }
