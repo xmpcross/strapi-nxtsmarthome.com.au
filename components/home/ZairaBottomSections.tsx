@@ -35,7 +35,7 @@ function ZairaHeader({ title, viewAllHref }: { title: string; viewAllHref?: stri
   )
 }
 
-// Auto-slide Product Card Carousel for Right Sidebar
+// Redesigned Creative Product Spotlight Auto-Slide Slider
 function ProductAutoSlider() {
   const products = [
     {
@@ -43,18 +43,40 @@ function ProductAutoSlider() {
       title: 'Echo Show 15 2nd Gen',
       category: 'ENTERTAINMENT & AUDIO',
       price: '$549 AUD',
+      rating: '5.0 ★',
+      badge: 'FEATURED SPOTLIGHT',
       href: '/products/amazon-echo-show-15-2nd-gen/',
       image: '/images/products/amazon-echo-show-15-2nd-gen-sq500.webp',
-      badge: 'FEATURED PRODUCT',
     },
     {
       id: 'echo-hub-8-smart-home-control-panel',
       title: 'Echo Hub 8" Smart Home Control Panel',
       category: 'HUBS & PLATFORMS',
       price: '$329 AUD',
+      rating: '4.7 ★',
+      badge: 'SMART CONTROL',
       href: '/products/amazon-echo-hub-8-smart-home-control-panel/',
       image: '/images/products/amazon-echo-hub-8-smart-home-control-panel-sq500.webp',
-      badge: 'SMART CONTROL',
+    },
+    {
+      id: 'ring-floodlight-cam-plus-wired',
+      title: 'Ring Floodlight Cam Plus Wired',
+      category: 'SECURITY & CAMERAS',
+      price: '$299 AUD',
+      rating: '4.8 ★',
+      badge: 'TOP OUTDOOR CAM',
+      href: '/products/ring-floodlight-cam-plus-wired/',
+      image: '/images/products/ring-floodlight-cam-plus-wired-sq500.webp',
+    },
+    {
+      id: 'ring-spotlight-cam-pro-battery',
+      title: 'Ring Spotlight Cam Pro Battery',
+      category: 'SECURITY & CAMERAS',
+      price: '$329 AUD',
+      rating: '4.9 ★',
+      badge: 'BEST SELLER',
+      href: '/products/ring-spotlight-cam-pro-battery/',
+      image: '/images/products/ring-spotlight-cam-pro-battery-sq500.webp',
     },
   ]
 
@@ -65,16 +87,32 @@ function ProductAutoSlider() {
     if (isPaused) return
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % products.length)
-    }, 4000)
+    }, 4500)
     return () => clearInterval(timer)
   }, [isPaused, products.length])
 
   return (
     <div
-      className="group relative h-[420px] w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-md"
+      className="group relative h-[450px] w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl bg-neutral-950"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
+      {/* Top Floating Glass Header Bar */}
+      <div className="absolute top-4 inset-x-4 z-30 flex items-center justify-between pointer-events-none">
+        <div className="flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white backdrop-blur-md border border-white/20">
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+          </span>
+          <span>SPOTLIGHT DEALS</span>
+        </div>
+
+        <span className="rounded-full bg-primary-600/90 px-3 py-1 text-xs font-black text-white shadow-lg backdrop-blur-md border border-white/20">
+          {products[currentIndex].price}
+        </span>
+      </div>
+
+      {/* Product Slides */}
       {products.map((product, idx) => {
         const isActive = idx === currentIndex
         return (
@@ -85,7 +123,7 @@ function ProductAutoSlider() {
               isActive ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
             }`}
           >
-            {/* Background Featured Image */}
+            {/* Background Image */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={product.image}
@@ -94,31 +132,28 @@ function ProductAutoSlider() {
               loading="lazy"
             />
 
-            {/* Dark Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-transparent" />
 
-            {/* Top Category Badge */}
-            <div className="absolute top-4 left-4 z-20">
-              <span className="inline-block rounded-lg bg-primary-600 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md">
-                {product.category}
-              </span>
-            </div>
+            {/* Bottom Info Overlay */}
+            <div className="relative z-20 space-y-2 mb-10 text-left">
+              <div className="flex items-center gap-2">
+                <span className="inline-block rounded-md bg-white/20 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white backdrop-blur-sm">
+                  {product.category}
+                </span>
+                <span className="text-[10px] font-bold text-amber-400 flex items-center gap-1">
+                  {product.rating}
+                </span>
+              </div>
 
-            {/* Bottom Content Overlay */}
-            <div className="relative z-20 space-y-2 text-left">
-              <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest text-primary-300">
-                {product.badge}
-              </span>
-              <h3 className="text-base sm:text-lg font-bold leading-snug text-white group-hover:text-primary-300 transition-colors line-clamp-2">
+              <h3 className="text-lg font-black leading-snug text-white group-hover:text-primary-300 transition-colors line-clamp-2">
                 {product.title}
               </h3>
+
               <div className="flex items-center justify-between pt-1">
-                <span className="text-xs font-extrabold text-white bg-white/20 px-3 py-1 rounded-full backdrop-blur-md border border-white/30">
-                  {product.price}
-                </span>
-                <span className="flex items-center gap-1 text-xs font-bold text-neutral-200 group-hover:text-white transition-colors">
-                  <span>View Product</span>
-                  <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                <span className="text-xs font-extrabold uppercase tracking-wider text-primary-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>Explore Product</span>
+                  <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
                 </span>
               </div>
             </div>
@@ -126,18 +161,23 @@ function ProductAutoSlider() {
         )
       })}
 
-      {/* Pagination Slide Indicators */}
-      <div className="absolute bottom-3 right-4 z-30 flex items-center gap-1.5">
-        {products.map((_, idx) => (
+      {/* Interactive Mini Product Tabs Bar at Bottom */}
+      <div className="absolute bottom-3 inset-x-3 z-30 flex items-center justify-center gap-2 bg-black/40 backdrop-blur-md p-1.5 rounded-xl border border-white/10">
+        {products.map((p, idx) => (
           <button
-            key={idx}
+            key={p.id}
             type="button"
             onClick={() => setCurrentIndex(idx)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              idx === currentIndex ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'
+            className={`relative size-9 overflow-hidden rounded-lg border transition-all duration-300 ${
+              idx === currentIndex
+                ? 'border-primary-500 scale-105 shadow-md ring-2 ring-primary-500/50'
+                : 'border-white/20 opacity-60 hover:opacity-100'
             }`}
-            aria-label={`Go to product slide ${idx + 1}`}
-          />
+            title={p.title}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={p.image} alt={p.title} className="h-full w-full object-cover" />
+          </button>
         ))}
       </div>
     </div>
@@ -156,7 +196,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
   const trendingFeatured = trendingPosts[0]
   const trendingGrid = trendingPosts.slice(1, 4)
 
-  const weeklyBestPosts = posts.slice(8, 12).length >= 4 ? posts.slice(8, 12) : posts.slice(0, 4)
+  const latestPosts = posts.slice(0, 6)
 
   const popularPosts = posts.slice(12, 15).length >= 3 ? posts.slice(12, 15) : posts.slice(1, 4)
 
@@ -569,13 +609,13 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
 
       {/* 3. NEW BOTTOM 2-COLUMN SECTION UNDER THE BANNER */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
-        {/* Left Column (8 cols): Weekly Best News */}
+        {/* Left Column (8 cols): Latest Posts */}
         <div className="lg:col-span-8">
           <section>
-            <ZairaHeader title="Weekly Best News" viewAllHref="/articles/" />
+            <ZairaHeader title="Latest Posts" viewAllHref="/articles/" />
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {weeklyBestPosts.map((post) => (
+              {latestPosts.map((post) => (
                 <Link
                   key={post.id}
                   href={`/${post.handle}/`}
