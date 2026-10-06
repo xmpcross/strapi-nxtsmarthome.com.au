@@ -78,7 +78,9 @@ function readMap() {
 
 function saveMap(map) {
   const sorted = Object.fromEntries(Object.entries(map).sort(([a], [b]) => a.localeCompare(b)));
-  fs.writeFileSync(MAP_PATH, `${JSON.stringify(sorted, null, 2)}\n`);
+  // Write and rename, so a build or server reading the map never sees half a file.
+  fs.writeFileSync(`${MAP_PATH}.tmp`, `${JSON.stringify(sorted, null, 2)}\n`);
+  fs.renameSync(`${MAP_PATH}.tmp`, MAP_PATH);
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

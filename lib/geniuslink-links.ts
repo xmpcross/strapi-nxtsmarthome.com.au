@@ -23,7 +23,9 @@ function links(): Record<string, string> {
   try {
     map = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', 'geniuslink-links.json'), 'utf8'));
   } catch {
-    map = {};
+    // Missing, or caught mid-write by the script: plain links this time, and
+    // not cached, so the next call reads it again.
+    return {};
   }
   return map!;
 }
