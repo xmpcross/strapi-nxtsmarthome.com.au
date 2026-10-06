@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * Contact form for a statically exported site.
@@ -20,6 +20,10 @@ import { useState } from 'react';
  *   the page rendering was not typed by a person.
  *
  * Both are checked server-side. Doing it here only would stop nothing.
+ *
+ * The topic is chosen first, as a set of options that each say what to include,
+ * so the guidance sits next to the form instead of in notes beside it. The
+ * topic values sent to the handler are unchanged.
  */
 
 const ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || '/api/contact';
@@ -27,16 +31,55 @@ const ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || '/api/contact';
 type State = 'idle' | 'sending' | 'sent' | 'error';
 
 const TOPICS = [
-  'Correction to an article',
-  'Coverage request',
-  'PR or review unit',
-  'Something else',
+  {
+    value: 'Correction to an article',
+    label: 'A correction',
+    summary: 'Something we published is wrong.',
+    guidance:
+      'Include the article URL and what is wrong. We fix errors and note the correction rather than quietly editing.',
+    placeholder: 'The article URL, what it says, and what is wrong with it.',
+  },
+  {
+    value: 'Coverage request',
+    label: 'A coverage request',
+    summary: 'A device, platform or problem to cover.',
+    guidance:
+      'Tell us the device, platform or problem you are stuck on. Reader requests genuinely shape what we write next, especially Australian-specific questions no one else is answering.',
+    placeholder: 'What you would like us to cover, and why it matters in your home.',
+  },
+  {
+    value: 'PR or review unit',
+    label: 'PR or a review unit',
+    summary: 'For brands and agencies.',
+    guidance:
+      'We accept review units on the condition that there is no agreement, expressed or implied, about what we will say. We do not return units in exchange for coverage, we do not send articles for approval before publication, and we disclose loaned hardware in the article. We do not publish sponsored posts or paid link placements.',
+    placeholder: 'Who you are, the product, and what you are proposing.',
+  },
+  {
+    value: 'Something else',
+    label: 'Something else',
+    summary: 'Feedback, questions about the site, anything.',
+    guidance: 'Anything else about the site. We read everything that arrives.',
+    placeholder: '',
+  },
 ] as const;
+
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500';
 
 export default function ContactForm() {
   const [state, setState] = useState<State>('idle');
   const [error, setError] = useState('');
   const [renderedAt] = useState(() => Date.now());
+  const [topic, setTopic] = useState<string>(TOPICS[0].value);
+  const sentRef = useRef<HTMLHeadingElement>(null);
+
+  const current = TOPICS.find((t) => t.value === topic) ?? TOPICS[0];
+
+  // After sending, move focus to the confirmation so keyboard and screen-reader
+  // users land on it rather than on a button that no longer exists.
+  useEffect(() => {
+    if (state === 'sent') sentRef.current?.focus();
+  }, [state]);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -67,6 +110,7 @@ export default function ContactForm() {
 
       setState('sent');
       form.reset();
+      setTopic(TOPICS[0].value);
     } catch (e) {
       // Say what actually failed. "Something went wrong" tells the reader
       // nothing and hides a broken endpoint from us for weeks.
@@ -77,16 +121,21 @@ export default function ContactForm() {
 
   if (state === 'sent') {
     return (
-      <div className="rounded-2xl border border-emerald-600/20 bg-emerald-50 p-6 dark:border-emerald-400/20 dark:bg-emerald-950/30">
-        <h2 className="text-lg font-bold text-emerald-900 dark:text-emerald-200">Message sent</h2>
-        <p className="mt-2 text-sm text-emerald-800 dark:text-emerald-300">
-          Thanks — we read everything. If it needs a reply you will get one, usually within a few
-          days.
+      <div role="status" className="border-y border-neutral-200 py-8 dark:border-neutral-800">
+        <h2
+          ref={sentRef}
+          tabIndex={-1}
+          className="text-2xl font-bold tracking-tight text-neutral-900 outline-none dark:text-white"
+        >
+          Message sent
+        </h2>
+        <p className="mt-2 text-neutral-700 dark:text-neutral-300">
+          Thanks — we read everything. If it needs a reply you will get one, usually within a few days.
         </p>
         <button
           type="button"
           onClick={() => setState('idle')}
-          className="mt-4 text-sm font-semibold text-emerald-900 underline underline-offset-4 dark:text-emerald-200"
+          className={`mt-4 rounded-sm font-semibold text-primary-600 underline underline-offset-4 dark:text-primary-400 ${FOCUS}`}
         >
           Send another
         </button>
@@ -95,13 +144,52 @@ export default function ContactForm() {
   }
 
   const field =
-    'mt-1.5 block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-slate-900 ' +
-    'placeholder:text-slate-400 focus:border-brand-600 focus:outline-hidden focus:ring-2 focus:ring-brand-600/20 ' +
-    'dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-500';
-  const label = 'block text-sm font-semibold text-slate-900 dark:text-slate-200';
+    'mt-1.5 block w-full rounded-sm border border-neutral-300 bg-white px-3.5 py-2.5 text-neutral-900 ' +
+    'placeholder:text-neutral-500 focus:border-primary-500 focus:outline-2 focus:outline-offset-0 focus:outline-primary-500 ' +
+    'dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder:text-neutral-400';
+  const label = 'block font-semibold text-neutral-900 dark:text-white';
 
   return (
-    <form onSubmit={onSubmit} noValidate={false} className="space-y-5">
+    <form onSubmit={onSubmit} className="space-y-8">
+      <fieldset>
+        <legend className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">What is this about?</legend>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {TOPICS.map((t) => {
+            const checked = topic === t.value;
+            return (
+              <label
+                key={t.value}
+                className={`flex cursor-pointer gap-3 rounded-sm border px-4 py-3.5 transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-primary-500 ${
+                  checked
+                    ? 'border-primary-600 bg-primary-50 dark:border-primary-400 dark:bg-primary-900/30'
+                    : 'border-neutral-300 hover:border-neutral-900 dark:border-neutral-700 dark:hover:border-white'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="topic"
+                  value={t.value}
+                  checked={checked}
+                  onChange={() => setTopic(t.value)}
+                  className="mt-1 size-4 shrink-0 accent-primary-600 focus:outline-none"
+                />
+                <span>
+                  <span className="block font-semibold text-neutral-900 dark:text-white">{t.label}</span>
+                  <span className="mt-0.5 block text-sm text-neutral-700 dark:text-neutral-300">{t.summary}</span>
+                </span>
+              </label>
+            );
+          })}
+        </div>
+        <p
+          id="topic-guidance"
+          aria-live="polite"
+          className="mt-4 max-w-[68ch] border-t border-neutral-200 pt-4 leading-relaxed text-neutral-700 dark:border-neutral-800 dark:text-neutral-300"
+        >
+          {current.guidance}
+        </p>
+      </fieldset>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={label}>
@@ -113,38 +201,24 @@ export default function ContactForm() {
           <label htmlFor="email" className={label}>
             Email
           </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            className={field}
-          />
+          <input id="email" name="email" type="email" required autoComplete="email" className={field} />
+          <p className="mt-1.5 text-sm text-neutral-600 dark:text-neutral-400">Only used to reply to you.</p>
         </div>
-      </div>
-
-      <div>
-        <label htmlFor="topic" className={label}>
-          What is this about?
-        </label>
-        <select id="topic" name="topic" className={field} defaultValue={TOPICS[0]}>
-          {TOPICS.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
       </div>
 
       <div>
         <label htmlFor="message" className={label}>
           Message
         </label>
-        <textarea id="message" name="message" required rows={7} className={field} />
-        <p className="mt-1.5 text-xs text-slate-500 dark:text-slate-400">
-          For a correction, please include the article URL and what is wrong.
-        </p>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows={8}
+          aria-describedby="topic-guidance"
+          placeholder={current.placeholder || undefined}
+          className={field}
+        />
       </div>
 
       {/* Honeypot. Hidden from people, not from bots. */}
@@ -154,10 +228,7 @@ export default function ContactForm() {
       </div>
 
       {state === 'error' && (
-        <div
-          role="alert"
-          className="rounded-xl border border-red-600/20 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-400/20 dark:bg-red-950/30 dark:text-red-300"
-        >
+        <div role="alert" className="border-y border-red-600/40 py-3 text-red-800 dark:border-red-400/40 dark:text-red-300">
           {/* The server's message already tells the reader what to do next -
               appending advice here produced "Please email us instead. You can
               also email us directly." */}
@@ -168,7 +239,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={state === 'sending'}
-        className="inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3 font-bold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
+        className={`inline-flex items-center justify-center rounded-full bg-primary-600 px-6 py-3 font-bold text-white transition-colors hover:bg-primary-700 disabled:cursor-not-allowed disabled:opacity-60 ${FOCUS}`}
       >
         {state === 'sending' ? 'Sending…' : 'Send message'}
       </button>
