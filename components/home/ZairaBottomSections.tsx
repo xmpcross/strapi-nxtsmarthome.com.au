@@ -648,7 +648,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                 <Link
                   key={post.id}
                   href={`/${post.handle}/`}
-                  className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-neutral-200/80 bg-white p-4 transition-all duration-300 hover:border-primary-500 hover:bg-neutral-50/50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-400"
+                  className="group flex flex-col justify-between overflow-hidden border-0 p-0 bg-transparent transition-all duration-300"
                 >
                   <div className="space-y-3">
                     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800">
