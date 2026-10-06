@@ -620,9 +620,10 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
           </section>
         </div>
 
-        {/* Right Column (4 cols): Vertical Promo Banner Widget */}
-        <div className="lg:col-span-4 flex flex-col justify-start">
-          <div className="group relative h-[450px] w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-md">
+        {/* Right Column (4 cols): Vertical Promo Banner & Popular Tech */}
+        <div className="lg:col-span-4 flex flex-col justify-start space-y-10">
+          {/* Banner 1: Liquid Cooled Custom PC Tech Banner */}
+          <div className="group relative h-[420px] w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-md">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/ads/sidebar_discount_ad.jpg"
@@ -650,6 +651,83 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
               </div>
             </div>
           </div>
+
+          {/* Popular Tech Widget (Moved below the banner image) */}
+          <section>
+            <ZairaHeader title="Popular Tech" />
+            <div className="space-y-4">
+              {/* Top Featured Overlay Post Card */}
+              {popularTechFeatured && (
+                <Link
+                  href={`/${popularTechFeatured.handle}/`}
+                  className="group relative flex h-60 w-full flex-col justify-end overflow-hidden rounded-2xl p-5 border border-neutral-200 dark:border-neutral-800"
+                >
+                  {popularTechFeatured.featuredImage?.src ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={popularTechFeatured.featuredImage.src}
+                      alt={popularTechFeatured.featuredImage.alt || popularTechFeatured.title}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-neutral-800" />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+
+                  <div className="relative z-10 space-y-1.5">
+                    <span className="inline-block rounded bg-primary-600 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
+                      {popularTechFeatured.categories?.[0]?.name || 'MOBILE'}
+                    </span>
+                    <h4 className="text-base font-bold leading-snug text-white group-hover:text-primary-300 line-clamp-2 transition-colors">
+                      {popularTechFeatured.title}
+                    </h4>
+                    <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-300">
+                      <span>BY {popularTechFeatured.author?.name || 'ZAIRA'}</span>
+                      <span>•</span>
+                      <span>{popularTechFeatured.date || 'OCTOBER 11, 2025'}</span>
+                    </div>
+                  </div>
+                </Link>
+              )}
+
+              {/* 3 Mini Posts List */}
+              {popularTechList.map((post) => (
+                <Link
+                  key={post.id}
+                  href={`/${post.handle}/`}
+                  className="group flex items-center gap-3.5 border-b border-neutral-100 pb-3.5 dark:border-neutral-800/80 last:border-none last:pb-0"
+                >
+                  <div className="relative size-20 shrink-0 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800">
+                    {post.featuredImage?.src ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={post.featuredImage.src}
+                        alt={post.featuredImage.alt || post.title}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800" />
+                    )}
+                  </div>
+
+                  <div className="flex flex-1 flex-col justify-center min-w-0 space-y-1">
+                    <span className="inline-block w-fit rounded border border-neutral-300 dark:border-neutral-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+                      {post.categories?.[0]?.name || 'GADGET'}
+                    </span>
+                    <h4 className="text-xs sm:text-sm font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 line-clamp-2 transition-colors">
+                      {post.title}
+                    </h4>
+                    <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-neutral-400">
+                      <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                      <span>{post.date || 'OCTOBER 11, 2025'}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </div>
