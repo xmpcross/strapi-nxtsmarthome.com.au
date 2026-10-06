@@ -177,7 +177,7 @@ export default function CategoryView({
                     href={`/products/category/${category.slug}/`}
                     className="inline-flex items-center gap-1.5 rounded-full bg-primary-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-primary-700"
                   >
-                    Compare {category.name} products
+                    Browse {category.name} products
                     <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
                   </Link>
                   <Link
