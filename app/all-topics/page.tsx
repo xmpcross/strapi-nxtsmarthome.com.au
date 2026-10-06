@@ -159,10 +159,10 @@ export default async function CategoriesIndex() {
             </div>
 
             {/* Giant Display Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-neutral-900 dark:text-white leading-[1.1]">
-              Smart Home Topics.{' '}
+            <h1 className="text-4xl sm:text-[3rem] font-black tracking-tight text-neutral-900 dark:text-white leading-[1.1]">
+              Every Smart Home Topic.{' '}
               <span className="bg-gradient-to-r from-primary-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent dark:from-primary-400 dark:via-indigo-300 dark:to-purple-400">
-                Complete AU Guides & Reviews.
+                Guides &amp; Reviews for Australian Homes.
               </span>
             </h1>
 
