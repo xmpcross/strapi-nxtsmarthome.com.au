@@ -63,6 +63,12 @@ export default async function CategoriesIndex() {
       answer:
         'All three platforms have strong Australian localization. Apple Home is best for privacy and fast local execution; Google Home excels at natural voice queries and Nest hardware; Amazon Alexa offers the widest accessory compatibility. Devices supporting Matter or Thread work across all three simultaneously.',
     },
+    {
+      id: 'matter-thread',
+      question: 'What is Matter and Thread, and why does it matter for Australian homes?',
+      answer:
+        'Matter is the universal smart home standard that lets devices from Apple, Google, Amazon, and Samsung talk to each other locally without cloud latency. Thread is a low-power mesh network protocol that replaces Wi-Fi for sensors and smart locks, making response times instant and immune to internet outages.',
+    },
   ];
 
   return (
@@ -145,7 +151,7 @@ export default async function CategoriesIndex() {
           <AllTopicsClient categories={topicData} posts={allPosts} />
         </section>
 
-        {/* Redesigned Australian Standards & Buying Advice FAQ Section */}
+        {/* Redesigned Australian Standards & Buying Advice FAQ Section (2-Column Accordions) */}
         <section className="mt-20 pt-10 border-t border-neutral-200 dark:border-neutral-800 space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2">
@@ -169,43 +175,9 @@ export default async function CategoriesIndex() {
             </Link>
           </div>
 
-          {/* Redesigned 3-Column FAQ Card Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-            {topicFaqs.map((faq, idx) => (
-              <div
-                key={faq.id}
-                className="group relative flex flex-col justify-between rounded-2xl border border-neutral-200/80 bg-white p-6 transition-all duration-300 hover:border-primary-500 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-400 shadow-xs"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="flex size-10 items-center justify-center rounded-xl bg-primary-50 text-xs font-extrabold text-primary-700 dark:bg-primary-950/60 dark:text-primary-300 border border-primary-500/20">
-                      0{idx + 1}
-                    </span>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
-                      AU GUIDE
-                    </span>
-                  </div>
-
-                  <h3 className="text-base font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
-                    {faq.question}
-                  </h3>
-
-                  <p className="text-xs leading-relaxed text-neutral-600 dark:text-neutral-300">
-                    {faq.answer}
-                  </p>
-                </div>
-
-                <div className="mt-5 pt-3 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between text-[11px] font-semibold text-neutral-400">
-                  <span>AUSTRALIAN COMPLIANCE</span>
-                  <span className="text-primary-600 dark:text-primary-400">✓ VERIFIED</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Additional Accordion Fallback */}
-          <div className="pt-4">
-            <FlyonAccordion items={topicFaqs} />
+          {/* 2-Column Accordion Layout */}
+          <div className="pt-2">
+            <FlyonAccordion items={topicFaqs} columns={2} />
           </div>
         </section>
       </div>
