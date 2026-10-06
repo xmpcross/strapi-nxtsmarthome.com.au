@@ -7,6 +7,7 @@ import type { Metadata } from 'next'
 import JsonLd from '@/components/JsonLd'
 import { HomeHero } from '@/components/home/HomeSections'
 import EditorsChoiceSection from '@/components/home/EditorsChoiceSection'
+import ZairaBottomSections from '@/components/home/ZairaBottomSections'
 
 export const revalidate = 300
 
@@ -35,6 +36,8 @@ export default async function HomePage() {
   const categories = await getCategoriesWithPosts()
   const topics = categories.filter((c) => c.count > 0).sort((a, b) => b.count - a.count)
 
+  const allPosts = articles.map(toTPost)
+
   return (
     <div className="page-home relative container space-y-28 pt-10 pb-28 lg:space-y-32 lg:pt-16 lg:pb-32">
       <JsonLd
@@ -54,7 +57,7 @@ export default async function HomePage() {
       <HomeHero articleCount={articles.length} topicCount={topics.length} />
 
       {/* Editors Choice Carousel Section */}
-      <EditorsChoiceSection posts={articles.map(toTPost)} />
+      <EditorsChoiceSection posts={allPosts} />
 
       {/* Advertisement Banner Placeholder */}
       <div className="flex justify-center w-full">
@@ -75,6 +78,9 @@ export default async function HomePage() {
       </div>
 
       <SectionMagazine10 posts={lead.map(toTPost)} />
+
+      {/* Zaira Theme Bottom Sections (Recent Posts, Trending News, Sidebar & Bottom Banner) */}
+      <ZairaBottomSections posts={allPosts} categories={topics} />
     </div>
   )
 }
