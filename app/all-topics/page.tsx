@@ -3,6 +3,7 @@ import JsonLd from '@/components/JsonLd';
 import AllTopicsClient, { TopicCategoryData } from '@/components/AllTopicsClient';
 import FlyonAccordion from '@/components/flyonui/FlyonAccordion';
 import { getCategories } from '@/data/categories';
+import { toTPost } from '@/data/posts';
 import { getAllArticles } from '@/lib/content';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { getListableTopProducts } from '@/lib/products';
@@ -23,6 +24,7 @@ export const revalidate = 300;
 
 export default async function CategoriesIndex() {
   const articles = await getAllArticles();
+  const allPosts = articles.map(toTPost);
   const rawCats = await getCategories();
   const cats = rawCats.filter((c) => c.count > 0);
   const withProducts = new Set(getListableTopProducts().map((p) => p.categorySlug));
@@ -142,9 +144,9 @@ export default async function CategoriesIndex() {
           </div>
         </section>
 
-        {/* Main Interactive Category Directory Component */}
+        {/* Main Interactive Category & Article Directory Component */}
         <section className="mt-12">
-          <AllTopicsClient categories={topicData} />
+          <AllTopicsClient categories={topicData} posts={allPosts} />
         </section>
 
         {/* Australian Standards & Buying Advice Section */}

@@ -60,7 +60,7 @@ const Card18: FC<Props> = ({ className, titleClass = 'text-lg ', ratio = 'aspect
       <div className="absolute inset-x-0 bottom-0 flex grow flex-col p-6">
         <Link href={`/${handle}`} className="absolute inset-0" />
         <CategoryBadgeList categories={categories} />
-        <h2 className={clsx('mt-3 leading-snug font-semibold text-white', titleClass)}>{title}</h2>
+        <h2 className={clsx('mt-3 leading-snug font-semibold text-white line-clamp-2', titleClass)}>{title}</h2>
       </div>
     </div>
   )

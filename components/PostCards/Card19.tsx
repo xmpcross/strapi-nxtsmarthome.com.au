@@ -65,7 +65,7 @@ const Card19: FC<Props> = ({
       <div className="absolute inset-x-0 bottom-0 flex grow flex-col p-5 sm:p-8">
         <Link href={`/${handle}`} className="absolute inset-0" />
         <CategoryBadgeList categories={categories} />
-        <h2 className={clsx('mt-3 block font-semibold text-white', titleClass)}>{title}</h2>
+        <h2 className={clsx('mt-3 block font-semibold text-white line-clamp-2', titleClass)}>{title}</h2>
       </div>
     </div>
   )
