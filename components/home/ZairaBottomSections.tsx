@@ -620,8 +620,37 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
           </section>
         </div>
 
-        {/* Right Column (4 cols): Empty for now */}
-        <div className="lg:col-span-4" />
+        {/* Right Column (4 cols): Vertical Promo Banner Widget */}
+        <div className="lg:col-span-4 flex flex-col justify-start">
+          <div className="group relative h-[450px] w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-md">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/ads/sidebar_discount_ad.jpg"
+              alt="Automation 20% Discount"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+            {/* Cyan Chevron Tag Badge at Bottom Left */}
+            <div className="absolute bottom-6 left-0">
+              <div
+                className="bg-[#00e5ff] text-neutral-950 font-black px-5 py-3.5 shadow-xl"
+                style={{
+                  clipPath: 'polygon(0% 0%, 82% 0%, 100% 50%, 82% 100%, 0% 100%)',
+                  paddingRight: '2.5rem',
+                }}
+              >
+                <div className="text-base sm:text-lg font-extrabold leading-tight tracking-tight">
+                  Automation
+                </div>
+                <div className="text-xs sm:text-sm font-bold opacity-90">
+                  20% Discount
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
