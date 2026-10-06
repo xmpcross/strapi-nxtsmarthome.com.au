@@ -66,7 +66,7 @@ export default async function HomePage() {
             <img
               src="/ads/home_banner_ad.jpg"
               alt="Modern Technology Fest Advertisement"
-              className="w-full h-auto max-h-56 object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+              className="w-full h-[120px] object-cover transition-transform duration-500 group-hover:scale-[1.01]"
               loading="lazy"
             />
           </a>
