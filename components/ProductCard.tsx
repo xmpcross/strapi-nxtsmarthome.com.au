@@ -17,7 +17,7 @@ function lowestPrice(product: TopProduct): number | undefined {
 }
 
 export default function ProductCard({ product, rank }: Props) {
-  const topRetailers = (product.retailers || []).slice(0, 3);
+  const topRetailers = (product.retailers || []).slice(0, 2);
   const primaryRetailer = product.retailers?.find((r) => r.primary) || product.retailers?.[0];
   const lowest = lowestPrice(product);
 
@@ -75,7 +75,7 @@ export default function ProductCard({ product, rank }: Props) {
             <div className="mb-2 text-[10px] font-extrabold tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
               Available at
             </div>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 gap-2">
               {topRetailers.map((ret, i) => (
                 <AffiliateLink
                   key={ret.name + i}
