@@ -5,24 +5,12 @@ import { categoryEssentials, crossTopicMatch } from '@/lib/category-essentials';
 import { articleHref, squareCoverFor, type Article, type ArticleType } from '@/lib/content';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { site, type Category } from '@/lib/site';
-import { FOCUS, TYPE_ORDER, typeLabel } from '@/components/category/shared';
+import { FOCUS, shortDate, TYPE_ORDER, typeLabel } from '@/components/category/shared';
 
 const TOP_UP_TYPES: ArticleType[] = ['pillar', 'buying-guide', 'comparison', 'roundup'];
 const ESSENTIALS = 4;
 const NEW_COUNT = 5;
 
-// Day and month; the year too when it is not the current one, so an older
-// item never reads as this year's.
-const shortDate = (value: string) => {
-  const date = new Date(value);
-  const sameYear = date.getUTCFullYear() === new Date().getUTCFullYear();
-  return date.toLocaleDateString('en-AU', {
-    day: 'numeric',
-    month: 'short',
-    ...(sameYear ? {} : { year: 'numeric' }),
-    timeZone: 'UTC',
-  });
-};
 
 const typeRank = (type: ArticleType) => {
   const i = TYPE_ORDER.findIndex((t) => t.type === type);

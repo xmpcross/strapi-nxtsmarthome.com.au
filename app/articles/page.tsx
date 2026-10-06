@@ -11,13 +11,13 @@ import { getAllArticles } from '@/lib/content';
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: 'All Articles',
+  title: 'All Articles — Smart Home Guides for Australian Homes',
   description:
-    'Every smart home buying guide, setup guide, comparison and explainer published on NXT Smart Home, newest first.',
+    'Every smart home buying guide, setup guide, comparison and explainer on NXT Smart Home. Search a title or filter by topic and type.',
   alternates: { canonical: '/articles/' },
 };
 
 export default async function ArticlesIndex() {
   const articles = await getAllArticles();
-  return <ArticlesList articles={articles} page={1} />;
+  return <ArticlesList articles={articles} />;
 }

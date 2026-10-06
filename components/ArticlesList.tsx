@@ -1,86 +1,154 @@
-import LeadArticleCard from '@/components/LeadArticleCard';
-import PageHeader from '@/components/PageHeader';
-import Card11 from '@/components/PostCards/Card11';
-import TopicChips from '@/components/TopicChips';
-import { toTPost } from '@/data/posts';
-import Pagination, { PER_PAGE, pageCount } from '@/components/Pagination';
-import { categoriesWithCounts, type Article } from '@/lib/content';
+import Link from 'next/link';
+import ArticleIndex, { type ArticleRow } from '@/components/articles/ArticleIndex';
+import { FOCUS, shortDate, TYPE_ORDER, typeLabel } from '@/components/category/shared';
+import JsonLd from '@/components/JsonLd';
+import { articleHref, coverFor, type Article } from '@/lib/content';
+import { breadcrumbJsonLd } from '@/lib/seo';
+import { categories, site } from '@/lib/site';
+
+const NEWEST = 3;
 
 /**
- * The /articles/ list, one page of it.
- *
- * Shared by /articles/ and /articles/page/[page]/ so the two cannot drift —
- * they are the same screen, and the only difference is which slice is shown.
+ * /articles/: the whole library on one page. The newest few lead with their
+ * cover images; then every article sits in one compact list, newest first,
+ * that readers narrow by title, topic and type (ArticleIndex). Nothing is
+ * paginated, so any guide is a search or a click away.
  */
+export default function ArticlesList({ articles }: { articles: Article[] }) {
+  const sorted = [...articles].sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
+  const newest = sorted.slice(0, NEWEST);
+  const total = sorted.length;
 
-/* PER_PAGE and pageCount come from Pagination, which the category listings
-   already use. Redefining them here would let the two lists drift apart. */
-
-export default function ArticlesList({
-  articles,
-  page,
-}: {
-  articles: Article[];
-  page: number;
-}) {
-  const categories = categoriesWithCounts(articles);
-  const total = articles.length;
-  const totalPages = pageCount(total);
-  const start = (page - 1) * PER_PAGE;
-  const shown = articles.slice(start, start + PER_PAGE);
-  // Page one opens with the newest article as a wide lead card; the grid shows the rest.
-  const lead = page === 1 && shown[0] ? toTPost(shown[0]) : null;
-  const grid = lead ? shown.slice(1) : shown;
+  const rows: ArticleRow[] = sorted.map((a) => ({
+    href: articleHref(a),
+    title: a.title,
+    topic: a.category,
+    topicName: a.categoryMeta?.name ?? a.category,
+    type: a.type,
+    typeLabel: typeLabel(a.type),
+    date: a.date,
+    dateLabel: shortDate(a.date),
+    minutes: a.readingMinutes,
+  }));
 
   return (
-    <div className="page-articles">
-      <div className="container pt-10 lg:pt-16">
-        <PageHeader
-          eyebrow="Archive"
-          title="All articles"
-          // h1 at 2.5rem, matching the category pages (user request, 24 Sep 2026).
-          titleClassName="text-[2.5rem] leading-tight"
-          intro={`${total} ${total === 1 ? 'article' : 'articles'} on smart home gear, setup and buying decisions, newest first.`}
-          meta={totalPages > 1 ? `Page ${page} of ${totalPages}` : undefined}
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'All articles', path: '/articles/' },
+        ])}
+      />
+      {total > 0 ? (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'All articles',
+            url: `${site.url}/articles/`,
+            inLanguage: site.language,
+            mainEntity: {
+              '@type': 'ItemList',
+              itemListElement: rows.map((row, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                url: `${site.url}${row.href}`,
+                name: row.title,
+              })),
+            },
+          }}
         />
-      </div>
+      ) : null}
 
-      <div className="container pb-24 lg:pb-28">
-        {total === 0 ? (
-          <p className="text-neutral-500">No articles published yet.</p>
-        ) : (
-          <>
-            {/* Counts describe the whole library, not this page of it.
-                Phones and tablets keep the chip row; from lg the topics move
-                to a left sidebar, the same layout as the category pages
-                (components/CategoryView.tsx). */}
-            <div className="lg:hidden">
-              <TopicChips categories={categories} total={total} />
-            </div>
+      <div className="page-articles">
+        <header className="container pt-8 lg:pt-12">
+          <nav
+            aria-label="Breadcrumb"
+            className="flex items-center gap-2 text-xs font-semibold text-neutral-600 dark:text-neutral-400"
+          >
+            <Link href="/" className={`hover:text-neutral-900 dark:hover:text-white ${FOCUS}`}>
+              Home
+            </Link>
+            <span aria-hidden="true">/</span>
+            <span className="text-neutral-900 dark:text-white" aria-current="page">
+              All articles
+            </span>
+          </nav>
+          <h1 className="mt-6 text-4xl font-black tracking-tight text-neutral-900 sm:text-5xl dark:text-white">
+            All articles
+          </h1>
+          <p className="mt-5 max-w-[68ch] text-base leading-relaxed text-pretty text-neutral-700 sm:text-lg dark:text-neutral-300">
+            Every buying guide, setup guide, comparison and explainer we have published, written for Australian homes.
+            Search a title, or narrow the list by topic and type.
+          </p>
+          {total > 0 ? (
+            <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+              <span className="tabular-nums font-semibold text-neutral-900 dark:text-white">{total}</span>{' '}
+              {total === 1 ? 'article' : 'articles'} ·{' '}
+              <Link
+                href="/all-topics/"
+                className={`font-semibold text-primary-600 underline underline-offset-4 dark:text-primary-400 ${FOCUS}`}
+              >
+                Browse by topic
+              </Link>
+            </p>
+          ) : null}
+        </header>
 
-            <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8">
-              <aside className="hidden lg:block lg:w-72 lg:shrink-0">
-                <div className="sticky top-20 rounded-[8px] border border-neutral-200 bg-white p-5 shadow-2xs dark:border-neutral-700/80 dark:bg-neutral-800/80">
-                  <h2 className="mb-3 border-b border-neutral-100 pb-3 text-sm font-bold tracking-wider text-neutral-900 uppercase dark:border-neutral-700 dark:text-white">
-                    Filter by topic
-                  </h2>
-                  <TopicChips categories={categories} total={total} layout="sidebar" />
-                </div>
-              </aside>
-
-              <div className="min-w-0 flex-1">
-                {lead && <LeadArticleCard post={lead} className="mt-8 lg:mt-0" />}
-                <div className={`grid gap-[15px] sm:grid-cols-2 xl:grid-cols-3 ${lead ? 'mt-[15px]' : 'mt-8 lg:mt-0'}`}>
-                  {grid.map((article) => (
-                    <Card11 key={article.slug} post={toTPost(article)} />
+        <div className="container pt-10 pb-20 lg:pt-12 lg:pb-28">
+          {total === 0 ? (
+            <p className="text-neutral-700 dark:text-neutral-300">No articles published yet.</p>
+          ) : (
+            <>
+              <section aria-labelledby="newest-heading">
+                <h2 id="newest-heading" className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                  Newest
+                </h2>
+                <ul className="mt-5 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                  {newest.map((article, index) => (
+                    <li key={article.slug} className={index === 2 ? 'sm:hidden lg:block' : undefined}>
+                      <Link href={articleHref(article)} className={`group block rounded-sm ${FOCUS}`}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={coverFor(article)}
+                          alt=""
+                          width={640}
+                          height={360}
+                          loading={index === 0 ? 'eager' : 'lazy'}
+                          className="aspect-[16/9] w-full rounded-lg object-cover"
+                        />
+                        <span className="mt-3 block text-sm text-neutral-600 dark:text-neutral-400">
+                          <time
+                            dateTime={article.date}
+                            className="tabular-nums font-semibold text-primary-600 dark:text-primary-400"
+                          >
+                            {shortDate(article.date)}
+                          </time>{' '}
+                          · {article.categoryMeta?.name ?? article.category}
+                        </span>
+                        <span className="mt-1 block text-lg leading-snug font-bold text-neutral-900 group-hover:underline group-hover:underline-offset-4 dark:text-white">
+                          {article.title}
+                        </span>
+                      </Link>
+                    </li>
                   ))}
-                </div>
-                <Pagination base="/articles/" page={page} total={total} />
-              </div>
-            </div>
-          </>
-        )}
+                </ul>
+              </section>
+
+              <section aria-labelledby="index-heading" className="mt-16 lg:mt-20">
+                <h2 id="index-heading" className="mb-5 text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                  Every article
+                </h2>
+                <ArticleIndex
+                  rows={rows}
+                  topics={categories.map((c) => ({ key: c.key, name: c.name }))}
+                  types={TYPE_ORDER}
+                />
+              </section>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
