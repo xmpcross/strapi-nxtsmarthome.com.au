@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { metaDescription } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 import CategoryView from '@/components/CategoryView';
-import { categoriesWithCounts, getAllArticles, getArticlesByCategory } from '@/lib/content';
-import { categories, getCategory } from '@/lib/site';
+import { getAllArticles, getArticlesByCategory } from '@/lib/content';
+import { categories, getCategory, isGuideCategory } from '@/lib/site';
 
 // Listings refresh from Strapi every 5 minutes (ISR), like the article pages.
 export const revalidate = 300;
@@ -25,7 +25,9 @@ export async function generateMetadata({
   return {
     // Not "Reviews": the guides are research-based and the site publishes no
     // reviews (/how-we-test/, PRODUCT.md).
-    title: `${category.name} — Australian Guides & Buying Advice`,
+    title: isGuideCategory(category.slug)
+      ? `Smart Home ${category.name} for Australian Homes`
+      : `${category.name} — Australian Guides & Buying Advice`,
     description: metaDescription(category.intro),
     alternates: { canonical: `/categories/${category.slug}/` },
     // A category with nothing published is a thin page: keep it out of the
@@ -46,9 +48,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     <CategoryView
       category={category}
       articles={articles}
-      page={1}
-      categoryCounts={categoriesWithCounts(all)}
-      totalArticles={all.length}
       allArticles={all}
     />
   );

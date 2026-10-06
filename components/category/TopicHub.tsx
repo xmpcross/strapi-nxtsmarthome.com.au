@@ -5,28 +5,7 @@ import { categoryEssentials, crossTopicMatch } from '@/lib/category-essentials';
 import { articleHref, squareCoverFor, type Article, type ArticleType } from '@/lib/content';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { site, type Category } from '@/lib/site';
-
-/**
- * Filter order for the full list: decide-what-to-buy first, then set it up,
- * then background. These labels are also the type shown on every row, so the
- * filter and the list speak one vocabulary.
- */
-const TYPE_ORDER: { type: ArticleType; label: string }[] = [
-  { type: 'pillar', label: 'Complete guides' },
-  { type: 'buying-guide', label: 'Buying advice' },
-  { type: 'comparison', label: 'Comparisons' },
-  { type: 'roundup', label: 'Roundups' },
-  { type: 'review', label: 'Reviews' },
-  { type: 'how-to', label: 'How-to & setup' },
-  { type: 'explainer', label: 'Explained' },
-];
-
-/** Types that can stand in for a missing "Start with these" pick. */
-const typeLabel = (type: ArticleType) => TYPE_ORDER.find((t) => t.type === type)?.label ?? type;
-
-/** Brand focus ring for links, matching the filter buttons and the site's own controls. */
-const FOCUS =
-  'rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500';
+import { FOCUS, TYPE_ORDER, typeLabel } from '@/components/category/shared';
 
 const TOP_UP_TYPES: ArticleType[] = ['pillar', 'buying-guide', 'comparison', 'roundup'];
 const ESSENTIALS = 4;
