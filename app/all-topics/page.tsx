@@ -141,7 +141,7 @@ export default async function CategoriesIndex() {
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Top Hero Section — No Background Color, Clean & Un-boxed */}
-        <section className="relative grid items-center gap-8 py-4 lg:grid-cols-[minmax(0,1fr)_380px] lg:py-6 bg-transparent">
+        <section className="relative py-4 lg:py-6 bg-transparent">
           <div className="max-w-3xl space-y-4">
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-3.5 py-1 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-950/60 dark:text-primary-300">
@@ -183,10 +183,6 @@ export default async function CategoriesIndex() {
                 <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Local Automation</div>
               </div>
             </div>
-          </div>
-
-          <div className="hidden lg:block">
-            <SmartHomeLottieBanner />
           </div>
         </section>
 
