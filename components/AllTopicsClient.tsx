@@ -346,17 +346,17 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
               >
                 <div className="space-y-3">
                   <div className="flex items-start justify-between">
-                    <span className="flex size-14 items-center justify-center p-0 m-0 bg-transparent shrink-0 transition-transform duration-300 group-hover:scale-110">
+                    <span className="flex size-10 items-center justify-center p-0 m-0 bg-transparent shrink-0 transition-transform duration-300 group-hover:scale-110">
                       {c.icon3d ? (
                         <img
                           src={c.icon3d}
                           alt={c.name}
-                          width={56}
-                          height={56}
-                          className="size-14 object-contain p-0 m-0"
+                          width={40}
+                          height={40}
+                          className="size-10 object-contain p-0 m-0"
                         />
                       ) : (
-                        <span className="text-3xl p-0 m-0">{c.emoji || '⚡'}</span>
+                        <span className="text-2xl p-0 m-0">{c.emoji || '⚡'}</span>
                       )}
                     </span>
                     <span className="rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-extrabold text-primary-700 border border-primary-500/20 dark:bg-primary-950/60 dark:text-primary-300">

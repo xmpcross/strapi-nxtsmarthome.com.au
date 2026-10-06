@@ -217,7 +217,7 @@ export default async function CategoriesIndex() {
 
           {/* 2-Column Accordion Layout */}
           <div className="pt-2">
-            <FlyonAccordion items={topicFaqs} columns={2} />
+            <FlyonAccordion items={topicFaqs} columns={2} itemPaddingClassName="py-[10px] px-0" />
           </div>
         </section>
       </div>
