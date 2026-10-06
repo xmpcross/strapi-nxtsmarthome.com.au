@@ -279,44 +279,6 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
             </div>
           </section>
 
-          {/* LIME PROMO BANNER ABOVE WEEKLY BEST NEWS */}
-          <section className="relative overflow-hidden rounded-3xl border border-lime-300/80 bg-gradient-to-r from-lime-200 via-emerald-100 to-lime-300 p-6 sm:p-8 dark:border-lime-800/80 dark:from-lime-950/60 dark:via-emerald-950/40 dark:to-lime-900/60 shadow-md">
-            <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-              {/* Left Cutout Mockup / Product Image */}
-              <div className="relative h-36 sm:h-44 w-auto shrink-0">
-                {posts[0]?.featuredImage?.src ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={posts[0].featuredImage.src}
-                    alt="Featured Tech Showcase"
-                    className="h-full w-auto object-contain rounded-2xl shadow-lg border border-white/40 dark:border-neutral-800"
-                  />
-                ) : (
-                  <div className="h-full w-36 rounded-2xl bg-neutral-900" />
-                )}
-              </div>
-
-              {/* Center Title & Subtitle */}
-              <div className="flex-1 text-center md:text-left space-y-2">
-                <h3 className="text-xl sm:text-2xl font-black tracking-tight text-neutral-900 dark:text-white">
-                  iPhone 14 Pro Max 2023
-                </h3>
-                <p className="max-w-md text-xs sm:text-sm font-medium leading-relaxed text-neutral-700 dark:text-neutral-300">
-                  Browned Butter And Brown Sugar Caramelly Goodness Crispy EdgesThick And Soft Centers. Explore Australian smart home tech deals & setup guides.
-                </p>
-              </div>
-
-              {/* Right Action Button */}
-              <Link
-                href="/products/"
-                className="shrink-0 flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-neutral-900 shadow-lg transition hover:bg-primary-600 hover:text-white dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:hover:bg-primary-600"
-              >
-                <span>Shop Online</span>
-                <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-              </Link>
-            </div>
-          </section>
-
           {/* SECTION 3: WEEKLY BEST NEWS */}
           <section>
             <ZairaHeader title="Weekly Best News" viewAllHref="/articles/" />
@@ -614,6 +576,45 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
         </div>
 
       </div>
+
+      {/* BOTTOM FULL-WIDTH PROMO BANNER */}
+      <section className="relative overflow-hidden rounded-3xl border border-lime-300/80 bg-gradient-to-r from-lime-200 via-emerald-100 to-lime-300 p-6 sm:p-8 dark:border-lime-800/80 dark:from-lime-950/60 dark:via-emerald-950/40 dark:to-lime-900/60 shadow-md">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+          
+          {/* Left Cutout Mockup / Product Image */}
+          <div className="relative h-36 sm:h-44 w-auto shrink-0">
+            {posts[0]?.featuredImage?.src ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={posts[0].featuredImage.src}
+                alt="Featured Tech Showcase"
+                className="h-full w-auto object-contain rounded-2xl shadow-lg border border-white/40 dark:border-neutral-800"
+              />
+            ) : (
+              <div className="h-full w-36 rounded-2xl bg-neutral-900" />
+            )}
+          </div>
+
+          {/* Center Title & Subtitle */}
+          <div className="flex-1 text-center md:text-left space-y-2">
+            <h3 className="text-xl sm:text-2xl font-black tracking-tight text-neutral-900 dark:text-white">
+              iPhone 14 Pro Max 2023
+            </h3>
+            <p className="max-w-md text-xs sm:text-sm font-medium leading-relaxed text-neutral-700 dark:text-neutral-300">
+              Browned Butter And Brown Sugar Caramelly Goodness Crispy EdgesThick And Soft Centers. Explore Australian smart home tech deals & setup guides.
+            </p>
+          </div>
+
+          {/* Right Action Button */}
+          <Link
+            href="/products/"
+            className="shrink-0 flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-neutral-900 shadow-lg transition hover:bg-primary-600 hover:text-white dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:hover:bg-primary-600"
+          >
+            <span>Shop Online</span>
+            <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }
