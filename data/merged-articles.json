@@ -24,6 +24,22 @@
     {
       "from": "/buying-guides/renter-smart-home-devices-no-drilling/",
       "to": "/buying-guides/smart-home-for-renters-australia/"
+    },
+    {
+      "from": "/energy-and-solar/smart-plugs-energy-monitoring-australia/",
+      "to": "/energy-and-solar/smart-plugs-energy-monitors-lower-power-bill-australia/"
+    },
+    {
+      "from": "/security-and-cameras/security-camera-storage-cloud-vs-local/",
+      "to": "/security-and-cameras/local-recording-vs-cloud-subscriptions-security-cameras-australia/"
+    },
+    {
+      "from": "/entertainment-and-audio/home-cinema-lighting-automation/",
+      "to": "/entertainment-and-audio/movie-night-lighting-scenes-you-can-build-without-touching-the-switchboard/"
+    },
+    {
+      "from": "/climate-and-comfort/smart-ducted-air-con-zoning/",
+      "to": "/climate-and-comfort/smart-zoning-ducted-air-conditioning-cost-australia/"
     }
   ]
 }

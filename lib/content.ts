@@ -147,10 +147,20 @@ const KEY_PATH = new RegExp(
 );
 
 export function canonicaliseArticleLinks(markdown: string): string {
-  return markdown.replace(KEY_PATH, (_m, key: string, slug: string, hash?: string) => {
+  const merged = mergedSlugTargets();
+  const out = markdown.replace(KEY_PATH, (_m, key: string, slug: string, hash?: string) => {
     const cat = categories.find((c) => c.key === key);
     return `](/${cat ? cat.slug : key}/${slug}/${hash ?? ''})`;
   });
+  // A link to a merged-away article goes straight to its survivor, not via the 301.
+  if (!merged.size) return out;
+  return out.replace(
+    /\]\((?:https?:\/\/(?:www\.)?nxtsmarthome\.com\.au)?\/[a-z0-9-]+\/([a-z0-9-]+)\/?(#[^)\s]*)?\)/g,
+    (m, slug: string, hash?: string) => {
+      const to = merged.get(slug);
+      return to ? `](${to}${hash ?? ''})` : m;
+    },
+  );
 }
 
 async function renderMarkdown(markdown: string): Promise<string> {
