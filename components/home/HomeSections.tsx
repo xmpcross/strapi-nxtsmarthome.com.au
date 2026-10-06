@@ -181,27 +181,19 @@ export function HomeTopicSection({
     <section className="relative">
       {/* Section Header */}
       <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-200 pb-6 dark:border-neutral-800">
-        <div className="flex items-center gap-4">
-          <span
-            className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-3xl transition-transform duration-300 group-hover:scale-110 dark:bg-primary-950/60"
-            aria-hidden="true"
-          >
-            {emoji}
-          </span>
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider rounded-full px-2.5 py-0.5">
-                Topic Showcase
-              </span>
-              <span className="text-xs font-semibold text-neutral-400">
-                {category.count} {category.count === 1 ? 'guide' : 'guides'}
-              </span>
-            </div>
-            <h2 className="text-2xl font-black tracking-tight text-neutral-900 dark:text-white sm:text-3xl">
-              {category.name}
-            </h2>
-            <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{meta?.intro || category.description}</p>
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="badge badge-soft badge-primary text-[10px] font-bold uppercase tracking-wider rounded-full px-2.5 py-0.5">
+              Topic Showcase
+            </span>
+            <span className="text-xs font-semibold text-neutral-400">
+              {category.count} {category.count === 1 ? 'guide' : 'guides'}
+            </span>
           </div>
+          <h2 className="text-2xl font-black tracking-tight text-neutral-900 dark:text-white sm:text-3xl">
+            {category.name}
+          </h2>
+          <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{meta?.intro || category.description}</p>
         </div>
         <Link
           href={`/categories/${category.handle}/`}
