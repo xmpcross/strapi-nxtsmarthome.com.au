@@ -357,23 +357,52 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
             </div>
           </section>
 
-          {/* IN-BETWEEN BANNER AD */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-400 via-teal-400 to-emerald-400 p-6 text-white shadow-md">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="space-y-1 text-center sm:text-left">
-                <span className="text-[10px] font-bold uppercase tracking-widest bg-white/20 px-2 py-0.5 rounded backdrop-blur-sm">
-                  Special Offer
-                </span>
-                <h3 className="text-xl font-extrabold tracking-tight">Modern Technology Fest Here</h3>
+          {/* FEATURED CATEGORY BANNER: SETUP GUIDES */}
+          <Link
+            href="/categories/setup-guides/"
+            className="group relative flex overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-r from-slate-950 via-blue-950/80 to-indigo-950 p-6 text-white transition-all duration-500 hover:border-blue-400/60 hover:shadow-xl hover:shadow-blue-500/10"
+          >
+            {/* Ambient Animated Blue Radial Glow */}
+            <div className="absolute -right-16 -top-16 size-64 rounded-full bg-blue-500/15 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
+            
+            {/* Grid Pattern Background */}
+            <svg
+              className="absolute inset-0 size-full opacity-10 stroke-neutral-400/20"
+              width="100%"
+              height="100%"
+            >
+              <pattern id="setup-banner-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                <path d="M0 24V0h24" fill="none" strokeWidth="0.8" />
+              </pattern>
+              <rect width="100%" height="100%" fill="url(#setup-banner-grid)" />
+            </svg>
+
+            <div className="relative z-10 flex w-full flex-col sm:flex-row items-center justify-between gap-5">
+              <div className="space-y-2 text-center sm:text-left min-w-0 flex-1">
+                <div className="flex items-center justify-center sm:justify-start gap-2">
+                  <span className="rounded bg-blue-600 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-white shadow-sm">
+                    SETUP GUIDES
+                  </span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-blue-300/80">
+                    Step-by-Step Help
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-blue-300 transition-colors">
+                  Master Australian Smart Home Setup
+                </h3>
+
+                <p className="text-xs text-neutral-300 max-w-xl line-clamp-2 leading-relaxed">
+                  From Wi-Fi troubleshooting and 2.4GHz pairing to Home Assistant automation & Australian electrical standards.
+                </p>
               </div>
-              <a
-                href="#"
-                className="shrink-0 rounded-xl bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-neutral-900 transition hover:bg-neutral-100 shadow-sm"
-              >
-                See Details
-              </a>
+
+              <div className="shrink-0 flex items-center gap-2 rounded-xl border border-blue-400/40 bg-blue-600/90 px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 group-hover:bg-blue-500 group-hover:scale-105 shadow-md">
+                <span>Explore Setup Guides</span>
+                <svg className="size-4 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* SECTION 2: TRENDING NEWS */}
           <section>
