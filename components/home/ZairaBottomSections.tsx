@@ -20,10 +20,12 @@ function ZairaHeader({
   viewAllHref?: string
   as?: 'h2' | 'h3'
 }) {
+  const textSizeClass = HeadingTag === 'h3' ? 'text-[1.2rem]' : 'text-xl sm:text-2xl'
+
   return (
     <div className="relative mb-6 flex items-center justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
       <div className="relative">
-        <HeadingTag className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
+        <HeadingTag className={`${textSizeClass} font-bold tracking-tight text-neutral-900 dark:text-white`}>
           {title}
         </HeadingTag>
         {/* Coral accent bar under title */}
@@ -108,9 +110,9 @@ function SmartGearShowcaseWidget() {
       {/* Widget Header with Direct Shop All Link */}
       <div className="flex items-center justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
         <div className="relative">
-          <h2 className="text-xl font-bold tracking-tight text-neutral-900 dark:text-white">
+          <h3 className="text-[1.2rem] font-bold tracking-tight text-neutral-900 dark:text-white">
             Featured Smart Gear
-          </h2>
+          </h3>
           <span className="absolute -bottom-3.5 left-0 h-0.5 w-12 bg-primary-600 dark:bg-primary-400" />
         </div>
 
@@ -527,7 +529,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
 
           {/* SIDEBAR BLOCK 2: DAILY NEWSLETTER */}
           <div className="relative overflow-hidden rounded-2xl bg-[#112240] p-6 text-center text-white shadow-xl border border-neutral-800">
-            <h3 className="text-xl font-bold tracking-tight text-white mb-1.5">
+            <h3 className="text-[1.2rem] font-bold tracking-tight text-white mb-1.5">
               Daily Newsletter
             </h3>
             <p className="text-xs text-neutral-300 mb-5 max-w-xs mx-auto leading-relaxed">
