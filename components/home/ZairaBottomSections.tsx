@@ -103,13 +103,13 @@ function ProductAutoSlider() {
 
   return (
     <div
-      className="group relative h-[450px] w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl bg-neutral-950"
+      className="group relative h-[450px] w-full overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-md bg-white dark:bg-neutral-900"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Top Floating Glass Header Bar */}
       <div className="absolute top-4 inset-x-4 z-30 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white backdrop-blur-md border border-white/20">
+        <div className="flex items-center gap-2 rounded-full bg-neutral-900/80 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white backdrop-blur-md shadow-md">
           <span className="relative flex size-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
@@ -117,7 +117,7 @@ function ProductAutoSlider() {
           <span>SPOTLIGHT DEALS</span>
         </div>
 
-        <span className="rounded-full bg-primary-600/90 px-3 py-1 text-xs font-black text-white shadow-lg backdrop-blur-md border border-white/20">
+        <span className="rounded-full bg-primary-600 px-3 py-1 text-xs font-black text-white shadow-lg backdrop-blur-md">
           {products[currentIndex].price}
         </span>
       </div>
@@ -133,7 +133,7 @@ function ProductAutoSlider() {
               isActive ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
             }`}
           >
-            {/* Background Image */}
+            {/* Background Product Image - Clean & Un-tinted */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={product.image}
@@ -142,8 +142,8 @@ function ProductAutoSlider() {
               loading="lazy"
             />
 
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-transparent" />
+            {/* Soft Bottom-Only Gradient Overlay for Text Contrast */}
+            <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
 
             {/* Bottom Info Overlay */}
             <div className="relative z-20 space-y-2 mb-10 text-left">
