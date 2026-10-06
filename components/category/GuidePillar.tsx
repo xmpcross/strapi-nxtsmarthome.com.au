@@ -3,7 +3,7 @@ import JsonLd from '@/components/JsonLd';
 import { FOCUS, typeLabel } from '@/components/category/shared';
 import { articleHref, squareCoverFor, type Article } from '@/lib/content';
 import { guidePillars, type PillarSection } from '@/lib/guide-pillars';
-import { breadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, faqJsonLd } from '@/lib/seo';
 import { site, type Category } from '@/lib/site';
 
 /**
@@ -42,6 +42,14 @@ export default function GuidePillar({ category, articles }: { category: Category
 
   const ordered = sections.flatMap((s) => s.items);
   const count = articles.length;
+  const faq = count > 0 ? (pillar?.faq ?? []) : [];
+
+  // Contents: the guide's sections, then the questions and the closing note.
+  const contents = [
+    ...sections.map((s) => ({ id: s.id, label: s.heading, guides: s.items.length })),
+    ...(faq.length ? [{ id: 'questions', label: 'Common questions', guides: 0 }] : []),
+    { id: 'how-made', label: 'How these guides are made', guides: 0 },
+  ];
 
   return (
     <>
@@ -72,6 +80,7 @@ export default function GuidePillar({ category, articles }: { category: Category
           }}
         />
       ) : null}
+      {faq.length ? <JsonLd data={faqJsonLd(faq)} /> : null}
 
       <div className={`page-category-${category.slug}`}>
         <header className="container pt-8 lg:pt-12">
@@ -169,13 +178,13 @@ export default function GuidePillar({ category, articles }: { category: Category
                     </svg>
                   </summary>
                   <ol className="pb-3">
-                    {sections.map((section) => (
-                      <li key={section.id}>
+                    {contents.map((item) => (
+                      <li key={item.id}>
                         <a
-                          href={`#${section.id}`}
+                          href={`#${item.id}`}
                           className={`block py-1.5 text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 ${FOCUS}`}
                         >
-                          {section.heading}
+                          {item.label}
                         </a>
                       </li>
                     ))}
@@ -185,17 +194,19 @@ export default function GuidePillar({ category, articles }: { category: Category
                 <div className="hidden lg:sticky lg:top-24 lg:block">
                   <p className="mb-3 text-sm font-semibold text-neutral-900 dark:text-white">On this page</p>
                   <ol className="border-l border-neutral-200 dark:border-neutral-800">
-                    {sections.map((section) => (
-                      <li key={section.id}>
+                    {contents.map((item) => (
+                      <li key={item.id}>
                         <a
-                          href={`#${section.id}`}
+                          href={`#${item.id}`}
                           className={`-ml-px block border-l border-transparent py-1.5 pl-4 text-sm text-neutral-700 hover:border-primary-500 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 ${FOCUS}`}
                         >
-                          {section.heading}
-                          <span className="sr-only">
-                            {' '}
-                            ({section.items.length} {section.items.length === 1 ? 'guide' : 'guides'})
-                          </span>
+                          {item.label}
+                          {item.guides ? (
+                            <span className="sr-only">
+                              {' '}
+                              ({item.guides} {item.guides === 1 ? 'guide' : 'guides'})
+                            </span>
+                          ) : null}
                         </a>
                       </li>
                     ))}
@@ -217,6 +228,31 @@ export default function GuidePillar({ category, articles }: { category: Category
                         {section.paragraphs.map((text) => (
                           <p key={text.slice(0, 40)}>{text}</p>
                         ))}
+                      </div>
+                    ) : null}
+
+                    {section.checklist ? (
+                      <div className="mt-6 max-w-[68ch] border-t border-neutral-200 pt-4 dark:border-neutral-800">
+                        <p className="font-semibold text-neutral-900 dark:text-white">{section.checklist.title}</p>
+                        <ul className="mt-3 space-y-2">
+                          {section.checklist.items.map((item) => (
+                            <li key={item} className="flex gap-3 text-neutral-700 dark:text-neutral-300">
+                              <svg
+                                aria-hidden="true"
+                                className="mt-1 size-4 shrink-0 text-primary-600 dark:text-primary-400"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path d="M20 6 9 17l-5-5" />
+                              </svg>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     ) : null}
 
@@ -254,6 +290,58 @@ export default function GuidePillar({ category, articles }: { category: Category
                     </ul>
                   </section>
                 ))}
+
+                {faq.length ? (
+                  <section id="questions" aria-labelledby="questions-heading" className="scroll-mt-24">
+                    <h2
+                      id="questions-heading"
+                      className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl dark:text-white"
+                    >
+                      Common questions
+                    </h2>
+                    <div className="mt-6 max-w-[68ch] border-t border-neutral-200 dark:border-neutral-800">
+                      {faq.map((item) => (
+                        <details key={item.q} className="group border-b border-neutral-200 dark:border-neutral-800">
+                          <summary
+                            className={`flex cursor-pointer list-none items-start justify-between gap-4 py-4 text-lg font-semibold text-neutral-900 dark:text-white [&::-webkit-details-marker]:hidden ${FOCUS}`}
+                          >
+                            {item.q}
+                            <svg
+                              aria-hidden="true"
+                              className="mt-1.5 size-4 shrink-0 transition-transform group-open:rotate-180"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="m6 9 6 6 6-6" />
+                            </svg>
+                          </summary>
+                          <p className="pb-5 leading-relaxed text-neutral-700 dark:text-neutral-300">{item.a}</p>
+                        </details>
+                      ))}
+                    </div>
+                  </section>
+                ) : null}
+
+                <section id="how-made" aria-labelledby="how-made-heading" className="scroll-mt-24 max-w-[68ch]">
+                  <h2 id="how-made-heading" className="text-xl font-bold text-neutral-900 dark:text-white">
+                    How these guides are made
+                  </h2>
+                  <p className="mt-3 leading-relaxed text-neutral-700 dark:text-neutral-300">
+                    Our guides are researched, not bench-tested. They draw on manufacturer documentation, published
+                    specifications, Australian standards and regulator guidance, and every guide is labelled with its type.
+                    Where a guide links to a retailer, the link may earn us a commission; it never decides what we write.{' '}
+                    <Link
+                      href="/how-we-test/"
+                      className={`font-semibold text-primary-600 underline underline-offset-4 dark:text-primary-400 ${FOCUS}`}
+                    >
+                      How we research
+                    </Link>
+                  </p>
+                </section>
               </div>
             </div>
           )}
