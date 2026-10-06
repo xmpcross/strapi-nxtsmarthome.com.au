@@ -31,6 +31,9 @@ export default function CategoryView({
   const start = (page - 1) * PER_PAGE;
   const visible = articles.slice(start, start + PER_PAGE);
 
+  // Check if this category hides the sidebar filter (Setup Guides & Buying Guides)
+  const isGuideCategory = category.slug === 'setup-guides' || category.slug === 'buying-guides';
+
   // Page one opens with the topic's newest article as a wide lead card.
   const lead = page === 1 && visible[0] ? toTPost(visible[0]) : null;
   const grid = lead ? visible.slice(1) : visible;
@@ -45,87 +48,91 @@ export default function CategoryView({
       />
 
       <div className={`page-category-${category.slug}`}>
-        {/* Default header for every topic: the same tinted panel as the product category pages. */}
-        <div className="container pt-10 lg:pt-16">
-          <header className="mb-10 rounded-3xl bg-primary-50 px-6 py-10 sm:px-10 lg:mb-14 lg:px-14 lg:py-14 dark:bg-primary-950/40">
-            <div className="flex items-center gap-4">
-              <span
-                className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-white text-3xl dark:bg-neutral-900"
-                aria-hidden="true"
-              >
-                {category.emoji}
-              </span>
-              <p className="text-sm font-semibold tracking-wider text-primary-700 uppercase dark:text-primary-300">
-                Topic
+        {/* Creative & Minimal Category Hero Header */}
+        <div className="container pt-8 lg:pt-12">
+          <header className="relative overflow-hidden rounded-3xl border border-neutral-200 bg-gradient-to-br from-neutral-50 via-white to-primary-50/40 p-6 sm:p-10 lg:p-12 dark:border-neutral-800 dark:from-neutral-900 dark:via-neutral-900/90 dark:to-primary-950/20 shadow-xs">
+            {/* Ambient Background Blur Orbs */}
+            <div className="pointer-events-none absolute -right-16 -top-16 size-80 rounded-full bg-primary-500/10 blur-3xl dark:bg-primary-500/15" />
+            <div className="pointer-events-none absolute -left-16 -bottom-16 size-80 rounded-full bg-indigo-500/10 blur-3xl dark:bg-indigo-500/15" />
+
+            <div className="relative z-10 max-w-4xl space-y-4">
+              {/* Category Badge & Metadata */}
+              <div className="flex flex-wrap items-center gap-3">
+                <span
+                  className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-white text-2xl shadow-xs dark:bg-neutral-800 border border-neutral-200/80 dark:border-neutral-700"
+                  aria-hidden="true"
+                >
+                  {category.emoji || '⚡'}
+                </span>
+                <span className="rounded-full bg-primary-600 px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-white shadow-xs">
+                  {category.name}
+                </span>
+                <span className="rounded-full border border-neutral-200 bg-white/80 px-3 py-1 text-xs font-semibold text-neutral-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
+                  {articles.length} {articles.length === 1 ? 'Article' : 'Articles'}
+                  {page > 1 ? ` · Page ${page}` : ''}
+                </span>
+              </div>
+
+              {/* Display Title */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-neutral-900 dark:text-white leading-tight">
+                {category.name}
+              </h1>
+
+              {/* Intro Text */}
+              <p className="max-w-3xl text-sm sm:text-base leading-relaxed text-neutral-600 dark:text-neutral-300">
+                {category.intro}
               </p>
+
+              {/* Subcategory Pills */}
+              {category.subcategories?.length ? (
+                <div className="pt-2 flex flex-wrap items-center gap-2" aria-label={`What ${category.name} covers`}>
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+                    Topics Covered:
+                  </span>
+                  {category.subcategories.map((sub) => (
+                    <span
+                      key={sub}
+                      className="rounded-xl border border-neutral-200/80 bg-white px-3 py-1 text-xs font-medium text-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
+                    >
+                      {sub}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
+
+              {/* Quick Actions */}
+              <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-bold">
+                <Link
+                  href={`/products/category/${category.slug}/`}
+                  className="inline-flex items-center gap-1.5 text-primary-600 hover:underline dark:text-primary-400"
+                >
+                  <span>Compare {category.name} Products</span>
+                  <svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </Link>
+                <span className="text-neutral-300 dark:text-neutral-700">•</span>
+                <Link
+                  href="/all-topics/"
+                  className="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+                >
+                  All Topics Directory →
+                </Link>
+              </div>
             </div>
-            {/* Category title at 2.5rem (user request, 24 Sep 2026). */}
-            <h1 className="mt-5 max-w-3xl text-[2.5rem] leading-tight font-bold tracking-tight text-neutral-900 dark:text-white">
-              {category.name}
-            </h1>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-neutral-700 md:text-lg dark:text-neutral-300">
-              {category.intro}
-            </p>
-            {category.subcategories?.length ? (
-              <ul className="mt-6 flex flex-wrap gap-2" aria-label={`What ${category.name} covers`}>
-                {category.subcategories.map((sub) => (
-                  <li
-                    key={sub}
-                    className="rounded-full bg-white px-3.5 py-1.5 text-sm font-medium text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200"
-                  >
-                    {sub}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-            <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-neutral-600 dark:text-neutral-400">
-              <span>
-                {articles.length} {articles.length === 1 ? 'article' : 'articles'}
-                {page > 1 ? ` · Page ${page}` : ''}
-              </span>
-              <Link
-                href={`/products/category/${category.slug}/`}
-                className="font-medium text-primary-700 hover:underline dark:text-primary-300"
-              >
-                Compare {category.name} products →
-              </Link>
-            </p>
           </header>
         </div>
 
-        <div className="container pb-24 lg:pb-28">
-          {/* Phones and tablets keep the chip row; from lg the topics move to
-              the left sidebar, the same layout as the product category page. */}
-          <div className="lg:hidden">
-            <TopicChips categories={categoryCounts} activeSlug={category.slug} total={totalArticles} />
-          </div>
-
-          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8">
-            <aside className="hidden lg:block lg:w-72 lg:shrink-0">
-              <div className="sticky top-20 rounded-[8px] border border-neutral-200 bg-white p-5 shadow-2xs dark:border-neutral-700/80 dark:bg-neutral-800/80">
-                <h2 className="mb-3 border-b border-neutral-100 pb-3 text-sm font-bold tracking-wider text-neutral-900 uppercase dark:border-neutral-700 dark:text-white">
-                  Filter by topic
-                </h2>
-                <TopicChips
-                  categories={categoryCounts}
-                  activeSlug={category.slug}
-                  total={totalArticles}
-                  layout="sidebar"
-                />
-              </div>
-            </aside>
-
-            <div className="min-w-0 flex-1">
+        <div className="container py-12 lg:py-16">
+          {isGuideCategory ? (
+            /* CLEAN FULL-WIDTH LAYOUT (No Filter Sidebar for Setup & Buying Guides) */
+            <div className="w-full space-y-10">
               {visible.length === 0 ? (
-                <p className="mt-10 rounded-2xl border border-dashed border-neutral-300 p-8 text-center text-neutral-500 lg:mt-0 dark:border-neutral-700">
-                  Nothing published in this section yet — it&apos;s next on the list.
+                <p className="rounded-2xl border border-dashed border-neutral-300 p-12 text-center text-neutral-500 dark:border-neutral-700 bg-white dark:bg-neutral-900">
+                  No published articles found in {category.name} yet.
                 </p>
               ) : (
                 <>
-                  {lead && <LeadArticleCard post={lead} className="mt-8 lg:mt-0" />}
-                  <div
-                    className={`grid gap-[15px] sm:grid-cols-2 xl:grid-cols-3 ${lead ? 'mt-[15px]' : 'mt-8 lg:mt-0'}`}
-                  >
+                  {lead && <LeadArticleCard post={lead} className="w-full" />}
+                  <div className={`grid gap-6 sm:grid-cols-2 lg:grid-cols-3 ${lead ? 'mt-6' : ''}`}>
                     {grid.map((article) => (
                       <Card11 key={article.slug} post={toTPost(article)} />
                     ))}
@@ -135,15 +142,57 @@ export default function CategoryView({
 
               <Pagination base={base} page={page} total={articles.length} />
             </div>
-          </div>
+          ) : (
+            /* DEFAULT LAYOUT WITH SIDEBAR FILTER (For Standard Product Categories) */
+            <>
+              <div className="lg:hidden mb-6">
+                <TopicChips categories={categoryCounts} activeSlug={category.slug} total={totalArticles} />
+              </div>
 
-          {/* Long-form orientation, page 1 only (it would be duplicate content on /page/2/). */}
+              <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8">
+                <aside className="hidden lg:block lg:w-72 lg:shrink-0">
+                  <div className="sticky top-20 rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs dark:border-neutral-800 dark:bg-neutral-900">
+                    <h2 className="mb-3 border-b border-neutral-100 pb-3 text-xs font-bold tracking-wider text-neutral-900 uppercase dark:border-neutral-800 dark:text-white">
+                      Filter by topic
+                    </h2>
+                    <TopicChips
+                      categories={categoryCounts}
+                      activeSlug={category.slug}
+                      total={totalArticles}
+                      layout="sidebar"
+                    />
+                  </div>
+                </aside>
+
+                <div className="min-w-0 flex-1 space-y-8">
+                  {visible.length === 0 ? (
+                    <p className="rounded-2xl border border-dashed border-neutral-300 p-8 text-center text-neutral-500 dark:border-neutral-700">
+                      Nothing published in this section yet — it&apos;s next on the list.
+                    </p>
+                  ) : (
+                    <>
+                      {lead && <LeadArticleCard post={lead} />}
+                      <div className={`grid gap-6 sm:grid-cols-2 xl:grid-cols-3 ${lead ? 'mt-6' : ''}`}>
+                        {grid.map((article) => (
+                          <Card11 key={article.slug} post={toTPost(article)} />
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  <Pagination base={base} page={page} total={articles.length} />
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Long-form SEO Overview, Page 1 Only */}
           {category.overview && page === 1 ? (
-            <section className="mx-auto mt-20 max-w-3xl rounded-3xl bg-neutral-50 p-8 lg:p-10 dark:bg-neutral-800/50">
-              <h2 className="text-xl font-semibold text-neutral-900 lg:text-2xl dark:text-white">
+            <section className="mx-auto mt-16 max-w-4xl rounded-3xl border border-neutral-200/80 bg-neutral-50/80 p-8 sm:p-10 dark:border-neutral-800 dark:bg-neutral-900/60 shadow-xs">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
                 {category.overview.heading}
               </h2>
-              <div className="mt-4 space-y-3 leading-relaxed text-neutral-600 dark:text-neutral-300">
+              <div className="mt-4 space-y-3 leading-relaxed text-neutral-600 dark:text-neutral-300 text-sm sm:text-base">
                 {category.overview.paragraphs.map((text) => (
                   <p key={text.slice(0, 40)}>{text}</p>
                 ))}

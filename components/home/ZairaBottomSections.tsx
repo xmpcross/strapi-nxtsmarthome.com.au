@@ -634,43 +634,70 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
 
       </div>
 
-      {/* 2. BOTTOM FULL-WIDTH PROMO BANNER */}
-      <section className="relative overflow-hidden rounded-3xl border border-lime-300/80 bg-gradient-to-r from-lime-200 via-emerald-100 to-lime-300 p-6 sm:p-8 dark:border-lime-800/80 dark:from-lime-950/60 dark:via-emerald-950/40 dark:to-lime-900/60 shadow-md">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          
-          {/* Left Cutout Mockup / Product Image */}
-          <div className="relative h-36 sm:h-44 w-auto shrink-0">
-            {posts[0]?.featuredImage?.src ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={posts[0].featuredImage.src}
-                alt="Featured Tech Showcase"
-                className="h-full w-auto object-contain rounded-2xl shadow-lg border border-white/40 dark:border-neutral-800"
-              />
-            ) : (
-              <div className="h-full w-36 rounded-2xl bg-neutral-900" />
-            )}
-          </div>
+      {/* 2. BOTTOM FULL-WIDTH EBAY AUSTRALIA SMART HOME PROMO BANNER */}
+      <section className="relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-slate-950 p-6 sm:p-8 dark:border-neutral-800 shadow-sm group">
+        {/* Ambient Multi-Color Gradient Glows (eBay Brand Colors) */}
+        <div className="absolute -left-16 -top-16 size-72 rounded-full bg-blue-600/15 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
+        <div className="absolute -right-16 -bottom-16 size-72 rounded-full bg-amber-500/15 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
 
-          {/* Center Title & Subtitle */}
-          <div className="flex-1 text-center md:text-left space-y-2">
-            <h3 className="text-xl sm:text-2xl font-black tracking-tight text-neutral-900 dark:text-white">
-              iPhone 14 Pro Max 2023
-            </h3>
-            <p className="max-w-md text-xs sm:text-sm font-medium leading-relaxed text-neutral-700 dark:text-neutral-300">
-              Browned Butter And Brown Sugar Caramelly Goodness Crispy EdgesThick And Soft Centers. Explore Australian smart home tech deals & setup guides.
-            </p>
+        {/* Minimal SVG Grid Pattern */}
+        <svg
+          className="absolute inset-0 size-full opacity-10 stroke-neutral-400/20"
+          width="100%"
+          height="100%"
+        >
+          <pattern id="ebay-banner-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+            <path d="M0 28V0h28" fill="none" strokeWidth="0.8" />
+          </pattern>
+          <rect width="100%" height="100%" fill="url(#ebay-banner-grid)" />
+        </svg>
+
+        <a
+          href="https://www.ebay.com.au/b/Smart-Home-Devices/185044/bn_7117565452"
+          target="_blank"
+          rel="noopener noreferrer sponsored"
+          className="relative z-10 flex flex-col items-center justify-between gap-6 md:flex-row"
+        >
+          {/* Left Block: eBay Logo & Category Information */}
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left min-w-0 flex-1">
+            {/* Vector eBay Logo Badge */}
+            <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-white p-2.5 shadow-md border border-neutral-200">
+              <svg className="h-full w-auto" viewBox="0 0 100 40">
+                <text x="0" y="30" fontFamily="sans-serif" fontSize="34" fontWeight="900">
+                  <tspan fill="#E53238">e</tspan>
+                  <tspan fill="#0064D2">b</tspan>
+                  <tspan fill="#F5AF02">a</tspan>
+                  <tspan fill="#86B817">y</tspan>
+                </text>
+              </svg>
+            </div>
+
+            <div className="space-y-1.5 min-w-0">
+              <div className="flex items-center justify-center sm:justify-start gap-2">
+                <span className="rounded bg-white/10 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-white backdrop-blur-xs">
+                  eBay Australia
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-400">
+                  Retail Deals
+                </span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-amber-300 transition-colors">
+                Find Smart Home Tech Deals on eBay AU
+              </h3>
+
+              <p className="max-w-xl text-xs sm:text-sm leading-relaxed text-neutral-300 line-clamp-2">
+                Shop verified Australian sellers offering Smart Locks, Security Cameras, Matter Hubs & Sensors with local delivery and Australian warranty.
+              </p>
+            </div>
           </div>
 
           {/* Right Action Button */}
-          <Link
-            href="/products/"
-            className="shrink-0 flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-neutral-900 shadow-lg transition hover:bg-primary-600 hover:text-white dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:hover:bg-primary-600"
-          >
-            <span>Shop Online</span>
-            <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-          </Link>
-        </div>
+          <div className="shrink-0 flex items-center gap-2 rounded-xl bg-amber-500 px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-neutral-950 shadow-lg transition-all duration-300 group-hover:bg-amber-400 group-hover:scale-105">
+            <span>Shop eBay AU Smart Home</span>
+            <svg className="size-4 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+        </a>
       </section>
 
       {/* 3. NEW BOTTOM 2-COLUMN SECTION UNDER THE BANNER */}
