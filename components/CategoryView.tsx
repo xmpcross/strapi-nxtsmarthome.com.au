@@ -95,7 +95,7 @@ export default function CategoryView({
                 <span className="text-neutral-900 dark:text-white">{category.name}</span>
               </nav>
 
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-3.5 py-1 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-950/60 dark:text-primary-300">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-3.5 py-1 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-900/40 dark:text-primary-300">
                 <span className="size-2 rounded-full bg-primary-500" />
                 {articles.length} {articles.length === 1 ? 'Guide' : 'Guides'}
                 {page > 1 ? ` · Page ${page}` : ''}
@@ -123,13 +123,15 @@ export default function CategoryView({
               ) : null}
 
               <div className="flex flex-wrap items-center gap-3 pt-1">
-                <Link
-                  href={`/products/category/${category.slug}/`}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-primary-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-primary-700"
-                >
-                  Browse {category.name} products
-                  <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                </Link>
+                {guide ? null : (
+                  <Link
+                    href={`/products/category/${category.slug}/`}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-primary-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-primary-700"
+                  >
+                    Browse {category.name} products
+                    <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                  </Link>
+                )}
                 <Link
                   href="/all-topics/"
                   className="inline-flex items-center rounded-full border border-neutral-300 px-5 py-2.5 text-sm font-bold text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:hover:border-white dark:hover:text-white"
@@ -284,7 +286,7 @@ export default function CategoryView({
 
                 <section
                   id="products"
-                  className="scroll-mt-24 flex flex-col items-start gap-4 rounded-3xl border border-primary-500/20 bg-primary-50/60 p-8 sm:flex-row sm:items-center sm:justify-between dark:border-primary-500/30 dark:bg-primary-950/30"
+                  className="scroll-mt-24 flex flex-col items-start gap-4 rounded-3xl border border-primary-500/20 bg-primary-50/60 p-8 sm:flex-row sm:items-center sm:justify-between dark:border-primary-500/30 dark:bg-primary-900/20"
                 >
                   <div>
                     <h2 className="text-xl font-bold text-neutral-900 dark:text-white">{category.name} products</h2>
