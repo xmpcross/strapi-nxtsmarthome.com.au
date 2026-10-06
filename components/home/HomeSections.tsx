@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ProductCard from '@/components/ProductCard'
+import ProductCarousel from '@/components/home/ProductCarousel'
 import FlyonAccordion from '@/components/flyonui/FlyonAccordion'
 import type { TCategory } from '@/data/categories'
 import type { TPost } from '@/data/posts'
@@ -425,10 +426,9 @@ export function HomeSetupGuides({
   )
 }
 
-/** HomeProducts - 4 per row, max 2 rows (8 items) */
+/** HomeProducts - 1-row auto-sliding product carousel (max 8 items) */
 export function HomeProducts({ products }: { products: TopProduct[] }) {
   if (!products.length) return null
-  const displayProducts = products.slice(0, 8)
 
   return (
     <section className="relative">
@@ -449,11 +449,7 @@ export function HomeProducts({ products }: { products: TopProduct[] }) {
         </Link>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {displayProducts.map((product) => (
-          <ProductCard key={product.slug} product={product} />
-        ))}
-      </div>
+      <ProductCarousel products={products} />
     </section>
   )
 }
