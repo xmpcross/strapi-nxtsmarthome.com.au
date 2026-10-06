@@ -141,9 +141,20 @@ export default function CategoryView({
               </div>
             </div>
 
-            <div className="relative hidden overflow-hidden rounded-3xl border border-neutral-200/80 bg-gradient-to-br from-primary-50/60 via-white to-purple-50/40 lg:block dark:border-neutral-800 dark:from-neutral-900/80 dark:via-neutral-900 dark:to-neutral-950">
-              <div className="pointer-events-none absolute -right-16 -top-16 size-60 rounded-full bg-primary-500/15 blur-3xl dark:bg-primary-500/25" />
-              <div className="pointer-events-none absolute -bottom-16 -left-16 size-60 rounded-full bg-purple-500/15 blur-3xl dark:bg-purple-500/25" />
+            {/* Guide categories keep the tinted panel; hubs show the image on the page background. */}
+            <div
+              className={
+                guide
+                  ? 'relative hidden overflow-hidden rounded-3xl border border-neutral-200/80 bg-gradient-to-br from-primary-50/60 via-white to-purple-50/40 lg:block dark:border-neutral-800 dark:from-neutral-900/80 dark:via-neutral-900 dark:to-neutral-950'
+                  : 'relative hidden lg:block'
+              }
+            >
+              {guide ? (
+                <>
+                  <div className="pointer-events-none absolute -right-16 -top-16 size-60 rounded-full bg-primary-500/15 blur-3xl dark:bg-primary-500/25" />
+                  <div className="pointer-events-none absolute -bottom-16 -left-16 size-60 rounded-full bg-purple-500/15 blur-3xl dark:bg-purple-500/25" />
+                </>
+              ) : null}
               <div className="relative flex aspect-[4/3] items-center justify-center">
                 {category.icon3d ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -152,7 +163,7 @@ export default function CategoryView({
                   <span className="text-8xl" aria-hidden="true">{category.emoji || '⚡'}</span>
                 )}
               </div>
-              <dl className="relative grid grid-cols-2 border-t border-neutral-200/80 dark:border-neutral-800">
+              <dl className={`relative grid grid-cols-2 ${guide ? 'border-t border-neutral-200/80 dark:border-neutral-800' : 'rounded-2xl border border-neutral-200/80 dark:border-neutral-800'}`}>
                 <div className="p-5">
                   <dt className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">Guides</dt>
                   <dd className="text-2xl font-black text-primary-600 dark:text-primary-400">{articles.length}</dd>
