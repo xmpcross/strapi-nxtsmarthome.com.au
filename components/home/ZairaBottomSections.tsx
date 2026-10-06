@@ -238,7 +238,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
   const popularPosts = posts.slice(12, 15).length >= 3 ? posts.slice(12, 15) : posts.slice(1, 4)
 
   const popularTechFeatured = posts[15] || posts[0]
-  const popularTechList = posts.filter((p) => p.id !== popularTechFeatured?.id).slice(0, 5)
+  const popularTechList = posts.filter((p) => p.id !== popularTechFeatured?.id).slice(0, 4)
 
   // Default Hot Categories fallback
   const hotCategoriesList = categories.slice(0, 4).length > 0

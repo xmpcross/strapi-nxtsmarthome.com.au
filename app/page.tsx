@@ -38,7 +38,7 @@ export default async function HomePage() {
   const allPosts = articles.map(toTPost)
 
   return (
-    <div className="page-home relative container space-y-[50px] pt-10 pb-28 lg:space-y-[50px] lg:pt-16 lg:pb-32">
+    <div className="page-home relative container space-y-[50px] pt-[30px] pb-28 lg:space-y-[50px] lg:pt-[30px] lg:pb-32">
       <JsonLd
         data={{
           '@context': 'https://schema.org',
