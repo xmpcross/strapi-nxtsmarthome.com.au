@@ -52,8 +52,6 @@ function SmartGearShowcaseWidget() {
       id: 'aqara-a100-smart-door-lock',
       title: 'Aqara A100 Smart Door Lock',
       category: 'SMART LOCKS',
-      price: '$297 AUD',
-      rating: '4.8 ★',
       highlight: 'HomeKit & Fingerprint',
       href: '/products/aqara-a100-smart-door-lock/',
       image: '/images/products/aqara-a100-smart-door-lock.webp',
@@ -62,8 +60,6 @@ function SmartGearShowcaseWidget() {
       id: 'echo-show-15-2nd-gen',
       title: 'Echo Show 15 2nd Gen',
       category: 'ENTERTAINMENT',
-      price: '$549 AUD',
-      rating: '5.0 ★',
       highlight: '15.6" 1080p Smart Display',
       href: '/products/amazon-echo-show-15-2nd-gen/',
       image: '/images/products/amazon-echo-show-15-2nd-gen-sq500.webp',
@@ -72,8 +68,6 @@ function SmartGearShowcaseWidget() {
       id: 'echo-hub-8-smart-home-control-panel',
       title: 'Echo Hub 8" Smart Control Panel',
       category: 'HUBS & PLATFORMS',
-      price: '$329 AUD',
-      rating: '4.7 ★',
       highlight: 'Matter, Thread & Zigbee',
       href: '/products/amazon-echo-hub-8-smart-home-control-panel/',
       image: '/images/products/amazon-echo-hub-8-smart-home-control-panel-sq500.webp',
@@ -82,9 +76,7 @@ function SmartGearShowcaseWidget() {
       id: 'arlo-ultra-2-4k-spotlight-camera',
       title: 'Arlo Ultra 2 4K Spotlight Camera',
       category: 'SECURITY CAMERAS',
-      price: '$449 AUD',
-      rating: '4.8 ★',
-      highlight: '4K HDR & Color Night Vision',
+      highlight: '4K HDR & Colour Night Vision',
       href: '/products/arlo-ultra-2-4k-spotlight-camera/',
       image: '/images/products/arlo-ultra-2-4k-spotlight-camera-sq500.webp',
     },
@@ -92,8 +84,6 @@ function SmartGearShowcaseWidget() {
       id: 'eufy-smart-lock-c220-with-wi-fi',
       title: 'Eufy Smart Lock C220 with Wi-Fi',
       category: 'SMART LOCKS',
-      price: '$269 AUD',
-      rating: '4.8 ★',
       highlight: 'Built-in Wi-Fi & Keypad',
       href: '/products/eufy-smart-lock-c220-with-wi-fi/',
       image: '/images/products/eufy-smart-lock-c220-with-wi-fi-sq500.webp',
@@ -136,11 +126,6 @@ function SmartGearShowcaseWidget() {
             {featured.category}
           </span>
 
-          {/* Top Price Tag */}
-          <span className="absolute top-2.5 right-2.5 z-10 rounded-full bg-neutral-900 px-2.5 py-1 text-xs font-black text-white dark:bg-white dark:text-neutral-950 shadow-md">
-            {featured.price}
-          </span>
-
           {/* Clean Un-tinted Product Image */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -152,10 +137,7 @@ function SmartGearShowcaseWidget() {
         </div>
 
         <div className="mt-3 space-y-1.5">
-          <div className="flex items-center justify-between text-[11px]">
-            <span className="font-extrabold text-amber-500 flex items-center gap-1">
-              ★ {featured.rating}
-            </span>
+          <div className="flex items-center text-[11px]">
             <span className="font-semibold text-neutral-500 dark:text-neutral-400 text-[10px] uppercase tracking-wider">
               {featured.highlight}
             </span>
@@ -193,7 +175,7 @@ function SmartGearShowcaseWidget() {
               >
                 <div className="relative size-14 shrink-0 overflow-hidden rounded-lg bg-neutral-50 dark:bg-neutral-800 p-1 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={item.image} alt={item.title} className="h-full w-auto object-contain" />
+                  <img src={item.image} alt={item.title} className="h-full w-auto object-contain" loading="lazy" />
                 </div>
                 <div className="flex-1 min-w-0 space-y-0.5">
                   <span className="inline-block text-[9px] font-extrabold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
@@ -202,9 +184,6 @@ function SmartGearShowcaseWidget() {
                   <h4 className="text-xs font-bold leading-tight text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 line-clamp-1 transition-colors">
                     {item.title}
                   </h4>
-                  <div className="text-[11px] font-extrabold text-neutral-900 dark:text-white">
-                    {item.price}
-                  </div>
                 </div>
               </button>
 

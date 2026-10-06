@@ -6,7 +6,7 @@ import { toTPost } from '@/data/posts';
 import JsonLd from '@/components/JsonLd';
 import { getAllArticles } from '@/lib/content';
 import { AUTHOR_ALIASES, getAllAuthors, getAuthorBySlug, resolveAuthor } from '@/lib/authors';
-import { breadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, metaDescription } from '@/lib/seo';
 import { site } from '@/lib/site';
 
 // Listings refresh from Strapi every 5 minutes (ISR), like the article pages.
@@ -29,7 +29,7 @@ export async function generateMetadata({
   const count = (await getAllArticles()).filter((a) => resolveAuthor(a.author).slug === author.slug).length;
   return {
     title: `${author.name} — Articles`,
-    description: author.bio?.slice(0, 160),
+    description: metaDescription(author.bio),
     alternates: { canonical: `/authors/${author.slug}/` },
     ...(count ? {} : { robots: { index: false, follow: true } }),
   };

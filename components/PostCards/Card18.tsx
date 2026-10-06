@@ -15,9 +15,11 @@ interface Props {
   ratio?: string
   titleClass?: string
   post: TPost
+  /** Preload the image. Only for a card that can be the page's LCP element. */
+  priority?: boolean
 }
 
-const Card18: FC<Props> = ({ className, titleClass = 'text-lg ', ratio = 'aspect-4/3', post }) => {
+const Card18: FC<Props> = ({ className, titleClass = 'text-lg ', ratio = 'aspect-4/3', post, priority = true }) => {
   const { title, handle, featuredImage, categories, postType, likeCount, liked, commentCount, bookmarked } = post
 
   return (
@@ -32,7 +34,7 @@ const Card18: FC<Props> = ({ className, titleClass = 'text-lg ', ratio = 'aspect
               alt={title}
               className="size-full rounded-xl object-cover brightness-100 transition-[filter] duration-300 group-hover:brightness-75"
               src={featuredImage}
-              priority
+              priority={priority}
               fill
             />
             <PostTypeFeaturedIcon

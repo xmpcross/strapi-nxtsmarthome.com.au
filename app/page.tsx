@@ -8,6 +8,7 @@ import JsonLd from '@/components/JsonLd'
 import EditorsChoiceSection from '@/components/home/EditorsChoiceSection'
 import ZairaBottomSections from '@/components/home/ZairaBottomSections'
 import AmazonSmartHomeBanner from '@/components/home/AmazonSmartHomeBanner'
+import HomeIntro from '@/components/home/HomeIntro'
 
 export const revalidate = 300
 
@@ -52,6 +53,8 @@ export default async function HomePage() {
           about: topics.map((t) => ({ '@type': 'Thing', name: t.name })),
         }}
       />
+
+      <HomeIntro title={HOME_TITLE} />
 
       {/* Top Magazine Lead Grid Section */}
       <SectionMagazine10 posts={lead.map(toTPost)} />

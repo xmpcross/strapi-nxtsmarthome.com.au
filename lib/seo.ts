@@ -3,7 +3,6 @@ import { DEFAULT_AUTHOR_SLUG, resolveAuthor } from './authors';
 import type { Article } from './content';
 import type { TopProduct } from './products';
 import { articleHref } from './urls';
-import { retailerReviews } from './review-sources';
 
 const abs = (pathname: string) => new URL(pathname, site.url).toString();
 
@@ -62,12 +61,14 @@ export function breadcrumbJsonLd(crumbs: Crumb[]) {
 
 export function articleJsonLd(article: Article) {
   const url = abs(articleHref(article));
-  // Reviews and comparisons carry a stronger signal as Review; everything else is an Article.
-  const isReview = article.type === 'review';
-
-  const base = {
+  /*
+    Always an Article. A Review with a reviewRating asserts a hands-on verdict,
+    and nothing here records that a device was genuinely tested, so a `review`
+    type alone must not produce one (CLAUDE.md rule 5, /how-we-test/).
+  */
+  return {
     '@context': 'https://schema.org',
-    '@type': isReview ? 'Review' : 'Article',
+    '@type': 'Article',
     '@id': `${url}#article`,
     headline: article.title,
     name: article.title,
@@ -95,30 +96,6 @@ export function articleJsonLd(article: Article) {
     ...(article.image ? { image: abs(article.image) } : {}),
     ...(article.tags?.length ? { keywords: article.tags.join(', ') } : {}),
   };
-
-  if (isReview && article.products?.length) {
-    const product = article.products[0];
-    return {
-      ...base,
-      itemReviewed: {
-        '@type': 'Product',
-        name: product.name,
-        ...(product.brand ? { brand: { '@type': 'Brand', name: product.brand } } : {}),
-      },
-      ...(product.rating
-        ? {
-            reviewRating: {
-              '@type': 'Rating',
-              ratingValue: product.rating,
-              bestRating: 5,
-              worstRating: 1,
-            },
-          }
-        : {}),
-    };
-  }
-
-  return base;
 }
 
 export function faqJsonLd(faq: { q: string; a: string }[]) {
@@ -161,6 +138,23 @@ export function jsonLdScript(data: unknown): string {
 export { abs };
 
 /**
+ * Trim text for a meta description at a sentence or word boundary. A hard
+ * `slice(0, 160)` cut category and author descriptions mid-word ("…alarm sy").
+ * Prefers the last full sentence that fits; otherwise the last whole word plus
+ * an ellipsis.
+ */
+export function metaDescription(text: string | undefined, max = 155): string | undefined {
+  if (!text) return text;
+  const clean = text.replace(/\s+/g, ' ').trim();
+  if (clean.length <= max) return clean;
+  const cut = clean.slice(0, max + 1);
+  const sentenceEnd = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('? '), cut.lastIndexOf('! '));
+  if (sentenceEnd >= 80) return cut.slice(0, sentenceEnd + 1);
+  const space = cut.lastIndexOf(' ', max - 1);
+  return `${cut.slice(0, space > 0 ? space : max - 1).replace(/[\s,;:–—-]+$/, '')}…`;
+}
+
+/**
  * Product structured data.
  *
  * Product pages carried only the Organization graph, so 199 pages with verified
@@ -169,10 +163,13 @@ export { abs };
  *
  * Everything here is measured. Prices come from the verified retailer offers,
  * not the seeded `priceAud`, which the catalogue's own notes describe as never
- * having been a real RRP. The rating is only emitted when the page shows one:
- * counted from the Australian retailer reviews displayed, from 20 up. A product
- * without that gets no aggregateRating rather than an invented one, which is
- * both a Google policy matter and this site's own rule.
+ * having been a real RRP.
+ *
+ * No aggregateRating and no Review, even where the page shows a retailer review
+ * aggregate. Those reviews are syndicated from other sites, and Google's review
+ * snippet policy requires ratings to come from the site's own users — marking
+ * them up risks a structured-data manual action. The visible, labelled reviews
+ * block (lib/review-sources.ts) is unaffected.
  */
 export function productJsonLd(product: TopProduct) {
   const priced = (product.retailers ?? []).filter(
@@ -185,7 +182,7 @@ export function productJsonLd(product: TopProduct) {
     '@type': 'Product',
     name: product.name,
     url: `${site.url}/products/${product.slug}/`,
-    ...(product.image ? { image: product.image } : {}),
+    ...(product.image ? { image: abs(product.image) } : {}),
     ...(product.shortDescription || product.description
       ? { description: (product.shortDescription || product.description || '').slice(0, 5000) }
       : {}),
@@ -209,21 +206,6 @@ export function productJsonLd(product: TopProduct) {
         url: r.url,
         seller: { '@type': 'Organization', name: r.name },
       })),
-    };
-  }
-
-  // The same aggregate the page shows: counted from the allowed reviews on it,
-  // only from MIN_AGGREGATE_REVIEWS up, and never when the reviews block is
-  // hidden (lib/review-sources.ts). Structured data must not claim a rating the
-  // page does not display. No Review items are emitted either.
-  const aggregate = retailerReviews(product).aggregate;
-  if (aggregate) {
-    data.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue: Number(aggregate.rating.toFixed(2)),
-      reviewCount: aggregate.count,
-      bestRating: 5,
-      worstRating: 1,
     };
   }
 

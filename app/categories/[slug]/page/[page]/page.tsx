@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { metaDescription } from '@/lib/seo';
 import { notFound, permanentRedirect } from 'next/navigation';
 import CategoryView from '@/components/CategoryView';
 import { pageCount } from '@/components/Pagination';
@@ -41,7 +42,7 @@ export async function generateMetadata({
 
   return {
     title: `${category.name} — page ${page}`,
-    description: category.intro.slice(0, 160),
+    description: metaDescription(category.intro),
     alternates: { canonical: `/categories/${category.slug}/page/${page}/` },
     // Later pages are thin by nature: same intro, same sidebar, a different six
     // cards. Indexing them competes with page one for the same terms.

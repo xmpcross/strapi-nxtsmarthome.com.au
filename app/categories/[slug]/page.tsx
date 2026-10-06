@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { metaDescription } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 import CategoryView from '@/components/CategoryView';
 import { categoriesWithCounts, getAllArticles, getArticlesByCategory } from '@/lib/content';
@@ -22,7 +23,7 @@ export async function generateMetadata({
 
   return {
     title: `${category.name} — Guides & Reviews`,
-    description: category.intro.slice(0, 160),
+    description: metaDescription(category.intro),
     alternates: { canonical: `/categories/${category.slug}/` },
   };
 }
