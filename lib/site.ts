@@ -210,6 +210,14 @@ export function getCategoryByKey(key: string): Category | undefined {
   return categories.find((c) => c.key === key);
 }
 
+/**
+ * Setup Guides and Buying Guides list as paginated grids; every other category
+ * renders as a single long-form hub page (see components/CategoryView.tsx).
+ */
+export function isGuideCategory(slug: string): boolean {
+  return slug === 'setup-guides' || slug === 'buying-guides';
+}
+
 /*
  * Header navigation, grouped by what the reader is trying to do rather than by
  * how the content is stored: buy something, explore a topic, or follow a
