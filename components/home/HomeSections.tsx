@@ -260,11 +260,23 @@ export function HomeTopicSection({
         {/* Next Ranked Articles List */}
         {list.length > 0 && (
           <ol className={`flex flex-col divide-y divide-neutral-200 dark:divide-neutral-800 lg:col-span-3 ${flip ? 'lg:order-1' : ''}`}>
-            {list.map((post, i) => (
+            {list.map((post) => (
               <li key={post.id} className="py-4.5 first:pt-0 last:pb-0">
-                <Link href={`/${post.handle}/`} className="group flex items-start gap-4.5">
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-primary-100 font-bold text-primary-800 text-xs dark:bg-primary-950/80 dark:text-primary-300 border border-primary-500/20 dark:border-primary-500/30">
-                    0{i + 2}
+                <Link href={`/${post.handle}/`} className="group flex items-center gap-4.5">
+                  <span className="relative size-20 sm:size-24 shrink-0 overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800">
+                    {post.featuredImage?.src ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={post.featuredImage.src}
+                        alt={post.featuredImage.alt || post.title}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-500/20 via-indigo-500/20 to-purple-500/20 text-2xl">
+                        <span aria-hidden="true">{emoji}</span>
+                      </span>
+                    )}
                   </span>
                   <div className="flex min-w-0 flex-1 flex-col">
                     <span className="font-bold leading-snug text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors text-base">
