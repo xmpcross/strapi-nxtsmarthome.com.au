@@ -73,6 +73,7 @@ export default async function CategoryPagedPage({
       page={n}
       categoryCounts={categoriesWithCounts(all)}
       totalArticles={all.length}
+      allArticles={all}
     />
   );
 }

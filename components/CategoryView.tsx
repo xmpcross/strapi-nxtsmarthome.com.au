@@ -4,32 +4,19 @@ import Card11 from '@/components/PostCards/Card11';
 import JsonLd from '@/components/JsonLd';
 import Pagination, { PER_PAGE } from '@/components/Pagination';
 import TopicChips from '@/components/TopicChips';
+import TopicHub from '@/components/category/TopicHub';
 import { toTPost } from '@/data/posts';
 import { breadcrumbJsonLd } from '@/lib/seo';
-import type { Article, ArticleType } from '@/lib/content';
+import type { Article } from '@/lib/content';
 import { isGuideCategory, type Category } from '@/lib/site';
-
-/**
- * Hub sections, in reading order: decide-what-to-buy first, then set it up,
- * then background. Every article type has a section, so no post is dropped.
- */
-const HUB_SECTIONS: { type: ArticleType; id: string; heading: string; blurb: string }[] = [
-  { type: 'pillar', id: 'complete-guides', heading: 'Complete guides', blurb: 'Start-to-finish overviews of the topic.' },
-  { type: 'buying-guide', id: 'buying-advice', heading: 'Buying advice', blurb: 'What to look for before you spend.' },
-  { type: 'comparison', id: 'comparisons', heading: 'Comparisons', blurb: 'Head-to-head picks between brands and approaches.' },
-  { type: 'roundup', id: 'roundups', heading: 'Roundups', blurb: 'Shortlists across a product type.' },
-  { type: 'review', id: 'reviews', heading: 'Reviews', blurb: 'Single products, looked at closely.' },
-  { type: 'how-to', id: 'how-to', heading: 'How-to & setup', blurb: 'Step-by-step installs, automations and fixes.' },
-  { type: 'explainer', id: 'explained', heading: 'Explained', blurb: 'The background: standards, rules and how things work.' },
-];
 
 /**
  * The category listing, shared by /categories/[slug]/ and its /page/N/ routes.
  *
  * Setup Guides and Buying Guides are paginated grids with a topic chip bar.
- * Every other category is a single long-form hub page: its own posts only,
- * grouped by article type, with an on-page contents list. Hub categories have
- * no /page/N/ routes — those redirect to the hub.
+ * Every other category is a single topic page (TopicHub): its own posts only,
+ * the guides to start with, what is new, and every guide in a filterable list.
+ * Topic categories have no /page/N/ routes — those redirect to the hub.
  */
 export default function CategoryView({
   category,
@@ -37,15 +24,20 @@ export default function CategoryView({
   page,
   categoryCounts,
   totalArticles,
+  allArticles,
 }: {
   category: Category;
   articles: Article[];
   page: number;
   categoryCounts: (Category & { count: number })[];
   totalArticles: number;
+  /** Every published article, for the topic page's cross-topic fallback. */
+  allArticles: Article[];
 }) {
   const base = `/categories/${category.slug}/`;
   const guide = isGuideCategory(category.slug);
+  if (!guide) return <TopicHub category={category} articles={articles} allArticles={allArticles} />;
+
   const start = (page - 1) * PER_PAGE;
   const visible = guide ? articles.slice(start, start + PER_PAGE) : articles;
 
@@ -62,17 +54,6 @@ export default function CategoryView({
   const lead = page === 1 && visible[0] ? toTPost(visible[0]) : null;
   const grid = lead ? visible.slice(1) : visible;
 
-  const sections = HUB_SECTIONS.map((section) => ({
-    ...section,
-    posts: grid.filter((a) => a.type === section.type),
-  })).filter((section) => section.posts.length > 0);
-
-  const contents = [
-    ...(lead ? [{ id: 'newest', label: 'Newest' }] : []),
-    ...sections.map((section) => ({ id: section.id, label: section.heading, count: section.posts.length })),
-    ...(category.overview ? [{ id: 'overview', label: category.overview.heading }] : []),
-    { id: 'products', label: 'Products' },
-  ];
 
   return (
     <>
@@ -182,8 +163,7 @@ export default function CategoryView({
           </header>
         </div>
 
-        {guide ? (
-          <div className="container py-12 lg:py-16">
+        <div className="container py-12 lg:py-16">
             <div className="w-full space-y-10">
               <div className="flex flex-col gap-3 border-y border-neutral-200 py-4 sm:flex-row sm:items-center dark:border-neutral-800">
                 <h2 className="shrink-0 text-xs font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
@@ -224,125 +204,6 @@ export default function CategoryView({
               </section>
             ) : null}
           </div>
-        ) : (
-          /* HUB — this category's posts only, grouped by type */
-          <div className="container py-12 lg:py-16">
-            <div className={articles.length > 0 ? 'lg:grid lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-12' : 'mx-auto max-w-4xl'}>
-              {articles.length > 0 ? (
-                <nav aria-label="On this page" className="mb-10 lg:mb-0">
-                  <div className="lg:sticky lg:top-24">
-                    <h2 className="mb-3 text-xs font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
-                      On this page
-                    </h2>
-                    <ol className="flex flex-wrap gap-2 lg:flex-col lg:gap-0 lg:border-l lg:border-neutral-200 dark:lg:border-neutral-800">
-                      {contents.map((item) => (
-                        <li key={item.id}>
-                          <a
-                            href={`#${item.id}`}
-                            className="flex items-center justify-between gap-3 rounded-full border border-neutral-200 px-3 py-1 text-sm font-medium text-neutral-600 hover:border-primary-500 hover:text-primary-600 lg:-ml-px lg:rounded-none lg:border-0 lg:border-l-2 lg:border-transparent lg:px-4 lg:py-1.5 lg:hover:border-primary-500 dark:border-neutral-700 dark:text-neutral-300 dark:hover:text-primary-400"
-                          >
-                            <span>{item.label}</span>
-                            {'count' in item ? (
-                              <span className="text-xs text-neutral-500 dark:text-neutral-400">
-                                {item.count}
-                                <span className="sr-only"> {item.count === 1 ? 'article' : 'articles'}</span>
-                              </span>
-                            ) : null}
-                          </a>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-                </nav>
-              ) : null}
-
-              <div className="min-w-0 space-y-16">
-                {articles.length === 0 ? (
-                  <div className="rounded-2xl border border-dashed border-neutral-300 p-8 text-center dark:border-neutral-700">
-                    <p className="font-semibold text-neutral-900 dark:text-white">
-                      Nothing published in {category.name} yet. It&apos;s next on the list.
-                    </p>
-                    <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-                      Until then,{' '}
-                      <Link href="/all-topics/" className="font-semibold text-primary-600 hover:underline dark:text-primary-400">
-                        browse every topic
-                      </Link>{' '}
-                      or{' '}
-                      <Link href="/search/" className="font-semibold text-primary-600 hover:underline dark:text-primary-400">
-                        search the guides
-                      </Link>
-                      .
-                    </p>
-                  </div>
-                ) : null}
-
-                {lead ? (
-                  <section id="newest" className="scroll-mt-24 space-y-5">
-                    <h2 className="text-2xl font-black tracking-tight text-neutral-900 dark:text-white">Newest</h2>
-                    <LeadArticleCard post={lead} className="w-full" />
-                  </section>
-                ) : null}
-
-                {sections.map((section) => (
-                  <section key={section.id} id={section.id} className="scroll-mt-24 space-y-5">
-                    <div className="border-b border-neutral-200 pb-3 dark:border-neutral-800">
-                      <h2 className="text-2xl font-black tracking-tight text-neutral-900 dark:text-white">
-                        {section.heading}
-                        <span className="ml-2 align-middle text-sm font-semibold text-neutral-500 dark:text-neutral-400">
-                          {section.posts.length}
-                          <span className="sr-only"> {section.posts.length === 1 ? 'article' : 'articles'}</span>
-                        </span>
-                      </h2>
-                      <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">{section.blurb}</p>
-                    </div>
-                    <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                      {section.posts.map((article) => (
-                        <Card11 key={article.slug} post={toTPost(article)} hideCategory />
-                      ))}
-                    </div>
-                  </section>
-                ))}
-
-                {category.overview ? (
-                  <section
-                    id="overview"
-                    className="scroll-mt-24 rounded-3xl border border-neutral-200/80 bg-neutral-50/80 p-8 sm:p-10 dark:border-neutral-800 dark:bg-neutral-900/60"
-                  >
-                    <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
-                      {category.overview.heading}
-                    </h2>
-                    <div className="mt-4 space-y-3 text-sm leading-relaxed text-neutral-600 sm:text-base dark:text-neutral-300">
-                      {category.overview.paragraphs.map((text) => (
-                        <p key={text.slice(0, 40)}>{text}</p>
-                      ))}
-                    </div>
-                  </section>
-                ) : null}
-
-                <section
-                  id="products"
-                  className="scroll-mt-24 flex flex-col items-start gap-4 rounded-3xl border border-primary-500/20 bg-primary-50/60 p-8 sm:flex-row sm:items-center sm:justify-between dark:border-primary-500/30 dark:bg-primary-900/20"
-                >
-                  <div>
-                    <h2 className="text-xl font-bold text-neutral-900 dark:text-white">{category.name} products</h2>
-                    <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
-                      {articles.length > 0
-                        ? 'The devices these guides discuss, with where to buy them in Australia.'
-                        : 'Devices in this category, with where to buy them in Australia.'}
-                    </p>
-                  </div>
-                  <Link
-                    href={`/products/category/${category.slug}/`}
-                    className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-primary-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-primary-700"
-                  >
-                    Browse products
-                    <svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                  </Link>
-                </section>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </>
   );

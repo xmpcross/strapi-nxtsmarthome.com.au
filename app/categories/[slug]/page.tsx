@@ -49,6 +49,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       page={1}
       categoryCounts={categoriesWithCounts(all)}
       totalArticles={all.length}
+      allArticles={all}
     />
   );
 }
