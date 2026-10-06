@@ -171,7 +171,7 @@ export default async function CategoriesIndex() {
             </p>
 
             {/* Stats Counter Bar — Transparent Hairline Cards */}
-            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-3">
               <div className="rounded-2xl border border-neutral-200/80 bg-transparent p-3.5 dark:border-neutral-800">
                 <div className="text-2xl font-black text-primary-600 dark:text-primary-400">{articles.length}</div>
                 <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Tested AU Guides</div>
