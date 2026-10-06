@@ -49,6 +49,7 @@ export type CategoryKey =
   | 'entertainment'
   | 'climate'
   | 'hubs-and-platforms'
+  | 'smart-door-locks'
   | 'robot-vacuums'
   | 'setup-guides'
   | 'buying-guides';
@@ -76,10 +77,20 @@ export const categories: Category[] = [
     name: 'Security & Cameras',
     slug: 'security-and-cameras',
     emoji: '🔒',
-    blurb: 'Cameras, video doorbells, sensors, alarms and locks.',
+    blurb: 'Cameras, video doorbells, sensors and alarms.',
     intro:
-      'Security is where most Australian smart homes start. This section covers indoor and outdoor cameras, video doorbells, motion and door sensors, smart locks and full alarm systems — including the privacy law and strata rules that apply when your camera can see a neighbour or a shared space.',
-    subcategories: ['Video Doorbells', 'Security Cameras', 'Smart Locks', 'Alarm Systems & Sensors'],
+      'Security is where most Australian smart homes start. This section covers indoor and outdoor cameras, video doorbells, motion and door sensors, and full alarm systems — including the privacy law and strata rules that apply when your camera can see a neighbour or a shared space.',
+    subcategories: ['Video Doorbells', 'Security Cameras', 'Alarm Systems & Sensors'],
+  },
+  {
+    key: 'smart-door-locks',
+    name: 'Smart Door Locks',
+    slug: 'smart-door-locks',
+    emoji: '🔐',
+    blurb: 'Keyless entry deadbolts, fingerprint keypads, and smart door locks.',
+    intro:
+      'Smart door locks offer keyless entry, remote access, guest PIN codes, and HomeKey integration for Australian homes. This section covers retrofit deadbolts, mortise locks, keypads, and smart lock installation on timber and aluminium doors.',
+    subcategories: ['Keypad Locks', 'Biometric Locks', 'HomeKey Locks', 'Retrofit Locks'],
   },
   {
     key: 'lighting',

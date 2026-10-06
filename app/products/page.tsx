@@ -71,6 +71,11 @@ const CATEGORY_CARDS = [
     ],
   },
   {
+    slug: 'smart-door-locks', emoji: '🔐', name: 'Smart Door Locks',
+    body: 'Keyless entry deadbolts, fingerprint keypads, and Apple HomeKey locks. Make sure to check door backset and Australian mortise compatibility.',
+    links: [{ href: '/security-and-cameras/smart-lock-compatibility-australian-doors/', label: 'Smart Lock Compatibility for AU Doors' }],
+  },
+  {
     slug: 'lighting', emoji: '💡', name: 'Lighting',
     body: 'Bulbs, lightstrips and switches. Check the fitting before anything else; Australian homes are mostly B22 bayonet, not E27 screw.',
     links: [{ href: '/lighting/smart-bulbs-vs-smart-switches-australia/', label: 'Smart Bulbs vs Smart Switches' }],

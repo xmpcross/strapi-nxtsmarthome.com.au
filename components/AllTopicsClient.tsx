@@ -29,18 +29,25 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
   const [viewMode, setViewMode] = useState<'grid' | 'list' | 'categorized'>('grid');
   const [visibleCount, setVisibleCount] = useState(12);
 
-  // Extract all unique subcategories across all topics
+  // Filter out hidden categories like robot-vacuums
+  const activeCategories = useMemo(() => {
+    return categories.filter(
+      (cat) => cat.handle !== 'robot-vacuums' && cat.handle !== 'robot-vacuum'
+    );
+  }, [categories]);
+
+  // Extract all unique subcategories across all active topics
   const allSubcategories = useMemo(() => {
     const tags = new Set<string>();
-    categories.forEach((cat) => {
+    activeCategories.forEach((cat) => {
       cat.subcategories?.forEach((sub) => tags.add(sub));
     });
     return Array.from(tags).sort();
-  }, [categories]);
+  }, [activeCategories]);
 
   // Filter categories based on search & tag
   const filteredCategories = useMemo(() => {
-    return categories.filter((cat) => {
+    return activeCategories.filter((cat) => {
       const matchesSearch =
         searchQuery === '' ||
         cat.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -56,7 +63,7 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
 
       return matchesSearch && matchesTag && matchesCategoryFilter;
     });
-  }, [categories, searchQuery, selectedTag, selectedCategory]);
+  }, [activeCategories, searchQuery, selectedTag, selectedCategory]);
 
   // Filter & sort posts based on search, selected category, and selected tag
   const filteredPosts = useMemo(() => {
@@ -103,7 +110,7 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
   // Group posts by category for 'categorized' view
   const postsByCategory = useMemo(() => {
     const map = new Map<string, { category: TopicCategoryData; items: TPost[] }>();
-    categories.forEach((cat) => {
+    activeCategories.forEach((cat) => {
       map.set(cat.handle, { category: cat, items: [] });
     });
 
@@ -119,7 +126,7 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
     });
 
     return Array.from(map.values()).filter((group) => group.items.length > 0);
-  }, [categories, filteredPosts]);
+  }, [activeCategories, filteredPosts]);
 
   const displayedPosts = filteredPosts.slice(0, visibleCount);
 
@@ -259,7 +266,7 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
               All Articles ({posts.length})
             </button>
 
-            {categories.map((cat) => (
+            {activeCategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => {
@@ -384,7 +391,7 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white flex items-center gap-2">
               <span>
                 {selectedCategory
-                  ? categories.find((c) => c.handle === selectedCategory)?.name || 'Category'
+                  ? activeCategories.find((c) => c.handle === selectedCategory)?.name || 'Category'
                   : 'All Published Guides & Articles'}
               </span>
               <span className="text-xs font-bold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/60 px-2.5 py-0.5 rounded-full border border-primary-500/20">

@@ -11,10 +11,10 @@ import { getCategory, site } from '@/lib/site';
 import Link from 'next/link';
 
 const DESCRIPTION =
-  'Browse smart home guides and reviews by topic — security, lighting, energy, climate, hubs and platforms, robot vacuums, setup guides and buying guides.';
+  'Browse Australian smart home guides, reviews and setup advice by topic — security cameras, smart lighting, climate control, home hubs, Matter & Thread protocols, setup and buying guides.';
 
 export const metadata: Metadata = {
-  title: 'Topics & Categories — NXT Smart Home AU',
+  title: 'Smart Home Topics & Categories — NXT Smart Home AU',
   description: DESCRIPTION,
   alternates: { canonical: '/all-topics/' },
 };
@@ -26,7 +26,7 @@ export default async function CategoriesIndex() {
   const articles = await getAllArticles();
   const allPosts = articles.map(toTPost);
   const rawCats = await getCategories();
-  const cats = rawCats.filter((c) => c.count > 0);
+  const cats = rawCats.filter((c) => c.count > 0 && c.handle !== 'robot-vacuums' && c.handle !== 'robot-vacuum');
   const withProducts = new Set(getListableTopProducts().map((p) => p.categorySlug));
 
   const topicData: TopicCategoryData[] = cats.map((c) => {
