@@ -27,7 +27,7 @@ export interface LogoProps {
  */
 const Logo: React.FC<LogoProps> = ({
   className,
-  size = 'size-9 sm:size-10',
+  size = 'size-11 sm:size-12',
   alwaysShowWordmark = false,
   theme = 'auto',
   slogan = "AUSTRALIA'S SMART HOME GUIDE",
@@ -58,7 +58,7 @@ const Logo: React.FC<LogoProps> = ({
       >
         <span
           className={clsx(
-            'font-logo text-[1.35rem] sm:text-[1.5rem] font-black tracking-tight',
+            'font-logo text-[1.35rem] sm:text-[1.5rem] font-black tracking-tight whitespace-nowrap',
             theme === 'auto' && 'text-neutral-900 dark:text-white',
             theme === 'light' && 'text-neutral-900',
             theme === 'dark' && 'text-white'
@@ -79,7 +79,7 @@ const Logo: React.FC<LogoProps> = ({
         {showSlogan && (
           <span
             className={clsx(
-              'font-logo text-[9px] sm:text-[10px] font-extrabold tracking-[0.18em] uppercase mt-1 leading-none',
+              'font-logo text-[7.5px] sm:text-[8px] font-extrabold tracking-[0px] uppercase mt-0.5 leading-none w-full flex justify-between',
               theme === 'auto' && 'text-neutral-500 dark:text-neutral-400',
               theme === 'light' && 'text-neutral-500',
               theme === 'dark' && 'text-neutral-400'

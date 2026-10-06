@@ -115,7 +115,7 @@ export const categories: Category[] = [
     name: 'Energy & Solar',
     slug: 'energy-and-solar',
     emoji: '⚡',
-    icon3d: '/images/category-3d/smart-energy.png',
+    icon3d: '/images/category-3d/smart-plug.png',
     iconSvg: '/images/icons/home-automation-7984119.svg',
     blurb: 'Smart plugs, energy monitoring, solar and load shifting.',
     intro:
@@ -139,7 +139,7 @@ export const categories: Category[] = [
     name: 'Climate & Comfort',
     slug: 'climate-and-comfort',
     emoji: '🌡️',
-    icon3d: '/images/category-3d/smart-energy.png',
+    icon3d: '/images/category-3d/smart-thermostat.png',
     iconSvg: '/images/icons/smarthome-7984136.svg',
     blurb: 'Air conditioning, heating, fans, sensors and air quality.',
     intro:
