@@ -17,7 +17,10 @@ function lowestPrice(product: TopProduct): number | undefined {
 }
 
 export default function ProductCard({ product, rank }: Props) {
-  const topRetailers = (product.retailers || []).slice(0, 2);
+  const retailersWithPrices = (product.retailers || []).filter(
+    (r) => typeof r.priceAud === 'number' && r.priceAud > 0
+  );
+  const topRetailers = (retailersWithPrices.length ? retailersWithPrices : product.retailers || []).slice(0, 2);
   const primaryRetailer = product.retailers?.find((r) => r.primary) || product.retailers?.[0];
   const lowest = lowestPrice(product);
 
@@ -63,7 +66,7 @@ export default function ProductCard({ product, rank }: Props) {
         </Link>
 
         {/* Title */}
-        <h3 className="mb-2 text-base font-bold text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors line-clamp-2">
+        <h3 className="mb-2 text-base font-bold text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors line-clamp-1">
           <Link href={`/products/${product.slug}/`}>
             {product.brand ? `${product.brand} ` : ''}{product.name}
           </Link>

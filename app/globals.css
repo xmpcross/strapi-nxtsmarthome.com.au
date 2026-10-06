@@ -1625,3 +1625,50 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 0;
   margin-right: 0;
 }
+
+/* Global Button Spacing Fix: equal top and bottom, left and right spacing */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.625rem;    /* Equal top: 10px */
+  padding-bottom: 0.625rem; /* Equal bottom: 10px */
+  padding-left: 1.25rem;    /* Equal left: 20px */
+  padding-right: 1.25rem;   /* Equal right: 20px */
+  box-sizing: border-box;
+}
+
+.btn-sm {
+  padding-top: 0.5rem;      /* Equal top: 8px */
+  padding-bottom: 0.5rem;   /* Equal bottom: 8px */
+  padding-left: 1rem;       /* Equal left: 16px */
+  padding-right: 1rem;      /* Equal right: 16px */
+}
+
+.btn-xs {
+  padding-top: 0.375rem;    /* Equal top: 6px */
+  padding-bottom: 0.375rem; /* Equal bottom: 6px */
+  padding-left: 0.75rem;    /* Equal left: 12px */
+  padding-right: 0.75rem;   /* Equal right: 12px */
+}
+
+.btn-lg {
+  padding-top: 0.75rem;     /* Equal top: 12px */
+  padding-bottom: 0.75rem;  /* Equal bottom: 12px */
+  padding-left: 1.5rem;     /* Equal left: 24px */
+  padding-right: 1.5rem;    /* Equal right: 24px */
+}
+
+.btn-circle {
+  padding: 0 !important;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.btn-circle.btn-xs {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.btn-circle.btn-sm {
+  width: 2rem;
+  height: 2rem;
+}
