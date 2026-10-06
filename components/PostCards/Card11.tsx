@@ -16,9 +16,11 @@ interface Props {
   post: TPost
   ratio?: string
   hiddenAuthor?: boolean
+  /** Hide the category badge, e.g. on a category page where every card shares it. */
+  hideCategory?: boolean
 }
 
-const Card11: FC<Props> = ({ className, post, hiddenAuthor = false, ratio = 'aspect-4/3' }) => {
+const Card11: FC<Props> = ({ className, post, hiddenAuthor = false, hideCategory = false, ratio = 'aspect-4/3' }) => {
   const { title, handle, categories, date, likeCount, liked, commentCount, readingTime, bookmarked } = post
 
   const [isHover, setIsHover] = useState(false)
@@ -32,9 +34,11 @@ const Card11: FC<Props> = ({ className, post, hiddenAuthor = false, ratio = 'asp
       <div className={clsx('relative w-full shrink-0 overflow-hidden rounded-t-3xl', ratio)}>
         <PostFeaturedMedia post={post} isHover={isHover} />
       </div>
-      <div className="absolute inset-x-3 top-3">
-        <CategoryBadgeList categories={categories} />
-      </div>
+      {hideCategory ? null : (
+        <div className="absolute inset-x-3 top-3">
+          <CategoryBadgeList categories={categories} />
+        </div>
+      )}
 
       <div className="flex grow flex-col gap-y-3 rounded-b-3xl border p-4">
         {!hiddenAuthor ? <PostCardMeta meta={post} /> : <span className="text-xs text-neutral-500">{date}</span>}

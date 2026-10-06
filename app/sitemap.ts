@@ -59,12 +59,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: page.changeFrequency,
       priority: page.priority,
     })),
-    ...categories.map((category) => ({
-      url: `${site.url}/categories/${category.slug}/`,
-      lastModified: newest,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    })),
+    // Only categories with something published; an empty one is noindex.
+    ...categories
+      .filter((category) => articles.some((a) => a.category === category.key))
+      .map((category) => ({
+        url: `${site.url}/categories/${category.slug}/`,
+        lastModified: newest,
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      })),
     ...articles.map((article) => ({
       url: `${site.url}${articleHref(article)}`,
       lastModified: new Date(article.updated ?? article.date),

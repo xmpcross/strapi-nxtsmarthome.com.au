@@ -71,7 +71,7 @@ export default function CategoryView({
     ...(lead ? [{ id: 'newest', label: 'Newest' }] : []),
     ...sections.map((section) => ({ id: section.id, label: section.heading, count: section.posts.length })),
     ...(category.overview ? [{ id: 'overview', label: category.overview.heading }] : []),
-    { id: 'products', label: `${category.name} products` },
+    { id: 'products', label: 'Products' },
   ];
 
   return (
@@ -95,11 +95,13 @@ export default function CategoryView({
                 <span className="text-neutral-900 dark:text-white">{category.name}</span>
               </nav>
 
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-3.5 py-1 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-900/40 dark:text-primary-300">
-                <span className="size-2 rounded-full bg-primary-500" />
-                {articles.length} {articles.length === 1 ? 'Guide' : 'Guides'}
-                {page > 1 ? ` · Page ${page}` : ''}
-              </div>
+              {articles.length > 0 ? (
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-3.5 py-1 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-900/40 dark:text-primary-300">
+                  <span className="size-2 rounded-full bg-primary-500" />
+                  {articles.length} {articles.length === 1 ? 'Guide' : 'Guides'}
+                  {page > 1 ? ` · Page ${page}` : ''}
+                </div>
+              ) : null}
 
               <h1 className="text-4xl sm:text-[3rem] font-black tracking-tight leading-[1.1] text-neutral-900 dark:text-white">
                 {category.name}
@@ -199,7 +201,7 @@ export default function CategoryView({
                   {lead && <LeadArticleCard post={lead} className="w-full" />}
                   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {grid.map((article) => (
-                      <Card11 key={article.slug} post={toTPost(article)} />
+                      <Card11 key={article.slug} post={toTPost(article)} hideCategory />
                     ))}
                   </div>
                 </>
@@ -225,35 +227,53 @@ export default function CategoryView({
         ) : (
           /* HUB — this category's posts only, grouped by type */
           <div className="container py-12 lg:py-16">
-            <div className="lg:grid lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-12">
-              <nav aria-label="On this page" className="mb-10 lg:mb-0">
-                <div className="lg:sticky lg:top-24">
-                  <h2 className="mb-3 text-xs font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
-                    On this page
-                  </h2>
-                  <ol className="flex flex-wrap gap-2 lg:flex-col lg:gap-0 lg:border-l lg:border-neutral-200 dark:lg:border-neutral-800">
-                    {contents.map((item) => (
-                      <li key={item.id}>
-                        <a
-                          href={`#${item.id}`}
-                          className="flex items-center justify-between gap-3 rounded-full border border-neutral-200 px-3 py-1 text-sm font-medium text-neutral-600 hover:border-primary-500 hover:text-primary-600 lg:-ml-px lg:rounded-none lg:border-0 lg:border-l-2 lg:border-transparent lg:px-4 lg:py-1.5 lg:hover:border-primary-500 dark:border-neutral-700 dark:text-neutral-300 dark:hover:text-primary-400"
-                        >
-                          <span>{item.label}</span>
-                          {'count' in item ? (
-                            <span className="text-xs text-neutral-400 dark:text-neutral-500">{item.count}</span>
-                          ) : null}
-                        </a>
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              </nav>
+            <div className={articles.length > 0 ? 'lg:grid lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-12' : 'mx-auto max-w-4xl'}>
+              {articles.length > 0 ? (
+                <nav aria-label="On this page" className="mb-10 lg:mb-0">
+                  <div className="lg:sticky lg:top-24">
+                    <h2 className="mb-3 text-xs font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+                      On this page
+                    </h2>
+                    <ol className="flex flex-wrap gap-2 lg:flex-col lg:gap-0 lg:border-l lg:border-neutral-200 dark:lg:border-neutral-800">
+                      {contents.map((item) => (
+                        <li key={item.id}>
+                          <a
+                            href={`#${item.id}`}
+                            className="flex items-center justify-between gap-3 rounded-full border border-neutral-200 px-3 py-1 text-sm font-medium text-neutral-600 hover:border-primary-500 hover:text-primary-600 lg:-ml-px lg:rounded-none lg:border-0 lg:border-l-2 lg:border-transparent lg:px-4 lg:py-1.5 lg:hover:border-primary-500 dark:border-neutral-700 dark:text-neutral-300 dark:hover:text-primary-400"
+                          >
+                            <span>{item.label}</span>
+                            {'count' in item ? (
+                              <span className="text-xs text-neutral-500 dark:text-neutral-400">
+                                {item.count}
+                                <span className="sr-only"> {item.count === 1 ? 'article' : 'articles'}</span>
+                              </span>
+                            ) : null}
+                          </a>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </nav>
+              ) : null}
 
               <div className="min-w-0 space-y-16">
                 {articles.length === 0 ? (
-                  <p className="rounded-2xl border border-dashed border-neutral-300 p-8 text-center text-neutral-500 dark:border-neutral-700">
-                    Nothing published in {category.name} yet — it&apos;s next on the list.
-                  </p>
+                  <div className="rounded-2xl border border-dashed border-neutral-300 p-8 text-center dark:border-neutral-700">
+                    <p className="font-semibold text-neutral-900 dark:text-white">
+                      Nothing published in {category.name} yet. It&apos;s next on the list.
+                    </p>
+                    <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+                      Until then,{' '}
+                      <Link href="/all-topics/" className="font-semibold text-primary-600 hover:underline dark:text-primary-400">
+                        browse every topic
+                      </Link>{' '}
+                      or{' '}
+                      <Link href="/search/" className="font-semibold text-primary-600 hover:underline dark:text-primary-400">
+                        search the guides
+                      </Link>
+                      .
+                    </p>
+                  </div>
                 ) : null}
 
                 {lead ? (
@@ -268,15 +288,16 @@ export default function CategoryView({
                     <div className="border-b border-neutral-200 pb-3 dark:border-neutral-800">
                       <h2 className="text-2xl font-black tracking-tight text-neutral-900 dark:text-white">
                         {section.heading}
-                        <span className="ml-2 align-middle text-sm font-semibold text-neutral-400 dark:text-neutral-500">
+                        <span className="ml-2 align-middle text-sm font-semibold text-neutral-500 dark:text-neutral-400">
                           {section.posts.length}
+                          <span className="sr-only"> {section.posts.length === 1 ? 'article' : 'articles'}</span>
                         </span>
                       </h2>
                       <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">{section.blurb}</p>
                     </div>
                     <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
                       {section.posts.map((article) => (
-                        <Card11 key={article.slug} post={toTPost(article)} />
+                        <Card11 key={article.slug} post={toTPost(article)} hideCategory />
                       ))}
                     </div>
                   </section>
@@ -305,7 +326,9 @@ export default function CategoryView({
                   <div>
                     <h2 className="text-xl font-bold text-neutral-900 dark:text-white">{category.name} products</h2>
                     <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
-                      The devices these guides discuss, with where to buy them in Australia.
+                      {articles.length > 0
+                        ? 'The devices these guides discuss, with where to buy them in Australia.'
+                        : 'Devices in this category, with where to buy them in Australia.'}
                     </p>
                   </div>
                   <Link

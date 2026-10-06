@@ -20,11 +20,17 @@ export async function generateMetadata({
   const { slug } = await params;
   const category = getCategory(slug);
   if (!category) return {};
+  const articles = await getArticlesByCategory(category.key);
 
   return {
-    title: `${category.name} — Guides & Reviews`,
+    // Not "Reviews": the guides are research-based and the site publishes no
+    // reviews (/how-we-test/, PRODUCT.md).
+    title: `${category.name} — Australian Guides & Buying Advice`,
     description: metaDescription(category.intro),
     alternates: { canonical: `/categories/${category.slug}/` },
+    // A category with nothing published is a thin page: keep it out of the
+    // index until its first article lands (it leaves the sitemap too).
+    ...(articles.length === 0 ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
