@@ -79,7 +79,7 @@ const Logo: React.FC<LogoProps> = ({
         {showSlogan && (
           <span
             className={clsx(
-              'font-logo text-[7.5px] sm:text-[8px] font-extrabold tracking-[0px] uppercase mt-0.5 leading-none w-full flex justify-between',
+              'font-logo text-[8.5px] sm:text-[9.5px] font-extrabold tracking-[0.18em] uppercase mt-1 leading-none',
               theme === 'auto' && 'text-neutral-500 dark:text-neutral-400',
               theme === 'light' && 'text-neutral-500',
               theme === 'dark' && 'text-neutral-400'

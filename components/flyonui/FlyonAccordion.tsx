@@ -23,7 +23,7 @@ export default function FlyonAccordion({ items, alwaysOpen = false, columns = 1 
         {items.map((item, index) => (
           <div
             key={item.id || index}
-            className="accordion border-b border-neutral-200 dark:border-neutral-800 py-4 bg-transparent"
+            className="accordion border-b border-neutral-200 dark:border-neutral-800 py-1.5 bg-transparent"
             data-accordion-always-open={alwaysOpen ? 'true' : undefined}
           >
             <div
@@ -31,7 +31,7 @@ export default function FlyonAccordion({ items, alwaysOpen = false, columns = 1 
               id={`accordion-heading-${item.id || index}`}
             >
               <button
-                className="accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 text-left font-medium text-neutral-900 hover:text-primary-600 focus:outline-none dark:text-white dark:hover:text-primary-400"
+                className="accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 text-left font-medium text-neutral-900 hover:text-primary-600 focus:outline-none dark:text-white dark:hover:text-primary-400 py-1"
                 aria-expanded={false}
                 aria-controls={`accordion-content-${item.id || index}`}
               >
@@ -82,11 +82,11 @@ export default function FlyonAccordion({ items, alwaysOpen = false, columns = 1 
       {items.map((item, index) => (
         <div
           key={item.id || index}
-          className="accordion-item border-b border-neutral-200 dark:border-neutral-800 py-4"
+          className="accordion-item border-b border-neutral-200 dark:border-neutral-800 py-1.5"
           id={`accordion-heading-${item.id || index}`}
         >
           <button
-            className="accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 text-left font-medium text-neutral-900 hover:text-primary-600 focus:outline-none dark:text-white dark:hover:text-primary-400"
+            className="accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 text-left font-medium text-neutral-900 hover:text-primary-600 focus:outline-none dark:text-white dark:hover:text-primary-400 py-1"
             aria-expanded={false}
             aria-controls={`accordion-content-${item.id || index}`}
           >

@@ -10,6 +10,8 @@ import { getListableTopProducts } from '@/lib/products';
 import { getCategory, site } from '@/lib/site';
 import Link from 'next/link';
 
+import SmartHomeLottieBanner from '@/components/SmartHomeLottieBanner';
+
 const DESCRIPTION =
   'Browse Australian smart home guides, reviews and setup advice by topic — security cameras, smart lighting, climate control, home hubs, Matter & Thread protocols, setup and buying guides.';
 
@@ -70,6 +72,42 @@ export default async function CategoriesIndex() {
       question: 'What is Matter and Thread, and why does it matter for Australian homes?',
       answer:
         'Matter is the universal smart home standard that lets devices from Apple, Google, Amazon, and Samsung talk to each other locally without cloud latency. Thread is a low-power mesh network protocol that replaces Wi-Fi for sensors and smart locks, making response times instant and immune to internet outages.',
+    },
+    {
+      id: 'neutral-wire',
+      question: 'Do smart light switches in Australia require a neutral wire?',
+      answer:
+        'Most Australian homes built before 2015 do not have a neutral wire at the switch plate. You can either choose "No-Neutral" smart switches (often requiring a bypass capacitor), opt for smart bulbs (Philips Hue, LIFX, Tapo), or install smart inline relays (Shelly, Evvr) behind the switch box or ceiling rose.',
+    },
+    {
+      id: 'home-assistant',
+      question: 'Is Home Assistant worth setting up for an Australian home?',
+      answer:
+        'Home Assistant provides unmatched local control, privacy, and speed. In Australia, it integrates deeply with local rooftop solar systems (Fronius, Enphase, SolarEdge), dynamic spot electricity tariffs (Amber Electric, AGL), reverse-cycle air conditioners (Daikin, Sensibo), and Zigbee/Z-Wave sensors.',
+    },
+    {
+      id: 'zigbee-zwave',
+      question: 'What is the difference between Zigbee, Z-Wave, and Wi-Fi smart devices?',
+      answer:
+        'Wi-Fi devices connect directly to your router without a hub but can crowd 2.4GHz Wi-Fi if you have 30+ devices. Zigbee and Z-Wave create low-power mesh networks where mains-powered devices act as repeaters across multi-storey brick homes. Note that Z-Wave uses Australia\'s specific 921.4MHz frequency band.',
+    },
+    {
+      id: 'smart-locks',
+      question: 'Will smart door locks work with standard Australian mortise locks?',
+      answer:
+        'Australian doors commonly use narrow-stile glass frames or mortise locks (Lockwood, Gainsborough) with euro cylinders, which differ from US deadbolts. Smart locks like the Aqara U200, Eufy Smart Lock C210/C220, or Yale Unity series include retrofittable AU tailpieces and strike plates.',
+    },
+    {
+      id: 'solar-automation',
+      question: 'How can I automate my smart appliances around solar power generation?',
+      answer:
+        'Homes with rooftop solar can maximize self-consumption by running high-draw loads during solar peak hours (10am to 3pm). Using smart power monitoring plugs or Home Assistant automations, you can automatically activate EV chargers, pool pumps, and split-system climate units whenever solar export exceeds your chosen threshold.',
+    },
+    {
+      id: 'privacy-security',
+      question: 'How do I secure my smart home network against security risks?',
+      answer:
+        'Always isolate IoT devices on a dedicated Guest Wi-Fi network or VLAN to isolate them from your primary computers and NAS storage. Disable UPnP on your router, keep device firmware updated, enable 2-Factor Authentication (2FA) on cloud accounts, and prioritize local-first protocols like Matter and Zigbee.',
     },
   ];
 

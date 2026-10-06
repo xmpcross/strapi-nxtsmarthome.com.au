@@ -135,7 +135,7 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
   return (
     <div className="space-y-12">
       {/* 1. TOP INTERACTIVE SEARCH & FILTER CONTROLS */}
-      <div className="relative overflow-hidden rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 dark:border-neutral-800 dark:bg-neutral-900 shadow-sm">
+      <div className="relative bg-transparent p-0 border-none shadow-none">
         
         {/* Main Search & Sort Controls Row */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
@@ -346,17 +346,17 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
               >
                 <div className="space-y-3">
                   <div className="flex items-start justify-between">
-                    <span className="flex size-14 items-center justify-center bg-transparent transition-transform duration-300 group-hover:scale-110">
+                    <span className="flex size-14 items-center justify-center p-0 m-0 bg-transparent shrink-0 transition-transform duration-300 group-hover:scale-110">
                       {c.icon3d ? (
                         <img
                           src={c.icon3d}
                           alt={c.name}
                           width={56}
                           height={56}
-                          className="size-14 object-contain"
+                          className="size-14 object-contain p-0 m-0"
                         />
                       ) : (
-                        <span className="text-3xl">{c.emoji || '⚡'}</span>
+                        <span className="text-3xl p-0 m-0">{c.emoji || '⚡'}</span>
                       )}
                     </span>
                     <span className="rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-extrabold text-primary-700 border border-primary-500/20 dark:bg-primary-950/60 dark:text-primary-300">
