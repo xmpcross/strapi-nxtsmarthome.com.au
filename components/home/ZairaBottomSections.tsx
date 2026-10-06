@@ -634,71 +634,74 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
 
       </div>
 
-      {/* 2. BOTTOM FULL-WIDTH EBAY AUSTRALIA SMART HOME PROMO BANNER */}
-      <section className="relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-slate-950 p-6 sm:p-8 dark:border-neutral-800 shadow-sm group">
-        {/* Ambient Multi-Color Gradient Glows (eBay Brand Colors) */}
-        <div className="absolute -left-16 -top-16 size-72 rounded-full bg-blue-600/15 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
-        <div className="absolute -right-16 -bottom-16 size-72 rounded-full bg-amber-500/15 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
-
-        {/* Minimal SVG Grid Pattern */}
-        <svg
-          className="absolute inset-0 size-full opacity-10 stroke-neutral-400/20"
-          width="100%"
-          height="100%"
-        >
-          <pattern id="ebay-banner-grid" width="28" height="28" patternUnits="userSpaceOnUse">
-            <path d="M0 28V0h28" fill="none" strokeWidth="0.8" />
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#ebay-banner-grid)" />
-        </svg>
-
+      {/* 2. BOTTOM PROMO BANNER (Resized to match top section banner) */}
+      <div className="flex justify-center w-full">
         <a
           href="https://www.ebay.com.au/b/Smart-Home-Devices/185044/bn_7117565452"
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="relative z-10 flex flex-col items-center justify-between gap-6 md:flex-row"
+          className="group relative flex w-full max-w-5xl overflow-hidden rounded-2xl border border-neutral-200/80 bg-slate-950 p-4 sm:p-6 text-white transition-all duration-500 dark:border-neutral-800 hover:border-amber-500/60 hover:shadow-xl hover:shadow-amber-500/10 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
         >
-          {/* Left Block: eBay Logo & Category Information */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left min-w-0 flex-1">
-            {/* Vector eBay Logo Badge */}
-            <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-white p-2.5 shadow-md border border-neutral-200">
-              <svg className="h-full w-auto" viewBox="0 0 100 40">
-                <text x="0" y="30" fontFamily="sans-serif" fontSize="34" fontWeight="900">
-                  <tspan fill="#E53238">e</tspan>
-                  <tspan fill="#0064D2">b</tspan>
-                  <tspan fill="#F5AF02">a</tspan>
-                  <tspan fill="#86B817">y</tspan>
-                </text>
-              </svg>
-            </div>
+          {/* Ambient Multi-Color Gradient Glows */}
+          <div className="absolute -left-16 -top-16 size-72 rounded-full bg-blue-600/15 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
+          <div className="absolute -right-16 -bottom-16 size-72 rounded-full bg-amber-500/15 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
 
-            <div className="space-y-1.5 min-w-0">
-              <div className="flex items-center justify-center sm:justify-start gap-2">
-                <span className="rounded bg-white/10 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-white backdrop-blur-xs">
-                  eBay Australia
-                </span>
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-400">
+          {/* Minimal SVG Grid Pattern */}
+          <svg
+            className="absolute inset-0 size-full opacity-10 stroke-neutral-400/20"
+            width="100%"
+            height="100%"
+          >
+            <pattern id="ebay-banner-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+              <path d="M0 28V0h28" fill="none" strokeWidth="0.8" />
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#ebay-banner-grid)" />
+          </svg>
+
+          {/* Top Right "Sponsored" Badge */}
+          <div className="absolute top-2.5 right-3 z-20 flex items-center gap-2">
+            <span className="rounded bg-black/40 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-neutral-300 backdrop-blur-md border border-white/10">
+              Sponsored
+            </span>
+          </div>
+
+          <div className="relative z-10 flex size-full flex-col justify-between gap-4 sm:flex-row sm:items-center">
+            {/* Left Block: eBay Logo & Category Info */}
+            <div className="space-y-2 max-w-lg">
+              <div className="flex items-center gap-2.5">
+                <div className="flex items-center text-amber-400 h-5 w-auto">
+                  <svg className="h-5 w-auto" viewBox="0 0 100 30">
+                    <text x="0" y="24" fontFamily="sans-serif" fontSize="24" fontWeight="900">
+                      <tspan fill="#E53238">e</tspan>
+                      <tspan fill="#0064D2">b</tspan>
+                      <tspan fill="#F5AF02">a</tspan>
+                      <tspan fill="#86B817">y</tspan>
+                    </text>
+                  </svg>
+                </div>
+                <span className="h-3.5 w-px bg-neutral-700" />
+                <span className="text-[11px] font-extrabold uppercase tracking-widest text-amber-400">
                   Retail Deals
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-amber-300 transition-colors">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold tracking-tight text-white group-hover:text-amber-300 transition-colors duration-300 leading-snug">
                 Find Smart Home Tech Deals on eBay AU
               </h3>
 
-              <p className="max-w-xl text-xs sm:text-sm leading-relaxed text-neutral-300 line-clamp-2">
-                Shop verified Australian sellers offering Smart Locks, Security Cameras, Matter Hubs & Sensors with local delivery and Australian warranty.
+              <p className="text-xs text-neutral-300 line-clamp-1 sm:line-clamp-2 leading-relaxed">
+                Shop verified Australian sellers offering Smart Locks, Cameras, Matter Hubs & Sensors with local delivery.
               </p>
             </div>
-          </div>
 
-          {/* Right Action Button */}
-          <div className="shrink-0 flex items-center gap-2 rounded-xl bg-amber-500 px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-neutral-950 shadow-lg transition-all duration-300 group-hover:bg-amber-400 group-hover:scale-105">
-            <span>Shop eBay AU Smart Home</span>
-            <svg className="size-4 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            {/* Right Action Button */}
+            <div className="flex items-center gap-2 rounded-xl bg-amber-500 px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-neutral-950 transition-all duration-300 group-hover:bg-amber-400 group-hover:shadow-lg group-hover:shadow-amber-500/25 shrink-0">
+              <span>Shop eBay AU</span>
+              <svg className="size-4 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
           </div>
         </a>
-      </section>
+      </div>
 
       {/* 3. NEW BOTTOM 2-COLUMN SECTION UNDER THE BANNER */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
