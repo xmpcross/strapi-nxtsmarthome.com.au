@@ -5,7 +5,7 @@ import { getAllArticles } from '@/lib/content'
 import { site } from '@/lib/site'
 import type { Metadata } from 'next'
 import JsonLd from '@/components/JsonLd'
-import { HomeFaq, HomeHero, HomeSetupGuides, HomeProducts, HomeTopicSection, HomeTopics } from '@/components/home/HomeSections'
+import { HomeFaq, HomeHero, HomeProducts, HomeTopicSection, HomeTopics } from '@/components/home/HomeSections'
 import { getListableTopProducts, toListingCard } from '@/lib/products'
 
 // Home page on the Ncmaz "Home Demo 5" layout, filled from Strapi and
@@ -49,7 +49,7 @@ export default async function HomePage() {
   const firstTopic = topics.find((c) => c.handle === 'entertainment-and-audio')
   // Topics with no section of their own on the home page (user request, 24 Sep
   // 2026). They still appear in "Browse by topic" and on /all-topics/.
-  const HIDDEN_SECTIONS = new Set(['security-and-cameras', 'climate-and-comfort', 'robot-vacuums', 'energy-and-solar', 'lighting', 'hubs-and-platforms'])
+  const HIDDEN_SECTIONS = new Set(['setup-guides', 'security-and-cameras', 'climate-and-comfort', 'robot-vacuums', 'energy-and-solar', 'lighting', 'hubs-and-platforms'])
   const sectionTopics = [
     ...(firstTopic ? [firstTopic] : []),
     ...topics.filter((c) => c !== firstTopic && !HIDDEN_SECTIONS.has(c.handle)),
@@ -75,18 +75,6 @@ export default async function HomePage() {
 
   const renderTopic = (category: TCategory, i: number) => {
     const posts = category.posts ?? []
-    // Setup Guides has its own list design (components/home/HomeSections.tsx).
-    if (category.handle === 'setup-guides')
-      return (
-        <HomeSetupGuides
-          key={category.id}
-          heading={category.name}
-          subHeading={category.description}
-          posts={posts.slice(0, 8)}
-          moreHref={`/categories/${category.handle}/`}
-          moreLabel={`All ${category.name}`}
-        />
-      )
     return <HomeTopicSection key={category.id} category={category} posts={posts} flip={i % 2 === 1} />
   }
 
