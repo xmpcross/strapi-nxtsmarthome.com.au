@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import ProductGrid from '@/components/ProductGrid';
 import { articleHref, getAllArticles } from '@/lib/content';
-import { getListableTopProducts, isIndexableProduct, toListingCard } from '@/lib/products';
+import { getShoppableTopProducts, isIndexableProduct, toListingCard } from '@/lib/products';
 import { categories, getCategory } from '@/lib/site';
 
 export async function generateStaticParams() {
@@ -21,7 +21,7 @@ export async function generateMetadata({
 
   // A category page listing no indexable product is a page of price listings:
   // noindex, follow (AdSense Task 2).
-  const indexableHere = getListableTopProducts().filter(
+  const indexableHere = getShoppableTopProducts().filter(
     (p) => p.categorySlug === category.slug && isIndexableProduct(p),
   ).length;
 
@@ -44,7 +44,7 @@ export default async function CategoryProductsPage({
 
   // Empty listings (under 50 words of our own text) are never listed; their
   // pages still resolve (lib/products.ts isEmptyListing).
-  const allProducts = getListableTopProducts();
+  const allProducts = getShoppableTopProducts();
   const inCategory = allProducts.filter((p) => p.categorySlug === category.slug).length;
   const heading = `Best ${category.name} in Australia`;
   // Newest real articles in this category: the buying context for the grid above.

@@ -11,7 +11,7 @@ import RetailerPriceTable from '@/components/RetailerPriceTable';
 import JsonLd from '@/components/JsonLd';
 import { bulletsOf } from '@/lib/bullets';
 import { AFFILIATE_ENABLED } from '@/lib/affiliate';
-import { getAllProducts, getAllTopProducts, getCuratedProduct, getListableTopProducts, getProductBySlug, getTopProductBySlug, isIndexableProduct } from '@/lib/products';
+import { getAllProducts, getAllTopProducts, getCuratedProduct, getProductBySlug, getShoppableTopProducts, getTopProductBySlug, isIndexableProduct } from '@/lib/products';
 import ProductEditorial from '@/components/ProductEditorial';
 import { breadcrumbJsonLd, productJsonLd } from '@/lib/seo';
 import { retailerReviews } from '@/lib/review-sources';
@@ -75,7 +75,7 @@ export default async function ProductDetailPage({
   const baseSlug = (s: string) => s.replace(/-(pro|ultra|gen-\d+)$/, '');
   const thisBase = baseSlug(product.slug);
   // Empty listings are never linked (lib/products.ts isEmptyListing).
-  const pool = getListableTopProducts().filter((p) => baseSlug(p.slug) !== thisBase);
+  const pool = getShoppableTopProducts().filter((p) => baseSlug(p.slug) !== thisBase);
   const sameSubCategory = product.subCategory
     ? pool.filter((p) => p.subCategory === product.subCategory)
     : [];

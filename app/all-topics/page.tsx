@@ -6,7 +6,7 @@ import { getCategories } from '@/data/categories';
 import { toTPost } from '@/data/posts';
 import { getAllArticles } from '@/lib/content';
 import { breadcrumbJsonLd } from '@/lib/seo';
-import { getListableTopProducts } from '@/lib/products';
+import { getShoppableTopProducts } from '@/lib/products';
 import { getCategory, site } from '@/lib/site';
 import Link from 'next/link';
 
@@ -29,7 +29,7 @@ export default async function CategoriesIndex() {
   const allPosts = articles.map(toTPost);
   const rawCats = await getCategories();
   const cats = rawCats.filter((c) => c.count > 0 && c.handle !== 'robot-vacuums' && c.handle !== 'robot-vacuum');
-  const withProducts = new Set(getListableTopProducts().map((p) => p.categorySlug));
+  const withProducts = new Set(getShoppableTopProducts().map((p) => p.categorySlug));
 
   const topicData: TopicCategoryData[] = cats.map((c) => {
     const meta = getCategory(c.handle);

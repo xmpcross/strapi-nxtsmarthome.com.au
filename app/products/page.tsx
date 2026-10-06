@@ -1,21 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import CategoryCarousel from '@/components/CategoryCarousel';
 import FaqAccordion from '@/components/FaqAccordion';
 import JsonLd from '@/components/JsonLd';
-import PageHeader from '@/components/PageHeader';
 import ProductGrid from '@/components/ProductGrid';
-import { getIndexableTopProducts, getListableTopProducts, toListingCard } from '@/lib/products';
+import { getIndexableTopProducts, getShoppableTopProducts, toListingCard } from '@/lib/products';
 import { faqJsonLd } from '@/lib/seo';
 import { categories, site } from '@/lib/site';
 import { getNav } from '@/lib/nav';
 
-const TITLE = 'Compare Smart Home Devices in Australia';
+const TITLE = 'Smart Home Devices for Australian Homes';
 const DESCRIPTION =
-  // 157 chars. Your draft ran 166; dropping "and energy" left 162, so "sold"
-  // goes too — it was the only word that could leave without losing a category
-  // or a retailer.
-  'Compare smart home devices in Australia — cameras, robot vacuums, lighting, hubs and climate — with links to Amazon AU, JB Hi-Fi, The Good Guys and Bunnings.';
+  // 154 chars, no "Compare" (user request, 6 Oct 2026).
+  'Smart home devices sold in Australia — cameras, robot vacuums, lighting, hubs and climate — with links to Amazon AU, JB Hi-Fi, The Good Guys and Bunnings.';
 
 export const metadata: Metadata = {
   title: `${TITLE} | NXT Smart Home`,
@@ -179,7 +175,7 @@ export default function ProductsPage() {
   const { productCategoryNavLinks } = getNav();
 
   // Empty listings are never listed; their pages still resolve (isEmptyListing).
-  const products = getListableTopProducts();
+  const products = getShoppableTopProducts();
 
   /*
     {{DATE}} in the draft copy. Derived from the newest pricesCheckedAt in the
@@ -199,115 +195,183 @@ export default function ProductsPage() {
       })
     : null;
 
+  // Priced products per category, for the category cards.
+  const countBySlug = new Map<string, number>();
+  for (const p of products) countBySlug.set(p.categorySlug, (countBySlug.get(p.categorySlug) ?? 0) + 1);
+
   return (
     <main className="container py-10 lg:py-16">
-      <PageHeader
-        eyebrow="Product catalogue"
-        title="Compare smart home devices in Australia"
-        intro="Every device here is sold in Australia, runs on 230V power, and is stocked by at least one local retailer with Australian warranty support. We link you to the retailer to check the current price, because prices move daily. Order is based on what we'd recommend, not on what pays us the most."
-        // h1 at 2.5rem; description full width at 1rem (user requests, 24 Sep 2026).
-        // text-[1rem]! beats PageHeader's md:text-lg default.
-        titleClassName="text-[2.5rem] leading-tight"
-        introClassName="max-w-none text-[1rem]!"
-      />
+      {/* Hero — two columns, matches /all-topics/ and the category hubs */}
+      <header className="grid items-center gap-10 lg:grid-cols-2">
+        <div className="space-y-5">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-neutral-500 dark:text-neutral-400">
+            <Link href="/" className="hover:text-neutral-900 dark:hover:text-white">Home</Link>
+            <span aria-hidden="true">/</span>
+            <span className="text-neutral-900 dark:text-white">Products</span>
+          </nav>
 
-      <p className="text-sm text-neutral-700 sm:text-base dark:text-neutral-300">
-        New to this? Two things save the most money: picking your platform before you buy anything, and knowing which
-        devices you can install yourself.
-      </p>
-      <div className="mt-4 mb-10 grid gap-4 sm:grid-cols-2 lg:gap-6">
-        {START_HERE.map((item, idx) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="group rounded-2xl border border-primary-200 bg-primary-50 p-6 transition hover:-translate-y-0.5 hover:shadow-lg dark:border-primary-900 dark:bg-primary-950/40"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold tracking-wider text-primary-600 uppercase dark:text-primary-400">
-                {idx === 0 ? 'Starter guide' : 'Platform choice'}
-              </span>
-              <span className="text-xs font-medium text-neutral-500 transition-transform group-hover:translate-x-1">
-                Read →
-              </span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-50 px-3.5 py-1 text-xs font-bold text-primary-700 dark:border-primary-500/40 dark:bg-primary-900/40 dark:text-primary-300">
+            <span className="size-2 rounded-full bg-primary-500" />
+            Product catalogue
+          </div>
+
+          <h1 className="text-4xl sm:text-[3rem] font-black tracking-tight leading-[1.1] text-neutral-900 dark:text-white">
+            Smart home devices{' '}
+            <span className="bg-gradient-to-r from-primary-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent dark:from-primary-400 dark:via-indigo-300 dark:to-purple-400">
+              for Australian homes.
+            </span>
+          </h1>
+
+          <p className="max-w-2xl text-base font-medium leading-relaxed text-neutral-600 dark:text-neutral-300">
+            Every device here is sold in Australia, runs on 230V power, and is stocked by at least one local retailer
+            with Australian warranty support. We link you to the retailer to check the current price, because prices
+            move daily. Order is based on what we&apos;d recommend, not on what pays us the most.
+          </p>
+
+          <dl className="grid max-w-md grid-cols-2 gap-3 pt-1">
+            <div className="rounded-2xl border border-neutral-200/80 flex flex-col-reverse p-3.5 dark:border-neutral-800">
+              <dt className="mt-0.5 text-xs font-semibold text-neutral-500 dark:text-neutral-400">Devices listed</dt>
+              <dd className="text-2xl font-black text-primary-600 dark:text-primary-400">{products.length}</dd>
             </div>
-            <h3 className="mt-2 text-lg leading-snug font-bold text-neutral-900 dark:text-white">{item.label}</h3>
-          </Link>
-        ))}
-      </div>
-
-      {/* Category chips. Names only, kept on one row — it is a shortcut to the
-          seven category pages, not a second navigation system. Scrolls
-          horizontally on narrow screens rather than wrapping into a block that
-          competes with the grid below it. */}
-      <nav aria-label="Product categories" className="-mx-4 mb-5 px-4 sm:mx-0 sm:px-0">
-        <ul className="flex gap-2 overflow-x-auto pb-1 scrollbar-none [&::-webkit-scrollbar]:hidden">
-          {productCategoryNavLinks.map((cat) => (
-            <li key={cat.href} className="shrink-0">
-              <Link
-                href={cat.href}
-                className="inline-block whitespace-nowrap rounded-full border border-neutral-300 bg-white px-4 py-1.5 text-sm font-medium text-neutral-700 transition hover:border-primary-500 hover:text-primary-700 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:border-primary-400 dark:hover:text-primary-400"
-              >
-                {cat.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <ProductGrid products={products.map(toListingCard)} categoriesList={categories} pageSize={6} showCounts={false} />
-
-      {/* What to check — the Australia-specific traps, ordered by cost of error. */}
-      <section className="mt-24">
-        <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
-          Australia only
-        </span>
-        <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">
-          What to check before you buy in Australia
-        </h2>
-
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {CHECKS.map((item, i) => (
-            <div key={item.label} className="rounded-2xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
-              <div className="flex items-baseline gap-3">
-                <span
-                  aria-hidden="true"
-                  className="text-2xl font-bold leading-none text-primary-600 dark:text-primary-400"
-                >
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className="text-base font-bold text-neutral-900 dark:text-white">{item.label}</h3>
-              </div>
-              <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
-                {item.body}
-              </p>
-              {item.link ? (
-                <Link
-                  href={item.link.href}
-                  className="mt-2 inline-block text-sm font-medium text-primary-700 hover:underline dark:text-primary-400"
-                >
-                  → {item.link.label}
-                </Link>
-              ) : null}
+            <div className="rounded-2xl border border-neutral-200/80 flex flex-col-reverse p-3.5 dark:border-neutral-800">
+              <dt className="mt-0.5 text-xs font-semibold text-neutral-500 dark:text-neutral-400">Categories</dt>
+              <dd className="text-2xl font-black text-primary-600 dark:text-primary-400">{countBySlug.size}</dd>
             </div>
-          ))}
+          </dl>
+          {checkedLabel ? (
+            <p className="text-xs text-neutral-500 dark:text-neutral-400">Prices last checked {checkedLabel}.</p>
+          ) : null}
         </div>
+
+        <aside className="relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-gradient-to-br from-primary-50/60 via-white to-purple-50/40 p-6 sm:p-8 dark:border-neutral-800 dark:from-neutral-900/80 dark:via-neutral-900 dark:to-neutral-950">
+          <div className="pointer-events-none absolute -right-16 -top-16 size-60 rounded-full bg-primary-500/15 blur-3xl dark:bg-primary-500/25" />
+          <div className="relative space-y-4">
+            <h2 className="text-lg font-bold text-neutral-900 dark:text-white">New here? Start with these</h2>
+            <p className="text-sm text-neutral-600 dark:text-neutral-300">
+              Two things save the most money: picking your platform before you buy anything, and knowing which devices
+              you can install yourself.
+            </p>
+            {START_HERE.map((item, idx) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group block rounded-2xl border border-neutral-200 bg-white/80 p-5 transition hover:-translate-y-0.5 hover:border-primary-500 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800/70"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold tracking-wider text-primary-600 uppercase dark:text-primary-400">
+                    {idx === 0 ? 'Starter guide' : 'Platform choice'}
+                  </span>
+                  <span className="text-xs font-medium text-neutral-500 transition-transform group-hover:translate-x-1">
+                    Read →
+                  </span>
+                </div>
+                <h3 className="mt-2 text-base leading-snug font-bold text-neutral-900 dark:text-white">{item.label}</h3>
+              </Link>
+            ))}
+          </div>
+        </aside>
+      </header>
+
+      {/* Category chips + the grid. Chips are a shortcut to the category pages,
+          kept on one row and scrolling on narrow screens. */}
+      <section aria-label="Products" className="mt-16">
+        <nav aria-label="Product categories" className="-mx-4 mb-6 border-y border-neutral-200 px-4 py-4 sm:mx-0 sm:px-0 dark:border-neutral-800">
+          <ul className="flex gap-2 overflow-x-auto pb-1 scrollbar-none [&::-webkit-scrollbar]:hidden">
+            {productCategoryNavLinks.map((cat) => (
+              <li key={cat.href} className="shrink-0">
+                <Link
+                  href={cat.href}
+                  className="inline-block whitespace-nowrap rounded-full border border-neutral-300 px-4 py-1.5 text-sm font-medium text-neutral-700 transition hover:border-primary-500 hover:text-primary-700 dark:border-neutral-600 dark:text-neutral-200 dark:hover:border-primary-400 dark:hover:text-primary-400"
+                >
+                  {cat.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <ProductGrid products={products.map(toListingCard)} categoriesList={categories} pageSize={6} showCounts={false} />
       </section>
 
-      {/* Browse by category — auto-advancing cards. */}
+      {/* Browse by category — one card per category, 3D icon + real counts. */}
       <section className="mt-24">
         <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
           Categories
         </span>
-        <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">
-          Browse by category
-        </h2>
-        <div className="mt-8">
-          <CategoryCarousel
-            cards={CATEGORY_CARDS.map((c) => ({
-              ...c,
-            }))}
-          />
+        <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">Browse by category</h2>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {CATEGORY_CARDS.map((card) => {
+            const meta = categories.find((c) => c.slug === card.slug);
+            const count = countBySlug.get(card.slug) ?? 0;
+            return (
+              <div
+                key={card.slug}
+                className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition hover:border-primary-500 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-primary-400"
+              >
+                <div className="flex items-start justify-between">
+                  {meta?.icon3d ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={meta.icon3d} alt="" width={48} height={48} className="size-12 object-contain" />
+                  ) : (
+                    <span className="text-3xl" aria-hidden="true">{card.emoji}</span>
+                  )}
+                  {count ? (
+                    <span className="rounded-full border border-primary-500/20 bg-primary-50 px-2.5 py-0.5 text-xs font-bold text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+                      {count} {count === 1 ? 'device' : 'devices'}
+                    </span>
+                  ) : null}
+                </div>
+                <h3 className="mt-4 text-base font-bold text-neutral-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400">
+                  <Link href={`/products/category/${card.slug}/`}>{card.name}</Link>
+                </h3>
+                <p className="mt-1 flex-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{card.body}</p>
+                <ul className="mt-4 space-y-1 border-t border-neutral-100 pt-3 dark:border-neutral-800">
+                  {card.links.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-xs font-medium text-primary-700 hover:underline dark:text-primary-400">
+                        → {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
+      </section>
+
+      {/* What to check — the Australia-specific traps, ordered by cost of error. */}
+      <section className="mt-24 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+        <div>
+          <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
+            Australia only
+          </span>
+          <h2 className="mt-2 text-[2rem] leading-tight font-bold text-neutral-900 dark:text-white">
+            What to check before you buy in Australia
+          </h2>
+          <p className="mt-3 text-sm text-neutral-600 dark:text-neutral-300">Ordered by how expensive the mistake is.</p>
+        </div>
+        <ol className="divide-y divide-neutral-200 border-y border-neutral-200 dark:divide-neutral-800 dark:border-neutral-800">
+          {CHECKS.map((item, i) => (
+            <li key={item.label} className="grid grid-cols-[3rem_minmax(0,1fr)] gap-2 py-5">
+              <span aria-hidden="true" className="text-2xl font-black leading-none text-primary-600 dark:text-primary-400">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div>
+                <h3 className="text-base font-bold text-neutral-900 dark:text-white">{item.label}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{item.body}</p>
+                {item.link ? (
+                  <Link
+                    href={item.link.href}
+                    className="mt-2 inline-block text-sm font-medium text-primary-700 hover:underline dark:text-primary-400"
+                  >
+                    → {item.link.label}
+                  </Link>
+                ) : null}
+              </div>
+            </li>
+          ))}
+        </ol>
       </section>
 
       {/*
@@ -316,7 +380,7 @@ export default function ProductsPage() {
         two more things to scroll past. Stacks below lg, where two columns
         would leave the FAQ answers too narrow to read.
       */}
-      <section className="mt-24 grid gap-x-12 gap-y-12 rounded-3xl bg-primary-50 px-6 py-10 sm:px-10 lg:grid-cols-2 lg:px-14 lg:py-14 dark:bg-primary-950/40">
+      <section className="mt-24 grid gap-x-12 gap-y-12 rounded-3xl bg-primary-50 px-6 py-10 sm:px-10 lg:grid-cols-2 lg:px-14 lg:py-14 dark:bg-primary-900/20">
         <div>
           <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 dark:text-primary-400">
             Transparency

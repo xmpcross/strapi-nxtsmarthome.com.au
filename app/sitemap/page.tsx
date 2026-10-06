@@ -5,7 +5,7 @@ import PageHeader from '@/components/PageHeader';
 import { pageCount } from '@/components/Pagination';
 import { articleHref, categoriesWithCounts, getAllArticles } from '@/lib/content';
 import { getAllAuthors, resolveAuthor } from '@/lib/authors';
-import { getListableTopProducts } from '@/lib/products';
+import { getShoppableTopProducts } from '@/lib/products';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { site } from '@/lib/site';
 
@@ -76,7 +76,7 @@ export const revalidate = 300;
 export default async function SitemapPage() {
   const articles = await getAllArticles();
   // Empty listings are never linked (lib/products.ts isEmptyListing).
-  const products = getListableTopProducts();
+  const products = getShoppableTopProducts();
   // Only bylines with something published, matching sitemap.xml.
   const authors = getAllAuthors().filter((author) =>
     articles.some((a) => resolveAuthor(a.author).slug === author.slug),

@@ -381,6 +381,24 @@ export function getListableTopProducts(): TopProduct[] {
 }
 
 /**
+ * A real offer: a price on the product or on at least one retailer. Without
+ * one, every buy link is a retailer search URL, so the card has nothing to
+ * send a reader to.
+ */
+export function hasOffer(product: TopProduct): boolean {
+  return typeof product.priceAud === 'number' || product.retailers.some((r) => typeof r.priceAud === 'number');
+}
+
+/**
+ * What the product listings show: listable products with an offer. Kept apart
+ * from getListableTopProducts, which also backs inline article product boxes
+ * — those still render for a product without a price.
+ */
+export function getShoppableTopProducts(): TopProduct[] {
+  return getListableTopProducts().filter(hasOffer);
+}
+
+/**
  * A catalogue product cut down to what a listing card needs.
  *
  * ProductGrid is a client component, so every field it receives is serialised
