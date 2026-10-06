@@ -6,6 +6,7 @@ import { site } from '@/lib/site'
 import type { Metadata } from 'next'
 import JsonLd from '@/components/JsonLd'
 import { HomeHero } from '@/components/home/HomeSections'
+import EditorsChoiceSection from '@/components/home/EditorsChoiceSection'
 
 export const revalidate = 300
 
@@ -49,8 +50,29 @@ export default async function HomePage() {
         }}
       />
 
-      {/* Top 2 Sections Only */}
+      {/* Top Section: Hero */}
       <HomeHero articleCount={articles.length} topicCount={topics.length} />
+
+      {/* Editors Choice Carousel Section */}
+      <EditorsChoiceSection posts={articles.map(toTPost)} />
+
+      {/* Advertisement Banner Placeholder */}
+      <div className="flex justify-center w-full">
+        <div className="relative w-full max-w-5xl overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 group">
+          <span className="absolute top-2 right-3 z-10 rounded bg-neutral-900/60 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
+            Advertisement
+          </span>
+          <a href="#" className="block w-full overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/ads/home_banner_ad.jpg"
+              alt="Modern Technology Fest Advertisement"
+              className="w-full h-auto max-h-56 object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+              loading="lazy"
+            />
+          </a>
+        </div>
+      </div>
 
       <SectionMagazine10 posts={lead.map(toTPost)} />
     </div>
