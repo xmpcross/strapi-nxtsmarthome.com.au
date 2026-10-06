@@ -1,0 +1,309 @@
+{
+ "audit_date": "2026-10-06",
+ "domain": "nxtsmarthome.com.au",
+ "summary": {
+  "health_score": 67,
+  "business_type": "Independent Australian smart-home publisher (affiliate)",
+  "top_findings": [
+   "Homepage widget shows hardcoded star ratings and AUD prices, contradicting /about and /how-we-test (rule 5)",
+   "AggregateRating built from syndicated retailer reviews on 2 product pages",
+   "157 of 192 in-body article links go through a 308 redirect; 18 orphan articles",
+   "Video doorbell and robot vacuum guides mismatch roundup SERPs (0 and 2 product boxes)",
+   "Electrical-law article states law as settled with no sources"
+  ],
+  "quick_wins": [
+   "Remove rating/price from homepage gear widget",
+   "Drop aggregateRating from Product JSON-LD",
+   "Add homepage H1",
+   "Word-boundary truncation of category meta descriptions",
+   "abs() Product image + fetchpriority on first image + remove robots Host line"
+  ]
+ },
+ "categories": [
+  {
+   "name": "Technical SEO",
+   "score": 80,
+   "what_works": [
+    "117/117 sitemap URLs 200, indexable, self-canonical",
+    "Single-hop 301 http/www",
+    "SSR, en-AU, IndexNow, feed"
+   ],
+   "findings": [
+    {
+     "title": "Legacy internal link paths redirect",
+     "severity": "Medium",
+     "description": "1-2 hops via 308 on in-body links",
+     "recommendation": "Canonicalise links"
+    },
+    {
+     "title": "Homepage has no H1",
+     "severity": "Medium",
+     "description": "0 h1 on /",
+     "recommendation": "Add one H1"
+    },
+    {
+     "title": "Sitemap lastmod not truthful",
+     "severity": "Medium",
+     "description": "25 URLs share one stamp",
+     "recommendation": "Per-page modified dates"
+    },
+    {
+     "title": "No CSP; weak HSTS",
+     "severity": "Medium",
+     "description": "max-age 6 months, no includeSubDomains",
+     "recommendation": "Report-only CSP; 1y HSTS"
+    },
+    {
+     "title": "404 duplicate robots meta, robots.txt Host line, heavy HTML",
+     "severity": "Low",
+     "description": "see findings/technical.md",
+     "recommendation": "Clean up"
+    }
+   ]
+  },
+  {
+   "name": "Content Quality",
+   "score": 64,
+   "what_works": [
+    "Honest trust pages",
+    "No [VERIFY]/TODO live",
+    "Strong AU sourcing and spelling"
+   ],
+   "findings": [
+    {
+     "title": "Hardcoded star ratings and prices on homepage",
+     "severity": "Critical",
+     "description": "ZairaBottomSections.tsx; contradicts /about, /how-we-test",
+     "recommendation": "Remove rating and price"
+    },
+    {
+     "title": "Scaled-publishing pattern and thin author entity",
+     "severity": "High",
+     "description": "18 articles in 4 minutes on 23 Aug; bio says 20+ guides vs 83",
+     "recommendation": "Credentials, sameAs, stagger releases"
+    },
+    {
+     "title": "Cannibalising pairs",
+     "severity": "High",
+     "description": "smart plugs, camera storage, movie lighting, ducted zoning",
+     "recommendation": "Merge with 301s"
+    },
+    {
+     "title": "Promised topics 404; empty category indexed",
+     "severity": "High",
+     "description": "B22 vs E27, smart locks; /categories/smart-door-locks/",
+     "recommendation": "Publish or noindex"
+    },
+    {
+     "title": "13 articles without product boxes",
+     "severity": "Medium",
+     "description": "rule 8 gap",
+     "recommendation": "link-products.mjs"
+    },
+    {
+     "title": "Bulk-stamped unlabelled US-format dates",
+     "severity": "Medium",
+     "description": "52 articles show Sep 24",
+     "recommendation": "Published/Updated in AU format"
+    }
+   ]
+  },
+  {
+   "name": "On-Page SEO",
+   "score": 61,
+   "what_works": [
+    "No duplicate/missing titles or descriptions",
+    "H1 = title on articles"
+   ],
+   "findings": [
+    {
+     "title": "82% of in-body links non-canonical; 18 orphans",
+     "severity": "High",
+     "description": "157/192",
+     "recommendation": "Canonicalise and interlink"
+    },
+    {
+     "title": "Titles over 60 chars",
+     "severity": "Medium",
+     "description": "44 of 83 articles",
+     "recommendation": "SEO-title field"
+    },
+    {
+     "title": "Descriptions over 160 chars; categories cut mid-word",
+     "severity": "Medium",
+     "description": "84 of 117",
+     "recommendation": "120-155 chars, word-boundary truncation"
+    }
+   ]
+  },
+  {
+   "name": "Schema / Structured Data",
+   "score": 66,
+   "what_works": [
+    "JSON-LD Article/Breadcrumb/FAQ/Product/Person/Organization"
+   ],
+   "findings": [
+    {
+     "title": "AggregateRating from syndicated reviews",
+     "severity": "High",
+     "description": "Bose 3.87/30, Ecovacs 3.3/23",
+     "recommendation": "Remove from JSON-LD"
+    },
+    {
+     "title": "Relative Product image; Offer URLs are search pages; InStock hard-coded",
+     "severity": "High",
+     "description": "productJsonLd",
+     "recommendation": "abs(); verified offers only"
+    },
+    {
+     "title": "Latent Review branch in articleJsonLd",
+     "severity": "High",
+     "description": "lib/seo.ts",
+     "recommendation": "Remove or gate"
+    },
+    {
+     "title": "Organization lacks logo; Person lacks sameAs",
+     "severity": "Medium",
+     "description": "",
+     "recommendation": "Add"
+    }
+   ]
+  },
+  {
+   "name": "Performance (CWV)",
+   "score": 74,
+   "what_works": [
+    "TTFB ~50 ms",
+    "CLS 0",
+    "Desktop 94-98"
+   ],
+   "findings": [
+    {
+     "title": "Render-blocking 127 KB CSS + ga-init.js",
+     "severity": "High",
+     "description": "Lab est. 0.9-1.1 s",
+     "recommendation": "Purge/inline CSS, async GA"
+    },
+    {
+     "title": "images.unoptimized: true",
+     "severity": "High",
+     "description": "est. 653 KiB on home",
+     "recommendation": "Responsive WebP/AVIF"
+    },
+    {
+     "title": "LCP preload without fetchpriority; 3+ competing preloads on home",
+     "severity": "High",
+     "description": "",
+     "recommendation": "Prioritise first image only"
+    },
+    {
+     "title": "Third-party scripts eager",
+     "severity": "Medium",
+     "description": "gtag, VigLink, Sovrn, Geniuslink",
+     "recommendation": "Defer/consolidate"
+    }
+   ]
+  },
+  {
+   "name": "AI Search Readiness",
+   "score": 58,
+   "what_works": [
+    "Search crawlers allowed",
+    "SSR",
+    "Schema on articles"
+   ],
+   "findings": [
+    {
+     "title": "Legal article has no sources",
+     "severity": "High",
+     "description": "0 outbound links",
+     "recommendation": "Cite regulators"
+    },
+    {
+     "title": "Cloudflare blocks training bots while robots.txt allows",
+     "severity": "Medium",
+     "description": "GPTBot, ClaudeBot, Amazonbot 403",
+     "recommendation": "Align policies"
+    },
+    {
+     "title": "Answers arrive late; nav headings in article outline",
+     "severity": "Medium",
+     "description": "3/4 sampled",
+     "recommendation": "Answer-first; asides"
+    }
+   ]
+  },
+  {
+   "name": "Images",
+   "score": 58,
+   "what_works": [
+    "0 missing alt",
+    "CLS 0"
+   ],
+   "findings": [
+    {
+     "title": "No optimisation pipeline; oversized PNG icons; CMS max-age=0",
+     "severity": "Medium",
+     "description": "",
+     "recommendation": "Resize, WebP, cache"
+    }
+   ]
+  }
+ ],
+ "action_plan": {
+  "phases": [
+   {
+    "name": "Phase 1: Critical Fixes",
+    "timeframe": "Week 1",
+    "items": [
+     "Remove homepage ratings/prices",
+     "Drop Product aggregateRating",
+     "Remove latent Review branch",
+     "Cite regulators in electrical article",
+     "Homepage H1",
+     "Fix Product image/offers"
+    ]
+   },
+   {
+    "name": "Phase 2: High-Impact Improvements",
+    "timeframe": "Weeks 2-3",
+    "items": [
+     "Canonicalise in-body links",
+     "Link orphans",
+     "Product shortlists on doorbell/vacuum guides",
+     "Security hub rebuild",
+     "Merge cannibal pairs",
+     "Image pipeline + CSS",
+     "Meta and date fixes"
+    ]
+   },
+   {
+    "name": "Phase 3: Content & Authority",
+    "timeframe": "Month 2",
+    "items": [
+     "Author entity",
+     "Publish drafted long-tail topics",
+     "Answer-first blocks",
+     "Comparison tables",
+     "Organization entity",
+     "Link-earning assets"
+    ]
+   },
+   {
+    "name": "Phase 4: Monitoring & Iteration",
+    "timeframe": "Ongoing",
+    "items": [
+     "Connect GSC/GA4/Moz",
+     "AI crawler policy",
+     "CSP/HSTS",
+     "Cache headers",
+     "Drift baseline, re-audit in 6 weeks"
+    ]
+   }
+  ]
+ },
+ "artifacts": {
+  "findings_dir": "findings/",
+  "screenshots_dir": "screenshots/"
+ }
+}
