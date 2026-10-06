@@ -163,16 +163,19 @@ export default function CategoryView({
                   <span className="text-8xl" aria-hidden="true">{category.emoji || '⚡'}</span>
                 )}
               </div>
-              <dl className={`relative grid grid-cols-2 ${guide ? 'border-t border-neutral-200/80 dark:border-neutral-800' : 'rounded-2xl border border-neutral-200/80 dark:border-neutral-800'}`}>
-                <div className="p-5">
-                  <dt className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">Guides</dt>
-                  <dd className="text-2xl font-black text-primary-600 dark:text-primary-400">{articles.length}</dd>
-                </div>
-                <div className="border-l border-neutral-200/80 p-5 dark:border-neutral-800">
-                  <dt className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">Last updated</dt>
-                  <dd className="text-2xl font-black text-primary-600 dark:text-primary-400">{lastUpdated ?? '—'}</dd>
-                </div>
-              </dl>
+              {/* Stats strip on the guide panel only (removed from hubs, 6 Oct 2026). */}
+              {guide ? (
+                <dl className="relative grid grid-cols-2 border-t border-neutral-200/80 dark:border-neutral-800">
+                  <div className="p-5">
+                    <dt className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">Guides</dt>
+                    <dd className="text-2xl font-black text-primary-600 dark:text-primary-400">{articles.length}</dd>
+                  </div>
+                  <div className="border-l border-neutral-200/80 p-5 dark:border-neutral-800">
+                    <dt className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">Last updated</dt>
+                    <dd className="text-2xl font-black text-primary-600 dark:text-primary-400">{lastUpdated ?? '—'}</dd>
+                  </div>
+                </dl>
+              ) : null}
             </div>
           </header>
         </div>
