@@ -413,7 +413,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
             <div className="space-y-6">
               {/* Top Featured Horizontal Card */}
               {trendingFeatured && (
-                <div className="grid grid-cols-1 gap-6 rounded-2xl border border-neutral-200/80 bg-neutral-50/50 p-5 dark:border-neutral-800 dark:bg-neutral-900/40 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-6 border-0 p-0 bg-transparent md:grid-cols-2">
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800">
                     {trendingFeatured.featuredImage?.src ? (
                       // eslint-disable-next-line @next/next/no-img-element
