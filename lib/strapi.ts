@@ -34,6 +34,9 @@ export interface StrapiPost {
   slug: string;
   title: string;
   excerpt?: string;
+  /** Search-result title and description; the H1 (title) and excerpt are the fallback. */
+  seoTitle?: string | null;
+  seoDescription?: string | null;
   content?: string;
   postType?: string;
   publishDate?: string;

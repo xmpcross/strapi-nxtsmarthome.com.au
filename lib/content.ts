@@ -84,6 +84,12 @@ export interface Article extends ArticleFrontmatter {
   wordCount: number;
   headings: Heading[];
   categoryMeta: Category | undefined;
+  /**
+   * <title> and meta description, from the CMS seoTitle / seoDescription.
+   * The H1 can run long; search results show about 60 characters (audit S4/S5).
+   */
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export interface Heading {
@@ -189,6 +195,8 @@ async function fromStrapi(post: StrapiPost): Promise<Article | null> {
   return {
     title: post.title,
     description: post.excerpt ?? '',
+    seoTitle: post.seoTitle?.trim() || undefined,
+    seoDescription: post.seoDescription?.trim() || undefined,
     category: categoryKey,
     type: articleType(post.postType) as Article['type'],
     // A scheduled post dates from its release (showFrom), not from when it was written.

@@ -36,7 +36,7 @@ import {
 } from '@/lib/content';
 import { getProductsBySlugs } from '@/lib/products';
 import { site } from '@/lib/site';
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, itemListJsonLd } from '@/lib/seo';
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, itemListJsonLd, metaDescription } from '@/lib/seo';
 
 // Articles refresh from Strapi every 5 minutes (ISR); new slugs render on demand.
 export const revalidate = 300;
@@ -61,14 +61,18 @@ export async function generateMetadata({
   if (!article) return {};
 
   const url = articleHref(article);
+  // Search snippet: the CMS seoTitle / seoDescription when set (audit S4/S5),
+  // else the H1 and the excerpt, trimmed at a sentence or word boundary.
+  const title = article.seoTitle || article.title;
+  const description = metaDescription(article.seoDescription || article.description) ?? '';
   return {
-    title: article.title,
-    description: article.description,
+    title,
+    description,
     alternates: { canonical: url },
     openGraph: {
       type: 'article',
-      title: article.title,
-      description: article.description,
+      title,
+      description,
       url,
       publishedTime: article.date,
       modifiedTime: article.updated ?? article.date,
@@ -78,8 +82,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: article.title,
-      description: article.description,
+      title,
+      description,
       images: [article.image ?? site.ogImage],
     },
   };
