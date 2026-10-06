@@ -111,38 +111,38 @@ export default async function CategoriesIndex() {
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
                 <span className="relative inline-flex size-2 rounded-full bg-primary-500"></span>
               </span>
-              AUSTRALIAN SMART HOME DIRECTORY
+              AUSTRALIAN SMART HOME DIRECTORY & ADVICE HUB
             </div>
 
             {/* Giant Display Title */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-neutral-900 dark:text-white leading-[1.1]">
-              Master Your Home.{' '}
+              Smart Home Topics.{' '}
               <span className="bg-gradient-to-r from-primary-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent dark:from-primary-400 dark:via-indigo-300 dark:to-purple-400">
-                Topic by Topic.
+                Complete AU Guides & Reviews.
               </span>
             </h1>
 
             <p className="text-base sm:text-lg font-medium leading-relaxed text-neutral-600 dark:text-neutral-300 max-w-2xl">
-              Explore {articles.length} expert guides across {cats.length} core smart home domains — thoroughly tested for Australian 230V power rules, NBN network setups, and local retail availability.
+              Browse {articles.length} in-depth smart home guides, buying advice, and step-by-step setup tutorials across {cats.length} core technology domains — tailored for Australian 230V electrical standards (RCM mark), NBN Wi-Fi dual-band networks, Apple Home, Google Home, and Matter/Thread ecosystems.
             </p>
 
             {/* Stats Counter Bar — Transparent Hairline Cards */}
             <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3">
               <div className="rounded-2xl border border-neutral-200/80 bg-transparent p-3.5 dark:border-neutral-800">
                 <div className="text-2xl font-black text-primary-600 dark:text-primary-400">{articles.length}</div>
-                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Published Guides</div>
+                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Tested AU Guides</div>
               </div>
               <div className="rounded-2xl border border-neutral-200/80 bg-transparent p-3.5 dark:border-neutral-800">
                 <div className="text-2xl font-black text-primary-600 dark:text-primary-400">{cats.length}</div>
-                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Categories</div>
+                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Topic Categories</div>
               </div>
               <div className="rounded-2xl border border-neutral-200/80 bg-transparent p-3.5 dark:border-neutral-800">
-                <div className="text-2xl font-black text-primary-600 dark:text-primary-400">RCM / AU</div>
-                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Electrical Standards</div>
+                <div className="text-2xl font-black text-primary-600 dark:text-primary-400">230V RCM</div>
+                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">AS/NZS Compliance</div>
               </div>
               <div className="rounded-2xl border border-neutral-200/80 bg-transparent p-3.5 dark:border-neutral-800">
                 <div className="text-2xl font-black text-primary-600 dark:text-primary-400">Matter</div>
-                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Thread Ready</div>
+                <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mt-0.5">Local Automation</div>
               </div>
             </div>
           </div>
