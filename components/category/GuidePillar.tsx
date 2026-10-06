@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import JsonLd from '@/components/JsonLd';
 import { FOCUS, typeLabel } from '@/components/category/shared';
-import { articleHref, squareCoverFor, type Article } from '@/lib/content';
+import { articleHref, coverFor, type Article } from '@/lib/content';
 import { guidePillars, type PillarSection } from '@/lib/guide-pillars';
 import { breadcrumbJsonLd, faqJsonLd } from '@/lib/seo';
 import { site, type Category } from '@/lib/site';
@@ -117,24 +117,31 @@ export default function GuidePillar({ category, articles }: { category: Category
             </h1>
           </div>
 
-          <div className="mt-5 max-w-[68ch] space-y-4 text-base leading-relaxed text-pretty text-neutral-700 sm:text-lg dark:text-neutral-300">
-            <p>{category.intro}</p>
+          {/*
+           * Full width, set in two columns on large screens: the page uses the
+           * whole container while each line stays a readable measure.
+           */}
+          <div className="mt-6 gap-12 space-y-4 text-base leading-relaxed text-pretty text-neutral-700 sm:text-lg lg:columns-2 dark:text-neutral-300 [&>p]:break-inside-avoid">
+            <p className="text-neutral-900 dark:text-white">{category.intro}</p>
             {pillar?.lead.map((text) => (
               <p key={text.slice(0, 40)}>{text}</p>
             ))}
           </div>
 
           {count > 0 ? (
-            <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+            <p className="mt-5 text-sm text-neutral-600 dark:text-neutral-400">
               <span className="tabular-nums font-semibold text-neutral-900 dark:text-white">{count}</span>{' '}
               {count === 1 ? 'guide' : 'guides'} in {sections.length} {sections.length === 1 ? 'section' : 'sections'}
             </p>
           ) : null}
+
+          {/* The guides' own covers, as a mosaic: the page's first image is a real guide, not decoration. */}
+          {ordered.length >= 3 ? <CoverMosaic articles={ordered.slice(0, 5)} /> : null}
         </header>
 
-        <div className="container pt-10 pb-20 lg:pt-14 lg:pb-28">
+        <div className="container pt-10 pb-20 lg:pt-12 lg:pb-28">
           {count === 0 ? (
-            <section className="max-w-3xl border-y border-neutral-200 py-8 dark:border-neutral-800">
+            <section className="border-y border-neutral-200 py-8 dark:border-neutral-800">
               <h2 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
                 No {category.name.toLowerCase()} yet
               </h2>
@@ -156,75 +163,44 @@ export default function GuidePillar({ category, articles }: { category: Category
               </p>
             </section>
           ) : (
-            <div className="lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16">
-              {/* Contents: a collapsible list on small screens, a sticky rail on large ones. */}
-              <nav aria-label="On this page" className="mb-10 lg:mb-0">
-                <details className="group border-y border-neutral-200 lg:hidden dark:border-neutral-800">
-                  <summary
-                    className={`flex cursor-pointer items-center justify-between py-3 font-semibold text-neutral-900 dark:text-white ${FOCUS}`}
-                  >
-                    On this page
-                    <svg
-                      aria-hidden="true"
-                      className="size-4 transition-transform group-open:rotate-180"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </summary>
-                  <ol className="pb-3">
-                    {contents.map((item) => (
-                      <li key={item.id}>
-                        <a
-                          href={`#${item.id}`}
-                          className={`block py-1.5 text-neutral-700 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 ${FOCUS}`}
-                        >
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ol>
-                </details>
-
-                <div className="hidden lg:sticky lg:top-24 lg:block">
-                  <p className="mb-3 text-sm font-semibold text-neutral-900 dark:text-white">On this page</p>
-                  <ol className="border-l border-neutral-200 dark:border-neutral-800">
-                    {contents.map((item) => (
-                      <li key={item.id}>
-                        <a
-                          href={`#${item.id}`}
-                          className={`-ml-px block border-l border-transparent py-1.5 pl-4 text-sm text-neutral-700 hover:border-primary-500 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400 ${FOCUS}`}
-                        >
-                          {item.label}
-                          {item.guides ? (
-                            <span className="sr-only">
-                              {' '}
-                              ({item.guides} {item.guides === 1 ? 'guide' : 'guides'})
-                            </span>
-                          ) : null}
-                        </a>
-                      </li>
-                    ))}
-                  </ol>
-                </div>
+            <>
+              {/* Contents: jump links across the page, so no side rail narrows the sections. */}
+              <nav
+                aria-label="On this page"
+                className="border-y border-neutral-200 py-4 dark:border-neutral-800"
+              >
+                <p className="text-sm font-semibold text-neutral-900 dark:text-white">On this page</p>
+                <ol className="mt-2 flex flex-wrap gap-x-6 gap-y-1.5">
+                  {contents.map((item) => (
+                    <li key={item.id}>
+                      <a
+                        href={`#${item.id}`}
+                        className={`text-sm text-neutral-700 hover:text-primary-600 hover:underline hover:underline-offset-4 dark:text-neutral-300 dark:hover:text-primary-400 ${FOCUS}`}
+                      >
+                        {item.label}
+                        {item.guides ? (
+                          <span className="ms-1.5 tabular-nums text-neutral-500 dark:text-neutral-500">
+                            {item.guides}
+                            <span className="sr-only"> {item.guides === 1 ? 'guide' : 'guides'}</span>
+                          </span>
+                        ) : null}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
               </nav>
 
-              <div className="min-w-0 space-y-16 lg:space-y-20">
+              <div className="mt-14 space-y-20 lg:mt-16 lg:space-y-24">
                 {sections.map((section) => (
                   <section key={section.id} id={section.id} aria-labelledby={`${section.id}-heading`} className="scroll-mt-24">
                     <h2
                       id={`${section.id}-heading`}
-                      className="text-2xl font-bold tracking-tight text-balance text-neutral-900 sm:text-3xl dark:text-white"
+                      className="max-w-4xl text-2xl font-bold tracking-tight text-balance text-neutral-900 sm:text-3xl dark:text-white"
                     >
                       {section.heading}
                     </h2>
                     {section.paragraphs.length ? (
-                      <div className="mt-4 max-w-[68ch] space-y-4 leading-relaxed text-pretty text-neutral-700 dark:text-neutral-300">
+                      <div className="mt-5 gap-12 space-y-4 leading-relaxed text-pretty text-neutral-700 sm:text-[1.0625rem] lg:columns-2 dark:text-neutral-300 [&>p]:break-inside-avoid">
                         {section.paragraphs.map((text) => (
                           <p key={text.slice(0, 40)}>{text}</p>
                         ))}
@@ -232,9 +208,9 @@ export default function GuidePillar({ category, articles }: { category: Category
                     ) : null}
 
                     {section.checklist ? (
-                      <div className="mt-6 max-w-[68ch] border-t border-neutral-200 pt-4 dark:border-neutral-800">
+                      <div className="mt-8 border-t border-neutral-200 pt-5 dark:border-neutral-800">
                         <p className="font-semibold text-neutral-900 dark:text-white">{section.checklist.title}</p>
-                        <ul className="mt-3 space-y-2">
+                        <ul className="mt-4 grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
                           {section.checklist.items.map((item) => (
                             <li key={item} className="flex gap-3 text-neutral-700 dark:text-neutral-300">
                               <svg
@@ -256,38 +232,21 @@ export default function GuidePillar({ category, articles }: { category: Category
                       </div>
                     ) : null}
 
-                    <ul className="mt-6 border-t border-neutral-200 dark:border-neutral-800">
-                      {section.items.map((article) => (
-                        <li key={article.slug} className="border-b border-neutral-200 dark:border-neutral-800">
-                          <Link
-                            href={articleHref(article)}
-                            className={`group grid grid-cols-[minmax(0,1fr)] gap-x-6 py-4 sm:grid-cols-[7rem_minmax(0,1fr)] ${FOCUS}`}
-                          >
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                              src={squareCoverFor(article)}
-                              alt=""
-                              width={112}
-                              height={84}
-                              loading="lazy"
-                              className="hidden aspect-[4/3] w-28 rounded-lg object-cover sm:block"
-                            />
-                            <span className="min-w-0">
-                              <span className="block text-lg leading-snug font-bold text-neutral-900 group-hover:text-primary-600 group-hover:underline group-hover:underline-offset-4 dark:text-white dark:group-hover:text-primary-400">
-                                {article.title}
-                              </span>
-                              <span className="mt-1.5 line-clamp-2 block text-neutral-700 dark:text-neutral-300">
-                                {article.description}
-                              </span>
-                              <span className="mt-2 block text-sm text-neutral-600 dark:text-neutral-400">
-                                {typeLabel(article.type)} · <span className="tabular-nums">{article.readingMinutes}</span> min
-                                read
-                              </span>
-                            </span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                    {section.items.length === 1 ? (
+                      <div className="mt-10">
+                        <GuideFeature article={section.items[0]} />
+                      </div>
+                    ) : (
+                      <ul
+                        className={`mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 ${section.items.length >= 3 ? 'lg:grid-cols-3' : ''}`}
+                      >
+                        {section.items.map((article) => (
+                          <li key={article.slug}>
+                            <GuideTile article={article} />
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </section>
                 ))}
 
@@ -299,7 +258,7 @@ export default function GuidePillar({ category, articles }: { category: Category
                     >
                       Common questions
                     </h2>
-                    <div className="mt-6 max-w-[68ch] border-t border-neutral-200 dark:border-neutral-800">
+                    <div className="mt-6 grid gap-x-12 border-t border-neutral-200 lg:grid-cols-2 dark:border-neutral-800">
                       {faq.map((item) => (
                         <details key={item.q} className="group border-b border-neutral-200 dark:border-neutral-800">
                           <summary
@@ -308,7 +267,7 @@ export default function GuidePillar({ category, articles }: { category: Category
                             {item.q}
                             <svg
                               aria-hidden="true"
-                              className="mt-1.5 size-4 shrink-0 transition-transform group-open:rotate-180"
+                              className="mt-1.5 size-4 shrink-0 transition-transform group-open:rotate-180 motion-reduce:transition-none"
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
@@ -326,7 +285,11 @@ export default function GuidePillar({ category, articles }: { category: Category
                   </section>
                 ) : null}
 
-                <section id="how-made" aria-labelledby="how-made-heading" className="scroll-mt-24 max-w-[68ch]">
+                <section
+                  id="how-made"
+                  aria-labelledby="how-made-heading"
+                  className="scroll-mt-24 border-t border-neutral-200 pt-8 dark:border-neutral-800"
+                >
                   <h2 id="how-made-heading" className="text-xl font-bold text-neutral-900 dark:text-white">
                     How these guides are made
                   </h2>
@@ -343,10 +306,121 @@ export default function GuidePillar({ category, articles }: { category: Category
                   </p>
                 </section>
               </div>
-            </div>
+            </>
           )}
         </div>
       </div>
     </>
+  );
+}
+
+const meta = (article: Article) => (
+  <>
+    {typeLabel(article.type)} · <span className="tabular-nums">{article.readingMinutes}</span> min read
+  </>
+);
+
+/**
+ * One large cover and up to four smaller ones, each a link to its guide. Titles
+ * sit on a dark scrim at the foot of each photo so they hold contrast on any
+ * image, in either theme. On phones only the first three show.
+ */
+function CoverMosaic({ articles }: { articles: Article[] }) {
+  return (
+    <ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:h-[30rem] lg:grid-cols-4 lg:grid-rows-2">
+      {articles.map((article, i) => (
+        <li
+          key={article.slug}
+          className={
+            i === 0
+              ? 'col-span-2 aspect-[16/10] lg:row-span-2 lg:aspect-auto'
+              : `aspect-[4/3] lg:aspect-auto ${i >= 3 ? 'hidden lg:block' : ''}`
+          }
+        >
+          <Link
+            href={articleHref(article)}
+            className={`group relative block size-full overflow-hidden rounded-lg bg-neutral-200 dark:bg-neutral-800 ${FOCUS}`}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={coverFor(article)}
+              alt=""
+              width={i === 0 ? 1200 : 600}
+              height={i === 0 ? 750 : 450}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              fetchPriority={i === 0 ? 'high' : undefined}
+              className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            />
+            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/55 to-transparent p-4 pt-12 sm:p-5 sm:pt-16">
+              <span
+                className={`block font-bold leading-snug text-balance text-white group-hover:underline group-hover:underline-offset-4 ${
+                  i === 0 ? 'text-xl sm:text-2xl' : 'text-sm sm:text-base'
+                }`}
+              >
+                {article.title}
+              </span>
+              {i === 0 ? <span className="mt-1.5 block text-sm text-neutral-200">{meta(article)}</span> : null}
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/** A guide as a photo tile: cover, title, the full description and its type. */
+function GuideTile({ article }: { article: Article }) {
+  return (
+    <Link href={articleHref(article)} className={`group block ${FOCUS}`}>
+      <span className="block aspect-[16/10] overflow-hidden rounded-lg bg-neutral-200 dark:bg-neutral-800">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={coverFor(article)}
+          alt=""
+          width={640}
+          height={400}
+          loading="lazy"
+          className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+        />
+      </span>
+      <span className="mt-4 block text-lg leading-snug font-bold text-balance text-neutral-900 group-hover:text-primary-600 group-hover:underline group-hover:underline-offset-4 dark:text-white dark:group-hover:text-primary-400">
+        {article.title}
+      </span>
+      <span className="mt-2 block leading-relaxed text-pretty text-neutral-700 dark:text-neutral-300">
+        {article.description}
+      </span>
+      <span className="mt-3 block text-sm text-neutral-600 dark:text-neutral-400">{meta(article)}</span>
+    </Link>
+  );
+}
+
+/** A section with a single guide: the photo and the text side by side across the page. */
+function GuideFeature({ article }: { article: Article }) {
+  return (
+    <Link
+      href={articleHref(article)}
+      className={`group grid items-center gap-x-10 gap-y-5 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] ${FOCUS}`}
+    >
+      <span className="block aspect-[16/9] overflow-hidden rounded-lg bg-neutral-200 dark:bg-neutral-800">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={coverFor(article)}
+          alt=""
+          width={960}
+          height={540}
+          loading="lazy"
+          className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+        />
+      </span>
+      <span className="block">
+        <span className="block text-xl leading-snug font-bold text-balance text-neutral-900 group-hover:text-primary-600 group-hover:underline group-hover:underline-offset-4 sm:text-2xl dark:text-white dark:group-hover:text-primary-400">
+          {article.title}
+        </span>
+        <span className="mt-3 block leading-relaxed text-pretty text-neutral-700 sm:text-[1.0625rem] dark:text-neutral-300">
+          {article.description}
+        </span>
+        <span className="mt-3 block text-sm text-neutral-600 dark:text-neutral-400">{meta(article)}</span>
+      </span>
+    </Link>
   );
 }
