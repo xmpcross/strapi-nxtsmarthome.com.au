@@ -65,12 +65,12 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
       ]
 
   return (
-    <div className="w-full space-y-12">
+    <div className="w-full space-y-[50px]">
       {/* 2-Column Main Section (Left Content + Right Sidebar) */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
         
         {/* LEFT MAIN COLUMN (8 cols) */}
-        <div className="space-y-12 lg:col-span-8">
+        <div className="space-y-[50px] lg:col-span-8">
           
           {/* SECTION 1: RECENT POSTS */}
           <section>
