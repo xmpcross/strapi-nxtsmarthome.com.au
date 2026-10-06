@@ -3,25 +3,23 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ADS_ENABLED } from '@/lib/ads';
-import { GENIUSLINK_ENABLED, SOVRN_ENABLED } from '@/lib/affiliate';
+import { GENIUSLINK_ENABLED } from '@/lib/affiliate';
 
 /**
  * Cookie consent banner.
  *
- * This gates real things rather than only recording a click. Two third-party
- * scripts are held back until a choice is made:
+ * This gates real things rather than only recording a click. Google Analytics
+ * is held back until a choice is made:
  *
  *   Google Analytics  components/HeadScripts.tsx (public/js/ga-init.js) sets Consent Mode v2 defaults to
  *                     denied before the tag loads, so gtag buffers rather than
  *                     writes. Accepting sends the 'update' that releases it.
- *   Sovrn Commerce    public/js/sovrn-init.js does not self-start; it parks a
- *                     loader on window.__nxtLoadSovrn, which is called here.
  *
  * The choice is stored under CONSENT_KEY. The version suffix is deliberate: if
  * the set of scripts changes, bumping it re-asks everyone rather than treating
  * a decision made about the old set as a decision about the new one.
  *
- * Declining is a real decline for both: neither runs, and nothing is written
+ * Declining is a real decline: analytics does not run, and nothing is written
  * beyond the record of the choice itself.
  *
  * Advertising (Google AdSense, components/HeadScripts.tsx) reads the same
@@ -34,8 +32,7 @@ import { GENIUSLINK_ENABLED, SOVRN_ENABLED } from '@/lib/affiliate';
  * message is running it exposes the IAB TCF API (window.__tcfapi) and reports
  * gdprApplies. For those visitors this banner stands aside entirely: Google's
  * message collects consent and drives Consent Mode for Google's tags, and a
- * second banner would contradict it. Sovrn, which is not governed by that
- * message here, stays off for them. Everywhere else (Australia included)
+ * second banner would contradict it. Everywhere else (Australia included)
  * gdprApplies is false or the API is absent, and this banner works as before.
  */
 
@@ -83,7 +80,6 @@ function apply(choice: Choice) {
 
   const w = window as typeof window & {
     gtag?: (...args: unknown[]) => void;
-    __nxtLoadSovrn?: () => void;
   };
 
   if (choice === 'granted') {
@@ -93,7 +89,6 @@ function apply(choice: Choice) {
       ad_personalization: 'granted',
       analytics_storage: 'granted',
     });
-    w.__nxtLoadSovrn?.();
   }
 }
 
@@ -192,15 +187,9 @@ export default function CookieBanner() {
           <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
             {ADS_ENABLED ? (
               <>
-                Google Analytics tells us which guides get read
-                {SOVRN_ENABLED ? ', Google AdSense shows ads, and Sovrn Commerce (which loads on every page) credits us when a link you follow leads to a purchase. ' : ' and Google AdSense shows ads. '}
+                Google Analytics tells us which guides get read and Google AdSense shows ads.{' '}
                 <strong>Analytics and personalised ads wait for your answer</strong>;
                 decline and any ads shown are non-personalised.
-              </>
-            ) : SOVRN_ENABLED ? (
-              <>
-                Google Analytics tells us which guides get read, and Sovrn Commerce credits us when
-                a link you follow leads to a purchase. <strong>Analytics waits for your answer; Sovrn loads on every page.</strong>
               </>
             ) : (
               <>

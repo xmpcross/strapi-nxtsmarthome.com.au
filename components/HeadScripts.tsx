@@ -1,5 +1,5 @@
 /**
- * Google Analytics, Google AdSense, Geniuslink and Sovrn Commerce, rendered into
+ * Google Analytics, Google AdSense and Geniuslink, rendered into
  * <head> on every page.
  *
  * These used to be injected into the exported HTML after the build
@@ -13,9 +13,10 @@
  *
  * GA runs with Consent Mode v2 defaults denied until the cookie banner grants
  * them. Ahrefs Web Analytics loads on every page: Ahrefs describes it as
- * using zero cookies and collecting no personal data, so it is not gated. Geniuslink converts Amazon links on page load; no TSID, no script.
- * Sovrn affiliates other merchant links and loads only after consent
- * (public/js/sovrn-init.js, released by the cookie banner); no key, no script.
+ * using zero cookies and collecting no personal data, so it is not gated. Geniuslink converts Amazon links on page load
+ * and again after client-side navigation (public/js/geniuslink-init.js); no TSID, no script.
+ * Geniuslink is the only affiliate integration: Sovrn and Takeads were removed
+ * on 6 Oct 2026.
  *
  * AdSense, two stages (lib/ads.ts). With NEXT_PUBLIC_ADSENSE_CLIENT set, only
  * the google-adsense-account meta renders, which is what Google needs to
@@ -34,7 +35,6 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-SY9XCRZH2K';
 const GENIUSLINK_TSID = (process.env.NEXT_PUBLIC_GENIUSLINK_TSID || '').trim();
 const GENIUSLINK_BASE = process.env.NEXT_PUBLIC_GENIUSLINK_BASE_URL || 'https://buy.geni.us';
 const GENIUSLINK_PRESERVE = process.env.NEXT_PUBLIC_GENIUSLINK_PRESERVE_EXISTING === 'true';
-const SOVRN_KEY = (process.env.NEXT_PUBLIC_SOVRN_KEY || '').trim();
 const AHREFS_KEY = 'PWhqv6+CSsiInhS/JMQ2SA';
 
 export default function HeadScripts() {
@@ -67,7 +67,6 @@ export default function HeadScripts() {
           />
         </>
       )}
-      {SOVRN_KEY && <script src="/js/sovrn-init.js" defer data-key={SOVRN_KEY} />}
     </>
   );
 }

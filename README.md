@@ -214,15 +214,20 @@ site-scoped.
 
 ## Affiliate, analytics and ads
 
-Outbound merchant links are left as plain retailer URLs: `affiliateUrl()` in
-`lib/affiliate.ts` returns them unchanged. `scripts/inject-geniuslink.mjs`
-(`postbuild`) then adds the Geniuslink snippet to every exported page, and the
-snippet affiliates and localises supported merchants in the browser. Put the raw
+Every outbound merchant link goes through `affiliateUrl()` in `lib/affiliate.ts`,
+which wraps Amazon and eBay URLs in a Geniuslink `Proxy.ashx` URL when
+`NEXT_PUBLIC_GENIUSLINK_TSID` is set. Every other retailer stays a plain link:
+Geniuslink answers their hostnames with a 403 "unsupported hostname" page.
+`components/HeadScripts.tsx` also puts the Geniuslink snippet in `<head>`, and
+`public/js/geniuslink-init.js` converts Amazon links in article copy in the
+browser, on first load and again after each client-side navigation. Put the raw
 merchant URL in a product's `retailers[].url`, and do not paste pre-built
 affiliate links into content.
 
-Sovrn, and the per-network IDs for Amazon, eBay, Walmart and CJ, are no longer
-used.
+Geniuslink is the only affiliate integration. Sovrn/VigLink (including the
+`sub_filter` injection in `/etc/nginx/snippets/nxtsmarthome-site.conf`) and Takeads
+were removed on 6 Oct 2026; the per-network IDs for Amazon, eBay, Walmart and CJ
+are not used either. Non-Amazon, non-eBay retailer links are plain, unaffiliated links.
 
 Useful environment variables:
 
@@ -254,7 +259,7 @@ The cookie banner gates Google Analytics:
 - GA4 is injected with Consent Mode v2 defaults set to denied until accepted.
 - The Geniuslink snippet is not gated by the banner: it loads on every page.
 - No ads: Google AdSense and the SearchAtlas (OTTO) script were removed on
-  24 Sep 2026. Monetisation is Geniuslink and Sovrn Commerce only.
+  24 Sep 2026. Monetisation is Geniuslink only.
 
 `/cookies` should stay in sync with the actual scripts. It no longer claims that
 no analytics is present.

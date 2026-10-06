@@ -3,7 +3,7 @@ import Link from 'next/link';
 import LegalSidebarTOC from '@/components/LegalSidebarTOC';
 import { site } from '@/lib/site';
 import { ADS_ENABLED } from '@/lib/ads';
-import { GENIUSLINK_ENABLED, SOVRN_ENABLED } from '@/lib/affiliate';
+import { GENIUSLINK_ENABLED } from '@/lib/affiliate';
 
 export const metadata: Metadata = {
   title: 'Cookie Information',
@@ -19,9 +19,8 @@ export const metadata: Metadata = {
     The factual content below should be checked against what the built site
     actually loads whenever scripts change:
       - Geniuslink for affiliate link affiliation (only when NEXT_PUBLIC_GENIUSLINK_TSID
-        is set; the Sovrn line likewise needs NEXT_PUBLIC_SOVRN_KEY — lib/affiliate.ts)
-      - cdn.viglink.com (Sovrn Commerce), consent-gated: public/js/sovrn-init.js
-        parks its loader on window.__nxtLoadSovrn until the banner is accepted
+        is set — lib/affiliate.ts). The only affiliate script: Sovrn/VigLink and
+        Takeads were removed on 6 Oct 2026
       - googletagmanager.com/gtag/js for Google Analytics
       - analytics.ahrefs.com/analytics.js for Ahrefs Web Analytics, loaded on
         every page, not consent-gated: Ahrefs says it uses zero cookies and
@@ -131,7 +130,7 @@ export default function CookiesPage() {
 
             <h3>Affiliate tracking</h3>
             <p>
-              {GENIUSLINK_ENABLED || SOVRN_ENABLED
+              {GENIUSLINK_ENABLED
                 ? 'We take part in affiliate programmes, which is how the site is funded. This is what can happen here:'
                 : 'No affiliate tracking scripts run on this site at the moment: outbound retailer links are plain links. This is what can still happen:'}
             </p>
@@ -142,22 +141,15 @@ export default function CookiesPage() {
                   its tracking service.
                 </li>
               )}
-              {SOVRN_ENABLED && (
-                <li>
-                  A commerce script from Sovrn attributes outbound merchant links, and may set a
-                  cookie to record which link you followed. Unlike the analytics tag, it loads on
-                  every page, whether or not you accept.
-                </li>
-              )}
               <li>
                 When you click through to a retailer such as Amazon AU, eBay AU, JB Hi-Fi, The Good
                 Guys, Officeworks, Bunnings or Harvey Norman,{' '}
                 <strong>that retailer sets its own cookies on its own site</strong>
-                {GENIUSLINK_ENABLED || SOVRN_ENABLED ? ' so a resulting purchase can be credited to us' : ''}.
+                {GENIUSLINK_ENABLED ? ' so a resulting purchase can be credited to us' : ''}.
                 Those cookies are governed by the retailer&apos;s policies, not ours.
               </li>
             </ul>
-            {(GENIUSLINK_ENABLED || SOVRN_ENABLED) && (
+            {GENIUSLINK_ENABLED && (
               <p>
                 Affiliate cookies record that a referral happened. They do not tell us who you are,
                 and we never receive your name, address or payment details.
@@ -167,8 +159,8 @@ export default function CookiesPage() {
             <h2>Controlling cookies</h2>
             <p>
               {ADS_ENABLED
-                ? 'The first time you visit, a banner asks whether to allow analytics, personalised advertising and affiliate tracking (in the EU, UK and Switzerland, Google’s consent message asks instead).'
-                : 'The first time you visit, a banner asks whether to allow analytics and affiliate tracking.'}{' '}
+                ? 'The first time you visit, a banner asks whether to allow analytics and personalised advertising (in the EU, UK and Switzerland, Google’s consent message asks instead).'
+                : 'The first time you visit, a banner asks whether to allow analytics.'}{' '}
               Nothing beyond your answer is stored by us until you accept. To
               change your mind later, use <strong>Cookie settings</strong> in the footer, which asks
               again.
