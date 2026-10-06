@@ -127,7 +127,28 @@ function extractHeadings(markdown: string): Heading[] {
   return headings;
 }
 
+/*
+ * In-body links to our own articles, made canonical before rendering (audit
+ * S1): stored links use the category KEY (/security/<slug>), which
+ * 308-redirects to /security-and-cameras/<slug>/. Relative or absolute, the
+ * key becomes the URL slug and the trailing slash is added.
+ */
+const KEY_PATH = new RegExp(
+  String.raw`\]\((?:https?://(?:www\.)?nxtsmarthome\.com\.au)?/(` +
+    categories.filter((c) => c.key !== c.slug).map((c) => c.key).join('|') +
+    String.raw`)/([a-z0-9-]+)/?(#[^)\s]*)?\)`,
+  'g',
+);
+
+export function canonicaliseArticleLinks(markdown: string): string {
+  return markdown.replace(KEY_PATH, (_m, key: string, slug: string, hash?: string) => {
+    const cat = categories.find((c) => c.key === key);
+    return `](/${cat ? cat.slug : key}/${slug}/${hash ?? ''})`;
+  });
+}
+
 async function renderMarkdown(markdown: string): Promise<string> {
+  markdown = canonicaliseArticleLinks(markdown);
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)

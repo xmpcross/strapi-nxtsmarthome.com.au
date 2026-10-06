@@ -199,7 +199,7 @@ export function HomeTopicSection({
       <div className="grid gap-8 lg:grid-cols-5">
         {/* Lead Featured Article Card */}
         <Link
-          href={`/${lead.handle}/`}
+          href={`/${lead.handle}`}
           className={`group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50/50 transition-all duration-300 hover:border-primary-500 hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-800/40 dark:hover:border-primary-400 ${
             list.length ? 'lg:col-span-2' : 'lg:col-span-5'
           } ${flip ? 'lg:order-2' : ''}`}
@@ -246,7 +246,7 @@ export function HomeTopicSection({
           <ol className={`flex flex-col divide-y divide-neutral-200 dark:divide-neutral-800 lg:col-span-3 ${flip ? 'lg:order-1' : ''}`}>
             {list.map((post) => (
               <li key={post.id} className="py-4.5 first:pt-0 last:pb-0">
-                <Link href={`/${post.handle}/`} className="group flex items-center gap-4.5">
+                <Link href={`/${post.handle}`} className="group flex items-center gap-4.5">
                   <span className="relative size-20 sm:size-24 shrink-0 overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800">
                     {post.featuredImage?.src ? (
                       // eslint-disable-next-line @next/next/no-img-element
@@ -387,7 +387,7 @@ export function HomeSetupGuides({
         {posts.map((post) => (
           <li key={post.id}>
             <Link
-              href={`/${post.handle}/`}
+              href={`/${post.handle}`}
               className="group flex items-center gap-5 rounded-2xl border border-neutral-200 bg-white p-4 transition-all hover:border-primary-500 hover:bg-neutral-50/50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800/50"
             >
               <span className="relative size-20 shrink-0 overflow-hidden rounded-xl sm:size-24 bg-neutral-100 dark:bg-neutral-800">

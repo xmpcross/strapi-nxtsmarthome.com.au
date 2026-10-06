@@ -172,8 +172,10 @@ export function metaDescription(text: string | undefined, max = 155): string | u
  * block (lib/review-sources.ts) is unaffected.
  */
 export function productJsonLd(product: TopProduct) {
+  // Offers only for a priced, verified product page (deepLink), never a
+  // retailer search page; and no availability, which we do not know (audit #6).
   const priced = (product.retailers ?? []).filter(
-    (r) => typeof r.priceAud === 'number' && r.priceAud > 0,
+    (r) => typeof r.priceAud === 'number' && r.priceAud > 0 && r.deepLink === true && !/[?&](?:q|k|query)=|\/search\b/i.test(r.url),
   );
   const prices = priced.map((r) => r.priceAud as number).sort((a, b) => a - b);
 
@@ -197,12 +199,10 @@ export function productJsonLd(product: TopProduct) {
       lowPrice: prices[0],
       highPrice: prices[prices.length - 1],
       offerCount: prices.length,
-      availability: 'https://schema.org/InStock',
       offers: priced.map((r) => ({
         '@type': 'Offer',
         priceCurrency: 'AUD',
         price: r.priceAud,
-        availability: 'https://schema.org/InStock',
         url: r.url,
         seller: { '@type': 'Organization', name: r.name },
       })),

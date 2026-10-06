@@ -85,7 +85,7 @@ export default function EditorsChoiceSection({ posts, heading = "Editors Choice"
             key={post.id}
             className="w-full shrink-0 snap-start sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
           >
-            <Link href={`/${post.handle}/`} className="group flex items-center gap-4">
+            <Link href={`/${post.handle}`} className="group flex items-center gap-4">
               {/* Thumbnail Image */}
               <div className="relative size-28 sm:size-32 shrink-0 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800">
                 {post.featuredImage?.src ? (

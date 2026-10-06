@@ -247,7 +247,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
               {/* Left Column: 1 Large Featured Post */}
               {recentFeatured && (
                 <Link
-                  href={`/${recentFeatured.handle}/`}
+                  href={`/${recentFeatured.handle}`}
                   className="group relative flex h-[420px] w-full flex-col justify-end overflow-hidden rounded-2xl p-6 border border-neutral-200 dark:border-neutral-800"
                 >
                   {/* Background Image */}
@@ -301,7 +301,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                 {recentList.map((post) => (
                   <Link
                     key={post.id}
-                    href={`/${post.handle}/`}
+                    href={`/${post.handle}`}
                     className="group flex items-center justify-between gap-4 rounded-xl border-b border-neutral-100 pb-4 dark:border-neutral-800/80 last:border-none last:pb-0"
                   >
                     {/* Left Details */}
@@ -428,7 +428,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                     </p>
 
                     <Link
-                      href={`/${trendingFeatured.handle}/`}
+                      href={`/${trendingFeatured.handle}`}
                       className="mt-2 flex w-fit items-center gap-1.5 rounded-lg border border-neutral-300 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-neutral-800 transition hover:border-primary-500 hover:text-primary-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-primary-400"
                     >
                       <span>Read More</span>
@@ -441,7 +441,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
               {/* Bottom 3 Vertical Column Cards */}
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {trendingGrid.map((post) => (
-                  <Link key={post.id} href={`/${post.handle}/`} className="group space-y-3">
+                  <Link key={post.id} href={`/${post.handle}`} className="group space-y-3">
                     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-800">
                       {post.featuredImage?.src ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -573,7 +573,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
               {popularPosts.map((post) => (
                 <Link
                   key={post.id}
-                  href={`/${post.handle}/`}
+                  href={`/${post.handle}`}
                   className="group flex items-center gap-3.5 border-b border-neutral-100 pb-3.5 dark:border-neutral-800/80 last:border-none last:pb-0"
                 >
                   {/* Square Thumbnail */}
@@ -695,7 +695,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
               {latestPosts.map((post) => (
                 <Link
                   key={post.id}
-                  href={`/${post.handle}/`}
+                  href={`/${post.handle}`}
                   className="group flex flex-col justify-between overflow-hidden border-0 p-0 bg-transparent transition-all duration-300"
                 >
                   <div className="space-y-3">
@@ -745,7 +745,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
               {/* Top Featured Overlay Post Card */}
               {popularTechFeatured && (
                 <Link
-                  href={`/${popularTechFeatured.handle}/`}
+                  href={`/${popularTechFeatured.handle}`}
                   className="group relative flex h-60 w-full flex-col justify-end overflow-hidden rounded-2xl p-5 border border-neutral-200 dark:border-neutral-800"
                 >
                   {popularTechFeatured.featuredImage?.src ? (
@@ -781,7 +781,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
               {popularTechList.map((post) => (
                 <Link
                   key={post.id}
-                  href={`/${post.handle}/`}
+                  href={`/${post.handle}`}
                   className="group flex items-center gap-3.5 border-b border-neutral-100 pb-3.5 dark:border-neutral-800/80 last:border-none last:pb-0"
                 >
                   <div className="relative size-20 shrink-0 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800">
