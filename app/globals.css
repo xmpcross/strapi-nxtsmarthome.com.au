@@ -1672,3 +1672,10 @@ h1, h2, h3, h4, h5, h6 {
   width: 2rem;
   height: 2rem;
 }
+
+/* All-topics FAQ: FlyonUI's .accordion-toggle is unlayered, so it beats Tailwind
+   utilities on the button — override it here, scoped to the page. */
+.page-categories-index .accordion-toggle {
+  padding-block: 10px;
+  padding-inline: 0;
+}

@@ -14,17 +14,16 @@ interface FlyonAccordionProps {
   items: FlyonAccordionItem[];
   alwaysOpen?: boolean;
   columns?: 1 | 2;
-  itemPaddingClassName?: string;
 }
 
-export default function FlyonAccordion({ items, alwaysOpen = false, columns = 1, itemPaddingClassName = 'py-1.5' }: FlyonAccordionProps) {
+export default function FlyonAccordion({ items, alwaysOpen = false, columns = 1 }: FlyonAccordionProps) {
   if (columns === 2) {
     return (
       <div className="grid gap-x-8 gap-y-2 md:grid-cols-2 items-start">
         {items.map((item, index) => (
           <div
             key={item.id || index}
-            className={`accordion border-b border-neutral-200 dark:border-neutral-800 ${itemPaddingClassName} bg-transparent`}
+            className="accordion border-b border-neutral-200 dark:border-neutral-800 py-1.5 bg-transparent"
             data-accordion-always-open={alwaysOpen ? 'true' : undefined}
           >
             <div
@@ -36,7 +35,7 @@ export default function FlyonAccordion({ items, alwaysOpen = false, columns = 1,
                 aria-expanded={false}
                 aria-controls={`accordion-content-${item.id || index}`}
               >
-                <span className="text-base">{item.question}</span>
+                <span className="text-base font-bold">{item.question}</span>
                 <svg
                   className="accordion-active:rotate-180 size-4 shrink-0 transition-transform duration-300 text-neutral-400"
                   xmlns="http://www.w3.org/2000/svg"

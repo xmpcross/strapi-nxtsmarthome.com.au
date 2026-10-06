@@ -1,35 +1,24 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import dynamic from 'next/dynamic';
+
+// lottie-react v3: named `Lottie` export, takes `src` (path or parsed JSON).
+// lottie-web touches `document` at import, so load it client-side only.
+const Lottie = dynamic(() => import('lottie-react').then((m) => m.Lottie), {
+  ssr: false,
+  loading: () => (
+    <div className="flex size-full items-center justify-center">
+      <div className="size-8 animate-spin rounded-full border-3 border-primary-500 border-t-transparent" />
+    </div>
+  ),
+});
 
 interface SmartHomeLottieBannerProps {
   className?: string;
 }
 
 export default function SmartHomeLottieBanner({ className = '' }: SmartHomeLottieBannerProps) {
-  const [LottieComp, setLottieComp] = useState<any>(null);
-  const [animationData, setAnimationData] = useState<any>(null);
-
-  useEffect(() => {
-    import('lottie-react').then((mod) => {
-      setLottieComp(() => (mod as any).default || mod);
-    });
-    fetch('/data/smart-home-banner.json')
-      .then((res) => res.json())
-      .then((data) => setAnimationData(data))
-      .catch((err) => console.error('Failed to load Lottie animation:', err));
-  }, []);
-
-  if (!animationData || !LottieComp) {
-    return (
-      <div className={`relative flex items-center justify-center rounded-3xl border border-neutral-200/80 bg-white/40 p-6 dark:border-neutral-800 dark:bg-neutral-900/40 min-h-[260px] ${className}`}>
-        <div className="size-8 animate-spin rounded-full border-3 border-primary-500 border-t-transparent" />
-      </div>
-    );
-  }
-
-  const Component = LottieComp;
-
   return (
     <div className={`relative overflow-hidden rounded-3xl border border-neutral-200/80 bg-gradient-to-br from-primary-50/40 via-white to-purple-50/30 p-4 sm:p-6 shadow-sm dark:border-neutral-800 dark:from-neutral-900/80 dark:via-neutral-900 dark:to-neutral-950 ${className}`}>
       {/* Background Decorative Ambient Glows */}
@@ -42,14 +31,9 @@ export default function SmartHomeLottieBanner({ className = '' }: SmartHomeLotti
         Live IoT Ecosystem
       </div>
 
-      {/* Lottie Animation */}
-      <div className="relative z-10 flex items-center justify-center w-full max-w-[340px] mx-auto py-2">
-        <Component
-          animationData={animationData}
-          loop={true}
-          autoplay={true}
-          style={{ width: '100%', height: 'auto' }}
-        />
+      {/* Lottie Animation — fills its element, so the wrapper sets the size */}
+      <div className="relative z-10 mx-auto aspect-square w-full max-w-[340px] py-2">
+        <Lottie src="/data/smart-home-banner.json" autoplay loop className="size-full" />
       </div>
     </div>
   );
