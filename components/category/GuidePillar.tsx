@@ -179,7 +179,7 @@ export default function GuidePillar({ category, articles }: { category: Category
                       >
                         {item.label}
                         {item.guides ? (
-                          <span className="ms-1.5 tabular-nums text-neutral-500 dark:text-neutral-500">
+                          <span className="ms-1.5 tabular-nums text-neutral-600 dark:text-neutral-400">
                             {item.guides}
                             <span className="sr-only"> {item.guides === 1 ? 'guide' : 'guides'}</span>
                           </span>
@@ -334,7 +334,7 @@ function CoverMosaic({ articles }: { articles: Article[] }) {
           className={
             i === 0
               ? 'col-span-2 aspect-[16/10] lg:row-span-2 lg:aspect-auto'
-              : `aspect-[4/3] lg:aspect-auto ${i >= 3 ? 'hidden lg:block' : ''}`
+              : `aspect-square sm:aspect-[4/3] lg:aspect-auto ${i >= 3 ? 'hidden lg:block' : ''}`
           }
         >
           <Link
@@ -351,10 +351,10 @@ function CoverMosaic({ articles }: { articles: Article[] }) {
               fetchPriority={i === 0 ? 'high' : undefined}
               className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
-            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/55 to-transparent p-4 pt-12 sm:p-5 sm:pt-16">
+            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/55 to-transparent p-3 pt-10 sm:p-5 sm:pt-16">
               <span
                 className={`block font-bold leading-snug text-balance text-white group-hover:underline group-hover:underline-offset-4 ${
-                  i === 0 ? 'text-xl sm:text-2xl' : 'text-sm sm:text-base'
+                  i === 0 ? 'text-xl sm:text-2xl' : 'line-clamp-3 text-[0.8125rem] sm:line-clamp-none sm:text-base'
                 }`}
               >
                 {article.title}
