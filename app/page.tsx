@@ -5,7 +5,7 @@ import { getAllArticles } from '@/lib/content'
 import { site } from '@/lib/site'
 import type { Metadata } from 'next'
 import JsonLd from '@/components/JsonLd'
-import { HomeFaq, HomeHero, HomeProducts, HomeTopicSection, HomeTopics } from '@/components/home/HomeSections'
+import { HomeHero, HomeProducts, HomeTopicSection, HomeTopics } from '@/components/home/HomeSections'
 import { getListableTopProducts, toListingCard } from '@/lib/products'
 
 // Home page on the Ncmaz "Home Demo 5" layout, filled from Strapi and
@@ -105,8 +105,6 @@ export default async function HomePage() {
       <HomeProducts products={researched} />
 
       {sectionTopics.slice(splitAt).map((category, i) => renderTopic(category, i + splitAt))}
-
-      <HomeFaq />
     </div>
   )
 }
