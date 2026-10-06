@@ -236,6 +236,14 @@ Header on the page ground with a bottom rule: logo left, Home / Topics / Guides 
 ### Ruled List Row (signature)
 The topic page's building block. A link spanning the whole row between 1px rules: optional indigo tabular numeral, a bold title, a one-line reason, a meta line (type · read time), and on the ranked list a 112px 4:3 thumbnail. Hover turns the title indigo and underlines it (4px offset); focus draws the Ring Indigo outline around the row. The "New" feed variant leads with an indigo tabular date.
 
+### Guide Pillar (Setup Guides, Buying Guides)
+`components/category/GuidePillar.tsx`, redesigned 7 Oct 2026 for more imagery and full-width text.
+- **Cover mosaic** under the header: the lead guides' own covers, one large (2×2) and four small on a 4-column, 30rem grid; three on phones (one wide, two square). Each tile is a link with its title on a bottom scrim (`from-black/85`), so white text holds contrast on any photo in either theme. Hover scales the photo 3% over 500ms ease-out; static under reduced motion.
+- **Full-width text in two columns:** intro and section paragraphs span the container and set as `lg:columns-2` with a 48px gap, so the page uses its width while each line stays near the 68ch measure. One column below 1024px.
+- **Contents strip** of jump links with tabular guide counts, between rules, replacing the side rail.
+- **Photo tiles** for guides: 16:10 cover, bold title, the full description, type and read time; 3 / 2 / 1 across. No card shell (Rules Before Shells still holds). A one-guide section uses a wide 7:5 photo-and-text feature.
+- **Checklists and FAQ** spread across the width (3 and 2 columns).
+
 ### Detached Arrow Card (incumbent)
 Homepage post cards: notched bottom-right corner, 44 to 48px square arrow button in the notch; on hover the arrow nudges up-right (3px, -3px, -8deg) over 200ms, static under reduced motion.
 
