@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 // lottie-react v3: named `Lottie` export, takes `src` (path or parsed JSON).
@@ -19,6 +19,27 @@ interface SmartHomeLottieBannerProps {
 }
 
 export default function SmartHomeLottieBanner({ className = '' }: SmartHomeLottieBannerProps) {
+  /*
+   * Mount the animation once the browser is idle: lottie-web plus its 123 KB
+   * JSON cost seconds of mobile main-thread time at hydration (audit perf #7).
+   * Under reduced motion it shows its first frame and does not play.
+   */
+  const [ready, setReady] = useState(false);
+  const [still, setStill] = useState(false);
+  useEffect(() => {
+    setStill(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const w = window as typeof window & {
+      requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (w.requestIdleCallback) {
+      const id = w.requestIdleCallback(() => setReady(true), { timeout: 3000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(() => setReady(true), 1200);
+    return () => window.clearTimeout(t);
+  }, []);
+
   return (
     // No panel background: the animation sits on the page (user request, 6 Oct 2026).
     <div className={`relative ${className}`}>
@@ -31,7 +52,9 @@ export default function SmartHomeLottieBanner({ className = '' }: SmartHomeLotti
 
       {/* Lottie Animation — fills its element, so the wrapper sets the size */}
       <div className="relative z-10 mx-auto aspect-square w-full max-w-[520px]">
-        <Lottie src="/data/smart-home-banner.json" autoplay loop className="size-full" />
+        {ready ? (
+          <Lottie src="/data/smart-home-banner.json" autoplay={!still} loop={!still} className="size-full" />
+        ) : null}
       </div>
     </div>
   );

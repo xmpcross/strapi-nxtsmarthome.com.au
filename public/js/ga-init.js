@@ -24,4 +24,20 @@
   } catch (e) {}
   gtag('js', new Date());
   if (id) gtag('config', id);
+
+  // gtag.js after load, when the main thread is free. The commands above are
+  // queued in dataLayer and run in order once it arrives.
+  if (!id) return;
+  function loadTag() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+    document.head.appendChild(s);
+  }
+  function whenIdle() {
+    if ('requestIdleCallback' in window) window.requestIdleCallback(loadTag, { timeout: 4000 });
+    else window.setTimeout(loadTag, 1500);
+  }
+  if (document.readyState === 'complete') whenIdle();
+  else window.addEventListener('load', whenIdle, { once: true });
 })();

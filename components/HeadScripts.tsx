@@ -50,9 +50,13 @@ export default function HeadScripts() {
           crossOrigin="anonymous"
         />
       )}
-      {/* Consent defaults must be queued before gtag.js loads, so this one is not async. */}
+      {/*
+       * ga-init.js queues the consent defaults and config, then loads gtag.js
+       * itself once the page has loaded and the browser is idle: gtag.js is
+       * 174 KB and ~380 ms of mobile main-thread time (audit perf #6), and
+       * analytics waits for consent anyway.
+       */}
       <script src="/js/ga-init.js" data-ga-id={GA_ID} defer />
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
       {/* Ahrefs Web Analytics: cookieless by Ahrefs' account, so not consent-gated. */}
       <script src="https://analytics.ahrefs.com/analytics.js" data-key={AHREFS_KEY} async />
       {geniuslink && (
