@@ -4,6 +4,7 @@ import { getAllArticles } from '@/lib/content';
 import { getAllAuthors, resolveAuthor, type Author } from '@/lib/authors';
 import { site } from '@/lib/site';
 import { ADS_ENABLED } from '@/lib/ads';
+import { responsiveImg } from '@/lib/image'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -114,7 +115,7 @@ function Avatar({ author, size }: { author: Author; size: string }) {
   return author.avatar ? (
     // Photos are served by the CMS; next/image is unoptimised site-wide anyway.
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={author.avatar} alt={author.name} className={`${size} shrink-0 rounded-full object-cover`} />
+    <img {...responsiveImg(author.avatar, 128, '128px')} alt={author.name} className={`${size} shrink-0 rounded-full object-cover`} />
   ) : (
     <span
       className={`${size} flex shrink-0 items-center justify-center rounded-full bg-brand-100 font-bold text-brand-700 dark:bg-brand-900/40 dark:text-brand-300`}

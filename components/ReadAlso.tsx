@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { articleHref } from '@/lib/urls';
 import { squareCoverFor, formatDate, type Article } from '@/lib/content';
+import { responsiveImg } from '@/lib/image'
 
 /**
  * "Read Also" card dropped into the middle of an article's body.
@@ -39,7 +40,7 @@ export default function ReadAlso({ items }: { items: Article[] }) {
               className="block w-18 shrink-0 overflow-hidden rounded-lg"
             >
               <img
-                src={squareCoverFor(article)}
+                {...responsiveImg(squareCoverFor(article), 96, '72px')}
                 alt={article.title}
                 width={500}
                 height={500}

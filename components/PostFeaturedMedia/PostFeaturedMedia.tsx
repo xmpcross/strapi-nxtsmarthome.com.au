@@ -12,9 +12,11 @@ interface Props {
   className?: string
   post: TPost
   isHover?: boolean
+  /** Load this image first (the page's LCP candidate): fetchpriority high, preloaded. */
+  priority?: boolean
 }
 
-const PostFeaturedMedia: FC<Props> = ({ className, post, isHover = false }) => {
+const PostFeaturedMedia: FC<Props> = ({ className, post, isHover = false, priority = false }) => {
   const { featuredImage, postType, videoUrl, galleryImgs, audioUrl, handle, title } = post
 
   const renderPostGallery = () => {
@@ -70,7 +72,14 @@ const PostFeaturedMedia: FC<Props> = ({ className, post, isHover = false }) => {
   const renderImage = () => {
     return (
       <Link href={`/${handle}`}>
-        <Image alt={title} fill className="object-cover" src={featuredImage} sizes="(max-width: 600px) 100vw, 50vw" />
+        <Image
+          alt={title}
+          fill
+          className="object-cover"
+          src={featuredImage}
+          sizes="(max-width: 600px) 100vw, 50vw"
+          priority={priority}
+        />
         <div className="absolute inset-0 bg-black/25 opacity-0 transition-opacity group-hover:opacity-100" />
       </Link>
     )

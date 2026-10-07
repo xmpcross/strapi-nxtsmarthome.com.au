@@ -3,6 +3,7 @@
 import React, { useState, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import type { TPost } from '@/data/posts'
+import { responsiveImg } from '@/lib/image'
 
 interface Props {
   posts: TPost[]
@@ -91,7 +92,7 @@ export default function EditorsChoiceSection({ posts, heading = "Editors Choice"
                 {post.featuredImage?.src ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    src={post.featuredImage.src}
+                    {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
                     alt={post.featuredImage.alt || post.title}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"

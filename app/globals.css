@@ -1,7 +1,18 @@
 /* Ncmaz template base (Tailwind 4); primary = the site's brand ramp. */
 @import 'tailwindcss';
-@import 'flyonui/flyonui.css';
+/*
+ * FlyonUI as a plugin, not its prebuilt flyonui.css: that file is 930 KB of
+ * every component at every breakpoint and made the site CSS 1.5 MB. The plugin
+ * emits only the classes the site uses; its JS is scanned so the classes its
+ * interactive components add at runtime are kept.
+ */
+@plugin "flyonui";
 @import 'flyonui/variants.css';
+@source "../node_modules/flyonui/dist/index.js";
+/* Not site code: drafts, reports and design-tool captures. */
+@source not "../drafts";
+@source not "../reports";
+@source not "../.impeccable";
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/aspect-ratio";
