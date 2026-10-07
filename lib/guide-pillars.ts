@@ -152,6 +152,29 @@ export const guidePillars: Record<string, GuidePillar> = {
     ],
     sections: [
       {
+        id: 'first-devices',
+        heading: 'Start here: your first devices',
+        paragraphs: [
+          'A smart bulb or a smart plug is the easiest way to start. Neither needs an electrician: the bulb goes into an existing light fitting and the plug into a power point, and both can come out again when you move.',
+          'Most first-time problems come from the choice, not the setup: a bulb with the wrong base for the fitting (most Australian ceiling lights take a B22 bayonet, many lamps an E27 screw), a plug not rated for what goes into it, or a device that only talks to an app you would rather not use. These guides cover what to check before buying, then the setup step by step.',
+          'Once you have a few devices, a hub brings them together under one app and keeps them working locally when the internet drops. Home Assistant is the most flexible choice, and the third guide walks through setting it up.',
+        ],
+        checklist: {
+          title: 'Before you start',
+          items: [
+            'Check the fitting: B22 bayonet or E27 screw, and whether the light is on a dimmer.',
+            'Check the plug is rated for the appliance (10A for most household items).',
+            'Make sure your Wi-Fi has a 2.4GHz band the device can join.',
+            'Pick the app or platform you will control everything from.',
+          ],
+        },
+        posts: [
+          'how-to-choose-and-set-up-your-first-smart-bulb-australia',
+          'how-to-choose-set-up-smart-plug-australia',
+          'how-to-set-up-smart-home-hub-home-assistant-step-by-step',
+        ],
+      },
+      {
         id: 'network-first',
         heading: 'Get the Wi-Fi right first',
         paragraphs: [
