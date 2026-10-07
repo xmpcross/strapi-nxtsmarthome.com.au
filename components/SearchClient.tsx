@@ -5,7 +5,6 @@ import Link from 'next/link';
 import type { SearchDoc } from '@/lib/content';
 import { articleHref } from '@/lib/urls';
 import { site } from '@/lib/site';
-import { responsiveImg } from '@/lib/image'
 
 /**
  * Search results.
@@ -149,7 +148,7 @@ export default function SearchClient() {
             >
               <Link href={articleHref(doc)} className="block">
                 <img
-                  {...responsiveImg(doc.cover ?? `/covers/${doc.slug}.png`, 128, '96px')}
+                  src={doc.cover ?? `/covers/${doc.slug}.png`}
                   alt={doc.title}
                   loading="lazy"
                   className="aspect-video w-full object-cover"

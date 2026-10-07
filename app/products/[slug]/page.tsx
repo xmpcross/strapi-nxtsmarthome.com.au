@@ -15,7 +15,6 @@ import { getAllProducts, getAllTopProducts, getCuratedProduct, getProductBySlug,
 import ProductEditorial from '@/components/ProductEditorial';
 import { breadcrumbJsonLd, productJsonLd } from '@/lib/seo';
 import { retailerReviews } from '@/lib/review-sources';
-import { responsiveImg } from '@/lib/image'
 
 export async function generateStaticParams() {
   const products = getAllTopProducts();
@@ -154,7 +153,7 @@ export default async function ProductDetailPage({
                   rather than faked with duplicates. */}
               <div className="flex min-w-0 items-center justify-center rounded-lg bg-white p-4 dark:bg-slate-800">
                 <img
-                  {...responsiveImg(product.image || '/og-default.png', 640, '(max-width: 768px) 100vw, 480px')}
+                  src={product.image || '/og-default.png'}
                   alt={product.brand ? `${product.brand} ${product.name}` : product.name}
                   className="max-h-[380px] w-full object-contain"
                 />

@@ -2,7 +2,6 @@ import Link from 'next/link';
 import AffiliateLink from './AffiliateLink';
 import RetailerLogo from './RetailerLogo';
 import type { TopProduct } from '@/lib/products';
-import { responsiveImg } from '@/lib/image'
 
 interface Props {
   product: TopProduct;
@@ -58,7 +57,7 @@ export default function ProductCard({ product, rank }: Props) {
         <Link href={`/products/${product.slug}/`} className="block">
           <div className="relative mb-3 flex h-44 w-full items-center justify-center overflow-hidden rounded-xl bg-neutral-50 p-4 transition dark:bg-neutral-800/60 group-hover:bg-neutral-100/80 dark:group-hover:bg-neutral-800">
             <img
-              {...responsiveImg(product.image || '/og-default.png', 384, '(max-width: 640px) 50vw, 16rem')}
+              src={product.image || '/og-default.png'}
               alt={product.brand ? `${product.brand} ${product.name}` : product.name}
               className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
               loading="lazy"

@@ -3,7 +3,6 @@ import AffiliateLink from '@/components/AffiliateLink';
 import { FOCUS } from '@/components/category/shared';
 import { articleHref, type Article } from '@/lib/content';
 import type { TopProduct } from '@/lib/products';
-import { responsiveImg } from '@/lib/image'
 
 /**
  * A product a guide discusses: picture, name, the verdict on who it suits, the
@@ -21,7 +20,7 @@ export default function ProductPick({ product, guide }: { product: TopProduct; g
           {product.image ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              {...responsiveImg(product.image, 384, '(max-width: 640px) 50vw, 16rem')}
+              src={product.image}
               alt=""
               width={240}
               height={180}

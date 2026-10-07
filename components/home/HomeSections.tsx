@@ -7,7 +7,6 @@ import type { TPost } from '@/data/posts'
 import type { TopProduct } from '@/lib/products'
 import { getCategory, site } from '@/lib/site'
 import { AFFILIATE_ENABLED } from '@/lib/affiliate'
-import { responsiveImg } from '@/lib/image'
 
 /*
  * Completely new, shadowless design for Home Page sections (Oct 2026).
@@ -209,7 +208,7 @@ export function HomeTopicSection({
             {lead.featuredImage?.src ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                {...responsiveImg(lead.featuredImage.src, 1200, '(max-width: 1024px) 100vw, 50vw')}
+                src={lead.featuredImage.src}
                 alt={lead.featuredImage.alt || lead.title}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
@@ -252,7 +251,7 @@ export function HomeTopicSection({
                     {post.featuredImage?.src ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
+                        src={post.featuredImage.src}
                         alt={post.featuredImage.alt || post.title}
                         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
@@ -395,7 +394,7 @@ export function HomeSetupGuides({
                 {post.featuredImage?.src ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
+                    src={post.featuredImage.src}
                     alt={post.featuredImage.alt || post.title}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"

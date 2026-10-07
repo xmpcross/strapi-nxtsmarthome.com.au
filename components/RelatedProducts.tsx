@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import type { TopProduct } from '@/lib/products';
-import { responsiveImg } from '@/lib/image'
 
 /**
  * Related products strip for the bottom of a product page.
@@ -25,7 +24,7 @@ export default function RelatedProducts({ products }: { products: TopProduct[] }
             >
               <div className="mb-2.5 flex h-28 items-center justify-center overflow-hidden rounded-[8px] bg-slate-50 p-2 dark:bg-slate-900/60">
                 <img
-                  {...responsiveImg(product.image || '/og-default.png', 384, '(max-width: 640px) 50vw, 16rem')}
+                  src={product.image || '/og-default.png'}
                   alt={product.brand ? `${product.brand} ${product.name}` : product.name}
                   loading="lazy"
                   className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"

@@ -3,7 +3,6 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import type { TPost } from '@/data/posts';
-import { responsiveImg } from '@/lib/image'
 
 export type TopicCategoryData = {
   id: string | number;
@@ -350,7 +349,7 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
                     <span className="flex size-10 items-center justify-center p-0 m-0 bg-transparent shrink-0 transition-transform duration-300 group-hover:scale-110">
                       {c.icon3d ? (
                         <img
-                          {...responsiveImg(c.icon3d, 72, '72px')}
+                          src={c.icon3d}
                           alt={c.name}
                           width={40}
                           height={40}
@@ -482,7 +481,7 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
                           {post.featuredImage?.src ? (
                             // eslint-disable-next-line @next/next/no-img-element
                             <img
-                              {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
+                              src={post.featuredImage.src}
                               alt={post.featuredImage.alt || post.title}
                               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                               loading="lazy"
@@ -530,7 +529,7 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
                     {post.featuredImage?.src ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
+                        src={post.featuredImage.src}
                         alt={post.featuredImage.alt || post.title}
                         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
@@ -580,7 +579,7 @@ export default function AllTopicsClient({ categories, posts }: AllTopicsClientPr
                     {post.featuredImage?.src ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
+                        src={post.featuredImage.src}
                         alt={post.featuredImage.alt || post.title}
                         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"

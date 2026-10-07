@@ -5,7 +5,6 @@ import JsonLd from '@/components/JsonLd';
 import { articleHref, coverFor, type Article } from '@/lib/content';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { categories, site } from '@/lib/site';
-import { responsiveImg } from '@/lib/image'
 
 const NEWEST = 3;
 
@@ -111,7 +110,7 @@ export default function ArticlesList({ articles }: { articles: Article[] }) {
                       <Link href={articleHref(article)} className={`group block rounded-sm ${FOCUS}`}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          {...responsiveImg(coverFor(article), 640, '(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw')}
+                          src={coverFor(article)}
                           alt=""
                           width={640}
                           height={360}

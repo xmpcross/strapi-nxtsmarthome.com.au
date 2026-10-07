@@ -5,7 +5,6 @@ import { articleHref, coverFor, type Article } from '@/lib/content';
 import { guidePillars, type PillarSection } from '@/lib/guide-pillars';
 import { breadcrumbJsonLd, faqJsonLd } from '@/lib/seo';
 import { site, type Category } from '@/lib/site';
-import { responsiveImg } from '@/lib/image'
 
 /**
  * Buying Guides and Setup Guides as pillar pages: one long guide whose sections
@@ -106,7 +105,7 @@ export default function GuidePillar({ category, articles }: { category: Category
             {category.icon3d ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                {...responsiveImg(category.icon3d, 72, '72px')}
+                src={category.icon3d}
                 alt=""
                 width={72}
                 height={72}
@@ -344,11 +343,7 @@ function CoverMosaic({ articles }: { articles: Article[] }) {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              {...responsiveImg(
-                coverFor(article),
-                i === 0 ? 700 : 340,
-                i === 0 ? '(max-width: 1024px) 100vw, 50vw' : '(max-width: 1024px) 50vw, 25vw',
-              )}
+              src={coverFor(article)}
               alt=""
               width={i === 0 ? 1200 : 600}
               height={i === 0 ? 750 : 450}
@@ -380,7 +375,7 @@ function GuideTile({ article }: { article: Article }) {
       <span className="block aspect-[16/10] overflow-hidden rounded-lg bg-neutral-200 dark:bg-neutral-800">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          {...responsiveImg(coverFor(article), 440, '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw')}
+          src={coverFor(article)}
           alt=""
           width={640}
           height={400}
@@ -409,7 +404,7 @@ function GuideFeature({ article }: { article: Article }) {
       <span className="block aspect-[16/9] overflow-hidden rounded-lg bg-neutral-200 dark:bg-neutral-800">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          {...responsiveImg(coverFor(article), 760, '(max-width: 1024px) 100vw, 58vw')}
+          src={coverFor(article)}
           alt=""
           width={960}
           height={540}

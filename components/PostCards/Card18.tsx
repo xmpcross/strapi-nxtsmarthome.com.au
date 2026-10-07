@@ -26,7 +26,7 @@ const Card18: FC<Props> = ({ className, titleClass = 'text-lg ', ratio = 'aspect
     <div className={clsx('group post-card-18 relative flex flex-col overflow-hidden rounded-xl', className)}>
       <div className={clsx('relative size-full', ratio)}>
         {postType === 'audio' ? (
-          <PostFeaturedMedia post={post} priority={priority} />
+          <PostFeaturedMedia post={post} />
         ) : (
           <>
             <Image

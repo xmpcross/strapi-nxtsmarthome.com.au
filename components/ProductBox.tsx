@@ -1,6 +1,5 @@
 import AffiliateLink from './AffiliateLink';
 import type { ProductRef } from '@/lib/content';
-import { responsiveImg } from '@/lib/image'
 
 interface Props {
   product: ProductRef;
@@ -41,7 +40,7 @@ export default function ProductBox({ product, subId, rank }: Props) {
           */}
           {product.image && (
             <img
-              {...responsiveImg(product.image, 384, '(max-width: 640px) 50vw, 14rem')}
+              src={product.image}
               alt={product.name}
               width={96}
               height={96}

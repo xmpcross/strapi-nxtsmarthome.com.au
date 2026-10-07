@@ -51,7 +51,7 @@ export default function HeadScripts() {
         />
       )}
       {/* Consent defaults must be queued before gtag.js loads, so this one is not async. */}
-      <script src="/js/ga-init.js" data-ga-id={GA_ID} defer />
+      <script src="/js/ga-init.js" data-ga-id={GA_ID} />
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
       {/* Ahrefs Web Analytics: cookieless by Ahrefs' account, so not consent-gated. */}
       <script src="https://analytics.ahrefs.com/analytics.js" data-key={AHREFS_KEY} async />

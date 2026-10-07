@@ -10,7 +10,6 @@ import { articleHref, getAllArticles } from '@/lib/content';
 import { guideMentions } from '@/lib/product-mentions';
 import { getShoppableTopProducts, isIndexableProduct } from '@/lib/products';
 import { categories, getCategory, site } from '@/lib/site';
-import { responsiveImg } from '@/lib/image'
 
 // The picks and guides come from the articles, which refresh from Strapi every 5 minutes.
 export const revalidate = 300;
@@ -112,7 +111,7 @@ export default async function CategoryProductsPage({
         <div className="mt-6 flex items-center gap-4 sm:gap-5">
           {category.icon3d ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img {...responsiveImg(category.icon3d, 72, '72px')} alt="" width={72} height={72} className="size-14 shrink-0 object-contain sm:size-[4.5rem]" />
+            <img src={category.icon3d} alt="" width={72} height={72} className="size-14 shrink-0 object-contain sm:size-[4.5rem]" />
           ) : null}
           <h1 className="text-4xl font-black tracking-tight text-balance text-neutral-900 sm:text-5xl dark:text-white">
             {category.name} for Australian homes
