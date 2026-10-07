@@ -36,9 +36,23 @@ const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
   ...(basePath ? { basePath, assetPrefix: basePath } : {}),
   trailingSlash: true,
+  // lib/image.ts reads this: the static preview export has no image optimiser.
+  env: { NEXT_PUBLIC_IMAGES_UNOPTIMISED: staticExport ? '1' : '' },
   images: {
-    // Covers are pre-sized at build time; the preview export needs raw <img> too.
-    unoptimized: true,
+    // The live server resizes and converts images (sharp): covers from the CMS
+    // were served as 1024px JPEGs into 300px slots (audit perf #2, ~600 KiB a
+    // page). Only the static preview export, which has no server, needs raw files.
+    unoptimized: staticExport,
+    formats: ['image/webp'],
+    remotePatterns: [{ protocol: 'https', hostname: 'cms.fxnstudio.com', pathname: '/uploads/**' }],
+    // CMS uploads and covers are content-hashed or versioned (?v=): cache a year.
+    minimumCacheTTL: 31536000,
+  },
+  experimental: {
+    // Inline the site CSS into <head>: removes the one render-blocking request
+    // (audit perf #1, ~0.9 s on mobile FCP). Tailwind's atomic CSS is small
+    // once compressed.
+    inlineCss: true,
   },
   eslint: {
     ignoreDuringBuilds: true,

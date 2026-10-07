@@ -7,6 +7,7 @@ import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { categories } from '@/lib/site';
 import { articleHref } from '@/lib/urls';
+import { responsiveImg } from '@/lib/image'
 
 /**
  * Search overlay opened from the header icon.
@@ -248,7 +249,7 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
                     className="group flex items-start gap-4"
                   >
                     <img
-                      src={d.cover ?? `/covers/${d.slug}.png`}
+                      {...responsiveImg(d.cover ?? `/covers/${d.slug}.png`, 128, '64px')}
                       alt={d.title}
                       width={1000}
                       height={500}

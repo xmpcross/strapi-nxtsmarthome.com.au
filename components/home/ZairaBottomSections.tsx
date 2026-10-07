@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import type { TPost } from '@/data/posts'
 import type { TCategory } from '@/data/categories'
+import { responsiveImg } from '@/lib/image'
 
 interface Props {
   posts: TPost[]
@@ -129,7 +130,7 @@ function SmartGearShowcaseWidget() {
           {/* Clean Un-tinted Product Image */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={featured.image}
+            {...responsiveImg(featured.image, 640, '(max-width: 700px) 100vw, 33vw')}
             alt={featured.title}
             className="h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
@@ -254,7 +255,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                   {recentFeatured.featuredImage?.src ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
-                      src={recentFeatured.featuredImage.src}
+                      {...responsiveImg(recentFeatured.featuredImage.src, 1200, '(max-width: 1024px) 100vw, 50vw')}
                       alt={recentFeatured.featuredImage.alt || recentFeatured.title}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
@@ -323,7 +324,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                       {post.featuredImage?.src ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src={post.featuredImage.src}
+                          {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
                           alt={post.featuredImage.alt || post.title}
                           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
@@ -397,7 +398,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                     {trendingFeatured.featuredImage?.src ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={trendingFeatured.featuredImage.src}
+                        {...responsiveImg(trendingFeatured.featuredImage.src, 1200, '(max-width: 1024px) 100vw, 50vw')}
                         alt={trendingFeatured.featuredImage.alt || trendingFeatured.title}
                         className="absolute inset-0 h-full w-full object-cover"
                         loading="lazy"
@@ -446,7 +447,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                       {post.featuredImage?.src ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src={post.featuredImage.src}
+                          {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
                           alt={post.featuredImage.alt || post.title}
                           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
@@ -545,7 +546,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                   {/* Background Image */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={cat.thumbnail?.src || '/og-default.png'}
+                    {...responsiveImg(cat.thumbnail?.src || '/og-default.png', 384, '(max-width: 700px) 50vw, 20vw')}
                     alt={cat.name}
                     className="absolute inset-0 h-full w-full object-cover brightness-50 transition-transform duration-500 group-hover:scale-105 group-hover:brightness-40"
                     loading="lazy"
@@ -581,7 +582,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                     {post.featuredImage?.src ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={post.featuredImage.src}
+                        {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
                         alt={post.featuredImage.alt || post.title}
                         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
@@ -703,7 +704,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                       {post.featuredImage?.src ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src={post.featuredImage.src}
+                          {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
                           alt={post.featuredImage.alt || post.title}
                           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
@@ -751,7 +752,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                   {popularTechFeatured.featuredImage?.src ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
-                      src={popularTechFeatured.featuredImage.src}
+                      {...responsiveImg(popularTechFeatured.featuredImage.src, 1200, '(max-width: 1024px) 100vw, 50vw')}
                       alt={popularTechFeatured.featuredImage.alt || popularTechFeatured.title}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
@@ -788,7 +789,7 @@ export default function ZairaBottomSections({ posts, categories = [] }: Props) {
                     {post.featuredImage?.src ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={post.featuredImage.src}
+                        {...responsiveImg(post.featuredImage.src, 640, '(max-width: 700px) 100vw, 33vw')}
                         alt={post.featuredImage.alt || post.title}
                         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"

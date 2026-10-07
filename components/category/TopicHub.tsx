@@ -6,6 +6,7 @@ import { articleHref, squareCoverFor, type Article, type ArticleType } from '@/l
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { site, type Category } from '@/lib/site';
 import { FOCUS, shortDate, TYPE_ORDER, typeLabel } from '@/components/category/shared';
+import { responsiveImg } from '@/lib/image'
 
 const TOP_UP_TYPES: ArticleType[] = ['pillar', 'buying-guide', 'comparison', 'roundup'];
 const ESSENTIALS = 4;
@@ -127,7 +128,7 @@ export default function TopicHub({
             {category.icon3d ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                src={category.icon3d}
+                {...responsiveImg(category.icon3d, 72, '72px')}
                 alt=""
                 width={72}
                 height={72}
@@ -234,7 +235,7 @@ export default function TopicHub({
                           </span>
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
-                            src={squareCoverFor(article)}
+                            {...responsiveImg(squareCoverFor(article), 128, '112px')}
                             alt=""
                             width={112}
                             height={84}

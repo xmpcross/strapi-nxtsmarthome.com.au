@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useId, useState } from 'react'
 import AffiliateLink from '@/components/AffiliateLink'
+import { responsiveImg } from '@/lib/image'
 
 export interface CatalogueItem {
   slug: string
@@ -104,7 +105,7 @@ export default function ProductCatalogue({
               <span className="flex size-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 ring-1 ring-neutral-200 dark:ring-neutral-800">
                 {item.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.image} alt="" width={64} height={64} loading="lazy" className="max-h-full w-auto object-contain" />
+                  <img {...responsiveImg(item.image, 128, '64px')} alt="" width={64} height={64} loading="lazy" className="max-h-full w-auto object-contain" />
                 ) : null}
               </span>
               <span className="min-w-0 flex-1">

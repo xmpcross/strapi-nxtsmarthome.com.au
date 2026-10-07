@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { TPost } from '@/data/posts';
+import { responsiveImg } from '@/lib/image'
 
 /** Wide lead card for the newest article, shared by /articles/ and the topic pages. */
 export default function LeadArticleCard({ post, className = '' }: { post: TPost; className?: string }) {
@@ -12,7 +13,7 @@ export default function LeadArticleCard({ post, className = '' }: { post: TPost;
         {post.featuredImage?.src ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={post.featuredImage.src}
+            {...responsiveImg(post.featuredImage.src, 1200, '(max-width: 1024px) 100vw, 50vw')}
             alt={post.featuredImage.alt || post.title}
             className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
           />
